@@ -1,0 +1,922 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="aspnet_Membership">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="PasswordFormat" Type="int" Nullable="false" />
+    <Property Name="PasswordSalt" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="MobilePIN" Type="nvarchar" MaxLength="16" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="LoweredEmail" Type="nvarchar" MaxLength="256" />
+    <Property Name="PasswordQuestion" Type="nvarchar" MaxLength="256" />
+    <Property Name="PasswordAnswer" Type="nvarchar" MaxLength="128" />
+    <Property Name="IsApproved" Type="bit" Nullable="false" />
+    <Property Name="IsLockedOut" Type="bit" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="LastLoginDate" Type="datetime" Nullable="false" />
+    <Property Name="LastPasswordChangedDate" Type="datetime" Nullable="false" />
+    <Property Name="LastLockoutDate" Type="datetime" Nullable="false" />
+    <Property Name="FailedPasswordAttemptCount" Type="int" Nullable="false" />
+    <Property Name="FailedPasswordAttemptWindowStart" Type="datetime" Nullable="false" />
+    <Property Name="FailedPasswordAnswerAttemptCount" Type="int" Nullable="false" />
+    <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="datetime" Nullable="false" />
+    <Property Name="Comment" Type="ntext" />
+  </EntityType>
+  <EntityType Name="aspnet_Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="LoweredUserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="MobileAlias" Type="nvarchar" MaxLength="16" />
+    <Property Name="IsAnonymous" Type="bit" Nullable="false" />
+    <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ParentId" Type="int" />
+    <Property Name="CountryId" Type="int" Nullable="false" />
+    <Property Name="Branch" Type="nvarchar" MaxLength="250" />
+    <Property Name="ShortName" Type="nvarchar" MaxLength="10" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="NameChina" Type="nvarchar" MaxLength="250" />
+    <Property Name="NameEnglish" Type="nvarchar" MaxLength="250" />
+    <Property Name="Address" Type="nvarchar" MaxLength="500" />
+    <Property Name="AddressChina" Type="nvarchar" MaxLength="500" />
+    <Property Name="AddressEnglish" Type="nvarchar" MaxLength="500" />
+    <Property Name="BossName" Type="nvarchar" MaxLength="250" />
+    <Property Name="Requisits" Type="nvarchar" MaxLength="500" />
+    <Property Name="Contacts" Type="nvarchar" MaxLength="250" />
+    <Property Name="PechatFileName" Type="nvarchar" MaxLength="500" />
+    <Property Name="PodpisFileName" Type="nvarchar" MaxLength="500" />
+    <Property Name="LastUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastDate" Type="datetime" />
+    <Property Name="CreateUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="DescriptionRu" Type="nvarchar" MaxLength="500" />
+    <Property Name="DescriptionCh" Type="nvarchar" MaxLength="500" />
+    <Property Name="PriglashenieRu" Type="nvarchar" MaxLength="500" />
+    <Property Name="PriglashenieCh" Type="nvarchar" MaxLength="500" />
+    <Property Name="AdditionalRu" Type="nvarchar" MaxLength="500" />
+    <Property Name="AdditionalCh" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="NotificationLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Result" Type="nvarchar" MaxLength="50" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="ExecutionDate" Type="datetime" Nullable="false" />
+    <Property Name="Details" Type="nvarchar" MaxLength="250" />
+    <Property Name="ClientName" Type="nvarchar" MaxLength="250" />
+    <Property Name="Contacts" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GuidId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="DepartmentId" Type="int" Nullable="false" />
+    <Property Name="StatusId" Type="int" Nullable="false" />
+    <Property Name="OwnerUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateFrom" Type="date" Nullable="false" />
+    <Property Name="DateTo" Type="date" Nullable="false" />
+    <Property Name="Dney" Type="int" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="TicketPribitieTime" Type="datetime" />
+    <Property Name="TicketUbitieTime" Type="datetime" />
+    <Property Name="TicketInfo" Type="nvarchar" MaxLength="500" />
+    <Property Name="VizaDney" Type="int" />
+    <Property Name="Notes" Type="nvarchar" MaxLength="250" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="StatusDecription" Type="nvarchar" MaxLength="500" />
+    <Property Name="ServicePekinIsPerevod" Type="bit" />
+    <Property Name="ServicePekinIsHotel" Type="bit" />
+    <Property Name="ServicePekinOther" Type="nvarchar" MaxLength="250" />
+    <Property Name="ServiceUnchenIsVstrecha" Type="bit" />
+    <Property Name="ServiceUnchenOther" Type="nvarchar" MaxLength="250" />
+    <Property Name="ServiceRoomIsPaper" Type="bit" />
+    <Property Name="ServiceRoomIsStiral" Type="bit" />
+    <Property Name="ServiceRoomIsOpolask" Type="bit" />
+    <Property Name="ServiceRoomIsMilo" Type="bit" />
+    <Property Name="ServiceRoomIsVoda" Type="bit" />
+    <Property Name="ServiceRoomIsPosuda" Type="bit" />
+    <Property Name="LastUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastDate" Type="datetime" />
+    <Property Name="CreateUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="OrderStatus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="SortOrder" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="Pacient">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CountryId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="NameEng" Type="nvarchar" MaxLength="250" />
+    <Property Name="Familiya" Type="nvarchar" MaxLength="250" />
+    <Property Name="FamiliyaEn" Type="nvarchar" MaxLength="250" />
+    <Property Name="Otchestvo" Type="nvarchar" MaxLength="250" />
+    <Property Name="OtchestvoEn" Type="nvarchar" MaxLength="250" />
+    <Property Name="CityName" Type="nvarchar" MaxLength="250" />
+    <Property Name="Address" Type="nvarchar" MaxLength="250" />
+    <Property Name="BirthDate" Type="date" />
+    <Property Name="SerialNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="Diagnoz" Type="text" />
+    <Property Name="Anamnez" Type="text" />
+    <Property Name="OwnerUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastDate" Type="datetime" />
+    <Property Name="CreateUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="RefCountry">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="NameCh" Type="nvarchar" MaxLength="50" />
+    <Property Name="NameEn" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="PosolstvoChLabel" Type="nvarchar" MaxLength="150" />
+    <Property Name="PosolstvoRusLabel" Type="nvarchar" MaxLength="150" />
+    <Property Name="NacionalnostChLabel" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="RefRodstvo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="Sort" Type="int" />
+    <Property Name="SoprovodRuLabel" Type="nvarchar" MaxLength="150" />
+    <Property Name="SoprovodChLabel" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="Setting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="ValueBool" Type="bit" />
+    <Property Name="Value" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="SmsLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="Text" Type="nvarchar" MaxLength="255" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Reason" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="100" />
+    <Property Name="Addition" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Sputnik">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderId" Type="int" />
+    <Property Name="IsPrimary" Type="bit" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="NameEn" Type="nvarchar" MaxLength="250" />
+    <Property Name="Familiya" Type="nvarchar" MaxLength="250" />
+    <Property Name="FamiliyaEn" Type="nvarchar" MaxLength="250" />
+    <Property Name="Otchestvo" Type="nvarchar" MaxLength="250" />
+    <Property Name="Email" Type="nvarchar" MaxLength="250" />
+    <Property Name="CountryId" Type="int" />
+    <Property Name="Contacts" Type="nvarchar" MaxLength="250" />
+    <Property Name="BirthDate" Type="date" />
+    <Property Name="SeriaNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="RodstvoId" Type="int" Nullable="false" />
+    <Property Name="OwnerUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastDate" Type="datetime" />
+    <Property Name="CreateUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TransferUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="DepartmentId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Visit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PacientId" Type="int" Nullable="false" />
+    <Property Name="OrderId" Type="int" Nullable="false" />
+    <Property Name="Vipiska" Type="text" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Fond" Type="nvarchar" MaxLength="150" />
+    <Property Name="DateDogovor" Type="date" />
+    <Property Name="AmbNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsInvite" Type="bit" />
+    <Property Name="IsInvicePrint" Type="bit" />
+    <Property Name="Additional" Type="text" />
+    <Property Name="TodaysDiagnoz" Type="nvarchar" MaxLength="2500" />
+    <Property Name="HystoryA" Type="text" />
+    <Property Name="Hystoryb" Type="text" />
+    <Property Name="Razvitie" Type="text" />
+    <Property Name="Dispanser" Type="nvarchar" MaxLength="250" />
+    <Property Name="Dispanser2" Type="nvarchar" MaxLength="250" />
+    <Property Name="DangerousDiseases" Type="nvarchar" MaxLength="250" />
+    <Property Name="Serdce" Type="nvarchar" MaxLength="250" />
+    <Property Name="Dihalka" Type="nvarchar" MaxLength="250" />
+    <Property Name="Infections" Type="nvarchar" MaxLength="250" />
+    <Property Name="OtherDiseases" Type="nvarchar" MaxLength="250" />
+    <Property Name="Epilispiya" Type="nvarchar" MaxLength="250" />
+    <Property Name="SudorogiType" Type="text" />
+    <Property Name="SudorogiCount" Type="nvarchar" MaxLength="250" />
+    <Property Name="SudorogiMedcine" Type="nvarchar" MaxLength="250" />
+    <Property Name="Remission" Type="nvarchar" MaxLength="250" />
+    <Property Name="Encefalogram" Type="text" />
+    <Property Name="MainGoal" Type="nvarchar" MaxLength="250" />
+    <Property Name="Razgovor" Type="nvarchar" MaxLength="250" />
+    <Property Name="Instructcii" Type="nvarchar" MaxLength="250" />
+    <Property Name="Fisical" Type="nvarchar" MaxLength="250" />
+    <Property Name="Diet" Type="nvarchar" MaxLength="250" />
+    <Property Name="Eating" Type="nvarchar" MaxLength="250" />
+    <Property Name="EatingProblems" Type="nvarchar" MaxLength="250" />
+    <Property Name="Appetit" Type="nvarchar" MaxLength="250" />
+    <Property Name="Stul" Type="nvarchar" MaxLength="50" />
+    <Property Name="Alergiya" Type="nvarchar" MaxLength="250" />
+    <Property Name="Imunitet" Type="nvarchar" MaxLength="250" />
+    <Property Name="Fiznagruzki" Type="nvarchar" MaxLength="250" />
+    <Property Name="Son" Type="nvarchar" MaxLength="250" />
+    <Property Name="ProstupUp" Type="nvarchar" MaxLength="250" />
+    <Property Name="Zakativaetsa" Type="nvarchar" MaxLength="250" />
+    <Property Name="KursesRanee" Type="text" />
+    <Property Name="KursesChinaRanee" Type="text" />
+    <Property Name="NonTradicial" Type="nvarchar" MaxLength="250" />
+    <Property Name="Hirurg" Type="nvarchar" MaxLength="250" />
+    <Property Name="Travmi" Type="nvarchar" MaxLength="250" />
+    <Property Name="Requirements" Type="text" />
+    <Property Name="RequiredDocs" Type="nvarchar" MaxLength="250" />
+    <Property Name="Postuplenie" Type="nvarchar" MaxLength="2500" />
+    <Property Name="Resultat" Type="nvarchar" MaxLength="2500" />
+    <Property Name="Recomend" Type="nvarchar" MaxLength="2500" />
+    <Property Name="LastUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastDate" Type="datetime" />
+    <Property Name="CreateUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Cure.dbo.ViewScheduler' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ViewScheduler">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="41" Nullable="false" />
+    <Property Name="Total" Type="nvarchar" MaxLength="752" />
+    <Property Name="oGuidId" Type="uniqueidentifier" />
+    <Property Name="oName" Type="nvarchar" MaxLength="50" />
+    <Property Name="oDepartmentId" Type="int" />
+    <Property Name="oStatusId" Type="int" />
+    <Property Name="oOwnerUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="oDateFrom" Type="date" />
+    <Property Name="oDateTo" Type="date" />
+    <Property Name="oDney" Type="int" />
+    <Property Name="oPrice" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="oTicketPribitieTime" Type="datetime" />
+    <Property Name="oTicketUbitieTime" Type="datetime" />
+    <Property Name="oTicketInfo" Type="nvarchar" MaxLength="500" />
+    <Property Name="oVizaDney" Type="int" />
+    <Property Name="oNotes" Type="nvarchar" MaxLength="250" />
+    <Property Name="oDescription" Type="nvarchar" MaxLength="500" />
+    <Property Name="oStatusDecription" Type="nvarchar" MaxLength="500" />
+    <Property Name="oServicePekinIsPerevod" Type="bit" />
+    <Property Name="oServicePekinIsHotel" Type="bit" />
+    <Property Name="oServicePekinOther" Type="nvarchar" MaxLength="250" />
+    <Property Name="oServiceUnchenIsVstrecha" Type="bit" />
+    <Property Name="oServiceUnchenOther" Type="nvarchar" MaxLength="250" />
+    <Property Name="oServiceRoomIsPaper" Type="bit" />
+    <Property Name="oServiceRoomIsStiral" Type="bit" />
+    <Property Name="oServiceRoomIsOpolask" Type="bit" />
+    <Property Name="oServiceRoomIsMilo" Type="bit" />
+    <Property Name="oServiceRoomIsVoda" Type="bit" />
+    <Property Name="oServiceRoomIsPosuda" Type="bit" />
+    <Property Name="vPacientId" Type="int" Nullable="false" />
+    <Property Name="vOrderId" Type="int" Nullable="false" />
+    <Property Name="vVipiska" Type="text" />
+    <Property Name="vPrice" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="vFond" Type="nvarchar" MaxLength="150" />
+    <Property Name="vDateDogovor" Type="date" />
+    <Property Name="vAmbNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="vIsInvite" Type="bit" />
+    <Property Name="vIsInvicePrint" Type="bit" />
+    <Property Name="vAdditional" Type="text" />
+    <Property Name="vTodaysDiagnoz" Type="nvarchar" MaxLength="2500" />
+    <Property Name="vHystoryA" Type="text" />
+    <Property Name="vHystoryb" Type="text" />
+    <Property Name="vRazvitie" Type="text" />
+    <Property Name="vDispanser" Type="nvarchar" MaxLength="250" />
+    <Property Name="vDispanser2" Type="nvarchar" MaxLength="250" />
+    <Property Name="vDangerousDiseases" Type="nvarchar" MaxLength="250" />
+    <Property Name="vSerdce" Type="nvarchar" MaxLength="250" />
+    <Property Name="vDihalka" Type="nvarchar" MaxLength="250" />
+    <Property Name="vInfections" Type="nvarchar" MaxLength="250" />
+    <Property Name="vOtherDiseases" Type="nvarchar" MaxLength="250" />
+    <Property Name="vEpilispiya" Type="nvarchar" MaxLength="250" />
+    <Property Name="vSudorogiType" Type="text" />
+    <Property Name="vSudorogiCount" Type="nvarchar" MaxLength="250" />
+    <Property Name="vSudorogiMedcine" Type="nvarchar" MaxLength="250" />
+    <Property Name="vRemission" Type="nvarchar" MaxLength="250" />
+    <Property Name="vEncefalogram" Type="text" />
+    <Property Name="vMainGoal" Type="nvarchar" MaxLength="250" />
+    <Property Name="vRazgovor" Type="nvarchar" MaxLength="250" />
+    <Property Name="vInstructcii" Type="nvarchar" MaxLength="250" />
+    <Property Name="vFisical" Type="nvarchar" MaxLength="250" />
+    <Property Name="vDiet" Type="nvarchar" MaxLength="250" />
+    <Property Name="vEating" Type="nvarchar" MaxLength="250" />
+    <Property Name="vEatingProblems" Type="nvarchar" MaxLength="250" />
+    <Property Name="vAppetit" Type="nvarchar" MaxLength="250" />
+    <Property Name="vStul" Type="nvarchar" MaxLength="50" />
+    <Property Name="vAlergiya" Type="nvarchar" MaxLength="250" />
+    <Property Name="vImunitet" Type="nvarchar" MaxLength="250" />
+    <Property Name="vFiznagruzki" Type="nvarchar" MaxLength="250" />
+    <Property Name="vSon" Type="nvarchar" MaxLength="250" />
+    <Property Name="vProstupUp" Type="nvarchar" MaxLength="250" />
+    <Property Name="vZakativaetsa" Type="nvarchar" MaxLength="250" />
+    <Property Name="vKursesRanee" Type="text" />
+    <Property Name="vKursesChinaRanee" Type="text" />
+    <Property Name="vNonTradicial" Type="nvarchar" MaxLength="250" />
+    <Property Name="vHirurg" Type="nvarchar" MaxLength="250" />
+    <Property Name="vTravmi" Type="nvarchar" MaxLength="250" />
+    <Property Name="vRequirements" Type="text" />
+    <Property Name="vRequiredDocs" Type="nvarchar" MaxLength="250" />
+    <Property Name="vPostuplenie" Type="nvarchar" MaxLength="2500" />
+    <Property Name="vResultat" Type="nvarchar" MaxLength="2500" />
+    <Property Name="vRecomend" Type="nvarchar" MaxLength="2500" />
+    <Property Name="dcName" Type="nvarchar" MaxLength="50" />
+    <Property Name="dcNameCh" Type="nvarchar" MaxLength="50" />
+    <Property Name="dcNameEn" Type="nvarchar" MaxLength="50" />
+    <Property Name="dcDescription" Type="nvarchar" MaxLength="500" />
+    <Property Name="dcPosolstvoChLabel" Type="nvarchar" MaxLength="150" />
+    <Property Name="dcPosolstvoRusLabel" Type="nvarchar" MaxLength="150" />
+    <Property Name="dcNacionalnostChLabel" Type="nvarchar" MaxLength="150" />
+    <Property Name="pcName" Type="nvarchar" MaxLength="50" />
+    <Property Name="pcNameCh" Type="nvarchar" MaxLength="50" />
+    <Property Name="pcNameEn" Type="nvarchar" MaxLength="50" />
+    <Property Name="pcDescription" Type="nvarchar" MaxLength="500" />
+    <Property Name="pcPosolstvoChLabel" Type="nvarchar" MaxLength="150" />
+    <Property Name="pcPosolstvoRusLabel" Type="nvarchar" MaxLength="150" />
+    <Property Name="pcNacionalnostChLabel" Type="nvarchar" MaxLength="150" />
+    <Property Name="dParentId" Type="int" />
+    <Property Name="dCountryId" Type="int" />
+    <Property Name="dBranch" Type="nvarchar" MaxLength="250" />
+    <Property Name="dShortName" Type="nvarchar" MaxLength="10" />
+    <Property Name="dName" Type="nvarchar" MaxLength="250" />
+    <Property Name="dNameChina" Type="nvarchar" MaxLength="250" />
+    <Property Name="dNameEnglish" Type="nvarchar" MaxLength="250" />
+    <Property Name="dAddress" Type="nvarchar" MaxLength="500" />
+    <Property Name="dAddressChina" Type="nvarchar" MaxLength="500" />
+    <Property Name="dAddressEnglish" Type="nvarchar" MaxLength="500" />
+    <Property Name="dBossName" Type="nvarchar" MaxLength="250" />
+    <Property Name="dRequisits" Type="nvarchar" MaxLength="500" />
+    <Property Name="pCountryId" Type="int" />
+    <Property Name="pName" Type="nvarchar" MaxLength="250" />
+    <Property Name="pNameEng" Type="nvarchar" MaxLength="250" />
+    <Property Name="pFamiliya" Type="nvarchar" MaxLength="250" />
+    <Property Name="pFamiliyaEn" Type="nvarchar" MaxLength="250" />
+    <Property Name="pOtchestvo" Type="nvarchar" MaxLength="250" />
+    <Property Name="pOtchestvoEn" Type="nvarchar" MaxLength="250" />
+    <Property Name="pCityName" Type="nvarchar" MaxLength="250" />
+    <Property Name="pAddress" Type="nvarchar" MaxLength="250" />
+    <Property Name="pBirthDate" Type="date" />
+    <Property Name="pSerialNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="pDiagnoz" Type="text" />
+    <Property Name="pAnamnez" Type="text" />
+    <Property Name="pOwnerUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="sName" Type="nvarchar" MaxLength="50" />
+    <Property Name="sDescription" Type="nvarchar" MaxLength="250" />
+    <Property Name="sSortOrder" Type="tinyint" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Cure.dbo.ViewSoonVisit' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ViewSoonVisit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="VisitId" Type="int" Nullable="false" />
+    <Property Name="PacientId" Type="int" Nullable="false" />
+    <Property Name="CountryId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="NameEng" Type="nvarchar" MaxLength="250" />
+    <Property Name="Familiya" Type="nvarchar" MaxLength="250" />
+    <Property Name="FamiliyaEn" Type="nvarchar" MaxLength="250" />
+    <Property Name="Otchestvo" Type="nvarchar" MaxLength="250" />
+    <Property Name="OtchestvoEn" Type="nvarchar" MaxLength="250" />
+    <Property Name="CityName" Type="nvarchar" MaxLength="250" />
+    <Property Name="DepartmentId" Type="int" Nullable="false" />
+    <Property Name="StatusId" Type="int" Nullable="false" />
+    <Property Name="DateFrom" Type="date" Nullable="false" />
+    <Property Name="DateTo" Type="date" Nullable="false" />
+    <Property Name="Dney" Type="int" />
+    <Property Name="TicketPribitieTime" Type="datetime" />
+    <Property Name="TicketUbitieTime" Type="datetime" />
+    <Property Name="TicketInfo" Type="nvarchar" MaxLength="500" />
+    <Property Name="Notes" Type="nvarchar" MaxLength="250" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="Email" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ViewUserMembership">
+    <Key>
+      <PropertyRef Name="Expr1" />
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="LoweredUserName" />
+      <PropertyRef Name="IsAnonymous" />
+      <PropertyRef Name="LastActivityDate" />
+      <PropertyRef Name="Password" />
+      <PropertyRef Name="PasswordFormat" />
+      <PropertyRef Name="PasswordSalt" />
+      <PropertyRef Name="IsApproved" />
+      <PropertyRef Name="IsLockedOut" />
+      <PropertyRef Name="CreateDate" />
+      <PropertyRef Name="LastLoginDate" />
+      <PropertyRef Name="LastPasswordChangedDate" />
+      <PropertyRef Name="LastLockoutDate" />
+      <PropertyRef Name="FailedPasswordAttemptCount" />
+      <PropertyRef Name="FailedPasswordAttemptWindowStart" />
+      <PropertyRef Name="FailedPasswordAnswerAttemptCount" />
+      <PropertyRef Name="FailedPasswordAnswerAttemptWindowStart" />
+    </Key>
+    <Property Name="Expr1" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="LoweredUserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="MobileAlias" Type="nvarchar" MaxLength="16" />
+    <Property Name="IsAnonymous" Type="bit" Nullable="false" />
+    <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="LoweredEmail" Type="nvarchar" MaxLength="256" />
+    <Property Name="Password" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="PasswordFormat" Type="int" Nullable="false" />
+    <Property Name="PasswordSalt" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="MobilePIN" Type="nvarchar" MaxLength="16" />
+    <Property Name="PasswordQuestion" Type="nvarchar" MaxLength="256" />
+    <Property Name="PasswordAnswer" Type="nvarchar" MaxLength="128" />
+    <Property Name="IsApproved" Type="bit" Nullable="false" />
+    <Property Name="IsLockedOut" Type="bit" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="LastLoginDate" Type="datetime" Nullable="false" />
+    <Property Name="LastPasswordChangedDate" Type="datetime" Nullable="false" />
+    <Property Name="LastLockoutDate" Type="datetime" Nullable="false" />
+    <Property Name="FailedPasswordAttemptCount" Type="int" Nullable="false" />
+    <Property Name="FailedPasswordAttemptWindowStart" Type="datetime" Nullable="false" />
+    <Property Name="FailedPasswordAnswerAttemptCount" Type="int" Nullable="false" />
+    <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="datetime" Nullable="false" />
+    <Property Name="Comment" Type="ntext" />
+  </EntityType>
+  <Association Name="FK__aspnet_Me__UserI__2F10007B">
+    <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="1" />
+    <End Role="aspnet_Membership" Type="Self.aspnet_Membership" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_Membership">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Me__UserI__61316BF4">
+    <End Role="aspnet_Users" Type="Self.aspnet_Users" Multiplicity="1" />
+    <End Role="aspnet_Membership" Type="Self.aspnet_Membership" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_Membership">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Department_Department">
+    <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+    <End Role="Department1" Type="Self.Department" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Department1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Department_RefCountry">
+    <End Role="RefCountry" Type="Self.RefCountry" Multiplicity="1" />
+    <End Role="Department" Type="Self.Department" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RefCountry">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Department">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Department">
+    <End Role="Department" Type="Self.Department" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_OrderStatus">
+    <End Role="OrderStatus" Type="Self.OrderStatus" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderStatus">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pacient_RefCountry">
+    <End Role="RefCountry" Type="Self.RefCountry" Multiplicity="1" />
+    <End Role="Pacient" Type="Self.Pacient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RefCountry">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pacient">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sputnik_Order">
+    <End Role="Order" Type="Self.Order" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Sputnik" Type="Self.Sputnik" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sputnik">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sputnik_RefCountry">
+    <End Role="RefCountry" Type="Self.RefCountry" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Sputnik" Type="Self.Sputnik" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RefCountry">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sputnik">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sputnik_RefRodstvo">
+    <End Role="RefRodstvo" Type="Self.RefRodstvo" Multiplicity="1" />
+    <End Role="Sputnik" Type="Self.Sputnik" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RefRodstvo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sputnik">
+        <PropertyRef Name="RodstvoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TransferUser_Department">
+    <End Role="Department" Type="Self.Department" Multiplicity="1" />
+    <End Role="TransferUser" Type="Self.TransferUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TransferUser">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Visit_Order">
+    <End Role="Order" Type="Self.Order" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Visit" Type="Self.Visit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Visit">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Visit_Pacient">
+    <End Role="Pacient" Type="Self.Pacient" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Visit" Type="Self.Visit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pacient">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Visit">
+        <PropertyRef Name="PacientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DataModelStoreContainer">
+    <EntitySet Name="aspnet_Membership" EntityType="Self.aspnet_Membership" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="aspnet_Users" EntityType="Self.aspnet_Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NotificationLog" EntityType="Self.NotificationLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pacient" EntityType="Self.Pacient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RefCountry" EntityType="Self.RefCountry" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RefRodstvo" EntityType="Self.RefRodstvo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Setting" EntityType="Self.Setting" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SmsLog" EntityType="Self.SmsLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sputnik" EntityType="Self.Sputnik" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TransferUser" EntityType="Self.TransferUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Visit" EntityType="Self.Visit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ViewScheduler" EntityType="Self.ViewScheduler" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[ViewScheduler].[Id] AS [Id], 
+[ViewScheduler].[Total] AS [Total], 
+[ViewScheduler].[oGuidId] AS [oGuidId], 
+[ViewScheduler].[oName] AS [oName], 
+[ViewScheduler].[oDepartmentId] AS [oDepartmentId], 
+[ViewScheduler].[oStatusId] AS [oStatusId], 
+[ViewScheduler].[oOwnerUser] AS [oOwnerUser], 
+[ViewScheduler].[oDateFrom] AS [oDateFrom], 
+[ViewScheduler].[oDateTo] AS [oDateTo], 
+[ViewScheduler].[oDney] AS [oDney], 
+[ViewScheduler].[oPrice] AS [oPrice], 
+[ViewScheduler].[oTicketPribitieTime] AS [oTicketPribitieTime], 
+[ViewScheduler].[oTicketUbitieTime] AS [oTicketUbitieTime], 
+[ViewScheduler].[oTicketInfo] AS [oTicketInfo], 
+[ViewScheduler].[oVizaDney] AS [oVizaDney], 
+[ViewScheduler].[oNotes] AS [oNotes], 
+[ViewScheduler].[oDescription] AS [oDescription], 
+[ViewScheduler].[oStatusDecription] AS [oStatusDecription], 
+[ViewScheduler].[oServicePekinIsPerevod] AS [oServicePekinIsPerevod], 
+[ViewScheduler].[oServicePekinIsHotel] AS [oServicePekinIsHotel], 
+[ViewScheduler].[oServicePekinOther] AS [oServicePekinOther], 
+[ViewScheduler].[oServiceUnchenIsVstrecha] AS [oServiceUnchenIsVstrecha], 
+[ViewScheduler].[oServiceUnchenOther] AS [oServiceUnchenOther], 
+[ViewScheduler].[oServiceRoomIsPaper] AS [oServiceRoomIsPaper], 
+[ViewScheduler].[oServiceRoomIsStiral] AS [oServiceRoomIsStiral], 
+[ViewScheduler].[oServiceRoomIsOpolask] AS [oServiceRoomIsOpolask], 
+[ViewScheduler].[oServiceRoomIsMilo] AS [oServiceRoomIsMilo], 
+[ViewScheduler].[oServiceRoomIsVoda] AS [oServiceRoomIsVoda], 
+[ViewScheduler].[oServiceRoomIsPosuda] AS [oServiceRoomIsPosuda], 
+[ViewScheduler].[vPacientId] AS [vPacientId], 
+[ViewScheduler].[vOrderId] AS [vOrderId], 
+[ViewScheduler].[vVipiska] AS [vVipiska], 
+[ViewScheduler].[vPrice] AS [vPrice], 
+[ViewScheduler].[vFond] AS [vFond], 
+[ViewScheduler].[vDateDogovor] AS [vDateDogovor], 
+[ViewScheduler].[vAmbNumber] AS [vAmbNumber], 
+[ViewScheduler].[vIsInvite] AS [vIsInvite], 
+[ViewScheduler].[vIsInvicePrint] AS [vIsInvicePrint], 
+[ViewScheduler].[vAdditional] AS [vAdditional], 
+[ViewScheduler].[vTodaysDiagnoz] AS [vTodaysDiagnoz], 
+[ViewScheduler].[vHystoryA] AS [vHystoryA], 
+[ViewScheduler].[vHystoryb] AS [vHystoryb], 
+[ViewScheduler].[vRazvitie] AS [vRazvitie], 
+[ViewScheduler].[vDispanser] AS [vDispanser], 
+[ViewScheduler].[vDispanser2] AS [vDispanser2], 
+[ViewScheduler].[vDangerousDiseases] AS [vDangerousDiseases], 
+[ViewScheduler].[vSerdce] AS [vSerdce], 
+[ViewScheduler].[vDihalka] AS [vDihalka], 
+[ViewScheduler].[vInfections] AS [vInfections], 
+[ViewScheduler].[vOtherDiseases] AS [vOtherDiseases], 
+[ViewScheduler].[vEpilispiya] AS [vEpilispiya], 
+[ViewScheduler].[vSudorogiType] AS [vSudorogiType], 
+[ViewScheduler].[vSudorogiCount] AS [vSudorogiCount], 
+[ViewScheduler].[vSudorogiMedcine] AS [vSudorogiMedcine], 
+[ViewScheduler].[vRemission] AS [vRemission], 
+[ViewScheduler].[vEncefalogram] AS [vEncefalogram], 
+[ViewScheduler].[vMainGoal] AS [vMainGoal], 
+[ViewScheduler].[vRazgovor] AS [vRazgovor], 
+[ViewScheduler].[vInstructcii] AS [vInstructcii], 
+[ViewScheduler].[vFisical] AS [vFisical], 
+[ViewScheduler].[vDiet] AS [vDiet], 
+[ViewScheduler].[vEating] AS [vEating], 
+[ViewScheduler].[vEatingProblems] AS [vEatingProblems], 
+[ViewScheduler].[vAppetit] AS [vAppetit], 
+[ViewScheduler].[vStul] AS [vStul], 
+[ViewScheduler].[vAlergiya] AS [vAlergiya], 
+[ViewScheduler].[vImunitet] AS [vImunitet], 
+[ViewScheduler].[vFiznagruzki] AS [vFiznagruzki], 
+[ViewScheduler].[vSon] AS [vSon], 
+[ViewScheduler].[vProstupUp] AS [vProstupUp], 
+[ViewScheduler].[vZakativaetsa] AS [vZakativaetsa], 
+[ViewScheduler].[vKursesRanee] AS [vKursesRanee], 
+[ViewScheduler].[vKursesChinaRanee] AS [vKursesChinaRanee], 
+[ViewScheduler].[vNonTradicial] AS [vNonTradicial], 
+[ViewScheduler].[vHirurg] AS [vHirurg], 
+[ViewScheduler].[vTravmi] AS [vTravmi], 
+[ViewScheduler].[vRequirements] AS [vRequirements], 
+[ViewScheduler].[vRequiredDocs] AS [vRequiredDocs], 
+[ViewScheduler].[vPostuplenie] AS [vPostuplenie], 
+[ViewScheduler].[vResultat] AS [vResultat], 
+[ViewScheduler].[vRecomend] AS [vRecomend], 
+[ViewScheduler].[dcName] AS [dcName], 
+[ViewScheduler].[dcNameCh] AS [dcNameCh], 
+[ViewScheduler].[dcNameEn] AS [dcNameEn], 
+[ViewScheduler].[dcDescription] AS [dcDescription], 
+[ViewScheduler].[dcPosolstvoChLabel] AS [dcPosolstvoChLabel], 
+[ViewScheduler].[dcPosolstvoRusLabel] AS [dcPosolstvoRusLabel], 
+[ViewScheduler].[dcNacionalnostChLabel] AS [dcNacionalnostChLabel], 
+[ViewScheduler].[pcName] AS [pcName], 
+[ViewScheduler].[pcNameCh] AS [pcNameCh], 
+[ViewScheduler].[pcNameEn] AS [pcNameEn], 
+[ViewScheduler].[pcDescription] AS [pcDescription], 
+[ViewScheduler].[pcPosolstvoChLabel] AS [pcPosolstvoChLabel], 
+[ViewScheduler].[pcPosolstvoRusLabel] AS [pcPosolstvoRusLabel], 
+[ViewScheduler].[pcNacionalnostChLabel] AS [pcNacionalnostChLabel], 
+[ViewScheduler].[dParentId] AS [dParentId], 
+[ViewScheduler].[dCountryId] AS [dCountryId], 
+[ViewScheduler].[dBranch] AS [dBranch], 
+[ViewScheduler].[dShortName] AS [dShortName], 
+[ViewScheduler].[dName] AS [dName], 
+[ViewScheduler].[dNameChina] AS [dNameChina], 
+[ViewScheduler].[dNameEnglish] AS [dNameEnglish], 
+[ViewScheduler].[dAddress] AS [dAddress], 
+[ViewScheduler].[dAddressChina] AS [dAddressChina], 
+[ViewScheduler].[dAddressEnglish] AS [dAddressEnglish], 
+[ViewScheduler].[dBossName] AS [dBossName], 
+[ViewScheduler].[dRequisits] AS [dRequisits], 
+[ViewScheduler].[pCountryId] AS [pCountryId], 
+[ViewScheduler].[pName] AS [pName], 
+[ViewScheduler].[pNameEng] AS [pNameEng], 
+[ViewScheduler].[pFamiliya] AS [pFamiliya], 
+[ViewScheduler].[pFamiliyaEn] AS [pFamiliyaEn], 
+[ViewScheduler].[pOtchestvo] AS [pOtchestvo], 
+[ViewScheduler].[pOtchestvoEn] AS [pOtchestvoEn], 
+[ViewScheduler].[pCityName] AS [pCityName], 
+[ViewScheduler].[pAddress] AS [pAddress], 
+[ViewScheduler].[pBirthDate] AS [pBirthDate], 
+[ViewScheduler].[pSerialNumber] AS [pSerialNumber], 
+[ViewScheduler].[pDiagnoz] AS [pDiagnoz], 
+[ViewScheduler].[pAnamnez] AS [pAnamnez], 
+[ViewScheduler].[pOwnerUser] AS [pOwnerUser], 
+[ViewScheduler].[sName] AS [sName], 
+[ViewScheduler].[sDescription] AS [sDescription], 
+[ViewScheduler].[sSortOrder] AS [sSortOrder]
+FROM [dbo].[ViewScheduler] AS [ViewScheduler]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ViewSoonVisit" EntityType="Self.ViewSoonVisit" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[ViewSoonVisit].[Id] AS [Id], 
+[ViewSoonVisit].[VisitId] AS [VisitId], 
+[ViewSoonVisit].[PacientId] AS [PacientId], 
+[ViewSoonVisit].[CountryId] AS [CountryId], 
+[ViewSoonVisit].[Name] AS [Name], 
+[ViewSoonVisit].[NameEng] AS [NameEng], 
+[ViewSoonVisit].[Familiya] AS [Familiya], 
+[ViewSoonVisit].[FamiliyaEn] AS [FamiliyaEn], 
+[ViewSoonVisit].[Otchestvo] AS [Otchestvo], 
+[ViewSoonVisit].[OtchestvoEn] AS [OtchestvoEn], 
+[ViewSoonVisit].[CityName] AS [CityName], 
+[ViewSoonVisit].[DepartmentId] AS [DepartmentId], 
+[ViewSoonVisit].[StatusId] AS [StatusId], 
+[ViewSoonVisit].[DateFrom] AS [DateFrom], 
+[ViewSoonVisit].[DateTo] AS [DateTo], 
+[ViewSoonVisit].[Dney] AS [Dney], 
+[ViewSoonVisit].[TicketPribitieTime] AS [TicketPribitieTime], 
+[ViewSoonVisit].[TicketUbitieTime] AS [TicketUbitieTime], 
+[ViewSoonVisit].[TicketInfo] AS [TicketInfo], 
+[ViewSoonVisit].[Notes] AS [Notes], 
+[ViewSoonVisit].[Description] AS [Description], 
+[ViewSoonVisit].[Email] AS [Email]
+FROM [dbo].[ViewSoonVisit] AS [ViewSoonVisit]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ViewUserMembership" EntityType="Self.ViewUserMembership" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[ViewUserMembership].[Expr1] AS [Expr1], 
+[ViewUserMembership].[UserName] AS [UserName], 
+[ViewUserMembership].[LoweredUserName] AS [LoweredUserName], 
+[ViewUserMembership].[MobileAlias] AS [MobileAlias], 
+[ViewUserMembership].[IsAnonymous] AS [IsAnonymous], 
+[ViewUserMembership].[LastActivityDate] AS [LastActivityDate], 
+[ViewUserMembership].[Email] AS [Email], 
+[ViewUserMembership].[LoweredEmail] AS [LoweredEmail], 
+[ViewUserMembership].[Password] AS [Password], 
+[ViewUserMembership].[PasswordFormat] AS [PasswordFormat], 
+[ViewUserMembership].[PasswordSalt] AS [PasswordSalt], 
+[ViewUserMembership].[MobilePIN] AS [MobilePIN], 
+[ViewUserMembership].[PasswordQuestion] AS [PasswordQuestion], 
+[ViewUserMembership].[PasswordAnswer] AS [PasswordAnswer], 
+[ViewUserMembership].[IsApproved] AS [IsApproved], 
+[ViewUserMembership].[IsLockedOut] AS [IsLockedOut], 
+[ViewUserMembership].[CreateDate] AS [CreateDate], 
+[ViewUserMembership].[LastLoginDate] AS [LastLoginDate], 
+[ViewUserMembership].[LastPasswordChangedDate] AS [LastPasswordChangedDate], 
+[ViewUserMembership].[LastLockoutDate] AS [LastLockoutDate], 
+[ViewUserMembership].[FailedPasswordAttemptCount] AS [FailedPasswordAttemptCount], 
+[ViewUserMembership].[FailedPasswordAttemptWindowStart] AS [FailedPasswordAttemptWindowStart], 
+[ViewUserMembership].[FailedPasswordAnswerAttemptCount] AS [FailedPasswordAnswerAttemptCount], 
+[ViewUserMembership].[FailedPasswordAnswerAttemptWindowStart] AS [FailedPasswordAnswerAttemptWindowStart], 
+[ViewUserMembership].[Comment] AS [Comment]
+FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__aspnet_Me__UserI__2F10007B" Association="Self.FK__aspnet_Me__UserI__2F10007B">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Me__UserI__61316BF4" Association="Self.FK__aspnet_Me__UserI__61316BF4">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Department_Department" Association="Self.FK_Department_Department">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="Department1" EntitySet="Department" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Department_RefCountry" Association="Self.FK_Department_RefCountry">
+      <End Role="RefCountry" EntitySet="RefCountry" />
+      <End Role="Department" EntitySet="Department" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Department" Association="Self.FK_Order_Department">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_OrderStatus" Association="Self.FK_Order_OrderStatus">
+      <End Role="OrderStatus" EntitySet="OrderStatus" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pacient_RefCountry" Association="Self.FK_Pacient_RefCountry">
+      <End Role="RefCountry" EntitySet="RefCountry" />
+      <End Role="Pacient" EntitySet="Pacient" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sputnik_Order" Association="Self.FK_Sputnik_Order">
+      <End Role="Order" EntitySet="Order" />
+      <End Role="Sputnik" EntitySet="Sputnik" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sputnik_RefCountry" Association="Self.FK_Sputnik_RefCountry">
+      <End Role="RefCountry" EntitySet="RefCountry" />
+      <End Role="Sputnik" EntitySet="Sputnik" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sputnik_RefRodstvo" Association="Self.FK_Sputnik_RefRodstvo">
+      <End Role="RefRodstvo" EntitySet="RefRodstvo" />
+      <End Role="Sputnik" EntitySet="Sputnik" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TransferUser_Department" Association="Self.FK_TransferUser_Department">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="TransferUser" EntitySet="TransferUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Visit_Order" Association="Self.FK_Visit_Order">
+      <End Role="Order" EntitySet="Order" />
+      <End Role="Visit" EntitySet="Visit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Visit_Pacient" Association="Self.FK_Visit_Pacient">
+      <End Role="Pacient" EntitySet="Pacient" />
+      <End Role="Visit" EntitySet="Visit" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

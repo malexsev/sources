@@ -1,0 +1,503 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DataModelStoreContainer" CdmEntityContainer="DataEntities">
+    <EntitySetMapping Name="OrderStatus">
+      <EntityTypeMapping TypeName="DataModel.OrderStatu">
+        <MappingFragment StoreEntitySet="OrderStatus">
+          <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pacients">
+      <EntityTypeMapping TypeName="DataModel.Pacient">
+        <MappingFragment StoreEntitySet="Pacient">
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+          <ScalarProperty Name="LastDate" ColumnName="LastDate" />
+          <ScalarProperty Name="LastUser" ColumnName="LastUser" />
+          <ScalarProperty Name="OwnerUser" ColumnName="OwnerUser" />
+          <ScalarProperty Name="Anamnez" ColumnName="Anamnez" />
+          <ScalarProperty Name="Diagnoz" ColumnName="Diagnoz" />
+          <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="CityName" ColumnName="CityName" />
+          <ScalarProperty Name="OtchestvoEn" ColumnName="OtchestvoEn" />
+          <ScalarProperty Name="Otchestvo" ColumnName="Otchestvo" />
+          <ScalarProperty Name="FamiliyaEn" ColumnName="FamiliyaEn" />
+          <ScalarProperty Name="Familiya" ColumnName="Familiya" />
+          <ScalarProperty Name="NameEng" ColumnName="NameEng" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewSoonVisits">
+      <EntityTypeMapping TypeName="DataModel.ViewSoonVisit">
+        <MappingFragment StoreEntitySet="ViewSoonVisit">
+          <ScalarProperty Name="VisitId" ColumnName="VisitId" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="TicketInfo" ColumnName="TicketInfo" />
+          <ScalarProperty Name="TicketUbitieTime" ColumnName="TicketUbitieTime" />
+          <ScalarProperty Name="TicketPribitieTime" ColumnName="TicketPribitieTime" />
+          <ScalarProperty Name="Dney" ColumnName="Dney" />
+          <ScalarProperty Name="DateTo" ColumnName="DateTo" />
+          <ScalarProperty Name="DateFrom" ColumnName="DateFrom" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+          <ScalarProperty Name="CityName" ColumnName="CityName" />
+          <ScalarProperty Name="OtchestvoEn" ColumnName="OtchestvoEn" />
+          <ScalarProperty Name="Otchestvo" ColumnName="Otchestvo" />
+          <ScalarProperty Name="FamiliyaEn" ColumnName="FamiliyaEn" />
+          <ScalarProperty Name="Familiya" ColumnName="Familiya" />
+          <ScalarProperty Name="NameEng" ColumnName="NameEng" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="PacientId" ColumnName="PacientId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RefCountries">
+      <EntityTypeMapping TypeName="DataModel.RefCountry">
+        <MappingFragment StoreEntitySet="RefCountry">
+          <ScalarProperty Name="NacionalnostChLabel" ColumnName="NacionalnostChLabel" />
+          <ScalarProperty Name="PosolstvoRusLabel" ColumnName="PosolstvoRusLabel" />
+          <ScalarProperty Name="PosolstvoChLabel" ColumnName="PosolstvoChLabel" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="NameEn" ColumnName="NameEn" />
+          <ScalarProperty Name="NameCh" ColumnName="NameCh" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RefRodstvoes">
+      <EntityTypeMapping TypeName="DataModel.RefRodstvo">
+        <MappingFragment StoreEntitySet="RefRodstvo">
+          <ScalarProperty Name="SoprovodChLabel" ColumnName="SoprovodChLabel" />
+          <ScalarProperty Name="SoprovodRuLabel" ColumnName="SoprovodRuLabel" />
+          <ScalarProperty Name="Sort" ColumnName="Sort" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="DataModel.Order">
+        <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+          <ScalarProperty Name="LastDate" ColumnName="LastDate" />
+          <ScalarProperty Name="LastUser" ColumnName="LastUser" />
+          <ScalarProperty Name="ServiceRoomIsPosuda" ColumnName="ServiceRoomIsPosuda" />
+          <ScalarProperty Name="ServiceRoomIsVoda" ColumnName="ServiceRoomIsVoda" />
+          <ScalarProperty Name="ServiceRoomIsMilo" ColumnName="ServiceRoomIsMilo" />
+          <ScalarProperty Name="ServiceRoomIsOpolask" ColumnName="ServiceRoomIsOpolask" />
+          <ScalarProperty Name="ServiceRoomIsStiral" ColumnName="ServiceRoomIsStiral" />
+          <ScalarProperty Name="ServiceRoomIsPaper" ColumnName="ServiceRoomIsPaper" />
+          <ScalarProperty Name="ServiceUnchenOther" ColumnName="ServiceUnchenOther" />
+          <ScalarProperty Name="ServiceUnchenIsVstrecha" ColumnName="ServiceUnchenIsVstrecha" />
+          <ScalarProperty Name="ServicePekinOther" ColumnName="ServicePekinOther" />
+          <ScalarProperty Name="ServicePekinIsHotel" ColumnName="ServicePekinIsHotel" />
+          <ScalarProperty Name="ServicePekinIsPerevod" ColumnName="ServicePekinIsPerevod" />
+          <ScalarProperty Name="StatusDecription" ColumnName="StatusDecription" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="VizaDney" ColumnName="VizaDney" />
+          <ScalarProperty Name="TicketInfo" ColumnName="TicketInfo" />
+          <ScalarProperty Name="TicketUbitieTime" ColumnName="TicketUbitieTime" />
+          <ScalarProperty Name="TicketPribitieTime" ColumnName="TicketPribitieTime" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Dney" ColumnName="Dney" />
+          <ScalarProperty Name="DateTo" ColumnName="DateTo" />
+          <ScalarProperty Name="DateFrom" ColumnName="DateFrom" />
+          <ScalarProperty Name="OwnerUser" ColumnName="OwnerUser" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="GuidId" ColumnName="GuidId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departments">
+      <EntityTypeMapping TypeName="DataModel.Department">
+        <MappingFragment StoreEntitySet="Department">
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="AdditionalCh" ColumnName="AdditionalCh" />
+          <ScalarProperty Name="AdditionalRu" ColumnName="AdditionalRu" />
+          <ScalarProperty Name="PriglashenieCh" ColumnName="PriglashenieCh" />
+          <ScalarProperty Name="PriglashenieRu" ColumnName="PriglashenieRu" />
+          <ScalarProperty Name="DescriptionCh" ColumnName="DescriptionCh" />
+          <ScalarProperty Name="DescriptionRu" ColumnName="DescriptionRu" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+          <ScalarProperty Name="LastDate" ColumnName="LastDate" />
+          <ScalarProperty Name="LastUser" ColumnName="LastUser" />
+          <ScalarProperty Name="PodpisFileName" ColumnName="PodpisFileName" />
+          <ScalarProperty Name="PechatFileName" ColumnName="PechatFileName" />
+          <ScalarProperty Name="Contacts" ColumnName="Contacts" />
+          <ScalarProperty Name="Requisits" ColumnName="Requisits" />
+          <ScalarProperty Name="BossName" ColumnName="BossName" />
+          <ScalarProperty Name="AddressEnglish" ColumnName="AddressEnglish" />
+          <ScalarProperty Name="AddressChina" ColumnName="AddressChina" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="NameEnglish" ColumnName="NameEnglish" />
+          <ScalarProperty Name="NameChina" ColumnName="NameChina" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Branch" ColumnName="Branch" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sputniks">
+      <EntityTypeMapping TypeName="DataModel.Sputnik">
+        <MappingFragment StoreEntitySet="Sputnik">
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+          <ScalarProperty Name="LastDate" ColumnName="LastDate" />
+          <ScalarProperty Name="LastUser" ColumnName="LastUser" />
+          <ScalarProperty Name="OwnerUser" ColumnName="OwnerUser" />
+          <ScalarProperty Name="RodstvoId" ColumnName="RodstvoId" />
+          <ScalarProperty Name="SeriaNumber" ColumnName="SeriaNumber" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="Contacts" ColumnName="Contacts" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Otchestvo" ColumnName="Otchestvo" />
+          <ScalarProperty Name="FamiliyaEn" ColumnName="FamiliyaEn" />
+          <ScalarProperty Name="Familiya" ColumnName="Familiya" />
+          <ScalarProperty Name="NameEn" ColumnName="NameEn" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsPrimary" ColumnName="IsPrimary" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TransferUsers">
+      <EntityTypeMapping TypeName="DataModel.TransferUser">
+        <MappingFragment StoreEntitySet="TransferUser">
+          <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Visits">
+      <EntityTypeMapping TypeName="DataModel.Visit">
+        <MappingFragment StoreEntitySet="Visit">
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+          <ScalarProperty Name="LastDate" ColumnName="LastDate" />
+          <ScalarProperty Name="LastUser" ColumnName="LastUser" />
+          <ScalarProperty Name="Recomend" ColumnName="Recomend" />
+          <ScalarProperty Name="Resultat" ColumnName="Resultat" />
+          <ScalarProperty Name="Postuplenie" ColumnName="Postuplenie" />
+          <ScalarProperty Name="RequiredDocs" ColumnName="RequiredDocs" />
+          <ScalarProperty Name="Requirements" ColumnName="Requirements" />
+          <ScalarProperty Name="Travmi" ColumnName="Travmi" />
+          <ScalarProperty Name="Hirurg" ColumnName="Hirurg" />
+          <ScalarProperty Name="NonTradicial" ColumnName="NonTradicial" />
+          <ScalarProperty Name="KursesChinaRanee" ColumnName="KursesChinaRanee" />
+          <ScalarProperty Name="KursesRanee" ColumnName="KursesRanee" />
+          <ScalarProperty Name="Zakativaetsa" ColumnName="Zakativaetsa" />
+          <ScalarProperty Name="ProstupUp" ColumnName="ProstupUp" />
+          <ScalarProperty Name="Son" ColumnName="Son" />
+          <ScalarProperty Name="Fiznagruzki" ColumnName="Fiznagruzki" />
+          <ScalarProperty Name="Imunitet" ColumnName="Imunitet" />
+          <ScalarProperty Name="Alergiya" ColumnName="Alergiya" />
+          <ScalarProperty Name="Stul" ColumnName="Stul" />
+          <ScalarProperty Name="Appetit" ColumnName="Appetit" />
+          <ScalarProperty Name="EatingProblems" ColumnName="EatingProblems" />
+          <ScalarProperty Name="Eating" ColumnName="Eating" />
+          <ScalarProperty Name="Diet" ColumnName="Diet" />
+          <ScalarProperty Name="Fisical" ColumnName="Fisical" />
+          <ScalarProperty Name="Instructcii" ColumnName="Instructcii" />
+          <ScalarProperty Name="Razgovor" ColumnName="Razgovor" />
+          <ScalarProperty Name="MainGoal" ColumnName="MainGoal" />
+          <ScalarProperty Name="Encefalogram" ColumnName="Encefalogram" />
+          <ScalarProperty Name="Remission" ColumnName="Remission" />
+          <ScalarProperty Name="SudorogiMedcine" ColumnName="SudorogiMedcine" />
+          <ScalarProperty Name="SudorogiCount" ColumnName="SudorogiCount" />
+          <ScalarProperty Name="SudorogiType" ColumnName="SudorogiType" />
+          <ScalarProperty Name="Epilispiya" ColumnName="Epilispiya" />
+          <ScalarProperty Name="OtherDiseases" ColumnName="OtherDiseases" />
+          <ScalarProperty Name="Infections" ColumnName="Infections" />
+          <ScalarProperty Name="Dihalka" ColumnName="Dihalka" />
+          <ScalarProperty Name="Serdce" ColumnName="Serdce" />
+          <ScalarProperty Name="DangerousDiseases" ColumnName="DangerousDiseases" />
+          <ScalarProperty Name="Dispanser2" ColumnName="Dispanser2" />
+          <ScalarProperty Name="Dispanser" ColumnName="Dispanser" />
+          <ScalarProperty Name="Razvitie" ColumnName="Razvitie" />
+          <ScalarProperty Name="Hystoryb" ColumnName="Hystoryb" />
+          <ScalarProperty Name="HystoryA" ColumnName="HystoryA" />
+          <ScalarProperty Name="TodaysDiagnoz" ColumnName="TodaysDiagnoz" />
+          <ScalarProperty Name="Additional" ColumnName="Additional" />
+          <ScalarProperty Name="IsInvicePrint" ColumnName="IsInvicePrint" />
+          <ScalarProperty Name="IsInvite" ColumnName="IsInvite" />
+          <ScalarProperty Name="AmbNumber" ColumnName="AmbNumber" />
+          <ScalarProperty Name="DateDogovor" ColumnName="DateDogovor" />
+          <ScalarProperty Name="Fond" ColumnName="Fond" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Vipiska" ColumnName="Vipiska" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="PacientId" ColumnName="PacientId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewSchedulers">
+      <EntityTypeMapping TypeName="DataModel.ViewScheduler">
+        <MappingFragment StoreEntitySet="ViewScheduler">
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="sSortOrder" ColumnName="sSortOrder" />
+          <ScalarProperty Name="sDescription" ColumnName="sDescription" />
+          <ScalarProperty Name="sName" ColumnName="sName" />
+          <ScalarProperty Name="pOwnerUser" ColumnName="pOwnerUser" />
+          <ScalarProperty Name="pAnamnez" ColumnName="pAnamnez" />
+          <ScalarProperty Name="pDiagnoz" ColumnName="pDiagnoz" />
+          <ScalarProperty Name="pSerialNumber" ColumnName="pSerialNumber" />
+          <ScalarProperty Name="pBirthDate" ColumnName="pBirthDate" />
+          <ScalarProperty Name="pAddress" ColumnName="pAddress" />
+          <ScalarProperty Name="pCityName" ColumnName="pCityName" />
+          <ScalarProperty Name="pOtchestvoEn" ColumnName="pOtchestvoEn" />
+          <ScalarProperty Name="pOtchestvo" ColumnName="pOtchestvo" />
+          <ScalarProperty Name="pFamiliyaEn" ColumnName="pFamiliyaEn" />
+          <ScalarProperty Name="pFamiliya" ColumnName="pFamiliya" />
+          <ScalarProperty Name="pNameEng" ColumnName="pNameEng" />
+          <ScalarProperty Name="pName" ColumnName="pName" />
+          <ScalarProperty Name="pCountryId" ColumnName="pCountryId" />
+          <ScalarProperty Name="dRequisits" ColumnName="dRequisits" />
+          <ScalarProperty Name="dBossName" ColumnName="dBossName" />
+          <ScalarProperty Name="dAddressEnglish" ColumnName="dAddressEnglish" />
+          <ScalarProperty Name="dAddressChina" ColumnName="dAddressChina" />
+          <ScalarProperty Name="dAddress" ColumnName="dAddress" />
+          <ScalarProperty Name="dNameEnglish" ColumnName="dNameEnglish" />
+          <ScalarProperty Name="dNameChina" ColumnName="dNameChina" />
+          <ScalarProperty Name="dName" ColumnName="dName" />
+          <ScalarProperty Name="dShortName" ColumnName="dShortName" />
+          <ScalarProperty Name="dBranch" ColumnName="dBranch" />
+          <ScalarProperty Name="dCountryId" ColumnName="dCountryId" />
+          <ScalarProperty Name="dParentId" ColumnName="dParentId" />
+          <ScalarProperty Name="pcNacionalnostChLabel" ColumnName="pcNacionalnostChLabel" />
+          <ScalarProperty Name="pcPosolstvoRusLabel" ColumnName="pcPosolstvoRusLabel" />
+          <ScalarProperty Name="pcPosolstvoChLabel" ColumnName="pcPosolstvoChLabel" />
+          <ScalarProperty Name="pcDescription" ColumnName="pcDescription" />
+          <ScalarProperty Name="pcNameEn" ColumnName="pcNameEn" />
+          <ScalarProperty Name="pcNameCh" ColumnName="pcNameCh" />
+          <ScalarProperty Name="pcName" ColumnName="pcName" />
+          <ScalarProperty Name="dcNacionalnostChLabel" ColumnName="dcNacionalnostChLabel" />
+          <ScalarProperty Name="dcPosolstvoRusLabel" ColumnName="dcPosolstvoRusLabel" />
+          <ScalarProperty Name="dcPosolstvoChLabel" ColumnName="dcPosolstvoChLabel" />
+          <ScalarProperty Name="dcDescription" ColumnName="dcDescription" />
+          <ScalarProperty Name="dcNameEn" ColumnName="dcNameEn" />
+          <ScalarProperty Name="dcNameCh" ColumnName="dcNameCh" />
+          <ScalarProperty Name="dcName" ColumnName="dcName" />
+          <ScalarProperty Name="vRecomend" ColumnName="vRecomend" />
+          <ScalarProperty Name="vResultat" ColumnName="vResultat" />
+          <ScalarProperty Name="vPostuplenie" ColumnName="vPostuplenie" />
+          <ScalarProperty Name="vRequiredDocs" ColumnName="vRequiredDocs" />
+          <ScalarProperty Name="vRequirements" ColumnName="vRequirements" />
+          <ScalarProperty Name="vTravmi" ColumnName="vTravmi" />
+          <ScalarProperty Name="vHirurg" ColumnName="vHirurg" />
+          <ScalarProperty Name="vNonTradicial" ColumnName="vNonTradicial" />
+          <ScalarProperty Name="vKursesChinaRanee" ColumnName="vKursesChinaRanee" />
+          <ScalarProperty Name="vKursesRanee" ColumnName="vKursesRanee" />
+          <ScalarProperty Name="vZakativaetsa" ColumnName="vZakativaetsa" />
+          <ScalarProperty Name="vProstupUp" ColumnName="vProstupUp" />
+          <ScalarProperty Name="vSon" ColumnName="vSon" />
+          <ScalarProperty Name="vFiznagruzki" ColumnName="vFiznagruzki" />
+          <ScalarProperty Name="vImunitet" ColumnName="vImunitet" />
+          <ScalarProperty Name="vAlergiya" ColumnName="vAlergiya" />
+          <ScalarProperty Name="vStul" ColumnName="vStul" />
+          <ScalarProperty Name="vAppetit" ColumnName="vAppetit" />
+          <ScalarProperty Name="vEatingProblems" ColumnName="vEatingProblems" />
+          <ScalarProperty Name="vEating" ColumnName="vEating" />
+          <ScalarProperty Name="vDiet" ColumnName="vDiet" />
+          <ScalarProperty Name="vFisical" ColumnName="vFisical" />
+          <ScalarProperty Name="vInstructcii" ColumnName="vInstructcii" />
+          <ScalarProperty Name="vRazgovor" ColumnName="vRazgovor" />
+          <ScalarProperty Name="vMainGoal" ColumnName="vMainGoal" />
+          <ScalarProperty Name="vEncefalogram" ColumnName="vEncefalogram" />
+          <ScalarProperty Name="vRemission" ColumnName="vRemission" />
+          <ScalarProperty Name="vSudorogiMedcine" ColumnName="vSudorogiMedcine" />
+          <ScalarProperty Name="vSudorogiCount" ColumnName="vSudorogiCount" />
+          <ScalarProperty Name="vSudorogiType" ColumnName="vSudorogiType" />
+          <ScalarProperty Name="vEpilispiya" ColumnName="vEpilispiya" />
+          <ScalarProperty Name="vOtherDiseases" ColumnName="vOtherDiseases" />
+          <ScalarProperty Name="vInfections" ColumnName="vInfections" />
+          <ScalarProperty Name="vDihalka" ColumnName="vDihalka" />
+          <ScalarProperty Name="vSerdce" ColumnName="vSerdce" />
+          <ScalarProperty Name="vDangerousDiseases" ColumnName="vDangerousDiseases" />
+          <ScalarProperty Name="vDispanser2" ColumnName="vDispanser2" />
+          <ScalarProperty Name="vDispanser" ColumnName="vDispanser" />
+          <ScalarProperty Name="vRazvitie" ColumnName="vRazvitie" />
+          <ScalarProperty Name="vHystoryb" ColumnName="vHystoryb" />
+          <ScalarProperty Name="vHystoryA" ColumnName="vHystoryA" />
+          <ScalarProperty Name="vTodaysDiagnoz" ColumnName="vTodaysDiagnoz" />
+          <ScalarProperty Name="vAdditional" ColumnName="vAdditional" />
+          <ScalarProperty Name="vIsInvicePrint" ColumnName="vIsInvicePrint" />
+          <ScalarProperty Name="vIsInvite" ColumnName="vIsInvite" />
+          <ScalarProperty Name="vAmbNumber" ColumnName="vAmbNumber" />
+          <ScalarProperty Name="vDateDogovor" ColumnName="vDateDogovor" />
+          <ScalarProperty Name="vFond" ColumnName="vFond" />
+          <ScalarProperty Name="vPrice" ColumnName="vPrice" />
+          <ScalarProperty Name="vVipiska" ColumnName="vVipiska" />
+          <ScalarProperty Name="vOrderId" ColumnName="vOrderId" />
+          <ScalarProperty Name="vPacientId" ColumnName="vPacientId" />
+          <ScalarProperty Name="oServiceRoomIsPosuda" ColumnName="oServiceRoomIsPosuda" />
+          <ScalarProperty Name="oServiceRoomIsVoda" ColumnName="oServiceRoomIsVoda" />
+          <ScalarProperty Name="oServiceRoomIsMilo" ColumnName="oServiceRoomIsMilo" />
+          <ScalarProperty Name="oServiceRoomIsOpolask" ColumnName="oServiceRoomIsOpolask" />
+          <ScalarProperty Name="oServiceRoomIsStiral" ColumnName="oServiceRoomIsStiral" />
+          <ScalarProperty Name="oServiceRoomIsPaper" ColumnName="oServiceRoomIsPaper" />
+          <ScalarProperty Name="oServiceUnchenOther" ColumnName="oServiceUnchenOther" />
+          <ScalarProperty Name="oServiceUnchenIsVstrecha" ColumnName="oServiceUnchenIsVstrecha" />
+          <ScalarProperty Name="oServicePekinOther" ColumnName="oServicePekinOther" />
+          <ScalarProperty Name="oServicePekinIsHotel" ColumnName="oServicePekinIsHotel" />
+          <ScalarProperty Name="oServicePekinIsPerevod" ColumnName="oServicePekinIsPerevod" />
+          <ScalarProperty Name="oStatusDecription" ColumnName="oStatusDecription" />
+          <ScalarProperty Name="oDescription" ColumnName="oDescription" />
+          <ScalarProperty Name="oNotes" ColumnName="oNotes" />
+          <ScalarProperty Name="oVizaDney" ColumnName="oVizaDney" />
+          <ScalarProperty Name="oTicketInfo" ColumnName="oTicketInfo" />
+          <ScalarProperty Name="oTicketUbitieTime" ColumnName="oTicketUbitieTime" />
+          <ScalarProperty Name="oTicketPribitieTime" ColumnName="oTicketPribitieTime" />
+          <ScalarProperty Name="oPrice" ColumnName="oPrice" />
+          <ScalarProperty Name="oDney" ColumnName="oDney" />
+          <ScalarProperty Name="oDateTo" ColumnName="oDateTo" />
+          <ScalarProperty Name="oDateFrom" ColumnName="oDateFrom" />
+          <ScalarProperty Name="oOwnerUser" ColumnName="oOwnerUser" />
+          <ScalarProperty Name="oStatusId" ColumnName="oStatusId" />
+          <ScalarProperty Name="oDepartmentId" ColumnName="oDepartmentId" />
+          <ScalarProperty Name="oName" ColumnName="oName" />
+          <ScalarProperty Name="oGuidId" ColumnName="oGuidId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SmsLogs">
+      <EntityTypeMapping TypeName="DataModel.SmsLog">
+        <MappingFragment StoreEntitySet="SmsLog">
+          <ScalarProperty Name="Addition" ColumnName="Addition" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NotificationLogs">
+      <EntityTypeMapping TypeName="DataModel.NotificationLog">
+        <MappingFragment StoreEntitySet="NotificationLog">
+          <ScalarProperty Name="Contacts" ColumnName="Contacts" />
+          <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+          <ScalarProperty Name="ExecutionDate" ColumnName="ExecutionDate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Settings">
+      <EntityTypeMapping TypeName="DataModel.Setting">
+        <MappingFragment StoreEntitySet="Setting">
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="ValueBool" ColumnName="ValueBool" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewUserMemberships">
+      <EntityTypeMapping TypeName="DataModel.ViewUserMembership">
+        <MappingFragment StoreEntitySet="ViewUserMembership">
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="FailedPasswordAnswerAttemptWindowStart" ColumnName="FailedPasswordAnswerAttemptWindowStart" />
+          <ScalarProperty Name="FailedPasswordAnswerAttemptCount" ColumnName="FailedPasswordAnswerAttemptCount" />
+          <ScalarProperty Name="FailedPasswordAttemptWindowStart" ColumnName="FailedPasswordAttemptWindowStart" />
+          <ScalarProperty Name="FailedPasswordAttemptCount" ColumnName="FailedPasswordAttemptCount" />
+          <ScalarProperty Name="LastLockoutDate" ColumnName="LastLockoutDate" />
+          <ScalarProperty Name="LastPasswordChangedDate" ColumnName="LastPasswordChangedDate" />
+          <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="IsLockedOut" ColumnName="IsLockedOut" />
+          <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+          <ScalarProperty Name="PasswordAnswer" ColumnName="PasswordAnswer" />
+          <ScalarProperty Name="PasswordQuestion" ColumnName="PasswordQuestion" />
+          <ScalarProperty Name="MobilePIN" ColumnName="MobilePIN" />
+          <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+          <ScalarProperty Name="PasswordFormat" ColumnName="PasswordFormat" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="LoweredEmail" ColumnName="LoweredEmail" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
+          <ScalarProperty Name="IsAnonymous" ColumnName="IsAnonymous" />
+          <ScalarProperty Name="MobileAlias" ColumnName="MobileAlias" />
+          <ScalarProperty Name="LoweredUserName" ColumnName="LoweredUserName" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnet_Membership">
+      <EntityTypeMapping TypeName="DataModel.aspnet_Membership">
+        <MappingFragment StoreEntitySet="aspnet_Membership">
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="FailedPasswordAnswerAttemptWindowStart" ColumnName="FailedPasswordAnswerAttemptWindowStart" />
+          <ScalarProperty Name="FailedPasswordAnswerAttemptCount" ColumnName="FailedPasswordAnswerAttemptCount" />
+          <ScalarProperty Name="FailedPasswordAttemptWindowStart" ColumnName="FailedPasswordAttemptWindowStart" />
+          <ScalarProperty Name="FailedPasswordAttemptCount" ColumnName="FailedPasswordAttemptCount" />
+          <ScalarProperty Name="LastLockoutDate" ColumnName="LastLockoutDate" />
+          <ScalarProperty Name="LastPasswordChangedDate" ColumnName="LastPasswordChangedDate" />
+          <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="IsLockedOut" ColumnName="IsLockedOut" />
+          <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+          <ScalarProperty Name="PasswordAnswer" ColumnName="PasswordAnswer" />
+          <ScalarProperty Name="PasswordQuestion" ColumnName="PasswordQuestion" />
+          <ScalarProperty Name="LoweredEmail" ColumnName="LoweredEmail" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="MobilePIN" ColumnName="MobilePIN" />
+          <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+          <ScalarProperty Name="PasswordFormat" ColumnName="PasswordFormat" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="aspnet_Users">
+      <EntityTypeMapping TypeName="DataModel.aspnet_Users">
+        <MappingFragment StoreEntitySet="aspnet_Users">
+          <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
+          <ScalarProperty Name="IsAnonymous" ColumnName="IsAnonymous" />
+          <ScalarProperty Name="MobileAlias" ColumnName="MobileAlias" />
+          <ScalarProperty Name="LoweredUserName" ColumnName="LoweredUserName" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

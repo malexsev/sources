@@ -1,0 +1,6 @@
+<%@ Register TagPrefix="dx" Namespace="DevExpress.Data" Assembly="DevExpress.Data.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="dxlp" Namespace="DevExpress.Web.ASPxLoadingPanel" Assembly="DevExpress.Web.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+
+<dxlp:ASPxLoadingPanel runat="server" CssFilePath="~/App_Themes/SoftOrange/{0}/styles.css" ImagePosition="Top" CssPostfix="SoftOrange">
+</dxlp:ASPxLoadingPanel>
+

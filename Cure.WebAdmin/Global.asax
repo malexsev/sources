@@ -1,0 +1,1 @@
+<%@ Application Codebehind="Global.asax.cs" Inherits="Cure.WebAdmin.Global_asax" Language="C#" %>

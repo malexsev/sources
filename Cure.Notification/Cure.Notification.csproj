@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{61C42D50-9035-4DD5-A850-D0B292949CDB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Cure.Notification</RootNamespace>
+    <AssemblyName>Cure.Notification</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v14.1.Core, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Before2HoursEmailNotification.cs" />
+    <Compile Include="Before2HoursNotification.cs" />
+    <Compile Include="Before24HoursNotification.cs" />
+    <Compile Include="Before24HoursEmailNotification.cs" />
+    <Compile Include="BeforeArriveToUserEmailNotification.cs" />
+    <Compile Include="TicketsBoughtToUserEmailNotification.cs" />
+    <Compile Include="OrderSentEmailNotification.cs" />
+    <Compile Include="OrderApprovedToUserEmailNotification.cs" />
+    <Compile Include="OrderSentToUserEmailNotification.cs" />
+    <Compile Include="TiketsBoughtEmailNotification.cs" />
+    <Compile Include="RegistrationToUserEmailNotification.cs" />
+    <Compile Include="UserRegisteredEmailNotification.cs" />
+    <Compile Include="INotification.cs" />
+    <Compile Include="OrderSentNotification.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Cure\Cure.DataAccess\Cure.DataAccess.csproj">
+      <Project>{23945d42-0232-4000-aa1e-959b6cd74278}</Project>
+      <Name>Cure.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Cure\Cure.Reports\Cure.Reports.csproj">
+      <Project>{83627bd5-adee-4f16-9972-77bbd0072b7c}</Project>
+      <Name>Cure.Reports</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Cure\Cure.Utils\Cure.Utils.csproj">
+      <Project>{0d0f0770-e895-4e4e-ab52-8e84868f86a5}</Project>
+      <Name>Cure.Utils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

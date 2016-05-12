@@ -1,0 +1,16 @@
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Utils\bin\Release\Cure.Utils.dll
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Utils\bin\Release\Cure.Utils.pdb
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Utils\obj\Release\Cure.Utils.csprojResolveAssemblyReference.cache
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Utils\obj\Release\Cure.Utils.dll
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Utils\obj\Release\Cure.Utils.pdb
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Utils\bin\Release\Cure.DataAccess.dll
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Utils\bin\Release\Microsoft.Practices.ServiceLocation.dll
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Utils\bin\Release\Microsoft.Practices.Unity.Configuration.dll
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Utils\bin\Release\Microsoft.Practices.Unity.dll
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Utils\bin\Release\Cure.DataAccess.pdb
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Utils\bin\Release\Microsoft.Practices.ServiceLocation.pdb
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Utils\bin\Release\Microsoft.Practices.ServiceLocation.xml
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Utils\bin\Release\Microsoft.Practices.Unity.xml
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Utils\bin\Release\Microsoft.Practices.Unity.Configuration.xml
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Utils\bin\Release\Cure.Reports.dll
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Utils\bin\Release\Cure.Reports.pdb

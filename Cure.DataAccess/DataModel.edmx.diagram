@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ad57fe02ed604b0a903ad8a8a051004e" Name="Diagram1" ZoomLevel="75">
+        <EntityTypeShape EntityType="DataModel.OrderStatu" Width="1.5" PointX="10.875" PointY="1.875" />
+        <EntityTypeShape EntityType="DataModel.Pacient" Width="1.5" PointX="5.25" PointY="15.125" />
+        <EntityTypeShape EntityType="DataModel.ViewSoonVisit" Width="1.5" PointX="18.125" PointY="2" />
+        <EntityTypeShape EntityType="DataModel.RefCountry" Width="1.5" PointX="8.5" PointY="18.375" />
+        <EntityTypeShape EntityType="DataModel.RefRodstvo" Width="1.5" PointX="5.125" PointY="3.75" />
+        <AssociationConnector Association="DataModel.FK_Pacient_RefCountry" />
+        <EntityTypeShape EntityType="DataModel.Order" Width="1.5" PointX="11.125" PointY="5.625" />
+        <AssociationConnector Association="DataModel.FK_Order_OrderStatus" />
+        <EntityTypeShape EntityType="DataModel.Department" Width="1.5" PointX="11.375" PointY="13.25" />
+        <AssociationConnector Association="DataModel.FK_Department_Department" />
+        <AssociationConnector Association="DataModel.FK_Department_RefCountry" />
+        <AssociationConnector Association="DataModel.FK_Order_Department" />
+        <EntityTypeShape EntityType="DataModel.Sputnik" Width="1.5" PointX="8" PointY="1.875" />
+        <AssociationConnector Association="DataModel.FK_Sputnik_Order" />
+        <AssociationConnector Association="DataModel.FK_Sputnik_RefCountry" />
+        <AssociationConnector Association="DataModel.FK_Sputnik_RefRodstvo" />
+        <EntityTypeShape EntityType="DataModel.TransferUser" Width="1.5" PointX="14.375" PointY="13.25" />
+        <AssociationConnector Association="DataModel.FK_TransferUser_Department" />
+        <EntityTypeShape EntityType="DataModel.Visit" Width="1.5" PointX="8.375" PointY="6.875" />
+        <AssociationConnector Association="DataModel.FK_Visit_Order" />
+        <AssociationConnector Association="DataModel.FK_Visit_Pacient" />
+        <EntityTypeShape EntityType="DataModel.ViewScheduler" Width="1.875" PointX="20.75" PointY="2" />
+        <EntityTypeShape EntityType="DataModel.SmsLog" Width="1.5" PointX="14.375" PointY="9.375" />
+        <EntityTypeShape EntityType="DataModel.NotificationLog" Width="1.5" PointX="14.375" PointY="6.625" />
+        <EntityTypeShape EntityType="DataModel.Setting" Width="1.5" PointX="16.875" PointY="8.125" />
+        <EntityTypeShape EntityType="DataModel.ViewUserMembership" Width="2.875" PointX="23.625" PointY="2" />
+        <EntityTypeShape EntityType="DataModel.aspnet_Membership" Width="2.875" PointX="16.625" PointY="20.625" />
+        <EntityTypeShape EntityType="DataModel.aspnet_Users" Width="1.5" PointX="14.375" PointY="21.75" />
+        <AssociationConnector Association="DataModel.FK__aspnet_Me__UserI__2F10007B" />
+        <AssociationConnector Association="DataModel.FK__aspnet_Me__UserI__61316BF4" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

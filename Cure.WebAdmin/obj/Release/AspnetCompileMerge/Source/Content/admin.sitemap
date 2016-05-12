@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0">
+  <siteMapNode url="" title="Меню">
+    <siteMapNode url="~/Admin/SoonList.aspx" title="Оперативная информация" />
+    <siteMapNode url="~/Admin/DepartmentList.aspx" title="Клиники/Отделения" />
+    <siteMapNode url="~/Admin/PacientList.aspx" title="Пациенты" />
+    <siteMapNode url="~/Admin/OrderList.aspx" title="Заезды" />
+    <siteMapNode url="~/Admin/Scheduler.aspx" title="Календаь" />
+    <siteMapNode url="" title="Настройки">
+      <siteMapNode url="~/Admin/RefCountryList.aspx" title="Страны" description="Редактирование использующихся в программе стран" />
+      <siteMapNode url="~/Admin/SettingList.aspx" title="Настройки системы" description="Редактирование использующихся в программе стран" />
+      <siteMapNode url="~/Admin/NotificationLogList.aspx" title="Лог оповещения" description="Редактирование использующихся в программе стран" />
+      <siteMapNode url="~/Admin/SmsLogList.aspx" title="Лог расхода sms" description="Редактирование использующихся в программе стран" />
+      <siteMapNode url="~/Admin/UserList.aspx" title="Системные пользователи" description="Редактирование параметров системных пользователей системы" />
+    </siteMapNode>
+    <siteMapNode url="~/Account/ChangePassword.aspx" title="Изменить пароль" />
+  </siteMapNode>
+</siteMap>

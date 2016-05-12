@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0">
+  <siteMapNode url="" title="Меню">
+    <siteMapNode url="~/Client/NewOrderWizard.aspx" title="Новая заявка" />
+    <siteMapNode url="~/Client/CurrentOrder.aspx" title="Моя текущая заявка" />
+    <siteMapNode url="~/Client/MyOrders.aspx" title="Все мои заявки" />
+    <siteMapNode url="~/Account/ChangePassword.aspx" title="Изменить пароль" />
+  </siteMapNode>
+</siteMap>

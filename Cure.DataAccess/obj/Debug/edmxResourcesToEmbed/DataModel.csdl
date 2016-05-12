@@ -1,0 +1,762 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DataModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="DataEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="OrderStatus" EntityType="DataModel.OrderStatu" />
+    <EntitySet Name="Pacients" EntityType="DataModel.Pacient" />
+    <EntitySet Name="ViewSoonVisits" EntityType="DataModel.ViewSoonVisit" />
+    <EntitySet Name="RefCountries" EntityType="DataModel.RefCountry" />
+    <EntitySet Name="RefRodstvoes" EntityType="DataModel.RefRodstvo" />
+    <AssociationSet Name="FK_Pacient_RefCountry" Association="DataModel.FK_Pacient_RefCountry">
+      <End Role="RefCountry" EntitySet="RefCountries" />
+      <End Role="Pacient" EntitySet="Pacients" />
+    </AssociationSet>
+    <EntitySet Name="Orders" EntityType="DataModel.Order" />
+    <AssociationSet Name="FK_Order_OrderStatus" Association="DataModel.FK_Order_OrderStatus">
+      <End Role="OrderStatu" EntitySet="OrderStatus" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <EntitySet Name="Departments" EntityType="DataModel.Department" />
+    <AssociationSet Name="FK_Department_Department" Association="DataModel.FK_Department_Department">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="Department1" EntitySet="Departments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Department_RefCountry" Association="DataModel.FK_Department_RefCountry">
+      <End Role="RefCountry" EntitySet="RefCountries" />
+      <End Role="Department" EntitySet="Departments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Department" Association="DataModel.FK_Order_Department">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <EntitySet Name="Sputniks" EntityType="DataModel.Sputnik" />
+    <AssociationSet Name="FK_Sputnik_Order" Association="DataModel.FK_Sputnik_Order">
+      <End Role="Order" EntitySet="Orders" />
+      <End Role="Sputnik" EntitySet="Sputniks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sputnik_RefCountry" Association="DataModel.FK_Sputnik_RefCountry">
+      <End Role="RefCountry" EntitySet="RefCountries" />
+      <End Role="Sputnik" EntitySet="Sputniks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sputnik_RefRodstvo" Association="DataModel.FK_Sputnik_RefRodstvo">
+      <End Role="RefRodstvo" EntitySet="RefRodstvoes" />
+      <End Role="Sputnik" EntitySet="Sputniks" />
+    </AssociationSet>
+    <EntitySet Name="TransferUsers" EntityType="DataModel.TransferUser" />
+    <AssociationSet Name="FK_TransferUser_Department" Association="DataModel.FK_TransferUser_Department">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="TransferUser" EntitySet="TransferUsers" />
+    </AssociationSet>
+    <EntitySet Name="Visits" EntityType="DataModel.Visit" />
+    <AssociationSet Name="FK_Visit_Order" Association="DataModel.FK_Visit_Order">
+      <End Role="Order" EntitySet="Orders" />
+      <End Role="Visit" EntitySet="Visits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Visit_Pacient" Association="DataModel.FK_Visit_Pacient">
+      <End Role="Pacient" EntitySet="Pacients" />
+      <End Role="Visit" EntitySet="Visits" />
+    </AssociationSet>
+    <EntitySet Name="ViewSchedulers" EntityType="DataModel.ViewScheduler" />
+    <EntitySet Name="SmsLogs" EntityType="DataModel.SmsLog" />
+    <EntitySet Name="NotificationLogs" EntityType="DataModel.NotificationLog" />
+    <EntitySet Name="Settings" EntityType="DataModel.Setting" />
+    <EntitySet Name="ViewUserMemberships" EntityType="DataModel.ViewUserMembership" />
+    <EntitySet Name="aspnet_Membership" EntityType="DataModel.aspnet_Membership" />
+    <EntitySet Name="aspnet_Users" EntityType="DataModel.aspnet_Users" />
+    <AssociationSet Name="FK__aspnet_Me__UserI__2F10007B" Association="DataModel.FK__aspnet_Me__UserI__2F10007B">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+    </AssociationSet>
+    <AssociationSet Name="FK__aspnet_Me__UserI__61316BF4" Association="DataModel.FK__aspnet_Me__UserI__61316BF4">
+      <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+      <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="OrderStatu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Byte" Name="SortOrder" />
+    <NavigationProperty Name="Orders" Relationship="DataModel.FK_Order_OrderStatus" FromRole="OrderStatu" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="Pacient">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="CountryId" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="NameEng" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Familiya" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="FamiliyaEn" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Otchestvo" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="OtchestvoEn" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CityName" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Address" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="BirthDate" Precision="0" />
+    <Property Type="String" Name="SerialNumber" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Diagnoz" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Anamnez" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="OwnerUser" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LastUser" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="LastDate" Precision="3" />
+    <Property Type="String" Name="CreateUser" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="CreateDate" Precision="3" />
+    <NavigationProperty Name="RefCountry" Relationship="DataModel.FK_Pacient_RefCountry" FromRole="Pacient" ToRole="RefCountry" />
+    <NavigationProperty Name="Visits" Relationship="DataModel.FK_Visit_Pacient" FromRole="Pacient" ToRole="Visit" />
+  </EntityType>
+  <EntityType Name="ViewSoonVisit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Guid" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="PacientId" Nullable="false" />
+    <Property Type="Int32" Name="CountryId" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="NameEng" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Familiya" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="FamiliyaEn" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Otchestvo" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="OtchestvoEn" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CityName" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="DepartmentId" Nullable="false" />
+    <Property Type="Int32" Name="StatusId" Nullable="false" />
+    <Property Type="DateTime" Name="DateFrom" Nullable="false" Precision="0" />
+    <Property Type="DateTime" Name="DateTo" Nullable="false" Precision="0" />
+    <Property Type="Int32" Name="Dney" />
+    <Property Type="DateTime" Name="TicketPribitieTime" Precision="3" />
+    <Property Type="DateTime" Name="TicketUbitieTime" Precision="3" />
+    <Property Type="String" Name="TicketInfo" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Notes" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Email" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="VisitId" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RefCountry">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="NameCh" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="NameEn" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PosolstvoChLabel" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PosolstvoRusLabel" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="NacionalnostChLabel" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Pacients" Relationship="DataModel.FK_Pacient_RefCountry" FromRole="RefCountry" ToRole="Pacient" />
+    <NavigationProperty Name="Departments" Relationship="DataModel.FK_Department_RefCountry" FromRole="RefCountry" ToRole="Department" />
+    <NavigationProperty Name="Sputniks" Relationship="DataModel.FK_Sputnik_RefCountry" FromRole="RefCountry" ToRole="Sputnik" />
+  </EntityType>
+  <EntityType Name="RefRodstvo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="Sort" />
+    <Property Type="String" Name="SoprovodRuLabel" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="SoprovodChLabel" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Sputniks" Relationship="DataModel.FK_Sputnik_RefRodstvo" FromRole="RefRodstvo" ToRole="Sputnik" />
+  </EntityType>
+  <Association Name="FK_Pacient_RefCountry">
+    <End Type="DataModel.RefCountry" Role="RefCountry" Multiplicity="1" />
+    <End Type="DataModel.Pacient" Role="Pacient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RefCountry">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pacient">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Guid" Name="GuidId" Nullable="false" />
+    <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="DepartmentId" Nullable="false" />
+    <Property Type="Int32" Name="StatusId" Nullable="false" />
+    <Property Type="String" Name="OwnerUser" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="DateFrom" Nullable="false" Precision="0" />
+    <Property Type="DateTime" Name="DateTo" Nullable="false" Precision="0" />
+    <Property Type="Int32" Name="Dney" />
+    <Property Type="Decimal" Name="Price" Precision="18" Scale="0" />
+    <Property Type="DateTime" Name="TicketPribitieTime" Precision="3" />
+    <Property Type="DateTime" Name="TicketUbitieTime" Precision="3" />
+    <Property Type="String" Name="TicketInfo" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="VizaDney" />
+    <Property Type="String" Name="Notes" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="StatusDecription" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="ServicePekinIsPerevod" />
+    <Property Type="Boolean" Name="ServicePekinIsHotel" />
+    <Property Type="String" Name="ServicePekinOther" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="ServiceUnchenIsVstrecha" />
+    <Property Type="String" Name="ServiceUnchenOther" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="ServiceRoomIsPaper" />
+    <Property Type="Boolean" Name="ServiceRoomIsStiral" />
+    <Property Type="Boolean" Name="ServiceRoomIsOpolask" />
+    <Property Type="Boolean" Name="ServiceRoomIsMilo" />
+    <Property Type="Boolean" Name="ServiceRoomIsVoda" />
+    <Property Type="Boolean" Name="ServiceRoomIsPosuda" />
+    <Property Type="String" Name="LastUser" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="LastDate" Precision="3" />
+    <Property Type="String" Name="CreateUser" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="CreateDate" Precision="3" />
+    <NavigationProperty Name="OrderStatu" Relationship="DataModel.FK_Order_OrderStatus" FromRole="Order" ToRole="OrderStatu" />
+    <NavigationProperty Name="Department" Relationship="DataModel.FK_Order_Department" FromRole="Order" ToRole="Department" />
+    <NavigationProperty Name="Sputniks" Relationship="DataModel.FK_Sputnik_Order" FromRole="Order" ToRole="Sputnik" />
+    <NavigationProperty Name="Visits" Relationship="DataModel.FK_Visit_Order" FromRole="Order" ToRole="Visit" />
+  </EntityType>
+  <Association Name="FK_Order_OrderStatus">
+    <End Type="DataModel.OrderStatu" Role="OrderStatu" Multiplicity="1" />
+    <End Type="DataModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderStatu">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="ParentId" />
+    <Property Type="Int32" Name="CountryId" Nullable="false" />
+    <Property Type="String" Name="Branch" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="NameChina" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="NameEnglish" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Address" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="AddressChina" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="AddressEnglish" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="BossName" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Requisits" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Contacts" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PechatFileName" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PodpisFileName" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LastUser" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="LastDate" Precision="3" />
+    <Property Type="String" Name="CreateUser" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="CreateDate" Precision="3" />
+    <Property Type="String" Name="DescriptionRu" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="DescriptionCh" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PriglashenieRu" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PriglashenieCh" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="AdditionalRu" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="AdditionalCh" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Department1" Relationship="DataModel.FK_Department_Department" FromRole="Department" ToRole="Department1" />
+    <NavigationProperty Name="Department2" Relationship="DataModel.FK_Department_Department" FromRole="Department1" ToRole="Department" />
+    <NavigationProperty Name="RefCountry" Relationship="DataModel.FK_Department_RefCountry" FromRole="Department" ToRole="RefCountry" />
+    <NavigationProperty Name="Orders" Relationship="DataModel.FK_Order_Department" FromRole="Department" ToRole="Order" />
+    <NavigationProperty Name="TransferUsers" Relationship="DataModel.FK_TransferUser_Department" FromRole="Department" ToRole="TransferUser" />
+    <Property Type="String" Name="ShortName" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_Department_Department">
+    <End Type="DataModel.Department" Role="Department" Multiplicity="0..1" />
+    <End Type="DataModel.Department" Role="Department1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Department1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Department_RefCountry">
+    <End Type="DataModel.RefCountry" Role="RefCountry" Multiplicity="1" />
+    <End Type="DataModel.Department" Role="Department" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RefCountry">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Department">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Department">
+    <End Type="DataModel.Department" Role="Department" Multiplicity="1" />
+    <End Type="DataModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Sputnik">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="OrderId" />
+    <Property Type="Boolean" Name="IsPrimary" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="NameEn" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Familiya" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="FamiliyaEn" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Otchestvo" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Email" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="CountryId" />
+    <Property Type="String" Name="Contacts" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="BirthDate" Precision="0" />
+    <Property Type="String" Name="SeriaNumber" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="RodstvoId" Nullable="false" />
+    <Property Type="String" Name="OwnerUser" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LastUser" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="LastDate" Precision="3" />
+    <Property Type="String" Name="CreateUser" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="CreateDate" Precision="3" />
+    <NavigationProperty Name="Order" Relationship="DataModel.FK_Sputnik_Order" FromRole="Sputnik" ToRole="Order" />
+    <NavigationProperty Name="RefCountry" Relationship="DataModel.FK_Sputnik_RefCountry" FromRole="Sputnik" ToRole="RefCountry" />
+    <NavigationProperty Name="RefRodstvo" Relationship="DataModel.FK_Sputnik_RefRodstvo" FromRole="Sputnik" ToRole="RefRodstvo" />
+  </EntityType>
+  <Association Name="FK_Sputnik_Order">
+    <End Type="DataModel.Order" Role="Order" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="DataModel.Sputnik" Role="Sputnik" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sputnik">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sputnik_RefCountry">
+    <End Type="DataModel.RefCountry" Role="RefCountry" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="DataModel.Sputnik" Role="Sputnik" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RefCountry">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sputnik">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sputnik_RefRodstvo">
+    <End Type="DataModel.RefRodstvo" Role="RefRodstvo" Multiplicity="1" />
+    <End Type="DataModel.Sputnik" Role="Sputnik" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RefRodstvo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sputnik">
+        <PropertyRef Name="RodstvoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="TransferUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Username" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="DepartmentId" Nullable="false" />
+    <NavigationProperty Name="Department" Relationship="DataModel.FK_TransferUser_Department" FromRole="TransferUser" ToRole="Department" />
+  </EntityType>
+  <Association Name="FK_TransferUser_Department">
+    <End Type="DataModel.Department" Role="Department" Multiplicity="1" />
+    <End Type="DataModel.TransferUser" Role="TransferUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TransferUser">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Visit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="PacientId" Nullable="false" />
+    <Property Type="Int32" Name="OrderId" Nullable="false" />
+    <Property Type="String" Name="Vipiska" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="Price" Precision="18" Scale="0" />
+    <Property Type="String" Name="Fond" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="DateDogovor" Precision="0" />
+    <Property Type="String" Name="AmbNumber" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsInvite" />
+    <Property Type="Boolean" Name="IsInvicePrint" />
+    <Property Type="String" Name="Additional" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="TodaysDiagnoz" MaxLength="2500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="HystoryA" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Hystoryb" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Razvitie" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Dispanser" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Dispanser2" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="DangerousDiseases" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Serdce" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Dihalka" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Infections" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="OtherDiseases" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Epilispiya" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="SudorogiType" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="SudorogiCount" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="SudorogiMedcine" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Remission" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Encefalogram" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="MainGoal" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Razgovor" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Instructcii" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Fisical" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Diet" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Eating" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="EatingProblems" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Appetit" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Stul" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Alergiya" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Imunitet" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Fiznagruzki" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Son" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ProstupUp" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Zakativaetsa" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="KursesRanee" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="KursesChinaRanee" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NonTradicial" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Hirurg" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Travmi" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Requirements" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="RequiredDocs" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Postuplenie" MaxLength="2500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Resultat" MaxLength="2500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Recomend" MaxLength="2500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LastUser" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="LastDate" Precision="3" />
+    <Property Type="String" Name="CreateUser" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="CreateDate" Precision="3" />
+    <NavigationProperty Name="Order" Relationship="DataModel.FK_Visit_Order" FromRole="Visit" ToRole="Order" />
+    <NavigationProperty Name="Pacient" Relationship="DataModel.FK_Visit_Pacient" FromRole="Visit" ToRole="Pacient" />
+  </EntityType>
+  <Association Name="FK_Visit_Order">
+    <End Type="DataModel.Order" Role="Order" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="DataModel.Visit" Role="Visit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Visit">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Visit_Pacient">
+    <End Type="DataModel.Pacient" Role="Pacient" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="DataModel.Visit" Role="Visit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pacient">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Visit">
+        <PropertyRef Name="PacientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ViewScheduler">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="String" Name="Id" MaxLength="41" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Type="Guid" Name="oGuidId" />
+    <Property Type="String" Name="oName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="oDepartmentId" />
+    <Property Type="Int32" Name="oStatusId" />
+    <Property Type="String" Name="oOwnerUser" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="oDateFrom" Precision="0" />
+    <Property Type="DateTime" Name="oDateTo" Precision="0" />
+    <Property Type="Int32" Name="oDney" />
+    <Property Type="Decimal" Name="oPrice" Precision="18" Scale="0" />
+    <Property Type="DateTime" Name="oTicketPribitieTime" Precision="3" />
+    <Property Type="DateTime" Name="oTicketUbitieTime" Precision="3" />
+    <Property Type="String" Name="oTicketInfo" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="oVizaDney" />
+    <Property Type="String" Name="oNotes" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="oDescription" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="oStatusDecription" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="oServicePekinIsPerevod" />
+    <Property Type="Boolean" Name="oServicePekinIsHotel" />
+    <Property Type="String" Name="oServicePekinOther" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="oServiceUnchenIsVstrecha" />
+    <Property Type="String" Name="oServiceUnchenOther" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="oServiceRoomIsPaper" />
+    <Property Type="Boolean" Name="oServiceRoomIsStiral" />
+    <Property Type="Boolean" Name="oServiceRoomIsOpolask" />
+    <Property Type="Boolean" Name="oServiceRoomIsMilo" />
+    <Property Type="Boolean" Name="oServiceRoomIsVoda" />
+    <Property Type="Boolean" Name="oServiceRoomIsPosuda" />
+    <Property Type="Int32" Name="vPacientId" Nullable="false" />
+    <Property Type="Int32" Name="vOrderId" Nullable="false" />
+    <Property Type="String" Name="vVipiska" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="vPrice" Precision="18" Scale="0" />
+    <Property Type="String" Name="vFond" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="vDateDogovor" Precision="0" />
+    <Property Type="String" Name="vAmbNumber" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="vIsInvite" />
+    <Property Type="Boolean" Name="vIsInvicePrint" />
+    <Property Type="String" Name="vAdditional" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="vTodaysDiagnoz" MaxLength="2500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="vHystoryA" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="vHystoryb" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="vRazvitie" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="vDispanser" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="vDispanser2" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="vDangerousDiseases" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="vSerdce" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="vDihalka" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="vInfections" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="vOtherDiseases" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="vEpilispiya" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="vSudorogiType" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="vSudorogiCount" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="vSudorogiMedcine" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="vRemission" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="vEncefalogram" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="vMainGoal" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="vRazgovor" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="vInstructcii" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="vFisical" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="vDiet" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="vEating" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="vEatingProblems" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="vAppetit" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="vStul" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="vAlergiya" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="vImunitet" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="vFiznagruzki" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="vSon" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="vProstupUp" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="vZakativaetsa" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="vKursesRanee" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="vKursesChinaRanee" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="vNonTradicial" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="vHirurg" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="vTravmi" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="vRequirements" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="vRequiredDocs" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="vPostuplenie" MaxLength="2500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="vResultat" MaxLength="2500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="vRecomend" MaxLength="2500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="dcName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="dcNameCh" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="dcNameEn" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="dcDescription" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="dcPosolstvoChLabel" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="dcPosolstvoRusLabel" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="dcNacionalnostChLabel" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="pcName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="pcNameCh" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="pcNameEn" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="pcDescription" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="pcPosolstvoChLabel" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="pcPosolstvoRusLabel" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="pcNacionalnostChLabel" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="dParentId" />
+    <Property Type="Int32" Name="dCountryId" />
+    <Property Type="String" Name="dBranch" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="dShortName" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="dName" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="dNameChina" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="dNameEnglish" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="dAddress" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="dAddressChina" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="dAddressEnglish" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="dBossName" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="dRequisits" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="pCountryId" />
+    <Property Type="String" Name="pName" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="pNameEng" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="pFamiliya" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="pFamiliyaEn" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="pOtchestvo" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="pOtchestvoEn" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="pCityName" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="pAddress" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="pBirthDate" Precision="0" />
+    <Property Type="String" Name="pSerialNumber" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="pDiagnoz" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="pAnamnez" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="pOwnerUser" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="sName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="sDescription" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Byte" Name="sSortOrder" />
+    <Property Type="String" Name="Total" MaxLength="752" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="SmsLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Guid" Name="Id" Nullable="false" />
+    <Property Type="String" Name="PhoneNumber" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Text" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="Date" Nullable="false" Precision="3" />
+    <Property Type="String" Name="Reason" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Addition" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="NotificationLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Type" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Result" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Name" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="ExecutionDate" Nullable="false" Precision="3" />
+    <Property Type="String" Name="Details" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ClientName" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Contacts" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Setting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Code" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Type" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="ValueBool" />
+    <Property Type="String" Name="Value" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ViewUserMembership">
+    <Key>
+      <PropertyRef Name="Expr1" />
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="LoweredUserName" />
+      <PropertyRef Name="IsAnonymous" />
+      <PropertyRef Name="LastActivityDate" />
+      <PropertyRef Name="Password" />
+      <PropertyRef Name="PasswordFormat" />
+      <PropertyRef Name="PasswordSalt" />
+      <PropertyRef Name="IsApproved" />
+      <PropertyRef Name="IsLockedOut" />
+      <PropertyRef Name="CreateDate" />
+      <PropertyRef Name="LastLoginDate" />
+      <PropertyRef Name="LastPasswordChangedDate" />
+      <PropertyRef Name="LastLockoutDate" />
+      <PropertyRef Name="FailedPasswordAttemptCount" />
+      <PropertyRef Name="FailedPasswordAttemptWindowStart" />
+      <PropertyRef Name="FailedPasswordAnswerAttemptCount" />
+      <PropertyRef Name="FailedPasswordAnswerAttemptWindowStart" />
+    </Key>
+    <Property Type="Guid" Name="Expr1" Nullable="false" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LoweredUserName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MobileAlias" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsAnonymous" Nullable="false" />
+    <Property Type="DateTime" Name="LastActivityDate" Nullable="false" Precision="3" />
+    <Property Type="String" Name="Email" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LoweredEmail" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="PasswordFormat" Nullable="false" />
+    <Property Type="String" Name="PasswordSalt" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MobilePIN" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PasswordQuestion" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PasswordAnswer" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsApproved" Nullable="false" />
+    <Property Type="Boolean" Name="IsLockedOut" Nullable="false" />
+    <Property Type="DateTime" Name="CreateDate" Nullable="false" Precision="3" />
+    <Property Type="DateTime" Name="LastLoginDate" Nullable="false" Precision="3" />
+    <Property Type="DateTime" Name="LastPasswordChangedDate" Nullable="false" Precision="3" />
+    <Property Type="DateTime" Name="LastLockoutDate" Nullable="false" Precision="3" />
+    <Property Type="Int32" Name="FailedPasswordAttemptCount" Nullable="false" />
+    <Property Type="DateTime" Name="FailedPasswordAttemptWindowStart" Nullable="false" Precision="3" />
+    <Property Type="Int32" Name="FailedPasswordAnswerAttemptCount" Nullable="false" />
+    <Property Type="DateTime" Name="FailedPasswordAnswerAttemptWindowStart" Nullable="false" Precision="3" />
+    <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="aspnet_Membership">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+    <Property Name="UserId" Type="Guid" Nullable="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="PasswordFormat" Type="Int32" Nullable="false" />
+    <Property Name="PasswordSalt" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="MobilePIN" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="LoweredEmail" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="PasswordQuestion" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="PasswordAnswer" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="IsApproved" Type="Boolean" Nullable="false" />
+    <Property Name="IsLockedOut" Type="Boolean" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastLoginDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastPasswordChangedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastLockoutDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FailedPasswordAttemptCount" Type="Int32" Nullable="false" />
+    <Property Name="FailedPasswordAttemptWindowStart" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FailedPasswordAnswerAttemptCount" Type="Int32" Nullable="false" />
+    <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="aspnet_Users" Relationship="DataModel.FK__aspnet_Me__UserI__2F10007B" FromRole="aspnet_Membership" ToRole="aspnet_Users" />
+    <NavigationProperty Name="aspnet_Users1" Relationship="DataModel.FK__aspnet_Me__UserI__61316BF4" FromRole="aspnet_Membership" ToRole="aspnet_Users" />
+  </EntityType>
+  <EntityType Name="aspnet_Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="ApplicationId" Type="Guid" Nullable="false" />
+    <Property Name="UserId" Type="Guid" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="LoweredUserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="MobileAlias" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="IsAnonymous" Type="Boolean" Nullable="false" />
+    <Property Name="LastActivityDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="aspnet_Membership" Relationship="DataModel.FK__aspnet_Me__UserI__2F10007B" FromRole="aspnet_Users" ToRole="aspnet_Membership" />
+    <NavigationProperty Name="aspnet_Membership1" Relationship="DataModel.FK__aspnet_Me__UserI__61316BF4" FromRole="aspnet_Users" ToRole="aspnet_Membership" />
+  </EntityType>
+  <Association Name="FK__aspnet_Me__UserI__2F10007B">
+    <End Type="DataModel.aspnet_Users" Role="aspnet_Users" Multiplicity="1" />
+    <End Type="DataModel.aspnet_Membership" Role="aspnet_Membership" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_Membership">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__aspnet_Me__UserI__61316BF4">
+    <End Type="DataModel.aspnet_Users" Role="aspnet_Users" Multiplicity="1" />
+    <End Type="DataModel.aspnet_Membership" Role="aspnet_Membership" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="aspnet_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="aspnet_Membership">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

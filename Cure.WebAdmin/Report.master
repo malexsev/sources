@@ -1,0 +1,15 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Report.master.cs" Inherits="Cure.WebAdmin.ReportMaster" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="Content/Site.css" />
+</head>
+<body runat="server" id="Body">
+    <form id="form1" runat="server">
+        <asp:ContentPlaceHolder ID="Content" runat="server">
+        </asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>

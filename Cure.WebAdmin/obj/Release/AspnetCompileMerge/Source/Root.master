@@ -1,0 +1,103 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Root.master.cs" Inherits="Cure.WebAdmin.RootMaster" %>
+
+<%@ Register Assembly="DevExpress.Web.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
+<%@ Register Assembly="DevExpress.Web.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxSplitter" TagPrefix="dx" %>
+<%@ Register Assembly="DevExpress.Web.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxMenu" TagPrefix="dx" %>
+<%@ Register Assembly="DevExpress.Web.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxSiteMapControl" TagPrefix="dx" %>
+
+<!DOCTYPE html>
+<%--<html xmlns="http://www.w3.org/1999/xhtml">--%>
+<html>
+<head runat="server">
+    <title>Личный кабинет dcp-china.ru</title>
+    <link rel="stylesheet" type="text/css" href="Content/Site.css" />
+</head>
+<body runat="server" id="Body">
+    <nav class="top-nav-wrap">
+      <div class="top-nav-logo">
+        <a href="http://www.dcp-china.ru" title="Наша клиника: основной сайт">
+          <img src="/Content/Images/dcp_logo.png" alt="Наша клиника">
+        </a>
+      </div>
+      <ul class="top-nav-list">
+        <li><a href="http://www.dcp-china.ru" target="_blank">Наша клиника</a></li>
+        <li><a href="http://www.dcp-china.ru/protsedura" target="_blank">Процедуры</a></li>
+        <li><a href="http://www.dcp-china.ru/lekarstva" target="_blank">Лекарства</a></li>
+        <li><a href="http://www.dcp-china.ru/informatciya" target="_blank">Информация</a></li>
+        <li><a href="http://www.dcp-china.ru/gallery" target="_blank">Фото архив</a></li>
+        <li><a href="http://www.dcp-china.ru/dokumenty" target="_blank">Документы</a></li>
+        <li><a href="http://www.dcp-china.ru/contact" target="_blank">Контакты</a></li>
+        <li class="active"><a href="http://lk.dcp-china.ru" target="_blank">Кабинет</a></li>
+      </ul>
+    </nav>
+    <form id="form1" runat="server">
+        <dx:ASPxSplitter ID="ASPxSplitter1" runat="server" AllowResize="False" Orientation="Vertical"
+            FullscreenMode="True" SeparatorVisible="False" Height="100%" Width="100%">
+            <Styles>
+                <Pane>
+                    <Paddings Padding="0px" />
+                    <Border BorderWidth="0px" />
+                </Pane>
+            </Styles>
+            <Panes>
+                <dx:SplitterPane Name="Header" Size="83px" MinSize="83px">
+                    <PaneStyle CssClass="headerPane">
+                        <BorderBottom BorderWidth="1px" />
+                    </PaneStyle>
+                    <ContentCollection>
+                        <dx:SplitterContentControl ID="SplitterContentControl1" runat="server">
+                            <div class="headerTop">
+                                <div class="templateTitle">
+                                    <a id="TitleLink" href="~/" runat="server">Панель администрирования</a>
+                                </div>
+                                <div class="loginControl">
+                                    <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                                        <AnonymousTemplate>
+                                            <a href="~/Account/Login.aspx" runat="server" id="loginLink">Войти</a>
+                                            | 
+                                        <a href="~/Account/Register.aspx" runat="server" id="registerLink">Регистрация</a> | 
+                                        <a href="~/Account/Recovery.aspx" runat="server" id="recovery">Восстановить пароль</a>
+                                        </AnonymousTemplate>
+                                        <LoggedInTemplate>
+                                            Пользователь: <span class="bold">
+                                                <asp:LoginName ID="HeadLoginName" runat="server" />
+                                            </span>[ 
+                                        <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Выйти" OnLoggedOut="HeadLoginStatus_OnLoggedOut"
+                                            LogoutPageUrl="~/" />
+                                            ]
+                                        </LoggedInTemplate>
+                                    </asp:LoginView>
+                                </div>
+                            </div>
+                            <div class="headerMenu">
+                                <%-- DXCOMMENT: Configure the header menu --%>
+                                <dx:ASPxMenu ID="ASPxMenu1" runat="server" ItemAutoWidth="False" RenderMode="Lightweight" Width="100%"
+                                    DataSourceID="uxASPxSiteMapDataSource">
+                                    <Border BorderWidth="0px" />
+                                    <BorderTop BorderWidth="1px" />
+                                </dx:ASPxMenu>
+                                <dx:ASPxSiteMapDataSource ID="uxASPxSiteMapDataSource" runat="server" SiteMapFileName="~/Content/admin.sitemap" />
+                            </div>
+                        </dx:SplitterContentControl>
+                    </ContentCollection>
+                </dx:SplitterPane>
+                <dx:SplitterPane Name="Content" MinSize="375px">
+                    <PaneStyle CssClass="mainContentPane">
+                        <BorderBottom BorderWidth="1px"></BorderBottom>
+                    </PaneStyle>
+                    <ContentCollection>
+                        <dx:SplitterContentControl ID="SplitterContentControl3" runat="server">
+                            <asp:ContentPlaceHolder ID="Content" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </dx:SplitterContentControl>
+                    </ContentCollection>
+                    <PaneStyle BackColor="white">
+                        <BorderBottom BorderWidth="1px" />
+                    </PaneStyle>
+                </dx:SplitterPane>
+
+            </Panes>
+        </dx:ASPxSplitter>
+    </form>
+</body>
+</html>

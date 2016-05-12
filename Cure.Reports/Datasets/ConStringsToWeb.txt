@@ -1,0 +1,9 @@
+﻿        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="ApplicationServices" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ApplicationServices (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.ApplicationServices.ConnectionString" Provider="System.Data.SqlClient" />
+          <!--<Connection ConnectionStringObject="Data Source=ZEIMAN-PC;Initial Catalog=Cure;Persist Security Info=True;User ID=sa;Password=1238;MultipleActiveResultSets=True;Application Name=EntityFramework" IsAppSettingsProperty="false" Modifier="Assembly" Name="DataEntities (Web.config)" ParameterPrefix="@" Provider="System.Data.SqlClient" />-->
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="VisitInvitationSputniksTableAdapter" GeneratorDataComponentClassName="VisitInvitationSputniksTableAdapter" Name="dsVistInvitationSputniks" UserDataComponentName="VisitInvitationSputniksTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ApplicationServices (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>

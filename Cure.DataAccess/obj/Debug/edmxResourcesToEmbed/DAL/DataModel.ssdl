@@ -1,0 +1,316 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="DataModelStoreContainer">
+    <EntitySet Name="Department" EntityType="DataModel.Store.Department" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Order" EntityType="DataModel.Store.Order" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OrderStatus" EntityType="DataModel.Store.OrderStatus" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Pacient" EntityType="DataModel.Store.Pacient" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PacientSputnik" EntityType="DataModel.Store.PacientSputnik" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RefCountry" EntityType="DataModel.Store.RefCountry" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Sputnik" EntityType="DataModel.Store.Sputnik" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sysdiagrams" EntityType="DataModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Visit" EntityType="DataModel.Store.Visit" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Department_Department" Association="DataModel.Store.FK_Department_Department">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="Department1" EntitySet="Department" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Department_RefCountry" Association="DataModel.Store.FK_Department_RefCountry">
+      <End Role="RefCountry" EntitySet="RefCountry" />
+      <End Role="Department" EntitySet="Department" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Department" Association="DataModel.Store.FK_Order_Department">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_OrderStatus" Association="DataModel.Store.FK_Order_OrderStatus">
+      <End Role="OrderStatus" EntitySet="OrderStatus" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pacient_RefCountry" Association="DataModel.Store.FK_Pacient_RefCountry">
+      <End Role="RefCountry" EntitySet="RefCountry" />
+      <End Role="Pacient" EntitySet="Pacient" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PacientSputnik_Pacient" Association="DataModel.Store.FK_PacientSputnik_Pacient">
+      <End Role="Pacient" EntitySet="Pacient" />
+      <End Role="PacientSputnik" EntitySet="PacientSputnik" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PacientSputnik_Sputnik" Association="DataModel.Store.FK_PacientSputnik_Sputnik">
+      <End Role="Sputnik" EntitySet="Sputnik" />
+      <End Role="PacientSputnik" EntitySet="PacientSputnik" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Visit_Order" Association="DataModel.Store.FK_Visit_Order">
+      <End Role="Order" EntitySet="Order" />
+      <End Role="Visit" EntitySet="Visit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Visit_Pacient" Association="DataModel.Store.FK_Visit_Pacient">
+      <End Role="Pacient" EntitySet="Pacient" />
+      <End Role="Visit" EntitySet="Visit" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ParentId" Type="int" />
+    <Property Name="CountryId" Type="int" Nullable="false" />
+    <Property Name="Branch" Type="nvarchar" MaxLength="250" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="250" />
+    <Property Name="NameChina" Type="nvarchar" MaxLength="250" />
+    <Property Name="NameEnglish" Type="nvarchar" MaxLength="250" />
+    <Property Name="Address" Type="nvarchar" MaxLength="500" />
+    <Property Name="AddressChina" Type="nvarchar" MaxLength="500" />
+    <Property Name="AddressEnglish" Type="nvarchar" MaxLength="500" />
+    <Property Name="BossName" Type="nvarchar" MaxLength="250" />
+    <Property Name="Requisits" Type="nvarchar" MaxLength="500" />
+    <Property Name="Contacts" Type="nvarchar" MaxLength="250" />
+    <Property Name="PechatFileName" Type="nvarchar" MaxLength="500" />
+    <Property Name="PodpisFileName" Type="nvarchar" MaxLength="500" />
+    <Property Name="LastUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastDate" Type="datetime" />
+    <Property Name="CreateUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DepartmentId" Type="int" Nullable="false" />
+    <Property Name="OwnerUser" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="StatusId" Type="int" Nullable="false" />
+    <Property Name="LastUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastDate" Type="datetime" />
+    <Property Name="CreateUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="OrderStatus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Pacient">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CountryId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="250" />
+    <Property Name="NameCh" Type="nvarchar" MaxLength="250" />
+    <Property Name="NameEng" Type="nvarchar" MaxLength="250" />
+    <Property Name="Familiya" Type="nvarchar" MaxLength="250" />
+    <Property Name="FamiliyaCh" Type="nvarchar" MaxLength="250" />
+    <Property Name="FamiliyaEn" Type="nvarchar" MaxLength="250" />
+    <Property Name="Otchestvo" Type="nvarchar" MaxLength="250" />
+    <Property Name="OtchestvoCh" Type="nvarchar" MaxLength="250" />
+    <Property Name="OtchestvoEn" Type="nvarchar" MaxLength="250" />
+    <Property Name="CityName" Type="nvarchar" MaxLength="250" />
+    <Property Name="Address" Type="nvarchar" MaxLength="250" />
+    <Property Name="Email" Type="nvarchar" MaxLength="250" />
+    <Property Name="Contacts" Type="nvarchar" MaxLength="250" />
+    <Property Name="BirthDate" Type="date" />
+    <Property Name="SerialNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="Diagnoz" Type="text" />
+    <Property Name="Anamnez" Type="text" />
+    <Property Name="Postuplenie" Type="nvarchar" MaxLength="2500" />
+    <Property Name="Resultat" Type="nvarchar" MaxLength="2500" />
+    <Property Name="Recomend" Type="nvarchar" MaxLength="2500" />
+    <Property Name="OwnerUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastDate" Type="datetime" />
+    <Property Name="CreateUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="PacientSputnik">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="PacientId" Type="int" Nullable="false" />
+    <Property Name="SputnikId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RefCountry">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="NameCh" Type="nvarchar" MaxLength="50" />
+    <Property Name="NameEn" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Sputnik">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="IsPrimary" Type="bit" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="250" />
+    <Property Name="NameCh" Type="nvarchar" MaxLength="250" />
+    <Property Name="NameEn" Type="nvarchar" MaxLength="250" />
+    <Property Name="Familiya" Type="nvarchar" MaxLength="250" />
+    <Property Name="FamiliyaCh" Type="nvarchar" MaxLength="250" />
+    <Property Name="FamiliyaEn" Type="nvarchar" MaxLength="250" />
+    <Property Name="Otchestvo" Type="nvarchar" MaxLength="250" />
+    <Property Name="OtchestvoCh" Type="nvarchar" MaxLength="250" />
+    <Property Name="OtchestvoEn" Type="nvarchar" MaxLength="250" />
+    <Property Name="CityName" Type="nvarchar" MaxLength="250" />
+    <Property Name="Address" Type="nvarchar" MaxLength="250" />
+    <Property Name="Email" Type="nvarchar" MaxLength="250" />
+    <Property Name="Contacts" Type="nvarchar" MaxLength="250" />
+    <Property Name="BirthDate" Type="date" />
+    <Property Name="SeriaNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="Rodstvo" Type="nvarchar" MaxLength="50" />
+    <Property Name="OwnerUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastDate" Type="datetime" />
+    <Property Name="CreateUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Visit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="PacientId" Type="int" Nullable="false" />
+    <Property Name="OrderId" Type="int" Nullable="false" />
+    <Property Name="DateFrom" Type="date" Nullable="false" />
+    <Property Name="DateTo" Type="date" Nullable="false" />
+    <Property Name="TicketPribitieTime" Type="datetime" />
+    <Property Name="TicketUbitieTime" Type="datetime" />
+    <Property Name="TicketInfo" Type="nvarchar" MaxLength="500" />
+    <Property Name="Vipiska" Type="text" />
+    <Property Name="Price" Type="decimal" />
+    <Property Name="Dney" Type="int" />
+    <Property Name="Fond" Type="nvarchar" MaxLength="150" />
+    <Property Name="DateDogovor" Type="date" />
+    <Property Name="AmbNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsInvite" Type="bit" />
+    <Property Name="IsInvicePrint" Type="bit" />
+    <Property Name="LastUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastDate" Type="datetime" />
+    <Property Name="CreateUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+  </EntityType>
+  <Association Name="FK_Department_Department">
+    <End Role="Department" Type="DataModel.Store.Department" Multiplicity="0..1" />
+    <End Role="Department1" Type="DataModel.Store.Department" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Department1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Department_RefCountry">
+    <End Role="RefCountry" Type="DataModel.Store.RefCountry" Multiplicity="1" />
+    <End Role="Department" Type="DataModel.Store.Department" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RefCountry">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Department">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Department">
+    <End Role="Department" Type="DataModel.Store.Department" Multiplicity="1" />
+    <End Role="Order" Type="DataModel.Store.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_OrderStatus">
+    <End Role="OrderStatus" Type="DataModel.Store.OrderStatus" Multiplicity="1" />
+    <End Role="Order" Type="DataModel.Store.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderStatus">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pacient_RefCountry">
+    <End Role="RefCountry" Type="DataModel.Store.RefCountry" Multiplicity="1" />
+    <End Role="Pacient" Type="DataModel.Store.Pacient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RefCountry">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pacient">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PacientSputnik_Pacient">
+    <End Role="Pacient" Type="DataModel.Store.Pacient" Multiplicity="1" />
+    <End Role="PacientSputnik" Type="DataModel.Store.PacientSputnik" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pacient">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PacientSputnik">
+        <PropertyRef Name="PacientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PacientSputnik_Sputnik">
+    <End Role="Sputnik" Type="DataModel.Store.Sputnik" Multiplicity="1" />
+    <End Role="PacientSputnik" Type="DataModel.Store.PacientSputnik" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sputnik">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PacientSputnik">
+        <PropertyRef Name="SputnikId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Visit_Order">
+    <End Role="Order" Type="DataModel.Store.Order" Multiplicity="1" />
+    <End Role="Visit" Type="DataModel.Store.Visit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Visit">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Visit_Pacient">
+    <End Role="Pacient" Type="DataModel.Store.Pacient" Multiplicity="1" />
+    <End Role="Visit" Type="DataModel.Store.Visit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pacient">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Visit">
+        <PropertyRef Name="PacientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

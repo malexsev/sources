@@ -1,0 +1,880 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="VisitInvitationDataset" targetNamespace="http://tempuri.org/VisitInvitationDataset.xsd" xmlns:mstns="http://tempuri.org/VisitInvitationDataset.xsd" xmlns="http://tempuri.org/VisitInvitationDataset.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="ApplicationServices" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ApplicationServices (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.ApplicationServices.ConnectionString" Provider="System.Data.SqlClient" />
+          <!--<Connection ConnectionStringObject="Data Source=ZEIMAN-PC;Initial Catalog=Cure;Persist Security Info=True;User ID=sa;Password=1238;MultipleActiveResultSets=True;Application Name=EntityFramework" IsAppSettingsProperty="false" Modifier="Assembly" Name="DataEntities (Web.config)" ParameterPrefix="@" Provider="System.Data.SqlClient" />-->
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="VisitInvitationTableAdapter" GeneratorDataComponentClassName="VisitInvitationTableAdapter" Name="dsVistInvitation" UserDataComponentName="VisitInvitationTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ApplicationServices (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT NEWID() AS Id, p.Id AS PacientId, p.CountryId AS PacientCountryId, p.Name AS PacientName, p.NameEng AS PacientNameEng, p.Familiya AS PacientFamiliya, 
+               p.FamiliyaEn AS PacientFamiliyaEn, p.Otchestvo AS PacientOtchestvo, p.OtchestvoEn AS PacientOtchestvoEn, p.CityName AS PacientCityName, o.DepartmentId, 
+               o.StatusId, o.DateFrom, o.DateTo, o.Dney, o.TicketPribitieTime, o.TicketUbitieTime, o.TicketInfo, o.Notes AS OrderNotes, o.Description AS OrderDescription, 
+               COALESCE
+                   ((SELECT TOP (1) Email
+                     FROM   dbo.Sputnik AS s
+                     WHERE (OrderId = o.Id)
+                     ORDER BY IsPrimary DESC), '-') AS SoprovodEmail, c.Name AS CountryName, c.NameCh AS CountryNameCh, c.NameEn AS CountryNameEn, 
+               c.Description AS CountryDescription, c.PosolstvoChLabel AS CountryPosolstvoChLabel, c.PosolstvoRusLabel AS CountryPosolstvoRusLabel, 
+               c.NacionalnostChLabel AS CountryNacionalnostChLabel, p.BirthDate AS PacientBirthDate, p.SerialNumber AS PacientSerialNumber, v.Id AS VisitId, v.OrderId, 
+               d.Branch AS DepartmentBranch, d.Name AS DepartmentName, d.NameChina AS DepartmentNameChina, d.NameEnglish AS DepartmentNameEnglish, 
+               d.Address AS DepartmentAddress, d.AddressChina AS DepartmentAddressChina, d.AddressEnglish AS DepartmentAddressEnglish, 
+               d.BossName AS DepartmentBossName, d.Requisits AS DepartmentRequisits, d.Contacts AS DepartmentContacts, 
+               d.PechatFileName AS DepartmentPechatFileName, d.PodpisFileName AS DepartmentPodpisFileName, d.DescriptionRu AS DepartmentDescriptionRu, 
+               d.DescriptionCh AS DepartmentDescriptionCh, d.PriglashenieRu AS DepartmentPriglashenieRu, d.PriglashenieCh AS DepartmentPriglashenieCh, 
+               d.AdditionalRu AS DepartmentAdditionalRu, d.AdditionalCh AS DepartmentAdditionalCh, p.Address AS PacientAddress, p.Diagnoz AS PacientDiagnoz, 
+               p.Anamnez AS PacientAnamnez, p.OwnerUser AS PacientOwnerUser, v.Vipiska AS VisitVipiska, v.Price AS VisitPrice, v.Fond AS VisitFond, 
+               v.DateDogovor AS VisitDateDogovor, v.AmbNumber AS VisitAmbNumber, v.IsInvite AS VisitIsInvite, v.IsInvicePrint AS VisitIsInvicePrint, 
+               v.Additional AS VisitAdditional, v.TodaysDiagnoz AS VisitTodaysDiagnoz, v.HystoryA AS VisitHystoryA, v.Hystoryb AS VisitHystoryb, v.Razvitie AS VisitRazvitie, 
+               v.Dispanser AS VisitDispanser, v.Dispanser2 AS VisitDispanser2, v.DangerousDiseases AS VisitDangerousDiseases, v.Serdce AS VisitSerdce, 
+               v.Dihalka AS VisitDihalka, v.Infections AS VisitInfections, v.OtherDiseases AS VisitOtherDiseases, v.Epilispiya AS VisitEpilispiya, 
+               v.SudorogiType AS VisitSudorogiType, v.SudorogiCount AS VisitSudorogiCount, v.SudorogiMedcine AS VisitSudorogiMedcine, v.Remission AS VisitRemission, 
+               v.Encefalogram AS VisitEncefalogram, v.MainGoal AS VisitMainGoal, v.Razgovor AS VisitRazgovor, v.Instructcii AS VisitInstructcii, v.Fisical AS VisitFisical, 
+               v.Diet AS VisitDiet, v.Eating AS VisitEating, v.EatingProblems AS VisitEatingProblems, v.Appetit AS VisitAppetit, v.Stul AS VisitStul, v.Alergiya AS VisitAlergiya, 
+               v.Imunitet AS VisitImunitet, v.Fiznagruzki AS VisitFiznagruzki, v.Son AS VisitSon, v.ProstupUp AS VisitProstupUp, v.Zakativaetsa AS VisitZakativaetsa, 
+               v.KursesRanee AS VisitKursesRanee, v.KursesChinaRanee AS VisitKursesChinaRanee, v.NonTradicial AS VisitNonTradicial, v.Hirurg AS VisitHirurg, 
+               v.Travmi AS VisitTravmi, v.Requirements AS VisitRequirements, v.RequiredDocs AS VisitRequiredDocs, v.Postuplenie AS VisitPostuplenie, 
+               v.Resultat AS VisitResultat, v.Recomend AS VisitRecomend, o.OwnerUser AS OrderOwnerUser, o.Price AS OrderPrice, o.VizaDney AS OrderVizaDney, 
+               o.StatusDecription AS OrderStatusDecription, o.ServicePekinIsPerevod AS OrderServicePekinIsPerevod, o.ServicePekinIsHotel AS OrderServicePekinIsHotel, 
+               o.ServicePekinOther AS OrderServicePekinOther, o.ServiceUnchenIsVstrecha AS OrderServiceUnchenIsVstrecha, 
+               o.ServiceUnchenOther AS OrderServiceUnchenOther, o.ServiceRoomIsPaper AS OrderServiceRoomIsPaper, 
+               o.ServiceRoomIsStiral AS OrderServiceRoomIsStiral, o.ServiceRoomIsOpolask AS OrderServiceRoomIsOpolask, 
+               o.ServiceRoomIsMilo AS OrderServiceRoomIsMilo, o.ServiceRoomIsVoda AS OrderServiceRoomIsVoda, o.ServiceRoomIsPosuda AS OrderServiceRoomIsPosuda, 
+               d.ShortName AS DepartmentShortName
+FROM  dbo.Pacient AS p RIGHT OUTER JOIN
+               dbo.Visit AS v ON p.Id = v.PacientId LEFT OUTER JOIN
+               dbo.[Order] AS o ON v.OrderId = o.Id LEFT OUTER JOIN
+               dbo.Department AS d ON o.DepartmentId = d.Id LEFT OUTER JOIN
+               dbo.RefCountry AS c ON p.CountryId = c.Id
+WHERE (v.Id = @VisitId)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="VisitId" ColumnName="Id" DataSourceName="Cure.dbo.Visit" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@VisitId" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="VisitId" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Id" DataSetColumn="Id" />
+              <Mapping SourceColumn="PacientId" DataSetColumn="PacientId" />
+              <Mapping SourceColumn="DepartmentId" DataSetColumn="DepartmentId" />
+              <Mapping SourceColumn="StatusId" DataSetColumn="StatusId" />
+              <Mapping SourceColumn="DateFrom" DataSetColumn="DateFrom" />
+              <Mapping SourceColumn="DateTo" DataSetColumn="DateTo" />
+              <Mapping SourceColumn="Dney" DataSetColumn="Dney" />
+              <Mapping SourceColumn="TicketPribitieTime" DataSetColumn="TicketPribitieTime" />
+              <Mapping SourceColumn="TicketUbitieTime" DataSetColumn="TicketUbitieTime" />
+              <Mapping SourceColumn="TicketInfo" DataSetColumn="TicketInfo" />
+              <Mapping SourceColumn="PacientCountryId" DataSetColumn="PacientCountryId" />
+              <Mapping SourceColumn="PacientName" DataSetColumn="PacientName" />
+              <Mapping SourceColumn="PacientNameEng" DataSetColumn="PacientNameEng" />
+              <Mapping SourceColumn="PacientFamiliya" DataSetColumn="PacientFamiliya" />
+              <Mapping SourceColumn="PacientFamiliyaEn" DataSetColumn="PacientFamiliyaEn" />
+              <Mapping SourceColumn="PacientOtchestvo" DataSetColumn="PacientOtchestvo" />
+              <Mapping SourceColumn="PacientOtchestvoEn" DataSetColumn="PacientOtchestvoEn" />
+              <Mapping SourceColumn="PacientCityName" DataSetColumn="PacientCityName" />
+              <Mapping SourceColumn="OrderNotes" DataSetColumn="OrderNotes" />
+              <Mapping SourceColumn="OrderDescription" DataSetColumn="OrderDescription" />
+              <Mapping SourceColumn="SoprovodEmail" DataSetColumn="SoprovodEmail" />
+              <Mapping SourceColumn="CountryName" DataSetColumn="CountryName" />
+              <Mapping SourceColumn="CountryNameCh" DataSetColumn="CountryNameCh" />
+              <Mapping SourceColumn="CountryNameEn" DataSetColumn="CountryNameEn" />
+              <Mapping SourceColumn="CountryDescription" DataSetColumn="CountryDescription" />
+              <Mapping SourceColumn="CountryPosolstvoChLabel" DataSetColumn="CountryPosolstvoChLabel" />
+              <Mapping SourceColumn="CountryPosolstvoRusLabel" DataSetColumn="CountryPosolstvoRusLabel" />
+              <Mapping SourceColumn="CountryNacionalnostChLabel" DataSetColumn="CountryNacionalnostChLabel" />
+              <Mapping SourceColumn="PacientBirthDate" DataSetColumn="PacientBirthDate" />
+              <Mapping SourceColumn="PacientSerialNumber" DataSetColumn="PacientSerialNumber" />
+              <Mapping SourceColumn="VisitId" DataSetColumn="VisitId" />
+              <Mapping SourceColumn="OrderId" DataSetColumn="OrderId" />
+              <Mapping SourceColumn="DepartmentBranch" DataSetColumn="DepartmentBranch" />
+              <Mapping SourceColumn="DepartmentName" DataSetColumn="DepartmentName" />
+              <Mapping SourceColumn="DepartmentNameChina" DataSetColumn="DepartmentNameChina" />
+              <Mapping SourceColumn="DepartmentNameEnglish" DataSetColumn="DepartmentNameEnglish" />
+              <Mapping SourceColumn="DepartmentAddress" DataSetColumn="DepartmentAddress" />
+              <Mapping SourceColumn="DepartmentAddressChina" DataSetColumn="DepartmentAddressChina" />
+              <Mapping SourceColumn="DepartmentAddressEnglish" DataSetColumn="DepartmentAddressEnglish" />
+              <Mapping SourceColumn="DepartmentBossName" DataSetColumn="DepartmentBossName" />
+              <Mapping SourceColumn="DepartmentRequisits" DataSetColumn="DepartmentRequisits" />
+              <Mapping SourceColumn="DepartmentContacts" DataSetColumn="DepartmentContacts" />
+              <Mapping SourceColumn="DepartmentPechatFileName" DataSetColumn="DepartmentPechatFileName" />
+              <Mapping SourceColumn="DepartmentPodpisFileName" DataSetColumn="DepartmentPodpisFileName" />
+              <Mapping SourceColumn="DepartmentDescriptionRu" DataSetColumn="DepartmentDescriptionRu" />
+              <Mapping SourceColumn="DepartmentDescriptionCh" DataSetColumn="DepartmentDescriptionCh" />
+              <Mapping SourceColumn="DepartmentPriglashenieRu" DataSetColumn="DepartmentPriglashenieRu" />
+              <Mapping SourceColumn="DepartmentPriglashenieCh" DataSetColumn="DepartmentPriglashenieCh" />
+              <Mapping SourceColumn="DepartmentAdditionalRu" DataSetColumn="DepartmentAdditionalRu" />
+              <Mapping SourceColumn="DepartmentAdditionalCh" DataSetColumn="DepartmentAdditionalCh" />
+              <Mapping SourceColumn="PacientAddress" DataSetColumn="PacientAddress" />
+              <Mapping SourceColumn="PacientDiagnoz" DataSetColumn="PacientDiagnoz" />
+              <Mapping SourceColumn="PacientAnamnez" DataSetColumn="PacientAnamnez" />
+              <Mapping SourceColumn="PacientOwnerUser" DataSetColumn="PacientOwnerUser" />
+              <Mapping SourceColumn="VisitVipiska" DataSetColumn="VisitVipiska" />
+              <Mapping SourceColumn="VisitPrice" DataSetColumn="VisitPrice" />
+              <Mapping SourceColumn="VisitFond" DataSetColumn="VisitFond" />
+              <Mapping SourceColumn="VisitDateDogovor" DataSetColumn="VisitDateDogovor" />
+              <Mapping SourceColumn="VisitAmbNumber" DataSetColumn="VisitAmbNumber" />
+              <Mapping SourceColumn="VisitIsInvite" DataSetColumn="VisitIsInvite" />
+              <Mapping SourceColumn="VisitIsInvicePrint" DataSetColumn="VisitIsInvicePrint" />
+              <Mapping SourceColumn="VisitAdditional" DataSetColumn="VisitAdditional" />
+              <Mapping SourceColumn="VisitTodaysDiagnoz" DataSetColumn="VisitTodaysDiagnoz" />
+              <Mapping SourceColumn="VisitHystoryA" DataSetColumn="VisitHystoryA" />
+              <Mapping SourceColumn="VisitHystoryb" DataSetColumn="VisitHystoryb" />
+              <Mapping SourceColumn="VisitRazvitie" DataSetColumn="VisitRazvitie" />
+              <Mapping SourceColumn="VisitDispanser" DataSetColumn="VisitDispanser" />
+              <Mapping SourceColumn="VisitDispanser2" DataSetColumn="VisitDispanser2" />
+              <Mapping SourceColumn="VisitDangerousDiseases" DataSetColumn="VisitDangerousDiseases" />
+              <Mapping SourceColumn="VisitSerdce" DataSetColumn="VisitSerdce" />
+              <Mapping SourceColumn="VisitDihalka" DataSetColumn="VisitDihalka" />
+              <Mapping SourceColumn="VisitInfections" DataSetColumn="VisitInfections" />
+              <Mapping SourceColumn="VisitOtherDiseases" DataSetColumn="VisitOtherDiseases" />
+              <Mapping SourceColumn="VisitEpilispiya" DataSetColumn="VisitEpilispiya" />
+              <Mapping SourceColumn="VisitSudorogiType" DataSetColumn="VisitSudorogiType" />
+              <Mapping SourceColumn="VisitSudorogiCount" DataSetColumn="VisitSudorogiCount" />
+              <Mapping SourceColumn="VisitSudorogiMedcine" DataSetColumn="VisitSudorogiMedcine" />
+              <Mapping SourceColumn="VisitRemission" DataSetColumn="VisitRemission" />
+              <Mapping SourceColumn="VisitEncefalogram" DataSetColumn="VisitEncefalogram" />
+              <Mapping SourceColumn="VisitMainGoal" DataSetColumn="VisitMainGoal" />
+              <Mapping SourceColumn="VisitRazgovor" DataSetColumn="VisitRazgovor" />
+              <Mapping SourceColumn="VisitInstructcii" DataSetColumn="VisitInstructcii" />
+              <Mapping SourceColumn="VisitFisical" DataSetColumn="VisitFisical" />
+              <Mapping SourceColumn="VisitDiet" DataSetColumn="VisitDiet" />
+              <Mapping SourceColumn="VisitEating" DataSetColumn="VisitEating" />
+              <Mapping SourceColumn="VisitEatingProblems" DataSetColumn="VisitEatingProblems" />
+              <Mapping SourceColumn="VisitAppetit" DataSetColumn="VisitAppetit" />
+              <Mapping SourceColumn="VisitStul" DataSetColumn="VisitStul" />
+              <Mapping SourceColumn="VisitAlergiya" DataSetColumn="VisitAlergiya" />
+              <Mapping SourceColumn="VisitImunitet" DataSetColumn="VisitImunitet" />
+              <Mapping SourceColumn="VisitFiznagruzki" DataSetColumn="VisitFiznagruzki" />
+              <Mapping SourceColumn="VisitSon" DataSetColumn="VisitSon" />
+              <Mapping SourceColumn="VisitProstupUp" DataSetColumn="VisitProstupUp" />
+              <Mapping SourceColumn="VisitZakativaetsa" DataSetColumn="VisitZakativaetsa" />
+              <Mapping SourceColumn="VisitKursesRanee" DataSetColumn="VisitKursesRanee" />
+              <Mapping SourceColumn="VisitKursesChinaRanee" DataSetColumn="VisitKursesChinaRanee" />
+              <Mapping SourceColumn="VisitNonTradicial" DataSetColumn="VisitNonTradicial" />
+              <Mapping SourceColumn="VisitHirurg" DataSetColumn="VisitHirurg" />
+              <Mapping SourceColumn="VisitTravmi" DataSetColumn="VisitTravmi" />
+              <Mapping SourceColumn="VisitRequirements" DataSetColumn="VisitRequirements" />
+              <Mapping SourceColumn="VisitRequiredDocs" DataSetColumn="VisitRequiredDocs" />
+              <Mapping SourceColumn="VisitPostuplenie" DataSetColumn="VisitPostuplenie" />
+              <Mapping SourceColumn="VisitResultat" DataSetColumn="VisitResultat" />
+              <Mapping SourceColumn="VisitRecomend" DataSetColumn="VisitRecomend" />
+              <Mapping SourceColumn="OrderOwnerUser" DataSetColumn="OrderOwnerUser" />
+              <Mapping SourceColumn="OrderPrice" DataSetColumn="OrderPrice" />
+              <Mapping SourceColumn="OrderVizaDney" DataSetColumn="OrderVizaDney" />
+              <Mapping SourceColumn="OrderStatusDecription" DataSetColumn="OrderStatusDecription" />
+              <Mapping SourceColumn="OrderServicePekinIsPerevod" DataSetColumn="OrderServicePekinIsPerevod" />
+              <Mapping SourceColumn="OrderServicePekinIsHotel" DataSetColumn="OrderServicePekinIsHotel" />
+              <Mapping SourceColumn="OrderServicePekinOther" DataSetColumn="OrderServicePekinOther" />
+              <Mapping SourceColumn="OrderServiceUnchenIsVstrecha" DataSetColumn="OrderServiceUnchenIsVstrecha" />
+              <Mapping SourceColumn="OrderServiceUnchenOther" DataSetColumn="OrderServiceUnchenOther" />
+              <Mapping SourceColumn="OrderServiceRoomIsPaper" DataSetColumn="OrderServiceRoomIsPaper" />
+              <Mapping SourceColumn="OrderServiceRoomIsStiral" DataSetColumn="OrderServiceRoomIsStiral" />
+              <Mapping SourceColumn="OrderServiceRoomIsOpolask" DataSetColumn="OrderServiceRoomIsOpolask" />
+              <Mapping SourceColumn="OrderServiceRoomIsMilo" DataSetColumn="OrderServiceRoomIsMilo" />
+              <Mapping SourceColumn="OrderServiceRoomIsVoda" DataSetColumn="OrderServiceRoomIsVoda" />
+              <Mapping SourceColumn="OrderServiceRoomIsPosuda" DataSetColumn="OrderServiceRoomIsPosuda" />
+              <Mapping SourceColumn="DepartmentShortName" DataSetColumn="DepartmentShortName" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="VisitInvitationDataset" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="VisitInvitationDataset" msprop:Generator_UserDSName="VisitInvitationDataset">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dsVistInvitation" msprop:Generator_TableClassName="dsVistInvitationDataTable" msprop:Generator_TableVarName="tabledsVistInvitation" msprop:Generator_RowChangedName="dsVistInvitationRowChanged" msprop:Generator_TablePropName="dsVistInvitation" msprop:Generator_RowDeletingName="dsVistInvitationRowDeleting" msprop:Generator_RowChangingName="dsVistInvitationRowChanging" msprop:Generator_RowEvHandlerName="dsVistInvitationRowChangeEventHandler" msprop:Generator_RowDeletedName="dsVistInvitationRowDeleted" msprop:Generator_RowClassName="dsVistInvitationRow" msprop:Generator_UserTableName="dsVistInvitation" msprop:Generator_RowEvArgName="dsVistInvitationRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:string" minOccurs="0" />
+              <xs:element name="PacientId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnPacientId" msprop:Generator_ColumnPropNameInRow="PacientId" msprop:Generator_ColumnPropNameInTable="PacientIdColumn" msprop:Generator_UserColumnName="PacientId" type="xs:int" minOccurs="0" />
+              <xs:element name="DepartmentId" msprop:Generator_ColumnVarNameInTable="columnDepartmentId" msprop:Generator_ColumnPropNameInRow="DepartmentId" msprop:Generator_ColumnPropNameInTable="DepartmentIdColumn" msprop:Generator_UserColumnName="DepartmentId" type="xs:int" minOccurs="0" />
+              <xs:element name="StatusId" msprop:Generator_ColumnVarNameInTable="columnStatusId" msprop:Generator_ColumnPropNameInRow="StatusId" msprop:Generator_ColumnPropNameInTable="StatusIdColumn" msprop:Generator_UserColumnName="StatusId" type="xs:int" minOccurs="0" />
+              <xs:element name="DateFrom" msprop:Generator_ColumnVarNameInTable="columnDateFrom" msprop:Generator_ColumnPropNameInRow="DateFrom" msprop:Generator_ColumnPropNameInTable="DateFromColumn" msprop:Generator_UserColumnName="DateFrom" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="DateTo" msprop:Generator_ColumnVarNameInTable="columnDateTo" msprop:Generator_ColumnPropNameInRow="DateTo" msprop:Generator_ColumnPropNameInTable="DateToColumn" msprop:Generator_UserColumnName="DateTo" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Dney" msprop:Generator_ColumnVarNameInTable="columnDney" msprop:Generator_ColumnPropNameInRow="Dney" msprop:Generator_ColumnPropNameInTable="DneyColumn" msprop:Generator_UserColumnName="Dney" type="xs:int" minOccurs="0" />
+              <xs:element name="TicketPribitieTime" msprop:Generator_ColumnVarNameInTable="columnTicketPribitieTime" msprop:Generator_ColumnPropNameInRow="TicketPribitieTime" msprop:Generator_ColumnPropNameInTable="TicketPribitieTimeColumn" msprop:Generator_UserColumnName="TicketPribitieTime" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="TicketUbitieTime" msprop:Generator_ColumnVarNameInTable="columnTicketUbitieTime" msprop:Generator_ColumnPropNameInRow="TicketUbitieTime" msprop:Generator_ColumnPropNameInTable="TicketUbitieTimeColumn" msprop:Generator_UserColumnName="TicketUbitieTime" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="TicketInfo" msprop:Generator_ColumnVarNameInTable="columnTicketInfo" msprop:Generator_ColumnPropNameInRow="TicketInfo" msprop:Generator_ColumnPropNameInTable="TicketInfoColumn" msprop:Generator_UserColumnName="TicketInfo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PacientCountryId" msprop:Generator_ColumnVarNameInTable="columnPacientCountryId" msprop:Generator_ColumnPropNameInRow="PacientCountryId" msprop:Generator_ColumnPropNameInTable="PacientCountryIdColumn" msprop:Generator_UserColumnName="PacientCountryId" type="xs:int" minOccurs="0" />
+              <xs:element name="PacientName" msprop:Generator_ColumnVarNameInTable="columnPacientName" msprop:Generator_ColumnPropNameInRow="PacientName" msprop:Generator_ColumnPropNameInTable="PacientNameColumn" msprop:Generator_UserColumnName="PacientName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PacientNameEng" msprop:Generator_ColumnVarNameInTable="columnPacientNameEng" msprop:Generator_ColumnPropNameInRow="PacientNameEng" msprop:Generator_ColumnPropNameInTable="PacientNameEngColumn" msprop:Generator_UserColumnName="PacientNameEng" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PacientFamiliya" msprop:Generator_ColumnVarNameInTable="columnPacientFamiliya" msprop:Generator_ColumnPropNameInRow="PacientFamiliya" msprop:Generator_ColumnPropNameInTable="PacientFamiliyaColumn" msprop:Generator_UserColumnName="PacientFamiliya" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PacientFamiliyaEn" msprop:Generator_ColumnVarNameInTable="columnPacientFamiliyaEn" msprop:Generator_ColumnPropNameInRow="PacientFamiliyaEn" msprop:Generator_ColumnPropNameInTable="PacientFamiliyaEnColumn" msprop:Generator_UserColumnName="PacientFamiliyaEn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PacientOtchestvo" msprop:Generator_ColumnVarNameInTable="columnPacientOtchestvo" msprop:Generator_ColumnPropNameInRow="PacientOtchestvo" msprop:Generator_ColumnPropNameInTable="PacientOtchestvoColumn" msprop:Generator_UserColumnName="PacientOtchestvo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PacientOtchestvoEn" msprop:Generator_ColumnVarNameInTable="columnPacientOtchestvoEn" msprop:Generator_ColumnPropNameInRow="PacientOtchestvoEn" msprop:Generator_ColumnPropNameInTable="PacientOtchestvoEnColumn" msprop:Generator_UserColumnName="PacientOtchestvoEn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PacientCityName" msprop:Generator_ColumnVarNameInTable="columnPacientCityName" msprop:Generator_ColumnPropNameInRow="PacientCityName" msprop:Generator_ColumnPropNameInTable="PacientCityNameColumn" msprop:Generator_UserColumnName="PacientCityName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="OrderNotes" msprop:Generator_ColumnVarNameInTable="columnOrderNotes" msprop:Generator_ColumnPropNameInRow="OrderNotes" msprop:Generator_ColumnPropNameInTable="OrderNotesColumn" msprop:Generator_UserColumnName="OrderNotes" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="OrderDescription" msprop:Generator_ColumnVarNameInTable="columnOrderDescription" msprop:Generator_ColumnPropNameInRow="OrderDescription" msprop:Generator_ColumnPropNameInTable="OrderDescriptionColumn" msprop:Generator_UserColumnName="OrderDescription" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SoprovodEmail" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSoprovodEmail" msprop:Generator_ColumnPropNameInRow="SoprovodEmail" msprop:Generator_ColumnPropNameInTable="SoprovodEmailColumn" msprop:Generator_UserColumnName="SoprovodEmail" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CountryName" msprop:Generator_ColumnVarNameInTable="columnCountryName" msprop:Generator_ColumnPropNameInRow="CountryName" msprop:Generator_ColumnPropNameInTable="CountryNameColumn" msprop:Generator_UserColumnName="CountryName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CountryNameCh" msprop:Generator_ColumnVarNameInTable="columnCountryNameCh" msprop:Generator_ColumnPropNameInRow="CountryNameCh" msprop:Generator_ColumnPropNameInTable="CountryNameChColumn" msprop:Generator_UserColumnName="CountryNameCh" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CountryNameEn" msprop:Generator_ColumnVarNameInTable="columnCountryNameEn" msprop:Generator_ColumnPropNameInRow="CountryNameEn" msprop:Generator_ColumnPropNameInTable="CountryNameEnColumn" msprop:Generator_UserColumnName="CountryNameEn" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CountryDescription" msprop:Generator_ColumnVarNameInTable="columnCountryDescription" msprop:Generator_ColumnPropNameInRow="CountryDescription" msprop:Generator_ColumnPropNameInTable="CountryDescriptionColumn" msprop:Generator_UserColumnName="CountryDescription" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CountryPosolstvoChLabel" msprop:Generator_ColumnVarNameInTable="columnCountryPosolstvoChLabel" msprop:Generator_ColumnPropNameInRow="CountryPosolstvoChLabel" msprop:Generator_ColumnPropNameInTable="CountryPosolstvoChLabelColumn" msprop:Generator_UserColumnName="CountryPosolstvoChLabel" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CountryPosolstvoRusLabel" msprop:Generator_ColumnVarNameInTable="columnCountryPosolstvoRusLabel" msprop:Generator_ColumnPropNameInRow="CountryPosolstvoRusLabel" msprop:Generator_ColumnPropNameInTable="CountryPosolstvoRusLabelColumn" msprop:Generator_UserColumnName="CountryPosolstvoRusLabel" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CountryNacionalnostChLabel" msprop:Generator_ColumnVarNameInTable="columnCountryNacionalnostChLabel" msprop:Generator_ColumnPropNameInRow="CountryNacionalnostChLabel" msprop:Generator_ColumnPropNameInTable="CountryNacionalnostChLabelColumn" msprop:Generator_UserColumnName="CountryNacionalnostChLabel" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PacientBirthDate" msprop:Generator_ColumnVarNameInTable="columnPacientBirthDate" msprop:Generator_ColumnPropNameInRow="PacientBirthDate" msprop:Generator_ColumnPropNameInTable="PacientBirthDateColumn" msprop:Generator_UserColumnName="PacientBirthDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="PacientSerialNumber" msprop:Generator_ColumnVarNameInTable="columnPacientSerialNumber" msprop:Generator_ColumnPropNameInRow="PacientSerialNumber" msprop:Generator_ColumnPropNameInTable="PacientSerialNumberColumn" msprop:Generator_UserColumnName="PacientSerialNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VisitId" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnVisitId" msprop:Generator_ColumnPropNameInRow="VisitId" msprop:Generator_ColumnPropNameInTable="VisitIdColumn" msprop:Generator_UserColumnName="VisitId" type="xs:int" />
+              <xs:element name="OrderId" msprop:Generator_ColumnVarNameInTable="columnOrderId" msprop:Generator_ColumnPropNameInRow="OrderId" msprop:Generator_ColumnPropNameInTable="OrderIdColumn" msprop:Generator_UserColumnName="OrderId" type="xs:int" />
+              <xs:element name="DepartmentBranch" msprop:Generator_ColumnVarNameInTable="columnDepartmentBranch" msprop:Generator_ColumnPropNameInRow="DepartmentBranch" msprop:Generator_ColumnPropNameInTable="DepartmentBranchColumn" msprop:Generator_UserColumnName="DepartmentBranch" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DepartmentName" msprop:Generator_ColumnVarNameInTable="columnDepartmentName" msprop:Generator_ColumnPropNameInRow="DepartmentName" msprop:Generator_ColumnPropNameInTable="DepartmentNameColumn" msprop:Generator_UserColumnName="DepartmentName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DepartmentNameChina" msprop:Generator_ColumnVarNameInTable="columnDepartmentNameChina" msprop:Generator_ColumnPropNameInRow="DepartmentNameChina" msprop:Generator_ColumnPropNameInTable="DepartmentNameChinaColumn" msprop:Generator_UserColumnName="DepartmentNameChina" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DepartmentNameEnglish" msprop:Generator_ColumnVarNameInTable="columnDepartmentNameEnglish" msprop:Generator_ColumnPropNameInRow="DepartmentNameEnglish" msprop:Generator_ColumnPropNameInTable="DepartmentNameEnglishColumn" msprop:Generator_UserColumnName="DepartmentNameEnglish" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DepartmentAddress" msprop:Generator_ColumnVarNameInTable="columnDepartmentAddress" msprop:Generator_ColumnPropNameInRow="DepartmentAddress" msprop:Generator_ColumnPropNameInTable="DepartmentAddressColumn" msprop:Generator_UserColumnName="DepartmentAddress" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DepartmentAddressChina" msprop:Generator_ColumnVarNameInTable="columnDepartmentAddressChina" msprop:Generator_ColumnPropNameInRow="DepartmentAddressChina" msprop:Generator_ColumnPropNameInTable="DepartmentAddressChinaColumn" msprop:Generator_UserColumnName="DepartmentAddressChina" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DepartmentAddressEnglish" msprop:Generator_ColumnVarNameInTable="columnDepartmentAddressEnglish" msprop:Generator_ColumnPropNameInRow="DepartmentAddressEnglish" msprop:Generator_ColumnPropNameInTable="DepartmentAddressEnglishColumn" msprop:Generator_UserColumnName="DepartmentAddressEnglish" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DepartmentBossName" msprop:Generator_ColumnVarNameInTable="columnDepartmentBossName" msprop:Generator_ColumnPropNameInRow="DepartmentBossName" msprop:Generator_ColumnPropNameInTable="DepartmentBossNameColumn" msprop:Generator_UserColumnName="DepartmentBossName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DepartmentRequisits" msprop:Generator_ColumnVarNameInTable="columnDepartmentRequisits" msprop:Generator_ColumnPropNameInRow="DepartmentRequisits" msprop:Generator_ColumnPropNameInTable="DepartmentRequisitsColumn" msprop:Generator_UserColumnName="DepartmentRequisits" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DepartmentContacts" msprop:Generator_ColumnVarNameInTable="columnDepartmentContacts" msprop:Generator_ColumnPropNameInRow="DepartmentContacts" msprop:Generator_ColumnPropNameInTable="DepartmentContactsColumn" msprop:Generator_UserColumnName="DepartmentContacts" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DepartmentPechatFileName" msprop:Generator_ColumnVarNameInTable="columnDepartmentPechatFileName" msprop:Generator_ColumnPropNameInRow="DepartmentPechatFileName" msprop:Generator_ColumnPropNameInTable="DepartmentPechatFileNameColumn" msprop:Generator_UserColumnName="DepartmentPechatFileName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DepartmentPodpisFileName" msprop:Generator_ColumnVarNameInTable="columnDepartmentPodpisFileName" msprop:Generator_ColumnPropNameInRow="DepartmentPodpisFileName" msprop:Generator_ColumnPropNameInTable="DepartmentPodpisFileNameColumn" msprop:Generator_UserColumnName="DepartmentPodpisFileName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DepartmentDescriptionRu" msprop:Generator_ColumnVarNameInTable="columnDepartmentDescriptionRu" msprop:Generator_ColumnPropNameInRow="DepartmentDescriptionRu" msprop:Generator_ColumnPropNameInTable="DepartmentDescriptionRuColumn" msprop:Generator_UserColumnName="DepartmentDescriptionRu" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DepartmentDescriptionCh" msprop:Generator_ColumnVarNameInTable="columnDepartmentDescriptionCh" msprop:Generator_ColumnPropNameInRow="DepartmentDescriptionCh" msprop:Generator_ColumnPropNameInTable="DepartmentDescriptionChColumn" msprop:Generator_UserColumnName="DepartmentDescriptionCh" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DepartmentPriglashenieRu" msprop:Generator_ColumnVarNameInTable="columnDepartmentPriglashenieRu" msprop:Generator_ColumnPropNameInRow="DepartmentPriglashenieRu" msprop:Generator_ColumnPropNameInTable="DepartmentPriglashenieRuColumn" msprop:Generator_UserColumnName="DepartmentPriglashenieRu" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DepartmentPriglashenieCh" msprop:Generator_ColumnVarNameInTable="columnDepartmentPriglashenieCh" msprop:Generator_ColumnPropNameInRow="DepartmentPriglashenieCh" msprop:Generator_ColumnPropNameInTable="DepartmentPriglashenieChColumn" msprop:Generator_UserColumnName="DepartmentPriglashenieCh" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DepartmentAdditionalRu" msprop:Generator_ColumnVarNameInTable="columnDepartmentAdditionalRu" msprop:Generator_ColumnPropNameInRow="DepartmentAdditionalRu" msprop:Generator_ColumnPropNameInTable="DepartmentAdditionalRuColumn" msprop:Generator_UserColumnName="DepartmentAdditionalRu" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DepartmentAdditionalCh" msprop:Generator_ColumnVarNameInTable="columnDepartmentAdditionalCh" msprop:Generator_ColumnPropNameInRow="DepartmentAdditionalCh" msprop:Generator_ColumnPropNameInTable="DepartmentAdditionalChColumn" msprop:Generator_UserColumnName="DepartmentAdditionalCh" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PacientAddress" msprop:Generator_ColumnVarNameInTable="columnPacientAddress" msprop:Generator_ColumnPropNameInRow="PacientAddress" msprop:Generator_ColumnPropNameInTable="PacientAddressColumn" msprop:Generator_UserColumnName="PacientAddress" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PacientDiagnoz" msprop:Generator_ColumnVarNameInTable="columnPacientDiagnoz" msprop:Generator_ColumnPropNameInRow="PacientDiagnoz" msprop:Generator_ColumnPropNameInTable="PacientDiagnozColumn" msprop:Generator_UserColumnName="PacientDiagnoz" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PacientAnamnez" msprop:Generator_ColumnVarNameInTable="columnPacientAnamnez" msprop:Generator_ColumnPropNameInRow="PacientAnamnez" msprop:Generator_ColumnPropNameInTable="PacientAnamnezColumn" msprop:Generator_UserColumnName="PacientAnamnez" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PacientOwnerUser" msprop:Generator_ColumnVarNameInTable="columnPacientOwnerUser" msprop:Generator_ColumnPropNameInRow="PacientOwnerUser" msprop:Generator_ColumnPropNameInTable="PacientOwnerUserColumn" msprop:Generator_UserColumnName="PacientOwnerUser" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VisitVipiska" msprop:Generator_ColumnVarNameInTable="columnVisitVipiska" msprop:Generator_ColumnPropNameInRow="VisitVipiska" msprop:Generator_ColumnPropNameInTable="VisitVipiskaColumn" msprop:Generator_UserColumnName="VisitVipiska" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VisitPrice" msprop:Generator_ColumnVarNameInTable="columnVisitPrice" msprop:Generator_ColumnPropNameInRow="VisitPrice" msprop:Generator_ColumnPropNameInTable="VisitPriceColumn" msprop:Generator_UserColumnName="VisitPrice" type="xs:decimal" minOccurs="0" />
+              <xs:element name="VisitFond" msprop:Generator_ColumnVarNameInTable="columnVisitFond" msprop:Generator_ColumnPropNameInRow="VisitFond" msprop:Generator_ColumnPropNameInTable="VisitFondColumn" msprop:Generator_UserColumnName="VisitFond" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VisitDateDogovor" msprop:Generator_ColumnVarNameInTable="columnVisitDateDogovor" msprop:Generator_ColumnPropNameInRow="VisitDateDogovor" msprop:Generator_ColumnPropNameInTable="VisitDateDogovorColumn" msprop:Generator_UserColumnName="VisitDateDogovor" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="VisitAmbNumber" msprop:Generator_ColumnVarNameInTable="columnVisitAmbNumber" msprop:Generator_ColumnPropNameInRow="VisitAmbNumber" msprop:Generator_ColumnPropNameInTable="VisitAmbNumberColumn" msprop:Generator_UserColumnName="VisitAmbNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VisitIsInvite" msprop:Generator_ColumnVarNameInTable="columnVisitIsInvite" msprop:Generator_ColumnPropNameInRow="VisitIsInvite" msprop:Generator_ColumnPropNameInTable="VisitIsInviteColumn" msprop:Generator_UserColumnName="VisitIsInvite" type="xs:boolean" minOccurs="0" />
+              <xs:element name="VisitIsInvicePrint" msprop:Generator_ColumnVarNameInTable="columnVisitIsInvicePrint" msprop:Generator_ColumnPropNameInRow="VisitIsInvicePrint" msprop:Generator_ColumnPropNameInTable="VisitIsInvicePrintColumn" msprop:Generator_UserColumnName="VisitIsInvicePrint" type="xs:boolean" minOccurs="0" />
+              <xs:element name="VisitAdditional" msprop:Generator_ColumnVarNameInTable="columnVisitAdditional" msprop:Generator_ColumnPropNameInRow="VisitAdditional" msprop:Generator_ColumnPropNameInTable="VisitAdditionalColumn" msprop:Generator_UserColumnName="VisitAdditional" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VisitTodaysDiagnoz" msprop:Generator_ColumnVarNameInTable="columnVisitTodaysDiagnoz" msprop:Generator_ColumnPropNameInRow="VisitTodaysDiagnoz" msprop:Generator_ColumnPropNameInTable="VisitTodaysDiagnozColumn" msprop:Generator_UserColumnName="VisitTodaysDiagnoz" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VisitHystoryA" msprop:Generator_ColumnVarNameInTable="columnVisitHystoryA" msprop:Generator_ColumnPropNameInRow="VisitHystoryA" msprop:Generator_ColumnPropNameInTable="VisitHystoryAColumn" msprop:Generator_UserColumnName="VisitHystoryA" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VisitHystoryb" msprop:Generator_ColumnVarNameInTable="columnVisitHystoryb" msprop:Generator_ColumnPropNameInRow="VisitHystoryb" msprop:Generator_ColumnPropNameInTable="VisitHystorybColumn" msprop:Generator_UserColumnName="VisitHystoryb" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VisitRazvitie" msprop:Generator_ColumnVarNameInTable="columnVisitRazvitie" msprop:Generator_ColumnPropNameInRow="VisitRazvitie" msprop:Generator_ColumnPropNameInTable="VisitRazvitieColumn" msprop:Generator_UserColumnName="VisitRazvitie" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VisitDispanser" msprop:Generator_ColumnVarNameInTable="columnVisitDispanser" msprop:Generator_ColumnPropNameInRow="VisitDispanser" msprop:Generator_ColumnPropNameInTable="VisitDispanserColumn" msprop:Generator_UserColumnName="VisitDispanser" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VisitDispanser2" msprop:Generator_ColumnVarNameInTable="columnVisitDispanser2" msprop:Generator_ColumnPropNameInRow="VisitDispanser2" msprop:Generator_ColumnPropNameInTable="VisitDispanser2Column" msprop:Generator_UserColumnName="VisitDispanser2" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VisitDangerousDiseases" msprop:Generator_ColumnVarNameInTable="columnVisitDangerousDiseases" msprop:Generator_ColumnPropNameInRow="VisitDangerousDiseases" msprop:Generator_ColumnPropNameInTable="VisitDangerousDiseasesColumn" msprop:Generator_UserColumnName="VisitDangerousDiseases" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VisitSerdce" msprop:Generator_ColumnVarNameInTable="columnVisitSerdce" msprop:Generator_ColumnPropNameInRow="VisitSerdce" msprop:Generator_ColumnPropNameInTable="VisitSerdceColumn" msprop:Generator_UserColumnName="VisitSerdce" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VisitDihalka" msprop:Generator_ColumnVarNameInTable="columnVisitDihalka" msprop:Generator_ColumnPropNameInRow="VisitDihalka" msprop:Generator_ColumnPropNameInTable="VisitDihalkaColumn" msprop:Generator_UserColumnName="VisitDihalka" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VisitInfections" msprop:Generator_ColumnVarNameInTable="columnVisitInfections" msprop:Generator_ColumnPropNameInRow="VisitInfections" msprop:Generator_ColumnPropNameInTable="VisitInfectionsColumn" msprop:Generator_UserColumnName="VisitInfections" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VisitOtherDiseases" msprop:Generator_ColumnVarNameInTable="columnVisitOtherDiseases" msprop:Generator_ColumnPropNameInRow="VisitOtherDiseases" msprop:Generator_ColumnPropNameInTable="VisitOtherDiseasesColumn" msprop:Generator_UserColumnName="VisitOtherDiseases" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VisitEpilispiya" msprop:Generator_ColumnVarNameInTable="columnVisitEpilispiya" msprop:Generator_ColumnPropNameInRow="VisitEpilispiya" msprop:Generator_ColumnPropNameInTable="VisitEpilispiyaColumn" msprop:Generator_UserColumnName="VisitEpilispiya" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VisitSudorogiType" msprop:Generator_ColumnVarNameInTable="columnVisitSudorogiType" msprop:Generator_ColumnPropNameInRow="VisitSudorogiType" msprop:Generator_ColumnPropNameInTable="VisitSudorogiTypeColumn" msprop:Generator_UserColumnName="VisitSudorogiType" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VisitSudorogiCount" msprop:Generator_ColumnVarNameInTable="columnVisitSudorogiCount" msprop:Generator_ColumnPropNameInRow="VisitSudorogiCount" msprop:Generator_ColumnPropNameInTable="VisitSudorogiCountColumn" msprop:Generator_UserColumnName="VisitSudorogiCount" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VisitSudorogiMedcine" msprop:Generator_ColumnVarNameInTable="columnVisitSudorogiMedcine" msprop:Generator_ColumnPropNameInRow="VisitSudorogiMedcine" msprop:Generator_ColumnPropNameInTable="VisitSudorogiMedcineColumn" msprop:Generator_UserColumnName="VisitSudorogiMedcine" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VisitRemission" msprop:Generator_ColumnVarNameInTable="columnVisitRemission" msprop:Generator_ColumnPropNameInRow="VisitRemission" msprop:Generator_ColumnPropNameInTable="VisitRemissionColumn" msprop:Generator_UserColumnName="VisitRemission" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VisitEncefalogram" msprop:Generator_ColumnVarNameInTable="columnVisitEncefalogram" msprop:Generator_ColumnPropNameInRow="VisitEncefalogram" msprop:Generator_ColumnPropNameInTable="VisitEncefalogramColumn" msprop:Generator_UserColumnName="VisitEncefalogram" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VisitMainGoal" msprop:Generator_ColumnVarNameInTable="columnVisitMainGoal" msprop:Generator_ColumnPropNameInRow="VisitMainGoal" msprop:Generator_ColumnPropNameInTable="VisitMainGoalColumn" msprop:Generator_UserColumnName="VisitMainGoal" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VisitRazgovor" msprop:Generator_ColumnVarNameInTable="columnVisitRazgovor" msprop:Generator_ColumnPropNameInRow="VisitRazgovor" msprop:Generator_ColumnPropNameInTable="VisitRazgovorColumn" msprop:Generator_UserColumnName="VisitRazgovor" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VisitInstructcii" msprop:Generator_ColumnVarNameInTable="columnVisitInstructcii" msprop:Generator_ColumnPropNameInRow="VisitInstructcii" msprop:Generator_ColumnPropNameInTable="VisitInstructciiColumn" msprop:Generator_UserColumnName="VisitInstructcii" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VisitFisical" msprop:Generator_ColumnVarNameInTable="columnVisitFisical" msprop:Generator_ColumnPropNameInRow="VisitFisical" msprop:Generator_ColumnPropNameInTable="VisitFisicalColumn" msprop:Generator_UserColumnName="VisitFisical" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VisitDiet" msprop:Generator_ColumnVarNameInTable="columnVisitDiet" msprop:Generator_ColumnPropNameInRow="VisitDiet" msprop:Generator_ColumnPropNameInTable="VisitDietColumn" msprop:Generator_UserColumnName="VisitDiet" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VisitEating" msprop:Generator_ColumnVarNameInTable="columnVisitEating" msprop:Generator_ColumnPropNameInRow="VisitEating" msprop:Generator_ColumnPropNameInTable="VisitEatingColumn" msprop:Generator_UserColumnName="VisitEating" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VisitEatingProblems" msprop:Generator_ColumnVarNameInTable="columnVisitEatingProblems" msprop:Generator_ColumnPropNameInRow="VisitEatingProblems" msprop:Generator_ColumnPropNameInTable="VisitEatingProblemsColumn" msprop:Generator_UserColumnName="VisitEatingProblems" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VisitAppetit" msprop:Generator_ColumnVarNameInTable="columnVisitAppetit" msprop:Generator_ColumnPropNameInRow="VisitAppetit" msprop:Generator_ColumnPropNameInTable="VisitAppetitColumn" msprop:Generator_UserColumnName="VisitAppetit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VisitStul" msprop:Generator_ColumnVarNameInTable="columnVisitStul" msprop:Generator_ColumnPropNameInRow="VisitStul" msprop:Generator_ColumnPropNameInTable="VisitStulColumn" msprop:Generator_UserColumnName="VisitStul" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VisitAlergiya" msprop:Generator_ColumnVarNameInTable="columnVisitAlergiya" msprop:Generator_ColumnPropNameInRow="VisitAlergiya" msprop:Generator_ColumnPropNameInTable="VisitAlergiyaColumn" msprop:Generator_UserColumnName="VisitAlergiya" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VisitImunitet" msprop:Generator_ColumnVarNameInTable="columnVisitImunitet" msprop:Generator_ColumnPropNameInRow="VisitImunitet" msprop:Generator_ColumnPropNameInTable="VisitImunitetColumn" msprop:Generator_UserColumnName="VisitImunitet" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VisitFiznagruzki" msprop:Generator_ColumnVarNameInTable="columnVisitFiznagruzki" msprop:Generator_ColumnPropNameInRow="VisitFiznagruzki" msprop:Generator_ColumnPropNameInTable="VisitFiznagruzkiColumn" msprop:Generator_UserColumnName="VisitFiznagruzki" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VisitSon" msprop:Generator_ColumnVarNameInTable="columnVisitSon" msprop:Generator_ColumnPropNameInRow="VisitSon" msprop:Generator_ColumnPropNameInTable="VisitSonColumn" msprop:Generator_UserColumnName="VisitSon" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VisitProstupUp" msprop:Generator_ColumnVarNameInTable="columnVisitProstupUp" msprop:Generator_ColumnPropNameInRow="VisitProstupUp" msprop:Generator_ColumnPropNameInTable="VisitProstupUpColumn" msprop:Generator_UserColumnName="VisitProstupUp" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VisitZakativaetsa" msprop:Generator_ColumnVarNameInTable="columnVisitZakativaetsa" msprop:Generator_ColumnPropNameInRow="VisitZakativaetsa" msprop:Generator_ColumnPropNameInTable="VisitZakativaetsaColumn" msprop:Generator_UserColumnName="VisitZakativaetsa" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VisitKursesRanee" msprop:Generator_ColumnVarNameInTable="columnVisitKursesRanee" msprop:Generator_ColumnPropNameInRow="VisitKursesRanee" msprop:Generator_ColumnPropNameInTable="VisitKursesRaneeColumn" msprop:Generator_UserColumnName="VisitKursesRanee" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VisitKursesChinaRanee" msprop:Generator_ColumnVarNameInTable="columnVisitKursesChinaRanee" msprop:Generator_ColumnPropNameInRow="VisitKursesChinaRanee" msprop:Generator_ColumnPropNameInTable="VisitKursesChinaRaneeColumn" msprop:Generator_UserColumnName="VisitKursesChinaRanee" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VisitNonTradicial" msprop:Generator_ColumnVarNameInTable="columnVisitNonTradicial" msprop:Generator_ColumnPropNameInRow="VisitNonTradicial" msprop:Generator_ColumnPropNameInTable="VisitNonTradicialColumn" msprop:Generator_UserColumnName="VisitNonTradicial" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VisitHirurg" msprop:Generator_ColumnVarNameInTable="columnVisitHirurg" msprop:Generator_ColumnPropNameInRow="VisitHirurg" msprop:Generator_ColumnPropNameInTable="VisitHirurgColumn" msprop:Generator_UserColumnName="VisitHirurg" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VisitTravmi" msprop:Generator_ColumnVarNameInTable="columnVisitTravmi" msprop:Generator_ColumnPropNameInRow="VisitTravmi" msprop:Generator_ColumnPropNameInTable="VisitTravmiColumn" msprop:Generator_UserColumnName="VisitTravmi" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VisitRequirements" msprop:Generator_ColumnVarNameInTable="columnVisitRequirements" msprop:Generator_ColumnPropNameInRow="VisitRequirements" msprop:Generator_ColumnPropNameInTable="VisitRequirementsColumn" msprop:Generator_UserColumnName="VisitRequirements" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VisitRequiredDocs" msprop:Generator_ColumnVarNameInTable="columnVisitRequiredDocs" msprop:Generator_ColumnPropNameInRow="VisitRequiredDocs" msprop:Generator_ColumnPropNameInTable="VisitRequiredDocsColumn" msprop:Generator_UserColumnName="VisitRequiredDocs" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VisitPostuplenie" msprop:Generator_ColumnVarNameInTable="columnVisitPostuplenie" msprop:Generator_ColumnPropNameInRow="VisitPostuplenie" msprop:Generator_ColumnPropNameInTable="VisitPostuplenieColumn" msprop:Generator_UserColumnName="VisitPostuplenie" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VisitResultat" msprop:Generator_ColumnVarNameInTable="columnVisitResultat" msprop:Generator_ColumnPropNameInRow="VisitResultat" msprop:Generator_ColumnPropNameInTable="VisitResultatColumn" msprop:Generator_UserColumnName="VisitResultat" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VisitRecomend" msprop:Generator_ColumnVarNameInTable="columnVisitRecomend" msprop:Generator_ColumnPropNameInRow="VisitRecomend" msprop:Generator_ColumnPropNameInTable="VisitRecomendColumn" msprop:Generator_UserColumnName="VisitRecomend" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="OrderOwnerUser" msprop:Generator_ColumnVarNameInTable="columnOrderOwnerUser" msprop:Generator_ColumnPropNameInRow="OrderOwnerUser" msprop:Generator_ColumnPropNameInTable="OrderOwnerUserColumn" msprop:Generator_UserColumnName="OrderOwnerUser" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="OrderPrice" msprop:Generator_ColumnVarNameInTable="columnOrderPrice" msprop:Generator_ColumnPropNameInRow="OrderPrice" msprop:Generator_ColumnPropNameInTable="OrderPriceColumn" msprop:Generator_UserColumnName="OrderPrice" type="xs:decimal" minOccurs="0" />
+              <xs:element name="OrderVizaDney" msprop:Generator_ColumnVarNameInTable="columnOrderVizaDney" msprop:Generator_ColumnPropNameInRow="OrderVizaDney" msprop:Generator_ColumnPropNameInTable="OrderVizaDneyColumn" msprop:Generator_UserColumnName="OrderVizaDney" type="xs:int" minOccurs="0" />
+              <xs:element name="OrderStatusDecription" msprop:Generator_ColumnVarNameInTable="columnOrderStatusDecription" msprop:Generator_ColumnPropNameInRow="OrderStatusDecription" msprop:Generator_ColumnPropNameInTable="OrderStatusDecriptionColumn" msprop:Generator_UserColumnName="OrderStatusDecription" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="500" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="OrderServicePekinIsPerevod" msprop:Generator_ColumnVarNameInTable="columnOrderServicePekinIsPerevod" msprop:Generator_ColumnPropNameInRow="OrderServicePekinIsPerevod" msprop:Generator_ColumnPropNameInTable="OrderServicePekinIsPerevodColumn" msprop:Generator_UserColumnName="OrderServicePekinIsPerevod" type="xs:boolean" minOccurs="0" />
+              <xs:element name="OrderServicePekinIsHotel" msprop:Generator_ColumnVarNameInTable="columnOrderServicePekinIsHotel" msprop:Generator_ColumnPropNameInRow="OrderServicePekinIsHotel" msprop:Generator_ColumnPropNameInTable="OrderServicePekinIsHotelColumn" msprop:Generator_UserColumnName="OrderServicePekinIsHotel" type="xs:boolean" minOccurs="0" />
+              <xs:element name="OrderServicePekinOther" msprop:Generator_ColumnVarNameInTable="columnOrderServicePekinOther" msprop:Generator_ColumnPropNameInRow="OrderServicePekinOther" msprop:Generator_ColumnPropNameInTable="OrderServicePekinOtherColumn" msprop:Generator_UserColumnName="OrderServicePekinOther" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="OrderServiceUnchenIsVstrecha" msprop:Generator_ColumnVarNameInTable="columnOrderServiceUnchenIsVstrecha" msprop:Generator_ColumnPropNameInRow="OrderServiceUnchenIsVstrecha" msprop:Generator_ColumnPropNameInTable="OrderServiceUnchenIsVstrechaColumn" msprop:Generator_UserColumnName="OrderServiceUnchenIsVstrecha" type="xs:boolean" minOccurs="0" />
+              <xs:element name="OrderServiceUnchenOther" msprop:Generator_ColumnVarNameInTable="columnOrderServiceUnchenOther" msprop:Generator_ColumnPropNameInRow="OrderServiceUnchenOther" msprop:Generator_ColumnPropNameInTable="OrderServiceUnchenOtherColumn" msprop:Generator_UserColumnName="OrderServiceUnchenOther" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="250" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="OrderServiceRoomIsPaper" msprop:Generator_ColumnVarNameInTable="columnOrderServiceRoomIsPaper" msprop:Generator_ColumnPropNameInRow="OrderServiceRoomIsPaper" msprop:Generator_ColumnPropNameInTable="OrderServiceRoomIsPaperColumn" msprop:Generator_UserColumnName="OrderServiceRoomIsPaper" type="xs:boolean" minOccurs="0" />
+              <xs:element name="OrderServiceRoomIsStiral" msprop:Generator_ColumnVarNameInTable="columnOrderServiceRoomIsStiral" msprop:Generator_ColumnPropNameInRow="OrderServiceRoomIsStiral" msprop:Generator_ColumnPropNameInTable="OrderServiceRoomIsStiralColumn" msprop:Generator_UserColumnName="OrderServiceRoomIsStiral" type="xs:boolean" minOccurs="0" />
+              <xs:element name="OrderServiceRoomIsOpolask" msprop:Generator_ColumnVarNameInTable="columnOrderServiceRoomIsOpolask" msprop:Generator_ColumnPropNameInRow="OrderServiceRoomIsOpolask" msprop:Generator_ColumnPropNameInTable="OrderServiceRoomIsOpolaskColumn" msprop:Generator_UserColumnName="OrderServiceRoomIsOpolask" type="xs:boolean" minOccurs="0" />
+              <xs:element name="OrderServiceRoomIsMilo" msprop:Generator_ColumnVarNameInTable="columnOrderServiceRoomIsMilo" msprop:Generator_ColumnPropNameInRow="OrderServiceRoomIsMilo" msprop:Generator_ColumnPropNameInTable="OrderServiceRoomIsMiloColumn" msprop:Generator_UserColumnName="OrderServiceRoomIsMilo" type="xs:boolean" minOccurs="0" />
+              <xs:element name="OrderServiceRoomIsVoda" msprop:Generator_ColumnVarNameInTable="columnOrderServiceRoomIsVoda" msprop:Generator_ColumnPropNameInRow="OrderServiceRoomIsVoda" msprop:Generator_ColumnPropNameInTable="OrderServiceRoomIsVodaColumn" msprop:Generator_UserColumnName="OrderServiceRoomIsVoda" type="xs:boolean" minOccurs="0" />
+              <xs:element name="OrderServiceRoomIsPosuda" msprop:Generator_ColumnVarNameInTable="columnOrderServiceRoomIsPosuda" msprop:Generator_ColumnPropNameInRow="OrderServiceRoomIsPosuda" msprop:Generator_ColumnPropNameInTable="OrderServiceRoomIsPosudaColumn" msprop:Generator_UserColumnName="OrderServiceRoomIsPosuda" type="xs:boolean" minOccurs="0" />
+              <xs:element name="DepartmentShortName" msprop:Generator_ColumnVarNameInTable="columnDepartmentShortName" msprop:Generator_ColumnPropNameInRow="DepartmentShortName" msprop:Generator_ColumnPropNameInTable="DepartmentShortNameColumn" msprop:Generator_UserColumnName="DepartmentShortName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:dsVistInvitation" />
+      <xs:field xpath="mstns:PacientId" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

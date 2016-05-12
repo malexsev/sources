@@ -1,0 +1,1601 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA+EG4Oif4bUStHZlY4+Nf3AAAAAACAAAAAAAQZgAAAAEAACAAAABTnukZ/9z/VusME9yura5K5TwwZAaaW4PZxpsJQWYIMAAAAAAOgAAAAAIAACAAAABjk7k/8Pdv1qzDecmrOdHplUtSNL7y6ehObNiDsdd67yAAAAD5EI4+HRvY7jma4dLPCMc7E7xDsXwtbqj3JWY4dZexh0AAAACX4QSKVOKR0m9kK5ytJumxgAnwM416M/jbTTJTPJribY8y7oNoXB+/IFvXwpWTPN2ZuUqjDNUyoSP8kQaQDFNr</EncryptedPassword>
+    <_PublishTargetUrl>ftp://ftp.zeiman-ru.1gb.ru/http</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="Account/ChangePassword.aspx">
+      <publishTime>10/15/2015 01:28:47</publishTime>
+    </File>
+    <File Include="Account/ChangePasswordSuccess.aspx">
+      <publishTime>10/15/2015 01:28:47</publishTime>
+    </File>
+    <File Include="Account/Login.aspx">
+      <publishTime>02/18/2016 00:51:40</publishTime>
+    </File>
+    <File Include="Account/Recovery.aspx">
+      <publishTime>02/05/2016 22:37:55</publishTime>
+    </File>
+    <File Include="Account/Register.aspx">
+      <publishTime>02/12/2016 00:45:15</publishTime>
+    </File>
+    <File Include="Account/RegisterSuccess.aspx">
+      <publishTime>10/15/2015 01:28:47</publishTime>
+    </File>
+    <File Include="Account/Web.config">
+      <publishTime>12/23/2015 21:37:06</publishTime>
+    </File>
+    <File Include="Admin/Controls/CurrentVisitsList.ascx">
+      <publishTime>03/03/2016 20:11:53</publishTime>
+    </File>
+    <File Include="Admin/Controls/JustClosedVisitsList.ascx">
+      <publishTime>01/20/2016 00:02:27</publishTime>
+    </File>
+    <File Include="Admin/Controls/SoonVisitsList.ascx">
+      <publishTime>01/20/2016 00:02:33</publishTime>
+    </File>
+    <File Include="Admin/DepartmentList.aspx">
+      <publishTime>01/16/2016 00:06:29</publishTime>
+    </File>
+    <File Include="Admin/NotificationLogList.aspx">
+      <publishTime>03/03/2016 21:00:49</publishTime>
+    </File>
+    <File Include="Admin/OrderDocs.aspx">
+      <publishTime>01/20/2016 00:29:03</publishTime>
+    </File>
+    <File Include="Admin/OrderList.aspx">
+      <publishTime>03/18/2016 07:16:51</publishTime>
+    </File>
+    <File Include="Admin/PacientList.aspx">
+      <publishTime>02/10/2016 00:22:28</publishTime>
+    </File>
+    <File Include="Admin/RefCountryList.aspx">
+      <publishTime>01/16/2016 00:06:29</publishTime>
+    </File>
+    <File Include="Admin/Scheduler.aspx">
+      <publishTime>01/09/2016 03:11:07</publishTime>
+    </File>
+    <File Include="Admin/SettingList.aspx">
+      <publishTime>01/21/2016 20:49:09</publishTime>
+    </File>
+    <File Include="Admin/SmsLogList.aspx">
+      <publishTime>01/25/2016 20:21:41</publishTime>
+    </File>
+    <File Include="Admin/SoonList.aspx">
+      <publishTime>03/03/2016 19:40:57</publishTime>
+    </File>
+    <File Include="Admin/UserList.aspx">
+      <publishTime>03/05/2016 13:07:12</publishTime>
+    </File>
+    <File Include="Admin/Web.config">
+      <publishTime>10/13/2015 22:22:16</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxButton.skin">
+      <publishTime>09/19/2015 21:59:52</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxButtonEdit.skin">
+      <publishTime>09/19/2015 22:01:05</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxCalendar.skin">
+      <publishTime>09/19/2015 22:01:05</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxCallbackPanel.skin">
+      <publishTime>09/19/2015 22:01:05</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxCaptcha.skin">
+      <publishTime>09/19/2015 22:01:05</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxCheckBox.skin">
+      <publishTime>09/19/2015 22:01:05</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxCheckBoxList.skin">
+      <publishTime>09/19/2015 22:01:05</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxCloudControl.skin">
+      <publishTime>09/19/2015 22:01:05</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxColorEdit.skin">
+      <publishTime>09/19/2015 22:01:05</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxComboBox.skin">
+      <publishTime>09/19/2015 22:01:05</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxDataView.skin">
+      <publishTime>09/19/2015 22:01:05</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxDateEdit.skin">
+      <publishTime>09/19/2015 22:01:05</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxDateNavigator.skin">
+      <publishTime>09/19/2015 22:01:05</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxDockPanel.skin">
+      <publishTime>09/19/2015 22:01:05</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxDocumentViewer.skin">
+      <publishTime>09/19/2015 22:01:05</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxDropDownEdit.skin">
+      <publishTime>09/19/2015 22:01:05</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxFileManager.skin">
+      <publishTime>09/19/2015 22:01:05</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxFilterControl.skin">
+      <publishTime>09/19/2015 22:01:05</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxFormLayout.skin">
+      <publishTime>09/19/2015 22:01:05</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxGridLookup.skin">
+      <publishTime>09/19/2015 22:01:05</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxGridView.skin">
+      <publishTime>09/19/2015 22:05:19</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxHeadline.skin">
+      <publishTime>09/19/2015 22:01:05</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxHtmlEditor.skin">
+      <publishTime>09/19/2015 22:01:05</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxHyperLink.skin">
+      <publishTime>09/19/2015 22:01:05</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxImageGallery.skin">
+      <publishTime>09/19/2015 22:01:05</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxImageSlider.skin">
+      <publishTime>09/19/2015 22:01:05</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxImageZoom.skin">
+      <publishTime>09/19/2015 22:01:05</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxImageZoomNavigator.skin">
+      <publishTime>09/19/2015 22:01:05</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxLabel.skin">
+      <publishTime>09/19/2015 22:01:05</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxListBox.skin">
+      <publishTime>09/19/2015 22:01:05</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxLoadingPanel.skin">
+      <publishTime>09/19/2015 22:01:05</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxMemo.skin">
+      <publishTime>09/19/2015 22:01:05</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxMenu.skin">
+      <publishTime>09/19/2015 22:01:05</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxNavBar.skin">
+      <publishTime>09/19/2015 22:01:05</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxNewsControl.skin">
+      <publishTime>09/19/2015 22:01:05</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxPageControl.skin">
+      <publishTime>09/19/2015 22:01:05</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxPager.skin">
+      <publishTime>09/19/2015 22:01:05</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxPivotGrid.skin">
+      <publishTime>09/19/2015 22:01:05</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxPopupControl.skin">
+      <publishTime>09/19/2015 22:01:05</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxPopupMenu.skin">
+      <publishTime>09/19/2015 22:01:05</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxProgressBar.skin">
+      <publishTime>09/19/2015 22:01:05</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxRadioButton.skin">
+      <publishTime>09/19/2015 22:01:05</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxRadioButtonList.skin">
+      <publishTime>09/19/2015 22:01:05</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxRatingControl.skin">
+      <publishTime>09/19/2015 22:01:05</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxRibbon.skin">
+      <publishTime>09/19/2015 22:01:05</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxRoundPanel.skin">
+      <publishTime>09/19/2015 22:01:05</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxScheduler.skin">
+      <publishTime>09/19/2015 22:01:05</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxSiteMapControl.skin">
+      <publishTime>09/19/2015 22:01:05</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxSpellChecker.skin">
+      <publishTime>09/19/2015 22:01:04</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxSpinEdit.skin">
+      <publishTime>09/19/2015 22:01:04</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxSplitter.skin">
+      <publishTime>09/19/2015 22:01:04</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxSpreadsheet.skin">
+      <publishTime>09/19/2015 22:01:04</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxTabControl.skin">
+      <publishTime>09/19/2015 22:01:04</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxTextBox.skin">
+      <publishTime>09/19/2015 22:01:04</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxTimeEdit.skin">
+      <publishTime>09/19/2015 22:01:04</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxTitleIndex.skin">
+      <publishTime>09/19/2015 22:01:04</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxTokenBox.skin">
+      <publishTime>09/19/2015 22:01:04</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxTrackBar.skin">
+      <publishTime>09/19/2015 22:01:04</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxTreeList.skin">
+      <publishTime>09/19/2015 22:01:04</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxTreeView.skin">
+      <publishTime>09/19/2015 22:01:04</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxUploadControl.skin">
+      <publishTime>09/19/2015 22:01:04</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ASPxValidationSummary.skin">
+      <publishTime>09/19/2015 22:01:04</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Chart/Loading.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Chart/styles.css">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Editors/edtBinaryImageDesign.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Editors/edtButtonBack.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Editors/edtButtonHoverBack.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Editors/edtCalendarButtonBack.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Editors/edtCalendarButtonHBack.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Editors/edtDropDownBack.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Editors/edtDropDownButtonHoverBack.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Editors/edtSpinDecBtnBack.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Editors/edtSpinIncBtnBack.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Editors/edtTokenBoxTokenBackground.png">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Editors/edtTrackBarDoubleLargeTickH.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Editors/edtTrackBarDoubleLargeTickV.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Editors/edtTrackBarDoubleSmallTickH.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Editors/edtTrackBarDoubleSmallTickV.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Editors/edtTrackBarLargeTickH.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Editors/edtTrackBarLargeTickV.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Editors/edtTrackBarSmallTickH.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Editors/edtTrackBarSmallTickV.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Editors/edtTrackBarTrackH.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Editors/edtTrackBarTrackV.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Editors/Sprite.css">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Editors/sprite.png">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Editors/styles.css">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/GridView/gvLoadingOnStatusBar.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/GridView/sprite.css">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/GridView/sprite.png">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/GridView/Sprite/.dxGridView_gvCMCollapseRow_MetropolisBlue.png">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/GridView/Sprite/.dxGridView_gvCMExpandRow_MetropolisBlue.png">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/GridView/styles.css">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/HtmlEditor/sprite.css">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/HtmlEditor/sprite.png">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/HtmlEditor/styles.css">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/MonthEdit.skin">
+      <publishTime>09/19/2015 22:01:04</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Parameters.config">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/PivotGrid/-1.png">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/PivotGrid/0.png">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/PivotGrid/1.png">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/PivotGrid/pgCustomizationFormBackground.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/PivotGrid/pgTVNodeLoading.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/PivotGrid/Sprite.css">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/PivotGrid/sprite.png">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/PivotGrid/styles.css">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/RecurrenceTypeEdit.skin">
+      <publishTime>09/19/2015 22:01:04</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ReportDocumentMap.skin">
+      <publishTime>09/19/2015 22:01:04</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ReportParametersPanel.skin">
+      <publishTime>09/19/2015 22:01:04</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ReportToolbar.skin">
+      <publishTime>09/19/2015 22:01:04</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/ReportViewer.skin">
+      <publishTime>09/19/2015 22:01:04</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Scheduler/ButtonBack.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Scheduler/ButtonBackHover.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Scheduler/Sprite.css">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Scheduler/sprite.png">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Scheduler/styles.css">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Scheduler/ViewSelectorButtonBack.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Scheduler/ViewSelectorButtonBackHover.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/SpellChecker/scErrorUnderline.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/SpellChecker/styles.css">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Spreadsheet/sprite.css">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Spreadsheet/sprite.png">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Spreadsheet/styles.css">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Spreadsheet/TouchResize.png">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/SPxGridView.skin">
+      <publishTime>06/27/2014 13:40:44</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/SPxHtmlEditor.skin">
+      <publishTime>06/27/2014 13:40:44</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/SPxTextField.skin">
+      <publishTime>06/27/2014 13:40:44</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/TreeList/Sprite.css">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/TreeList/sprite.png">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/TreeList/styles.css">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/1x1.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/DocumentViewerSprite.css">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/DocumentViewerSprite.png">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/fmFile.png">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/fmFileCheck.png">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/fmFilePdf.png">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/fmFilePlainText.png">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/fmFilePresentation.png">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/fmFileRichText.png">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/fmFileSpreadsheet.png">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/fmSplitterSeparator.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/HESprite.css">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/HESprite.png">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/igLoading.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/igNavBtnsBack.png">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/isLoading.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/Loading.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/mPopupBack.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/ncGotoBack.png">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/ncTail.png">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/ocAudioObjectProperties.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/ocErrorObjectProperties.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/ocFlashObjectProperties.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/ocImageObjectProperties.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/ocQuickTimeObjectProperties.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/ocVideoObjectProperties.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/pcModalBack.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/pDropDownButtonBack.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/pDropDownButtonHoverBack.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/rcMapImage.png">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/splResizingPointer.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/Sprite.css">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/sprite.png">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/Sprite/.dxrpCollapsed .dxWeb_rpCollapseButton_MetropolisBlue.png">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/Sprite/.dxWeb_izEWCloseButton_MetropolisBlue.png">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/Sprite/.dxWeb_izHint_MetropolisBlue.png">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/Sprite/.dxWeb_rpCollapseButton_MetropolisBlue.png">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/SSSprite.css">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/SSSprite.png">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/styles.css">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/tcScrollBtnBack.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/tcScrollBtnDisabledBack.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/tcScrollBtnHoverBack.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/tcTabBack.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/tiGotoBack.png">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/tvElbow.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/tvElbowRtl.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/tvLine.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/tvNodeLoading.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/ucButtonBack.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/ucButtonHoverBack.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/Web/ucSlLogo.png">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/WebChartControl.skin">
+      <publishTime>09/19/2015 22:01:04</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/WeekDaysEdit.skin">
+      <publishTime>09/19/2015 22:01:04</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/WeekOfMonthEdit.skin">
+      <publishTime>09/19/2015 22:01:04</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/XtraReports/Loading.gif">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/XtraReports/pageBottomBorder.png">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/XtraReports/pageLeftBorder.png">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/XtraReports/pageRightBorder.png">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/XtraReports/pageTopBorder.png">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/XtraReports/Sprite.css">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/XtraReports/sprite.png">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/MetropolisBlue/XtraReports/styles.css">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxButton.skin">
+      <publishTime>09/19/2015 21:57:27</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxButtonEdit.skin">
+      <publishTime>09/19/2015 21:59:36</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxCalendar.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxCallbackPanel.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxCaptcha.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxCheckBox.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxCheckBoxList.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxCloudControl.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxColorEdit.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxComboBox.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxDataView.skin">
+      <publishTime>10/05/2015 22:13:10</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxDateEdit.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxDateNavigator.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxDockPanel.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxDocumentViewer.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxDropDownEdit.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxFileManager.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxFilterControl.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxFormLayout.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxGridLookup.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxGridView.skin">
+      <publishTime>02/16/2016 20:30:46</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxHeadline.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxHtmlEditor.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxHyperLink.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxImageGallery.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxImageSlider.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxImageZoom.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxImageZoomNavigator.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxLabel.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxListBox.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxLoadingPanel.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxMemo.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxMenu.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxNavBar.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxNewsControl.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxPageControl.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxPager.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxPivotGrid.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxPopupControl.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxPopupMenu.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxProgressBar.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxRadioButton.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxRadioButtonList.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxRatingControl.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxRibbon.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxRoundPanel.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxScheduler.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxSiteMapControl.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxSpellChecker.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxSpinEdit.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxSplitter.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxSpreadsheet.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxTabControl.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxTextBox.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxTimeEdit.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxTitleIndex.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxTokenBox.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxTrackBar.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxTreeList.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxTreeView.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxUploadControl.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ASPxValidationSummary.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/MonthEdit.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/RecurrenceTypeEdit.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ReportDocumentMap.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ReportParametersPanel.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ReportToolbar.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/ReportViewer.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/WebChartControl.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/WeekDaysEdit.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="App_Themes/SoftOrange/WeekOfMonthEdit.skin">
+      <publishTime>03/30/2015 22:06:30</publishTime>
+    </File>
+    <File Include="bin/App_global.asax.compiled">
+      <publishTime>03/30/2016 17:54:45</publishTime>
+    </File>
+    <File Include="bin/App_global.asax.dll">
+      <publishTime>03/30/2016 17:54:45</publishTime>
+    </File>
+    <File Include="bin/Cure.Admin.dll">
+      <publishTime>10/13/2015 22:39:42</publishTime>
+    </File>
+    <File Include="bin/Cure.DataAccess.dll">
+      <publishTime>03/19/2016 19:31:32</publishTime>
+    </File>
+    <File Include="bin/Cure.Notification.dll">
+      <publishTime>03/30/2016 17:54:34</publishTime>
+    </File>
+    <File Include="bin/Cure.Reports.dll">
+      <publishTime>03/30/2016 17:54:33</publishTime>
+    </File>
+    <File Include="bin/Cure.Utils.dll">
+      <publishTime>03/30/2016 17:54:33</publishTime>
+    </File>
+    <File Include="bin/Cure.WebAdmin.dll">
+      <publishTime>03/30/2016 17:54:35</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.Data.v14.1.resources.dll">
+      <publishTime>06/27/2014 13:41:12</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.Office.v14.1.Core.resources.dll">
+      <publishTime>06/27/2014 13:41:16</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.PivotGrid.v14.1.Core.resources.dll">
+      <publishTime>06/27/2014 13:41:21</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.Printing.v14.1.Core.resources.dll">
+      <publishTime>06/27/2014 13:41:16</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.RichEdit.v14.1.Core.resources.dll">
+      <publishTime>06/27/2014 13:41:21</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.Spreadsheet.v14.1.Core.resources.dll">
+      <publishTime>06/27/2014 13:41:21</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.Utils.v14.1.resources.dll">
+      <publishTime>06/27/2014 13:41:17</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.Web.ASPxHtmlEditor.v14.1.resources.dll">
+      <publishTime>06/27/2014 13:41:08</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.Web.ASPxScheduler.v14.1.resources.dll">
+      <publishTime>06/27/2014 13:41:08</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.Web.ASPxSpellChecker.v14.1.resources.dll">
+      <publishTime>06/27/2014 13:41:08</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.Web.ASPxSpreadsheet.v14.1.resources.dll">
+      <publishTime>06/27/2014 13:41:16</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.Web.ASPxTreeList.v14.1.resources.dll">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.Web.v14.1.resources.dll">
+      <publishTime>06/27/2014 13:41:08</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.XtraCharts.v14.1.resources.dll">
+      <publishTime>06/27/2014 13:41:17</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.XtraGauges.v14.1.Core.resources.dll">
+      <publishTime>06/27/2014 13:41:21</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.XtraGauges.v14.1.Presets.resources.dll">
+      <publishTime>06/27/2014 13:41:21</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.XtraPivotGrid.v14.1.resources.dll">
+      <publishTime>06/27/2014 13:41:21</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.XtraReports.v14.1.resources.dll">
+      <publishTime>06/27/2014 13:41:21</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.XtraReports.v14.1.Web.resources.dll">
+      <publishTime>06/27/2014 13:41:21</publishTime>
+    </File>
+    <File Include="bin/de/DevExpress.XtraScheduler.v14.1.Core.resources.dll">
+      <publishTime>06/27/2014 13:41:21</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Charts.v14.1.Core.dll">
+      <publishTime>06/27/2014 13:41:17</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Data.v14.1.dll">
+      <publishTime>06/27/2014 13:41:12</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Office.v14.1.Core.dll">
+      <publishTime>06/27/2014 13:41:16</publishTime>
+    </File>
+    <File Include="bin/DevExpress.PivotGrid.v14.1.Core.dll">
+      <publishTime>06/27/2014 13:41:21</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Printing.v14.1.Core.dll">
+      <publishTime>06/27/2014 13:41:16</publishTime>
+    </File>
+    <File Include="bin/DevExpress.RichEdit.v14.1.Core.dll">
+      <publishTime>06/27/2014 13:41:21</publishTime>
+    </File>
+    <File Include="bin/DevExpress.SpellChecker.v14.1.Core.dll">
+      <publishTime>06/27/2014 13:41:16</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Spreadsheet.v14.1.Core.dll">
+      <publishTime>06/27/2014 13:41:21</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Utils.v14.1.dll">
+      <publishTime>06/27/2014 13:41:17</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Web.ASPxGauges.v14.1.dll">
+      <publishTime>06/27/2014 13:41:08</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Web.ASPxHtmlEditor.v14.1.dll">
+      <publishTime>06/27/2014 13:41:08</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Web.ASPxPivotGrid.v14.1.dll">
+      <publishTime>06/27/2014 13:41:08</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Web.ASPxScheduler.v14.1.dll">
+      <publishTime>06/27/2014 13:41:08</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Web.ASPxSpellChecker.v14.1.dll">
+      <publishTime>06/27/2014 13:41:08</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Web.ASPxSpreadsheet.v14.1.dll">
+      <publishTime>06/27/2014 13:41:16</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Web.ASPxThemes.v14.1.dll">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Web.ASPxTreeList.v14.1.dll">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Web.v14.1.dll">
+      <publishTime>06/27/2014 13:41:08</publishTime>
+    </File>
+    <File Include="bin/DevExpress.XtraCharts.v14.1.dll">
+      <publishTime>06/27/2014 13:41:17</publishTime>
+    </File>
+    <File Include="bin/DevExpress.XtraCharts.v14.1.Web.dll">
+      <publishTime>06/27/2014 13:41:08</publishTime>
+    </File>
+    <File Include="bin/DevExpress.XtraGauges.v14.1.Core.dll">
+      <publishTime>06/27/2014 13:41:21</publishTime>
+    </File>
+    <File Include="bin/DevExpress.XtraGauges.v14.1.Presets.dll">
+      <publishTime>06/27/2014 13:41:21</publishTime>
+    </File>
+    <File Include="bin/DevExpress.XtraPivotGrid.v14.1.dll">
+      <publishTime>06/27/2014 13:41:21</publishTime>
+    </File>
+    <File Include="bin/DevExpress.XtraReports.v14.1.dll">
+      <publishTime>06/27/2014 13:41:21</publishTime>
+    </File>
+    <File Include="bin/DevExpress.XtraReports.v14.1.Web.dll">
+      <publishTime>06/27/2014 13:41:21</publishTime>
+    </File>
+    <File Include="bin/DevExpress.XtraScheduler.v14.1.Core.dll">
+      <publishTime>06/27/2014 13:41:21</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.Data.v14.1.resources.dll">
+      <publishTime>06/27/2014 13:41:12</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.Office.v14.1.Core.resources.dll">
+      <publishTime>06/27/2014 13:41:16</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.PivotGrid.v14.1.Core.resources.dll">
+      <publishTime>06/27/2014 13:41:21</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.Printing.v14.1.Core.resources.dll">
+      <publishTime>06/27/2014 13:41:16</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.RichEdit.v14.1.Core.resources.dll">
+      <publishTime>06/27/2014 13:41:21</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.Spreadsheet.v14.1.Core.resources.dll">
+      <publishTime>06/27/2014 13:41:21</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.Utils.v14.1.resources.dll">
+      <publishTime>06/27/2014 13:41:17</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.Web.ASPxHtmlEditor.v14.1.resources.dll">
+      <publishTime>06/27/2014 13:41:08</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.Web.ASPxScheduler.v14.1.resources.dll">
+      <publishTime>06/27/2014 13:41:08</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.Web.ASPxSpellChecker.v14.1.resources.dll">
+      <publishTime>06/27/2014 13:41:08</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.Web.ASPxSpreadsheet.v14.1.resources.dll">
+      <publishTime>06/27/2014 13:41:16</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.Web.ASPxTreeList.v14.1.resources.dll">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.Web.v14.1.resources.dll">
+      <publishTime>06/27/2014 13:41:08</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.XtraCharts.v14.1.resources.dll">
+      <publishTime>06/27/2014 13:41:17</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.XtraGauges.v14.1.Core.resources.dll">
+      <publishTime>06/27/2014 13:41:21</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.XtraGauges.v14.1.Presets.resources.dll">
+      <publishTime>06/27/2014 13:41:21</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.XtraPivotGrid.v14.1.resources.dll">
+      <publishTime>06/27/2014 13:41:21</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.XtraReports.v14.1.resources.dll">
+      <publishTime>06/27/2014 13:41:21</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.XtraReports.v14.1.Web.resources.dll">
+      <publishTime>06/27/2014 13:41:21</publishTime>
+    </File>
+    <File Include="bin/es/DevExpress.XtraScheduler.v14.1.Core.resources.dll">
+      <publishTime>06/27/2014 13:41:21</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.Data.v14.1.resources.dll">
+      <publishTime>06/27/2014 13:41:12</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.Office.v14.1.Core.resources.dll">
+      <publishTime>06/27/2014 13:41:16</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.PivotGrid.v14.1.Core.resources.dll">
+      <publishTime>06/27/2014 13:41:21</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.Printing.v14.1.Core.resources.dll">
+      <publishTime>06/27/2014 13:41:16</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.RichEdit.v14.1.Core.resources.dll">
+      <publishTime>06/27/2014 13:41:21</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.Spreadsheet.v14.1.Core.resources.dll">
+      <publishTime>06/27/2014 13:41:21</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.Utils.v14.1.resources.dll">
+      <publishTime>06/27/2014 13:41:17</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.Web.ASPxHtmlEditor.v14.1.resources.dll">
+      <publishTime>06/27/2014 13:41:08</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.Web.ASPxScheduler.v14.1.resources.dll">
+      <publishTime>06/27/2014 13:41:08</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.Web.ASPxSpellChecker.v14.1.resources.dll">
+      <publishTime>06/27/2014 13:41:08</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.Web.ASPxSpreadsheet.v14.1.resources.dll">
+      <publishTime>06/27/2014 13:41:16</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.Web.ASPxTreeList.v14.1.resources.dll">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.Web.v14.1.resources.dll">
+      <publishTime>06/27/2014 13:41:08</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.XtraCharts.v14.1.resources.dll">
+      <publishTime>06/27/2014 13:41:17</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.XtraGauges.v14.1.Core.resources.dll">
+      <publishTime>06/27/2014 13:41:21</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.XtraGauges.v14.1.Presets.resources.dll">
+      <publishTime>06/27/2014 13:41:21</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.XtraPivotGrid.v14.1.resources.dll">
+      <publishTime>06/27/2014 13:41:21</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.XtraReports.v14.1.resources.dll">
+      <publishTime>06/27/2014 13:41:21</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.XtraReports.v14.1.Web.resources.dll">
+      <publishTime>06/27/2014 13:41:21</publishTime>
+    </File>
+    <File Include="bin/ja/DevExpress.XtraScheduler.v14.1.Core.resources.dll">
+      <publishTime>06/27/2014 13:41:21</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.ServiceLocation.dll">
+      <publishTime>10/15/2015 00:38:19</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.Unity.Configuration.dll">
+      <publishTime>10/15/2015 00:38:19</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.Unity.dll">
+      <publishTime>10/15/2015 00:38:19</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>10/15/2015 00:38:19</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.Data.v14.1.resources.dll">
+      <publishTime>06/27/2014 13:41:12</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.Office.v14.1.Core.resources.dll">
+      <publishTime>06/27/2014 13:41:16</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.PivotGrid.v14.1.Core.resources.dll">
+      <publishTime>06/27/2014 13:41:21</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.Printing.v14.1.Core.resources.dll">
+      <publishTime>06/27/2014 13:41:16</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.RichEdit.v14.1.Core.resources.dll">
+      <publishTime>06/27/2014 13:41:21</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.Spreadsheet.v14.1.Core.resources.dll">
+      <publishTime>06/27/2014 13:41:21</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.Utils.v14.1.resources.dll">
+      <publishTime>06/27/2014 13:41:17</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.Web.ASPxHtmlEditor.v14.1.resources.dll">
+      <publishTime>06/27/2014 13:41:08</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.Web.ASPxScheduler.v14.1.resources.dll">
+      <publishTime>06/27/2014 13:41:08</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.Web.ASPxSpellChecker.v14.1.resources.dll">
+      <publishTime>06/27/2014 13:41:08</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.Web.ASPxSpreadsheet.v14.1.resources.dll">
+      <publishTime>06/27/2014 13:41:16</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.Web.ASPxTreeList.v14.1.resources.dll">
+      <publishTime>06/27/2014 13:41:11</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.Web.v14.1.resources.dll">
+      <publishTime>06/27/2014 13:41:08</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.XtraCharts.v14.1.resources.dll">
+      <publishTime>06/27/2014 13:41:17</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.XtraGauges.v14.1.Core.resources.dll">
+      <publishTime>06/27/2014 13:41:21</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.XtraGauges.v14.1.Presets.resources.dll">
+      <publishTime>06/27/2014 13:41:21</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.XtraPivotGrid.v14.1.resources.dll">
+      <publishTime>06/27/2014 13:41:21</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.XtraReports.v14.1.resources.dll">
+      <publishTime>06/27/2014 13:41:21</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.XtraReports.v14.1.Web.resources.dll">
+      <publishTime>06/27/2014 13:41:21</publishTime>
+    </File>
+    <File Include="bin/ru/DevExpress.XtraScheduler.v14.1.Core.resources.dll">
+      <publishTime>06/27/2014 13:41:21</publishTime>
+    </File>
+    <File Include="bin/Unity.WebForms.dll">
+      <publishTime>10/15/2015 00:38:19</publishTime>
+    </File>
+    <File Include="bin/WebActivator.dll">
+      <publishTime>10/15/2015 00:38:19</publishTime>
+    </File>
+    <File Include="Client/Controls/ClientCurrOrder.ascx">
+      <publishTime>01/20/2016 00:02:44</publishTime>
+    </File>
+    <File Include="Client/Controls/ClientPacients.ascx">
+      <publishTime>02/16/2016 20:40:15</publishTime>
+    </File>
+    <File Include="Client/Controls/ClientSputniks.ascx">
+      <publishTime>01/16/2016 00:06:29</publishTime>
+    </File>
+    <File Include="Client/Controls/MyFileManager.ascx">
+      <publishTime>01/15/2016 23:39:06</publishTime>
+    </File>
+    <File Include="Client/Controls/Step1Start.ascx">
+      <publishTime>11/15/2015 01:11:42</publishTime>
+    </File>
+    <File Include="Client/Controls/Step2Ready.ascx">
+      <publishTime>11/15/2015 01:11:29</publishTime>
+    </File>
+    <File Include="Client/Controls/Step3Checking.ascx">
+      <publishTime>11/15/2015 01:11:29</publishTime>
+    </File>
+    <File Include="Client/Controls/Step4Steady.ascx">
+      <publishTime>01/19/2016 21:56:30</publishTime>
+    </File>
+    <File Include="Client/Controls/Step5Go.ascx">
+      <publishTime>01/19/2016 21:56:10</publishTime>
+    </File>
+    <File Include="Client/Controls/Step6Process.ascx">
+      <publishTime>01/19/2016 21:56:03</publishTime>
+    </File>
+    <File Include="Client/Controls/Step7Finish.ascx">
+      <publishTime>01/19/2016 21:30:35</publishTime>
+    </File>
+    <File Include="Client/Controls/StepAditionalInfo.ascx">
+      <publishTime>11/15/2015 22:37:35</publishTime>
+    </File>
+    <File Include="Client/CurrentOrder.aspx">
+      <publishTime>11/15/2015 22:37:35</publishTime>
+    </File>
+    <File Include="Client/MyOrders.aspx">
+      <publishTime>02/27/2016 00:12:54</publishTime>
+    </File>
+    <File Include="Client/NewOrder.aspx">
+      <publishTime>02/26/2016 10:11:58</publishTime>
+    </File>
+    <File Include="Client/NewOrderWizard.aspx">
+      <publishTime>03/25/2016 21:29:24</publishTime>
+    </File>
+    <File Include="Client/Web.config">
+      <publishTime>12/22/2015 22:48:16</publishTime>
+    </File>
+    <File Include="Content/admin.sitemap">
+      <publishTime>03/05/2016 12:56:01</publishTime>
+    </File>
+    <File Include="Content/client.sitemap">
+      <publishTime>03/05/2016 12:55:05</publishTime>
+    </File>
+    <File Include="Content/Images/AquaHeader.jpg">
+      <publishTime>09/18/2015 22:10:20</publishTime>
+    </File>
+    <File Include="Content/Images/BlackGlassHeader.jpg">
+      <publishTime>09/18/2015 22:10:21</publishTime>
+    </File>
+    <File Include="Content/Images/dcp_logo.png">
+      <publishTime>02/12/2016 16:01:09</publishTime>
+    </File>
+    <File Include="Content/Images/editors_apps.gif">
+      <publishTime>12/16/2015 23:54:50</publishTime>
+    </File>
+    <File Include="Content/Images/editors_apps_dis.gif">
+      <publishTime>12/16/2015 23:54:50</publishTime>
+    </File>
+    <File Include="Content/Images/editors_calc.gif">
+      <publishTime>05/16/2013 17:02:41</publishTime>
+    </File>
+    <File Include="Content/Images/editors_calc_dis.gif">
+      <publishTime>05/16/2013 17:02:41</publishTime>
+    </File>
+    <File Include="Content/Images/editors_cancel.gif">
+      <publishTime>05/16/2013 17:02:41</publishTime>
+    </File>
+    <File Include="Content/Images/editors_cancel_dis.gif">
+      <publishTime>05/16/2013 17:02:41</publishTime>
+    </File>
+    <File Include="Content/Images/editors_delete.gif">
+      <publishTime>05/16/2013 17:02:41</publishTime>
+    </File>
+    <File Include="Content/Images/editors_delete_dis.gif">
+      <publishTime>05/16/2013 17:02:41</publishTime>
+    </File>
+    <File Include="Content/Images/editors_edit.gif">
+      <publishTime>05/16/2013 17:02:41</publishTime>
+    </File>
+    <File Include="Content/Images/editors_editli.gif">
+      <publishTime>05/16/2013 17:02:41</publishTime>
+    </File>
+    <File Include="Content/Images/editors_editli_dis.gif">
+      <publishTime>05/16/2013 17:02:41</publishTime>
+    </File>
+    <File Include="Content/Images/editors_edit_dis.gif">
+      <publishTime>05/16/2013 17:02:41</publishTime>
+    </File>
+    <File Include="Content/Images/editors_get.gif">
+      <publishTime>05/16/2013 17:02:41</publishTime>
+    </File>
+    <File Include="Content/Images/editors_get_dis.gif">
+      <publishTime>05/16/2013 17:02:41</publishTime>
+    </File>
+    <File Include="Content/Images/editors_lupe.gif">
+      <publishTime>05/16/2013 17:02:41</publishTime>
+    </File>
+    <File Include="Content/Images/editors_lupe_dis.gif">
+      <publishTime>05/16/2013 17:02:41</publishTime>
+    </File>
+    <File Include="Content/Images/editors_mail1.gif">
+      <publishTime>05/16/2013 17:02:41</publishTime>
+    </File>
+    <File Include="Content/Images/editors_mail1_dis.gif">
+      <publishTime>05/16/2013 17:02:41</publishTime>
+    </File>
+    <File Include="Content/Images/editors_mail2.gif">
+      <publishTime>05/16/2013 17:02:41</publishTime>
+    </File>
+    <File Include="Content/Images/editors_mail2_dis.gif">
+      <publishTime>05/16/2013 17:02:41</publishTime>
+    </File>
+    <File Include="Content/Images/editors_manufacturing.gif">
+      <publishTime>05/16/2013 17:02:41</publishTime>
+    </File>
+    <File Include="Content/Images/editors_manufacturing_dis.gif">
+      <publishTime>05/16/2013 17:02:41</publishTime>
+    </File>
+    <File Include="Content/Images/editors_mini_plus.gif">
+      <publishTime>05/16/2013 17:02:41</publishTime>
+    </File>
+    <File Include="Content/Images/editors_mini_plus_dis.gif">
+      <publishTime>05/16/2013 17:02:41</publishTime>
+    </File>
+    <File Include="Content/Images/editors_ok.gif">
+      <publishTime>05/16/2013 17:02:41</publishTime>
+    </File>
+    <File Include="Content/Images/editors_open.gif">
+      <publishTime>05/16/2013 17:02:41</publishTime>
+    </File>
+    <File Include="Content/Images/editors_open_dis.gif">
+      <publishTime>05/16/2013 17:02:41</publishTime>
+    </File>
+    <File Include="Content/Images/editors_plus.gif">
+      <publishTime>05/16/2013 17:02:41</publishTime>
+    </File>
+    <File Include="Content/Images/editors_plus_dis.gif">
+      <publishTime>05/16/2013 17:02:41</publishTime>
+    </File>
+    <File Include="Content/Images/editors_post.gif">
+      <publishTime>05/16/2013 17:02:41</publishTime>
+    </File>
+    <File Include="Content/Images/editors_post_dis.gif">
+      <publishTime>05/16/2013 17:02:41</publishTime>
+    </File>
+    <File Include="Content/Images/editors_refresh.gif">
+      <publishTime>05/16/2013 17:02:41</publishTime>
+    </File>
+    <File Include="Content/Images/editors_refresh_dis.gif">
+      <publishTime>05/16/2013 17:02:41</publishTime>
+    </File>
+    <File Include="Content/Images/editors_tree.gif">
+      <publishTime>05/16/2013 17:02:41</publishTime>
+    </File>
+    <File Include="Content/Images/editors_tree_dis.gif">
+      <publishTime>05/16/2013 17:02:41</publishTime>
+    </File>
+    <File Include="Content/Images/editors_unpost.gif">
+      <publishTime>05/16/2013 17:02:41</publishTime>
+    </File>
+    <File Include="Content/Images/editors_unpost_dis.gif">
+      <publishTime>05/16/2013 17:02:41</publishTime>
+    </File>
+    <File Include="Content/Images/editors_upload.gif">
+      <publishTime>05/16/2013 17:02:41</publishTime>
+    </File>
+    <File Include="Content/Images/editors_upload_dis.gif">
+      <publishTime>05/16/2013 17:02:41</publishTime>
+    </File>
+    <File Include="Content/Images/GlassHeader.jpg">
+      <publishTime>09/18/2015 22:10:21</publishTime>
+    </File>
+    <File Include="Content/Images/infomini.gif">
+      <publishTime>05/16/2013 17:02:41</publishTime>
+    </File>
+    <File Include="Content/Images/PlasticBlueHeader.jpg">
+      <publishTime>09/18/2015 22:10:21</publishTime>
+    </File>
+    <File Include="Content/Images/RedWineHeader.jpg">
+      <publishTime>09/18/2015 22:10:20</publishTime>
+    </File>
+    <File Include="Content/MailTemplates/PassrordRecoveryTemplate.txt">
+      <publishTime>01/04/2016 16:03:01</publishTime>
+    </File>
+    <File Include="Content/ReportingHelpers/golova_post-1.png">
+      <publishTime>12/16/2015 22:24:31</publishTime>
+    </File>
+    <File Include="Content/ReportingHelpers/golova_post-2.png">
+      <publishTime>12/16/2015 22:24:31</publishTime>
+    </File>
+    <File Include="Content/ReportingHelpers/golova_post-3.png">
+      <publishTime>12/16/2015 22:24:31</publishTime>
+    </File>
+    <File Include="Content/ReportingHelpers/golova_post-4.png">
+      <publishTime>12/16/2015 22:24:31</publishTime>
+    </File>
+    <File Include="Content/ReportingHelpers/golova_post-5.png">
+      <publishTime>12/16/2015 22:24:31</publishTime>
+    </File>
+    <File Include="Content/ReportingHelpers/golova_post-6.png">
+      <publishTime>12/16/2015 22:24:31</publishTime>
+    </File>
+    <File Include="Content/ReportingHelpers/golova_post-7.png">
+      <publishTime>12/16/2015 22:24:31</publishTime>
+    </File>
+    <File Include="Content/ReportingHelpers/golova_post-8.png">
+      <publishTime>12/16/2015 22:24:31</publishTime>
+    </File>
+    <File Include="Content/ReportingHelpers/golova_sign-0.png">
+      <publishTime>12/16/2015 22:24:31</publishTime>
+    </File>
+    <File Include="Content/ReportingHelpers/golova_sign-1.png">
+      <publishTime>12/16/2015 22:24:31</publishTime>
+    </File>
+    <File Include="Content/ReportingHelpers/golova_sign-2.png">
+      <publishTime>12/16/2015 22:24:31</publishTime>
+    </File>
+    <File Include="Content/ReportingHelpers/golova_sign-3.png">
+      <publishTime>12/16/2015 22:24:31</publishTime>
+    </File>
+    <File Include="Content/ReportingHelpers/golova_sign-4.png">
+      <publishTime>12/16/2015 22:24:31</publishTime>
+    </File>
+    <File Include="Content/ReportingHelpers/golova_sign-5.png">
+      <publishTime>12/16/2015 22:24:31</publishTime>
+    </File>
+    <File Include="Content/ReportingHelpers/golova_sign-6.png">
+      <publishTime>12/16/2015 22:24:31</publishTime>
+    </File>
+    <File Include="Content/ReportingHelpers/golova_sign-7.png">
+      <publishTime>12/16/2015 22:24:31</publishTime>
+    </File>
+    <File Include="Content/ReportingHelpers/golova_sign-8.png">
+      <publishTime>12/16/2015 22:24:31</publishTime>
+    </File>
+    <File Include="Content/ReportingHelpers/golova_sign-9.png">
+      <publishTime>12/16/2015 22:24:31</publishTime>
+    </File>
+    <File Include="Content/ReportingHelpers/Главврач 1.png">
+      <publishTime>12/16/2015 22:24:31</publishTime>
+    </File>
+    <File Include="Content/ReportingHelpers/Главврач 2.png">
+      <publishTime>12/16/2015 22:24:31</publishTime>
+    </File>
+    <File Include="Content/ReportingHelpers/Главврач 3.png">
+      <publishTime>12/16/2015 22:24:31</publishTime>
+    </File>
+    <File Include="Content/ReportingHelpers/Главврач 4.png">
+      <publishTime>12/16/2015 22:24:31</publishTime>
+    </File>
+    <File Include="Content/ReportingHelpers/Главврач 5.png">
+      <publishTime>12/16/2015 22:24:31</publishTime>
+    </File>
+    <File Include="Content/ReportingHelpers/Главврач 6.png">
+      <publishTime>12/16/2015 22:24:31</publishTime>
+    </File>
+    <File Include="Content/ReportingHelpers/Главврач 7.png">
+      <publishTime>12/16/2015 22:24:31</publishTime>
+    </File>
+    <File Include="Content/ReportingHelpers/Главврач 8.png">
+      <publishTime>12/16/2015 22:24:31</publishTime>
+    </File>
+    <File Include="Content/ReportingHelpers/Главврач 9.png">
+      <publishTime>12/16/2015 22:24:31</publishTime>
+    </File>
+    <File Include="Content/Site.css">
+      <publishTime>02/15/2016 21:36:33</publishTime>
+    </File>
+    <File Include="Content/transfer.sitemap">
+      <publishTime>12/22/2015 22:55:52</publishTime>
+    </File>
+    <File Include="Controls/PhotoGallery.ascx">
+      <publishTime>01/15/2016 23:39:38</publishTime>
+    </File>
+    <File Include="Controls/PhotoUploader.ascx">
+      <publishTime>10/23/2015 22:21:41</publishTime>
+    </File>
+    <File Include="Controls/RemoteNavigation.ascx">
+      <publishTime>02/07/2016 23:19:56</publishTime>
+    </File>
+    <File Include="Controls/ResultBox.ascx">
+      <publishTime>11/15/2015 19:51:35</publishTime>
+    </File>
+    <File Include="Default.aspx">
+      <publishTime>10/15/2015 01:28:47</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>10/15/2015 01:28:47</publishTime>
+    </File>
+    <File Include="Light.master">
+      <publishTime>10/15/2015 01:28:47</publishTime>
+    </File>
+    <File Include="Logist/TransferList.aspx">
+      <publishTime>03/19/2016 19:56:54</publishTime>
+    </File>
+    <File Include="Logist/Web.config">
+      <publishTime>12/22/2015 22:50:19</publishTime>
+    </File>
+    <File Include="Main.master">
+      <publishTime>10/15/2015 01:28:47</publishTime>
+    </File>
+    <File Include="Output/PacientVisitDetailsReport.aspx">
+      <publishTime>01/08/2016 22:29:31</publishTime>
+    </File>
+    <File Include="Output/ParamsSoonOrders.aspx">
+      <publishTime>12/04/2015 01:33:45</publishTime>
+    </File>
+    <File Include="Output/VisitInvitationReport.aspx">
+      <publishTime>12/10/2015 23:45:04</publishTime>
+    </File>
+    <File Include="Output/Web.config">
+      <publishTime>01/08/2016 22:43:07</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>10/18/2015 20:52:41</publishTime>
+    </File>
+    <File Include="PrecompiledApp.config">
+      <publishTime>03/30/2016 17:54:42</publishTime>
+    </File>
+    <File Include="Report.master">
+      <publishTime>12/10/2015 23:44:31</publishTime>
+    </File>
+    <File Include="Reports/ParamsSoonOrders.aspx">
+      <publishTime>12/04/2015 01:33:45</publishTime>
+    </File>
+    <File Include="Reports/VisitInvitationReport.aspx">
+      <publishTime>12/10/2015 23:45:04</publishTime>
+    </File>
+    <File Include="Reports/Web.config">
+      <publishTime>10/13/2015 22:22:16</publishTime>
+    </File>
+    <File Include="Root.master">
+      <publishTime>03/18/2016 06:57:46</publishTime>
+    </File>
+    <File Include="Scripts/jquery-2.1.3.js">
+      <publishTime>10/18/2015 20:52:41</publishTime>
+    </File>
+    <File Include="Scripts/jquery-2.1.3.min.js">
+      <publishTime>10/18/2015 20:52:41</publishTime>
+    </File>
+    <File Include="Scripts/jquery-2.1.3.min.map">
+      <publishTime>10/18/2015 20:52:41</publishTime>
+    </File>
+    <File Include="Visitor/Web.config">
+      <publishTime>10/13/2015 21:28:44</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>02/11/2016 02:20:06</publishTime>
+    </File>
+    <File Include="_EveryDay9826358775243309.aspx">
+      <publishTime>01/23/2016 14:03:10</publishTime>
+    </File>
+    <File Include="_EveryHour2543341928834234.aspx">
+      <publishTime>01/21/2016 22:45:32</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

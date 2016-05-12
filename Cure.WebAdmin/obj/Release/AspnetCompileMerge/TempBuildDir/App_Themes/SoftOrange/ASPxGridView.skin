@@ -1,0 +1,37 @@
+<%@ Register TagPrefix="dx" Namespace="DevExpress.Data" Assembly="DevExpress.Data.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="dxwgv" Namespace="DevExpress.Web.ASPxGridView" Assembly="DevExpress.Web.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+
+<dxwgv:ASPxGridView runat="server" CssPostfix="SoftOrange" CssFilePath="~/App_Themes/SoftOrange/{0}/styles.css" Width="100%" >
+    <SettingsPager CurrentPageNumberFormat="{0}">
+    </SettingsPager>
+    <SettingsLoadingPanel ImagePosition="Top"></SettingsLoadingPanel>
+
+    <Images SpriteCssFilePath="~/App_Themes/SoftOrange/{0}/sprite.css">
+    </Images>
+
+    <Styles CssPostfix="SoftOrange" CssFilePath="~/App_Themes/SoftOrange/{0}/styles.css" GroupButtonWidth="28">
+        <Header SortingImageSpacing="5px" ImageSpacing="5px"></Header>
+    </Styles>
+    <Paddings Padding="1px" />
+    <SettingsBehavior AllowFocusedRow="True" ConfirmDelete="True" />
+    <SettingsPager PageSize="50"></SettingsPager>
+    <SettingsEditing Mode="PopupEditForm" EditFormColumnCount="2">
+    </SettingsEditing>            
+    <SettingsPopup>
+        <EditForm Modal="True" />
+    </SettingsPopup>
+    <SettingsCommandButton>
+        <NewButton ButtonType="Image">
+            <Image IconID="actions_add_16x16">
+            </Image>
+        </NewButton>
+        <ApplyFilterButton ButtonType="Image">
+            <Image IconID="actions_apply_16x16">
+            </Image>
+        </ApplyFilterButton>
+        <ClearFilterButton ButtonType="Image">
+            <Image IconID="actions_clear_16x16">
+            </Image>
+        </ClearFilterButton>
+    </SettingsCommandButton>
+</dxwgv:ASPxGridView>

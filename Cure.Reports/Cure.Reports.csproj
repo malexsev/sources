@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{83627BD5-ADEE-4F16-9972-77BBD0072B7C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Cure.Reports</RootNamespace>
+    <AssemblyName>Cure.Reports</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Charts.v14.1.Core, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Office.v14.1.Core, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.PivotGrid.v14.1.Core, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v14.1.Core, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v14.1.Core, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Sparkline.v14.1.Core, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGauges.v14.1.Core, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Datasets\VisitInvitationDataset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VisitInvitationDataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\VisitInvitationSputniksDataset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VisitInvitationSputniksDataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PacientVisitDetails.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PacientVisitDetails.Designer.cs">
+      <DependentUpon>PacientVisitDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Datasets\VisitInvitationSputniksDataset.cs">
+      <DependentUpon>VisitInvitationSputniksDataset.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Datasets\VisitInvitationDataset.cs">
+      <DependentUpon>VisitInvitationDataset.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ReportUtils.cs" />
+    <Compile Include="Subreports\PacientVisitDetailsSputniks.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Subreports\PacientVisitDetailsSputniks.Designer.cs">
+      <DependentUpon>PacientVisitDetailsSputniks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Subreports\VisitInvitationSputniks.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Subreports\VisitInvitationSputniks.Designer.cs">
+      <DependentUpon>VisitInvitationSputniks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VisitInvitation.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="VisitInvitation.Designer.cs">
+      <DependentUpon>VisitInvitation.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cure.DataAccess\Cure.DataAccess.csproj">
+      <Project>{23945d42-0232-4000-aa1e-959b6cd74278}</Project>
+      <Name>Cure.DataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="PacientVisitDetails.resx">
+      <DependentUpon>PacientVisitDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Subreports\PacientVisitDetailsSputniks.resx">
+      <DependentUpon>PacientVisitDetailsSputniks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Subreports\VisitInvitationSputniks.resx">
+      <DependentUpon>VisitInvitationSputniks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VisitInvitation.resx">
+      <DependentUpon>VisitInvitation.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Datasets\VisitInvitationSputniksDataset.xsc">
+      <DependentUpon>VisitInvitationSputniksDataset.xsd</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Datasets\VisitInvitationSputniksDataset.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>VisitInvitationSputniksDataset.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datasets\VisitInvitationSputniksDataset.xss">
+      <DependentUpon>VisitInvitationSputniksDataset.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\VisitInvitationDataset.xsc">
+      <DependentUpon>VisitInvitationDataset.xsd</DependentUpon>
+    </None>
+    <None Include="Datasets\VisitInvitationDataset.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>VisitInvitationDataset.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Datasets\VisitInvitationDataset.xss">
+      <DependentUpon>VisitInvitationDataset.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Datasets\ConStringsToWeb.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

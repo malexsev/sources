@@ -1,0 +1,8 @@
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.DataAccess\bin\Release\Cure.DataAccess.dll.config
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.DataAccess\bin\Release\Cure.DataAccess.dll
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.DataAccess\bin\Release\Cure.DataAccess.pdb
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.DataAccess\bin\Release\EntityFramework.dll
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.DataAccess\bin\Release\EntityFramework.xml
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.DataAccess\obj\Release\Cure.DataAccess.dll
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.DataAccess\obj\Release\Cure.DataAccess.pdb
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.DataAccess\obj\Release\Cure.DataAccess.csprojResolveAssemblyReference.cache
