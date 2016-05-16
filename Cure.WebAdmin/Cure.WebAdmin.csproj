@@ -207,6 +207,9 @@
     <Content Include="Admin\Controls\JustClosedVisitsList.ascx" />
     <Content Include="Admin\Controls\SoonVisitsList.ascx" />
     <Content Include="Admin\NotificationLogList.aspx" />
+    <Content Include="Admin\ChildList.aspx" />
+    <Content Include="Admin\RefOperatorList.aspx" />
+    <Content Include="Admin\RefBankList.aspx" />
     <Content Include="Admin\UserList.aspx" />
     <Content Include="Admin\SettingList.aspx" />
     <Content Include="Admin\SmsLogList.aspx" />
@@ -505,6 +508,27 @@
     </Compile>
     <Compile Include="Admin\NotificationLogList.aspx.designer.cs">
       <DependentUpon>NotificationLogList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ChildList.aspx.cs">
+      <DependentUpon>ChildList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ChildList.aspx.designer.cs">
+      <DependentUpon>ChildList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\RefOperatorList.aspx.cs">
+      <DependentUpon>RefOperatorList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\RefOperatorList.aspx.designer.cs">
+      <DependentUpon>RefOperatorList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\RefBankList.aspx.cs">
+      <DependentUpon>RefBankList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\RefBankList.aspx.designer.cs">
+      <DependentUpon>RefBankList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\UserList.aspx.cs">
       <DependentUpon>UserList.aspx</DependentUpon>

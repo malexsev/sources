@@ -499,5 +499,63 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="RefBanks">
+      <EntityTypeMapping TypeName="DataModel.RefBank">
+        <MappingFragment StoreEntitySet="RefBank">
+          <ScalarProperty Name="KorrAccount" ColumnName="KorrAccount" />
+          <ScalarProperty Name="Bik" ColumnName="Bik" />
+          <ScalarProperty Name="Okved" ColumnName="Okved" />
+          <ScalarProperty Name="Oktmo" ColumnName="Oktmo" />
+          <ScalarProperty Name="Kpp" ColumnName="Kpp" />
+          <ScalarProperty Name="Inn" ColumnName="Inn" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RefOperators">
+      <EntityTypeMapping TypeName="DataModel.RefOperator">
+        <MappingFragment StoreEntitySet="RefOperator">
+          <ScalarProperty Name="Params" ColumnName="Params" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Children">
+      <EntityTypeMapping TypeName="DataModel.Child">
+        <MappingFragment StoreEntitySet="Child">
+          <ScalarProperty Name="FinCardNumber" ColumnName="FinCardNumber" />
+          <ScalarProperty Name="FinBankOther" ColumnName="FinBankOther" />
+          <ScalarProperty Name="FinBankId" ColumnName="FinBankId" />
+          <ScalarProperty Name="FinCountryId" ColumnName="FinCountryId" />
+          <ScalarProperty Name="FinPhoneNumber" ColumnName="FinPhoneNumber" />
+          <ScalarProperty Name="FinOperatorId" ColumnName="FinOperatorId" />
+          <ScalarProperty Name="FinKiwi" ColumnName="FinKiwi" />
+          <ScalarProperty Name="FinYandexMoney" ColumnName="FinYandexMoney" />
+          <ScalarProperty Name="FinWebmoney" ColumnName="FinWebmoney" />
+          <ScalarProperty Name="SocialFb" ColumnName="SocialFb" />
+          <ScalarProperty Name="SocialMm" ColumnName="SocialMm" />
+          <ScalarProperty Name="SocialVk" ColumnName="SocialVk" />
+          <ScalarProperty Name="SocialOk" ColumnName="SocialOk" />
+          <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+          <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+          <ScalarProperty Name="ContactRodstvoId" ColumnName="ContactRodstvoId" />
+          <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+          <ScalarProperty Name="Diagnoz" ColumnName="Diagnoz" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="OwnerUser" ColumnName="OwnerUser" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

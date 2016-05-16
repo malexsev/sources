@@ -32,6 +32,13 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("DataModel", "FK_Visit_Pacient", "Pacient", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.Pacient), "Visit", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Visit), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK__aspnet_Me__UserI__2F10007B", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.aspnet_Users), "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Cure.DataAccess.aspnet_Membership), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK__aspnet_Me__UserI__61316BF4", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.aspnet_Users), "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Cure.DataAccess.aspnet_Membership), true)]
+[assembly: EdmRelationshipAttribute("DataModel", "FK_RefBank_RefCountry", "RefCountry", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.RefCountry), "RefBank", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.RefBank), true)]
+[assembly: EdmRelationshipAttribute("DataModel", "FK_RefOperator_RefCountry", "RefCountry", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.RefCountry), "RefOperator", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.RefOperator), true)]
+[assembly: EdmRelationshipAttribute("DataModel", "FK_Child_RefBank", "RefBank", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Cure.DataAccess.RefBank), "Child", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Child), true)]
+[assembly: EdmRelationshipAttribute("DataModel", "FK_Child_RefCountry", "RefCountry", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.RefCountry), "Child", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Child), true)]
+[assembly: EdmRelationshipAttribute("DataModel", "FK_Child_RefCountryFin", "RefCountry", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Cure.DataAccess.RefCountry), "Child", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Child), true)]
+[assembly: EdmRelationshipAttribute("DataModel", "FK_Child_RefOperator", "RefOperator", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Cure.DataAccess.RefOperator), "Child", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Child), true)]
+[assembly: EdmRelationshipAttribute("DataModel", "FK_Child_RefRodstvo", "RefRodstvo", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.RefRodstvo), "Child", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Child), true)]
 
 #endregion
 
@@ -354,6 +361,54 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<aspnet_Users> _aspnet_Users;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<RefBank> RefBanks
+        {
+            get
+            {
+                if ((_RefBanks == null))
+                {
+                    _RefBanks = base.CreateObjectSet<RefBank>("RefBanks");
+                }
+                return _RefBanks;
+            }
+        }
+        private ObjectSet<RefBank> _RefBanks;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<RefOperator> RefOperators
+        {
+            get
+            {
+                if ((_RefOperators == null))
+                {
+                    _RefOperators = base.CreateObjectSet<RefOperator>("RefOperators");
+                }
+                return _RefOperators;
+            }
+        }
+        private ObjectSet<RefOperator> _RefOperators;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Child> Children
+        {
+            get
+            {
+                if ((_Children == null))
+                {
+                    _Children = base.CreateObjectSet<Child>("Children");
+                }
+                return _Children;
+            }
+        }
+        private ObjectSet<Child> _Children;
 
         #endregion
 
@@ -493,6 +548,30 @@ namespace Cure.DataAccess
         public void AddToaspnet_Users(aspnet_Users aspnet_Users)
         {
             base.AddObject("aspnet_Users", aspnet_Users);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the RefBanks EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToRefBanks(RefBank refBank)
+        {
+            base.AddObject("RefBanks", refBank);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the RefOperators EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToRefOperators(RefOperator refOperator)
+        {
+            base.AddObject("RefOperators", refOperator);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Children EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToChildren(Child child)
+        {
+            base.AddObject("Children", child);
         }
 
         #endregion
@@ -1429,6 +1508,848 @@ namespace Cure.DataAccess
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Membership>("DataModel.FK__aspnet_Me__UserI__61316BF4", "aspnet_Membership", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="Child")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Child : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Child object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="ownerUser">Initial value of the OwnerUser property.</param>
+        /// <param name="isActive">Initial value of the IsActive property.</param>
+        /// <param name="name">Initial value of the Name property.</param>
+        /// <param name="birthday">Initial value of the Birthday property.</param>
+        /// <param name="countryId">Initial value of the CountryId property.</param>
+        /// <param name="contactName">Initial value of the ContactName property.</param>
+        /// <param name="contactRodstvoId">Initial value of the ContactRodstvoId property.</param>
+        /// <param name="contactEmail">Initial value of the ContactEmail property.</param>
+        public static Child CreateChild(global::System.Int32 id, global::System.String ownerUser, global::System.Boolean isActive, global::System.String name, global::System.DateTime birthday, global::System.Int32 countryId, global::System.String contactName, global::System.Int32 contactRodstvoId, global::System.String contactEmail)
+        {
+            Child child = new Child();
+            child.Id = id;
+            child.OwnerUser = ownerUser;
+            child.IsActive = isActive;
+            child.Name = name;
+            child.Birthday = birthday;
+            child.CountryId = countryId;
+            child.ContactName = contactName;
+            child.ContactRodstvoId = contactRodstvoId;
+            child.ContactEmail = contactEmail;
+            return child;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value, "Id");
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String OwnerUser
+        {
+            get
+            {
+                return _OwnerUser;
+            }
+            set
+            {
+                OnOwnerUserChanging(value);
+                ReportPropertyChanging("OwnerUser");
+                _OwnerUser = StructuralObject.SetValidValue(value, false, "OwnerUser");
+                ReportPropertyChanged("OwnerUser");
+                OnOwnerUserChanged();
+            }
+        }
+        private global::System.String _OwnerUser;
+        partial void OnOwnerUserChanging(global::System.String value);
+        partial void OnOwnerUserChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsActive
+        {
+            get
+            {
+                return _IsActive;
+            }
+            set
+            {
+                OnIsActiveChanging(value);
+                ReportPropertyChanging("IsActive");
+                _IsActive = StructuralObject.SetValidValue(value, "IsActive");
+                ReportPropertyChanged("IsActive");
+                OnIsActiveChanged();
+            }
+        }
+        private global::System.Boolean _IsActive;
+        partial void OnIsActiveChanging(global::System.Boolean value);
+        partial void OnIsActiveChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                OnNameChanging(value);
+                ReportPropertyChanging("Name");
+                _Name = StructuralObject.SetValidValue(value, false, "Name");
+                ReportPropertyChanged("Name");
+                OnNameChanged();
+            }
+        }
+        private global::System.String _Name;
+        partial void OnNameChanging(global::System.String value);
+        partial void OnNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime Birthday
+        {
+            get
+            {
+                return _Birthday;
+            }
+            set
+            {
+                OnBirthdayChanging(value);
+                ReportPropertyChanging("Birthday");
+                _Birthday = StructuralObject.SetValidValue(value, "Birthday");
+                ReportPropertyChanged("Birthday");
+                OnBirthdayChanged();
+            }
+        }
+        private global::System.DateTime _Birthday;
+        partial void OnBirthdayChanging(global::System.DateTime value);
+        partial void OnBirthdayChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 CountryId
+        {
+            get
+            {
+                return _CountryId;
+            }
+            set
+            {
+                OnCountryIdChanging(value);
+                ReportPropertyChanging("CountryId");
+                _CountryId = StructuralObject.SetValidValue(value, "CountryId");
+                ReportPropertyChanged("CountryId");
+                OnCountryIdChanged();
+            }
+        }
+        private global::System.Int32 _CountryId;
+        partial void OnCountryIdChanging(global::System.Int32 value);
+        partial void OnCountryIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Region
+        {
+            get
+            {
+                return _Region;
+            }
+            set
+            {
+                OnRegionChanging(value);
+                ReportPropertyChanging("Region");
+                _Region = StructuralObject.SetValidValue(value, true, "Region");
+                ReportPropertyChanged("Region");
+                OnRegionChanged();
+            }
+        }
+        private global::System.String _Region;
+        partial void OnRegionChanging(global::System.String value);
+        partial void OnRegionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Diagnoz
+        {
+            get
+            {
+                return _Diagnoz;
+            }
+            set
+            {
+                OnDiagnozChanging(value);
+                ReportPropertyChanging("Diagnoz");
+                _Diagnoz = StructuralObject.SetValidValue(value, true, "Diagnoz");
+                ReportPropertyChanged("Diagnoz");
+                OnDiagnozChanged();
+            }
+        }
+        private global::System.String _Diagnoz;
+        partial void OnDiagnozChanging(global::System.String value);
+        partial void OnDiagnozChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String ContactName
+        {
+            get
+            {
+                return _ContactName;
+            }
+            set
+            {
+                OnContactNameChanging(value);
+                ReportPropertyChanging("ContactName");
+                _ContactName = StructuralObject.SetValidValue(value, false, "ContactName");
+                ReportPropertyChanged("ContactName");
+                OnContactNameChanged();
+            }
+        }
+        private global::System.String _ContactName;
+        partial void OnContactNameChanging(global::System.String value);
+        partial void OnContactNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ContactRodstvoId
+        {
+            get
+            {
+                return _ContactRodstvoId;
+            }
+            set
+            {
+                OnContactRodstvoIdChanging(value);
+                ReportPropertyChanging("ContactRodstvoId");
+                _ContactRodstvoId = StructuralObject.SetValidValue(value, "ContactRodstvoId");
+                ReportPropertyChanged("ContactRodstvoId");
+                OnContactRodstvoIdChanged();
+            }
+        }
+        private global::System.Int32 _ContactRodstvoId;
+        partial void OnContactRodstvoIdChanging(global::System.Int32 value);
+        partial void OnContactRodstvoIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String ContactEmail
+        {
+            get
+            {
+                return _ContactEmail;
+            }
+            set
+            {
+                OnContactEmailChanging(value);
+                ReportPropertyChanging("ContactEmail");
+                _ContactEmail = StructuralObject.SetValidValue(value, false, "ContactEmail");
+                ReportPropertyChanged("ContactEmail");
+                OnContactEmailChanged();
+            }
+        }
+        private global::System.String _ContactEmail;
+        partial void OnContactEmailChanging(global::System.String value);
+        partial void OnContactEmailChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ContactPhone
+        {
+            get
+            {
+                return _ContactPhone;
+            }
+            set
+            {
+                OnContactPhoneChanging(value);
+                ReportPropertyChanging("ContactPhone");
+                _ContactPhone = StructuralObject.SetValidValue(value, true, "ContactPhone");
+                ReportPropertyChanged("ContactPhone");
+                OnContactPhoneChanged();
+            }
+        }
+        private global::System.String _ContactPhone;
+        partial void OnContactPhoneChanging(global::System.String value);
+        partial void OnContactPhoneChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String SocialOk
+        {
+            get
+            {
+                return _SocialOk;
+            }
+            set
+            {
+                OnSocialOkChanging(value);
+                ReportPropertyChanging("SocialOk");
+                _SocialOk = StructuralObject.SetValidValue(value, true, "SocialOk");
+                ReportPropertyChanged("SocialOk");
+                OnSocialOkChanged();
+            }
+        }
+        private global::System.String _SocialOk;
+        partial void OnSocialOkChanging(global::System.String value);
+        partial void OnSocialOkChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String SocialVk
+        {
+            get
+            {
+                return _SocialVk;
+            }
+            set
+            {
+                OnSocialVkChanging(value);
+                ReportPropertyChanging("SocialVk");
+                _SocialVk = StructuralObject.SetValidValue(value, true, "SocialVk");
+                ReportPropertyChanged("SocialVk");
+                OnSocialVkChanged();
+            }
+        }
+        private global::System.String _SocialVk;
+        partial void OnSocialVkChanging(global::System.String value);
+        partial void OnSocialVkChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String SocialMm
+        {
+            get
+            {
+                return _SocialMm;
+            }
+            set
+            {
+                OnSocialMmChanging(value);
+                ReportPropertyChanging("SocialMm");
+                _SocialMm = StructuralObject.SetValidValue(value, true, "SocialMm");
+                ReportPropertyChanged("SocialMm");
+                OnSocialMmChanged();
+            }
+        }
+        private global::System.String _SocialMm;
+        partial void OnSocialMmChanging(global::System.String value);
+        partial void OnSocialMmChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String SocialFb
+        {
+            get
+            {
+                return _SocialFb;
+            }
+            set
+            {
+                OnSocialFbChanging(value);
+                ReportPropertyChanging("SocialFb");
+                _SocialFb = StructuralObject.SetValidValue(value, true, "SocialFb");
+                ReportPropertyChanged("SocialFb");
+                OnSocialFbChanged();
+            }
+        }
+        private global::System.String _SocialFb;
+        partial void OnSocialFbChanging(global::System.String value);
+        partial void OnSocialFbChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String FinWebmoney
+        {
+            get
+            {
+                return _FinWebmoney;
+            }
+            set
+            {
+                OnFinWebmoneyChanging(value);
+                ReportPropertyChanging("FinWebmoney");
+                _FinWebmoney = StructuralObject.SetValidValue(value, true, "FinWebmoney");
+                ReportPropertyChanged("FinWebmoney");
+                OnFinWebmoneyChanged();
+            }
+        }
+        private global::System.String _FinWebmoney;
+        partial void OnFinWebmoneyChanging(global::System.String value);
+        partial void OnFinWebmoneyChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String FinYandexMoney
+        {
+            get
+            {
+                return _FinYandexMoney;
+            }
+            set
+            {
+                OnFinYandexMoneyChanging(value);
+                ReportPropertyChanging("FinYandexMoney");
+                _FinYandexMoney = StructuralObject.SetValidValue(value, true, "FinYandexMoney");
+                ReportPropertyChanged("FinYandexMoney");
+                OnFinYandexMoneyChanged();
+            }
+        }
+        private global::System.String _FinYandexMoney;
+        partial void OnFinYandexMoneyChanging(global::System.String value);
+        partial void OnFinYandexMoneyChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String FinKiwi
+        {
+            get
+            {
+                return _FinKiwi;
+            }
+            set
+            {
+                OnFinKiwiChanging(value);
+                ReportPropertyChanging("FinKiwi");
+                _FinKiwi = StructuralObject.SetValidValue(value, true, "FinKiwi");
+                ReportPropertyChanged("FinKiwi");
+                OnFinKiwiChanged();
+            }
+        }
+        private global::System.String _FinKiwi;
+        partial void OnFinKiwiChanging(global::System.String value);
+        partial void OnFinKiwiChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> FinOperatorId
+        {
+            get
+            {
+                return _FinOperatorId;
+            }
+            set
+            {
+                OnFinOperatorIdChanging(value);
+                ReportPropertyChanging("FinOperatorId");
+                _FinOperatorId = StructuralObject.SetValidValue(value, "FinOperatorId");
+                ReportPropertyChanged("FinOperatorId");
+                OnFinOperatorIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _FinOperatorId;
+        partial void OnFinOperatorIdChanging(Nullable<global::System.Int32> value);
+        partial void OnFinOperatorIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String FinPhoneNumber
+        {
+            get
+            {
+                return _FinPhoneNumber;
+            }
+            set
+            {
+                OnFinPhoneNumberChanging(value);
+                ReportPropertyChanging("FinPhoneNumber");
+                _FinPhoneNumber = StructuralObject.SetValidValue(value, true, "FinPhoneNumber");
+                ReportPropertyChanged("FinPhoneNumber");
+                OnFinPhoneNumberChanged();
+            }
+        }
+        private global::System.String _FinPhoneNumber;
+        partial void OnFinPhoneNumberChanging(global::System.String value);
+        partial void OnFinPhoneNumberChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> FinCountryId
+        {
+            get
+            {
+                return _FinCountryId;
+            }
+            set
+            {
+                OnFinCountryIdChanging(value);
+                ReportPropertyChanging("FinCountryId");
+                _FinCountryId = StructuralObject.SetValidValue(value, "FinCountryId");
+                ReportPropertyChanged("FinCountryId");
+                OnFinCountryIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _FinCountryId;
+        partial void OnFinCountryIdChanging(Nullable<global::System.Int32> value);
+        partial void OnFinCountryIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> FinBankId
+        {
+            get
+            {
+                return _FinBankId;
+            }
+            set
+            {
+                OnFinBankIdChanging(value);
+                ReportPropertyChanging("FinBankId");
+                _FinBankId = StructuralObject.SetValidValue(value, "FinBankId");
+                ReportPropertyChanged("FinBankId");
+                OnFinBankIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _FinBankId;
+        partial void OnFinBankIdChanging(Nullable<global::System.Int32> value);
+        partial void OnFinBankIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String FinBankOther
+        {
+            get
+            {
+                return _FinBankOther;
+            }
+            set
+            {
+                OnFinBankOtherChanging(value);
+                ReportPropertyChanging("FinBankOther");
+                _FinBankOther = StructuralObject.SetValidValue(value, true, "FinBankOther");
+                ReportPropertyChanged("FinBankOther");
+                OnFinBankOtherChanged();
+            }
+        }
+        private global::System.String _FinBankOther;
+        partial void OnFinBankOtherChanging(global::System.String value);
+        partial void OnFinBankOtherChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String FinCardNumber
+        {
+            get
+            {
+                return _FinCardNumber;
+            }
+            set
+            {
+                OnFinCardNumberChanging(value);
+                ReportPropertyChanging("FinCardNumber");
+                _FinCardNumber = StructuralObject.SetValidValue(value, true, "FinCardNumber");
+                ReportPropertyChanged("FinCardNumber");
+                OnFinCardNumberChanged();
+            }
+        }
+        private global::System.String _FinCardNumber;
+        partial void OnFinCardNumberChanging(global::System.String value);
+        partial void OnFinCardNumberChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_Child_RefBank", "RefBank")]
+        public RefBank RefBank
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RefBank>("DataModel.FK_Child_RefBank", "RefBank").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RefBank>("DataModel.FK_Child_RefBank", "RefBank").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<RefBank> RefBankReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RefBank>("DataModel.FK_Child_RefBank", "RefBank");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<RefBank>("DataModel.FK_Child_RefBank", "RefBank", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_Child_RefCountry", "RefCountry")]
+        public RefCountry RefCountry
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RefCountry>("DataModel.FK_Child_RefCountry", "RefCountry").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RefCountry>("DataModel.FK_Child_RefCountry", "RefCountry").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<RefCountry> RefCountryReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RefCountry>("DataModel.FK_Child_RefCountry", "RefCountry");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<RefCountry>("DataModel.FK_Child_RefCountry", "RefCountry", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_Child_RefCountryFin", "RefCountry")]
+        public RefCountry RefCountry1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RefCountry>("DataModel.FK_Child_RefCountryFin", "RefCountry").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RefCountry>("DataModel.FK_Child_RefCountryFin", "RefCountry").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<RefCountry> RefCountry1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RefCountry>("DataModel.FK_Child_RefCountryFin", "RefCountry");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<RefCountry>("DataModel.FK_Child_RefCountryFin", "RefCountry", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_Child_RefOperator", "RefOperator")]
+        public RefOperator RefOperator
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RefOperator>("DataModel.FK_Child_RefOperator", "RefOperator").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RefOperator>("DataModel.FK_Child_RefOperator", "RefOperator").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<RefOperator> RefOperatorReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RefOperator>("DataModel.FK_Child_RefOperator", "RefOperator");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<RefOperator>("DataModel.FK_Child_RefOperator", "RefOperator", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_Child_RefRodstvo", "RefRodstvo")]
+        public RefRodstvo RefRodstvo
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RefRodstvo>("DataModel.FK_Child_RefRodstvo", "RefRodstvo").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RefRodstvo>("DataModel.FK_Child_RefRodstvo", "RefRodstvo").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<RefRodstvo> RefRodstvoReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RefRodstvo>("DataModel.FK_Child_RefRodstvo", "RefRodstvo");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<RefRodstvo>("DataModel.FK_Child_RefRodstvo", "RefRodstvo", value);
                 }
             }
         }
@@ -4146,6 +5067,346 @@ namespace Cure.DataAccess
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="RefBank")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class RefBank : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new RefBank object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="countryId">Initial value of the CountryId property.</param>
+        /// <param name="name">Initial value of the Name property.</param>
+        public static RefBank CreateRefBank(global::System.Int32 id, global::System.Int32 countryId, global::System.String name)
+        {
+            RefBank refBank = new RefBank();
+            refBank.Id = id;
+            refBank.CountryId = countryId;
+            refBank.Name = name;
+            return refBank;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value, "Id");
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 CountryId
+        {
+            get
+            {
+                return _CountryId;
+            }
+            set
+            {
+                OnCountryIdChanging(value);
+                ReportPropertyChanging("CountryId");
+                _CountryId = StructuralObject.SetValidValue(value, "CountryId");
+                ReportPropertyChanged("CountryId");
+                OnCountryIdChanged();
+            }
+        }
+        private global::System.Int32 _CountryId;
+        partial void OnCountryIdChanging(global::System.Int32 value);
+        partial void OnCountryIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                OnNameChanging(value);
+                ReportPropertyChanging("Name");
+                _Name = StructuralObject.SetValidValue(value, false, "Name");
+                ReportPropertyChanged("Name");
+                OnNameChanged();
+            }
+        }
+        private global::System.String _Name;
+        partial void OnNameChanging(global::System.String value);
+        partial void OnNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Description
+        {
+            get
+            {
+                return _Description;
+            }
+            set
+            {
+                OnDescriptionChanging(value);
+                ReportPropertyChanging("Description");
+                _Description = StructuralObject.SetValidValue(value, true, "Description");
+                ReportPropertyChanged("Description");
+                OnDescriptionChanged();
+            }
+        }
+        private global::System.String _Description;
+        partial void OnDescriptionChanging(global::System.String value);
+        partial void OnDescriptionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Inn
+        {
+            get
+            {
+                return _Inn;
+            }
+            set
+            {
+                OnInnChanging(value);
+                ReportPropertyChanging("Inn");
+                _Inn = StructuralObject.SetValidValue(value, true, "Inn");
+                ReportPropertyChanged("Inn");
+                OnInnChanged();
+            }
+        }
+        private global::System.String _Inn;
+        partial void OnInnChanging(global::System.String value);
+        partial void OnInnChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Kpp
+        {
+            get
+            {
+                return _Kpp;
+            }
+            set
+            {
+                OnKppChanging(value);
+                ReportPropertyChanging("Kpp");
+                _Kpp = StructuralObject.SetValidValue(value, true, "Kpp");
+                ReportPropertyChanged("Kpp");
+                OnKppChanged();
+            }
+        }
+        private global::System.String _Kpp;
+        partial void OnKppChanging(global::System.String value);
+        partial void OnKppChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Oktmo
+        {
+            get
+            {
+                return _Oktmo;
+            }
+            set
+            {
+                OnOktmoChanging(value);
+                ReportPropertyChanging("Oktmo");
+                _Oktmo = StructuralObject.SetValidValue(value, true, "Oktmo");
+                ReportPropertyChanged("Oktmo");
+                OnOktmoChanged();
+            }
+        }
+        private global::System.String _Oktmo;
+        partial void OnOktmoChanging(global::System.String value);
+        partial void OnOktmoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Okved
+        {
+            get
+            {
+                return _Okved;
+            }
+            set
+            {
+                OnOkvedChanging(value);
+                ReportPropertyChanging("Okved");
+                _Okved = StructuralObject.SetValidValue(value, true, "Okved");
+                ReportPropertyChanged("Okved");
+                OnOkvedChanged();
+            }
+        }
+        private global::System.String _Okved;
+        partial void OnOkvedChanging(global::System.String value);
+        partial void OnOkvedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Bik
+        {
+            get
+            {
+                return _Bik;
+            }
+            set
+            {
+                OnBikChanging(value);
+                ReportPropertyChanging("Bik");
+                _Bik = StructuralObject.SetValidValue(value, true, "Bik");
+                ReportPropertyChanged("Bik");
+                OnBikChanged();
+            }
+        }
+        private global::System.String _Bik;
+        partial void OnBikChanging(global::System.String value);
+        partial void OnBikChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String KorrAccount
+        {
+            get
+            {
+                return _KorrAccount;
+            }
+            set
+            {
+                OnKorrAccountChanging(value);
+                ReportPropertyChanging("KorrAccount");
+                _KorrAccount = StructuralObject.SetValidValue(value, true, "KorrAccount");
+                ReportPropertyChanged("KorrAccount");
+                OnKorrAccountChanged();
+            }
+        }
+        private global::System.String _KorrAccount;
+        partial void OnKorrAccountChanging(global::System.String value);
+        partial void OnKorrAccountChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_RefBank_RefCountry", "RefCountry")]
+        public RefCountry RefCountry
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RefCountry>("DataModel.FK_RefBank_RefCountry", "RefCountry").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RefCountry>("DataModel.FK_RefBank_RefCountry", "RefCountry").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<RefCountry> RefCountryReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RefCountry>("DataModel.FK_RefBank_RefCountry", "RefCountry");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<RefCountry>("DataModel.FK_RefBank_RefCountry", "RefCountry", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_Child_RefBank", "Child")]
+        public EntityCollection<Child> Children
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Child>("DataModel.FK_Child_RefBank", "Child");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Child>("DataModel.FK_Child_RefBank", "Child", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="RefCountry")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -4432,6 +5693,314 @@ namespace Cure.DataAccess
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_RefBank_RefCountry", "RefBank")]
+        public EntityCollection<RefBank> RefBanks
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RefBank>("DataModel.FK_RefBank_RefCountry", "RefBank");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RefBank>("DataModel.FK_RefBank_RefCountry", "RefBank", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_RefOperator_RefCountry", "RefOperator")]
+        public EntityCollection<RefOperator> RefOperators
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<RefOperator>("DataModel.FK_RefOperator_RefCountry", "RefOperator");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<RefOperator>("DataModel.FK_RefOperator_RefCountry", "RefOperator", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_Child_RefCountry", "Child")]
+        public EntityCollection<Child> Children
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Child>("DataModel.FK_Child_RefCountry", "Child");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Child>("DataModel.FK_Child_RefCountry", "Child", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_Child_RefCountryFin", "Child")]
+        public EntityCollection<Child> Children1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Child>("DataModel.FK_Child_RefCountryFin", "Child");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Child>("DataModel.FK_Child_RefCountryFin", "Child", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="RefOperator")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class RefOperator : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new RefOperator object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="countryId">Initial value of the CountryId property.</param>
+        /// <param name="name">Initial value of the Name property.</param>
+        public static RefOperator CreateRefOperator(global::System.Int32 id, global::System.Int32 countryId, global::System.String name)
+        {
+            RefOperator refOperator = new RefOperator();
+            refOperator.Id = id;
+            refOperator.CountryId = countryId;
+            refOperator.Name = name;
+            return refOperator;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value, "Id");
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 CountryId
+        {
+            get
+            {
+                return _CountryId;
+            }
+            set
+            {
+                OnCountryIdChanging(value);
+                ReportPropertyChanging("CountryId");
+                _CountryId = StructuralObject.SetValidValue(value, "CountryId");
+                ReportPropertyChanged("CountryId");
+                OnCountryIdChanged();
+            }
+        }
+        private global::System.Int32 _CountryId;
+        partial void OnCountryIdChanging(global::System.Int32 value);
+        partial void OnCountryIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                OnNameChanging(value);
+                ReportPropertyChanging("Name");
+                _Name = StructuralObject.SetValidValue(value, false, "Name");
+                ReportPropertyChanged("Name");
+                OnNameChanged();
+            }
+        }
+        private global::System.String _Name;
+        partial void OnNameChanging(global::System.String value);
+        partial void OnNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Description
+        {
+            get
+            {
+                return _Description;
+            }
+            set
+            {
+                OnDescriptionChanging(value);
+                ReportPropertyChanging("Description");
+                _Description = StructuralObject.SetValidValue(value, true, "Description");
+                ReportPropertyChanged("Description");
+                OnDescriptionChanged();
+            }
+        }
+        private global::System.String _Description;
+        partial void OnDescriptionChanging(global::System.String value);
+        partial void OnDescriptionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Params
+        {
+            get
+            {
+                return _Params;
+            }
+            set
+            {
+                OnParamsChanging(value);
+                ReportPropertyChanging("Params");
+                _Params = StructuralObject.SetValidValue(value, true, "Params");
+                ReportPropertyChanged("Params");
+                OnParamsChanged();
+            }
+        }
+        private global::System.String _Params;
+        partial void OnParamsChanging(global::System.String value);
+        partial void OnParamsChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_RefOperator_RefCountry", "RefCountry")]
+        public RefCountry RefCountry
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RefCountry>("DataModel.FK_RefOperator_RefCountry", "RefCountry").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RefCountry>("DataModel.FK_RefOperator_RefCountry", "RefCountry").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<RefCountry> RefCountryReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RefCountry>("DataModel.FK_RefOperator_RefCountry", "RefCountry");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<RefCountry>("DataModel.FK_RefOperator_RefCountry", "RefCountry", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_Child_RefOperator", "Child")]
+        public EntityCollection<Child> Children
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Child>("DataModel.FK_Child_RefOperator", "Child");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Child>("DataModel.FK_Child_RefOperator", "Child", value);
+                }
+            }
+        }
 
         #endregion
 
@@ -4633,6 +6202,28 @@ namespace Cure.DataAccess
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Sputnik>("DataModel.FK_Sputnik_RefRodstvo", "Sputnik", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_Child_RefRodstvo", "Child")]
+        public EntityCollection<Child> Children
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Child>("DataModel.FK_Child_RefRodstvo", "Child");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Child>("DataModel.FK_Child_RefRodstvo", "Child", value);
                 }
             }
         }

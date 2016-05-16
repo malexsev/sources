@@ -8,8 +8,8 @@
         <EntityTypeShape EntityType="DataModel.OrderStatu" Width="1.5" PointX="10.875" PointY="1.875" />
         <EntityTypeShape EntityType="DataModel.Pacient" Width="1.5" PointX="5.25" PointY="15.125" />
         <EntityTypeShape EntityType="DataModel.ViewSoonVisit" Width="1.5" PointX="18.125" PointY="2" />
-        <EntityTypeShape EntityType="DataModel.RefCountry" Width="1.5" PointX="8.5" PointY="18.375" />
-        <EntityTypeShape EntityType="DataModel.RefRodstvo" Width="1.5" PointX="5.125" PointY="3.75" />
+        <EntityTypeShape EntityType="DataModel.RefCountry" Width="1.5" PointX="7.75" PointY="19.25" />
+        <EntityTypeShape EntityType="DataModel.RefRodstvo" Width="1.5" PointX="4.625" PointY="3.25" />
         <AssociationConnector Association="DataModel.FK_Pacient_RefCountry" />
         <EntityTypeShape EntityType="DataModel.Order" Width="1.5" PointX="11.125" PointY="5.625" />
         <AssociationConnector Association="DataModel.FK_Order_OrderStatus" />
@@ -17,7 +17,7 @@
         <AssociationConnector Association="DataModel.FK_Department_Department" />
         <AssociationConnector Association="DataModel.FK_Department_RefCountry" />
         <AssociationConnector Association="DataModel.FK_Order_Department" />
-        <EntityTypeShape EntityType="DataModel.Sputnik" Width="1.5" PointX="8" PointY="1.875" />
+        <EntityTypeShape EntityType="DataModel.Sputnik" Width="1.5" PointX="7.75" PointY="1.125" />
         <AssociationConnector Association="DataModel.FK_Sputnik_Order" />
         <AssociationConnector Association="DataModel.FK_Sputnik_RefCountry" />
         <AssociationConnector Association="DataModel.FK_Sputnik_RefRodstvo" />
@@ -35,6 +35,16 @@
         <EntityTypeShape EntityType="DataModel.aspnet_Users" Width="1.5" PointX="14.375" PointY="21.75" />
         <AssociationConnector Association="DataModel.FK__aspnet_Me__UserI__2F10007B" />
         <AssociationConnector Association="DataModel.FK__aspnet_Me__UserI__61316BF4" />
+        <EntityTypeShape EntityType="DataModel.RefBank" Width="1.5" PointX="10" PointY="22.25" />
+        <EntityTypeShape EntityType="DataModel.RefOperator" Width="1.5" PointX="7.875" PointY="25.875" />
+        <AssociationConnector Association="DataModel.FK_RefBank_RefCountry" />
+        <AssociationConnector Association="DataModel.FK_RefOperator_RefCountry" />
+        <EntityTypeShape EntityType="DataModel.Child" Width="1.5" PointX="4.125" PointY="21.375" />
+        <AssociationConnector Association="DataModel.FK_Child_RefBank" />
+        <AssociationConnector Association="DataModel.FK_Child_RefCountry" />
+        <AssociationConnector Association="DataModel.FK_Child_RefCountryFin" />
+        <AssociationConnector Association="DataModel.FK_Child_RefOperator" />
+        <AssociationConnector Association="DataModel.FK_Child_RefRodstvo" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

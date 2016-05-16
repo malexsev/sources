@@ -70,6 +70,37 @@
       <End Role="aspnet_Users" EntitySet="aspnet_Users" />
       <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
     </AssociationSet>
+    <EntitySet Name="RefBanks" EntityType="DataModel.RefBank" />
+    <EntitySet Name="RefOperators" EntityType="DataModel.RefOperator" />
+    <AssociationSet Name="FK_RefBank_RefCountry" Association="DataModel.FK_RefBank_RefCountry">
+      <End Role="RefCountry" EntitySet="RefCountries" />
+      <End Role="RefBank" EntitySet="RefBanks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RefOperator_RefCountry" Association="DataModel.FK_RefOperator_RefCountry">
+      <End Role="RefCountry" EntitySet="RefCountries" />
+      <End Role="RefOperator" EntitySet="RefOperators" />
+    </AssociationSet>
+    <EntitySet Name="Children" EntityType="DataModel.Child" />
+    <AssociationSet Name="FK_Child_RefBank" Association="DataModel.FK_Child_RefBank">
+      <End Role="RefBank" EntitySet="RefBanks" />
+      <End Role="Child" EntitySet="Children" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Child_RefCountry" Association="DataModel.FK_Child_RefCountry">
+      <End Role="RefCountry" EntitySet="RefCountries" />
+      <End Role="Child" EntitySet="Children" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Child_RefCountryFin" Association="DataModel.FK_Child_RefCountryFin">
+      <End Role="RefCountry" EntitySet="RefCountries" />
+      <End Role="Child" EntitySet="Children" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Child_RefOperator" Association="DataModel.FK_Child_RefOperator">
+      <End Role="RefOperator" EntitySet="RefOperators" />
+      <End Role="Child" EntitySet="Children" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Child_RefRodstvo" Association="DataModel.FK_Child_RefRodstvo">
+      <End Role="RefRodstvo" EntitySet="RefRodstvoes" />
+      <End Role="Child" EntitySet="Children" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="OrderStatu">
     <Key>
@@ -149,6 +180,10 @@
     <NavigationProperty Name="Pacients" Relationship="DataModel.FK_Pacient_RefCountry" FromRole="RefCountry" ToRole="Pacient" />
     <NavigationProperty Name="Departments" Relationship="DataModel.FK_Department_RefCountry" FromRole="RefCountry" ToRole="Department" />
     <NavigationProperty Name="Sputniks" Relationship="DataModel.FK_Sputnik_RefCountry" FromRole="RefCountry" ToRole="Sputnik" />
+    <NavigationProperty Name="RefBanks" Relationship="DataModel.FK_RefBank_RefCountry" FromRole="RefCountry" ToRole="RefBank" />
+    <NavigationProperty Name="RefOperators" Relationship="DataModel.FK_RefOperator_RefCountry" FromRole="RefCountry" ToRole="RefOperator" />
+    <NavigationProperty Name="Children" Relationship="DataModel.FK_Child_RefCountry" FromRole="RefCountry" ToRole="Child" />
+    <NavigationProperty Name="Children1" Relationship="DataModel.FK_Child_RefCountryFin" FromRole="RefCountry" ToRole="Child" />
   </EntityType>
   <EntityType Name="RefRodstvo">
     <Key>
@@ -161,6 +196,7 @@
     <Property Type="String" Name="SoprovodRuLabel" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Type="String" Name="SoprovodChLabel" MaxLength="150" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Sputniks" Relationship="DataModel.FK_Sputnik_RefRodstvo" FromRole="RefRodstvo" ToRole="Sputnik" />
+    <NavigationProperty Name="Children" Relationship="DataModel.FK_Child_RefRodstvo" FromRole="RefRodstvo" ToRole="Child" />
   </EntityType>
   <Association Name="FK_Pacient_RefCountry">
     <End Type="DataModel.RefCountry" Role="RefCountry" Multiplicity="1" />
@@ -756,6 +792,156 @@
       </Principal>
       <Dependent Role="aspnet_Membership">
         <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="RefBank">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Inn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Kpp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Oktmo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Okved" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Bik" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KorrAccount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="RefCountry" Relationship="DataModel.FK_RefBank_RefCountry" FromRole="RefBank" ToRole="RefCountry" />
+    <NavigationProperty Name="Children" Relationship="DataModel.FK_Child_RefBank" FromRole="RefBank" ToRole="Child" />
+  </EntityType>
+  <EntityType Name="RefOperator">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Params" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="RefCountry" Relationship="DataModel.FK_RefOperator_RefCountry" FromRole="RefOperator" ToRole="RefCountry" />
+    <NavigationProperty Name="Children" Relationship="DataModel.FK_Child_RefOperator" FromRole="RefOperator" ToRole="Child" />
+  </EntityType>
+  <Association Name="FK_RefBank_RefCountry">
+    <End Type="DataModel.RefCountry" Role="RefCountry" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="DataModel.RefBank" Role="RefBank" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RefCountry">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RefBank">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RefOperator_RefCountry">
+    <End Type="DataModel.RefCountry" Role="RefCountry" Multiplicity="1" />
+    <End Type="DataModel.RefOperator" Role="RefOperator" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RefCountry">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RefOperator">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Child">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OwnerUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CountryId" Type="Int32" Nullable="false" />
+    <Property Name="Region" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Diagnoz" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ContactName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ContactRodstvoId" Type="Int32" Nullable="false" />
+    <Property Name="ContactEmail" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ContactPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SocialOk" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="SocialVk" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="SocialMm" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="SocialFb" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="FinWebmoney" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FinYandexMoney" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FinKiwi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FinOperatorId" Type="Int32" />
+    <Property Name="FinPhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FinCountryId" Type="Int32" />
+    <Property Name="FinBankId" Type="Int32" />
+    <Property Name="FinBankOther" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FinCardNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="RefBank" Relationship="DataModel.FK_Child_RefBank" FromRole="Child" ToRole="RefBank" />
+    <NavigationProperty Name="RefCountry" Relationship="DataModel.FK_Child_RefCountry" FromRole="Child" ToRole="RefCountry" />
+    <NavigationProperty Name="RefCountry1" Relationship="DataModel.FK_Child_RefCountryFin" FromRole="Child" ToRole="RefCountry" />
+    <NavigationProperty Name="RefOperator" Relationship="DataModel.FK_Child_RefOperator" FromRole="Child" ToRole="RefOperator" />
+    <NavigationProperty Name="RefRodstvo" Relationship="DataModel.FK_Child_RefRodstvo" FromRole="Child" ToRole="RefRodstvo" />
+  </EntityType>
+  <Association Name="FK_Child_RefBank">
+    <End Type="DataModel.RefBank" Role="RefBank" Multiplicity="0..1" />
+    <End Type="DataModel.Child" Role="Child" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RefBank">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Child">
+        <PropertyRef Name="FinBankId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Child_RefCountry">
+    <End Type="DataModel.RefCountry" Role="RefCountry" Multiplicity="1" />
+    <End Type="DataModel.Child" Role="Child" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RefCountry">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Child">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Child_RefCountryFin">
+    <End Type="DataModel.RefCountry" Role="RefCountry" Multiplicity="0..1" />
+    <End Type="DataModel.Child" Role="Child" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RefCountry">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Child">
+        <PropertyRef Name="FinCountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Child_RefOperator">
+    <End Type="DataModel.RefOperator" Role="RefOperator" Multiplicity="0..1" />
+    <End Type="DataModel.Child" Role="Child" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RefOperator">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Child">
+        <PropertyRef Name="FinOperatorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Child_RefRodstvo">
+    <End Type="DataModel.RefRodstvo" Role="RefRodstvo" Multiplicity="1" />
+    <End Type="DataModel.Child" Role="Child" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RefRodstvo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Child">
+        <PropertyRef Name="ContactRodstvoId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

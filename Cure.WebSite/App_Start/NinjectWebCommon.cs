@@ -5,9 +5,10 @@ namespace Cure.WebSite.App_Start
 {
     using System;
     using System.Web;
-
+    using Cure.DataAccess.DAL;
+    using DataAccess.BLL;
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
-
+    using Moq;
     using Ninject;
     using Ninject.Web.Common;
 
@@ -61,6 +62,8 @@ namespace Cure.WebSite.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            //var mock = new Mock<DataAccessBL>();
+            //mock.Setup(m => m.)
         }        
     }
 }

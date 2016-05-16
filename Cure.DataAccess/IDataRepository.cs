@@ -17,6 +17,24 @@ namespace Cure.DataAccess.DAL
         void DeleteNotificationLog(NotificationLog notificationLog);
         void UpdateNotificationLog(NotificationLog notificationLog);
 
+        IEnumerable<Child> GetChilds();
+        IEnumerable<Child> GetChilds(int countryId);
+        void InsertChild(Child child);
+        void DeleteChild(Child child);
+        void UpdateChild(Child child);
+
+        IEnumerable<RefBank> GetRefBanks();
+        IEnumerable<RefBank> GetRefBanks(int countryId);
+        void InsertRefBank(RefBank refBank);
+        void DeleteRefBank(RefBank refBank);
+        void UpdateRefBank(RefBank refBank);
+
+        IEnumerable<RefOperator> GetRefOperators();
+        IEnumerable<RefOperator> GetRefOperators(int countryId);
+        void InsertRefOperator(RefOperator refOperator);
+        void DeleteRefOperator(RefOperator refOperator);
+        void UpdateRefOperator(RefOperator refOperator);
+
         IEnumerable<Setting> GetSettings();
         Setting GetSettingByCode(string code);
         void InsertSetting(Setting setting);

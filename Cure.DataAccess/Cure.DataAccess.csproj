@@ -46,10 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\ChildsBL.cs" />
+    <Compile Include="BLL\OperatorBL.cs" />
     <Compile Include="BLL\MemebershipBL.cs" />
     <Compile Include="BLL\NotificationLogBL.cs" />
     <Compile Include="BLL\SettingBL.cs" />
     <Compile Include="BLL\RodstvoBL.cs" />
+    <Compile Include="BLL\BankBL.cs" />
     <Compile Include="BLL\SmsLogBL.cs" />
     <Compile Include="BLL\VisitBL.cs" />
     <Compile Include="BLL\SputnikBL.cs" />
@@ -58,10 +61,13 @@
     <Compile Include="BLL\OrderBL.cs" />
     <Compile Include="BLL\DepartmentBL.cs" />
     <Compile Include="BLL\CountryBL.cs" />
+    <Compile Include="DAL\ChildrenAccess.cs" />
+    <Compile Include="DAL\OperatorAccess.cs" />
     <Compile Include="DAL\MemebershipAccess.cs" />
     <Compile Include="DAL\NotificationLogAccess.cs" />
     <Compile Include="DAL\SettingAccess.cs" />
     <Compile Include="DAL\RodstvoAccess.cs" />
+    <Compile Include="DAL\BankAccess.cs" />
     <Compile Include="DAL\SmsLogAccess.cs" />
     <Compile Include="DAL\VisitAccess.cs" />
     <Compile Include="DAL\SputnikAccess.cs" />
