@@ -27,6 +27,7 @@ namespace Cure.DataAccess.DAL
         {
             try
             {
+                child.GuidId = Guid.NewGuid();
                 context.Children.AddObject(child);
                 context.SaveChanges();
             } catch (Exception ex)

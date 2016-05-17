@@ -553,6 +553,7 @@
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="IsActive" ColumnName="IsActive" />
           <ScalarProperty Name="OwnerUser" ColumnName="OwnerUser" />
+          <ScalarProperty Name="GuidId" ColumnName="GuidId" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

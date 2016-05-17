@@ -3,12 +3,36 @@
 <%@ Register Assembly="DevExpress.Web.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxGridView" TagPrefix="dx" %>
 <%@ Register assembly="DevExpress.Web.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxEditors" tagprefix="dx" %>
 
+<%@ Register TagPrefix="uc" TagName="PhotoGallery" Src="~/Controls/PhotoGallery.ascx" %>
+<%@ Register TagPrefix="uc" TagName="PhotoUploader" Src="~/Controls/PhotoUploader.ascx" %>
+<%@ Register TagPrefix="dx" Namespace="DevExpress.Web.ASPxCallbackPanel" Assembly="DevExpress.Web.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="dx" Namespace="DevExpress.Web.ASPxPanel" Assembly="DevExpress.Web.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+
 
 <asp:Content ID="Content" ContentPlaceHolderID="MainContent" runat="server">
+    <script type="text/javascript">
+
+        function InitGalery(s, e) {
+            window.grid.GetRowValues(window.grid.GetFocusedRowIndex(), 'GuidId', OnGetRowValues);
+        }
+
+        function OnGetRowValues(values) {
+            if (typeof (window.cpGalery) != "undefined") {
+                window.cpGalery.PerformCallback(values);
+            }
+        }
+
+        function RemovePhoto(index) {
+            window.cpGalery.PerformCallback(index);
+        }
+
+
+    </script>
 
     <div class="content">
         
         <dx:ASPxGridView ID="uxMainGrid" ClientInstanceName="grid" runat="server" AutoGenerateColumns="False" DataSourceID="uxMainDataSource" KeyFieldName="Id">
+            <ClientSideEvents FocusedRowChanged="InitGalery"></ClientSideEvents>
             <Columns>
                 <dx:GridViewCommandColumn ShowDeleteButton="True" ShowEditButton="True" ShowNewButtonInHeader="True" VisibleIndex="0" Width="36px">
                 </dx:GridViewCommandColumn>
@@ -126,6 +150,8 @@
                     </PropertiesComboBox>
                     <EditFormSettings Visible="True" />
                 </dx:GridViewDataComboBoxColumn>
+                <dx:GridViewDataTextColumn Caption="GuidId" FieldName="GuidId" Visible="False" VisibleIndex="28">
+                </dx:GridViewDataTextColumn>
             </Columns>
             <SettingsEditing Mode="PopupEditForm" EditFormColumnCount="1">
             </SettingsEditing>
@@ -146,6 +172,15 @@
 
         <asp:ObjectDataSource ID="uxRodstvoDataSource" runat="server" SelectMethod="GetRefRodstvo" TypeName="Cure.DataAccess.BLL.DataAccessBL" OldValuesParameterFormatString="original_{0}">
         </asp:ObjectDataSource>
+
+        <dx:ASPxCallbackPanel ID="uxCallbackPanel" ClientInstanceName="cpGalery" runat="server" Width="100%" OnCallback="uxCallbackPanel_OnCallback">
+            <PanelCollection>
+                <dx:PanelContent ID="PanelContent1" runat="server">
+                    <uc:PhotoGallery runat="server" ID="uxPhotoGallery"></uc:PhotoGallery>
+                    <uc:PhotoUploader runat="server" ID="uxPhotoUploader"></uc:PhotoUploader>
+                </dx:PanelContent>
+            </PanelCollection>
+        </dx:ASPxCallbackPanel>
 
     </div>
 

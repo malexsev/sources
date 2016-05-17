@@ -1530,6 +1530,7 @@ namespace Cure.DataAccess
         /// Create a new Child object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="guidId">Initial value of the GuidId property.</param>
         /// <param name="ownerUser">Initial value of the OwnerUser property.</param>
         /// <param name="isActive">Initial value of the IsActive property.</param>
         /// <param name="name">Initial value of the Name property.</param>
@@ -1538,10 +1539,11 @@ namespace Cure.DataAccess
         /// <param name="contactName">Initial value of the ContactName property.</param>
         /// <param name="contactRodstvoId">Initial value of the ContactRodstvoId property.</param>
         /// <param name="contactEmail">Initial value of the ContactEmail property.</param>
-        public static Child CreateChild(global::System.Int32 id, global::System.String ownerUser, global::System.Boolean isActive, global::System.String name, global::System.DateTime birthday, global::System.Int32 countryId, global::System.String contactName, global::System.Int32 contactRodstvoId, global::System.String contactEmail)
+        public static Child CreateChild(global::System.Int32 id, global::System.Guid guidId, global::System.String ownerUser, global::System.Boolean isActive, global::System.String name, global::System.DateTime birthday, global::System.Int32 countryId, global::System.String contactName, global::System.Int32 contactRodstvoId, global::System.String contactEmail)
         {
             Child child = new Child();
             child.Id = id;
+            child.GuidId = guidId;
             child.OwnerUser = ownerUser;
             child.IsActive = isActive;
             child.Name = name;
@@ -1583,6 +1585,30 @@ namespace Cure.DataAccess
         private global::System.Int32 _Id;
         partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid GuidId
+        {
+            get
+            {
+                return _GuidId;
+            }
+            set
+            {
+                OnGuidIdChanging(value);
+                ReportPropertyChanging("GuidId");
+                _GuidId = StructuralObject.SetValidValue(value, "GuidId");
+                ReportPropertyChanged("GuidId");
+                OnGuidIdChanged();
+            }
+        }
+        private global::System.Guid _GuidId;
+        partial void OnGuidIdChanging(global::System.Guid value);
+        partial void OnGuidIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
