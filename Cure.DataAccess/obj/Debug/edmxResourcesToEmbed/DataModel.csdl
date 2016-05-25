@@ -101,6 +101,7 @@
       <End Role="RefRodstvo" EntitySet="RefRodstvoes" />
       <End Role="Child" EntitySet="Children" />
     </AssociationSet>
+    <EntitySet Name="ViewChilds" EntityType="DataModel.ViewChild" />
   </EntityContainer>
   <EntityType Name="OrderStatu">
     <Key>
@@ -946,4 +947,73 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="ViewChild">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="GuidId" />
+      <PropertyRef Name="OwnerUser" />
+      <PropertyRef Name="IsActive" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Birthday" />
+      <PropertyRef Name="CountryId" />
+      <PropertyRef Name="ContactName" />
+      <PropertyRef Name="ContactRodstvoId" />
+      <PropertyRef Name="ContactEmail" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="GuidId" Type="Guid" Nullable="false" />
+    <Property Name="OwnerUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CountryId" Type="Int32" Nullable="false" />
+    <Property Name="Region" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Diagnoz" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ContactName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ContactRodstvoId" Type="Int32" Nullable="false" />
+    <Property Name="ContactEmail" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ContactPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SocialOk" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="SocialVk" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="SocialMm" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="SocialFb" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="FinWebmoney" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FinYandexMoney" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FinKiwi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FinOperatorId" Type="Int32" />
+    <Property Name="FinPhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FinCountryId" Type="Int32" />
+    <Property Name="FinBankId" Type="Int32" />
+    <Property Name="FinBankOther" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FinCardNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CountryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserLoweredUserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="UserIsAnonymous" Type="Boolean" />
+    <Property Name="UserLastActivityDate" Type="DateTime" Precision="3" />
+    <Property Name="UserEmail" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="UserLoweredEmail" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="UserIsApproved" Type="Boolean" />
+    <Property Name="UserIsLockedOut" Type="Boolean" />
+    <Property Name="UserLastLoginDate" Type="DateTime" Precision="3" />
+    <Property Name="UserComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BankName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BankDescription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="BankInn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BankKpp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BankOktmo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BankOkved" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BankBik" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BankKorrAccount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RodstvoName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RodstvoDescription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="RodstvoSort" Type="Int32" />
+    <Property Name="RodstvoSoprovodRuLabel" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="RodstvoSoprovodChLabel" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="OperatorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OperatorDescription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="OperatorParams" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="OperatorCountryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BankCountryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FinCountryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>

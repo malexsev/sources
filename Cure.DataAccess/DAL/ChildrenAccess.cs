@@ -8,9 +8,14 @@ namespace Cure.DataAccess.DAL
 {
     internal partial class DataRepository
     {
+        public IEnumerable<ViewChild> ViewChilds()
+        {
+            return context.ViewChilds.OrderByDescending(o => o.Id).ToList();
+        }
+
         public IEnumerable<Child> GetChilds()
         {
-            return context.Children.OrderByDescending(o => o.Name).ToList();
+            return context.Children.OrderByDescending(o => o.Id).ToList();
         }
 
         public IEnumerable<Child> GetChilds(int countryId)

@@ -105,25 +105,126 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\styles.css" />
+    <Content Include="Content\css\_bootstrap.css" />
+    <Content Include="Content\css\_font-awesome.min.css" />
+    <Content Include="Content\css\_fonts.css" />
+    <Content Include="Content\css\_normalize.css" />
+    <Content Include="Content\fonts\alsrubl-webfont.svg" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\images\children\children_1.jpg" />
+    <Content Include="Content\images\children\children_2.jpg" />
+    <Content Include="Content\images\children\children_3.jpg" />
+    <Content Include="Content\images\children\children_4.jpg" />
+    <Content Include="Content\images\children\children_5.jpg" />
+    <Content Include="Content\images\children\children_6.jpg" />
+    <Content Include="Content\images\children\children_7.jpg" />
+    <Content Include="Content\images\children\children_account_1_96x96.jpg" />
+    <Content Include="Content\images\docs\doc_1.jpg" />
+    <Content Include="Content\images\docs\doc_2.jpg" />
+    <Content Include="Content\images\docs\doc_3.jpg" />
+    <Content Include="Content\images\docs\doc_4.jpg" />
+    <Content Include="Content\images\side-banner.jpg" />
+    <Content Include="Content\images\temp\counter_1.png" />
+    <Content Include="Content\images\temp\counter_2.png" />
+    <Content Include="Content\images\temp\counter_3.png" />
+    <Content Include="Content\images\temp\counter_4.png" />
+    <Content Include="Content\images\trips\trip_1.jpg" />
+    <Content Include="Content\images\users\contact_user_1_48x48.jpg" />
+    <Content Include="Content\images\users\contact_user_2_48x48.jpg" />
+    <Content Include="Content\images\users\contact_user_3_48x48.jpg" />
+    <Content Include="Content\images\users\contact_user_4_48x48.jpg" />
+    <Content Include="Content\images\users\contact_user_5_48x48.jpg" />
+    <Content Include="Content\images\users\contact_user_6_48x48.jpg" />
+    <Content Include="Content\images\users\contact_user_default_48x48.jpg" />
+    <Content Include="Content\images\users\header_user_1_32x32.jpg" />
+    <Content Include="Content\images\users\header_user_2_32x32.jpg" />
+    <Content Include="Content\images\viewer\slide_1.jpg" />
+    <Content Include="Content\images\viewer\slide_2.jpg" />
+    <Content Include="Content\images\viewer\slide_3.jpg" />
+    <Content Include="Content\images\viewer\thumb_1.jpg" />
+    <Content Include="Content\images\viewer\thumb_2.jpg" />
+    <Content Include="Content\images\viewer\thumb_3.jpg" />
+    <Content Include="Content\img\apple-touch-icon-152x152.png" />
+    <Content Include="Content\img\bg_main.jpg" />
+    <Content Include="Content\img\bg_review.png" />
+    <Content Include="Content\img\favicon-16x16.png" />
+    <Content Include="Content\img\favicon-32x32.png" />
+    <Content Include="Content\img\icons_carret.png" />
+    <Content Include="Content\img\icon_carret.png" />
+    <Content Include="Content\img\icon_carret_green.png" />
+    <Content Include="Content\img\icon_login.png" />
+    <Content Include="Content\img\icon_map.png" />
+    <Content Include="Content\img\icon_messfge.png" />
+    <Content Include="Content\img\icon_mob-menu.png" />
+    <Content Include="Content\img\icon_quotes.png" />
+    <Content Include="Content\img\icon_search.png" />
+    <Content Include="Content\img\icon_slider.png" />
+    <Content Include="Content\img\ico_scrolltop.png" />
+    <Content Include="Content\img\in-base-64\icon_account-cart_gray.png" />
+    <Content Include="Content\img\in-base-64\icon_account-mail_gray.png" />
+    <Content Include="Content\img\in-base-64\icon_account-money_gray.png" />
+    <Content Include="Content\img\in-base-64\icon_account-order_gray.png" />
+    <Content Include="Content\img\in-base-64\icon_account-page_gray.png" />
+    <Content Include="Content\img\in-base-64\icon_account-user_gray.png" />
+    <Content Include="Content\img\in-base-64\icon_btn-eye-close_gray.png" />
+    <Content Include="Content\img\in-base-64\icon_btn-eye-open_gray.png" />
+    <Content Include="Content\img\in-base-64\icon_btn-file_gray.png" />
+    <Content Include="Content\img\in-base-64\icon_btn-help_white.png" />
+    <Content Include="Content\img\in-base-64\icon_btn-mail_gray.png" />
+    <Content Include="Content\img\in-base-64\icon_btn-redact_gray.png" />
+    <Content Include="Content\img\in-base-64\icon_btn-seti_gray.png" />
+    <Content Include="Content\img\in-base-64\icon_comment-count_gray.png" />
+    <Content Include="Content\img\in-base-64\icon_form-close_gray.png" />
+    <Content Include="Content\img\in-base-64\icon_form-redact_gray.png" />
+    <Content Include="Content\img\in-base-64\icon_money_in.png" />
+    <Content Include="Content\img\in-base-64\icon_money_out.png" />
+    <Content Include="Content\img\in-base-64\icon_popup-close_gray.png" />
+    <Content Include="Content\img\logo_big.png" />
+    <Content Include="Content\img\logo_long.png" />
+    <Content Include="Content\img\money-icons\beeline.png" />
+    <Content Include="Content\img\money-icons\sberbank.png" />
+    <Content Include="Content\img\money-icons\webmoney.png" />
+    <Content Include="Content\img\preloader.gif" />
     <Content Include="Content\Site.css" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
-    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Content\css\styles.less" />
+    <Content Include="Content\fonts\alsrubl-webfont.eot" />
+    <Content Include="Content\fonts\alsrubl-webfont.ttf" />
+    <Content Include="Content\fonts\alsrubl-webfont.woff" />
+    <Content Include="Content\fonts\alsrubl-webfont.woff2" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Scripts\jquery.ndeti.js" />
+    <Content Include="Scripts\plugins\dragdealer.js" />
+    <Content Include="Scripts\plugins\infobox.js" />
+    <Content Include="Scripts\plugins\jquery-ui.min.js" />
+    <Content Include="Scripts\plugins\jquery.easing.js" />
+    <Content Include="Scripts\plugins\jquery.jscrollpane.min.js" />
+    <Content Include="Scripts\plugins\jquery.maskedinput.min.js" />
+    <Content Include="Scripts\plugins\jquery.mousewheel.js" />
+    <Content Include="Scripts\plugins\jquery.parallax.js" />
+    <Content Include="Scripts\plugins\jquery.scroolly.min.js" />
+    <Content Include="Scripts\plugins\jquery.validate.min.js" />
+    <Content Include="Scripts\plugins\jquery.viewportchecker.min.js" />
+    <Content Include="Scripts\plugins\slick.min.js" />
+    <Content Include="Scripts\vendor\jquery-1.11.3.min.js" />
+    <Content Include="Scripts\vendor\less.min.js" />
+    <Content Include="Scripts\vendor\modernizr-2.8.3.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ChildrenController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ChildVisual.cs" />
+    <Compile Include="Models\PhotoItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -131,10 +232,9 @@
     <Content Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Children\Index.cshtml" />
+    <Content Include="Views\Shared\_ChildFilter.cshtml" />
+    <Content Include="Views\Shared\_ChildTales.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -144,9 +244,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
-    <Folder Include="Views\Childs\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Cure.DataAccess\Cure.DataAccess.csproj">

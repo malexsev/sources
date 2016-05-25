@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Cure.DataAccess.ViewChild>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="main children-page" role="main">
+    <div class="container">
+        <div class="all-pages-head">
+            <div class="row">
+                <div class="col-lg-3">
+                    <h1 class="all-pages-H1">Наши дети</h1>
+                </div>
+                <div class="col-lg-9">
+                    <div class="children-page-filter">
+                        @Html.Partial("_ChildFilter")
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="children-page-list">
+            <div class="row" id="js-for-load-children">
+                @Html.Partial("_ChildTales", Model)
+            </div>
+
+            <div class="row">
+                <div class="col-ss-12">
+                    <div class="all-pages-more">
+                        <div class="more-title">
+                            Позаканы <span id="more-count">16</span> из <span id="more-all">134</span>
+                        </div>
+                        <div class="more-btn">
+                            <a class="btn btn-light has-loading js-load-more-children">Показать еще</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div><!-- END container -->
+
+</div><!-- END main -->

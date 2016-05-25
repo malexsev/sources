@@ -17,6 +17,7 @@ namespace Cure.DataAccess.DAL
         void DeleteNotificationLog(NotificationLog notificationLog);
         void UpdateNotificationLog(NotificationLog notificationLog);
 
+        IEnumerable<ViewChild> ViewChilds();
         IEnumerable<Child> GetChilds();
         IEnumerable<Child> GetChilds(int countryId);
         void InsertChild(Child child);

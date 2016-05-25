@@ -10,6 +10,11 @@
             return dataRepository.GetChilds();
         }
 
+        public IEnumerable<ViewChild> ViewChilds()
+        {
+            return dataRepository.ViewChilds();
+        }
+
         public IEnumerable<Child> GetChilds(int countryId)
         {
             return dataRepository.GetChilds(countryId);

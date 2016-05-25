@@ -27,3 +27,5 @@ D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\System.Web.Mvc.xml
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\obj\Debug\Cure.WebSite.csprojResolveAssemblyReference.cache
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\obj\Debug\Cure.WebSite.dll
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\obj\Debug\Cure.WebSite.pdb
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\Cure.DataAccess.dll
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\Cure.DataAccess.pdb

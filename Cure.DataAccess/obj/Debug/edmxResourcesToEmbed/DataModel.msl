@@ -558,5 +558,66 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="ViewChilds">
+      <EntityTypeMapping TypeName="DataModel.ViewChild">
+        <MappingFragment StoreEntitySet="ViewChild">
+          <ScalarProperty Name="FinCountryName" ColumnName="FinCountryName" />
+          <ScalarProperty Name="BankCountryName" ColumnName="BankCountryName" />
+          <ScalarProperty Name="OperatorCountryName" ColumnName="OperatorCountryName" />
+          <ScalarProperty Name="OperatorParams" ColumnName="OperatorParams" />
+          <ScalarProperty Name="OperatorDescription" ColumnName="OperatorDescription" />
+          <ScalarProperty Name="OperatorName" ColumnName="OperatorName" />
+          <ScalarProperty Name="RodstvoSoprovodChLabel" ColumnName="RodstvoSoprovodChLabel" />
+          <ScalarProperty Name="RodstvoSoprovodRuLabel" ColumnName="RodstvoSoprovodRuLabel" />
+          <ScalarProperty Name="RodstvoSort" ColumnName="RodstvoSort" />
+          <ScalarProperty Name="RodstvoDescription" ColumnName="RodstvoDescription" />
+          <ScalarProperty Name="RodstvoName" ColumnName="RodstvoName" />
+          <ScalarProperty Name="BankKorrAccount" ColumnName="BankKorrAccount" />
+          <ScalarProperty Name="BankBik" ColumnName="BankBik" />
+          <ScalarProperty Name="BankOkved" ColumnName="BankOkved" />
+          <ScalarProperty Name="BankOktmo" ColumnName="BankOktmo" />
+          <ScalarProperty Name="BankKpp" ColumnName="BankKpp" />
+          <ScalarProperty Name="BankInn" ColumnName="BankInn" />
+          <ScalarProperty Name="BankDescription" ColumnName="BankDescription" />
+          <ScalarProperty Name="BankName" ColumnName="BankName" />
+          <ScalarProperty Name="UserComment" ColumnName="UserComment" />
+          <ScalarProperty Name="UserLastLoginDate" ColumnName="UserLastLoginDate" />
+          <ScalarProperty Name="UserIsLockedOut" ColumnName="UserIsLockedOut" />
+          <ScalarProperty Name="UserIsApproved" ColumnName="UserIsApproved" />
+          <ScalarProperty Name="UserLoweredEmail" ColumnName="UserLoweredEmail" />
+          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+          <ScalarProperty Name="UserLastActivityDate" ColumnName="UserLastActivityDate" />
+          <ScalarProperty Name="UserIsAnonymous" ColumnName="UserIsAnonymous" />
+          <ScalarProperty Name="UserLoweredUserName" ColumnName="UserLoweredUserName" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+          <ScalarProperty Name="FinCardNumber" ColumnName="FinCardNumber" />
+          <ScalarProperty Name="FinBankOther" ColumnName="FinBankOther" />
+          <ScalarProperty Name="FinBankId" ColumnName="FinBankId" />
+          <ScalarProperty Name="FinCountryId" ColumnName="FinCountryId" />
+          <ScalarProperty Name="FinPhoneNumber" ColumnName="FinPhoneNumber" />
+          <ScalarProperty Name="FinOperatorId" ColumnName="FinOperatorId" />
+          <ScalarProperty Name="FinKiwi" ColumnName="FinKiwi" />
+          <ScalarProperty Name="FinYandexMoney" ColumnName="FinYandexMoney" />
+          <ScalarProperty Name="FinWebmoney" ColumnName="FinWebmoney" />
+          <ScalarProperty Name="SocialFb" ColumnName="SocialFb" />
+          <ScalarProperty Name="SocialMm" ColumnName="SocialMm" />
+          <ScalarProperty Name="SocialVk" ColumnName="SocialVk" />
+          <ScalarProperty Name="SocialOk" ColumnName="SocialOk" />
+          <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+          <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+          <ScalarProperty Name="ContactRodstvoId" ColumnName="ContactRodstvoId" />
+          <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+          <ScalarProperty Name="Diagnoz" ColumnName="Diagnoz" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="OwnerUser" ColumnName="OwnerUser" />
+          <ScalarProperty Name="GuidId" ColumnName="GuidId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>
