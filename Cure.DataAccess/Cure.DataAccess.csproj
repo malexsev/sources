@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\DiagnozBL.cs" />
     <Compile Include="BLL\ChildsBL.cs" />
     <Compile Include="BLL\OperatorBL.cs" />
     <Compile Include="BLL\MemebershipBL.cs" />
@@ -65,6 +66,7 @@
     <Compile Include="DAL\OperatorAccess.cs" />
     <Compile Include="DAL\MemebershipAccess.cs" />
     <Compile Include="DAL\NotificationLogAccess.cs" />
+    <Compile Include="DAL\DiagnozAccess.cs" />
     <Compile Include="DAL\SettingAccess.cs" />
     <Compile Include="DAL\RodstvoAccess.cs" />
     <Compile Include="DAL\BankAccess.cs" />

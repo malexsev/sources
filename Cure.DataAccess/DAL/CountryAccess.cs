@@ -8,6 +8,16 @@ namespace Cure.DataAccess.DAL
 {
     internal partial class DataRepository
     {
+        public IEnumerable<string> GetRegions()
+        {
+            return context.Children.GroupBy(o => o.Region).Select(o => o.Key);
+        }
+
+        public IEnumerable<string> GetRegions(int countryId)
+        {
+            return context.Children.Where(o => o.CountryId == countryId).GroupBy(o => o.Region).Select(o => o.Key);
+        }
+
         public IEnumerable<RefCountry> GetRefCountries()
         {
             return context.RefCountries.OrderBy(o => o.Name).ToList();

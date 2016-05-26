@@ -1,33 +1,29 @@
-﻿
-    <div class="row">
+﻿@using Cure.DataAccess
+
+@Ajax.BeginForm()
+<div class="row">
         <div class="col-md-3 col-ss-6">
             <div class="selector">
                 <input type="hidden" value="0">
                 <div class="selector-val" data-val="0">Все страны</div>
                 <ul class="selector-list">
                     <li data-val="0">Все страны</li>
-                    <li data-val="1">Россия</li>
-                    <li data-val="2">Украина</li>
-                    <li data-val="3">Казахстан</li>
-                    <li data-val="4">Беларусь</li>
+                    @foreach (RefCountry country in ViewBag.Countries)
+                    {
+                        <li data-val="@country.Id">@country.Name</li>
+                    }
                 </ul>
             </div>
         </div>
         <div class="col-md-3 col-ss-6">
             <div class="selector">
                 <input type="hidden" value="0">
-                <div class="selector-val" data-val="0">Все города</div>
+                <div class="selector-val" data-val="0">Все регионы</div>
                 <ul class="selector-list">
-                    <li data-val="0">Все города</li>
-                    <li data-val="1">Москва</li>
-                    <li data-val="2">Санкт-Петербург</li>
-                    <li data-val="3">Барнаул</li>
-                    <li data-val="4">Брянск</li>
-                    <li data-val="5">Волгоград</li>
-                    <li data-val="6">Вологда</li>
-                    <li data-val="7">Воронеж</li>
-                    <li data-val="8">Геленджик</li>
-                    <li data-val="9">Екатеринбург</li>
+                    @foreach (string region in ViewBag.Regions)
+                    {
+                        <li data-val="@region">@region</li>
+                    }
                 </ul>
             </div>
         </div>
@@ -37,10 +33,11 @@
                 <div class="selector-val" data-val="0">Любой возраст</div>
                 <ul class="selector-list">
                     <li data-val="0">Любой возраст</li>
-                    <li data-val="1">Россия</li>
-                    <li data-val="2">Украина</li>
-                    <li data-val="3">Казахстан</li>
-                    <li data-val="4">Беларусь</li>
+                    <li data-val="1">0-3 лет</li>
+                    <li data-val="2">3-5 лет</li>
+                    <li data-val="3">5-8 лет</li>
+                    <li data-val="4">8-12 лет</li>
+                    <li data-val="5">12 и более</li>
                 </ul>
             </div>
         </div>
@@ -49,11 +46,11 @@
                 <input type="hidden" value="0">
                 <div class="selector-val" data-val="0">Любой диагноз</div>
                 <ul class="selector-list">
-                    <li data-val="0">Любой диагноз</li>
-                    <li data-val="1">Россия</li>
-                    <li data-val="2">Украина</li>
-                    <li data-val="3">Казахстан</li>
-                    <li data-val="4">Беларусь</li>
+                    <li data-val="0">Любой диагноз</li>                    
+                    @foreach (RefDiagnoz diagnoze in ViewBag.Diagnozes)
+                    {
+                        <li data-val="@diagnoze.Id">@diagnoze.Name</li>
+                    }
                 </ul>
             </div>
         </div>

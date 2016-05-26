@@ -208,6 +208,7 @@
     <Content Include="Admin\Controls\SoonVisitsList.ascx" />
     <Content Include="Admin\NotificationLogList.aspx" />
     <Content Include="Admin\ChildList.aspx" />
+    <Content Include="Admin\RefDiagnozList.aspx" />
     <Content Include="Admin\RefOperatorList.aspx" />
     <Content Include="Admin\RefBankList.aspx" />
     <Content Include="Admin\UserList.aspx" />
@@ -515,6 +516,13 @@
     </Compile>
     <Compile Include="Admin\ChildList.aspx.designer.cs">
       <DependentUpon>ChildList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\RefDiagnozList.aspx.cs">
+      <DependentUpon>RefDiagnozList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\RefDiagnozList.aspx.designer.cs">
+      <DependentUpon>RefDiagnozList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\RefOperatorList.aspx.cs">
       <DependentUpon>RefOperatorList.aspx</DependentUpon>

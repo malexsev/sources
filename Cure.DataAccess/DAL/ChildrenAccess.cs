@@ -66,6 +66,7 @@ namespace Cure.DataAccess.DAL
                 origChild.ContactRodstvoId = child.ContactRodstvoId;
                 origChild.CountryId = child.CountryId;
                 origChild.Diagnoz = child.Diagnoz;
+                origChild.DiagnozId = child.DiagnozId;
                 origChild.FinBankId = child.FinBankId;
                 origChild.FinBankOther = child.FinBankOther;
                 origChild.FinCardNumber = child.FinCardNumber;

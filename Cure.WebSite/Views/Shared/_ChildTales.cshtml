@@ -1,17 +1,47 @@
 ﻿@model IEnumerable<Cure.WebSite.Models.ChildVisual>
 
-@foreach (var item in Model)
-{
-    <div class="col-lg-3 col-sm-4 col-ss-6 children-page-item js-ajax-for-count">
-        <a class="children-page-child" href="#">
-            <img class="child-img" src="@item.PhotoUrl" alt="@item.Name">
-            <div class="child-txt">
-                <div class="child-name">@item.Name, <span class="child-age">@item.Age лет</span></div>
-                <div class="child-city">@item.CountryName, @item.Region</div>
+<div class="all-pages-head">
+    <div class="row">
+        <div class="col-lg-3">
+            <h1 class="all-pages-H1">Наши дети</h1>
+        </div>
+        <div class="col-lg-9">
+            <div class="children-page-filter">
+                @Html.Partial("_ChildFilter")
             </div>
-        </a>
+        </div>
     </div>
-}
+</div>
+
+<div class="children-page-list">
+    <div class="row" id="js-for-load-children">
+        @foreach (var item in Model)
+              {
+                  <div class="col-lg-3 col-sm-4 col-ss-6 children-page-item js-ajax-for-count">
+                      <a class="children-page-child" href="#">
+                          <img class="child-img" src="@item.PhotoUrl" alt="@item.Name">
+                          <div class="child-txt">
+                              <div class="child-name">@item.Name, <span class="child-age">@item.Age лет</span></div>
+                              <div class="child-city">@item.CountryName, @item.Region</div>
+                          </div>
+                      </a>
+                  </div>
+              }
+    </div>
+
+    <div class="row">
+        <div class="col-ss-12">
+            <div class="all-pages-more">
+                <div class="more-title">
+                    Позаканы <span id="more-count">16</span> из <span id="more-all">134</span>
+                </div>
+                <div class="more-btn">
+                    <a class="btn btn-light has-loading js-load-more-children">Показать еще</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 @*<div class="col-lg-6 col-sm-8 col-ss-12 children-page-item">
     <div class="children-page-review">
@@ -30,13 +60,4 @@
             </div>
         </div>
     </div>
-</div>*@
-@*<div class="col-lg-3 col-sm-4 col-ss-6 children-page-item js-ajax-for-count">
-    <a class="children-page-child" href="#">
-        <img class="child-img" src="~/content/images/children/children_5.jpg" alt="Вика">
-        <div class="child-txt">
-            <div class="child-name">Вика, <span class="child-age">8 лет</span></div>
-            <div class="child-city">Россия, Ярославская область</div>
-        </div>
-    </a>
 </div>*@

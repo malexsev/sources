@@ -49,15 +49,16 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="GuidId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CountryId" Type="int" Nullable="false" />
           <Property Name="OwnerUser" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Birthday" Type="datetime" Nullable="false" />
-          <Property Name="CountryId" Type="int" Nullable="false" />
           <Property Name="Region" Type="nvarchar" MaxLength="150" />
+          <Property Name="DiagnozId" Type="int" Nullable="false" />
           <Property Name="Diagnoz" Type="nvarchar" MaxLength="250" />
-          <Property Name="ContactName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ContactRodstvoId" Type="int" Nullable="false" />
+          <Property Name="ContactName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ContactEmail" Type="nvarchar" MaxLength="250" Nullable="false" />
           <Property Name="ContactPhone" Type="nvarchar" MaxLength="50" />
           <Property Name="SocialOk" Type="nvarchar" MaxLength="250" />
@@ -68,9 +69,9 @@
           <Property Name="FinYandexMoney" Type="nvarchar" MaxLength="50" />
           <Property Name="FinKiwi" Type="nvarchar" MaxLength="50" />
           <Property Name="FinOperatorId" Type="int" />
-          <Property Name="FinPhoneNumber" Type="nvarchar" MaxLength="50" />
           <Property Name="FinCountryId" Type="int" />
           <Property Name="FinBankId" Type="int" />
+          <Property Name="FinPhoneNumber" Type="nvarchar" MaxLength="50" />
           <Property Name="FinBankOther" Type="nvarchar" MaxLength="50" />
           <Property Name="FinCardNumber" Type="nvarchar" MaxLength="50" />
         </EntityType>
@@ -216,6 +217,14 @@
           <Property Name="PosolstvoChLabel" Type="nvarchar" MaxLength="150" />
           <Property Name="PosolstvoRusLabel" Type="nvarchar" MaxLength="150" />
           <Property Name="NacionalnostChLabel" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="RefDiagnoz">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="RefOperator">
           <Key>
@@ -370,6 +379,8 @@ warning 6002: The table/view 'Cure.dbo.ViewChild' does not have a primary key de
             <PropertyRef Name="ContactName" />
             <PropertyRef Name="ContactRodstvoId" />
             <PropertyRef Name="ContactEmail" />
+            <PropertyRef Name="DiagnozId" />
+            <PropertyRef Name="DiagnozName" />
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="GuidId" Type="uniqueidentifier" Nullable="false" />
@@ -426,6 +437,9 @@ warning 6002: The table/view 'Cure.dbo.ViewChild' does not have a primary key de
           <Property Name="OperatorCountryName" Type="nvarchar" MaxLength="50" />
           <Property Name="BankCountryName" Type="nvarchar" MaxLength="50" />
           <Property Name="FinCountryName" Type="nvarchar" MaxLength="50" />
+          <Property Name="DiagnozId" Type="int" Nullable="false" />
+          <Property Name="DiagnozName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DiagnozDescription" Type="nvarchar" MaxLength="250" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Cure.dbo.ViewScheduler' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -602,23 +616,23 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
         <EntityType Name="ViewUserMembership">
           <Key>
             <PropertyRef Name="Expr1" />
-            <PropertyRef Name="UserName" />
-            <PropertyRef Name="LoweredUserName" />
-            <PropertyRef Name="IsAnonymous" />
-            <PropertyRef Name="LastActivityDate" />
+            
+            
+            
+            
             <PropertyRef Name="Password" />
             <PropertyRef Name="PasswordFormat" />
             <PropertyRef Name="PasswordSalt" />
-            <PropertyRef Name="IsApproved" />
-            <PropertyRef Name="IsLockedOut" />
-            <PropertyRef Name="CreateDate" />
-            <PropertyRef Name="LastLoginDate" />
-            <PropertyRef Name="LastPasswordChangedDate" />
-            <PropertyRef Name="LastLockoutDate" />
-            <PropertyRef Name="FailedPasswordAttemptCount" />
-            <PropertyRef Name="FailedPasswordAttemptWindowStart" />
-            <PropertyRef Name="FailedPasswordAnswerAttemptCount" />
-            <PropertyRef Name="FailedPasswordAnswerAttemptWindowStart" />
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
           </Key>
           <Property Name="Expr1" Type="uniqueidentifier" Nullable="false" />
           <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
@@ -703,6 +717,20 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
             </Principal>
             <Dependent Role="Child">
               <PropertyRef Name="FinCountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Child_RefDiagnoz">
+          <End Role="RefDiagnoz" Type="Self.RefDiagnoz" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Child" Type="Self.Child" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefDiagnoz">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Child">
+              <PropertyRef Name="DiagnozId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -907,6 +935,7 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
           <EntitySet Name="Pacient" EntityType="Self.Pacient" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RefBank" EntityType="Self.RefBank" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RefCountry" EntityType="Self.RefCountry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RefDiagnoz" EntityType="Self.RefDiagnoz" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RefOperator" EntityType="Self.RefOperator" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RefRodstvo" EntityType="Self.RefRodstvo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Setting" EntityType="Self.Setting" Schema="dbo" store:Type="Tables" />
@@ -970,7 +999,10 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
 [ViewChild].[OperatorParams] AS [OperatorParams], 
 [ViewChild].[OperatorCountryName] AS [OperatorCountryName], 
 [ViewChild].[BankCountryName] AS [BankCountryName], 
-[ViewChild].[FinCountryName] AS [FinCountryName]
+[ViewChild].[FinCountryName] AS [FinCountryName], 
+[ViewChild].[DiagnozId] AS [DiagnozId], 
+[ViewChild].[DiagnozName] AS [DiagnozName], 
+[ViewChild].[DiagnozDescription] AS [DiagnozDescription]
 FROM [dbo].[ViewChild] AS [ViewChild]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="ViewScheduler" EntityType="Self.ViewScheduler" store:Type="Views" store:Schema="dbo">
@@ -1176,6 +1208,10 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
             <End Role="RefCountry" EntitySet="RefCountry" />
             <End Role="Child" EntitySet="Child" />
           </AssociationSet>
+          <AssociationSet Name="FK_Child_RefDiagnoz" Association="Self.FK_Child_RefDiagnoz">
+            <End Role="RefDiagnoz" EntitySet="RefDiagnoz" />
+            <End Role="Child" EntitySet="Child" />
+          </AssociationSet>
           <AssociationSet Name="FK_Child_RefOperator" Association="Self.FK_Child_RefOperator">
             <End Role="RefOperator" EntitySet="RefOperator" />
             <End Role="Child" EntitySet="Child" />
@@ -1321,6 +1357,7 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
             <End Role="RefCountry" EntitySet="RefCountries" />
             <End Role="RefOperator" EntitySet="RefOperators" />
           </AssociationSet>
+          <EntitySet Name="RefDiagnozs" EntityType="DataModel.RefDiagnoz" />
           <EntitySet Name="Children" EntityType="DataModel.Child" />
           <AssociationSet Name="FK_Child_RefBank" Association="DataModel.FK_Child_RefBank">
             <End Role="RefBank" EntitySet="RefBanks" />
@@ -1332,6 +1369,10 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
           </AssociationSet>
           <AssociationSet Name="FK_Child_RefCountryFin" Association="DataModel.FK_Child_RefCountryFin">
             <End Role="RefCountry" EntitySet="RefCountries" />
+            <End Role="Child" EntitySet="Children" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Child_RefDiagnoz" Association="DataModel.FK_Child_RefDiagnoz">
+            <End Role="RefDiagnoz" EntitySet="RefDiagnozs" />
             <End Role="Child" EntitySet="Children" />
           </AssociationSet>
           <AssociationSet Name="FK_Child_RefOperator" Association="DataModel.FK_Child_RefOperator">
@@ -1927,23 +1968,9 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
         <EntityType Name="ViewUserMembership">
           <Key>
             <PropertyRef Name="Expr1" />
-            <PropertyRef Name="UserName" />
-            <PropertyRef Name="LoweredUserName" />
-            <PropertyRef Name="IsAnonymous" />
-            <PropertyRef Name="LastActivityDate" />
             <PropertyRef Name="Password" />
             <PropertyRef Name="PasswordFormat" />
             <PropertyRef Name="PasswordSalt" />
-            <PropertyRef Name="IsApproved" />
-            <PropertyRef Name="IsLockedOut" />
-            <PropertyRef Name="CreateDate" />
-            <PropertyRef Name="LastLoginDate" />
-            <PropertyRef Name="LastPasswordChangedDate" />
-            <PropertyRef Name="LastLockoutDate" />
-            <PropertyRef Name="FailedPasswordAttemptCount" />
-            <PropertyRef Name="FailedPasswordAttemptWindowStart" />
-            <PropertyRef Name="FailedPasswordAnswerAttemptCount" />
-            <PropertyRef Name="FailedPasswordAnswerAttemptWindowStart" />
           </Key>
           <Property Type="Guid" Name="Expr1" Nullable="false" />
           <Property Type="String" Name="UserName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
@@ -2092,21 +2119,31 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="RefDiagnoz">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Children" Relationship="DataModel.FK_Child_RefDiagnoz" FromRole="RefDiagnoz" ToRole="Child" />
+        </EntityType>
         <EntityType Name="Child">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="GuidId" Type="Guid" Nullable="false" />
+          <Property Name="CountryId" Type="Int32" Nullable="false" />
           <Property Name="OwnerUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="CountryId" Type="Int32" Nullable="false" />
           <Property Name="Region" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="DiagnozId" Type="Int32" Nullable="false" />
           <Property Name="Diagnoz" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="ContactName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ContactRodstvoId" Type="Int32" Nullable="false" />
+          <Property Name="ContactName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ContactEmail" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="ContactPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SocialOk" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
@@ -2117,14 +2154,15 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
           <Property Name="FinYandexMoney" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="FinKiwi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="FinOperatorId" Type="Int32" />
-          <Property Name="FinPhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="FinCountryId" Type="Int32" />
           <Property Name="FinBankId" Type="Int32" />
+          <Property Name="FinPhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="FinBankOther" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="FinCardNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="RefBank" Relationship="DataModel.FK_Child_RefBank" FromRole="Child" ToRole="RefBank" />
           <NavigationProperty Name="RefCountry" Relationship="DataModel.FK_Child_RefCountry" FromRole="Child" ToRole="RefCountry" />
           <NavigationProperty Name="RefCountry1" Relationship="DataModel.FK_Child_RefCountryFin" FromRole="Child" ToRole="RefCountry" />
+          <NavigationProperty Name="RefDiagnoz" Relationship="DataModel.FK_Child_RefDiagnoz" FromRole="Child" ToRole="RefDiagnoz" />
           <NavigationProperty Name="RefOperator" Relationship="DataModel.FK_Child_RefOperator" FromRole="Child" ToRole="RefOperator" />
           <NavigationProperty Name="RefRodstvo" Relationship="DataModel.FK_Child_RefRodstvo" FromRole="Child" ToRole="RefRodstvo" />
         </EntityType>
@@ -2164,6 +2202,20 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Child_RefDiagnoz">
+          <End Type="DataModel.RefDiagnoz" Role="RefDiagnoz" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="DataModel.Child" Role="Child" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefDiagnoz">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Child">
+              <PropertyRef Name="DiagnozId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Child_RefOperator">
           <End Type="DataModel.RefOperator" Role="RefOperator" Multiplicity="0..1" />
           <End Type="DataModel.Child" Role="Child" Multiplicity="*" />
@@ -2200,6 +2252,8 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
             <PropertyRef Name="ContactName" />
             <PropertyRef Name="ContactRodstvoId" />
             <PropertyRef Name="ContactEmail" />
+            <PropertyRef Name="DiagnozId" />
+            <PropertyRef Name="DiagnozName" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="GuidId" Type="Guid" Nullable="false" />
@@ -2256,6 +2310,9 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
           <Property Name="OperatorCountryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="BankCountryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="FinCountryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DiagnozId" Type="Int32" Nullable="false" />
+          <Property Name="DiagnozName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DiagnozDescription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -2788,14 +2845,23 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="RefDiagnozs">
+            <EntityTypeMapping TypeName="DataModel.RefDiagnoz">
+              <MappingFragment StoreEntitySet="RefDiagnoz">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Children">
             <EntityTypeMapping TypeName="DataModel.Child">
               <MappingFragment StoreEntitySet="Child">
                 <ScalarProperty Name="FinCardNumber" ColumnName="FinCardNumber" />
                 <ScalarProperty Name="FinBankOther" ColumnName="FinBankOther" />
+                <ScalarProperty Name="FinPhoneNumber" ColumnName="FinPhoneNumber" />
                 <ScalarProperty Name="FinBankId" ColumnName="FinBankId" />
                 <ScalarProperty Name="FinCountryId" ColumnName="FinCountryId" />
-                <ScalarProperty Name="FinPhoneNumber" ColumnName="FinPhoneNumber" />
                 <ScalarProperty Name="FinOperatorId" ColumnName="FinOperatorId" />
                 <ScalarProperty Name="FinKiwi" ColumnName="FinKiwi" />
                 <ScalarProperty Name="FinYandexMoney" ColumnName="FinYandexMoney" />
@@ -2806,15 +2872,16 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
                 <ScalarProperty Name="SocialOk" ColumnName="SocialOk" />
                 <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
                 <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
-                <ScalarProperty Name="ContactRodstvoId" ColumnName="ContactRodstvoId" />
                 <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                <ScalarProperty Name="ContactRodstvoId" ColumnName="ContactRodstvoId" />
                 <ScalarProperty Name="Diagnoz" ColumnName="Diagnoz" />
+                <ScalarProperty Name="DiagnozId" ColumnName="DiagnozId" />
                 <ScalarProperty Name="Region" ColumnName="Region" />
-                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
                 <ScalarProperty Name="Birthday" ColumnName="Birthday" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="OwnerUser" ColumnName="OwnerUser" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
                 <ScalarProperty Name="GuidId" ColumnName="GuidId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
@@ -2823,6 +2890,9 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
           <EntitySetMapping Name="ViewChilds">
             <EntityTypeMapping TypeName="DataModel.ViewChild">
               <MappingFragment StoreEntitySet="ViewChild">
+                <ScalarProperty Name="DiagnozDescription" ColumnName="DiagnozDescription" />
+                <ScalarProperty Name="DiagnozName" ColumnName="DiagnozName" />
+                <ScalarProperty Name="DiagnozId" ColumnName="DiagnozId" />
                 <ScalarProperty Name="FinCountryName" ColumnName="FinCountryName" />
                 <ScalarProperty Name="BankCountryName" ColumnName="BankCountryName" />
                 <ScalarProperty Name="OperatorCountryName" ColumnName="OperatorCountryName" />

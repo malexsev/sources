@@ -37,6 +37,7 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("DataModel", "FK_Child_RefBank", "RefBank", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Cure.DataAccess.RefBank), "Child", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Child), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK_Child_RefCountry", "RefCountry", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.RefCountry), "Child", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Child), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK_Child_RefCountryFin", "RefCountry", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Cure.DataAccess.RefCountry), "Child", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Child), true)]
+[assembly: EdmRelationshipAttribute("DataModel", "FK_Child_RefDiagnoz", "RefDiagnoz", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.RefDiagnoz), "Child", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Child), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK_Child_RefOperator", "RefOperator", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Cure.DataAccess.RefOperator), "Child", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Child), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK_Child_RefRodstvo", "RefRodstvo", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.RefRodstvo), "Child", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Child), true)]
 
@@ -397,6 +398,22 @@ namespace Cure.DataAccess
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<RefDiagnoz> RefDiagnozs
+        {
+            get
+            {
+                if ((_RefDiagnozs == null))
+                {
+                    _RefDiagnozs = base.CreateObjectSet<RefDiagnoz>("RefDiagnozs");
+                }
+                return _RefDiagnozs;
+            }
+        }
+        private ObjectSet<RefDiagnoz> _RefDiagnozs;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<Child> Children
         {
             get
@@ -580,6 +597,14 @@ namespace Cure.DataAccess
         public void AddToRefOperators(RefOperator refOperator)
         {
             base.AddObject("RefOperators", refOperator);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the RefDiagnozs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToRefDiagnozs(RefDiagnoz refDiagnoz)
+        {
+            base.AddObject("RefDiagnozs", refDiagnoz);
         }
     
         /// <summary>
@@ -1555,26 +1580,28 @@ namespace Cure.DataAccess
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="guidId">Initial value of the GuidId property.</param>
+        /// <param name="countryId">Initial value of the CountryId property.</param>
         /// <param name="ownerUser">Initial value of the OwnerUser property.</param>
         /// <param name="isActive">Initial value of the IsActive property.</param>
         /// <param name="name">Initial value of the Name property.</param>
         /// <param name="birthday">Initial value of the Birthday property.</param>
-        /// <param name="countryId">Initial value of the CountryId property.</param>
-        /// <param name="contactName">Initial value of the ContactName property.</param>
+        /// <param name="diagnozId">Initial value of the DiagnozId property.</param>
         /// <param name="contactRodstvoId">Initial value of the ContactRodstvoId property.</param>
+        /// <param name="contactName">Initial value of the ContactName property.</param>
         /// <param name="contactEmail">Initial value of the ContactEmail property.</param>
-        public static Child CreateChild(global::System.Int32 id, global::System.Guid guidId, global::System.String ownerUser, global::System.Boolean isActive, global::System.String name, global::System.DateTime birthday, global::System.Int32 countryId, global::System.String contactName, global::System.Int32 contactRodstvoId, global::System.String contactEmail)
+        public static Child CreateChild(global::System.Int32 id, global::System.Guid guidId, global::System.Int32 countryId, global::System.String ownerUser, global::System.Boolean isActive, global::System.String name, global::System.DateTime birthday, global::System.Int32 diagnozId, global::System.Int32 contactRodstvoId, global::System.String contactName, global::System.String contactEmail)
         {
             Child child = new Child();
             child.Id = id;
             child.GuidId = guidId;
+            child.CountryId = countryId;
             child.OwnerUser = ownerUser;
             child.IsActive = isActive;
             child.Name = name;
             child.Birthday = birthday;
-            child.CountryId = countryId;
-            child.ContactName = contactName;
+            child.DiagnozId = diagnozId;
             child.ContactRodstvoId = contactRodstvoId;
+            child.ContactName = contactName;
             child.ContactEmail = contactEmail;
             return child;
         }
@@ -1633,6 +1660,30 @@ namespace Cure.DataAccess
         private global::System.Guid _GuidId;
         partial void OnGuidIdChanging(global::System.Guid value);
         partial void OnGuidIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 CountryId
+        {
+            get
+            {
+                return _CountryId;
+            }
+            set
+            {
+                OnCountryIdChanging(value);
+                ReportPropertyChanging("CountryId");
+                _CountryId = StructuralObject.SetValidValue(value, "CountryId");
+                ReportPropertyChanged("CountryId");
+                OnCountryIdChanged();
+            }
+        }
+        private global::System.Int32 _CountryId;
+        partial void OnCountryIdChanging(global::System.Int32 value);
+        partial void OnCountryIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -1733,30 +1784,6 @@ namespace Cure.DataAccess
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int32 CountryId
-        {
-            get
-            {
-                return _CountryId;
-            }
-            set
-            {
-                OnCountryIdChanging(value);
-                ReportPropertyChanging("CountryId");
-                _CountryId = StructuralObject.SetValidValue(value, "CountryId");
-                ReportPropertyChanged("CountryId");
-                OnCountryIdChanged();
-            }
-        }
-        private global::System.Int32 _CountryId;
-        partial void OnCountryIdChanging(global::System.Int32 value);
-        partial void OnCountryIdChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Region
@@ -1777,6 +1804,30 @@ namespace Cure.DataAccess
         private global::System.String _Region;
         partial void OnRegionChanging(global::System.String value);
         partial void OnRegionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 DiagnozId
+        {
+            get
+            {
+                return _DiagnozId;
+            }
+            set
+            {
+                OnDiagnozIdChanging(value);
+                ReportPropertyChanging("DiagnozId");
+                _DiagnozId = StructuralObject.SetValidValue(value, "DiagnozId");
+                ReportPropertyChanged("DiagnozId");
+                OnDiagnozIdChanged();
+            }
+        }
+        private global::System.Int32 _DiagnozId;
+        partial void OnDiagnozIdChanging(global::System.Int32 value);
+        partial void OnDiagnozIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -1807,30 +1858,6 @@ namespace Cure.DataAccess
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String ContactName
-        {
-            get
-            {
-                return _ContactName;
-            }
-            set
-            {
-                OnContactNameChanging(value);
-                ReportPropertyChanging("ContactName");
-                _ContactName = StructuralObject.SetValidValue(value, false, "ContactName");
-                ReportPropertyChanged("ContactName");
-                OnContactNameChanged();
-            }
-        }
-        private global::System.String _ContactName;
-        partial void OnContactNameChanging(global::System.String value);
-        partial void OnContactNameChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
         public global::System.Int32 ContactRodstvoId
         {
             get
@@ -1849,6 +1876,30 @@ namespace Cure.DataAccess
         private global::System.Int32 _ContactRodstvoId;
         partial void OnContactRodstvoIdChanging(global::System.Int32 value);
         partial void OnContactRodstvoIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String ContactName
+        {
+            get
+            {
+                return _ContactName;
+            }
+            set
+            {
+                OnContactNameChanging(value);
+                ReportPropertyChanging("ContactName");
+                _ContactName = StructuralObject.SetValidValue(value, false, "ContactName");
+                ReportPropertyChanged("ContactName");
+                OnContactNameChanged();
+            }
+        }
+        private global::System.String _ContactName;
+        partial void OnContactNameChanging(global::System.String value);
+        partial void OnContactNameChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -2095,30 +2146,6 @@ namespace Cure.DataAccess
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String FinPhoneNumber
-        {
-            get
-            {
-                return _FinPhoneNumber;
-            }
-            set
-            {
-                OnFinPhoneNumberChanging(value);
-                ReportPropertyChanging("FinPhoneNumber");
-                _FinPhoneNumber = StructuralObject.SetValidValue(value, true, "FinPhoneNumber");
-                ReportPropertyChanged("FinPhoneNumber");
-                OnFinPhoneNumberChanged();
-            }
-        }
-        private global::System.String _FinPhoneNumber;
-        partial void OnFinPhoneNumberChanging(global::System.String value);
-        partial void OnFinPhoneNumberChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
         public Nullable<global::System.Int32> FinCountryId
         {
             get
@@ -2161,6 +2188,30 @@ namespace Cure.DataAccess
         private Nullable<global::System.Int32> _FinBankId;
         partial void OnFinBankIdChanging(Nullable<global::System.Int32> value);
         partial void OnFinBankIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String FinPhoneNumber
+        {
+            get
+            {
+                return _FinPhoneNumber;
+            }
+            set
+            {
+                OnFinPhoneNumberChanging(value);
+                ReportPropertyChanging("FinPhoneNumber");
+                _FinPhoneNumber = StructuralObject.SetValidValue(value, true, "FinPhoneNumber");
+                ReportPropertyChanged("FinPhoneNumber");
+                OnFinPhoneNumberChanged();
+            }
+        }
+        private global::System.String _FinPhoneNumber;
+        partial void OnFinPhoneNumberChanging(global::System.String value);
+        partial void OnFinPhoneNumberChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -2324,6 +2375,44 @@ namespace Cure.DataAccess
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<RefCountry>("DataModel.FK_Child_RefCountryFin", "RefCountry", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_Child_RefDiagnoz", "RefDiagnoz")]
+        public RefDiagnoz RefDiagnoz
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RefDiagnoz>("DataModel.FK_Child_RefDiagnoz", "RefDiagnoz").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RefDiagnoz>("DataModel.FK_Child_RefDiagnoz", "RefDiagnoz").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<RefDiagnoz> RefDiagnozReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RefDiagnoz>("DataModel.FK_Child_RefDiagnoz", "RefDiagnoz");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<RefDiagnoz>("DataModel.FK_Child_RefDiagnoz", "RefDiagnoz", value);
                 }
             }
         }
@@ -5839,6 +5928,138 @@ namespace Cure.DataAccess
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="RefDiagnoz")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class RefDiagnoz : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new RefDiagnoz object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="name">Initial value of the Name property.</param>
+        public static RefDiagnoz CreateRefDiagnoz(global::System.Int32 id, global::System.String name)
+        {
+            RefDiagnoz refDiagnoz = new RefDiagnoz();
+            refDiagnoz.Id = id;
+            refDiagnoz.Name = name;
+            return refDiagnoz;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value, "Id");
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                OnNameChanging(value);
+                ReportPropertyChanging("Name");
+                _Name = StructuralObject.SetValidValue(value, false, "Name");
+                ReportPropertyChanged("Name");
+                OnNameChanged();
+            }
+        }
+        private global::System.String _Name;
+        partial void OnNameChanging(global::System.String value);
+        partial void OnNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Description
+        {
+            get
+            {
+                return _Description;
+            }
+            set
+            {
+                OnDescriptionChanging(value);
+                ReportPropertyChanging("Description");
+                _Description = StructuralObject.SetValidValue(value, true, "Description");
+                ReportPropertyChanged("Description");
+                OnDescriptionChanged();
+            }
+        }
+        private global::System.String _Description;
+        partial void OnDescriptionChanging(global::System.String value);
+        partial void OnDescriptionChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_Child_RefDiagnoz", "Child")]
+        public EntityCollection<Child> Children
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Child>("DataModel.FK_Child_RefDiagnoz", "Child");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Child>("DataModel.FK_Child_RefDiagnoz", "Child", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="RefOperator")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -7473,7 +7694,9 @@ namespace Cure.DataAccess
         /// <param name="contactName">Initial value of the ContactName property.</param>
         /// <param name="contactRodstvoId">Initial value of the ContactRodstvoId property.</param>
         /// <param name="contactEmail">Initial value of the ContactEmail property.</param>
-        public static ViewChild CreateViewChild(global::System.Int32 id, global::System.Guid guidId, global::System.String ownerUser, global::System.Boolean isActive, global::System.String name, global::System.DateTime birthday, global::System.Int32 countryId, global::System.String contactName, global::System.Int32 contactRodstvoId, global::System.String contactEmail)
+        /// <param name="diagnozId">Initial value of the DiagnozId property.</param>
+        /// <param name="diagnozName">Initial value of the DiagnozName property.</param>
+        public static ViewChild CreateViewChild(global::System.Int32 id, global::System.Guid guidId, global::System.String ownerUser, global::System.Boolean isActive, global::System.String name, global::System.DateTime birthday, global::System.Int32 countryId, global::System.String contactName, global::System.Int32 contactRodstvoId, global::System.String contactEmail, global::System.Int32 diagnozId, global::System.String diagnozName)
         {
             ViewChild viewChild = new ViewChild();
             viewChild.Id = id;
@@ -7486,6 +7709,8 @@ namespace Cure.DataAccess
             viewChild.ContactName = contactName;
             viewChild.ContactRodstvoId = contactRodstvoId;
             viewChild.ContactEmail = contactEmail;
+            viewChild.DiagnozId = diagnozId;
+            viewChild.DiagnozName = diagnozName;
             return viewChild;
         }
 
@@ -8842,6 +9067,84 @@ namespace Cure.DataAccess
         private global::System.String _FinCountryName;
         partial void OnFinCountryNameChanging(global::System.String value);
         partial void OnFinCountryNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 DiagnozId
+        {
+            get
+            {
+                return _DiagnozId;
+            }
+            set
+            {
+                if (_DiagnozId != value)
+                {
+                    OnDiagnozIdChanging(value);
+                    ReportPropertyChanging("DiagnozId");
+                    _DiagnozId = StructuralObject.SetValidValue(value, "DiagnozId");
+                    ReportPropertyChanged("DiagnozId");
+                    OnDiagnozIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _DiagnozId;
+        partial void OnDiagnozIdChanging(global::System.Int32 value);
+        partial void OnDiagnozIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String DiagnozName
+        {
+            get
+            {
+                return _DiagnozName;
+            }
+            set
+            {
+                if (_DiagnozName != value)
+                {
+                    OnDiagnozNameChanging(value);
+                    ReportPropertyChanging("DiagnozName");
+                    _DiagnozName = StructuralObject.SetValidValue(value, false, "DiagnozName");
+                    ReportPropertyChanged("DiagnozName");
+                    OnDiagnozNameChanged();
+                }
+            }
+        }
+        private global::System.String _DiagnozName;
+        partial void OnDiagnozNameChanging(global::System.String value);
+        partial void OnDiagnozNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String DiagnozDescription
+        {
+            get
+            {
+                return _DiagnozDescription;
+            }
+            set
+            {
+                OnDiagnozDescriptionChanging(value);
+                ReportPropertyChanging("DiagnozDescription");
+                _DiagnozDescription = StructuralObject.SetValidValue(value, true, "DiagnozDescription");
+                ReportPropertyChanged("DiagnozDescription");
+                OnDiagnozDescriptionChanged();
+            }
+        }
+        private global::System.String _DiagnozDescription;
+        partial void OnDiagnozDescriptionChanging(global::System.String value);
+        partial void OnDiagnozDescriptionChanged();
 
         #endregion
 
@@ -12524,7 +12827,7 @@ namespace Cure.DataAccess
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String UserName
         {
@@ -12534,14 +12837,11 @@ namespace Cure.DataAccess
             }
             set
             {
-                if (_UserName != value)
-                {
-                    OnUserNameChanging(value);
-                    ReportPropertyChanging("UserName");
-                    _UserName = StructuralObject.SetValidValue(value, false, "UserName");
-                    ReportPropertyChanged("UserName");
-                    OnUserNameChanged();
-                }
+                OnUserNameChanging(value);
+                ReportPropertyChanging("UserName");
+                _UserName = StructuralObject.SetValidValue(value, false, "UserName");
+                ReportPropertyChanged("UserName");
+                OnUserNameChanged();
             }
         }
         private global::System.String _UserName;
@@ -12551,7 +12851,7 @@ namespace Cure.DataAccess
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String LoweredUserName
         {
@@ -12561,14 +12861,11 @@ namespace Cure.DataAccess
             }
             set
             {
-                if (_LoweredUserName != value)
-                {
-                    OnLoweredUserNameChanging(value);
-                    ReportPropertyChanging("LoweredUserName");
-                    _LoweredUserName = StructuralObject.SetValidValue(value, false, "LoweredUserName");
-                    ReportPropertyChanged("LoweredUserName");
-                    OnLoweredUserNameChanged();
-                }
+                OnLoweredUserNameChanging(value);
+                ReportPropertyChanging("LoweredUserName");
+                _LoweredUserName = StructuralObject.SetValidValue(value, false, "LoweredUserName");
+                ReportPropertyChanged("LoweredUserName");
+                OnLoweredUserNameChanged();
             }
         }
         private global::System.String _LoweredUserName;
@@ -12602,7 +12899,7 @@ namespace Cure.DataAccess
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsAnonymous
         {
@@ -12612,14 +12909,11 @@ namespace Cure.DataAccess
             }
             set
             {
-                if (_IsAnonymous != value)
-                {
-                    OnIsAnonymousChanging(value);
-                    ReportPropertyChanging("IsAnonymous");
-                    _IsAnonymous = StructuralObject.SetValidValue(value, "IsAnonymous");
-                    ReportPropertyChanged("IsAnonymous");
-                    OnIsAnonymousChanged();
-                }
+                OnIsAnonymousChanging(value);
+                ReportPropertyChanging("IsAnonymous");
+                _IsAnonymous = StructuralObject.SetValidValue(value, "IsAnonymous");
+                ReportPropertyChanged("IsAnonymous");
+                OnIsAnonymousChanged();
             }
         }
         private global::System.Boolean _IsAnonymous;
@@ -12629,7 +12923,7 @@ namespace Cure.DataAccess
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime LastActivityDate
         {
@@ -12639,14 +12933,11 @@ namespace Cure.DataAccess
             }
             set
             {
-                if (_LastActivityDate != value)
-                {
-                    OnLastActivityDateChanging(value);
-                    ReportPropertyChanging("LastActivityDate");
-                    _LastActivityDate = StructuralObject.SetValidValue(value, "LastActivityDate");
-                    ReportPropertyChanged("LastActivityDate");
-                    OnLastActivityDateChanged();
-                }
+                OnLastActivityDateChanging(value);
+                ReportPropertyChanging("LastActivityDate");
+                _LastActivityDate = StructuralObject.SetValidValue(value, "LastActivityDate");
+                ReportPropertyChanged("LastActivityDate");
+                OnLastActivityDateChanged();
             }
         }
         private global::System.DateTime _LastActivityDate;
@@ -12857,7 +13148,7 @@ namespace Cure.DataAccess
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsApproved
         {
@@ -12867,14 +13158,11 @@ namespace Cure.DataAccess
             }
             set
             {
-                if (_IsApproved != value)
-                {
-                    OnIsApprovedChanging(value);
-                    ReportPropertyChanging("IsApproved");
-                    _IsApproved = StructuralObject.SetValidValue(value, "IsApproved");
-                    ReportPropertyChanged("IsApproved");
-                    OnIsApprovedChanged();
-                }
+                OnIsApprovedChanging(value);
+                ReportPropertyChanging("IsApproved");
+                _IsApproved = StructuralObject.SetValidValue(value, "IsApproved");
+                ReportPropertyChanged("IsApproved");
+                OnIsApprovedChanged();
             }
         }
         private global::System.Boolean _IsApproved;
@@ -12884,7 +13172,7 @@ namespace Cure.DataAccess
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsLockedOut
         {
@@ -12894,14 +13182,11 @@ namespace Cure.DataAccess
             }
             set
             {
-                if (_IsLockedOut != value)
-                {
-                    OnIsLockedOutChanging(value);
-                    ReportPropertyChanging("IsLockedOut");
-                    _IsLockedOut = StructuralObject.SetValidValue(value, "IsLockedOut");
-                    ReportPropertyChanged("IsLockedOut");
-                    OnIsLockedOutChanged();
-                }
+                OnIsLockedOutChanging(value);
+                ReportPropertyChanging("IsLockedOut");
+                _IsLockedOut = StructuralObject.SetValidValue(value, "IsLockedOut");
+                ReportPropertyChanged("IsLockedOut");
+                OnIsLockedOutChanged();
             }
         }
         private global::System.Boolean _IsLockedOut;
@@ -12911,7 +13196,7 @@ namespace Cure.DataAccess
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime CreateDate
         {
@@ -12921,14 +13206,11 @@ namespace Cure.DataAccess
             }
             set
             {
-                if (_CreateDate != value)
-                {
-                    OnCreateDateChanging(value);
-                    ReportPropertyChanging("CreateDate");
-                    _CreateDate = StructuralObject.SetValidValue(value, "CreateDate");
-                    ReportPropertyChanged("CreateDate");
-                    OnCreateDateChanged();
-                }
+                OnCreateDateChanging(value);
+                ReportPropertyChanging("CreateDate");
+                _CreateDate = StructuralObject.SetValidValue(value, "CreateDate");
+                ReportPropertyChanged("CreateDate");
+                OnCreateDateChanged();
             }
         }
         private global::System.DateTime _CreateDate;
@@ -12938,7 +13220,7 @@ namespace Cure.DataAccess
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime LastLoginDate
         {
@@ -12948,14 +13230,11 @@ namespace Cure.DataAccess
             }
             set
             {
-                if (_LastLoginDate != value)
-                {
-                    OnLastLoginDateChanging(value);
-                    ReportPropertyChanging("LastLoginDate");
-                    _LastLoginDate = StructuralObject.SetValidValue(value, "LastLoginDate");
-                    ReportPropertyChanged("LastLoginDate");
-                    OnLastLoginDateChanged();
-                }
+                OnLastLoginDateChanging(value);
+                ReportPropertyChanging("LastLoginDate");
+                _LastLoginDate = StructuralObject.SetValidValue(value, "LastLoginDate");
+                ReportPropertyChanged("LastLoginDate");
+                OnLastLoginDateChanged();
             }
         }
         private global::System.DateTime _LastLoginDate;
@@ -12965,7 +13244,7 @@ namespace Cure.DataAccess
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime LastPasswordChangedDate
         {
@@ -12975,14 +13254,11 @@ namespace Cure.DataAccess
             }
             set
             {
-                if (_LastPasswordChangedDate != value)
-                {
-                    OnLastPasswordChangedDateChanging(value);
-                    ReportPropertyChanging("LastPasswordChangedDate");
-                    _LastPasswordChangedDate = StructuralObject.SetValidValue(value, "LastPasswordChangedDate");
-                    ReportPropertyChanged("LastPasswordChangedDate");
-                    OnLastPasswordChangedDateChanged();
-                }
+                OnLastPasswordChangedDateChanging(value);
+                ReportPropertyChanging("LastPasswordChangedDate");
+                _LastPasswordChangedDate = StructuralObject.SetValidValue(value, "LastPasswordChangedDate");
+                ReportPropertyChanged("LastPasswordChangedDate");
+                OnLastPasswordChangedDateChanged();
             }
         }
         private global::System.DateTime _LastPasswordChangedDate;
@@ -12992,7 +13268,7 @@ namespace Cure.DataAccess
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime LastLockoutDate
         {
@@ -13002,14 +13278,11 @@ namespace Cure.DataAccess
             }
             set
             {
-                if (_LastLockoutDate != value)
-                {
-                    OnLastLockoutDateChanging(value);
-                    ReportPropertyChanging("LastLockoutDate");
-                    _LastLockoutDate = StructuralObject.SetValidValue(value, "LastLockoutDate");
-                    ReportPropertyChanged("LastLockoutDate");
-                    OnLastLockoutDateChanged();
-                }
+                OnLastLockoutDateChanging(value);
+                ReportPropertyChanging("LastLockoutDate");
+                _LastLockoutDate = StructuralObject.SetValidValue(value, "LastLockoutDate");
+                ReportPropertyChanged("LastLockoutDate");
+                OnLastLockoutDateChanged();
             }
         }
         private global::System.DateTime _LastLockoutDate;
@@ -13019,7 +13292,7 @@ namespace Cure.DataAccess
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 FailedPasswordAttemptCount
         {
@@ -13029,14 +13302,11 @@ namespace Cure.DataAccess
             }
             set
             {
-                if (_FailedPasswordAttemptCount != value)
-                {
-                    OnFailedPasswordAttemptCountChanging(value);
-                    ReportPropertyChanging("FailedPasswordAttemptCount");
-                    _FailedPasswordAttemptCount = StructuralObject.SetValidValue(value, "FailedPasswordAttemptCount");
-                    ReportPropertyChanged("FailedPasswordAttemptCount");
-                    OnFailedPasswordAttemptCountChanged();
-                }
+                OnFailedPasswordAttemptCountChanging(value);
+                ReportPropertyChanging("FailedPasswordAttemptCount");
+                _FailedPasswordAttemptCount = StructuralObject.SetValidValue(value, "FailedPasswordAttemptCount");
+                ReportPropertyChanged("FailedPasswordAttemptCount");
+                OnFailedPasswordAttemptCountChanged();
             }
         }
         private global::System.Int32 _FailedPasswordAttemptCount;
@@ -13046,7 +13316,7 @@ namespace Cure.DataAccess
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime FailedPasswordAttemptWindowStart
         {
@@ -13056,14 +13326,11 @@ namespace Cure.DataAccess
             }
             set
             {
-                if (_FailedPasswordAttemptWindowStart != value)
-                {
-                    OnFailedPasswordAttemptWindowStartChanging(value);
-                    ReportPropertyChanging("FailedPasswordAttemptWindowStart");
-                    _FailedPasswordAttemptWindowStart = StructuralObject.SetValidValue(value, "FailedPasswordAttemptWindowStart");
-                    ReportPropertyChanged("FailedPasswordAttemptWindowStart");
-                    OnFailedPasswordAttemptWindowStartChanged();
-                }
+                OnFailedPasswordAttemptWindowStartChanging(value);
+                ReportPropertyChanging("FailedPasswordAttemptWindowStart");
+                _FailedPasswordAttemptWindowStart = StructuralObject.SetValidValue(value, "FailedPasswordAttemptWindowStart");
+                ReportPropertyChanged("FailedPasswordAttemptWindowStart");
+                OnFailedPasswordAttemptWindowStartChanged();
             }
         }
         private global::System.DateTime _FailedPasswordAttemptWindowStart;
@@ -13073,7 +13340,7 @@ namespace Cure.DataAccess
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 FailedPasswordAnswerAttemptCount
         {
@@ -13083,14 +13350,11 @@ namespace Cure.DataAccess
             }
             set
             {
-                if (_FailedPasswordAnswerAttemptCount != value)
-                {
-                    OnFailedPasswordAnswerAttemptCountChanging(value);
-                    ReportPropertyChanging("FailedPasswordAnswerAttemptCount");
-                    _FailedPasswordAnswerAttemptCount = StructuralObject.SetValidValue(value, "FailedPasswordAnswerAttemptCount");
-                    ReportPropertyChanged("FailedPasswordAnswerAttemptCount");
-                    OnFailedPasswordAnswerAttemptCountChanged();
-                }
+                OnFailedPasswordAnswerAttemptCountChanging(value);
+                ReportPropertyChanging("FailedPasswordAnswerAttemptCount");
+                _FailedPasswordAnswerAttemptCount = StructuralObject.SetValidValue(value, "FailedPasswordAnswerAttemptCount");
+                ReportPropertyChanged("FailedPasswordAnswerAttemptCount");
+                OnFailedPasswordAnswerAttemptCountChanged();
             }
         }
         private global::System.Int32 _FailedPasswordAnswerAttemptCount;
@@ -13100,7 +13364,7 @@ namespace Cure.DataAccess
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime FailedPasswordAnswerAttemptWindowStart
         {
@@ -13110,14 +13374,11 @@ namespace Cure.DataAccess
             }
             set
             {
-                if (_FailedPasswordAnswerAttemptWindowStart != value)
-                {
-                    OnFailedPasswordAnswerAttemptWindowStartChanging(value);
-                    ReportPropertyChanging("FailedPasswordAnswerAttemptWindowStart");
-                    _FailedPasswordAnswerAttemptWindowStart = StructuralObject.SetValidValue(value, "FailedPasswordAnswerAttemptWindowStart");
-                    ReportPropertyChanged("FailedPasswordAnswerAttemptWindowStart");
-                    OnFailedPasswordAnswerAttemptWindowStartChanged();
-                }
+                OnFailedPasswordAnswerAttemptWindowStartChanging(value);
+                ReportPropertyChanging("FailedPasswordAnswerAttemptWindowStart");
+                _FailedPasswordAnswerAttemptWindowStart = StructuralObject.SetValidValue(value, "FailedPasswordAnswerAttemptWindowStart");
+                ReportPropertyChanged("FailedPasswordAnswerAttemptWindowStart");
+                OnFailedPasswordAnswerAttemptWindowStartChanged();
             }
         }
         private global::System.DateTime _FailedPasswordAnswerAttemptWindowStart;

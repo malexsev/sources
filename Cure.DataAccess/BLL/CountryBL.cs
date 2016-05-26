@@ -8,6 +8,15 @@ namespace Cure.DataAccess.BLL
 {
     public partial class DataAccessBL
     {
+        public IEnumerable<string> GetRegions()
+        {
+            return dataRepository.GetRegions();
+        }
+
+        public IEnumerable<string> GetRegions(int countryId)
+        {
+            return dataRepository.GetRegions(countryId);
+        }
 
         public RefCountry GetRefCountry(int countryId)
         {

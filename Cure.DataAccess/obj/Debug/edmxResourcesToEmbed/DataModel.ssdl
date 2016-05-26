@@ -44,15 +44,16 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="GuidId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CountryId" Type="int" Nullable="false" />
     <Property Name="OwnerUser" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="IsActive" Type="bit" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Birthday" Type="datetime" Nullable="false" />
-    <Property Name="CountryId" Type="int" Nullable="false" />
     <Property Name="Region" Type="nvarchar" MaxLength="150" />
+    <Property Name="DiagnozId" Type="int" Nullable="false" />
     <Property Name="Diagnoz" Type="nvarchar" MaxLength="250" />
-    <Property Name="ContactName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="ContactRodstvoId" Type="int" Nullable="false" />
+    <Property Name="ContactName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="ContactEmail" Type="nvarchar" MaxLength="250" Nullable="false" />
     <Property Name="ContactPhone" Type="nvarchar" MaxLength="50" />
     <Property Name="SocialOk" Type="nvarchar" MaxLength="250" />
@@ -63,9 +64,9 @@
     <Property Name="FinYandexMoney" Type="nvarchar" MaxLength="50" />
     <Property Name="FinKiwi" Type="nvarchar" MaxLength="50" />
     <Property Name="FinOperatorId" Type="int" />
-    <Property Name="FinPhoneNumber" Type="nvarchar" MaxLength="50" />
     <Property Name="FinCountryId" Type="int" />
     <Property Name="FinBankId" Type="int" />
+    <Property Name="FinPhoneNumber" Type="nvarchar" MaxLength="50" />
     <Property Name="FinBankOther" Type="nvarchar" MaxLength="50" />
     <Property Name="FinCardNumber" Type="nvarchar" MaxLength="50" />
   </EntityType>
@@ -211,6 +212,14 @@
     <Property Name="PosolstvoChLabel" Type="nvarchar" MaxLength="150" />
     <Property Name="PosolstvoRusLabel" Type="nvarchar" MaxLength="150" />
     <Property Name="NacionalnostChLabel" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="RefDiagnoz">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="250" />
   </EntityType>
   <EntityType Name="RefOperator">
     <Key>
@@ -365,6 +374,8 @@ warning 6002: The table/view 'Cure.dbo.ViewChild' does not have a primary key de
       <PropertyRef Name="ContactName" />
       <PropertyRef Name="ContactRodstvoId" />
       <PropertyRef Name="ContactEmail" />
+      <PropertyRef Name="DiagnozId" />
+      <PropertyRef Name="DiagnozName" />
     </Key>
     <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="GuidId" Type="uniqueidentifier" Nullable="false" />
@@ -421,6 +432,9 @@ warning 6002: The table/view 'Cure.dbo.ViewChild' does not have a primary key de
     <Property Name="OperatorCountryName" Type="nvarchar" MaxLength="50" />
     <Property Name="BankCountryName" Type="nvarchar" MaxLength="50" />
     <Property Name="FinCountryName" Type="nvarchar" MaxLength="50" />
+    <Property Name="DiagnozId" Type="int" Nullable="false" />
+    <Property Name="DiagnozName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DiagnozDescription" Type="nvarchar" MaxLength="250" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'Cure.dbo.ViewScheduler' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -587,23 +601,9 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
   <EntityType Name="ViewUserMembership">
     <Key>
       <PropertyRef Name="Expr1" />
-      <PropertyRef Name="UserName" />
-      <PropertyRef Name="LoweredUserName" />
-      <PropertyRef Name="IsAnonymous" />
-      <PropertyRef Name="LastActivityDate" />
       <PropertyRef Name="Password" />
       <PropertyRef Name="PasswordFormat" />
       <PropertyRef Name="PasswordSalt" />
-      <PropertyRef Name="IsApproved" />
-      <PropertyRef Name="IsLockedOut" />
-      <PropertyRef Name="CreateDate" />
-      <PropertyRef Name="LastLoginDate" />
-      <PropertyRef Name="LastPasswordChangedDate" />
-      <PropertyRef Name="LastLockoutDate" />
-      <PropertyRef Name="FailedPasswordAttemptCount" />
-      <PropertyRef Name="FailedPasswordAttemptWindowStart" />
-      <PropertyRef Name="FailedPasswordAnswerAttemptCount" />
-      <PropertyRef Name="FailedPasswordAnswerAttemptWindowStart" />
     </Key>
     <Property Name="Expr1" Type="uniqueidentifier" Nullable="false" />
     <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
@@ -688,6 +688,20 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
       </Principal>
       <Dependent Role="Child">
         <PropertyRef Name="FinCountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Child_RefDiagnoz">
+    <End Role="RefDiagnoz" Type="Self.RefDiagnoz" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Child" Type="Self.Child" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RefDiagnoz">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Child">
+        <PropertyRef Name="DiagnozId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -892,6 +906,7 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
     <EntitySet Name="Pacient" EntityType="Self.Pacient" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RefBank" EntityType="Self.RefBank" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RefCountry" EntityType="Self.RefCountry" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RefDiagnoz" EntityType="Self.RefDiagnoz" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RefOperator" EntityType="Self.RefOperator" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RefRodstvo" EntityType="Self.RefRodstvo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Setting" EntityType="Self.Setting" Schema="dbo" store:Type="Tables" />
@@ -955,7 +970,10 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
 [ViewChild].[OperatorParams] AS [OperatorParams], 
 [ViewChild].[OperatorCountryName] AS [OperatorCountryName], 
 [ViewChild].[BankCountryName] AS [BankCountryName], 
-[ViewChild].[FinCountryName] AS [FinCountryName]
+[ViewChild].[FinCountryName] AS [FinCountryName], 
+[ViewChild].[DiagnozId] AS [DiagnozId], 
+[ViewChild].[DiagnozName] AS [DiagnozName], 
+[ViewChild].[DiagnozDescription] AS [DiagnozDescription]
 FROM [dbo].[ViewChild] AS [ViewChild]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="ViewScheduler" EntityType="Self.ViewScheduler" store:Type="Views" store:Schema="dbo">
@@ -1159,6 +1177,10 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
     </AssociationSet>
     <AssociationSet Name="FK_Child_RefCountryFin" Association="Self.FK_Child_RefCountryFin">
       <End Role="RefCountry" EntitySet="RefCountry" />
+      <End Role="Child" EntitySet="Child" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Child_RefDiagnoz" Association="Self.FK_Child_RefDiagnoz">
+      <End Role="RefDiagnoz" EntitySet="RefDiagnoz" />
       <End Role="Child" EntitySet="Child" />
     </AssociationSet>
     <AssociationSet Name="FK_Child_RefOperator" Association="Self.FK_Child_RefOperator">

@@ -13,7 +13,12 @@ namespace Cure.WebSite.Controllers
         public ActionResult Index()
         {
             var dal = new DataAccessBL();
-            List<ChildVisual> result = dal.ViewChilds().Select(x => new ChildVisual(x)).ToList();
+            
+            var result = dal.ViewChilds().Select(x => new ChildVisual(x)).ToList();
+            ViewBag.Countries = dal.GetRefCountries();
+            ViewBag.Regions = dal.GetRegions();
+            ViewBag.Diagnozes = dal.GetExistingDiagnozs();
+
             return View(result);
         }
     }

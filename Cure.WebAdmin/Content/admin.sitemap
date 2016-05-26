@@ -11,6 +11,7 @@
       <siteMapNode url="~/Admin/RefCountryList.aspx" title="Страны" description="Страны в системе" />
       <siteMapNode url="~/Admin/RefBankList.aspx" title="Банки" description="Банки применяются для профиля Финансовой помощи" />
       <siteMapNode url="~/Admin/RefOperatorList.aspx" title="Операторы связи" description="Операторы связи применяются для профиля Финансовой помощи" />
+      <siteMapNode url="~/Admin/RefDiagnozList.aspx" title="Группы диагнозов" description="Устанавливаются админом для профилей НД по описанному пользователем в свободной форме диагнозу" />
     </siteMapNode>
     <siteMapNode url="" title="Система">
       <siteMapNode url="~/Admin/SettingList.aspx" title="Настройки системы" description="Редактирование использующихся в программе стран" />

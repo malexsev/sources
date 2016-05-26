@@ -36,6 +36,7 @@ namespace Cure.WebSite.Models
                 this.CountryId = child.CountryId;
                 this.CountryName = child.CountryName;
                 this.Diagnoz = child.Diagnoz;
+                this.DiagnozId = child.DiagnozId;
                 this.FinBankId = child.FinBankId;
                 this.FinBankOther = child.FinBankOther;
                 this.FinCardNumber = child.FinCardNumber;

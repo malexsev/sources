@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Web;
-using Cure.Utils;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace Cure.WebAdmin.Client
 {

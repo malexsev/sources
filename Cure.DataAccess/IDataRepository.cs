@@ -17,6 +17,12 @@ namespace Cure.DataAccess.DAL
         void DeleteNotificationLog(NotificationLog notificationLog);
         void UpdateNotificationLog(NotificationLog notificationLog);
 
+        IEnumerable<RefDiagnoz> GetExistingDiagnozs();
+        IEnumerable<RefDiagnoz> GetRefDiagnozs();
+        void InsertRefDiagnoz(RefDiagnoz refDiagnoz);
+        void DeleteRefDiagnoz(RefDiagnoz refDiagnoz);
+        void UpdateRefDiagnoz(RefDiagnoz refDiagnoz);
+
         IEnumerable<ViewChild> ViewChilds();
         IEnumerable<Child> GetChilds();
         IEnumerable<Child> GetChilds(int countryId);
@@ -48,6 +54,9 @@ namespace Cure.DataAccess.DAL
         void UpdateSmsLog(SmsLog smsLog);
 
         IEnumerable<ViewScheduler> GetScheduler();
+
+        IEnumerable<string> GetRegions();
+        IEnumerable<string> GetRegions(int countryId);
         IEnumerable<RefCountry> GetRefCountries();
         RefCountry GetRefCountry(int countryId);
         void InsertRefCountry(RefCountry country);

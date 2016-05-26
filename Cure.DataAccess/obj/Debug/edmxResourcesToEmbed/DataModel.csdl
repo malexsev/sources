@@ -80,6 +80,7 @@
       <End Role="RefCountry" EntitySet="RefCountries" />
       <End Role="RefOperator" EntitySet="RefOperators" />
     </AssociationSet>
+    <EntitySet Name="RefDiagnozs" EntityType="DataModel.RefDiagnoz" />
     <EntitySet Name="Children" EntityType="DataModel.Child" />
     <AssociationSet Name="FK_Child_RefBank" Association="DataModel.FK_Child_RefBank">
       <End Role="RefBank" EntitySet="RefBanks" />
@@ -91,6 +92,10 @@
     </AssociationSet>
     <AssociationSet Name="FK_Child_RefCountryFin" Association="DataModel.FK_Child_RefCountryFin">
       <End Role="RefCountry" EntitySet="RefCountries" />
+      <End Role="Child" EntitySet="Children" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Child_RefDiagnoz" Association="DataModel.FK_Child_RefDiagnoz">
+      <End Role="RefDiagnoz" EntitySet="RefDiagnozs" />
       <End Role="Child" EntitySet="Children" />
     </AssociationSet>
     <AssociationSet Name="FK_Child_RefOperator" Association="DataModel.FK_Child_RefOperator">
@@ -686,23 +691,9 @@
   <EntityType Name="ViewUserMembership">
     <Key>
       <PropertyRef Name="Expr1" />
-      <PropertyRef Name="UserName" />
-      <PropertyRef Name="LoweredUserName" />
-      <PropertyRef Name="IsAnonymous" />
-      <PropertyRef Name="LastActivityDate" />
       <PropertyRef Name="Password" />
       <PropertyRef Name="PasswordFormat" />
       <PropertyRef Name="PasswordSalt" />
-      <PropertyRef Name="IsApproved" />
-      <PropertyRef Name="IsLockedOut" />
-      <PropertyRef Name="CreateDate" />
-      <PropertyRef Name="LastLoginDate" />
-      <PropertyRef Name="LastPasswordChangedDate" />
-      <PropertyRef Name="LastLockoutDate" />
-      <PropertyRef Name="FailedPasswordAttemptCount" />
-      <PropertyRef Name="FailedPasswordAttemptWindowStart" />
-      <PropertyRef Name="FailedPasswordAnswerAttemptCount" />
-      <PropertyRef Name="FailedPasswordAnswerAttemptWindowStart" />
     </Key>
     <Property Type="Guid" Name="Expr1" Nullable="false" />
     <Property Type="String" Name="UserName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
@@ -851,21 +842,31 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="RefDiagnoz">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Children" Relationship="DataModel.FK_Child_RefDiagnoz" FromRole="RefDiagnoz" ToRole="Child" />
+  </EntityType>
   <EntityType Name="Child">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="GuidId" Type="Guid" Nullable="false" />
+    <Property Name="CountryId" Type="Int32" Nullable="false" />
     <Property Name="OwnerUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="IsActive" Type="Boolean" Nullable="false" />
     <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="CountryId" Type="Int32" Nullable="false" />
     <Property Name="Region" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="DiagnozId" Type="Int32" Nullable="false" />
     <Property Name="Diagnoz" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="ContactName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="ContactRodstvoId" Type="Int32" Nullable="false" />
+    <Property Name="ContactName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="ContactEmail" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="ContactPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="SocialOk" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
@@ -876,14 +877,15 @@
     <Property Name="FinYandexMoney" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="FinKiwi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="FinOperatorId" Type="Int32" />
-    <Property Name="FinPhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="FinCountryId" Type="Int32" />
     <Property Name="FinBankId" Type="Int32" />
+    <Property Name="FinPhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="FinBankOther" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="FinCardNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="RefBank" Relationship="DataModel.FK_Child_RefBank" FromRole="Child" ToRole="RefBank" />
     <NavigationProperty Name="RefCountry" Relationship="DataModel.FK_Child_RefCountry" FromRole="Child" ToRole="RefCountry" />
     <NavigationProperty Name="RefCountry1" Relationship="DataModel.FK_Child_RefCountryFin" FromRole="Child" ToRole="RefCountry" />
+    <NavigationProperty Name="RefDiagnoz" Relationship="DataModel.FK_Child_RefDiagnoz" FromRole="Child" ToRole="RefDiagnoz" />
     <NavigationProperty Name="RefOperator" Relationship="DataModel.FK_Child_RefOperator" FromRole="Child" ToRole="RefOperator" />
     <NavigationProperty Name="RefRodstvo" Relationship="DataModel.FK_Child_RefRodstvo" FromRole="Child" ToRole="RefRodstvo" />
   </EntityType>
@@ -923,6 +925,20 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Child_RefDiagnoz">
+    <End Type="DataModel.RefDiagnoz" Role="RefDiagnoz" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="DataModel.Child" Role="Child" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RefDiagnoz">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Child">
+        <PropertyRef Name="DiagnozId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Child_RefOperator">
     <End Type="DataModel.RefOperator" Role="RefOperator" Multiplicity="0..1" />
     <End Type="DataModel.Child" Role="Child" Multiplicity="*" />
@@ -959,6 +975,8 @@
       <PropertyRef Name="ContactName" />
       <PropertyRef Name="ContactRodstvoId" />
       <PropertyRef Name="ContactEmail" />
+      <PropertyRef Name="DiagnozId" />
+      <PropertyRef Name="DiagnozName" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" />
     <Property Name="GuidId" Type="Guid" Nullable="false" />
@@ -1015,5 +1033,8 @@
     <Property Name="OperatorCountryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="BankCountryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="FinCountryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DiagnozId" Type="Int32" Nullable="false" />
+    <Property Name="DiagnozName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DiagnozDescription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>
