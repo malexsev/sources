@@ -23,6 +23,7 @@ namespace Cure.DataAccess.DAL
         void DeleteRefDiagnoz(RefDiagnoz refDiagnoz);
         void UpdateRefDiagnoz(RefDiagnoz refDiagnoz);
 
+        IEnumerable<ViewChild> FilterChilds(int countryId, string regionName, int ageOption, int diagnozeId, int pageRecords);
         IEnumerable<ViewChild> ViewChilds();
         IEnumerable<Child> GetChilds();
         IEnumerable<Child> GetChilds(int countryId);

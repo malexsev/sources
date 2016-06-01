@@ -8,6 +8,51 @@ namespace Cure.DataAccess.DAL
 {
     internal partial class DataRepository
     {
+                    //        <li data-val="0">Любой возраст</li>
+                    //<li data-val="1">0-3 лет</li>
+                    //<li data-val="2">3-5 лет</li>
+                    //<li data-val="3">5-8 лет</li>
+                    //<li data-val="4">8-12 лет</li>
+                    //<li data-val="5">12 и более</li>
+        public IEnumerable<ViewChild> FilterChilds(int countryId, string regionName, int ageOption, int diagnozeId, int pageRecords)
+        {
+            int startYears = 0;
+            int endYears = 0;
+
+            switch (ageOption)
+            {
+                case 1:
+                    startYears = 0;
+                    endYears = 3;
+                    break;
+                case 2:
+                    startYears = 3;
+                    endYears = 5;
+                    break;
+                case 3:
+                    startYears = 5;
+                    endYears = 8;
+                    break;
+                case 4:
+                    startYears = 8;
+                    endYears = 12;
+                    break;
+                case 5:
+                    startYears = 12;
+                    endYears = 200;
+                    break;
+            }
+
+            pageRecords = pageRecords == 0 ? 20 : pageRecords;
+            DateTime startDate = DateTime.Today.AddYears(-endYears);
+            DateTime endDate = DateTime.Today.AddYears(-startYears);
+
+            return context.ViewChilds.Where(x => (countryId == 0 || x.CountryId == countryId)
+                && (regionName == "0" || x.Region == regionName)
+                && (ageOption == 0 || (x.Birthday > startDate && x.Birthday < endDate))
+                && (diagnozeId == 0 || x.DiagnozId == diagnozeId)).Take(pageRecords).OrderByDescending(o => o.Id).ToList();
+        }
+
         public IEnumerable<ViewChild> ViewChilds()
         {
             return context.ViewChilds.OrderByDescending(o => o.Id).ToList();

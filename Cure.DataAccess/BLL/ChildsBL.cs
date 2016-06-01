@@ -9,6 +9,11 @@
         {
             return dataRepository.GetChilds();
         }
+        
+        public IEnumerable<ViewChild> FilterChilds(int countryId, string regionName, int ageOption, int diagnozeId, int pageRecords)
+        {
+            return dataRepository.FilterChilds(countryId, regionName, ageOption, diagnozeId, pageRecords);
+        }
 
         public IEnumerable<ViewChild> ViewChilds()
         {
