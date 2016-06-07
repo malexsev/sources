@@ -1,0 +1,12 @@
+﻿@model IEnumerable<Cure.DataAccess.ViewChild>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="main children-page" role="main">
+    <div class="container">
+        @Html.Partial("_ChildTales", Model)
+    </div>
+</div>

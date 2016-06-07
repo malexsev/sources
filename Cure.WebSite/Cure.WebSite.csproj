@@ -214,7 +214,9 @@
     <Content Include="Scripts\vendor\jquery-1.11.3.min.js" />
     <Content Include="Scripts\vendor\less.min.js" />
     <Content Include="Scripts\vendor\modernizr-2.8.3.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\NinjectWebCommon.cs" />
@@ -235,6 +237,9 @@
     <Content Include="Views\Children\Index.cshtml" />
     <Content Include="Views\Shared\_ChildFilter.cshtml" />
     <Content Include="Views\Shared\_ChildTales.cshtml" />
+    <None Include="Properties\PublishProfiles\China_Web.pubxml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_Children.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

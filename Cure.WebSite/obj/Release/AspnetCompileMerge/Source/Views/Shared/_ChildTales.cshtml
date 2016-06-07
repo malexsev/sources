@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Cure.WebSite.Models.ChildVisual>
+
+@using (Ajax.BeginForm("Index", "Children", null, null, new { id = "childrenform" }))
+{
+    <div class="all-pages-head">
+        <div class="row">
+            <div class="col-lg-3">
+                <h1 class="all-pages-H1">Наши дети</h1>
+            </div>
+            <div class="col-lg-9">
+                <div class="children-page-filter">
+                    @Html.Partial("_ChildFilter")
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="children-page-list">
+        <div class="row" id="js-for-load-children">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-3 col-sm-4 col-ss-6 children-page-item js-ajax-for-count">
+                    <a class="children-page-child" href="#">
+                        <img class="child-img" src="@item.PhotoUrl" alt="@item.Name">
+                        <div class="child-txt">
+                            <div class="child-name">@item.Name, <span class="child-age">@item.Age лет</span></div>
+                            <div class="child-city">@item.CountryName, @item.Region</div>
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
+
+        <div class="row">
+            <div class="col-ss-12">
+                <div class="all-pages-more">
+                    <div class="more-title">
+                        Позаканы <span id="more-count">16</span> из <span id="more-all">134</span>
+                    </div>
+                    <div class="more-btn">
+                        <a class="btn btn-light has-loading js-load-more-children">Показать еще</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+@*<div class="col-lg-6 col-sm-8 col-ss-12 children-page-item">
+        <div class="children-page-review">
+            <div class="review-front">
+                <div class="review-text">
+                    Каждому пациенту применяется индивидуальный подход и назначается лечение в
+                    зависимости от формы заболевания и степени его тяжести, уровни расстройства
+                    двигательной функции, степени умственной<br>и речевой функции и т.д.
+                </div>
+                <div class="review-writer">
+                    <span class="writer-name">Альбина</span>,
+                    <span class="writer-city">Казахстан, Кустанай</span>
+                </div>
+                <div class="review-more">
+                    <a class="btn btn-light" href="#">Все отзывы</a>
+                </div>
+            </div>
+        </div>
+    </div>*@

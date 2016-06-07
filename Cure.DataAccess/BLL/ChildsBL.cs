@@ -9,10 +9,15 @@
         {
             return dataRepository.GetChilds();
         }
-        
-        public IEnumerable<ViewChild> FilterChilds(int countryId, string regionName, int ageOption, int diagnozeId, int pageRecords)
+
+        public int CountChilds(int countryId, string regionName, int ageOption, int diagnozeId)
         {
-            return dataRepository.FilterChilds(countryId, regionName, ageOption, diagnozeId, pageRecords);
+            return dataRepository.CountChilds(countryId, regionName, ageOption, diagnozeId);
+        }
+
+        public IEnumerable<ViewChild> FilterChilds(int countryId, string regionName, int ageOption, int diagnozeId, int skipRecords)
+        {
+            return dataRepository.FilterChilds(countryId, regionName, ageOption, diagnozeId, skipRecords);
         }
 
         public IEnumerable<ViewChild> ViewChilds()

@@ -38,6 +38,38 @@
     <Property Name="IsAnonymous" Type="bit" Nullable="false" />
     <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
   </EntityType>
+  <EntityType Name="Child">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GuidId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CountryId" Type="int" Nullable="false" />
+    <Property Name="OwnerUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Birthday" Type="datetime" Nullable="false" />
+    <Property Name="Region" Type="nvarchar" MaxLength="150" />
+    <Property Name="DiagnozId" Type="int" Nullable="false" />
+    <Property Name="Diagnoz" Type="nvarchar" MaxLength="250" />
+    <Property Name="ContactRodstvoId" Type="int" Nullable="false" />
+    <Property Name="ContactName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ContactEmail" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="ContactPhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="SocialOk" Type="nvarchar" MaxLength="250" />
+    <Property Name="SocialVk" Type="nvarchar" MaxLength="250" />
+    <Property Name="SocialMm" Type="nvarchar" MaxLength="250" />
+    <Property Name="SocialFb" Type="nvarchar" MaxLength="250" />
+    <Property Name="FinWebmoney" Type="nvarchar" MaxLength="50" />
+    <Property Name="FinYandexMoney" Type="nvarchar" MaxLength="50" />
+    <Property Name="FinKiwi" Type="nvarchar" MaxLength="50" />
+    <Property Name="FinOperatorId" Type="int" />
+    <Property Name="FinCountryId" Type="int" />
+    <Property Name="FinBankId" Type="int" />
+    <Property Name="FinPhoneNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="FinBankOther" Type="nvarchar" MaxLength="50" />
+    <Property Name="FinCardNumber" Type="nvarchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="Department">
     <Key>
       <PropertyRef Name="Id" />
@@ -153,6 +185,21 @@
     <Property Name="CreateUser" Type="nvarchar" MaxLength="50" />
     <Property Name="CreateDate" Type="datetime" />
   </EntityType>
+  <EntityType Name="RefBank">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CountryId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="Inn" Type="nvarchar" MaxLength="50" />
+    <Property Name="Kpp" Type="nvarchar" MaxLength="50" />
+    <Property Name="Oktmo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Okved" Type="nvarchar" MaxLength="50" />
+    <Property Name="Bik" Type="nvarchar" MaxLength="50" />
+    <Property Name="KorrAccount" Type="nvarchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="RefCountry">
     <Key>
       <PropertyRef Name="Id" />
@@ -165,6 +212,24 @@
     <Property Name="PosolstvoChLabel" Type="nvarchar" MaxLength="150" />
     <Property Name="PosolstvoRusLabel" Type="nvarchar" MaxLength="150" />
     <Property Name="NacionalnostChLabel" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="RefDiagnoz">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="RefOperator">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CountryId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="Params" Type="nvarchar" MaxLength="250" />
   </EntityType>
   <EntityType Name="RefRodstvo">
     <Key>
@@ -294,6 +359,82 @@
     <Property Name="LastDate" Type="datetime" />
     <Property Name="CreateUser" Type="nvarchar" MaxLength="50" />
     <Property Name="CreateDate" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Cure.dbo.ViewChild' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ViewChild">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="GuidId" />
+      <PropertyRef Name="OwnerUser" />
+      <PropertyRef Name="IsActive" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Birthday" />
+      <PropertyRef Name="CountryId" />
+      <PropertyRef Name="ContactName" />
+      <PropertyRef Name="ContactRodstvoId" />
+      <PropertyRef Name="ContactEmail" />
+      <PropertyRef Name="DiagnozId" />
+      <PropertyRef Name="DiagnozName" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="GuidId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OwnerUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Birthday" Type="datetime" Nullable="false" />
+    <Property Name="CountryId" Type="int" Nullable="false" />
+    <Property Name="Region" Type="nvarchar" MaxLength="150" />
+    <Property Name="Diagnoz" Type="nvarchar" MaxLength="250" />
+    <Property Name="ContactName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ContactRodstvoId" Type="int" Nullable="false" />
+    <Property Name="ContactEmail" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="ContactPhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="SocialOk" Type="nvarchar" MaxLength="250" />
+    <Property Name="SocialVk" Type="nvarchar" MaxLength="250" />
+    <Property Name="SocialMm" Type="nvarchar" MaxLength="250" />
+    <Property Name="SocialFb" Type="nvarchar" MaxLength="250" />
+    <Property Name="FinWebmoney" Type="nvarchar" MaxLength="50" />
+    <Property Name="FinYandexMoney" Type="nvarchar" MaxLength="50" />
+    <Property Name="FinKiwi" Type="nvarchar" MaxLength="50" />
+    <Property Name="FinOperatorId" Type="int" />
+    <Property Name="FinPhoneNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="FinCountryId" Type="int" />
+    <Property Name="FinBankId" Type="int" />
+    <Property Name="FinBankOther" Type="nvarchar" MaxLength="50" />
+    <Property Name="FinCardNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="CountryName" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserLoweredUserName" Type="nvarchar" MaxLength="256" />
+    <Property Name="UserIsAnonymous" Type="bit" />
+    <Property Name="UserLastActivityDate" Type="datetime" />
+    <Property Name="UserEmail" Type="nvarchar" MaxLength="256" />
+    <Property Name="UserLoweredEmail" Type="nvarchar" MaxLength="256" />
+    <Property Name="UserIsApproved" Type="bit" />
+    <Property Name="UserIsLockedOut" Type="bit" />
+    <Property Name="UserLastLoginDate" Type="datetime" />
+    <Property Name="UserComment" Type="ntext" />
+    <Property Name="BankName" Type="nvarchar" MaxLength="50" />
+    <Property Name="BankDescription" Type="nvarchar" MaxLength="250" />
+    <Property Name="BankInn" Type="nvarchar" MaxLength="50" />
+    <Property Name="BankKpp" Type="nvarchar" MaxLength="50" />
+    <Property Name="BankOktmo" Type="nvarchar" MaxLength="50" />
+    <Property Name="BankOkved" Type="nvarchar" MaxLength="50" />
+    <Property Name="BankBik" Type="nvarchar" MaxLength="50" />
+    <Property Name="BankKorrAccount" Type="nvarchar" MaxLength="50" />
+    <Property Name="RodstvoName" Type="nvarchar" MaxLength="50" />
+    <Property Name="RodstvoDescription" Type="nvarchar" MaxLength="250" />
+    <Property Name="RodstvoSort" Type="int" />
+    <Property Name="RodstvoSoprovodRuLabel" Type="nvarchar" MaxLength="150" />
+    <Property Name="RodstvoSoprovodChLabel" Type="nvarchar" MaxLength="150" />
+    <Property Name="OperatorName" Type="nvarchar" MaxLength="50" />
+    <Property Name="OperatorDescription" Type="nvarchar" MaxLength="250" />
+    <Property Name="OperatorParams" Type="nvarchar" MaxLength="250" />
+    <Property Name="OperatorCountryName" Type="nvarchar" MaxLength="50" />
+    <Property Name="BankCountryName" Type="nvarchar" MaxLength="50" />
+    <Property Name="FinCountryName" Type="nvarchar" MaxLength="50" />
+    <Property Name="DiagnozId" Type="int" Nullable="false" />
+    <Property Name="DiagnozName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DiagnozDescription" Type="nvarchar" MaxLength="250" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'Cure.dbo.ViewScheduler' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -460,23 +601,9 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
   <EntityType Name="ViewUserMembership">
     <Key>
       <PropertyRef Name="Expr1" />
-      <PropertyRef Name="UserName" />
-      <PropertyRef Name="LoweredUserName" />
-      <PropertyRef Name="IsAnonymous" />
-      <PropertyRef Name="LastActivityDate" />
       <PropertyRef Name="Password" />
       <PropertyRef Name="PasswordFormat" />
       <PropertyRef Name="PasswordSalt" />
-      <PropertyRef Name="IsApproved" />
-      <PropertyRef Name="IsLockedOut" />
-      <PropertyRef Name="CreateDate" />
-      <PropertyRef Name="LastLoginDate" />
-      <PropertyRef Name="LastPasswordChangedDate" />
-      <PropertyRef Name="LastLockoutDate" />
-      <PropertyRef Name="FailedPasswordAttemptCount" />
-      <PropertyRef Name="FailedPasswordAttemptWindowStart" />
-      <PropertyRef Name="FailedPasswordAnswerAttemptCount" />
-      <PropertyRef Name="FailedPasswordAnswerAttemptWindowStart" />
     </Key>
     <Property Name="Expr1" Type="uniqueidentifier" Nullable="false" />
     <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
@@ -525,6 +652,80 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
       </Principal>
       <Dependent Role="aspnet_Membership">
         <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Child_RefBank">
+    <End Role="RefBank" Type="Self.RefBank" Multiplicity="0..1" />
+    <End Role="Child" Type="Self.Child" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RefBank">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Child">
+        <PropertyRef Name="FinBankId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Child_RefCountry">
+    <End Role="RefCountry" Type="Self.RefCountry" Multiplicity="1" />
+    <End Role="Child" Type="Self.Child" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RefCountry">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Child">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Child_RefCountryFin">
+    <End Role="RefCountry" Type="Self.RefCountry" Multiplicity="0..1" />
+    <End Role="Child" Type="Self.Child" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RefCountry">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Child">
+        <PropertyRef Name="FinCountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Child_RefDiagnoz">
+    <End Role="RefDiagnoz" Type="Self.RefDiagnoz" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Child" Type="Self.Child" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RefDiagnoz">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Child">
+        <PropertyRef Name="DiagnozId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Child_RefOperator">
+    <End Role="RefOperator" Type="Self.RefOperator" Multiplicity="0..1" />
+    <End Role="Child" Type="Self.Child" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RefOperator">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Child">
+        <PropertyRef Name="FinOperatorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Child_RefRodstvo">
+    <End Role="RefRodstvo" Type="Self.RefRodstvo" Multiplicity="1" />
+    <End Role="Child" Type="Self.Child" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RefRodstvo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Child">
+        <PropertyRef Name="ContactRodstvoId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -584,6 +785,32 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Pacient">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RefBank_RefCountry">
+    <End Role="RefCountry" Type="Self.RefCountry" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="RefBank" Type="Self.RefBank" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RefCountry">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RefBank">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RefOperator_RefCountry">
+    <End Role="RefCountry" Type="Self.RefCountry" Multiplicity="1" />
+    <End Role="RefOperator" Type="Self.RefOperator" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RefCountry">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RefOperator">
         <PropertyRef Name="CountryId" />
       </Dependent>
     </ReferentialConstraint>
@@ -671,18 +898,84 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
   <EntityContainer Name="DataModelStoreContainer">
     <EntitySet Name="aspnet_Membership" EntityType="Self.aspnet_Membership" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="aspnet_Users" EntityType="Self.aspnet_Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Child" EntityType="Self.Child" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NotificationLog" EntityType="Self.NotificationLog" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Pacient" EntityType="Self.Pacient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RefBank" EntityType="Self.RefBank" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RefCountry" EntityType="Self.RefCountry" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RefDiagnoz" EntityType="Self.RefDiagnoz" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RefOperator" EntityType="Self.RefOperator" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RefRodstvo" EntityType="Self.RefRodstvo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Setting" EntityType="Self.Setting" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SmsLog" EntityType="Self.SmsLog" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Sputnik" EntityType="Self.Sputnik" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TransferUser" EntityType="Self.TransferUser" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Visit" EntityType="Self.Visit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ViewChild" EntityType="Self.ViewChild" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[ViewChild].[Id] AS [Id], 
+[ViewChild].[GuidId] AS [GuidId], 
+[ViewChild].[OwnerUser] AS [OwnerUser], 
+[ViewChild].[IsActive] AS [IsActive], 
+[ViewChild].[Name] AS [Name], 
+[ViewChild].[Birthday] AS [Birthday], 
+[ViewChild].[CountryId] AS [CountryId], 
+[ViewChild].[Region] AS [Region], 
+[ViewChild].[Diagnoz] AS [Diagnoz], 
+[ViewChild].[ContactName] AS [ContactName], 
+[ViewChild].[ContactRodstvoId] AS [ContactRodstvoId], 
+[ViewChild].[ContactEmail] AS [ContactEmail], 
+[ViewChild].[ContactPhone] AS [ContactPhone], 
+[ViewChild].[SocialOk] AS [SocialOk], 
+[ViewChild].[SocialVk] AS [SocialVk], 
+[ViewChild].[SocialMm] AS [SocialMm], 
+[ViewChild].[SocialFb] AS [SocialFb], 
+[ViewChild].[FinWebmoney] AS [FinWebmoney], 
+[ViewChild].[FinYandexMoney] AS [FinYandexMoney], 
+[ViewChild].[FinKiwi] AS [FinKiwi], 
+[ViewChild].[FinOperatorId] AS [FinOperatorId], 
+[ViewChild].[FinPhoneNumber] AS [FinPhoneNumber], 
+[ViewChild].[FinCountryId] AS [FinCountryId], 
+[ViewChild].[FinBankId] AS [FinBankId], 
+[ViewChild].[FinBankOther] AS [FinBankOther], 
+[ViewChild].[FinCardNumber] AS [FinCardNumber], 
+[ViewChild].[CountryName] AS [CountryName], 
+[ViewChild].[UserLoweredUserName] AS [UserLoweredUserName], 
+[ViewChild].[UserIsAnonymous] AS [UserIsAnonymous], 
+[ViewChild].[UserLastActivityDate] AS [UserLastActivityDate], 
+[ViewChild].[UserEmail] AS [UserEmail], 
+[ViewChild].[UserLoweredEmail] AS [UserLoweredEmail], 
+[ViewChild].[UserIsApproved] AS [UserIsApproved], 
+[ViewChild].[UserIsLockedOut] AS [UserIsLockedOut], 
+[ViewChild].[UserLastLoginDate] AS [UserLastLoginDate], 
+[ViewChild].[UserComment] AS [UserComment], 
+[ViewChild].[BankName] AS [BankName], 
+[ViewChild].[BankDescription] AS [BankDescription], 
+[ViewChild].[BankInn] AS [BankInn], 
+[ViewChild].[BankKpp] AS [BankKpp], 
+[ViewChild].[BankOktmo] AS [BankOktmo], 
+[ViewChild].[BankOkved] AS [BankOkved], 
+[ViewChild].[BankBik] AS [BankBik], 
+[ViewChild].[BankKorrAccount] AS [BankKorrAccount], 
+[ViewChild].[RodstvoName] AS [RodstvoName], 
+[ViewChild].[RodstvoDescription] AS [RodstvoDescription], 
+[ViewChild].[RodstvoSort] AS [RodstvoSort], 
+[ViewChild].[RodstvoSoprovodRuLabel] AS [RodstvoSoprovodRuLabel], 
+[ViewChild].[RodstvoSoprovodChLabel] AS [RodstvoSoprovodChLabel], 
+[ViewChild].[OperatorName] AS [OperatorName], 
+[ViewChild].[OperatorDescription] AS [OperatorDescription], 
+[ViewChild].[OperatorParams] AS [OperatorParams], 
+[ViewChild].[OperatorCountryName] AS [OperatorCountryName], 
+[ViewChild].[BankCountryName] AS [BankCountryName], 
+[ViewChild].[FinCountryName] AS [FinCountryName], 
+[ViewChild].[DiagnozId] AS [DiagnozId], 
+[ViewChild].[DiagnozName] AS [DiagnozName], 
+[ViewChild].[DiagnozDescription] AS [DiagnozDescription]
+FROM [dbo].[ViewChild] AS [ViewChild]</DefiningQuery>
+    </EntitySet>
     <EntitySet Name="ViewScheduler" EntityType="Self.ViewScheduler" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
 [ViewScheduler].[Id] AS [Id], 
@@ -874,6 +1167,30 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
       <End Role="aspnet_Users" EntitySet="aspnet_Users" />
       <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
     </AssociationSet>
+    <AssociationSet Name="FK_Child_RefBank" Association="Self.FK_Child_RefBank">
+      <End Role="RefBank" EntitySet="RefBank" />
+      <End Role="Child" EntitySet="Child" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Child_RefCountry" Association="Self.FK_Child_RefCountry">
+      <End Role="RefCountry" EntitySet="RefCountry" />
+      <End Role="Child" EntitySet="Child" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Child_RefCountryFin" Association="Self.FK_Child_RefCountryFin">
+      <End Role="RefCountry" EntitySet="RefCountry" />
+      <End Role="Child" EntitySet="Child" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Child_RefDiagnoz" Association="Self.FK_Child_RefDiagnoz">
+      <End Role="RefDiagnoz" EntitySet="RefDiagnoz" />
+      <End Role="Child" EntitySet="Child" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Child_RefOperator" Association="Self.FK_Child_RefOperator">
+      <End Role="RefOperator" EntitySet="RefOperator" />
+      <End Role="Child" EntitySet="Child" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Child_RefRodstvo" Association="Self.FK_Child_RefRodstvo">
+      <End Role="RefRodstvo" EntitySet="RefRodstvo" />
+      <End Role="Child" EntitySet="Child" />
+    </AssociationSet>
     <AssociationSet Name="FK_Department_Department" Association="Self.FK_Department_Department">
       <End Role="Department" EntitySet="Department" />
       <End Role="Department1" EntitySet="Department" />
@@ -893,6 +1210,14 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
     <AssociationSet Name="FK_Pacient_RefCountry" Association="Self.FK_Pacient_RefCountry">
       <End Role="RefCountry" EntitySet="RefCountry" />
       <End Role="Pacient" EntitySet="Pacient" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RefBank_RefCountry" Association="Self.FK_RefBank_RefCountry">
+      <End Role="RefCountry" EntitySet="RefCountry" />
+      <End Role="RefBank" EntitySet="RefBank" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RefOperator_RefCountry" Association="Self.FK_RefOperator_RefCountry">
+      <End Role="RefCountry" EntitySet="RefCountry" />
+      <End Role="RefOperator" EntitySet="RefOperator" />
     </AssociationSet>
     <AssociationSet Name="FK_Sputnik_Order" Association="Self.FK_Sputnik_Order">
       <End Role="Order" EntitySet="Order" />

@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Cure.WebSite.Models.ChildVisual>
+    
+@foreach (var item in Model)
+{
+    <div class="col-lg-3 col-sm-4 col-ss-6 children-page-item js-ajax-for-count">
+        <a class="children-page-child" href="#">
+            <img class="child-img" src="@item.PhotoUrl" alt="@item.Name">
+            <div class="child-txt">
+                <div class="child-name">@item.Name, <span class="child-age">@item.Age лет</span></div>
+                <div class="child-city">@item.CountryName, @item.Region</div>
+            </div>
+        </a>
+    </div>
+}
