@@ -1,0 +1,483 @@
+﻿@model Cure.WebSite.Models.ChildVisual
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="main child-page" role="main">
+    <div class="container">
+        <div class="all-pages-head">
+            <div class="row">
+                <div class="col-lg-7">
+                    <h1 class="all-pages-H1">@Model.Name <span class="subtitle">@Model.Age лет, @Model.CountryName, @Model.Region</span></h1>
+                </div>
+                <div class="col-lg-5">
+                    <div class="head-btns mob-md-mw-313">
+                        <a class="btn btn-white has-shadow ico-seti btn-two-lines">Поделиться<br>в соцсетях</a>
+                        <a class="btn btn-white has-shadow ico-mail btn-two-lines">Написать<br>сообщение</a>
+                        <a class="btn btn-orang has-shadow ico-help">Оказать помощь</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="child-page-body">
+            <div class="row">
+                <div class="col-lg-3 col-md-4">
+                    <div class="child-page-aside">
+                        <div class="child-aside-img">
+                            <img src="@Model.PhotoUrl" alt="@Model.Name">
+                        </div>
+                        <section class="child-aside-info mob-accordion js-mob-accordion">
+                            <h3 class="info-head js-mob-accordion-btn">Контактная информация</h3>
+                            <div class="info-body js-mob-accordion-body">
+                                <div class="info-contact">
+                                    <div class="info-contact-img"><img src="~/content/images/users/contact_user_1_48x48.jpg" alt="@Model.ContactName"></div>
+                                    <div class="info-contact-txt">Наталья Константинова</div>
+                                    <div class="info-contact-who">мама</div>
+                                </div>
+                                <a class="info-contact" href="tel:@Model.ContactPhone">@Model.ContactPhone</a>
+                                <a class="info-contact" href="mailto:@Model.ContactEmail">@Model.ContactEmail</a>
+                            </div>
+                        </section>
+                        <section class="child-aside-info mob-accordion js-mob-accordion">
+                            <h3 class="info-head js-mob-accordion-btn">Страницы в соцсетях</h3>
+                            <div class="info-body js-mob-accordion-body">
+                                <ul class="info-seti-list">
+                                    <li><a class="vk" href="@Model.SocialVk" target="_blank" title="В контакте"><i class="fa fa-vk"></i></a></li>
+                                    <li><a class="ok" href="@Model.SocialOk" target="_blank" title="Одноклассники"><i class="fa fa-odnoklassniki"></i></a></li>
+                                    <li><a class="fb" href="@Model.SocialFb" target="_blank" title="Фейсбук"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a class="yt" href="@Model.SocialMm" target="_blank" title="Ютуб"><i class="fa fa-youtube"></i></a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="child-aside-info mob-accordion js-mob-accordion">
+                            <h3 class="info-head js-mob-accordion-btn">Финансовая помощь</h3>
+                            <div class="info-body js-mob-accordion-body">
+                                <div class="child-info-money">
+                                    <div class="money-account">
+                                        <i class="money-acc-icon">
+                                            <img src="~/content/img/money-icons/webmoney.png" alt="Вэбмани">
+                                        </i>
+                                        <div class="money-acc-note">Вэбмани</div>
+                                        <div class="money-acc-numb">@Model.FinWebmoney@*<br>Z 23567890856*@</div>
+                                    </div>
+                                    <div class="money-account">
+                                        <i class="money-acc-icon">
+                                            <img src="~/content/img/money-icons/beeline.png" alt="@Model.OperatorName">
+                                        </i>
+                                        <div class="money-acc-note">@Model.OperatorName</div>
+                                        <div class="money-acc-numb">@Model.FinPhoneNumber</div>
+                                    </div>
+                                    <div class="money-card">
+                                        <div class="money-card-title">Карта @Model.BankName</div>
+                                        <div class="money-card-numb">@Model.FinCardNumber</div>
+                                        <div class="money-card-name">Константинова<br> Наталья Ильинична</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <div class="col-lg-9 col-md-8">
+                    <div class="child-page-tabs">
+                        <ul class="child-tabs-head js-tabs-head">
+                            <li><a class="active js-tabs-link" data-tab="child-tab-1">История лечения</a></li>
+                            <li><a class="js-tabs-link" data-tab="child-tab-2">Лента впечатлений</a></li>
+                            <li><a class="js-tabs-link" data-tab="child-tab-3">фотоальбом</a></li>
+                            <li><a class="js-tabs-link" data-tab="child-tab-4">Документы</a></li>
+                        </ul>
+                        <div class="child-tabs-body js-tabs-body">
+                            <div class="child-tabs-tab active js-tabs-item" id="child-tab-1">
+                                <div class="child-tab-wrap" id="js-for-load-history">
+                                    <div class="child-tab-post">
+                                        <div class="post-date">
+                                            12.05.2015 - 15.06.2015 / <span class="post-days">45 дней</span>
+                                        </div>
+                                        <h2 class="post-title">Проведено лечение в Больнице заболеваний головного мозга при ННИ акупунктуры головы</h2>
+                                        <h3 class="post-subtitle">Результат</h3>
+                                        <div class="post-body user-content">
+                                            <p>
+                                                Мышечный тонус в конечностях снизился, увеличился объем пассивных и активных движений.
+                                                Улучшилась опора на предплечья в положении лежа на животе. Крепче стала спина. Начал
+                                                раскрывать кисти, движение руками стали более точными и целенаправленными.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="child-tab-post">
+                                        <div class="post-date">
+                                            12.05.2015 - 15.06.2015 / <span class="post-days">32 дня</span>
+                                        </div>
+                                        <h2 class="post-title">Проведено лечение в Больнице заболеваний головного мозга при ННИ акупунктуры головы</h2>
+                                        <h3 class="post-subtitle">Результат</h3>
+                                        <div class="post-body user-content">
+                                            <p>
+                                                Мышечный тонус в конечностях снизился, увеличился объем пассивных и активных движений.
+                                                Улучшилась опора на предплечья в положении лежа на животе. Крепче стала спина. Начал
+                                                раскрывать кисти, движение руками стали более точными и целенаправленными.
+                                            </p>
+                                            <p>
+                                                Мышечный тонус в конечностях снизился, увеличился объем пассивных и активных движений.
+                                                Улучшилась опора на предплечья в положении лежа на животе. Крепче стала спина. Начал
+                                                раскрывать кисти, движение руками стали более точными и целенаправленными.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="child-tab-post">
+                                        <div class="post-date">
+                                            12.05.2015 - 15.06.2015 / <span class="post-days">45 дней</span>
+                                        </div>
+                                        <h2 class="post-title">Проведено лечение в Больнице заболеваний головного мозга при ННИ акупунктуры головы</h2>
+                                        <h3 class="post-subtitle">Результат</h3>
+                                        <div class="post-body user-content">
+                                            <p>
+                                                Мышечный тонус в конечностях снизился, увеличился объем пассивных и активных движений.
+                                                Улучшилась опора на предплечья в положении лежа на животе. Крепче стала спина. Начал
+                                                раскрывать кисти, движение руками стали более точными и целенаправленными.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="all-pages-more child-tab-more">
+                                    <div class="more-btn">
+                                        <a class="btn btn-light has-loading js-load-more-history">Показать еще</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="child-tabs-tab js-tabs-item" id="child-tab-2">
+                                <div class="child-tab-wrap" id="js-for-load-feelings">
+                                    <div class="child-tab-post">
+                                        <div class="post-head">
+                                            <div class="post-date">12.05.2015 23:12</div>
+                                        </div>
+                                        <div class="post-body user-content">
+                                            <p>
+                                                Перед поездкой смотрели прогноз, были нарисованы сплошные дожди. Подумали:
+                                                все равно очень тепло и вода теплая, поедем. В результате была одна ночная гроза,
+                                                и один смешной дождик - одна минута, три капли днем. Два дня была облачность,
+                                                остальное время солнечно. Мышечный тонус в конечностях снизился,
+                                                увеличился объем пассивных и активных движений.
+                                                Улучшилась опора на предплечья в положении лежа на животе. Крепче стала спина. Начал
+                                                раскрывать кисти, движение руками стали более точными и целенаправленными.
+                                            </p>
+                                        </div>
+                                        <div class="comments post-comments is-open">
+                                            <div class="comments-head">
+                                                <a class="comments-count js-comments-open" role="button">4</a>
+                                            </div>
+                                            <div class="comments-body post-comments-body">
+                                                <div class="comments-title">Комментарии (2)</div>
+                                                <div class="comments-item">
+                                                    <div class="comments-item-head">
+                                                        <div class="head-imgs">
+                                                            <img class="head-img" src="~/content/images/users/contact_user_2_48x48.jpg" alt="Елена Матвеева">
+                                                            <img class="head-img" src="~/content/images/users/contact_user_3_48x48.jpg" alt="Олег">
+                                                        </div>
+                                                        <div class="head-txt">
+                                                            <div class="head-name">Елена Матвеева (Олег)</div>
+                                                            <div class="head-date">24.04.2015 11:45</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="comments-item-boby">
+                                                        <div class="user-content">
+                                                            <p>
+                                                                Замечательная экскурсия!<br>
+                                                                Напишите плз в личку сколько стоит поездка. Вы сами ездили или организовывали
+                                                                вам поездку?
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="comments-item-footer">
+                                                        <a class="comments-reply" role="button">Ответить</a>
+                                                    </div>
+                                                </div>
+                                                <div class="comments-item">
+                                                    <div class="comments-item-head">
+                                                        <div class="head-imgs">
+                                                            <img class="head-img" src="~/content/images/users/contact_user_default_48x48.jpg" alt="Инна Ткачук">
+                                                            <img class="head-img" src="~/content/images/users/contact_user_4_48x48.jpg" alt="Марина">
+                                                        </div>
+                                                        <div class="head-txt">
+                                                            <div class="head-name">Инна Ткачук (Марина)</div>
+                                                            <div class="head-date">24.04.2015 12:23</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="comments-item-boby">
+                                                        <div class="user-content">
+                                                            <p>
+                                                                Замечательная экскурсия!<br>
+                                                                Напишите плз в личку сколько стоит поездка. Вы сами ездили или организовывали
+                                                                вам поездку?
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="comments-item-footer">
+                                                        <a class="comments-reply" role="button">Ответить</a>
+                                                    </div>
+                                                </div>
+                                                <div class="comments-addform">
+                                                    <form>
+                                                        <div class="comments-addform-head">
+                                                            <div class="head-imgs">
+                                                                <img class="head-img" src="~/content/images/users/contact_user_5_48x48.jpg" alt="Валентина Евдокимовская">
+                                                            </div>
+                                                            <div class="head-txt">
+                                                                <div class="head-name">Валентина Евдокимовская</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="comments-addform-body">
+                                                            <textarea class="forms-text" placeholder="Ваше сообщение"></textarea>
+                                                            <input class="btn btn-orang" type="submit" value="ОТПРАВИТЬ">
+                                                            <div class="forms-file">
+                                                                <div class="forms-file-msg">Добавить фото</div>
+                                                                <input type="file" onchange="this.previousSibling.previousSibling.innerHTML = this.value">
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="child-tab-post">
+                                        <div class="post-head">
+                                            <div class="post-date">23.04.2015 11:16</div>
+                                        </div>
+                                        <div class="post-body user-content">
+                                            <p>
+                                                Наш семейный друг проживает в Китае и именно он нам посоветовал для отдыха этот
+                                                отель и сам приезжал к нам на несколько дней, так как в России бывает не часто
+                                                и вся связь у нас через интернет. В аэропорту возникли проблемы с визами,
+                                                вернее с каким-то их подтверждением. Это касалось не только нас, но и всей
+                                                группы, которая приехала в этот отель. Нам повезло с гидами, которые оказались
+                                                отличными ребятами и не стали все пускать на самотек. Когда выяснилось в чем суть
+                                                проблемы, они сразу же созвонились с нашим отелем, который выслал какое-то
+                                                подтверждение и нас сразу же пропустили.
+                                            </p>
+                                            <img src="~/content/images/trips/trip_1.jpg" alt="trip">
+                                            <p>
+                                                У нас был можно сказать, что хороший номер. Конечно, можно придраться к старой мебели
+                                                и специфическому запаху в номере, но шикарных апартаментов нам никто не обещал
+                                                и мы прекрасно понимали в какую страну мы едем. Интерьер номера в смешанном
+                                                европейско-китайском стиле. Придираться можно было в том случае, когда проводишь
+                                                в отеле большую часть времени, а так позавтракали и гулять, а возвращались уже ночью.
+                                                На уборку номера внимания не обращали, я даже затрудняюсь сказать как часто убирали
+                                                номер, но всегда было чисто. Один раз оставили чаевые на тумбочке, но их никто не забрал.
+                                            </p>
+                                            <p>
+                                                Как интерьер номера, так и завтрак был смешанный. Чего только стоит зеленый китайский чай.
+                                                Булочки от наших, ничем не отличаются. В этом отеле правильно делают, что делают
+                                                ставку не только на китайскую, но и на европейскую кухню. За пределами отеля ничего
+                                                экстремального не пробовали, кушали курицу с рисом, бульоны, суши. Вся еда вкусная.
+                                                Смело покупали еду на улице и не боялись за свое самочувствие.
+                                            </p>
+                                            <p>
+                                                Территория небольшая, есть компактный внутренней дворик с прудом и утками, которые живут
+                                                в деревянных домиках. По стенам отелей вьется плющ. По всей видимости эти мелочи
+                                                являются визитной карточкой этой гостиницы. Все время у нас было расписано по
+                                                экскурсиям и поездкам, у нас даже не было времени искупаться в бассейне.
+                                            </p>
+                                            <p>
+                                                Понравилось, что в отеле было много европейцев, а не только китайцы. В таком обществе
+                                                чувствуешь себя как-то уверенно, хотя китайцы к нам относились доброжелательно,
+                                                никакой агрессии не проявляют.
+                                            </p>
+                                            <p>
+                                                Вещи сдавали в отеле в прачечную, стирали быстро и недорого. Назад вещи возвращали
+                                                чистыми, не застиранными.
+                                            </p>
+                                            <p>
+                                                Отель неплохо расположен, мы сами запросто сориентировались в городе и несколько
+                                                раз вечером выходили погулять. До центра города километра два, можно ехать на такси,
+                                                можно прогуляться пешком.
+                                            </p>
+                                        </div>
+                                        <div class="comments post-comments">
+                                            <div class="comments-head">
+                                                <a class="comments-count js-comments-open" role="button">2</a>
+                                            </div>
+                                            <div class="comments-body post-comments-body">
+                                                <div class="comments-title">Комментарии (2)</div>
+                                                <div class="comments-item">
+                                                    <div class="comments-item-head">
+                                                        <div class="head-imgs">
+                                                            <img class="head-img" src="~/content/images/users/contact_user_2_48x48.jpg" alt="Елена Матвеева">
+                                                            <img class="head-img" src="~/content/images/users/contact_user_3_48x48.jpg" alt="Олег">
+                                                        </div>
+                                                        <div class="head-txt">
+                                                            <div class="head-name">Елена Матвеева (Олег)</div>
+                                                            <div class="head-date">24.04.2015 11:45</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="comments-item-boby">
+                                                        <div class="user-content">
+                                                            <p>
+                                                                Замечательная экскурсия!<br>
+                                                                Напишите плз в личку сколько стоит поездка. Вы сами ездили или организовывали
+                                                                вам поездку?
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="comments-item-footer">
+                                                        <a class="comments-reply" role="button">Ответить</a>
+                                                    </div>
+                                                </div>
+                                                <div class="comments-item">
+                                                    <div class="comments-item-head">
+                                                        <div class="head-imgs">
+                                                            <img class="head-img" src="~/content/images/users/contact_user_default_48x48.jpg" alt="Инна Ткачук">
+                                                            <img class="head-img" src="~/content/images/users/contact_user_4_48x48.jpg" alt="Марина">
+                                                        </div>
+                                                        <div class="head-txt">
+                                                            <div class="head-name">Инна Ткачук (Марина)</div>
+                                                            <div class="head-date">24.04.2015 12:23</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="comments-item-boby">
+                                                        <div class="user-content">
+                                                            <p>
+                                                                Замечательная экскурсия!<br>
+                                                                Напишите плз в личку сколько стоит поездка. Вы сами ездили или организовывали
+                                                                вам поездку?
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="comments-item-footer">
+                                                        <a class="comments-reply" role="button">Ответить</a>
+                                                    </div>
+                                                </div>
+                                                <div class="comments-addform">
+                                                    <form>
+                                                        <div class="comments-addform-head">
+                                                            <div class="head-imgs">
+                                                                <img class="head-img" src="~/content/images/users/contact_user_5_48x48.jpg" alt="Наталья Константиновна">
+                                                            </div>
+                                                            <div class="head-txt">
+                                                                <div class="head-name">Валентина Евдокимовская</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="comments-addform-body">
+                                                            <textarea class="addform-text"></textarea>
+                                                            <input class="btn btn-orang" type="submit" value="ОТПРАВИТЬ">
+                                                            <div class="forms-file">
+                                                                <div class="forms-file-msg">Добавить фото</div>
+                                                                <input type="file" onchange="this.previousSibling.previousSibling.innerHTML = this.value">
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="child-tab-post">
+                                        <div class="post-head">
+                                            <div class="post-date">21.04.2015 12:50</div>
+                                        </div>
+                                        <div class="post-body user-content">
+                                            <p>
+                                                Территория небольшая, есть компактный внутренней дворик с прудом и утками, которые живут
+                                                в деревянных домиках. По стенам отелей вьется плющ. По всей видимости эти мелочи
+                                                являются визитной карточкой этой гостиницы. Все время у нас было расписано по
+                                                экскурсиям и поездкам, у нас даже не было времени искупаться в бассейне.
+                                            </p>
+                                            <p>
+                                                Перед поездкой смотрели прогноз, были нарисованы сплошные дожди. Подумали:
+                                                все равно очень тепло и вода теплая, поедем. В результате была одна ночная гроза,
+                                                и один смешной дождик - одна минута, три капли днем. Два дня была облачность,
+                                                остальное время солнечно. Мышечный тонус в конечностях снизился,
+                                                увеличился объем пассивных и активных движений.
+                                                Улучшилась опора на предплечья в положении лежа на животе. Крепче стала спина. Начал
+                                                раскрывать кисти, движение руками стали более точными и целенаправленными.
+                                            </p>
+                                        </div>
+                                        <div class="comments post-comments">
+                                            <div class="comments-head">
+                                                <a class="comments-count js-comments-open" role="button">0</a>
+                                            </div>
+                                            <div class="comments-body post-comments-body">
+                                                <div class="comments-title">Комментарии (0)</div>
+                                                <div class="comments-addform">
+                                                    <form>
+                                                        <div class="comments-addform-head">
+                                                            <div class="head-imgs">
+                                                                <img class="head-img" src="~/content/images/users/contact_user_5_48x48.jpg" alt="Наталья Константиновна">
+                                                            </div>
+                                                            <div class="head-txt">
+                                                                <div class="head-name">Валентина Евдокимовская</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="comments-addform-body">
+                                                            <textarea class="addform-text"></textarea>
+                                                            <input class="btn btn-orang" type="submit" value="ОТПРАВИТЬ">
+                                                            <div class="forms-file">
+                                                                <div class="forms-file-msg">Добавить фото</div>
+                                                                <input type="file" onchange="this.previousSibling.previousSibling.innerHTML = this.value">
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="all-pages-more child-tab-more">
+                                    <div class="more-btn">
+                                        <a class="btn btn-light has-loading js-load-more-feelings">Показать еще</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="child-tabs-tab js-tabs-item" id="child-tab-3">
+                                <div class="child-tab-gallery">
+                                    <div class="gallery-light">
+                                        <div class="gallery-slider js-tab-slider" id="big-slider-img">
+                                            <div class="slide"><img src="~/content/images/viewer/slide_3.jpg" alt="__"></div>
+                                            <div class="slide"><img src="~/content/images/viewer/slide_2.jpg" alt="__"></div>
+                                            <div class="slide"><img src="~/content/images/viewer/slide_1.jpg" alt="__"></div>
+                                            <div class="slide"><img src="~/content/images/viewer/slide_3.jpg" alt="__"></div>
+                                            <div class="slide"><img src="~/content/images/viewer/slide_2.jpg" alt="__"></div>
+                                            <div class="slide"><img src="~/content/images/viewer/slide_1.jpg" alt="__"></div>
+                                            <div class="slide"><img src="~/content/images/viewer/slide_3.jpg" alt="__"></div>
+                                            <div class="slide"><img src="~/content/images/viewer/slide_2.jpg" alt="__"></div>
+                                        </div>
+                                        <!-- Блок «Поделиться» от Яндекса-->
+                                        <script type="text/javascript" src="http://yastatic.net/es5-shims/0.0.2/es5-shims.min.js" charset="utf-8"></script>
+                                        <script type="text/javascript" src="http://yastatic.net/share2/share.js" charset="utf-8"></script>
+                                        <div class="gallery-share ya-share2" data-services="vkontakte,facebook,odnoklassniki,moimir" data-counter=""></div>
+                                    </div>
+                                    <div class="has-underline">
+                                        <div class="gallery-thumbs js-tab-slider" id="big-slider-nav">
+                                            <div class="thumb"><img src="~/content/images/viewer/thumb_3.jpg" alt="__"></div>
+                                            <div class="thumb"><img src="~/content/images/viewer/thumb_2.jpg" alt="__"></div>
+                                            <div class="thumb"><img src="~/content/images/viewer/thumb_1.jpg" alt="__"></div>
+                                            <div class="thumb"><img src="~/content/images/viewer/thumb_3.jpg" alt="__"></div>
+                                            <div class="thumb"><img src="~/content/images/viewer/thumb_2.jpg" alt="__"></div>
+                                            <div class="thumb"><img src="~/content/images/viewer/thumb_1.jpg" alt="__"></div>
+                                            <div class="thumb"><img src="~/content/images/viewer/thumb_3.jpg" alt="__"></div>
+                                            <div class="thumb"><img src="~/content/images/viewer/thumb_2.jpg" alt="__"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="child-tabs-tab js-tabs-item" id="child-tab-4">
+                                <div class="child-tab-slider">
+                                    <div class="slider-light">
+                                        <div class="all-pages-slider js-allpages-slider js-tab-slider">
+                                            <div class="slide"><img src="~/content/images/docs/doc_1.jpg" alt="__"></div>
+                                            <div class="slide"><img src="~/content/images/docs/doc_2.jpg" alt="__"></div>
+                                            <div class="slide"><img src="~/content/images/docs/doc_3.jpg" alt="__"></div>
+                                            <div class="slide"><img src="~/content/images/docs/doc_4.jpg" alt="__"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div><!-- END container -->
+
+</div>

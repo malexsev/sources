@@ -5,6 +5,11 @@
 
     public partial class DataAccessBL
     {
+        public ViewChild ViewChild(int id)
+        {
+            return dataRepository.ViewChild(id);
+        }
+
         public IEnumerable<Child> GetChilds()
         {
             return dataRepository.GetChilds();

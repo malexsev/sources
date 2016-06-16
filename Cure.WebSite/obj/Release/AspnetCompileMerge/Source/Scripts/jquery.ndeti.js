@@ -23,12 +23,16 @@ $(document).ready(function () {
 
 
     /* --- Загрузка больше контента -------------------------------------------*/
-    function dataAjaxLoad(loadingBtn, loadingPlace, addr, counter, forCount) {
+    function dataAjaxLoad(loadingBtn, loadingPlace, addr, counter, forCount, showCount) {
         $(loadingBtn).click(function () {
             var $loadingBtn = $(this),
                 $loadingPlace = $(loadingPlace),
                 $counter = $(counter),
+                $showCount = $(showCount),
                 $forCount = $(forCount);
+            
+            $showCount.val($(counter).text());
+            var serializedForm = $('#childrenform').serialize();
 
             if ($loadingPlace.length) {
                 $loadingBtn.addClass("loading");
@@ -36,6 +40,7 @@ $(document).ready(function () {
                     type: "POST",
                     url: addr,
                     dataType: "html",
+                    data: serializedForm,
                     cache: false,
                     error: function () {
                         console.log("Error loading more");
@@ -56,8 +61,8 @@ $(document).ready(function () {
         });
     };
     //Загрузка больше фото детей и отзывов
-    dataAjaxLoad(".js-load-more-children", "#js-for-load-children", "ajax/more_children.php",
-                 "#more-count", ".js-ajax-for-count");
+    dataAjaxLoad(".js-load-more-children", "#js-for-load-children", "/Children/More",
+                 "#more-count", ".js-ajax-for-count", "#skiprecords");
     //Загрузка больше историй
     dataAjaxLoad(".js-load-more-history", "#js-for-load-history", "ajax/more_history.php");
     //Загрузка больше впечатлений
@@ -105,6 +110,7 @@ $(document).ready(function () {
                 .val(selDataVal)
                 .trigger('change'); // Событие изменения в поле
         $(this).closest(".selector").removeClass("show-list");
+        $("#skiprecords").val(0);
         $('form#childrenform').submit();
     });
     //Закрытие списка селектора при клике мимо
@@ -122,6 +128,7 @@ $(document).ready(function () {
                 selectedText;
             if (inputVal) selectedText = $that.find('li[data-val="' + inputVal + '"]').text();
             if (selectedText) $that.children(".selector-val").text(selectedText);
+            $("#more-count").text($(".js-ajax-for-count").length);
             //console.log( selectedText );
         });
     });

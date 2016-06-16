@@ -26,6 +26,7 @@ namespace Cure.DataAccess.DAL
         IEnumerable<ViewChild> FilterChilds(int countryId, string regionName, int ageOption, int diagnozeId, int skipRecords);
         int CountChilds(int countryId, string regionName, int ageOption, int diagnozeId);
         IEnumerable<ViewChild> ViewChilds();
+        ViewChild ViewChild(int id);
         IEnumerable<Child> GetChilds();
         IEnumerable<Child> GetChilds(int countryId);
         void InsertChild(Child child);

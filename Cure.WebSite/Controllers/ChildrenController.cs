@@ -11,6 +11,28 @@ namespace Cure.WebSite.Controllers
 
     public class ChildrenController : Controller
     {
+        public ActionResult Detail(string id)
+        {
+            var dal = new DataAccessBL();
+            int childId = int.Parse(id);
+
+            return View(new ChildVisual(dal.ViewChild(childId)));
+        }
+
+        public ActionResult Index()
+        {
+            var dal = new DataAccessBL();
+            
+            //var result = dal.ViewChilds().Select(x => new ChildVisual(x)).ToList();
+            var result = dal.FilterChilds(0, "0", 0, 0, 0).Select(x => new ChildVisual(x)).ToList();
+            ViewBag.Countries = dal.GetRefCountries();
+            ViewBag.Regions = dal.GetRegions();
+            ViewBag.Diagnozes = dal.GetExistingDiagnozs();
+            ViewBag.TotalCount = dal.CountChilds(0, "0", 0, 0);
+
+            return View(result);
+        }
+
         [HttpPost]
         public ActionResult Index(string filtercountry, string filterregion, string filterage, string filterdiagnoze, string skiprecords)
         {
@@ -45,20 +67,6 @@ namespace Cure.WebSite.Controllers
             var result = dal.FilterChilds(countryId, filterregion, ageOption, diagnozeId, skipRecords).Select(x => new ChildVisual(x)).ToList();
 
             return PartialView("_Children", result);
-        }
-
-        public ActionResult Index()
-        {
-            var dal = new DataAccessBL();
-            
-            //var result = dal.ViewChilds().Select(x => new ChildVisual(x)).ToList();
-            var result = dal.FilterChilds(0, "0", 0, 0, 0).Select(x => new ChildVisual(x)).ToList();
-            ViewBag.Countries = dal.GetRefCountries();
-            ViewBag.Regions = dal.GetRegions();
-            ViewBag.Diagnozes = dal.GetExistingDiagnozs();
-            ViewBag.TotalCount = dal.CountChilds(0, "0", 0, 0);
-
-            return View(result);
         }
     }
 }

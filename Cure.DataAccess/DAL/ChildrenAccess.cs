@@ -8,6 +8,10 @@ namespace Cure.DataAccess.DAL
 {
     internal partial class DataRepository
     {
+        public ViewChild ViewChild(int id)
+        {
+            return context.ViewChilds.FirstOrDefault(x => x.Id == id);
+        }
 
         public int CountChilds(int countryId, string regionName, int ageOption, int diagnozeId)
         {
@@ -77,7 +81,7 @@ namespace Cure.DataAccess.DAL
                     break;
             }
 
-            var takeRecords = 1;
+            var takeRecords = 3;
             DateTime startDate = DateTime.Today.AddYears(-endYears);
             DateTime endDate = DateTime.Today.AddYears(-startYears);
 

@@ -17,25 +17,15 @@
 
     <div class="children-page-list">
         <div class="row" id="js-for-load-children">
-            @foreach (var item in Model)
-            {
-                <div class="col-lg-3 col-sm-4 col-ss-6 children-page-item js-ajax-for-count">
-                    <a class="children-page-child" href="#">
-                        <img class="child-img" src="@item.PhotoUrl" alt="@item.Name">
-                        <div class="child-txt">
-                            <div class="child-name">@item.Name, <span class="child-age">@item.Age лет</span></div>
-                            <div class="child-city">@item.CountryName, @item.Region</div>
-                        </div>
-                    </a>
-                </div>
-            }
+            @Html.Partial("_Children", Model)
         </div>
 
         <div class="row">
             <div class="col-ss-12">
                 <div class="all-pages-more">
+                @Html.Hidden("skiprecords", 0, new { id = "skiprecords" })
                     <div class="more-title">
-                        Позаканы <span id="more-count">16</span> из <span id="more-all">134</span>
+                        Позаканы <span id="more-count">16</span> из <span id="more-all">@ViewBag.TotalCount</span>
                     </div>
                     <div class="more-btn">
                         <a class="btn btn-light has-loading js-load-more-children">Показать еще</a>

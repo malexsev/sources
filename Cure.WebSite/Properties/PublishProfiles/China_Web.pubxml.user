@@ -11,16 +11,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>06/02/2016 02:07:43</publishTime>
+      <publishTime>06/07/2016 12:03:35</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>06/02/2016 02:07:43</publishTime>
+      <publishTime>06/07/2016 12:03:34</publishTime>
     </File>
     <File Include="bin/Cure.DataAccess.dll">
-      <publishTime>06/01/2016 10:59:25</publishTime>
+      <publishTime>06/07/2016 12:03:23</publishTime>
     </File>
     <File Include="bin/Cure.WebSite.dll">
-      <publishTime>06/02/2016 02:07:39</publishTime>
+      <publishTime>06/07/2016 12:03:24</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>09/19/2015 00:46:36</publishTime>
@@ -338,10 +338,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/19/2016 05:23:59</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>06/02/2016 02:07:41</publishTime>
+      <publishTime>06/07/2016 12:03:31</publishTime>
     </File>
     <File Include="Scripts/jquery.ndeti.js">
-      <publishTime>06/01/2016 10:25:52</publishTime>
+      <publishTime>06/06/2016 12:15:31</publishTime>
     </File>
     <File Include="Scripts/plugins/dragdealer.js">
       <publishTime>05/19/2016 05:22:27</publishTime>
@@ -388,17 +388,23 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Scripts/vendor/modernizr-2.8.3.min.js">
       <publishTime>05/19/2016 05:22:27</publishTime>
     </File>
+    <File Include="Views/Children/Detail.cshtml">
+      <publishTime>06/07/2016 11:43:42</publishTime>
+    </File>
     <File Include="Views/Children/Index.cshtml">
-      <publishTime>05/25/2016 11:48:46</publishTime>
+      <publishTime>06/06/2016 10:16:29</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>06/02/2016 01:59:07</publishTime>
+      <publishTime>06/06/2016 10:15:12</publishTime>
     </File>
     <File Include="Views/Shared/_ChildFilter.cshtml">
       <publishTime>06/01/2016 10:35:50</publishTime>
     </File>
+    <File Include="Views/Shared/_Children.cshtml">
+      <publishTime>06/07/2016 11:41:54</publishTime>
+    </File>
     <File Include="Views/Shared/_ChildTales.cshtml">
-      <publishTime>06/01/2016 10:26:24</publishTime>
+      <publishTime>06/06/2016 12:11:40</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
       <publishTime>05/19/2016 05:45:16</publishTime>
@@ -410,7 +416,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/15/2016 23:23:40</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>06/02/2016 01:45:26</publishTime>
+      <publishTime>06/07/2016 12:03:31</publishTime>
     </File>
   </ItemGroup>
 </Project>
