@@ -60,7 +60,10 @@
     <Property Name="SocialVk" Type="nvarchar" MaxLength="250" />
     <Property Name="SocialMm" Type="nvarchar" MaxLength="250" />
     <Property Name="SocialFb" Type="nvarchar" MaxLength="250" />
+    <Property Name="SocialYoutube" Type="nvarchar" MaxLength="250" />
     <Property Name="FinWebmoney" Type="nvarchar" MaxLength="50" />
+    <Property Name="FinWebmoney2" Type="nvarchar" MaxLength="50" />
+    <Property Name="FinWebmoney3" Type="nvarchar" MaxLength="50" />
     <Property Name="FinYandexMoney" Type="nvarchar" MaxLength="50" />
     <Property Name="FinKiwi" Type="nvarchar" MaxLength="50" />
     <Property Name="FinOperatorId" Type="int" />
@@ -69,6 +72,7 @@
     <Property Name="FinPhoneNumber" Type="nvarchar" MaxLength="50" />
     <Property Name="FinBankOther" Type="nvarchar" MaxLength="50" />
     <Property Name="FinCardNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="FinCardName" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Department">
     <Key>
@@ -365,17 +369,6 @@ warning 6002: The table/view 'Cure.dbo.ViewChild' does not have a primary key de
   <EntityType Name="ViewChild">
     <Key>
       <PropertyRef Name="Id" />
-      <PropertyRef Name="GuidId" />
-      <PropertyRef Name="OwnerUser" />
-      <PropertyRef Name="IsActive" />
-      <PropertyRef Name="Name" />
-      <PropertyRef Name="Birthday" />
-      <PropertyRef Name="CountryId" />
-      <PropertyRef Name="ContactName" />
-      <PropertyRef Name="ContactRodstvoId" />
-      <PropertyRef Name="ContactEmail" />
-      <PropertyRef Name="DiagnozId" />
-      <PropertyRef Name="DiagnozName" />
     </Key>
     <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="GuidId" Type="uniqueidentifier" Nullable="false" />
@@ -435,6 +428,10 @@ warning 6002: The table/view 'Cure.dbo.ViewChild' does not have a primary key de
     <Property Name="DiagnozId" Type="int" Nullable="false" />
     <Property Name="DiagnozName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="DiagnozDescription" Type="nvarchar" MaxLength="250" />
+    <Property Name="SocialYoutube" Type="nvarchar" MaxLength="250" />
+    <Property Name="FinWebmoney2" Type="nvarchar" MaxLength="50" />
+    <Property Name="FinWebmoney3" Type="nvarchar" MaxLength="50" />
+    <Property Name="FinCardName" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'Cure.dbo.ViewScheduler' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -973,7 +970,11 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
 [ViewChild].[FinCountryName] AS [FinCountryName], 
 [ViewChild].[DiagnozId] AS [DiagnozId], 
 [ViewChild].[DiagnozName] AS [DiagnozName], 
-[ViewChild].[DiagnozDescription] AS [DiagnozDescription]
+[ViewChild].[DiagnozDescription] AS [DiagnozDescription], 
+[ViewChild].[SocialYoutube] AS [SocialYoutube], 
+[ViewChild].[FinWebmoney2] AS [FinWebmoney2], 
+[ViewChild].[FinWebmoney3] AS [FinWebmoney3], 
+[ViewChild].[FinCardName] AS [FinCardName]
 FROM [dbo].[ViewChild] AS [ViewChild]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="ViewScheduler" EntityType="Self.ViewScheduler" store:Type="Views" store:Schema="dbo">

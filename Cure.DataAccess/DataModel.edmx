@@ -65,7 +65,10 @@
           <Property Name="SocialVk" Type="nvarchar" MaxLength="250" />
           <Property Name="SocialMm" Type="nvarchar" MaxLength="250" />
           <Property Name="SocialFb" Type="nvarchar" MaxLength="250" />
+          <Property Name="SocialYoutube" Type="nvarchar" MaxLength="250" />
           <Property Name="FinWebmoney" Type="nvarchar" MaxLength="50" />
+          <Property Name="FinWebmoney2" Type="nvarchar" MaxLength="50" />
+          <Property Name="FinWebmoney3" Type="nvarchar" MaxLength="50" />
           <Property Name="FinYandexMoney" Type="nvarchar" MaxLength="50" />
           <Property Name="FinKiwi" Type="nvarchar" MaxLength="50" />
           <Property Name="FinOperatorId" Type="int" />
@@ -74,6 +77,7 @@
           <Property Name="FinPhoneNumber" Type="nvarchar" MaxLength="50" />
           <Property Name="FinBankOther" Type="nvarchar" MaxLength="50" />
           <Property Name="FinCardNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="FinCardName" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Department">
           <Key>
@@ -370,17 +374,6 @@ warning 6002: The table/view 'Cure.dbo.ViewChild' does not have a primary key de
         <EntityType Name="ViewChild">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="GuidId" />
-            <PropertyRef Name="OwnerUser" />
-            <PropertyRef Name="IsActive" />
-            <PropertyRef Name="Name" />
-            <PropertyRef Name="Birthday" />
-            <PropertyRef Name="CountryId" />
-            <PropertyRef Name="ContactName" />
-            <PropertyRef Name="ContactRodstvoId" />
-            <PropertyRef Name="ContactEmail" />
-            <PropertyRef Name="DiagnozId" />
-            <PropertyRef Name="DiagnozName" />
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="GuidId" Type="uniqueidentifier" Nullable="false" />
@@ -440,6 +433,10 @@ warning 6002: The table/view 'Cure.dbo.ViewChild' does not have a primary key de
           <Property Name="DiagnozId" Type="int" Nullable="false" />
           <Property Name="DiagnozName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="DiagnozDescription" Type="nvarchar" MaxLength="250" />
+          <Property Name="SocialYoutube" Type="nvarchar" MaxLength="250" />
+          <Property Name="FinWebmoney2" Type="nvarchar" MaxLength="50" />
+          <Property Name="FinWebmoney3" Type="nvarchar" MaxLength="50" />
+          <Property Name="FinCardName" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Cure.dbo.ViewScheduler' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1002,7 +999,11 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
 [ViewChild].[FinCountryName] AS [FinCountryName], 
 [ViewChild].[DiagnozId] AS [DiagnozId], 
 [ViewChild].[DiagnozName] AS [DiagnozName], 
-[ViewChild].[DiagnozDescription] AS [DiagnozDescription]
+[ViewChild].[DiagnozDescription] AS [DiagnozDescription], 
+[ViewChild].[SocialYoutube] AS [SocialYoutube], 
+[ViewChild].[FinWebmoney2] AS [FinWebmoney2], 
+[ViewChild].[FinWebmoney3] AS [FinWebmoney3], 
+[ViewChild].[FinCardName] AS [FinCardName]
 FROM [dbo].[ViewChild] AS [ViewChild]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="ViewScheduler" EntityType="Self.ViewScheduler" store:Type="Views" store:Schema="dbo">
@@ -2150,7 +2151,10 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
           <Property Name="SocialVk" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="SocialMm" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="SocialFb" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="SocialYoutube" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="FinWebmoney" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FinWebmoney2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FinWebmoney3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="FinYandexMoney" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="FinKiwi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="FinOperatorId" Type="Int32" />
@@ -2159,6 +2163,7 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
           <Property Name="FinPhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="FinBankOther" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="FinCardNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FinCardName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="RefBank" Relationship="DataModel.FK_Child_RefBank" FromRole="Child" ToRole="RefBank" />
           <NavigationProperty Name="RefCountry" Relationship="DataModel.FK_Child_RefCountry" FromRole="Child" ToRole="RefCountry" />
           <NavigationProperty Name="RefCountry1" Relationship="DataModel.FK_Child_RefCountryFin" FromRole="Child" ToRole="RefCountry" />
@@ -2243,17 +2248,6 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
         <EntityType Name="ViewChild">
           <Key>
             <PropertyRef Name="Id" />
-            <PropertyRef Name="GuidId" />
-            <PropertyRef Name="OwnerUser" />
-            <PropertyRef Name="IsActive" />
-            <PropertyRef Name="Name" />
-            <PropertyRef Name="Birthday" />
-            <PropertyRef Name="CountryId" />
-            <PropertyRef Name="ContactName" />
-            <PropertyRef Name="ContactRodstvoId" />
-            <PropertyRef Name="ContactEmail" />
-            <PropertyRef Name="DiagnozId" />
-            <PropertyRef Name="DiagnozName" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="GuidId" Type="Guid" Nullable="false" />
@@ -2313,6 +2307,10 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
           <Property Name="DiagnozId" Type="Int32" Nullable="false" />
           <Property Name="DiagnozName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DiagnozDescription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="SocialYoutube" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="FinWebmoney2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FinWebmoney3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FinCardName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -2857,6 +2855,7 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
           <EntitySetMapping Name="Children">
             <EntityTypeMapping TypeName="DataModel.Child">
               <MappingFragment StoreEntitySet="Child">
+                <ScalarProperty Name="FinCardName" ColumnName="FinCardName" />
                 <ScalarProperty Name="FinCardNumber" ColumnName="FinCardNumber" />
                 <ScalarProperty Name="FinBankOther" ColumnName="FinBankOther" />
                 <ScalarProperty Name="FinPhoneNumber" ColumnName="FinPhoneNumber" />
@@ -2865,7 +2864,10 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
                 <ScalarProperty Name="FinOperatorId" ColumnName="FinOperatorId" />
                 <ScalarProperty Name="FinKiwi" ColumnName="FinKiwi" />
                 <ScalarProperty Name="FinYandexMoney" ColumnName="FinYandexMoney" />
+                <ScalarProperty Name="FinWebmoney3" ColumnName="FinWebmoney3" />
+                <ScalarProperty Name="FinWebmoney2" ColumnName="FinWebmoney2" />
                 <ScalarProperty Name="FinWebmoney" ColumnName="FinWebmoney" />
+                <ScalarProperty Name="SocialYoutube" ColumnName="SocialYoutube" />
                 <ScalarProperty Name="SocialFb" ColumnName="SocialFb" />
                 <ScalarProperty Name="SocialMm" ColumnName="SocialMm" />
                 <ScalarProperty Name="SocialVk" ColumnName="SocialVk" />
@@ -2890,6 +2892,10 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
           <EntitySetMapping Name="ViewChilds">
             <EntityTypeMapping TypeName="DataModel.ViewChild">
               <MappingFragment StoreEntitySet="ViewChild">
+                <ScalarProperty Name="FinCardName" ColumnName="FinCardName" />
+                <ScalarProperty Name="FinWebmoney3" ColumnName="FinWebmoney3" />
+                <ScalarProperty Name="FinWebmoney2" ColumnName="FinWebmoney2" />
+                <ScalarProperty Name="SocialYoutube" ColumnName="SocialYoutube" />
                 <ScalarProperty Name="DiagnozDescription" ColumnName="DiagnozDescription" />
                 <ScalarProperty Name="DiagnozName" ColumnName="DiagnozName" />
                 <ScalarProperty Name="DiagnozId" ColumnName="DiagnozId" />

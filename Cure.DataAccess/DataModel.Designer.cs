@@ -2050,6 +2050,30 @@ namespace Cure.DataAccess
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
+        public global::System.String SocialYoutube
+        {
+            get
+            {
+                return _SocialYoutube;
+            }
+            set
+            {
+                OnSocialYoutubeChanging(value);
+                ReportPropertyChanging("SocialYoutube");
+                _SocialYoutube = StructuralObject.SetValidValue(value, true, "SocialYoutube");
+                ReportPropertyChanged("SocialYoutube");
+                OnSocialYoutubeChanged();
+            }
+        }
+        private global::System.String _SocialYoutube;
+        partial void OnSocialYoutubeChanging(global::System.String value);
+        partial void OnSocialYoutubeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
         public global::System.String FinWebmoney
         {
             get
@@ -2068,6 +2092,54 @@ namespace Cure.DataAccess
         private global::System.String _FinWebmoney;
         partial void OnFinWebmoneyChanging(global::System.String value);
         partial void OnFinWebmoneyChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String FinWebmoney2
+        {
+            get
+            {
+                return _FinWebmoney2;
+            }
+            set
+            {
+                OnFinWebmoney2Changing(value);
+                ReportPropertyChanging("FinWebmoney2");
+                _FinWebmoney2 = StructuralObject.SetValidValue(value, true, "FinWebmoney2");
+                ReportPropertyChanged("FinWebmoney2");
+                OnFinWebmoney2Changed();
+            }
+        }
+        private global::System.String _FinWebmoney2;
+        partial void OnFinWebmoney2Changing(global::System.String value);
+        partial void OnFinWebmoney2Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String FinWebmoney3
+        {
+            get
+            {
+                return _FinWebmoney3;
+            }
+            set
+            {
+                OnFinWebmoney3Changing(value);
+                ReportPropertyChanging("FinWebmoney3");
+                _FinWebmoney3 = StructuralObject.SetValidValue(value, true, "FinWebmoney3");
+                ReportPropertyChanged("FinWebmoney3");
+                OnFinWebmoney3Changed();
+            }
+        }
+        private global::System.String _FinWebmoney3;
+        partial void OnFinWebmoney3Changing(global::System.String value);
+        partial void OnFinWebmoney3Changed();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -2260,6 +2332,30 @@ namespace Cure.DataAccess
         private global::System.String _FinCardNumber;
         partial void OnFinCardNumberChanging(global::System.String value);
         partial void OnFinCardNumberChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String FinCardName
+        {
+            get
+            {
+                return _FinCardName;
+            }
+            set
+            {
+                OnFinCardNameChanging(value);
+                ReportPropertyChanging("FinCardName");
+                _FinCardName = StructuralObject.SetValidValue(value, true, "FinCardName");
+                ReportPropertyChanged("FinCardName");
+                OnFinCardNameChanged();
+            }
+        }
+        private global::System.String _FinCardName;
+        partial void OnFinCardNameChanging(global::System.String value);
+        partial void OnFinCardNameChanged();
 
         #endregion
 
@@ -7748,7 +7844,7 @@ namespace Cure.DataAccess
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid GuidId
         {
@@ -7758,14 +7854,11 @@ namespace Cure.DataAccess
             }
             set
             {
-                if (_GuidId != value)
-                {
-                    OnGuidIdChanging(value);
-                    ReportPropertyChanging("GuidId");
-                    _GuidId = StructuralObject.SetValidValue(value, "GuidId");
-                    ReportPropertyChanged("GuidId");
-                    OnGuidIdChanged();
-                }
+                OnGuidIdChanging(value);
+                ReportPropertyChanging("GuidId");
+                _GuidId = StructuralObject.SetValidValue(value, "GuidId");
+                ReportPropertyChanged("GuidId");
+                OnGuidIdChanged();
             }
         }
         private global::System.Guid _GuidId;
@@ -7775,7 +7868,7 @@ namespace Cure.DataAccess
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String OwnerUser
         {
@@ -7785,14 +7878,11 @@ namespace Cure.DataAccess
             }
             set
             {
-                if (_OwnerUser != value)
-                {
-                    OnOwnerUserChanging(value);
-                    ReportPropertyChanging("OwnerUser");
-                    _OwnerUser = StructuralObject.SetValidValue(value, false, "OwnerUser");
-                    ReportPropertyChanged("OwnerUser");
-                    OnOwnerUserChanged();
-                }
+                OnOwnerUserChanging(value);
+                ReportPropertyChanging("OwnerUser");
+                _OwnerUser = StructuralObject.SetValidValue(value, false, "OwnerUser");
+                ReportPropertyChanged("OwnerUser");
+                OnOwnerUserChanged();
             }
         }
         private global::System.String _OwnerUser;
@@ -7802,7 +7892,7 @@ namespace Cure.DataAccess
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsActive
         {
@@ -7812,14 +7902,11 @@ namespace Cure.DataAccess
             }
             set
             {
-                if (_IsActive != value)
-                {
-                    OnIsActiveChanging(value);
-                    ReportPropertyChanging("IsActive");
-                    _IsActive = StructuralObject.SetValidValue(value, "IsActive");
-                    ReportPropertyChanged("IsActive");
-                    OnIsActiveChanged();
-                }
+                OnIsActiveChanging(value);
+                ReportPropertyChanging("IsActive");
+                _IsActive = StructuralObject.SetValidValue(value, "IsActive");
+                ReportPropertyChanged("IsActive");
+                OnIsActiveChanged();
             }
         }
         private global::System.Boolean _IsActive;
@@ -7829,7 +7916,7 @@ namespace Cure.DataAccess
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -7839,14 +7926,11 @@ namespace Cure.DataAccess
             }
             set
             {
-                if (_Name != value)
-                {
-                    OnNameChanging(value);
-                    ReportPropertyChanging("Name");
-                    _Name = StructuralObject.SetValidValue(value, false, "Name");
-                    ReportPropertyChanged("Name");
-                    OnNameChanged();
-                }
+                OnNameChanging(value);
+                ReportPropertyChanging("Name");
+                _Name = StructuralObject.SetValidValue(value, false, "Name");
+                ReportPropertyChanged("Name");
+                OnNameChanged();
             }
         }
         private global::System.String _Name;
@@ -7856,7 +7940,7 @@ namespace Cure.DataAccess
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime Birthday
         {
@@ -7866,14 +7950,11 @@ namespace Cure.DataAccess
             }
             set
             {
-                if (_Birthday != value)
-                {
-                    OnBirthdayChanging(value);
-                    ReportPropertyChanging("Birthday");
-                    _Birthday = StructuralObject.SetValidValue(value, "Birthday");
-                    ReportPropertyChanged("Birthday");
-                    OnBirthdayChanged();
-                }
+                OnBirthdayChanging(value);
+                ReportPropertyChanging("Birthday");
+                _Birthday = StructuralObject.SetValidValue(value, "Birthday");
+                ReportPropertyChanged("Birthday");
+                OnBirthdayChanged();
             }
         }
         private global::System.DateTime _Birthday;
@@ -7883,7 +7964,7 @@ namespace Cure.DataAccess
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 CountryId
         {
@@ -7893,14 +7974,11 @@ namespace Cure.DataAccess
             }
             set
             {
-                if (_CountryId != value)
-                {
-                    OnCountryIdChanging(value);
-                    ReportPropertyChanging("CountryId");
-                    _CountryId = StructuralObject.SetValidValue(value, "CountryId");
-                    ReportPropertyChanged("CountryId");
-                    OnCountryIdChanged();
-                }
+                OnCountryIdChanging(value);
+                ReportPropertyChanging("CountryId");
+                _CountryId = StructuralObject.SetValidValue(value, "CountryId");
+                ReportPropertyChanged("CountryId");
+                OnCountryIdChanged();
             }
         }
         private global::System.Int32 _CountryId;
@@ -7958,7 +8036,7 @@ namespace Cure.DataAccess
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String ContactName
         {
@@ -7968,14 +8046,11 @@ namespace Cure.DataAccess
             }
             set
             {
-                if (_ContactName != value)
-                {
-                    OnContactNameChanging(value);
-                    ReportPropertyChanging("ContactName");
-                    _ContactName = StructuralObject.SetValidValue(value, false, "ContactName");
-                    ReportPropertyChanged("ContactName");
-                    OnContactNameChanged();
-                }
+                OnContactNameChanging(value);
+                ReportPropertyChanging("ContactName");
+                _ContactName = StructuralObject.SetValidValue(value, false, "ContactName");
+                ReportPropertyChanged("ContactName");
+                OnContactNameChanged();
             }
         }
         private global::System.String _ContactName;
@@ -7985,7 +8060,7 @@ namespace Cure.DataAccess
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 ContactRodstvoId
         {
@@ -7995,14 +8070,11 @@ namespace Cure.DataAccess
             }
             set
             {
-                if (_ContactRodstvoId != value)
-                {
-                    OnContactRodstvoIdChanging(value);
-                    ReportPropertyChanging("ContactRodstvoId");
-                    _ContactRodstvoId = StructuralObject.SetValidValue(value, "ContactRodstvoId");
-                    ReportPropertyChanged("ContactRodstvoId");
-                    OnContactRodstvoIdChanged();
-                }
+                OnContactRodstvoIdChanging(value);
+                ReportPropertyChanging("ContactRodstvoId");
+                _ContactRodstvoId = StructuralObject.SetValidValue(value, "ContactRodstvoId");
+                ReportPropertyChanged("ContactRodstvoId");
+                OnContactRodstvoIdChanged();
             }
         }
         private global::System.Int32 _ContactRodstvoId;
@@ -8012,7 +8084,7 @@ namespace Cure.DataAccess
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String ContactEmail
         {
@@ -8022,14 +8094,11 @@ namespace Cure.DataAccess
             }
             set
             {
-                if (_ContactEmail != value)
-                {
-                    OnContactEmailChanging(value);
-                    ReportPropertyChanging("ContactEmail");
-                    _ContactEmail = StructuralObject.SetValidValue(value, false, "ContactEmail");
-                    ReportPropertyChanged("ContactEmail");
-                    OnContactEmailChanged();
-                }
+                OnContactEmailChanging(value);
+                ReportPropertyChanging("ContactEmail");
+                _ContactEmail = StructuralObject.SetValidValue(value, false, "ContactEmail");
+                ReportPropertyChanged("ContactEmail");
+                OnContactEmailChanged();
             }
         }
         private global::System.String _ContactEmail;
@@ -9071,7 +9140,7 @@ namespace Cure.DataAccess
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 DiagnozId
         {
@@ -9081,14 +9150,11 @@ namespace Cure.DataAccess
             }
             set
             {
-                if (_DiagnozId != value)
-                {
-                    OnDiagnozIdChanging(value);
-                    ReportPropertyChanging("DiagnozId");
-                    _DiagnozId = StructuralObject.SetValidValue(value, "DiagnozId");
-                    ReportPropertyChanged("DiagnozId");
-                    OnDiagnozIdChanged();
-                }
+                OnDiagnozIdChanging(value);
+                ReportPropertyChanging("DiagnozId");
+                _DiagnozId = StructuralObject.SetValidValue(value, "DiagnozId");
+                ReportPropertyChanged("DiagnozId");
+                OnDiagnozIdChanged();
             }
         }
         private global::System.Int32 _DiagnozId;
@@ -9098,7 +9164,7 @@ namespace Cure.DataAccess
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String DiagnozName
         {
@@ -9108,14 +9174,11 @@ namespace Cure.DataAccess
             }
             set
             {
-                if (_DiagnozName != value)
-                {
-                    OnDiagnozNameChanging(value);
-                    ReportPropertyChanging("DiagnozName");
-                    _DiagnozName = StructuralObject.SetValidValue(value, false, "DiagnozName");
-                    ReportPropertyChanged("DiagnozName");
-                    OnDiagnozNameChanged();
-                }
+                OnDiagnozNameChanging(value);
+                ReportPropertyChanging("DiagnozName");
+                _DiagnozName = StructuralObject.SetValidValue(value, false, "DiagnozName");
+                ReportPropertyChanged("DiagnozName");
+                OnDiagnozNameChanged();
             }
         }
         private global::System.String _DiagnozName;
@@ -9145,6 +9208,102 @@ namespace Cure.DataAccess
         private global::System.String _DiagnozDescription;
         partial void OnDiagnozDescriptionChanging(global::System.String value);
         partial void OnDiagnozDescriptionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String SocialYoutube
+        {
+            get
+            {
+                return _SocialYoutube;
+            }
+            set
+            {
+                OnSocialYoutubeChanging(value);
+                ReportPropertyChanging("SocialYoutube");
+                _SocialYoutube = StructuralObject.SetValidValue(value, true, "SocialYoutube");
+                ReportPropertyChanged("SocialYoutube");
+                OnSocialYoutubeChanged();
+            }
+        }
+        private global::System.String _SocialYoutube;
+        partial void OnSocialYoutubeChanging(global::System.String value);
+        partial void OnSocialYoutubeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String FinWebmoney2
+        {
+            get
+            {
+                return _FinWebmoney2;
+            }
+            set
+            {
+                OnFinWebmoney2Changing(value);
+                ReportPropertyChanging("FinWebmoney2");
+                _FinWebmoney2 = StructuralObject.SetValidValue(value, true, "FinWebmoney2");
+                ReportPropertyChanged("FinWebmoney2");
+                OnFinWebmoney2Changed();
+            }
+        }
+        private global::System.String _FinWebmoney2;
+        partial void OnFinWebmoney2Changing(global::System.String value);
+        partial void OnFinWebmoney2Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String FinWebmoney3
+        {
+            get
+            {
+                return _FinWebmoney3;
+            }
+            set
+            {
+                OnFinWebmoney3Changing(value);
+                ReportPropertyChanging("FinWebmoney3");
+                _FinWebmoney3 = StructuralObject.SetValidValue(value, true, "FinWebmoney3");
+                ReportPropertyChanged("FinWebmoney3");
+                OnFinWebmoney3Changed();
+            }
+        }
+        private global::System.String _FinWebmoney3;
+        partial void OnFinWebmoney3Changing(global::System.String value);
+        partial void OnFinWebmoney3Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String FinCardName
+        {
+            get
+            {
+                return _FinCardName;
+            }
+            set
+            {
+                OnFinCardNameChanging(value);
+                ReportPropertyChanging("FinCardName");
+                _FinCardName = StructuralObject.SetValidValue(value, true, "FinCardName");
+                ReportPropertyChanged("FinCardName");
+                OnFinCardNameChanged();
+            }
+        }
+        private global::System.String _FinCardName;
+        partial void OnFinCardNameChanging(global::System.String value);
+        partial void OnFinCardNameChanged();
 
         #endregion
 

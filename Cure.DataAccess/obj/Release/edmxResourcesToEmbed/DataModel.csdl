@@ -873,7 +873,10 @@
     <Property Name="SocialVk" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="SocialMm" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="SocialFb" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="SocialYoutube" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="FinWebmoney" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FinWebmoney2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FinWebmoney3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="FinYandexMoney" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="FinKiwi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="FinOperatorId" Type="Int32" />
@@ -882,6 +885,7 @@
     <Property Name="FinPhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="FinBankOther" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="FinCardNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FinCardName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="RefBank" Relationship="DataModel.FK_Child_RefBank" FromRole="Child" ToRole="RefBank" />
     <NavigationProperty Name="RefCountry" Relationship="DataModel.FK_Child_RefCountry" FromRole="Child" ToRole="RefCountry" />
     <NavigationProperty Name="RefCountry1" Relationship="DataModel.FK_Child_RefCountryFin" FromRole="Child" ToRole="RefCountry" />
@@ -966,17 +970,6 @@
   <EntityType Name="ViewChild">
     <Key>
       <PropertyRef Name="Id" />
-      <PropertyRef Name="GuidId" />
-      <PropertyRef Name="OwnerUser" />
-      <PropertyRef Name="IsActive" />
-      <PropertyRef Name="Name" />
-      <PropertyRef Name="Birthday" />
-      <PropertyRef Name="CountryId" />
-      <PropertyRef Name="ContactName" />
-      <PropertyRef Name="ContactRodstvoId" />
-      <PropertyRef Name="ContactEmail" />
-      <PropertyRef Name="DiagnozId" />
-      <PropertyRef Name="DiagnozName" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" />
     <Property Name="GuidId" Type="Guid" Nullable="false" />
@@ -1036,5 +1029,9 @@
     <Property Name="DiagnozId" Type="Int32" Nullable="false" />
     <Property Name="DiagnozName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="DiagnozDescription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="SocialYoutube" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="FinWebmoney2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FinWebmoney3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FinCardName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>

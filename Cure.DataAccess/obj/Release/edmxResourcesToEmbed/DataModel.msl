@@ -538,6 +538,7 @@
     <EntitySetMapping Name="Children">
       <EntityTypeMapping TypeName="DataModel.Child">
         <MappingFragment StoreEntitySet="Child">
+          <ScalarProperty Name="FinCardName" ColumnName="FinCardName" />
           <ScalarProperty Name="FinCardNumber" ColumnName="FinCardNumber" />
           <ScalarProperty Name="FinBankOther" ColumnName="FinBankOther" />
           <ScalarProperty Name="FinPhoneNumber" ColumnName="FinPhoneNumber" />
@@ -546,7 +547,10 @@
           <ScalarProperty Name="FinOperatorId" ColumnName="FinOperatorId" />
           <ScalarProperty Name="FinKiwi" ColumnName="FinKiwi" />
           <ScalarProperty Name="FinYandexMoney" ColumnName="FinYandexMoney" />
+          <ScalarProperty Name="FinWebmoney3" ColumnName="FinWebmoney3" />
+          <ScalarProperty Name="FinWebmoney2" ColumnName="FinWebmoney2" />
           <ScalarProperty Name="FinWebmoney" ColumnName="FinWebmoney" />
+          <ScalarProperty Name="SocialYoutube" ColumnName="SocialYoutube" />
           <ScalarProperty Name="SocialFb" ColumnName="SocialFb" />
           <ScalarProperty Name="SocialMm" ColumnName="SocialMm" />
           <ScalarProperty Name="SocialVk" ColumnName="SocialVk" />
@@ -571,6 +575,10 @@
     <EntitySetMapping Name="ViewChilds">
       <EntityTypeMapping TypeName="DataModel.ViewChild">
         <MappingFragment StoreEntitySet="ViewChild">
+          <ScalarProperty Name="FinCardName" ColumnName="FinCardName" />
+          <ScalarProperty Name="FinWebmoney3" ColumnName="FinWebmoney3" />
+          <ScalarProperty Name="FinWebmoney2" ColumnName="FinWebmoney2" />
+          <ScalarProperty Name="SocialYoutube" ColumnName="SocialYoutube" />
           <ScalarProperty Name="DiagnozDescription" ColumnName="DiagnozDescription" />
           <ScalarProperty Name="DiagnozName" ColumnName="DiagnozName" />
           <ScalarProperty Name="DiagnozId" ColumnName="DiagnozId" />

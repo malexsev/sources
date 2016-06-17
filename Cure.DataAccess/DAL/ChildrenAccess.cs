@@ -81,7 +81,7 @@ namespace Cure.DataAccess.DAL
                     break;
             }
 
-            var takeRecords = 3;
+            var takeRecords = 12;
             DateTime startDate = DateTime.Today.AddYears(-endYears);
             DateTime endDate = DateTime.Today.AddYears(-startYears);
 
@@ -153,11 +153,14 @@ namespace Cure.DataAccess.DAL
                 origChild.FinBankId = child.FinBankId;
                 origChild.FinBankOther = child.FinBankOther;
                 origChild.FinCardNumber = child.FinCardNumber;
+                origChild.FinCardName = child.FinCardName;
                 origChild.FinCountryId = child.FinCountryId;
                 origChild.FinKiwi = child.FinKiwi;
                 origChild.FinOperatorId = child.FinOperatorId;
                 origChild.FinPhoneNumber = child.FinPhoneNumber;
                 origChild.FinWebmoney = child.FinWebmoney;
+                origChild.FinWebmoney2 = child.FinWebmoney2;
+                origChild.FinWebmoney3 = child.FinWebmoney3;
                 origChild.FinYandexMoney = child.FinYandexMoney;
                 origChild.IsActive = child.IsActive;
                 origChild.Name = child.Name;
@@ -167,6 +170,7 @@ namespace Cure.DataAccess.DAL
                 origChild.SocialMm = child.SocialMm;
                 origChild.SocialOk = child.SocialOk;
                 origChild.SocialVk = child.SocialVk;
+                origChild.SocialYoutube = child.SocialYoutube;
                 SaveChanges();
             } catch (Exception ex)
             {

@@ -33,49 +33,87 @@
                             <div class="info-body js-mob-accordion-body">
                                 <div class="info-contact">
                                     <div class="info-contact-img"><img src="~/content/images/users/contact_user_1_48x48.jpg" alt="@Model.ContactName"></div>
-                                    <div class="info-contact-txt">Наталья Константинова</div>
-                                    <div class="info-contact-who">мама</div>
+                                    <div class="info-contact-txt">@Model.ContactName</div>
+                                    <div class="info-contact-who">@Model.RodstvoName</div>
                                 </div>
                                 <a class="info-contact" href="tel:@Model.ContactPhone">@Model.ContactPhone</a>
                                 <a class="info-contact" href="mailto:@Model.ContactEmail">@Model.ContactEmail</a>
                             </div>
                         </section>
-                        <section class="child-aside-info mob-accordion js-mob-accordion">
-                            <h3 class="info-head js-mob-accordion-btn">Страницы в соцсетях</h3>
-                            <div class="info-body js-mob-accordion-body">
-                                <ul class="info-seti-list">
-                                    <li><a class="vk" href="@Model.SocialVk" target="_blank" title="В контакте"><i class="fa fa-vk"></i></a></li>
-                                    <li><a class="ok" href="@Model.SocialOk" target="_blank" title="Одноклассники"><i class="fa fa-odnoklassniki"></i></a></li>
-                                    <li><a class="fb" href="@Model.SocialFb" target="_blank" title="Фейсбук"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a class="yt" href="@Model.SocialMm" target="_blank" title="Ютуб"><i class="fa fa-youtube"></i></a></li>
-                                </ul>
-                            </div>
-                        </section>
+
+                        @if (Model.IsAnySocial)
+                        {
+                            <section class="child-aside-info mob-accordion js-mob-accordion">
+                                <h3 class="info-head js-mob-accordion-btn">Страницы в соцсетях</h3>
+                                <div class="info-body js-mob-accordion-body">
+                                    <ul class="info-seti-list">
+                                        @if (!string.IsNullOrEmpty(Model.SocialVk))
+                                        {
+                                            <li><a class="vk" href="@Model.SocialVk" target="_blank" title="В контакте"><i class="fa fa-vk"></i></a></li>
+                                        }
+                                        @if (!string.IsNullOrEmpty(Model.SocialOk))
+                                        {
+                                            <li><a class="ok" href="@Model.SocialOk" target="_blank" title="Одноклассники"><i class="fa fa-odnoklassniki"></i></a></li>
+                                        }
+                                        @if (!string.IsNullOrEmpty(Model.SocialFb))
+                                        {
+                                            <li><a class="fb" href="@Model.SocialFb" target="_blank" title="Фейсбук"><i class="fa fa-facebook"></i></a></li>
+                                        }
+                                        @if (!string.IsNullOrEmpty(Model.SocialMm))
+                                        {
+                                            <li><a class="yt" href="@Model.SocialMm" target="_blank" title="Мой Мир"><i class="fa fa-at"></i></a></li>
+                                        }
+                                        @if (!string.IsNullOrEmpty(Model.SocialYoutube))
+                                        {
+                                            <li><a class="yt" href="@Model.SocialYoutube" target="_blank" title="Ютуб"><i class="fa fa-youtube"></i></a></li>
+                                        }
+                                    </ul>
+                                </div>
+                            </section>
+                        }
+
                         <section class="child-aside-info mob-accordion js-mob-accordion">
                             <h3 class="info-head js-mob-accordion-btn">Финансовая помощь</h3>
-                            <div class="info-body js-mob-accordion-body">
-                                <div class="child-info-money">
-                                    <div class="money-account">
-                                        <i class="money-acc-icon">
-                                            <img src="~/content/img/money-icons/webmoney.png" alt="Вэбмани">
-                                        </i>
-                                        <div class="money-acc-note">Вэбмани</div>
-                                        <div class="money-acc-numb">@Model.FinWebmoney@*<br>Z 23567890856*@</div>
-                                    </div>
-                                    <div class="money-account">
-                                        <i class="money-acc-icon">
-                                            <img src="~/content/img/money-icons/beeline.png" alt="@Model.OperatorName">
-                                        </i>
-                                        <div class="money-acc-note">@Model.OperatorName</div>
-                                        <div class="money-acc-numb">@Model.FinPhoneNumber</div>
-                                    </div>
-                                    <div class="money-card">
-                                        <div class="money-card-title">Карта @Model.BankName</div>
-                                        <div class="money-card-numb">@Model.FinCardNumber</div>
-                                        <div class="money-card-name">Константинова<br> Наталья Ильинична</div>
+                            @if (!string.IsNullOrEmpty(Model.FinWebMoneyString) || !string.IsNullOrEmpty(Model.OperatorName) || !string.IsNullOrEmpty(Model.FinCardNumber))
+                            {
+                                <div class="info-body js-mob-accordion-body">
+                                    <div class="child-info-money">
+                                        @if (!string.IsNullOrEmpty(Model.FinWebMoneyString))
+                                        {
+                                            <div class="money-account">
+                                                <i class="money-acc-icon">
+                                                    <img src="~/content/img/money-icons/webmoney.png" alt="Вэбмани">
+                                                </i>
+                                                <div class="money-acc-note">Вэбмани</div>
+                                                <div class="money-acc-numb">@Html.Raw(Model.FinWebMoneyString)</div>
+                                            </div>
+                                        }
+                                        @if (!string.IsNullOrEmpty(Model.OperatorName))
+                                        {
+                                            <div class="money-account">
+                                                <i class="money-acc-icon">
+                                                    <img src="~/content/img/money-icons/beeline.png" alt="@Model.OperatorName">
+                                                </i>
+                                                <div class="money-acc-note">@Model.OperatorName</div>
+                                                <div class="money-acc-numb">@Model.FinPhoneNumber</div>
+                                            </div>
+                                        }
+                                        @if (!string.IsNullOrEmpty(Model.FinCardNumber))
+                                        {
+                                            <div class="money-card">
+                                                <div class="money-card-title">Карта @Model.BankName</div>
+                                                <div class="money-card-numb">@Model.FinCardNumber</div>
+                                                <div class="money-card-name">@Model.FinCardName</div>
+                                            </div>
+                                        }
+
                                     </div>
                                 </div>
-                            </div>
+                            }
+                            else
+                            {
+                                <div class="info-contact-txt">Информации для финансовой помощи пока отсутствует.</div>
+                            }
                         </section>
                     </div>
                 </div>
@@ -431,14 +469,11 @@
                                 <div class="child-tab-gallery">
                                     <div class="gallery-light">
                                         <div class="gallery-slider js-tab-slider" id="big-slider-img">
-                                            <div class="slide"><img src="~/content/images/viewer/slide_3.jpg" alt="__"></div>
-                                            <div class="slide"><img src="~/content/images/viewer/slide_2.jpg" alt="__"></div>
-                                            <div class="slide"><img src="~/content/images/viewer/slide_1.jpg" alt="__"></div>
-                                            <div class="slide"><img src="~/content/images/viewer/slide_3.jpg" alt="__"></div>
-                                            <div class="slide"><img src="~/content/images/viewer/slide_2.jpg" alt="__"></div>
-                                            <div class="slide"><img src="~/content/images/viewer/slide_1.jpg" alt="__"></div>
-                                            <div class="slide"><img src="~/content/images/viewer/slide_3.jpg" alt="__"></div>
-                                            <div class="slide"><img src="~/content/images/viewer/slide_2.jpg" alt="__"></div>
+                                            @foreach (var photoItem in Model.PhotoItemLst)
+                                            {
+                                                <div class="slide"><img src="@photoItem.UrlBig" alt="__"></div>
+
+                                            }
                                         </div>
                                         <!-- Блок «Поделиться» от Яндекса-->
                                         <script type="text/javascript" src="http://yastatic.net/es5-shims/0.0.2/es5-shims.min.js" charset="utf-8"></script>
@@ -447,31 +482,35 @@
                                     </div>
                                     <div class="has-underline">
                                         <div class="gallery-thumbs js-tab-slider" id="big-slider-nav">
-                                            <div class="thumb"><img src="~/content/images/viewer/thumb_3.jpg" alt="__"></div>
-                                            <div class="thumb"><img src="~/content/images/viewer/thumb_2.jpg" alt="__"></div>
-                                            <div class="thumb"><img src="~/content/images/viewer/thumb_1.jpg" alt="__"></div>
-                                            <div class="thumb"><img src="~/content/images/viewer/thumb_3.jpg" alt="__"></div>
-                                            <div class="thumb"><img src="~/content/images/viewer/thumb_2.jpg" alt="__"></div>
-                                            <div class="thumb"><img src="~/content/images/viewer/thumb_1.jpg" alt="__"></div>
-                                            <div class="thumb"><img src="~/content/images/viewer/thumb_3.jpg" alt="__"></div>
-                                            <div class="thumb"><img src="~/content/images/viewer/thumb_2.jpg" alt="__"></div>
+                                            @foreach (var photoItem in Model.PhotoItemLst)
+                                            {
+                                                <div class="thumb"><img src="@photoItem.UrlBig" alt="__"></div>
+                                            }
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            
+                            @if (Model.DocItemLst.Any())
+                            {
+                                <div class="child-tabs-tab js-tabs-item" id="child-tab-4">
+                                    <div class="child-tab-slider">
+                                        <div class="slider-light">
+                                            <div class="all-pages-slider js-allpages-slider js-tab-slider">
+                                                @foreach (var doc in Model.DocItemLst)
+                                                {
+                                                    <div class="slide"><img src="@doc.UrlOriginal" alt="__"></div>
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="info-contact-txt">Документы пока не загружены.</div>
+                            }
 
-                            <div class="child-tabs-tab js-tabs-item" id="child-tab-4">
-                                <div class="child-tab-slider">
-                                    <div class="slider-light">
-                                        <div class="all-pages-slider js-allpages-slider js-tab-slider">
-                                            <div class="slide"><img src="~/content/images/docs/doc_1.jpg" alt="__"></div>
-                                            <div class="slide"><img src="~/content/images/docs/doc_2.jpg" alt="__"></div>
-                                            <div class="slide"><img src="~/content/images/docs/doc_3.jpg" alt="__"></div>
-                                            <div class="slide"><img src="~/content/images/docs/doc_4.jpg" alt="__"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>

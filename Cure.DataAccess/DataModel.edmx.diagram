@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ad57fe02ed604b0a903ad8a8a051004e" Name="Diagram1" ZoomLevel="67">
+      <Diagram DiagramId="ad57fe02ed604b0a903ad8a8a051004e" Name="Diagram1" ZoomLevel="63">
         <EntityTypeShape EntityType="DataModel.OrderStatu" Width="1.5" PointX="10.875" PointY="1.875" />
         <EntityTypeShape EntityType="DataModel.Pacient" Width="1.5" PointX="5.25" PointY="15.125" />
         <EntityTypeShape EntityType="DataModel.ViewSoonVisit" Width="1.5" PointX="23.125" PointY="2" />
@@ -40,7 +40,7 @@
         <AssociationConnector Association="DataModel.FK_RefBank_RefCountry" />
         <AssociationConnector Association="DataModel.FK_RefOperator_RefCountry" />
         <EntityTypeShape EntityType="DataModel.RefDiagnoz" Width="1.5" PointX="1.5" PointY="25" />
-        <EntityTypeShape EntityType="DataModel.Child" Width="1.5" PointX="4.375" PointY="20.875" />
+        <EntityTypeShape EntityType="DataModel.Child" Width="1.5" PointX="4.375" PointY="20.75" />
         <AssociationConnector Association="DataModel.FK_Child_RefBank" />
         <AssociationConnector Association="DataModel.FK_Child_RefCountry" />
         <AssociationConnector Association="DataModel.FK_Child_RefCountryFin" />

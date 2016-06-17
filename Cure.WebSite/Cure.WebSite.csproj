@@ -226,6 +226,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ChildVisual.cs" />
+    <Compile Include="Models\DocItem.cs" />
     <Compile Include="Models\PhotoItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

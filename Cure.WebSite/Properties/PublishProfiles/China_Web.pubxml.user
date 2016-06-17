@@ -11,16 +11,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>06/07/2016 12:03:35</publishTime>
+      <publishTime>06/17/2016 15:00:55</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>06/07/2016 12:03:34</publishTime>
+      <publishTime>06/17/2016 15:00:55</publishTime>
     </File>
     <File Include="bin/Cure.DataAccess.dll">
-      <publishTime>06/07/2016 12:03:23</publishTime>
+      <publishTime>06/17/2016 14:54:22</publishTime>
     </File>
     <File Include="bin/Cure.WebSite.dll">
-      <publishTime>06/07/2016 12:03:24</publishTime>
+      <publishTime>06/17/2016 14:54:28</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>09/19/2015 00:46:36</publishTime>
@@ -338,7 +338,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/19/2016 05:23:59</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>06/07/2016 12:03:31</publishTime>
+      <publishTime>06/17/2016 15:00:54</publishTime>
     </File>
     <File Include="Scripts/jquery.ndeti.js">
       <publishTime>06/06/2016 12:15:31</publishTime>
@@ -389,7 +389,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/19/2016 05:22:27</publishTime>
     </File>
     <File Include="Views/Children/Detail.cshtml">
-      <publishTime>06/07/2016 11:43:42</publishTime>
+      <publishTime>06/17/2016 14:59:57</publishTime>
     </File>
     <File Include="Views/Children/Index.cshtml">
       <publishTime>06/06/2016 10:16:29</publishTime>

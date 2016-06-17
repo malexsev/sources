@@ -13,6 +13,38 @@ namespace Cure.WebSite.Models
         public string PhotoUrl { get; set; }
         public PhotoItem PhotoItem { get; set; }
         public List<PhotoItem> PhotoItemLst { get; set; }
+        public List<DocItem> DocItemLst { get; set; }
+        public bool IsAnySocial
+        {
+            get
+            {
+                return !string.IsNullOrEmpty(this.SocialFb)
+                    || !string.IsNullOrEmpty(this.SocialMm)
+                    || !string.IsNullOrEmpty(this.SocialOk)
+                    || !string.IsNullOrEmpty(this.SocialVk)
+                    || !string.IsNullOrEmpty(this.SocialYoutube);
+            }
+        }
+        public string FinWebMoneyString
+        {
+            get
+            {
+                var lines = new List<string>();
+                if (!string.IsNullOrEmpty(this.FinWebmoney))
+                {
+                    lines.Add(this.FinWebmoney);
+                }
+                if (!string.IsNullOrEmpty(this.FinWebmoney2))
+                {
+                    lines.Add(this.FinWebmoney2);
+                }
+                if (!string.IsNullOrEmpty(this.FinWebmoney3))
+                {
+                    lines.Add(this.FinWebmoney3);
+                }
+                return string.Join(@"<br />", lines);
+            }
+        }
 
 
         public ChildVisual(ViewChild child)
@@ -40,12 +72,15 @@ namespace Cure.WebSite.Models
                 this.FinBankId = child.FinBankId;
                 this.FinBankOther = child.FinBankOther;
                 this.FinCardNumber = child.FinCardNumber;
+                this.FinCardName = child.FinCardName;
                 this.FinCountryId = child.FinCountryId;
                 this.FinCountryName = child.FinCountryName;
                 this.FinKiwi = child.FinKiwi;
                 this.FinOperatorId = child.FinOperatorId;
                 this.FinPhoneNumber = child.FinPhoneNumber;
                 this.FinWebmoney = child.FinWebmoney;
+                this.FinWebmoney2 = child.FinWebmoney2;
+                this.FinWebmoney3 = child.FinWebmoney3;
                 this.FinYandexMoney = child.FinYandexMoney;
                 this.GuidId = child.GuidId;
                 this.Id = child.Id;
@@ -66,6 +101,7 @@ namespace Cure.WebSite.Models
                 this.SocialMm = child.SocialMm;
                 this.SocialOk = child.SocialOk;
                 this.SocialVk = child.SocialVk;
+                this.SocialYoutube = child.SocialYoutube;
                 this.UserComment = child.UserComment;
                 this.UserEmail = child.UserEmail;
                 this.UserIsAnonymous = child.UserIsAnonymous;
@@ -76,19 +112,24 @@ namespace Cure.WebSite.Models
                 this.UserLoweredEmail = child.UserLoweredEmail;
                 this.UserLoweredUserName = child.UserLoweredUserName;
 
-                Age = DateTime.Today.Year - child.Birthday.Year;
+                PhotoItem = new PhotoItem();
                 PhotoItemLst = new List<PhotoItem>();
+                DocItemLst = new List<DocItem>();
+                Age = DateTime.Today.Year - child.Birthday.Year;
                 string photoLocation = Path.Combine(ConfigurationManager.AppSettings["PhotoLocation"], this.GuidId.ToString());
                 string photoUrl = Path.Combine(ConfigurationManager.AppSettings["PhotoUrl"], this.GuidId.ToString());
+                string docsLocation = photoLocation.Replace("Upload", "Documents");
+                string docsUrl = photoUrl.Replace("Upload", "Documents");
 
+                //Галлерея
                 if (Directory.Exists(photoLocation))
                 {
-                    DirectoryInfo dirInfo = new DirectoryInfo(photoLocation);
+                    var dirInfo = new DirectoryInfo(photoLocation);
                     FileInfo[] fileInfoArray = dirInfo.GetFiles();
 
                     if (fileInfoArray.Length > 0)
                     {
-                        PhotoUrl = Path.Combine(photoUrl, fileInfoArray[0].Name);
+                        PhotoUrl = Path.Combine(Path.Combine(photoUrl, "Thumb"), fileInfoArray[0].Name);
                     }
                     else
                     {
@@ -104,11 +145,18 @@ namespace Cure.WebSite.Models
                         PhotoItemLst.Add(new PhotoItem(photoUrl, fileInfo.Name));
                     }
                 }
-            }
 
-            if (PhotoItem == null)
-            {
-                PhotoItem = new PhotoItem();
+                //Документы
+                if (Directory.Exists(docsLocation))
+                {
+                    var dirInfo = new DirectoryInfo(docsLocation);
+                    FileInfo[] fileInfoArray = dirInfo.GetFiles();
+
+                    foreach (FileInfo fileInfo in fileInfoArray)
+                    {
+                        DocItemLst.Add(new DocItem(docsUrl, fileInfo.Name));
+                    }
+                }
             }
         }
     }

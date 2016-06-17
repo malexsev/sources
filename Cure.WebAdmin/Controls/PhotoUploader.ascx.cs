@@ -63,8 +63,8 @@ namespace Cure.WebAdmin.Controls
             string fileThumbName = Path.Combine(folderThumb, uploadedFile.FileName);
             string fileBigName = Path.Combine(folderBig, uploadedFile.FileName);
             using (Image original = Image.FromStream(uploadedFile.FileContent))
-            using (Image thumb = PhotoUtils.Inscribe(original, 120, 80))
-            using (Image big = PhotoUtils.Inscribe(original, 368, 244))
+            using (Image thumb = PhotoUtils.Inscribe(original, 313, 313))
+            using (Image big = PhotoUtils.Inscribe(original, 919, 538))
             {
                 PhotoUtils.SaveToJpeg(original, fileName);
                 PhotoUtils.SaveToJpeg(thumb, fileThumbName);
