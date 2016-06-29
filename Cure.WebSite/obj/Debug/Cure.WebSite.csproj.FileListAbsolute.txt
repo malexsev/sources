@@ -29,3 +29,9 @@ D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\obj\Debug\Cure.WebSite.dl
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\obj\Debug\Cure.WebSite.pdb
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\Cure.DataAccess.dll
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\Cure.DataAccess.pdb
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\Cure.Notification.dll
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\Cure.Utils.dll
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\Cure.Reports.dll
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\Cure.Notification.pdb
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\Cure.Utils.pdb
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\Cure.Reports.pdb

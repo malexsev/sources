@@ -50,6 +50,7 @@
     <Compile Include="Before24HoursNotification.cs" />
     <Compile Include="Before24HoursEmailNotification.cs" />
     <Compile Include="BeforeArriveToUserEmailNotification.cs" />
+    <Compile Include="RecoveryToUserEmailNotification.cs" />
     <Compile Include="TicketsBoughtToUserEmailNotification.cs" />
     <Compile Include="OrderSentEmailNotification.cs" />
     <Compile Include="OrderApprovedToUserEmailNotification.cs" />

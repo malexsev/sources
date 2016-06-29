@@ -30,7 +30,7 @@ $(document).ready(function () {
                 $counter = $(counter),
                 $showCount = $(showCount),
                 $forCount = $(forCount);
-            
+
             $showCount.val($(counter).text());
             var serializedForm = $('#childrenform').serialize();
 
@@ -73,7 +73,7 @@ $(document).ready(function () {
         var $tabsHead = $(this),
             $links = $tabsHead.find(".js-tabs-link"),
             $tabsBody = $tabsHead.siblings(".js-tabs-body"),
-            $tabs = $tabsBody.find(".js-tabs-item");
+            $tabs = $tabsBody.children(".js-tabs-item");
         $links.click(function () {
             var tabId = "#" + $(this).data("tab");
             $links.removeClass("active");
@@ -87,6 +87,35 @@ $(document).ready(function () {
     //  Инициализация работы табов в блоке "Виды работ"
     $(".js-tabs-head").tabsInit();
     $(".js-tabs-userdata").tabsInit();
+    $(".js-content-tabs").tabsInit();
+    $(".js-order-tabs").tabsInit();
+    $(".js-personal-tabs").tabsInit();
+    $(".js-tabs-registr").tabsInit();
+    $(".js-tabs-citymap").tabsInit();
+
+
+    /*----------- ФУНКЦИИ: Работа спойлера -----------------------------------*/
+    $.fn.spoilerInit = function (startHeight) {
+        var $spoilerBtn = $(this),
+            $spoilerBody = $spoilerBtn.siblings(".js-spoiler-body"),
+            startHeight = startHeight || 0,
+            autoHeight = $spoilerBody.css('height', 'auto').height();
+
+        $spoilerBody.height(startHeight);
+
+        $spoilerBtn.click(function () {
+            if ($spoilerBtn.hasClass("active")) {
+                $spoilerBody.animate({ height: startHeight }, 600);
+                $spoilerBtn.removeClass("active").text("Читать дальше");
+            } else {
+                $spoilerBody.animate({ height: autoHeight }, 600);
+                $spoilerBtn.addClass("active").text("Скрыть");
+            };
+        });
+        return this;
+    };
+    //  Инициализация работы спойлеров (с начальной высотой)
+    $(".js-spoiler-clinic").spoilerInit(240);
 
 
     /* --- Замена селектов списком со скрытым полем для отправки данных ------*/
@@ -176,7 +205,186 @@ $(document).ready(function () {
     //  Маска ввода в поле телефонного номера
     $("[name='numb']").mask("+7 (999) 999-99-99", { placeholder: "_" });
 
-    /*----------- Галлерея картинок  ---------------------------------------------*/
+    /* --- Валидация формы регистрации ---------------------------------------*/
+    $(".js-registr-validate").each(function () {
+        $(this).validate({
+            focusInvalid: false,
+            rules: {
+                regname: { required: true, minlength: 6 },
+                regmail: { required: true, email: true },
+                regpass: { required: true, minlength: 6 },
+                passtwice: { equalTo: "#regpass" }
+            },
+            messages: {
+                regname: {
+                    required: "Некорректное имя пользователя",
+                    minlength: "Очень короткое имя пользователя"
+                },
+                regmail: "Введите электронную почту",
+                regpass: "Заполните поле<br> пароля",
+                passtwice: "Пароли<br> не совпадают"
+            },
+            errorClass: "has-error",
+            highlight: function (element, errorClass) {
+                $(element).parent().addClass(errorClass);
+            },
+            unhighlight: function (element, errorClass) {
+                $(element).parent().removeClass(errorClass);
+            },
+            submitHandler: function (form) {
+                //form.submit();
+            }
+        });
+    });
+
+    /* --- Валидация формы входа ---------------------------------------------*/
+    $(".js-login-validate").each(function () {
+        $(this).validate({
+            focusInvalid: false,
+            rules: {
+                loginname: { required: true },
+                loginpass: { required: true }
+            },
+            messages: {
+                loginname: "Ошибка в имени пользователя",
+                loginpass: "Ошибка<br> в пароле"
+            },
+            errorClass: "has-error",
+            highlight: function (element, errorClass) {
+                $(element).parent().addClass(errorClass);
+            },
+            unhighlight: function (element, errorClass) {
+                $(element).parent().removeClass(errorClass);
+            },
+            submitHandler: function (form) {
+                //alert("Submitted!");
+                //form.submit();
+            }
+        });
+    });
+
+    /* --- Валидация формы восстановления пароля -----------------------------*/
+    $(".js-remind-validate").each(function () {
+        $(this).validate({
+            focusInvalid: false,
+            rules: {
+                remindinp: { required: true }
+            },
+            messages: {
+                remindinp: "Поле заполнено<br> некорректно"
+            },
+            errorClass: "has-error",
+            highlight: function (element, errorClass) {
+                $(element).parent().addClass(errorClass);
+            },
+            unhighlight: function (element, errorClass) {
+                $(element).parent().removeClass(errorClass);
+            },
+            submitHandler: function (form) {
+                //$(form).hide().siblings(".js-submit-ok").show();
+                //form.submit();
+            }
+        });
+    });
+
+    /*------------ Вход пользователя на сервере ----------------------------*/
+    $("#formLogin").submit(function (e) {
+        $("#error-login").hide();
+        var form = $('#formLogin');
+        if (form.valid()) {
+            var serializedForm = form.serialize();
+            $.ajax({
+                url: "/Login/Login",
+                type: "POST",
+                data: serializedForm,
+                success: function (result) {
+                    if (result == "1") {
+                        $("#loginname").parent().removeClass("has-error");
+                        $("#password").parent().removeClass("has-error");
+                        $("#loginname").val("");
+                        $("#password").val("");
+                        $("#error-login").hide();
+                        location.reload();
+                    } else {
+                        $("#loginname").parent().addClass("has-error");
+                        $("#password").parent().addClass("has-error");
+                        $("#error-login").show().text("Неверное имя пользователя или пароль");
+                    }
+                },
+                error: function (result) {
+                    alert(result.responseText);
+                }
+            });
+        }
+        e.preventDefault();
+    });
+
+    /*------------ Регистрация пользователя на сервере ----------------------------*/
+    $("#formRegister").submit(function (e) {
+        $("#error-register").hide();
+        var form = $('#formRegister');
+        if (form.valid()) {
+            var serializedForm = form.serialize();
+            $.ajax({
+                url: "/Login/Register",
+                type: "POST",
+                data: serializedForm,
+                success: function (result) {
+                    if (result == "1") {
+                        $("#regname").parent().removeClass("has-error");
+                        $("#regname").val("");
+                        $("#regpass").val("");
+                        $("#regpasswice").val("");
+                        $("#error-register").hide();
+                        $(form).hide().siblings(".js-submit-ok").show();
+                    }
+                    else if (result == "0") {
+                        $("#loginname").parent().addClass("has-error");
+                        $("#error-register").show().text("Данный email уже используется в системе, воспульзуйтесь подсказкой пароля при входе");
+                    } else {
+                        $("#loginname").parent().addClass("has-error");
+                        $("#error-register").show().text("Данный логин уже зарегистрирован, воспульзуйтесь подсказкой пароля при входе");
+                    }
+                },
+                error: function (result) {
+                    alert(result.responseText);
+                }
+            });
+        }
+        e.preventDefault();
+    });
+
+    /*------------ Восстановление доступа пользователя на сервере ----------------------------*/
+    $("#formRecovery").submit(function (e) {
+        $("#error-recovery").hide();
+        var form = $('#formRecovery');
+        if (form.valid()) {
+            var serializedForm = form.serialize();
+            $.ajax({
+                url: "/Login/Recovery",
+                type: "POST",
+                data: serializedForm,
+                success: function (result) {
+                    if (result == "1") {
+                        $("#remindinp").parent().removeClass("has-error");
+                        $("#remindinp").val("");
+                        $("#error-recovery").hide();
+                        $(form).hide().siblings(".js-submit-ok").show();
+                    } else {
+                        $("#remindinp").parent().addClass("has-error");
+                        $("#error-recovery").show().text("Пользователя с таким именем или адресом электронной почты в системе не найдено.");
+                    }
+                },
+                error: function (result) {
+                    alert(result.responseText);
+                }
+            });
+        }
+        e.preventDefault();
+    });
+
+
+    /*----------- Галлерея картинок  -----------------------------------------*/
     $('#big-slider-img').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -240,12 +448,12 @@ $(document).ready(function () {
     $(".js-show-popup").click(function () {
         var popId = "#" + $(this).data("pop"),
             scrollCorr = 0;
-
+        $(".popup").hide();
         $(popId).show();
         $("body").addClass("cutted");
     });
 
-    $(".popup-close, .popup-modal").click(function () {
+    $(".popup-close, .popup-modal, .js-close-popup").click(function () {
         $(".popup").hide();
         $("body").removeClass("cutted");
     });
@@ -274,9 +482,111 @@ $(document).ready(function () {
     });
 
 
+    /*--- Counter -----------------------------------------------------------*/
+    $(".js-counter .btn-dwn").click(function () {
+        var $input = $(this).siblings(".counter-rez"),
+            count = parseInt($input.val()) - 1;
+        count = count < 0 ? 0 : count;
+        $input.val(count).change();
+    });
+    $(".js-counter .btn-upp").click(function () {
+        var $input = $(this).siblings(".counter-rez");
+        $input.val(parseInt($input.val()) + 1).change();
+    });
 
 
+    /*----------- Слайдер и видео на главной  --------------------------------*/
+    function mainPageStart() {
+        if ($(".main-page").length) {
+            var $slider = $("#sec-intro-slider"),
+                $video = $("#sec-intro-video");
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                $slider.children(".slide").each(function () {
+                    $(this).attr("style", $(this).data("style"));
+                });
+                $slider.addClass("active");
+                $slider.slick({
+                    arrows: false,
+                    dots: false,
+                    infinite: true,
+                    speed: 1000,
+                    slidesToShow: 1,
+                    autoplay: true,
+                    autoplaySpeed: 5000
+                });
+            } else {
+                $video.find("source").each(function () {
+                    $(this).attr("src", $(this).data("src"));
+                });
+                $video.addClass("active");
+                var video = $video.children()[0];
+                video.load();
+                video.play();
+            }
+        };
+    };
+    $(window).load(mainPageStart());
 
+
+    /*----------- Анимация на главной: появление 4-х шагов -------------------*/
+    $(".js-step-fadein").addClass("is-invisible");
+    $(".js-steps-fadein").viewportChecker({
+        offset: 200,
+        callbackFunction: function ($elem) {
+            var time = 1000,
+                $steps = $elem.find(".js-step-fadein");
+            $steps.each(function () {
+                var $that = $(this);
+                setTimeout(function () { $that.addClass("is-visible"); }, time);
+                time = time + 1000;
+            });
+        }
+    });
+
+    /*----------- Анимация на главной: мелькание количества ------------------*/
+    $(".js-counters").viewportChecker({
+        offset: 200,
+        callbackFunction: function () {
+            var el_1 = document.querySelector(".js-count-one"),
+                el_2 = document.querySelector(".js-count-two"),
+                od_1 = new Odometer({ el: el_1, format: "( ddd)" }),
+                od_2 = new Odometer({ el: el_2, format: "( ddd)" });
+            od_1.update(+$(".js-count-one").data("count"));
+            od_2.update(+$(".js-count-two").data("count"));
+        }
+    });
+
+    /*----------- Анимация на главной: появление 4-х шагов -------------------*/
+    $(".js-countries-fadein li").addClass("is-invisible");
+    $(".js-countries-fadein").viewportChecker({
+        offset: 200,
+        callbackFunction: function ($elem) {
+            var time = 1000,
+                $steps = $elem.find("li");
+            $steps.each(function () {
+                var $that = $(this);
+                setTimeout(function () { $that.addClass("is-visible"); }, time);
+                time = time + 600;
+            });
+        }
+    });
+
+
+    /*----------- Календарь в инпутах дат ------------------------------------*/
+    /* www.bootstrap-datepicker.readthedocs.io/en/stable
+     * Если один инпут:
+      $('.js-datepicker').datepicker({
+        format: 'dd.mm.yyyy',
+        startDate: '+5d',
+        language: 'ru'
+    }); */
+    //Если диапазон:
+    $('.js-input-daterange').datepicker({
+        format: 'dd.mm.yyyy',
+        startDate: '+5d',
+        language: 'ru',
+        inputs: $('.ico-calendar')
+    });
 
 
 

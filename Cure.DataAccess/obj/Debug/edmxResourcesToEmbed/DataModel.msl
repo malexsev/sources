@@ -640,5 +640,26 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="RefStopVisitTypes">
+      <EntityTypeMapping TypeName="DataModel.RefStopVisitType">
+        <MappingFragment StoreEntitySet="RefStopVisitType">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StopVisits">
+      <EntityTypeMapping TypeName="DataModel.StopVisit">
+        <MappingFragment StoreEntitySet="StopVisit">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="DateTo" ColumnName="DateTo" />
+          <ScalarProperty Name="DateFrom" ColumnName="DateFrom" />
+          <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+          <ScalarProperty Name="StopTypeId" ColumnName="StopTypeId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -43,86 +43,55 @@
     <div class="preloader">
         <img src="~/content/img/preloader.gif" alt="Preloader">
     </div>
-
-    <div class="wrapper">
-        <header class="header-top">
+    
+    <div class="wrapper account">
+        <header class="header">
+            <div class="header-topline">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <ul class="header-topline-btns">
+                                @if (!User.Identity.IsAuthenticated)
+                                {
+                                    <li><a class="header-btn js-show-popup" data-pop="pop-registr"><i class="ico-login"></i>Вход/регистрация</a></li>
+                                }
+                                <li><a class="header-btn"><i class="ico-help"></i>Помощь</a></li>
+                                <li><a class="header-btn"><i class="ico-search"></i>Поиск</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <a class="header-top-mobbtn js-toggle-menu"><span class="lines"></span></a>
-                        <div class="header-top-logo">
-                            <a href="http://www.dcp-china.ru" title="Наша клиника: основной сайт">
-                                <img src="~/content/img/logo_long.png" alt="Наша клиника">
+                        <a class="header-mobbtn js-toggle-menu"><span class="lines"></span></a>
+                        <div class="header-logo">
+                            <a href="@Url.Action("Index", "Home")" title="Наша клиника: основной сайт">
+                                <img src="~/Content/img/logo_long.png" alt="Наша клиника">
                             </a>
                         </div>
-                        <div class="header-top-btns">
-                            <a class="header-top-search">Поиск</a>
-                            <!-- <a class="header-top-login">Кабинет</a> -->
-                            <div class="header-top-user">
-                                <div class="user-img">
-                                    <img src="~/content/images/users/header_user_1_32x32.jpg" alt="Валентина Евдокимова">
-                                </div>
-                                <div class="user-name">Валентина Евдокимова</div>
-                            </div>
+                        <div class="header-btns">
+                            <a class="btn btn-orang-outlined" href="#">ЗАПИСАТЬСЯ НА ЛЕЧЕНИЕ</a>
                         </div>
-                        <nav class="header-top-nav" role="navigation">
-                            <ul class="header-top-menu">
-                                <li><a href="#">Клиники</a></li>
-                                <li><a href="#">Процедуры</a></li>
-                                <li><a href="#">Лекарства</a></li>
-                                <li class="active"><a href="#">Наши дети</a></li>
-                                <li><a href="#">Документы</a></li>
-                                <li><a href="#">Отзывы</a></li>
-                            </ul>
-                        </nav>
+                        @Html.Partial("_MainMenu")
                     </div>
                 </div>
             </div>
+
+            @if (User.Identity.IsAuthenticated)
+            {
+                @Html.Partial("_AccountHeader")
+            }
         </header>
 
         @RenderBody()
-        
+
     </div><!-- END main-wrapper -->
 
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-sm-7">
-                    Мы принимаем пациентов с 2010 года. Лечение организовано на базе двух государственных больниц
-                    города Юньчэн. Все доктора и инструкторs - штатные сотрудники больницы. Имеют высокую квалификацию
-                    по реабилитации пациентов с ДЦП, проходят курсы повышения квалификации и совершенствуют свои навыки.
-                </div>
-                <div class="col-md-4 col-sm-5">
-                    <div class="footer-seti-title">Мы в социальных сетях</div>
-                    <ul class="footer-seti-list">
-                        <li><a class="vk" href="#" title="В контакте"><i class="fa fa-vk"></i></a></li>
-                        <li><a class="ok" href="#" title="Одноклассники"><i class="fa fa-odnoklassniki"></i></a></li>
-                        <li><a class="fb" href="#" title="Фейсбук"><i class="fa fa-facebook"></i></a></li>
-                        <li><a class="yt" href="#" title="Ютуб"><i class="fa fa-youtube"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="footer-copy">&copy; 2014-2016 Все права защищены.</div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="footer-counters">
-                        <div class="footer-counter">
-                            <img src="~/content/images/temp/counter_4.png" alt="Счетчик">
-                        </div>
-                        <div class="footer-counter">
-                            <img src="~/content/images/temp/counter_3.png" alt="Счетчик">
-                        </div>
-                        <div class="footer-counter">
-                            <img src="~/content/images/temp/counter_1.png" alt="Счетчик">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <a class="scroll-top js-scroll-top" title="Вверх"></a>
-    </footer>
+    @Html.Partial("_Footer")
+
+    @Html.Partial("_Account")    
 
     <!-- jquery cdn        -->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
@@ -130,6 +99,14 @@
     <script>window.jQuery || document.write('<script src="~/Scripts/vendor/jquery-1.11.3.min.js"><\/script>');</script>
     <!-- content slider    -->
     <script src="~/Scripts/plugins/slick.min.js"></script>
+    <!-- numbers odometer  -->
+    <script src="~/Scripts/plugins/odometer.min.js"></script>
+    <!-- datepicker        -->
+    <script src="~/Scripts/plugins/bootstrap-datepicker.min.js"></script>
+    <!-- datepicker ru     -->
+    <script src="~/Scripts/plugins/bootstrap-datepicker.ru.min.js"></script>
+    <!-- viewport checker  -->
+    <script src="~/Scripts/plugins/jquery.viewportchecker.min.js"></script>
     <!-- form input masks  -->
     <script src="~/Scripts/plugins/jquery.maskedinput.min.js"></script>
     <!-- form validate     -->
@@ -141,45 +118,3 @@
 </html>
 
 
-
-
-@*<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <script src="~/Scripts/modernizr-2.6.2.js"></script>
-</head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
-
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
-</body>
-</html>*@

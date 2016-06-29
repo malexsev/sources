@@ -107,6 +107,16 @@
       <End Role="Child" EntitySet="Children" />
     </AssociationSet>
     <EntitySet Name="ViewChilds" EntityType="DataModel.ViewChild" />
+    <EntitySet Name="RefStopVisitTypes" EntityType="DataModel.RefStopVisitType" />
+    <EntitySet Name="StopVisits" EntityType="DataModel.StopVisit" />
+    <AssociationSet Name="FK_StopVisit_Department" Association="DataModel.FK_StopVisit_Department">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="StopVisit" EntitySet="StopVisits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StopVisit_RefStopVisitType" Association="DataModel.FK_StopVisit_RefStopVisitType">
+      <End Role="RefStopVisitType" EntitySet="RefStopVisitTypes" />
+      <End Role="StopVisit" EntitySet="StopVisits" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="OrderStatu">
     <Key>
@@ -304,6 +314,7 @@
     <NavigationProperty Name="Orders" Relationship="DataModel.FK_Order_Department" FromRole="Department" ToRole="Order" />
     <NavigationProperty Name="TransferUsers" Relationship="DataModel.FK_TransferUser_Department" FromRole="Department" ToRole="TransferUser" />
     <Property Type="String" Name="ShortName" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="StopVisits" Relationship="DataModel.FK_StopVisit_Department" FromRole="Department" ToRole="StopVisit" />
   </EntityType>
   <Association Name="FK_Department_Department">
     <End Type="DataModel.Department" Role="Department" Multiplicity="0..1" />
@@ -1034,4 +1045,54 @@
     <Property Name="FinWebmoney3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="FinCardName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
+  <EntityType Name="RefStopVisitType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="StopVisits" Relationship="DataModel.FK_StopVisit_RefStopVisitType" FromRole="RefStopVisitType" ToRole="StopVisit" />
+  </EntityType>
+  <EntityType Name="StopVisit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StopTypeId" Type="Int32" Nullable="false" />
+    <Property Name="DepartmentId" Type="Int32" Nullable="false" />
+    <Property Name="DateFrom" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DateTo" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Description" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Department" Relationship="DataModel.FK_StopVisit_Department" FromRole="StopVisit" ToRole="Department" />
+    <NavigationProperty Name="RefStopVisitType" Relationship="DataModel.FK_StopVisit_RefStopVisitType" FromRole="StopVisit" ToRole="RefStopVisitType" />
+  </EntityType>
+  <Association Name="FK_StopVisit_Department">
+    <End Type="DataModel.Department" Role="Department" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="DataModel.StopVisit" Role="StopVisit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StopVisit">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StopVisit_RefStopVisitType">
+    <End Type="DataModel.RefStopVisitType" Role="RefStopVisitType" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="DataModel.StopVisit" Role="StopVisit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RefStopVisitType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StopVisit">
+        <PropertyRef Name="StopTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

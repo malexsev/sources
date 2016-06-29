@@ -552,9 +552,9 @@
                         <tr>
                             <td class="item">
                                 <dx:ASPxTextBox NullText="Ivavon" ID="uxPacientFamiliyaEn" runat="server" Width="170px" MaxLength="250">
-                                    <ValidationSettings Display="Static">
+<%--                                    <ValidationSettings Display="Static">
                                         <RequiredField IsRequired="True" ErrorText="Обязательное поле" />
-                                    </ValidationSettings>
+                                    </ValidationSettings>--%>
                                 </dx:ASPxTextBox>
                             </td>
                         </tr>
@@ -567,9 +567,9 @@
                         <tr>
                             <td class="item">
                                 <dx:ASPxTextBox NullText="Ivan" ID="uxPacientNameEng" runat="server" Width="170px" MaxLength="250">
-                                    <ValidationSettings Display="Static">
+<%--                                    <ValidationSettings Display="Static">
                                         <RequiredField IsRequired="True" ErrorText="Обязательное поле" />
-                                    </ValidationSettings>
+                                    </ValidationSettings>--%>
                                 </dx:ASPxTextBox>
                             </td>
                         </tr>
@@ -582,9 +582,9 @@
                             <td class="item">
                                 <dx:ASPxTextBox NullText="0000-00000" ID="uxPacientSerialNumber" runat="server" Width="100px" MaxLength="250">
                                     <CaptionSettings></CaptionSettings>
-                                    <ValidationSettings Display="Static">
+<%--                                    <ValidationSettings Display="Static">
                                         <RequiredField IsRequired="True" ErrorText="Обязательное поле" />
-                                    </ValidationSettings>
+                                    </ValidationSettings>--%>
                                 </dx:ASPxTextBox>
                             </td>
                         </tr>
@@ -792,9 +792,9 @@
                         <tr>
                             <td class="item">
                                 <dx:ASPxTextBox ID="uxSputnikFamiliyaEn" runat="server" Width="170px" MaxLength="250">
-                                    <ValidationSettings Display="Static">
+                                    <%--<ValidationSettings Display="Static">
                                         <RequiredField IsRequired="True" ErrorText="Обязательное поле" />
-                                    </ValidationSettings>
+                                    </ValidationSettings>--%>
                                 </dx:ASPxTextBox>
                             </td>
                         </tr>
@@ -807,9 +807,9 @@
                         <tr>
                             <td class="item">
                                 <dx:ASPxTextBox ID="uxSputnikNameEn" runat="server" Width="170px" MaxLength="250">
-                                    <ValidationSettings Display="Static">
+                                    <%--<ValidationSettings Display="Static">
                                         <RequiredField IsRequired="True" ErrorText="Обязательное поле" />
-                                    </ValidationSettings>
+                                    </ValidationSettings>--%>
                                 </dx:ASPxTextBox>
                             </td>
                         </tr>
@@ -821,9 +821,9 @@
                         <tr>
                             <td class="item">
                                 <dx:ASPxTextBox ID="uxSputnikSeriaNumber" NullText="00 2233445566" runat="server" Width="170px" MaxLength="50">
-                                    <ValidationSettings Display="Static">
+                                    <%--<ValidationSettings Display="Static">
                                         <RequiredField IsRequired="True" ErrorText="Обязательное поле" />
-                                    </ValidationSettings>
+                                    </ValidationSettings>--%>
                                 </dx:ASPxTextBox>
                             </td>
                         </tr>

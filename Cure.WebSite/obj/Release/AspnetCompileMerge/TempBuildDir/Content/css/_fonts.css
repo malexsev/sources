@@ -1,5 +1,8 @@
 /*--------------------- FONTS ------------------------------------------------*/
 
+@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700&subset=latin,cyrillic);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,400italic,600,700,800&subset=latin,cyrillic);
+
 @font-face {
     font-family: 'als_rublregular';
     src: url('../fonts/alsrubl-webfont.eot');

@@ -19,7 +19,7 @@ namespace Cure.WebAdmin
                 MembershipUser user = Membership.CreateUser(tbUserName.Text, tbPassword.Text, tbEmail.Text);
                 var notification = new UserRegisteredEmailNotification(tbUserName.Text);
                 notification.Send();
-                var notificationToUser = new RegistrationToUserEmailNotification(tbUserName.Text);
+                var notificationToUser = new RegistrationToUserEmailNotification(tbUserName.Text, tbPassword.Text);
                 notificationToUser.Send();
                 Response.Redirect(Request.QueryString["ReturnUrl"] ?? "~/Account/RegisterSuccess.aspx");
             } catch (MembershipCreateUserException exc)

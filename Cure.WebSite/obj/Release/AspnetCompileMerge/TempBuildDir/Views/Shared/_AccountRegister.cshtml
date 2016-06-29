@@ -1,0 +1,73 @@
+﻿@using (Html.BeginForm("Register", "Login", FormMethod.Post, new
+{
+    @id = "formRegister",
+    @class = "registr-form js-registr-validate"
+}))
+{
+@*<form class="registr-form js-registr-validate">*@
+    <div class="forms-line">
+        <div class="forms-label">Имя пользователя</div>
+        @Html.TextBox("regname", "", new
+        {
+            @id = "regname",
+            @placeholder = "Имя пользователя",
+            @maxlength = "50",
+            @class = "forms-input"
+        })
+        @*<input class="forms-input" type="text" name="regname">*@
+        <div class="note-label">Латинские или русские буквы и цифры</div>
+    </div>
+    <div class="forms-line">
+        <div class="forms-label">Электронная почта</div>
+        @Html.TextBox("regmail", "", new
+        {
+            @id = "regmail",
+            @placeholder = "Электронная почта",
+            @maxlength = "50",
+            @class = "forms-input"
+        })
+        @*<input class="forms-input" type="text" name="regmail">*@
+        <div class="note-label"></div>
+    </div>
+    <div class="forms-line">
+        <div class="forms-label">Придумайте пароль</div>
+        @Html.TextBox("regpass", "", new
+        {
+            @id = "regpass",
+            @placeholder = "Придумайте пароль",
+            @maxlength = "50",
+            @class = "forms-input"
+        })
+        @*<input class="forms-input" id="regpass" type="text" name="regpass">*@
+        <div class="note-label">Латинские буквы и цифры</div>
+    </div>
+    <div class="forms-line error">
+        <div class="forms-label">Повторите пароль</div>
+        @Html.TextBox("passtwice", "", new
+        {
+            @id = "regpasswice",
+            @placeholder = "Повторите пароль",
+            @maxlength = "50",
+            @class = "forms-input"
+        })
+        @*<input class="forms-input" type="text" name="passtwice">*@
+        <div class="note-label">Введите пароль еще раз</div>
+    </div>
+    <div class="forms-line txt-center">
+        <input class="btn btn-orang registr-submit" type="submit" value="ЗАРЕГИСТРИРОВАТЬСЯ">
+    </div>
+    <div id="error-register" class="login-errors"></div>
+    <div class="registr-note">
+        Нажимая кнопку “Продолжить”, даю согласие на <a href="#" target="_blank">обработку персональных данных</a>
+    </div>
+}
+<div class="forms-on-submit js-submit-ok">
+    <div class="registr-subtitle">Регистрация прошла успешно.<br> Пароль отправлен вам на почту,<br> указанную при регистрации.</div>
+    <div class="registr-text">
+        Если Вы не получите письмо в течение 10 минут,<br> проверьте папку “Спам”,
+        и не переполнен ли почтовый ящик.<br> Если письма нет, свяжитесь с администратором.
+    </div>
+    <div class="forms-line txt-center">
+        <a class="btn btn-small js-close-popup" role="button">Закрыть</a>
+    </div>
+</div>

@@ -20,7 +20,8 @@
             + @"Для того что бы войти в Личный кабинет пациента перейдите по <a href='http://www.lk.dcp-china.ru'>ссылке</a><br />"
             + @"Если ссылка не открывается, скопируйте ее и вставьте в адресную строку браузера.<br /><br />"
             + @"<b>Ваши учетные данные:</b><br />"
-            + @"Логин: <b>{0}</b><br /><br />"
+            + @"Логин: <b>{0}</b><br />"
+            + @"Пароль: <b>{1}</b><br /><br />"
             + @"Вы уже можете заполнить Заявку на лечение.<br />"
             + @"Вам доступны следующие услуги:"
             + @"<ul>"
@@ -38,14 +39,14 @@
             + @"Это автоматическое письмо, отвечать на которое не нужно!<br /><br />"
             + @"Спасибо, что Вы с нами!<br />"
             + @"C уважением, Администрация больницы <br />"
-            + @"Тех. поддержка: zqcpchina@gmail.com"; //0 - Логин
+            + @"Тех. поддержка: zqcpchina@gmail.com"; //0 - Логин, 1 - Пароль
 
-        public RegistrationToUserEmailNotification(string username)
+        public RegistrationToUserEmailNotification(string username, string password)
         {
             var dal = new DataAccessBL();
             this.user = dal.GetUserMembership(username);
             this.subject = subjectTemplate;
-            this.body = string.Format(bodyTemplate, this.user.UserName);
+            this.body = string.Format(bodyTemplate, this.user.UserName, password);
         }
 
         public bool Send()

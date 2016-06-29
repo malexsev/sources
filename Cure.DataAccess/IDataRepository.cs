@@ -12,6 +12,18 @@ namespace Cure.DataAccess.DAL
         IEnumerable<ViewUserMembership> ViewUserMembership();
         void UpdateUserMembership(ViewUserMembership userMembership);
 
+        bool CheckStopVisit(int departmentId, DateTime dateFrom, DateTime dateTo);
+        IEnumerable<StopVisit> GetStopVisitsForDepartment(int departmentId);
+        IEnumerable<StopVisit> GetStopVisits();
+        void InsertStopVisit(StopVisit stopVisit);
+        void DeleteStopVisit(StopVisit stopVisit);
+        void UpdateStopVisit(StopVisit stopVisit);
+
+        IEnumerable<RefStopVisitType> GetRefStopVisitTypes();
+        void InsertRefStopVisitType(RefStopVisitType refStopVisitType);
+        void DeleteRefStopVisitType(RefStopVisitType refStopVisitType);
+        void UpdateRefStopVisitType(RefStopVisitType refStopVisitType);
+
         IEnumerable<NotificationLog> GetNotificationLogs();
         void InsertNotificationLog(NotificationLog notificationLog);
         void DeleteNotificationLog(NotificationLog notificationLog);

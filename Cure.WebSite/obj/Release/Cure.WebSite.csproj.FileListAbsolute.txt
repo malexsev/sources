@@ -29,3 +29,9 @@ D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\System.Web.Mvc.xml
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\obj\Release\Cure.WebSite.csprojResolveAssemblyReference.cache
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\obj\Release\Cure.WebSite.dll
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\obj\Release\Cure.WebSite.pdb
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\Cure.Notification.dll
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\Cure.Utils.dll
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\Cure.Reports.dll
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\Cure.Notification.pdb
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\Cure.Utils.pdb
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\Cure.Reports.pdb

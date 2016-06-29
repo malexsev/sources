@@ -40,6 +40,8 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("DataModel", "FK_Child_RefDiagnoz", "RefDiagnoz", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.RefDiagnoz), "Child", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Child), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK_Child_RefOperator", "RefOperator", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Cure.DataAccess.RefOperator), "Child", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Child), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK_Child_RefRodstvo", "RefRodstvo", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.RefRodstvo), "Child", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Child), true)]
+[assembly: EdmRelationshipAttribute("DataModel", "FK_StopVisit_Department", "Department", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.Department), "StopVisit", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.StopVisit), true)]
+[assembly: EdmRelationshipAttribute("DataModel", "FK_StopVisit_RefStopVisitType", "RefStopVisitType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.RefStopVisitType), "StopVisit", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.StopVisit), true)]
 
 #endregion
 
@@ -442,6 +444,38 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<ViewChild> _ViewChilds;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<RefStopVisitType> RefStopVisitTypes
+        {
+            get
+            {
+                if ((_RefStopVisitTypes == null))
+                {
+                    _RefStopVisitTypes = base.CreateObjectSet<RefStopVisitType>("RefStopVisitTypes");
+                }
+                return _RefStopVisitTypes;
+            }
+        }
+        private ObjectSet<RefStopVisitType> _RefStopVisitTypes;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<StopVisit> StopVisits
+        {
+            get
+            {
+                if ((_StopVisits == null))
+                {
+                    _StopVisits = base.CreateObjectSet<StopVisit>("StopVisits");
+                }
+                return _StopVisits;
+            }
+        }
+        private ObjectSet<StopVisit> _StopVisits;
 
         #endregion
 
@@ -621,6 +655,22 @@ namespace Cure.DataAccess
         public void AddToViewChilds(ViewChild viewChild)
         {
             base.AddObject("ViewChilds", viewChild);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the RefStopVisitTypes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToRefStopVisitTypes(RefStopVisitType refStopVisitType)
+        {
+            base.AddObject("RefStopVisitTypes", refStopVisitType);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the StopVisits EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToStopVisits(StopVisit stopVisit)
+        {
+            base.AddObject("StopVisits", stopVisit);
         }
 
         #endregion
@@ -3391,6 +3441,28 @@ namespace Cure.DataAccess
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<TransferUser>("DataModel.FK_TransferUser_Department", "TransferUser", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_StopVisit_Department", "StopVisit")]
+        public EntityCollection<StopVisit> StopVisits
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<StopVisit>("DataModel.FK_StopVisit_Department", "StopVisit");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<StopVisit>("DataModel.FK_StopVisit_Department", "StopVisit", value);
                 }
             }
         }
@@ -6602,6 +6674,138 @@ namespace Cure.DataAccess
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="RefStopVisitType")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class RefStopVisitType : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new RefStopVisitType object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="name">Initial value of the Name property.</param>
+        public static RefStopVisitType CreateRefStopVisitType(global::System.Int32 id, global::System.String name)
+        {
+            RefStopVisitType refStopVisitType = new RefStopVisitType();
+            refStopVisitType.Id = id;
+            refStopVisitType.Name = name;
+            return refStopVisitType;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value, "Id");
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                OnNameChanging(value);
+                ReportPropertyChanging("Name");
+                _Name = StructuralObject.SetValidValue(value, false, "Name");
+                ReportPropertyChanged("Name");
+                OnNameChanged();
+            }
+        }
+        private global::System.String _Name;
+        partial void OnNameChanging(global::System.String value);
+        partial void OnNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Description
+        {
+            get
+            {
+                return _Description;
+            }
+            set
+            {
+                OnDescriptionChanging(value);
+                ReportPropertyChanging("Description");
+                _Description = StructuralObject.SetValidValue(value, true, "Description");
+                ReportPropertyChanged("Description");
+                OnDescriptionChanged();
+            }
+        }
+        private global::System.String _Description;
+        partial void OnDescriptionChanging(global::System.String value);
+        partial void OnDescriptionChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_StopVisit_RefStopVisitType", "StopVisit")]
+        public EntityCollection<StopVisit> StopVisits
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<StopVisit>("DataModel.FK_StopVisit_RefStopVisitType", "StopVisit");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<StopVisit>("DataModel.FK_StopVisit_RefStopVisitType", "StopVisit", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="Setting")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -7609,6 +7813,270 @@ namespace Cure.DataAccess
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<RefRodstvo>("DataModel.FK_Sputnik_RefRodstvo", "RefRodstvo", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="StopVisit")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class StopVisit : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new StopVisit object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="stopTypeId">Initial value of the StopTypeId property.</param>
+        /// <param name="departmentId">Initial value of the DepartmentId property.</param>
+        /// <param name="dateFrom">Initial value of the DateFrom property.</param>
+        /// <param name="dateTo">Initial value of the DateTo property.</param>
+        public static StopVisit CreateStopVisit(global::System.Int32 id, global::System.Int32 stopTypeId, global::System.Int32 departmentId, global::System.DateTime dateFrom, global::System.DateTime dateTo)
+        {
+            StopVisit stopVisit = new StopVisit();
+            stopVisit.Id = id;
+            stopVisit.StopTypeId = stopTypeId;
+            stopVisit.DepartmentId = departmentId;
+            stopVisit.DateFrom = dateFrom;
+            stopVisit.DateTo = dateTo;
+            return stopVisit;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value, "Id");
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 StopTypeId
+        {
+            get
+            {
+                return _StopTypeId;
+            }
+            set
+            {
+                OnStopTypeIdChanging(value);
+                ReportPropertyChanging("StopTypeId");
+                _StopTypeId = StructuralObject.SetValidValue(value, "StopTypeId");
+                ReportPropertyChanged("StopTypeId");
+                OnStopTypeIdChanged();
+            }
+        }
+        private global::System.Int32 _StopTypeId;
+        partial void OnStopTypeIdChanging(global::System.Int32 value);
+        partial void OnStopTypeIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 DepartmentId
+        {
+            get
+            {
+                return _DepartmentId;
+            }
+            set
+            {
+                OnDepartmentIdChanging(value);
+                ReportPropertyChanging("DepartmentId");
+                _DepartmentId = StructuralObject.SetValidValue(value, "DepartmentId");
+                ReportPropertyChanged("DepartmentId");
+                OnDepartmentIdChanged();
+            }
+        }
+        private global::System.Int32 _DepartmentId;
+        partial void OnDepartmentIdChanging(global::System.Int32 value);
+        partial void OnDepartmentIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime DateFrom
+        {
+            get
+            {
+                return _DateFrom;
+            }
+            set
+            {
+                OnDateFromChanging(value);
+                ReportPropertyChanging("DateFrom");
+                _DateFrom = StructuralObject.SetValidValue(value, "DateFrom");
+                ReportPropertyChanged("DateFrom");
+                OnDateFromChanged();
+            }
+        }
+        private global::System.DateTime _DateFrom;
+        partial void OnDateFromChanging(global::System.DateTime value);
+        partial void OnDateFromChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime DateTo
+        {
+            get
+            {
+                return _DateTo;
+            }
+            set
+            {
+                OnDateToChanging(value);
+                ReportPropertyChanging("DateTo");
+                _DateTo = StructuralObject.SetValidValue(value, "DateTo");
+                ReportPropertyChanged("DateTo");
+                OnDateToChanged();
+            }
+        }
+        private global::System.DateTime _DateTo;
+        partial void OnDateToChanging(global::System.DateTime value);
+        partial void OnDateToChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Description
+        {
+            get
+            {
+                return _Description;
+            }
+            set
+            {
+                OnDescriptionChanging(value);
+                ReportPropertyChanging("Description");
+                _Description = StructuralObject.SetValidValue(value, true, "Description");
+                ReportPropertyChanged("Description");
+                OnDescriptionChanged();
+            }
+        }
+        private global::System.String _Description;
+        partial void OnDescriptionChanging(global::System.String value);
+        partial void OnDescriptionChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_StopVisit_Department", "Department")]
+        public Department Department
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Department>("DataModel.FK_StopVisit_Department", "Department").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Department>("DataModel.FK_StopVisit_Department", "Department").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Department> DepartmentReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Department>("DataModel.FK_StopVisit_Department", "Department");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Department>("DataModel.FK_StopVisit_Department", "Department", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_StopVisit_RefStopVisitType", "RefStopVisitType")]
+        public RefStopVisitType RefStopVisitType
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RefStopVisitType>("DataModel.FK_StopVisit_RefStopVisitType", "RefStopVisitType").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RefStopVisitType>("DataModel.FK_StopVisit_RefStopVisitType", "RefStopVisitType").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<RefStopVisitType> RefStopVisitTypeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RefStopVisitType>("DataModel.FK_StopVisit_RefStopVisitType", "RefStopVisitType");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<RefStopVisitType>("DataModel.FK_StopVisit_RefStopVisitType", "RefStopVisitType", value);
                 }
             }
         }

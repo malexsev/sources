@@ -209,6 +209,8 @@
     <Content Include="Admin\NotificationLogList.aspx" />
     <Content Include="Admin\ChildList.aspx" />
     <Content Include="Admin\ChildDocs.aspx" />
+    <Content Include="Admin\StopVisitList.aspx" />
+    <Content Include="Admin\RefStopVisitTypeList.aspx" />
     <Content Include="Admin\RefDiagnozList.aspx" />
     <Content Include="Admin\RefOperatorList.aspx" />
     <Content Include="Admin\RefBankList.aspx" />
@@ -524,6 +526,20 @@
     </Compile>
     <Compile Include="Admin\ChildDocs.aspx.designer.cs">
       <DependentUpon>ChildDocs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\StopVisitList.aspx.cs">
+      <DependentUpon>StopVisitList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\StopVisitList.aspx.designer.cs">
+      <DependentUpon>StopVisitList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\RefStopVisitTypeList.aspx.cs">
+      <DependentUpon>RefStopVisitTypeList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\RefStopVisitTypeList.aspx.designer.cs">
+      <DependentUpon>RefStopVisitTypeList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\RefDiagnozList.aspx.cs">
       <DependentUpon>RefDiagnozList.aspx</DependentUpon>

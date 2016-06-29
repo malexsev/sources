@@ -246,6 +246,14 @@
     <Property Name="SoprovodRuLabel" Type="nvarchar" MaxLength="150" />
     <Property Name="SoprovodChLabel" Type="nvarchar" MaxLength="150" />
   </EntityType>
+  <EntityType Name="RefStopVisitType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="250" />
+  </EntityType>
   <EntityType Name="Setting">
     <Key>
       <PropertyRef Name="Id" />
@@ -293,6 +301,17 @@
     <Property Name="LastDate" Type="datetime" />
     <Property Name="CreateUser" Type="nvarchar" MaxLength="50" />
     <Property Name="CreateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="StopVisit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StopTypeId" Type="int" Nullable="false" />
+    <Property Name="DepartmentId" Type="int" Nullable="false" />
+    <Property Name="DateFrom" Type="date" Nullable="false" />
+    <Property Name="DateTo" Type="date" Nullable="false" />
+    <Property Name="Description" Type="nchar" MaxLength="10" />
   </EntityType>
   <EntityType Name="TransferUser">
     <Key>
@@ -852,6 +871,34 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_StopVisit_Department">
+    <End Role="Department" Type="Self.Department" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="StopVisit" Type="Self.StopVisit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StopVisit">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StopVisit_RefStopVisitType">
+    <End Role="RefStopVisitType" Type="Self.RefStopVisitType" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="StopVisit" Type="Self.StopVisit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RefStopVisitType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StopVisit">
+        <PropertyRef Name="StopTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_TransferUser_Department">
     <End Role="Department" Type="Self.Department" Multiplicity="1" />
     <End Role="TransferUser" Type="Self.TransferUser" Multiplicity="*" />
@@ -906,9 +953,11 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
     <EntitySet Name="RefDiagnoz" EntityType="Self.RefDiagnoz" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RefOperator" EntityType="Self.RefOperator" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RefRodstvo" EntityType="Self.RefRodstvo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RefStopVisitType" EntityType="Self.RefStopVisitType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Setting" EntityType="Self.Setting" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SmsLog" EntityType="Self.SmsLog" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Sputnik" EntityType="Self.Sputnik" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StopVisit" EntityType="Self.StopVisit" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TransferUser" EntityType="Self.TransferUser" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Visit" EntityType="Self.Visit" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ViewChild" EntityType="Self.ViewChild" store:Type="Views" store:Schema="dbo">
@@ -1231,6 +1280,14 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
     <AssociationSet Name="FK_Sputnik_RefRodstvo" Association="Self.FK_Sputnik_RefRodstvo">
       <End Role="RefRodstvo" EntitySet="RefRodstvo" />
       <End Role="Sputnik" EntitySet="Sputnik" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StopVisit_Department" Association="Self.FK_StopVisit_Department">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="StopVisit" EntitySet="StopVisit" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StopVisit_RefStopVisitType" Association="Self.FK_StopVisit_RefStopVisitType">
+      <End Role="RefStopVisitType" EntitySet="RefStopVisitType" />
+      <End Role="StopVisit" EntitySet="StopVisit" />
     </AssociationSet>
     <AssociationSet Name="FK_TransferUser_Department" Association="Self.FK_TransferUser_Department">
       <End Role="Department" EntitySet="Department" />

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cure.DataAccess", "Cure.Dat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cure.WebSite", "Cure.WebSite\Cure.WebSite.csproj", "{22F2100C-86C7-4AE7-A9AF-0B6491C56009}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cure.Notification", "Cure.Notification\Cure.Notification.csproj", "{61C42D50-9035-4DD5-A850-D0B292949CDB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{22F2100C-86C7-4AE7-A9AF-0B6491C56009}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22F2100C-86C7-4AE7-A9AF-0B6491C56009}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22F2100C-86C7-4AE7-A9AF-0B6491C56009}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61C42D50-9035-4DD5-A850-D0B292949CDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61C42D50-9035-4DD5-A850-D0B292949CDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61C42D50-9035-4DD5-A850-D0B292949CDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61C42D50-9035-4DD5-A850-D0B292949CDB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

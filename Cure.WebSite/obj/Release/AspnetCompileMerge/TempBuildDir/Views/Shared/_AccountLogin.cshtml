@@ -1,0 +1,40 @@
+﻿@using (Html.BeginForm("Login", "Login", FormMethod.Post, new { 
+                                                                @id = "formLogin", 
+                                                                @class = "registr-form js-login-validate" 
+                                                                }))
+{
+    @*<form class="registr-form js-login-validate">*@
+    <div class="forms-line">
+        <div class="forms-label">Имя пользователя</div>
+        @Html.TextBox("loginname", "", new
+        {
+            @id = "loginname",
+            @placeholder = "Имя пользователя",
+            @maxlength = "50",
+            @class = "forms-input"
+        })
+        @*<input class="forms-input" type="text" name="loginname">*@
+        <div class="note-label"></div>
+    </div>
+    <div class="forms-line">
+        <div class="forms-label">Пароль</div>
+        @Html.TextBox("loginpass", "", new
+        {
+            @id = "password",
+            @placeholder = "Пароль",
+            @maxlength = "50",
+            @class = "forms-input",
+            @type = "password"
+        })
+        @*<input class="forms-input" type="password" name="loginpass">*@
+        <div class="note-label"></div>
+    </div>
+    <div class="forms-line txt-center">
+        <input id="submit-login" class="btn btn-orang registr-submit" type="submit" value="ВОЙТИ">
+    </div>
+    <div id="error-login" class="login-errors"></div>
+    <div class="forms-line txt-center">
+        <a class="btn btn-small js-show-popup" data-pop="pop-remind" role="button">Напомнить пароль</a>
+    </div>
+}
+@*</form>*@

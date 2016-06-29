@@ -48,6 +48,10 @@
         <AssociationConnector Association="DataModel.FK_Child_RefOperator" />
         <AssociationConnector Association="DataModel.FK_Child_RefRodstvo" />
         <EntityTypeShape EntityType="DataModel.ViewChild" Width="2" PointX="32.25" PointY="2" />
+        <EntityTypeShape EntityType="DataModel.RefStopVisitType" Width="1.75" PointX="20.125" PointY="16.125" />
+        <EntityTypeShape EntityType="DataModel.StopVisit" Width="1.5" PointX="17.5" PointY="15.625" />
+        <AssociationConnector Association="DataModel.FK_StopVisit_Department" />
+        <AssociationConnector Association="DataModel.FK_StopVisit_RefStopVisitType" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

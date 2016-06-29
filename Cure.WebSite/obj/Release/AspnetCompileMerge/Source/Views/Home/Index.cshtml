@@ -1,8 +1,830 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Главная";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<div class="main main-page" role="main">
 
+    <section class="sec-intro">
+        <div class="sec-intro-back">
+            <div class="sec-intro-slider" id="sec-intro-slider">
+                <div class="slide" data-style="background-image: url(content/images/main-slider/slide_main-page_1.jpg)"></div>
+                <div class="slide" data-style="background-image: url(content/images/main-slider/slide_main-page_2.jpg)"></div>
+                <div class="slide" data-style="background-image: url(content/images/main-slider/slide_main-page_3.jpg)"></div>
+            </div>
+            <div class="sec-intro-video" id="sec-intro-video">
+                <video class="video-back" loop>
+                    <source src="/" data-src="content/video/main-page-video.mp4" type='video/mp4;  codecs="avc1.42E01E, mp4a.40.2"'>
+                    <source src="/" data-src="content/video/main-page-video.webm" type='video/webm; codecs="vp8, vorbis"'>
+                    <source src="/" data-src="content/video/main-page-video.ogv" type='video/ogg;  codecs="theora, vorbis"'>
+                </video>
+            </div>
+        </div><!-- END sec-intro-back -->
+        <div class="sec-intro-front">
+            <div class="all-middle-wrap">
+                <div class="all-middle-inn txt-center">
+                    <h1 class="sec-intro-title">Эффективное лечение ДЦП в Китае</h1>
+                    <div class="sec-intro-note">Меняющаяся информация</div>
+                </div>
+            </div>
+        </div><!-- END sec-intro-front -->
+        <div class="sec-intro-form">
+            <div class="container">
+                <form>
+                    <div class="fastorder">
+                        <div class="fastorder-clinic">
+                            <label class="fastorder-label">Клиника</label>
+                            <div class="selector fastorder-selector">
+                                <input type="hidden" value="0">
+                                <div class="selector-val" data-val="0">Не выбрана клиника</div>
+                                <ul class="selector-list">
+                                    <li data-val="0">Не выбрана клиника</li>
+                                    <li data-val="1">Вторая народная многопрофильная больница г.Юньчэн</li>
+                                    <li data-val="2">Больница заболеваний головного мозга при НИИ акупунктуры головы</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="fastorder-dates js-input-daterange">
+                            <div class="fastorder-date">
+                                <label class="fastorder-label">Заезд</label>
+                                <input class="forms-input has-icon ico-calendar" type="text" placeholder="Нет даты">
+                            </div>
+                            <div class="fastorder-date">
+                                <label class="fastorder-label">Отъезд</label>
+                                <input class="forms-input has-icon ico-calendar" type="text" placeholder="Нет даты">
+                            </div>
+                        </div>
+                        <div class="fastorder-count">
+                            <label class="fastorder-label">Пациенты</label>
+                            <div class="fastorder-counter js-counter">
+                                <a class="counter-btn btn-dwn">-</a>
+                                <input class="counter-rez" type="text" value="0" readonly>
+                                <a class="counter-btn btn-upp">+</a>
+                            </div>
+                        </div>
+                        <div class="fastorder-count">
+                            <label class="fastorder-label">Сопровождают</label>
+                            <div class="fastorder-counter js-counter">
+                                <a class="counter-btn btn-dwn">-</a>
+                                <input class="counter-rez" type="text" value="0" readonly>
+                                <a class="counter-btn btn-upp">+</a>
+                            </div>
+                        </div>
+                        <div class="fastorder-btn">
+                            <input class="btn btn-orang" type="button" value="ПРОДОЛЖИТЬ">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div><!-- END sec-intro-form -->
+    </section><!-- END sec-intro -->
+
+    <section class="sec-clinic">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <h2 class="main-page-title sec-clinic-title">Наши клиники</h2>
+                    <div class="sec-clinic-text js-spoiler-body">
+                        <p>
+                            Реабилитация и лечение пациентов с ДЦП и прочими неврологическими заболеваниями организована
+                            на базе двух государственных больниц города Юньчэн (провинция Шаньси, КНР)
+                            и в специализированных детских реабилитационных центрах Севастополя и Алматы.
+                        </p>
+                        <p>
+                            Лечение проводится квалифицированными специалистами Китайской Народной Республики и врачами
+                            России и Казахстана, прошедшими обучение передовым китайским методикам непосредственно в КНР.
+                        </p>
+                        <p>
+                            Процесс лечения и реабилитации курируется авторами методики  - специалистами из Китая.
+                        </p>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, impedit, tenetur,
+                            deserunt reiciendis aliquam culpa iure odio deleniti quisquam aut nihil odit eaque
+                            veritatis optio voluptas veniam voluptate adipisci labore. Dolorum, quisquam, minus
+                            voluptate blanditiis eum temporibus alias dicta nobis ipsam magnam reiciendis beatae
+                            perspiciatis praesentium minima officia! Possimus, omnis.
+                        </p>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem harum vitae reiciendis
+                            veritatis! Consequatur, non, illum, fuga nisi expedita consectetur voluptas dignissimos
+                            eaque a quam corrupti earum omnis modi enim.
+                        </p>
+                    </div>
+                    <a class="sec-clinic-more js-spoiler-clinic" role="button">Читать дальше</a>
+                </div>
+                <div class="col-md-5">
+                    <div class="sec-clinic-map">
+                        <img class="map-picture" src="~/Content/img/img_map.png" alt="Карта Юньчен">
+                        <div class="map-pointers js-tabs-citymap">
+                            <a class="map-pointer pointer-alm js-tabs-link" data-tab="alm-point">Алматы</a>
+                            <a class="map-pointer pointer-sev js-tabs-link" data-tab="sev-point">Севастополь</a>
+                            <a class="map-pointer pointer-unh js-tabs-link active" data-tab="unh-point">Юньчэн</a>
+                        </div>
+                        <div class="map-weather js-tabs-body">
+                            <div class="head-weather map-weather-tab js-tabs-item" id="sev-point">
+                                <span class="txt-note">В Севастополе</span>
+                                <span class="txt-data">14:21</span>
+                                <span class="txt-data">+33&#176;</span>
+                                <span class="txt-note">Жара</span>
+                            </div>
+                            <div class="head-weather map-weather-tab js-tabs-item" id="alm-point">
+                                <span class="txt-note">В Алматы</span>
+                                <span class="txt-data">07:15</span>
+                                <span class="txt-data">+28&#176;</span>
+                                <span class="txt-note">Солнечно</span>
+                            </div>
+                            <div class="head-weather map-weather-tab js-tabs-item active" id="unh-point">
+                                <span class="txt-note">В Юнчене</span>
+                                <span class="txt-data">21:56</span>
+                                <span class="txt-data">+11&#176;</span>
+                                <span class="txt-note">Пасмурно</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- END row -->
+            <div class="row">
+                <h3 class="sec-clinic-subtitle">г. Юньчэн, КНР</h3>
+                <div class="col-sm-6">
+                    <div class="sec-clinic-img">
+                        <div class="img-center">
+                            <img class="clinic-img" src="~/Content/images/clinic/clinic_1.jpg" alt="Вторая народная многопрофильная больница города Юньчэн">
+                        </div>
+                        <div class="clinic-txt">Вторая народная многопрофильная больница города Юньчэн</div>
+                        <a class="clinic-link" href="#"></a>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="sec-clinic-img">
+                        <div class="img-center">
+                            <img class="clinic-img" src="~/Content/images/clinic/clinic_2.jpg" alt="Больница заболеваний головного мозга при НИИ акупунктуры головы">
+                        </div>
+                        <div class="clinic-txt">Больница заболеваний головного мозга при НИИ акупунктуры головы</div>
+                        <a class="clinic-link" href="#"></a>
+                    </div>
+                </div>
+            </div><!-- END row -->
+
+            <div class="sec-clinic-about">
+                <div class="about-txt">
+                    Больницы  основаны в 1956 году, являются государственными и находятся под непосредственным
+                    контролем Управления здравоохранения города Юньчэн.
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <h3 class="sec-clinic-subtitle">г. Севастополь, Россия</h3>
+                    <div class="sec-clinic-img">
+                        <div class="img-center">
+                            <img class="clinic-img" src="~/Content/images/clinic/clinic_3.jpg" alt="Вторая народная многопрофильная больница города Юньчэн">
+                        </div>
+                        <div class="clinic-txt">Детский реабилитационный центр <br>&laquo;Мастерская здоровья&raquo;</div>
+                        <a class="clinic-link" href="#"></a>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <h3 class="sec-clinic-subtitle">г. Алматы, Казахстан</h3>
+                    <div class="sec-clinic-img">
+                        <div class="img-center">
+                            <img class="clinic-img" src="~/Content/images/clinic/clinic_4.jpg" alt="Больница заболеваний головного мозга при НИИ акупунктуры головы">
+                        </div>
+                        <div class="clinic-txt">Детский реабилитационный центр <br>&laquo;Мастерская здоровья&raquo;</div>
+                        <a class="clinic-link" href="#"></a>
+                    </div>
+                </div>
+            </div><!-- END row -->
+
+            <div class="sec-clinic-about">
+                <div class="about-txt">
+                    Лечение в центрах проводится по передовым китайским методикам и под контролем специаистов из КНР
+                </div>
+            </div>
+
+        </div><!-- END container -->
+    </section><!-- END sec-clinic -->
+
+    <section class="sec-personal">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="main-page-title sec-personal-title">Медицинский персонал</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="sec-personal-note">
+                        В каждой из клиник работают квалифицированные специалисты, использующие как европейские,
+                        так и уникальные китайские методики.
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="sec-personal-doctor">
+                        <div class="doctor-img">
+                            <img src="~/Content/images/doctors/doctor_boss_170x170.jpg" alt="Су Цзюнь">
+                        </div>
+                        <div class="doctor-txt">
+                            <div class="doctor-name">Су Цзюнь</div>
+                            <div class="doctor-post">Главный невролог, заслуженный врач КНР</div>
+                            <div class="doctor-note">
+                                Руководит лечебным процессом в обеих клиниках. За 30 лет практической работы
+                                разработал и внедрил ряд уникальных высокоэффективных методик.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- END row -->
+        </div><!-- END container -->
+
+        <div class="sec-personal-tabs">
+            <div class="container js-personal-tabs">
+                <ul class="sec-personal-tabshead">
+                    <li><a class="js-tabs-link active" data-tab="personal-tab-1">2-я народная многопрофильная больница г.&nbsp;Юньчен&nbsp(КНР)</a></li>
+                    <li><a class="js-tabs-link" data-tab="personal-tab-2">Больница заболеваний головного мозга г.&nbsp;Юньчен&nbsp(КНР)</a></li>
+                    <li><a class="js-tabs-link" data-tab="personal-tab-3">ДРЦ “Мастерская здоровья” <br>г. Севастополь (РФ)</a></li>
+                    <li><a class="js-tabs-link" data-tab="personal-tab-4">Детский рабилитационный центр <br>г. Алматы (Казахстан)</a></li>
+                </ul>
+            </div>
+
+            <div class="sec-personal-tabsbody js-tabs-body">
+                <div class="sec-personal-tab js-tabs-item active" id="personal-tab-1">
+                    <div class="container">
+                        <ul class="sec-personal-line">
+                            <li class="doctor-card">
+                                <div class="doctor-img">
+                                    <img src="~/Content/images/doctors/doctor_1_120x120.jpg" alt="Цзя Гуанцзе">
+                                </div>
+                                <div class="doctor-txt">
+                                    <div class="doctor-name">Цзя Гуанцзе</div>
+                                    <div class="doctor-post">Детский невролог</div>
+                                    <div class="doctor-note">Врач высшей категории, стаж 18 лет.</div>
+                                </div>
+                            </li>
+                            <li class="doctor-card">
+                                <div class="doctor-img">
+                                    <img src="~/Content/images/doctors/doctor_2_120x120.jpg" alt="Ле Дунпин">
+                                </div>
+                                <div class="doctor-txt">
+                                    <div class="doctor-name">Ле Дунпин</div>
+                                    <div class="doctor-post">Физиотерапевт</div>
+                                    <div class="doctor-note">Врач высшей категории, стаж 16 лет.</div>
+                                </div>
+                            </li>
+                            <li class="doctor-card">
+                                <div class="doctor-img">
+                                    <img src="~/Content/images/doctors/doctor_3_120x120.jpg" alt="Дэн Цзямин">
+                                </div>
+                                <div class="doctor-txt">
+                                    <div class="doctor-name">Дэн Цзямин</div>
+                                    <div class="doctor-post">Детский невролог</div>
+                                    <div class="doctor-note">Врач высшей категории, стаж 22 года.</div>
+                                </div>
+                            </li>
+                            <li class="doctor-card">
+                                <div class="doctor-img">
+                                    <img src="~/Content/images/doctors/doctor_1_120x120.jpg" alt="Цзя Гуанцзе">
+                                </div>
+                                <div class="doctor-txt">
+                                    <div class="doctor-name">Цзя Гуанцзе</div>
+                                    <div class="doctor-post">Детский невролог</div>
+                                    <div class="doctor-note">Врач высшей категории, стаж 18 лет.</div>
+                                </div>
+                            </li>
+                            <li class="doctor-card">
+                                <div class="doctor-img">
+                                    <img src="~/Content/images/doctors/doctor_2_120x120.jpg" alt="Ле Дунпин">
+                                </div>
+                                <div class="doctor-txt">
+                                    <div class="doctor-name">Ле Дунпин</div>
+                                    <div class="doctor-post">Физиотерапевт</div>
+                                    <div class="doctor-note">Врач высшей категории, стаж 16 лет.</div>
+                                </div>
+                            </li>
+                            <li class="doctor-card">
+                                <div class="doctor-img">
+                                    <img src="~/Content/images/doctors/doctor_3_120x120.jpg" alt="Дэн Цзямин">
+                                </div>
+                                <div class="doctor-txt">
+                                    <div class="doctor-name">Дэн Цзямин</div>
+                                    <div class="doctor-post">Детский невролог</div>
+                                    <div class="doctor-note">Врач высшей категории, стаж 22 года.</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div><!-- END container -->
+                </div><!-- END sec-personal-tab -->
+
+                <div class="sec-personal-tab js-tabs-item" id="personal-tab-2">
+                    <div class="container">
+                        <ul class="sec-personal-line">
+                            <li class="doctor-card">
+                                <div class="doctor-img">
+                                    <img src="~/Content/images/doctors/doctor_2_120x120.jpg" alt="Ле Дунпин">
+                                </div>
+                                <div class="doctor-txt">
+                                    <div class="doctor-name">Ле Дунпин</div>
+                                    <div class="doctor-post">Физиотерапевт</div>
+                                    <div class="doctor-note">Врач высшей категории, стаж 16 лет.</div>
+                                </div>
+                            </li>
+                            <li class="doctor-card">
+                                <div class="doctor-img">
+                                    <img src="~/Content/images/doctors/doctor_3_120x120.jpg" alt="Дэн Цзямин">
+                                </div>
+                                <div class="doctor-txt">
+                                    <div class="doctor-name">Дэн Цзямин</div>
+                                    <div class="doctor-post">Детский невролог</div>
+                                    <div class="doctor-note">Врач высшей категории, стаж 22 года.</div>
+                                </div>
+                            </li>
+                            <li class="doctor-card">
+                                <div class="doctor-img">
+                                    <img src="~/Content/images/doctors/doctor_1_120x120.jpg" alt="Цзя Гуанцзе">
+                                </div>
+                                <div class="doctor-txt">
+                                    <div class="doctor-name">Цзя Гуанцзе</div>
+                                    <div class="doctor-post">Детский невролог</div>
+                                    <div class="doctor-note">Врач высшей категории, стаж 18 лет.</div>
+                                </div>
+                            </li>
+                            <li class="doctor-card">
+                                <div class="doctor-img">
+                                    <img src="~/Content/images/doctors/doctor_2_120x120.jpg" alt="Ле Дунпин">
+                                </div>
+                                <div class="doctor-txt">
+                                    <div class="doctor-name">Ле Дунпин</div>
+                                    <div class="doctor-post">Физиотерапевт</div>
+                                    <div class="doctor-note">Врач высшей категории, стаж 16 лет.</div>
+                                </div>
+                            </li>
+                            <li class="doctor-card">
+                                <div class="doctor-img">
+                                    <img src="~/Content/images/doctors/doctor_3_120x120.jpg" alt="Дэн Цзямин">
+                                </div>
+                                <div class="doctor-txt">
+                                    <div class="doctor-name">Дэн Цзямин</div>
+                                    <div class="doctor-post">Детский невролог</div>
+                                    <div class="doctor-note">Врач высшей категории, стаж 22 года.</div>
+                                </div>
+                            </li>
+                            <li class="doctor-card">
+                                <div class="doctor-img">
+                                    <img src="~/Content/images/doctors/doctor_1_120x120.jpg" alt="Цзя Гуанцзе">
+                                </div>
+                                <div class="doctor-txt">
+                                    <div class="doctor-name">Цзя Гуанцзе</div>
+                                    <div class="doctor-post">Детский невролог</div>
+                                    <div class="doctor-note">Врач высшей категории, стаж 18 лет.</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div><!-- END container -->
+                </div><!-- END sec-personal-tab -->
+
+                <div class="sec-personal-tab js-tabs-item" id="personal-tab-3">
+                    <div class="container">
+                        <ul class="sec-personal-line">
+                            <li class="doctor-card">
+                                <div class="doctor-img">
+                                    <img src="~/Content/images/doctors/doctor_2_120x120.jpg" alt="Ле Дунпин">
+                                </div>
+                                <div class="doctor-txt">
+                                    <div class="doctor-name">Ле Дунпин</div>
+                                    <div class="doctor-post">Физиотерапевт</div>
+                                    <div class="doctor-note">Врач высшей категории, стаж 16 лет.</div>
+                                </div>
+                            </li>
+                            <li class="doctor-card">
+                                <div class="doctor-img">
+                                    <img src="~/Content/images/doctors/doctor_3_120x120.jpg" alt="Дэн Цзямин">
+                                </div>
+                                <div class="doctor-txt">
+                                    <div class="doctor-name">Дэн Цзямин</div>
+                                    <div class="doctor-post">Детский невролог</div>
+                                    <div class="doctor-note">Врач высшей категории, стаж 22 года.</div>
+                                </div>
+                            </li>
+                            <li class="doctor-card">
+                                <div class="doctor-img">
+                                    <img src="~/Content/images/doctors/doctor_1_120x120.jpg" alt="Цзя Гуанцзе">
+                                </div>
+                                <div class="doctor-txt">
+                                    <div class="doctor-name">Цзя Гуанцзе</div>
+                                    <div class="doctor-post">Детский невролог</div>
+                                    <div class="doctor-note">Врач высшей категории, стаж 18 лет.</div>
+                                </div>
+                            </li>
+                            <li class="doctor-card">
+                                <div class="doctor-img">
+                                    <img src="~/Content/images/doctors/doctor_2_120x120.jpg" alt="Ле Дунпин">
+                                </div>
+                                <div class="doctor-txt">
+                                    <div class="doctor-name">Ле Дунпин</div>
+                                    <div class="doctor-post">Физиотерапевт</div>
+                                    <div class="doctor-note">Врач высшей категории, стаж 16 лет.</div>
+                                </div>
+                            </li>
+                            <li class="doctor-card">
+                                <div class="doctor-img">
+                                    <img src="~/Content/images/doctors/doctor_3_120x120.jpg" alt="Дэн Цзямин">
+                                </div>
+                                <div class="doctor-txt">
+                                    <div class="doctor-name">Дэн Цзямин</div>
+                                    <div class="doctor-post">Детский невролог</div>
+                                    <div class="doctor-note">Врач высшей категории, стаж 22 года.</div>
+                                </div>
+                            </li>
+                            <li class="doctor-card">
+                                <div class="doctor-img">
+                                    <img src="~/Content/images/doctors/doctor_1_120x120.jpg" alt="Цзя Гуанцзе">
+                                </div>
+                                <div class="doctor-txt">
+                                    <div class="doctor-name">Цзя Гуанцзе</div>
+                                    <div class="doctor-post">Детский невролог</div>
+                                    <div class="doctor-note">Врач высшей категории, стаж 18 лет.</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div><!-- END container -->
+                </div><!-- END sec-personal-tab -->
+
+                <div class="sec-personal-tab js-tabs-item" id="personal-tab-4">
+                    <div class="container">
+                        <ul class="sec-personal-line">
+                            <li class="doctor-card">
+                                <div class="doctor-img">
+                                    <img src="~/Content/images/doctors/doctor_2_120x120.jpg" alt="Ле Дунпин">
+                                </div>
+                                <div class="doctor-txt">
+                                    <div class="doctor-name">Ле Дунпин</div>
+                                    <div class="doctor-post">Физиотерапевт</div>
+                                    <div class="doctor-note">Врач высшей категории, стаж 16 лет.</div>
+                                </div>
+                            </li>
+                            <li class="doctor-card">
+                                <div class="doctor-img">
+                                    <img src="~/Content/images/doctors/doctor_3_120x120.jpg" alt="Дэн Цзямин">
+                                </div>
+                                <div class="doctor-txt">
+                                    <div class="doctor-name">Дэн Цзямин</div>
+                                    <div class="doctor-post">Детский невролог</div>
+                                    <div class="doctor-note">Врач высшей категории, стаж 22 года.</div>
+                                </div>
+                            </li>
+                            <li class="doctor-card">
+                                <div class="doctor-img">
+                                    <img src="~/Content/images/doctors/doctor_1_120x120.jpg" alt="Цзя Гуанцзе">
+                                </div>
+                                <div class="doctor-txt">
+                                    <div class="doctor-name">Цзя Гуанцзе</div>
+                                    <div class="doctor-post">Детский невролог</div>
+                                    <div class="doctor-note">Врач высшей категории, стаж 18 лет.</div>
+                                </div>
+                            </li>
+                            <li class="doctor-card">
+                                <div class="doctor-img">
+                                    <img src="~/Content/images/doctors/doctor_2_120x120.jpg" alt="Ле Дунпин">
+                                </div>
+                                <div class="doctor-txt">
+                                    <div class="doctor-name">Ле Дунпин</div>
+                                    <div class="doctor-post">Физиотерапевт</div>
+                                    <div class="doctor-note">Врач высшей категории, стаж 16 лет.</div>
+                                </div>
+                            </li>
+                            <li class="doctor-card">
+                                <div class="doctor-img">
+                                    <img src="~/Content/images/doctors/doctor_3_120x120.jpg" alt="Дэн Цзямин">
+                                </div>
+                                <div class="doctor-txt">
+                                    <div class="doctor-name">Дэн Цзямин</div>
+                                    <div class="doctor-post">Детский невролог</div>
+                                    <div class="doctor-note">Врач высшей категории, стаж 22 года.</div>
+                                </div>
+                            </li>
+                            <li class="doctor-card">
+                                <div class="doctor-img">
+                                    <img src="~/Content/images/doctors/doctor_1_120x120.jpg" alt="Цзя Гуанцзе">
+                                </div>
+                                <div class="doctor-txt">
+                                    <div class="doctor-name">Цзя Гуанцзе</div>
+                                    <div class="doctor-post">Детский невролог</div>
+                                    <div class="doctor-note">Врач высшей категории, стаж 18 лет.</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div><!-- END container -->
+                </div><!-- END sec-personal-tab -->
+
+            </div><!-- END sec-personal-tabsbody -->
+        </div><!-- END sec-personal-tabs -->
+    </section><!-- END sec-personal -->
+
+    <section class="sec-procedure">
+        <div class="sec-procedure-back"></div>
+        <div class="sec-procedure-front">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5">
+                        <h2 class="main-page-title sec-procedure-title">Процедуры и лекарства</h2>
+                        <div class="sec-procedure-note">
+                            Сочетание современной мировой медицины и китайских методик дает результат,
+                            редко достижимый в традиционной европейской медицине
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <h3 class="sec-procedure-subtitle">Процедуры</h3>
+                        <ul class="sec-procedure-list">
+                            <li>Иглотерапия</li>
+                            <li>Физиопроцедуры</li>
+                            <li>Массаж</li>
+                            <li>Логопедический массаж</li>
+                            <li>Кинезиологическое тейпирование</li>
+                            <li>Имплантация коллагеновых нитей</li>
+                            <li>Лечебная физкультура</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h3 class="sec-procedure-subtitle">Лекарства</h3>
+                        <ul class="sec-procedure-list">
+                            <li>Mouse Nerve Growth Factor for Injection, mNGF фактор роста нервов мышцы</li>
+                            <li>Mouse Nerve Growth Factor for Injection, mNGF фактор роста нервов мышцы</li>
+                            <li>Mouse Nerve Growth Factor for Injection, mNGF фактор роста нервов мышцы</li>
+                            <li>Mouse Nerve Growth Factor for Injection, mNGF фактор роста нервов мышцы</li>
+                        </ul>
+                    </div>
+                </div><!-- END row -->
+                <div class="row">
+                    <div class="col-lg-12 txt-center">
+                        <a class="btn btn-light" href="#">Подробнее о процедурах и препаратах</a>
+                    </div>
+                </div><!-- END row -->
+            </div><!-- END container -->
+        </div><!-- END sec-procedure-front -->
+    </section><!-- END sec-procedure -->
+
+    <section class="sec-steps">
+        <div class="sec-steps-back"></div>
+        <div class="sec-steps-front">
+            <div class="container">
+                <div class="sec-steps-text">
+                    <h2 class="main-page-title sec-steps-title">Оформление и лечение</h2>
+                    <div class="sec-steps-note">Мы сделали оформление легким, лечение - комфортным</div>
+                </div>
+                <div class="row js-steps-fadein">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="sec-steps-step js-step-fadein">
+                            <div class="step-img">
+                                <div class="step-img-num">1</div>
+                                <div class="step-img-pic">
+                                    <img src="~/Content/images/sec-steps/main-page_step_1.jpg" alt="Заполнение заявки">
+                                </div>
+                            </div>
+                            <div class="step-txt">
+                                <h3 class="step-title">Заполнение заявки</h3>
+                                <div class="step-note">
+                                    <p>Выбираете клинику, ориентировочные сроки прибытия и отъезда.</p>
+                                    <p>Для предварительной оценки врачами состояния ребенка вам будет предложено ответить на ряд вопросов.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="sec-steps-step js-step-fadein">
+                            <div class="step-img">
+                                <div class="step-img-num">2</div>
+                                <div class="step-img-pic">
+                                    <img src="~/Content/images/sec-steps/main-page_step_2.jpg" alt="Приобретение билетов">
+                                </div>
+                            </div>
+                            <div class="step-txt">
+                                <h3 class="step-title">Приобретение билетов</h3>
+                                <div class="step-note">
+                                    <p>После подтверждения заявки вы  оформляете визы и приобретаете билеты.</p>
+                                    <p>Мы предоставим все необходимые документы для получения китайской визы.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="sec-steps-step js-step-fadein">
+                            <div class="step-img">
+                                <div class="step-img-num">3</div>
+                                <div class="step-img-pic">
+                                    <img src="~/Content/images/sec-steps/main-page_step_3.jpg" alt="Встреча и размещение">
+                                </div>
+                            </div>
+                            <div class="step-txt">
+                                <h3 class="step-title">Встреча и размещение</h3>
+                                <div class="step-note">
+                                    <p>Мы встретим вас в аэропорту Юньчэня, поможем с размещением.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="sec-steps-step js-step-fadein">
+                            <div class="step-img">
+                                <div class="step-img-num">4</div>
+                                <div class="step-img-pic">
+                                    <img src="~/Content/images/sec-steps/main-page_step_4.jpg" alt="Лечение">
+                                </div>
+                            </div>
+                            <div class="step-txt">
+                                <h3 class="step-title">Лечение</h3>
+                                <div class="step-note">
+                                    <p>Мы следим, чтобы лечение было эффективным, а ваше пребывание в клинике - комфортным.</p>
+                                    <p>Весь процесс - в личном кабинете на нашем сайте.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- END row -->
+                <div class="row">
+                    <div class="col-lg-12 txt-center">
+                        <a class="btn btn-orang-outlined" href="#">ЗАПИСАТЬСЯ НА ЛЕЧЕНИЕ</a>
+                        <div class="sec-steps-bttm">Начните заполнять заявку. На любом этапе вы сможете прервать заполнение и все данные сохранятся</div>
+                    </div>
+                </div><!-- END row -->
+            </div><!-- END container -->
+        </div><!-- END sec-steps-front -->
+    </section><!-- END sec-steps -->
+
+    <section class="sec-since">
+        <div class="sec-since-back"></div>
+        <div class="sec-since-front">
+            <div class="container">
+                <h2 class="main-page-title sec-since-title">Принимаем на лечение с&nbsp;2010&nbsp;года</h2>
+                <ul class="sec-since-total js-counters">
+                    <li>
+                        <span class="item-data js-count-one" data-count="8">0</span>
+                        <span class="item-note">стран</span>
+                    </li>
+                    <li>
+                        <span class="item-data js-count-two" data-count="234">0</span>
+                        <span class="item-note">пациента</span>
+                    </li>
+                </ul>
+                <ul class="sec-since-countries js-countries-fadein">
+                    <li>
+                        <span class="item-note">Россия</span>
+                        <span class="item-data">96</span>
+                    </li>
+                    <li>
+                        <span class="item-note">Украина</span>
+                        <span class="item-data">36</span>
+                    </li>
+                    <li>
+                        <span class="item-note">Казахстан</span>
+                        <span class="item-data">18</span>
+                    </li>
+                    <li>
+                        <span class="item-note">Узбекистан</span>
+                        <span class="item-data">15</span>
+                    </li>
+                    <li>
+                        <span class="item-note">Азербайджан</span>
+                        <span class="item-data">12</span>
+                    </li>
+                    <li>
+                        <span class="item-note">Киргизия</span>
+                        <span class="item-data">10</span>
+                    </li>
+                    <li>
+                        <span class="item-note">Беларусь</span>
+                        <span class="item-data">3</span>
+                    </li>
+                    <li>
+                        <span class="item-note">Тайланд</span>
+                        <span class="item-data">2</span>
+                    </li>
+                </ul>
+            </div><!-- END container -->
+        </div><!-- END sec-since-front -->
+    </section><!-- END sec-since -->
+
+    <section class="sec-children">
+        <div class="container">
+            <div class="sec-children-text">
+                <h2 class="main-page-title sec-children-title">Наши дети</h2>
+                <div class="sec-children-note">
+                    Знакомьтесь с пациентами и их родителями, обменивайтесь новостями, впечатлениями.
+                    Находите финансовую помощь и помогайте другим.
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-sm-4 col-ss-6 children-page-item js-ajax-for-count">
+                    <a class="children-page-child" href="#">
+                        <img class="child-img" src="~/Content/images/children/children_1.jpg" alt="Дима">
+                        <div class="child-txt">
+                            <div class="child-name">Дима,<span class="child-age">11 лет</span></div>
+                            <div class="child-city">Россия, Сыктывкар</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-sm-4 col-ss-6 children-page-item js-ajax-for-count">
+                    <a class="children-page-child" href="#">
+                        <img class="child-img" src="~/Content/images/children/children_2.jpg" alt="Стас">
+                        <div class="child-txt">
+                            <div class="child-name">Стас,<span class="child-age">6 лет</span></div>
+                            <div class="child-city">Украина, Харьков</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-sm-4 col-ss-6 children-page-item js-ajax-for-count">
+                    <a class="children-page-child" href="#">
+                        <img class="child-img" src="~/Content/images/children/children_3.jpg" alt="Костя">
+                        <div class="child-txt">
+                            <div class="child-name">Костя, <span class="child-age">10 лет</span></div>
+                            <div class="child-city">Россия, Пенза</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-sm-4 col-ss-6 children-page-item js-ajax-for-count">
+                    <a class="children-page-child" href="#">
+                        <img class="child-img" src="~/Content/images/children/children_4.jpg" alt="Света">
+                        <div class="child-txt">
+                            <div class="child-name">Света, <span class="child-age">5 лет</span></div>
+                            <div class="child-city">Украина, Запорожье</div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-lg-6 col-sm-8 col-ss-12 children-page-item">
+                    <div class="children-page-review">
+                        <div class="review-front">
+                            <div class="review-text">
+                                Каждому пациенту применяется индивидуальный подход и назначается лечение в
+                                зависимости от формы заболевания и степени его тяжести, уровни расстройства
+                                двигательной функции, степени умственной<br>и речевой функции и т.д.
+                            </div>
+                            <div class="review-writer">
+                                <span class="writer-name">Альбина</span>,
+                                <span class="writer-city">Казахстан, Кустанай</span>
+                            </div>
+                            <div class="review-more">
+                                <a class="btn btn-light" href="#">Все отзывы</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-4 col-ss-6 children-page-item js-ajax-for-count">
+                    <a class="children-page-child" href="#">
+                        <img class="child-img" src="~/Content/images/children/children_5.jpg" alt="Вика">
+                        <div class="child-txt">
+                            <div class="child-name">Вика, <span class="child-age">8 лет</span></div>
+                            <div class="child-city">Россия, Ярославская область</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-sm-4 col-ss-6 children-page-item js-ajax-for-count">
+                    <a class="children-page-child" href="#">
+                        <img class="child-img" src="~/Content/images/children/children_6.jpg" alt="Света">
+                        <div class="child-txt">
+                            <div class="child-name">Казыбек, <span class="child-age">10 лет</span></div>
+                            <div class="child-city">Казахстан, Астана</div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-lg-3 col-sm-4 col-ss-6 children-page-item js-ajax-for-count">
+                    <a class="children-page-child" href="#">
+                        <img class="child-img" src="~/Content/images/children/children_5.jpg" alt="Вика">
+                        <div class="child-txt">
+                            <div class="child-name">Вика, <span class="child-age">8 лет</span></div>
+                            <div class="child-city">Россия, Ярославская область</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-sm-4 col-ss-6 children-page-item js-ajax-for-count">
+                    <a class="children-page-child" href="#">
+                        <img class="child-img" src="~/Content/images/children/children_6.jpg" alt="Света">
+                        <div class="child-txt">
+                            <div class="child-name">Казыбек, <span class="child-age">10 лет</span></div>
+                            <div class="child-city">Казахстан, Астана</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-6 col-sm-8 col-ss-12 children-page-item">
+                    <div class="children-page-review">
+                        <div class="review-front">
+                            <div class="review-text">
+                                Каждому пациенту применяется индивидуальный подход и назначается лечение в
+                                зависимости от формы заболевания и степени его тяжести, уровни расстройства
+                                двигательной функции, степени умственной<br>и речевой функции и т.д.
+                            </div>
+                            <div class="review-writer">
+                                <span class="writer-name">Альбина</span>,
+                                <span class="writer-city">Казахстан, Кустанай</span>
+                            </div>
+                            <div class="review-more">
+                                <a class="btn btn-light" href="#">Все отзывы</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- END row -->
+        </div><!-- END container -->
+    </section><!-- END sec-children -->
+
+</div><!-- END main -->

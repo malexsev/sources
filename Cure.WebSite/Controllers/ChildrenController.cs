@@ -23,7 +23,6 @@ namespace Cure.WebSite.Controllers
         {
             var dal = new DataAccessBL();
             
-            //var result = dal.ViewChilds().Select(x => new ChildVisual(x)).ToList();
             var result = dal.FilterChilds(0, "0", 0, 0, 0).Select(x => new ChildVisual(x)).ToList();
             ViewBag.Countries = dal.GetRefCountries();
             ViewBag.Regions = dal.GetRegions();

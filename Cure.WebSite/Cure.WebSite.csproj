@@ -106,10 +106,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\css\styles.css" />
+    <Content Include="Content\css\_animate.css" />
+    <Content Include="Content\css\_bootstrap-datepicker3.standalone.min.css" />
     <Content Include="Content\css\_bootstrap.css" />
     <Content Include="Content\css\_font-awesome.min.css" />
     <Content Include="Content\css\_fonts.css" />
     <Content Include="Content\css\_normalize.css" />
+    <Content Include="Content\css\___bootstrap.css" />
     <Content Include="Content\fonts\alsrubl-webfont.svg" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\images\children\children_1.jpg" />
@@ -120,10 +123,25 @@
     <Content Include="Content\images\children\children_6.jpg" />
     <Content Include="Content\images\children\children_7.jpg" />
     <Content Include="Content\images\children\children_account_1_96x96.jpg" />
+    <Content Include="Content\images\clinic\clinic_1.jpg" />
+    <Content Include="Content\images\clinic\clinic_2.jpg" />
+    <Content Include="Content\images\clinic\clinic_3.jpg" />
+    <Content Include="Content\images\clinic\clinic_4.jpg" />
     <Content Include="Content\images\docs\doc_1.jpg" />
     <Content Include="Content\images\docs\doc_2.jpg" />
     <Content Include="Content\images\docs\doc_3.jpg" />
     <Content Include="Content\images\docs\doc_4.jpg" />
+    <Content Include="Content\images\doctors\doctor_1_120x120.jpg" />
+    <Content Include="Content\images\doctors\doctor_2_120x120.jpg" />
+    <Content Include="Content\images\doctors\doctor_3_120x120.jpg" />
+    <Content Include="Content\images\doctors\doctor_boss_170x170.jpg" />
+    <Content Include="Content\images\main-slider\slide_main-page_1.jpg" />
+    <Content Include="Content\images\main-slider\slide_main-page_2.jpg" />
+    <Content Include="Content\images\main-slider\slide_main-page_3.jpg" />
+    <Content Include="Content\images\sec-steps\main-page_step_1.jpg" />
+    <Content Include="Content\images\sec-steps\main-page_step_2.jpg" />
+    <Content Include="Content\images\sec-steps\main-page_step_3.jpg" />
+    <Content Include="Content\images\sec-steps\main-page_step_4.jpg" />
     <Content Include="Content\images\side-banner.jpg" />
     <Content Include="Content\images\temp\counter_1.png" />
     <Content Include="Content\images\temp\counter_2.png" />
@@ -146,6 +164,10 @@
     <Content Include="Content\images\viewer\thumb_2.jpg" />
     <Content Include="Content\images\viewer\thumb_3.jpg" />
     <Content Include="Content\img\apple-touch-icon-152x152.png" />
+    <Content Include="Content\img\backgrounds\bg_main.jpg" />
+    <Content Include="Content\img\backgrounds\bg_sec-procedure.jpg" />
+    <Content Include="Content\img\backgrounds\bg_sec-since.png" />
+    <Content Include="Content\img\backgrounds\bg_sec-steps.jpg" />
     <Content Include="Content\img\bg_main.jpg" />
     <Content Include="Content\img\bg_review.png" />
     <Content Include="Content\img\favicon-16x16.png" />
@@ -161,6 +183,7 @@
     <Content Include="Content\img\icon_search.png" />
     <Content Include="Content\img\icon_slider.png" />
     <Content Include="Content\img\ico_scrolltop.png" />
+    <Content Include="Content\img\img_map.png" />
     <Content Include="Content\img\in-base-64\icon_account-cart_gray.png" />
     <Content Include="Content\img\in-base-64\icon_account-mail_gray.png" />
     <Content Include="Content\img\in-base-64\icon_account-money_gray.png" />
@@ -187,6 +210,7 @@
     <Content Include="Content\img\money-icons\webmoney.png" />
     <Content Include="Content\img\preloader.gif" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\video\main-page-video.mp4" />
     <Content Include="Global.asax" />
     <Content Include="Content\css\styles.less" />
     <Content Include="Content\fonts\alsrubl-webfont.eot" />
@@ -222,6 +246,8 @@
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ChildrenController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -238,10 +264,19 @@
     <Content Include="Views\Children\Index.cshtml" />
     <Content Include="Views\Shared\_ChildFilter.cshtml" />
     <Content Include="Views\Shared\_ChildTales.cshtml" />
+    <Content Include="Content\video\main-page-video.ogv" />
+    <Content Include="Content\video\main-page-video.webm" />
     <None Include="Properties\PublishProfiles\China_Web.pubxml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Children.cshtml" />
     <Content Include="Views\Children\Detail.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Shared\_Account.cshtml" />
+    <Content Include="Views\Shared\_MainMenu.cshtml" />
+    <Content Include="Views\Shared\_AccountHeader.cshtml" />
+    <Content Include="Views\Shared\_AccountLogin.cshtml" />
+    <Content Include="Views\Shared\_AccountRegister.cshtml" />
+    <Content Include="Views\Shared\_AccountReсovery.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -251,11 +286,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Login\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Cure.DataAccess\Cure.DataAccess.csproj">
       <Project>{23945d42-0232-4000-aa1e-959b6cd74278}</Project>
       <Name>Cure.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cure.Notification\Cure.Notification.csproj">
+      <Project>{61C42D50-9035-4DD5-A850-D0B292949CDB}</Project>
+      <Name>Cure.Notification</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
