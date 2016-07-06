@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using Cure.DataAccess.BLL;
+﻿using Cure.DataAccess.BLL;
 using Cure.WebSite.Models;
 using System.Web.Mvc;
 
 namespace Cure.WebSite.Controllers
 {
     using System.Linq;
-    using System.Net;
 
     public class ChildrenController : Controller
     {
@@ -16,7 +13,7 @@ namespace Cure.WebSite.Controllers
             var dal = new DataAccessBL();
             int childId = int.Parse(id);
 
-            return View(new ChildVisual(dal.ViewChild(childId)));
+            return View(new ChildVisualDetailed(dal.ViewChild(childId), dal.GetChildHideFiles(childId)));
         }
 
         public ActionResult Index()

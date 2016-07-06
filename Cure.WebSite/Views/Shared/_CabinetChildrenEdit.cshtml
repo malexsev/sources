@@ -1,0 +1,232 @@
+﻿
+<!-- Поп-ап ввода личных данных -->
+<div class="popup" id="pop-personal">
+    <div class="popup-modal"></div>
+    <div class="popup-wrap">
+        <a class="popup-close"></a>
+        <div class="popup-head">
+            <div class="popup-title">Редактирование  личных данных</div>
+        </div>
+        <div class="popup-body">
+            <div class="userdata-wrap">
+                <ul class="userdata-nav js-tabs-userdata">
+                    <li><a class="js-tabs-link active" data-tab="userdata-tab-1" role="button">Мой ребенок</a></li>
+                    <li><a class="js-tabs-link" data-tab="userdata-tab-2" role="button">Контакная информация</a></li>
+                    <li><a class="js-tabs-link" data-tab="userdata-tab-3" role="button">Страницы в соцсетях</a></li>
+                    <li><a class="js-tabs-link" data-tab="userdata-tab-4" role="button">Финансовая помощь</a></li>
+                </ul>
+                <div class="userdata-tabs js-tabs-body">
+
+                    <div class="userdata-tab active js-tabs-item" id="userdata-tab-1">
+                        <!-- Мой ребенок -->
+                        <form class="userdata-form js-validate">
+                            <div class="forms-line">
+                                <div class="forms-label">Имя*</div>
+                                <input class="forms-input" type="text" placeholder="Введите имя">
+                            </div>
+                            <div class="forms-line">
+                                <div class="forms-label">Дата рождения*</div>
+                                <input class="forms-input" type="text" placeholder="Введите дату рождения">
+                            </div>
+                            <div class="forms-line">
+                                <div class="forms-label">Страна*</div>
+                                <div class="selector forms-selector">
+                                    <input type="hidden" value="0">
+                                    <div class="selector-val" data-val="0">Все страны</div>
+                                    <ul class="selector-list">
+                                        <li data-val="0">Все страны</li>
+                                        <li data-val="1">Россия</li>
+                                        <li data-val="2">Украина</li>
+                                        <li data-val="3">Казахстан</li>
+                                        <li data-val="4">Беларусь</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="forms-line">
+                                <div class="forms-label">Регион*</div>
+                                <div class="selector forms-selector">
+                                    <input type="hidden" value="0">
+                                    <div class="selector-val" data-val="0">Все города</div>
+                                    <ul class="selector-list">
+                                        <li data-val="0">Все города</li>
+                                        <li data-val="1">Москва</li>
+                                        <li data-val="2">Санкт-Петербург</li>
+                                        <li data-val="3">Барнаул</li>
+                                        <li data-val="4">Брянск</li>
+                                        <li data-val="5">Волгоград</li>
+                                        <li data-val="6">Вологда</li>
+                                        <li data-val="7">Воронеж</li>
+                                        <li data-val="8">Геленджик</li>
+                                        <li data-val="9">Екатеринбург</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="forms-line">
+                                <div class="forms-label">Диагноз</div>
+                                <div class="selector forms-selector">
+                                    <input type="hidden" value="0">
+                                    <div class="selector-val" data-val="0">Любой диагноз</div>
+                                    <ul class="selector-list">
+                                        <li data-val="0">Любой диагноз</li>
+                                        <li data-val="1">Диагноз 001</li>
+                                        <li data-val="2">Диагноз 010</li>
+                                        <li data-val="3">Диагноз 011</li>
+                                        <li data-val="4">Диагноз 100</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="forms-line">
+                                <div class="forms-preview">
+                                    <img src="content/images/users/contact_user_6_48x48.jpg" alt="__">
+                                </div>
+                                <div class="forms-file top-10">
+                                    <div class="forms-file-msg">Изменить фото</div>
+                                    <input type="file" onchange="this.previousSibling.previousSibling.innerHTML = this.value">
+                                </div>
+                            </div>
+                            <div class="forms-line top-30">
+                                <input class="btn btn-orang" type="submit" value="Сохранить">
+                            </div>
+                        </form>
+                    </div><!-- END userdata-tab-1 Мой ребенок -->
+
+                    <div class="userdata-tab js-tabs-item" id="userdata-tab-2">
+                        <!-- Контакная информация -->
+                        <form class="userdata-form js-validate">
+                            <div class="forms-line">
+                                <div class="forms-label">Имя или имя и отчество*</div>
+                                <input class="forms-input" type="text">
+                            </div>
+                            <div class="forms-line">
+                                <div class="forms-label">Кем приходится ребенку*</div>
+                                <div class="selector forms-selector">
+                                    <input type="hidden" value="1">
+                                    <div class="selector-val" data-val="1">Мама</div>
+                                    <ul class="selector-list">
+                                        <li data-val="1">Мама</li>
+                                        <li data-val="2">Папа</li>
+                                        <li data-val="3">Дед</li>
+                                        <li data-val="4">Бабушка</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="forms-line">
+                                <div class="forms-label">Электонная почта*</div>
+                                <input class="forms-input" type="text">
+                            </div>
+                            <div class="forms-line">
+                                <div class="forms-label">Телефон (желательно)</div>
+                                <input class="forms-input" type="text">
+                            </div>
+                            <div class="forms-line top-30">
+                                <input class="btn btn-orang" type="submit" value="Сохранить">
+                            </div>
+                        </form>
+                    </div><!-- END userdata-tab-2 Контакная информация -->
+
+                    <div class="userdata-tab js-tabs-item" id="userdata-tab-3">
+                        <!-- Страницы в соцсетях -->
+                        <form class="userdata-form js-validate">
+                            <div class="forms-line">
+                                <div class="forms-label">Одноклассники</div>
+                                <input class="forms-input" type="text">
+                            </div>
+                            <div class="forms-line">
+                                <div class="forms-label">ВКонтакте</div>
+                                <input class="forms-input" type="text">
+                            </div>
+                            <div class="forms-line">
+                                <div class="forms-label">Мой мир</div>
+                                <input class="forms-input" type="text">
+                            </div>
+                            <div class="forms-line">
+                                <div class="forms-label">Фейсбук</div>
+                                <input class="forms-input" type="text">
+                            </div>
+                            <div class="forms-line top-30">
+                                <input class="btn btn-orang" type="submit" value="Сохранить">
+                            </div>
+                        </form>
+                    </div><!-- END userdata-tab-3 Страницы в соцсетях -->
+
+                    <div class="userdata-tab js-tabs-item" id="userdata-tab-4">
+                        <!-- Финансовая помощь -->
+                        <form class="userdata-form js-validate">
+                            <div class="forms-title top-0">Платежные системы</div>
+                            <div class="forms-line">
+                                <div class="forms-label">Вэбмани</div>
+                                <input class="forms-input" type="text" placeholder="Номер счета">
+                            </div>
+                            <div class="forms-line">
+                                <div class="forms-label">Яндекс-деньги</div>
+                                <input class="forms-input" type="text" placeholder="Номер счета">
+                            </div>
+                            <div class="forms-line">
+                                <div class="forms-label">Киви</div>
+                                <input class="forms-input" type="text" placeholder="Номер счета">
+                            </div>
+                            <div class="forms-title">Платежи на телефон</div>
+                            <div class="forms-line">
+                                <div class="selector forms-selector">
+                                    <input type="hidden" value="0">
+                                    <div class="selector-val" data-val="0">Оператор</div>
+                                    <ul class="selector-list">
+                                        <li data-val="0">Оператор</li>
+                                        <li data-val="1">Оператор 001</li>
+                                        <li data-val="2">Оператор 010</li>
+                                        <li data-val="3">Оператор 011</li>
+                                        <li data-val="4">Оператор 100</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="forms-line">
+                                <div class="forms-label">Номер</div>
+                                <input class="forms-input" type="text" placeholder="Номер телефона">
+                            </div>
+                            <div class="forms-title">Банковская карта</div>
+                            <div class="forms-line">
+                                <div class="forms-label">Страна</div>
+                                <div class="selector forms-selector">
+                                    <input type="hidden" value="1">
+                                    <div class="selector-val" data-val="1">Россия</div>
+                                    <ul class="selector-list">
+                                        <li data-val="1">Россия</li>
+                                        <li data-val="2">Украина</li>
+                                        <li data-val="3">Казахстан</li>
+                                        <li data-val="4">Беларусь</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="forms-line">
+                                <div class="forms-label">Банк</div>
+                                <div class="selector forms-selector">
+                                    <input type="hidden" value="0">
+                                    <div class="selector-val" data-val="0">Другой банк</div>
+                                    <ul class="selector-list">
+                                        <li data-val="0">Другой банк</li>
+                                        <li data-val="1">Банк 001</li>
+                                        <li data-val="2">Банк 010</li>
+                                        <li data-val="3">Банк 011</li>
+                                        <li data-val="4">Банк 100</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="forms-line">
+                                <div class="forms-label">Название банка</div>
+                                <input class="forms-input" type="text" placeholder="Введите название банка">
+                            </div>
+                            <div class="forms-line">
+                                <div class="forms-label">Номер карты</div>
+                                <input class="forms-input" type="text" placeholder="Введите номер карты">
+                            </div>
+                            <div class="forms-line top-30">
+                                <input class="btn btn-orang" type="submit" value="Сохранить">
+                            </div>
+                        </form>
+                    </div><!-- END userdata-tab-4 Финансовая помощь -->
+
+                </div><!-- END userdata-tabs -->
+            </div><!-- END userdata-wrap -->
+        </div><!-- END popup-body -->
+    </div><!-- END popup-wrap -->
+</div><!-- END popup-personal -->

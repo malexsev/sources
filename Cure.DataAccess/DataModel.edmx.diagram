@@ -52,6 +52,8 @@
         <EntityTypeShape EntityType="DataModel.StopVisit" Width="1.5" PointX="17.5" PointY="15.625" />
         <AssociationConnector Association="DataModel.FK_StopVisit_Department" />
         <AssociationConnector Association="DataModel.FK_StopVisit_RefStopVisitType" />
+        <EntityTypeShape EntityType="DataModel.ChildHideFile" Width="1.5" PointX="1.5" PointY="21" />
+        <AssociationConnector Association="DataModel.FK_ChildHideFile_Child" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

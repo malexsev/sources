@@ -35,10 +35,16 @@ namespace Cure.DataAccess.DAL
         void DeleteRefDiagnoz(RefDiagnoz refDiagnoz);
         void UpdateRefDiagnoz(RefDiagnoz refDiagnoz);
 
+        bool CheckChildHideFile(int childId, string fileName);
+        IEnumerable<ChildHideFile> GetChildHideFiles(int childId);
+        void InsertChildHideFile(ChildHideFile childHideFile);
+        void DeleteChildHideFile(ChildHideFile childHideFile);
+
         IEnumerable<ViewChild> FilterChilds(int countryId, string regionName, int ageOption, int diagnozeId, int skipRecords);
         int CountChilds(int countryId, string regionName, int ageOption, int diagnozeId);
         IEnumerable<ViewChild> ViewChilds();
         ViewChild ViewChild(int id);
+        ViewChild ViewChild(string ownerUser);
         IEnumerable<Child> GetChilds();
         IEnumerable<Child> GetChilds(int countryId);
         void InsertChild(Child child);

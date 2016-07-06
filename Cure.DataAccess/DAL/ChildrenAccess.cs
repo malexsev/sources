@@ -8,6 +8,11 @@ namespace Cure.DataAccess.DAL
 {
     internal partial class DataRepository
     {
+        public ViewChild ViewChild(string ownerUser)
+        {
+            return context.ViewChilds.FirstOrDefault(x => x.OwnerUser == ownerUser);
+        }
+
         public ViewChild ViewChild(int id)
         {
             return context.ViewChilds.FirstOrDefault(x => x.Id == id);

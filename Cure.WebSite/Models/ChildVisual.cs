@@ -12,8 +12,8 @@ namespace Cure.WebSite.Models
         public int Age { get; set; }
         public string PhotoUrl { get; set; }
         public PhotoItem PhotoItem { get; set; }
-        public List<PhotoItem> PhotoItemLst { get; set; }
-        public List<DocItem> DocItemLst { get; set; }
+        //public List<PhotoItem> PhotoItemLst { get; set; }
+        //public List<DocItem> DocItemLst { get; set; }
         public bool IsAnySocial
         {
             get
@@ -113,8 +113,8 @@ namespace Cure.WebSite.Models
                 this.UserLoweredUserName = child.UserLoweredUserName;
 
                 PhotoItem = new PhotoItem();
-                PhotoItemLst = new List<PhotoItem>();
-                DocItemLst = new List<DocItem>();
+                //PhotoItemLst = new List<PhotoItem>();
+                //DocItemLst = new List<DocItem>();
                 Age = DateTime.Today.Year - child.Birthday.Year;
                 string photoLocation = Path.Combine(ConfigurationManager.AppSettings["PhotoLocation"], this.GuidId.ToString());
                 string photoUrl = Path.Combine(ConfigurationManager.AppSettings["PhotoUrl"], this.GuidId.ToString());
@@ -142,19 +142,10 @@ namespace Cure.WebSite.Models
                         {
                             PhotoItem = new PhotoItem(photoUrl, fileInfo.Name);
                         }
-                        PhotoItemLst.Add(new PhotoItem(photoUrl, fileInfo.Name));
-                    }
-                }
-
-                //Документы
-                if (Directory.Exists(docsLocation))
-                {
-                    var dirInfo = new DirectoryInfo(docsLocation);
-                    FileInfo[] fileInfoArray = dirInfo.GetFiles();
-
-                    foreach (FileInfo fileInfo in fileInfoArray)
-                    {
-                        DocItemLst.Add(new DocItem(docsUrl, fileInfo.Name));
+                        else
+                        {
+                            break;
+                        }
                     }
                 }
             }

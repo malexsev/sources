@@ -3,7 +3,7 @@
                                                                 @class = "registr-form js-login-validate" 
                                                                 }))
 {
-    @*<form class="registr-form js-login-validate">*@
+    @Html.Hidden("RedirectTo", Url.Action("MyPage", "Cabinet"));
     <div class="forms-line">
         <div class="forms-label">Имя пользователя</div>
         @Html.TextBox("loginname", "", new

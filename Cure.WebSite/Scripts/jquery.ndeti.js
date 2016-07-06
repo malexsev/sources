@@ -304,7 +304,7 @@ $(document).ready(function () {
                         $("#loginname").val("");
                         $("#password").val("");
                         $("#error-login").hide();
-                        location.reload();
+                        location.href = $("#RedirectTo").val();
                     } else {
                         $("#loginname").parent().addClass("has-error");
                         $("#password").parent().addClass("has-error");

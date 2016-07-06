@@ -5,6 +5,11 @@
 
     public partial class DataAccessBL
     {
+        public ViewChild ViewChild(string ownerUser)
+        {
+            return dataRepository.ViewChild(ownerUser);
+        }
+
         public ViewChild ViewChild(int id)
         {
             return dataRepository.ViewChild(id);

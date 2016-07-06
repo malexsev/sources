@@ -9,7 +9,6 @@ D:\_Projects\_Maznik\Bolnica\Sources\Cure.Notification\Cure.Notification\bin\Deb
 D:\_Projects\_Maznik\Bolnica\Sources\Cure.Notification\Cure.Notification\obj\Debug\Cure.Notification.csprojResolveAssemblyReference.cache
 D:\_Projects\_Maznik\Bolnica\Sources\Cure.Notification\Cure.Notification\obj\Debug\Cure.Notification.dll
 D:\_Projects\_Maznik\Bolnica\Sources\Cure.Notification\Cure.Notification\obj\Debug\Cure.Notification.pdb
-D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Notification\obj\Debug\Cure.Notification.csprojResolveAssemblyReference.cache
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Notification\bin\Debug\Cure.Notification.dll
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Notification\bin\Debug\Cure.Notification.pdb
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Notification\bin\Debug\Cure.DataAccess.dll
@@ -18,5 +17,6 @@ D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Notification\bin\Debug\Cure.Utils
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Notification\bin\Debug\Cure.DataAccess.pdb
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Notification\bin\Debug\Cure.Reports.pdb
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Notification\bin\Debug\Cure.Utils.pdb
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Notification\obj\Debug\Cure.Notification.csprojResolveAssemblyReference.cache
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Notification\obj\Debug\Cure.Notification.dll
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Notification\obj\Debug\Cure.Notification.pdb

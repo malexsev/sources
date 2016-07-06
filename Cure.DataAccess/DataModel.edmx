@@ -79,6 +79,15 @@
           <Property Name="FinCardNumber" Type="nvarchar" MaxLength="50" />
           <Property Name="FinCardName" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="ChildHideFile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ChildId" Type="int" Nullable="false" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="HideDate" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="Department">
           <Key>
             <PropertyRef Name="Id" />
@@ -785,6 +794,20 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ChildHideFile_Child">
+          <End Role="Child" Type="Self.Child" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ChildHideFile" Type="Self.ChildHideFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Child">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ChildHideFile">
+              <PropertyRef Name="ChildId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Department_Department">
           <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
           <End Role="Department1" Type="Self.Department" Multiplicity="*" />
@@ -983,6 +1006,7 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
           <EntitySet Name="aspnet_Membership" EntityType="Self.aspnet_Membership" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="aspnet_Users" EntityType="Self.aspnet_Users" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Child" EntityType="Self.Child" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ChildHideFile" EntityType="Self.ChildHideFile" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NotificationLog" EntityType="Self.NotificationLog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
@@ -1281,6 +1305,10 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
             <End Role="RefRodstvo" EntitySet="RefRodstvo" />
             <End Role="Child" EntitySet="Child" />
           </AssociationSet>
+          <AssociationSet Name="FK_ChildHideFile_Child" Association="Self.FK_ChildHideFile_Child">
+            <End Role="Child" EntitySet="Child" />
+            <End Role="ChildHideFile" EntitySet="ChildHideFile" />
+          </AssociationSet>
           <AssociationSet Name="FK_Department_Department" Association="Self.FK_Department_Department">
             <End Role="Department" EntitySet="Department" />
             <End Role="Department1" EntitySet="Department" />
@@ -1462,6 +1490,11 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
           <AssociationSet Name="FK_StopVisit_RefStopVisitType" Association="DataModel.FK_StopVisit_RefStopVisitType">
             <End Role="RefStopVisitType" EntitySet="RefStopVisitTypes" />
             <End Role="StopVisit" EntitySet="StopVisits" />
+          </AssociationSet>
+          <EntitySet Name="ChildHideFiles" EntityType="DataModel.ChildHideFile" />
+          <AssociationSet Name="FK_ChildHideFile_Child" Association="DataModel.FK_ChildHideFile_Child">
+            <End Role="Child" EntitySet="Children" />
+            <End Role="ChildHideFile" EntitySet="ChildHideFiles" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="OrderStatu">
@@ -2249,6 +2282,7 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
           <NavigationProperty Name="RefDiagnoz" Relationship="DataModel.FK_Child_RefDiagnoz" FromRole="Child" ToRole="RefDiagnoz" />
           <NavigationProperty Name="RefOperator" Relationship="DataModel.FK_Child_RefOperator" FromRole="Child" ToRole="RefOperator" />
           <NavigationProperty Name="RefRodstvo" Relationship="DataModel.FK_Child_RefRodstvo" FromRole="Child" ToRole="RefRodstvo" />
+          <NavigationProperty Name="ChildHideFiles" Relationship="DataModel.FK_ChildHideFile_Child" FromRole="Child" ToRole="ChildHideFile" />
         </EntityType>
         <Association Name="FK_Child_RefBank">
           <End Type="DataModel.RefBank" Role="RefBank" Multiplicity="0..1" />
@@ -2438,6 +2472,30 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
             </Principal>
             <Dependent Role="StopVisit">
               <PropertyRef Name="StopTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ChildHideFile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ChildId" Type="Int32" Nullable="false" />
+          <Property Name="FileName" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HideDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Child" Relationship="DataModel.FK_ChildHideFile_Child" FromRole="ChildHideFile" ToRole="Child" />
+        </EntityType>
+        <Association Name="FK_ChildHideFile_Child">
+          <End Type="DataModel.Child" Role="Child" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="DataModel.ChildHideFile" Role="ChildHideFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Child">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ChildHideFile">
+              <PropertyRef Name="ChildId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -3103,6 +3161,16 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
                 <ScalarProperty Name="DateFrom" ColumnName="DateFrom" />
                 <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
                 <ScalarProperty Name="StopTypeId" ColumnName="StopTypeId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChildHideFiles">
+            <EntityTypeMapping TypeName="DataModel.ChildHideFile">
+              <MappingFragment StoreEntitySet="ChildHideFile">
+                <ScalarProperty Name="HideDate" ColumnName="HideDate" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="ChildId" ColumnName="ChildId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

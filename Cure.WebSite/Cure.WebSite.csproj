@@ -245,12 +245,14 @@
   <ItemGroup>
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CabinetController.cs" />
     <Compile Include="Controllers\ChildrenController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ChildVisualDetailed.cs" />
     <Compile Include="Models\ChildVisual.cs" />
     <Compile Include="Models\DocItem.cs" />
     <Compile Include="Models\PhotoItem.cs" />
@@ -273,10 +275,13 @@
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Shared\_Account.cshtml" />
     <Content Include="Views\Shared\_MainMenu.cshtml" />
-    <Content Include="Views\Shared\_AccountHeader.cshtml" />
+    <Content Include="Views\Shared\_AccountMenu.cshtml" />
     <Content Include="Views\Shared\_AccountLogin.cshtml" />
     <Content Include="Views\Shared\_AccountRegister.cshtml" />
     <Content Include="Views\Shared\_AccountReсovery.cshtml" />
+    <Content Include="Views\Cabinet\Index.cshtml" />
+    <Content Include="Views\Cabinet\MyPage.cshtml" />
+    <Content Include="Views\Shared\_CabinetChildrenEdit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

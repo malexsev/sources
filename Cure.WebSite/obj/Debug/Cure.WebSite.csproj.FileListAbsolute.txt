@@ -1,6 +1,8 @@
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\Cure.WebSite.dll.config
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\Cure.WebSite.dll
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\Cure.WebSite.pdb
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\Cure.DataAccess.dll
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\Cure.Notification.dll
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\EntityFramework.dll
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\Moq.dll
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\Ninject.dll
@@ -13,6 +15,10 @@ D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\System.Web.Webpages.D
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\System.Web.Webpages.dll
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\System.Web.Webpages.Razor.dll
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\WebActivatorEx.dll
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\Cure.Utils.dll
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\Cure.Reports.dll
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\Cure.DataAccess.pdb
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\Cure.Notification.pdb
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\EntityFramework.xml
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\Moq.xml
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\Ninject.xml
@@ -24,14 +30,8 @@ D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\System.Web.Webpages.D
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\System.Web.Webpages.Razor.xml
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\System.Web.Helpers.xml
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\System.Web.Mvc.xml
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\Cure.Utils.pdb
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\Cure.Reports.pdb
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\obj\Debug\Cure.WebSite.csprojResolveAssemblyReference.cache
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\obj\Debug\Cure.WebSite.dll
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\obj\Debug\Cure.WebSite.pdb
-D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\Cure.DataAccess.dll
-D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\Cure.DataAccess.pdb
-D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\Cure.Notification.dll
-D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\Cure.Utils.dll
-D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\Cure.Reports.dll
-D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\Cure.Notification.pdb
-D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\Cure.Utils.pdb
-D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebSite\bin\Cure.Reports.pdb

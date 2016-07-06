@@ -117,6 +117,11 @@
       <End Role="RefStopVisitType" EntitySet="RefStopVisitTypes" />
       <End Role="StopVisit" EntitySet="StopVisits" />
     </AssociationSet>
+    <EntitySet Name="ChildHideFiles" EntityType="DataModel.ChildHideFile" />
+    <AssociationSet Name="FK_ChildHideFile_Child" Association="DataModel.FK_ChildHideFile_Child">
+      <End Role="Child" EntitySet="Children" />
+      <End Role="ChildHideFile" EntitySet="ChildHideFiles" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="OrderStatu">
     <Key>
@@ -903,6 +908,7 @@
     <NavigationProperty Name="RefDiagnoz" Relationship="DataModel.FK_Child_RefDiagnoz" FromRole="Child" ToRole="RefDiagnoz" />
     <NavigationProperty Name="RefOperator" Relationship="DataModel.FK_Child_RefOperator" FromRole="Child" ToRole="RefOperator" />
     <NavigationProperty Name="RefRodstvo" Relationship="DataModel.FK_Child_RefRodstvo" FromRole="Child" ToRole="RefRodstvo" />
+    <NavigationProperty Name="ChildHideFiles" Relationship="DataModel.FK_ChildHideFile_Child" FromRole="Child" ToRole="ChildHideFile" />
   </EntityType>
   <Association Name="FK_Child_RefBank">
     <End Type="DataModel.RefBank" Role="RefBank" Multiplicity="0..1" />
@@ -1092,6 +1098,30 @@
       </Principal>
       <Dependent Role="StopVisit">
         <PropertyRef Name="StopTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ChildHideFile">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ChildId" Type="Int32" Nullable="false" />
+    <Property Name="FileName" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="HideDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Child" Relationship="DataModel.FK_ChildHideFile_Child" FromRole="ChildHideFile" ToRole="Child" />
+  </EntityType>
+  <Association Name="FK_ChildHideFile_Child">
+    <End Type="DataModel.Child" Role="Child" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="DataModel.ChildHideFile" Role="ChildHideFile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Child">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ChildHideFile">
+        <PropertyRef Name="ChildId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
