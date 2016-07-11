@@ -1,0 +1,141 @@
+﻿@using Cure.DataAccess
+@using Cure.WebSite.Models
+@using (Html.BeginForm("ChildTab4", "Cabinet", FormMethod.Post, new
+                        {
+                            @id = "formChildTab4",
+                            @class = "userdata-form js-validate"
+                        }))
+{
+    <div class="forms-title top-0">Платежные системы</div>
+    <div class="forms-line">
+        <div class="forms-label">Вэбмани</div>
+        @Html.TextBox("webmoney", ((ChildVisualDetailed)(ViewBag.Profile)).FinWebmoney, new
+        {
+            @id = "webmoney",
+            @placeholder = "Номер счёта одной валюты",
+            @maxlength = "50",
+            @class = "forms-input btm-10"
+        })
+        @Html.TextBox("webmoney2", ((ChildVisualDetailed)(ViewBag.Profile)).FinWebmoney2, new
+        {
+            @id = "webmoney2",
+            @placeholder = "Номер счёта другой валюты",
+            @maxlength = "50",
+            @class = "forms-input btm-10"
+        })
+        @Html.TextBox("webmoney3", ((ChildVisualDetailed)(ViewBag.Profile)).FinWebmoney3, new
+        {
+            @id = "webmoney3",
+            @placeholder = "Номер счёта третьей валюты",
+            @maxlength = "50",
+            @class = "forms-input"
+        })
+    </div>
+    <div class="forms-line">
+        <div class="forms-label">Яндекс-деньги</div>
+        @Html.TextBox("yandexmoney", ((ChildVisualDetailed)(ViewBag.Profile)).FinYandexMoney, new
+        {
+            @id = "yandexmoney",
+            @placeholder = "Номер счета",
+            @maxlength = "50",
+            @class = "forms-input"
+        })
+    </div>
+    <div class="forms-line">
+        <div class="forms-label">Киви</div>
+        @Html.TextBox("kiwi", ((ChildVisualDetailed)(ViewBag.Profile)).FinKiwi, new
+        {
+            @id = "kiwi",
+            @placeholder = "Номер счета",
+            @maxlength = "50",
+            @class = "forms-input"
+        })
+    </div>
+    <div class="forms-title">Платежи на телефон</div>
+    <div class="forms-label">Оператор</div>
+    <div class="forms-line">
+        <div class="selector forms-selector">
+            @Html.Hidden("finoperator", ((ChildVisualDetailed)(ViewBag.Profile)).FinOperatorId, new { id = "operator" })
+            <div class="selector-val" data-val="0">Не выбрано</div>
+            <ul class="selector-list">
+                <li data-val="0">Не нашёл в списке</li>
+                @foreach (RefOperator oper in ViewBag.Operators)
+                {
+                    <li data-val="@oper.Id">@oper.Name & </li>
+                }
+            </ul>
+        </div>
+    </div>
+    <div class="forms-line">
+        <div class="forms-label">Номер</div>
+        @Html.TextBox("fintelephone", ((ChildVisualDetailed)(ViewBag.Profile)).FinPhoneNumber, new
+        {
+            @id = "fintelephone",
+            @placeholder = "Номер телефона",
+            @maxlength = "50",
+            @class = "forms-input"
+        })
+    </div>
+    <div class="forms-title">Банковская карта</div>
+    <div class="forms-line">
+        <div class="forms-label">Страна</div>
+        <div class="selector forms-selector" id="fincountries">
+            @Html.Hidden("fincountry", ((ChildVisualDetailed)(ViewBag.Profile)).FinCountryId, new { id = "fincountry" })
+            <div class="selector-val" data-val="1">Российская Федерация</div>
+            <ul class="selector-list">
+                @foreach (RefCountry country in ViewBag.Countries)
+                {
+                    <li data-val="@country.Id">@country.Name</li>
+                }
+            </ul>
+        </div>
+    </div>
+    <div class="forms-line">
+        <div class="forms-label">Банк</div>
+        <div class="selector forms-selector">
+            @Html.Hidden("bank", ((ChildVisualDetailed)(ViewBag.Profile)).FinBankId, new { id = "bank" })
+            <div class="selector-val" data-val="0" id="finbanktext">Другой банк</div>
+            <ul class="selector-list" id="finbanks">
+                <li data-val="0">Другой банк</li>
+                @foreach (RefBank bank in ViewBag.CountryBanks)
+                {
+                    <li data-val="@bank.Id">@bank.Name</li>
+                }
+            </ul>
+        </div>
+    </div>
+    <div class="forms-line">
+        <div class="forms-label">Название банка</div>
+        @Html.TextBox("bankother", ((ChildVisualDetailed)(ViewBag.Profile)).FinBankOther, new
+        {
+            @id = "bankother",
+            @placeholder = "Введите название банка",
+            @maxlength = "50",
+            @class = "forms-input"
+        })
+    </div>
+    <div class="forms-line">
+        <div class="forms-label">Номер карты</div>
+        @Html.TextBox("cardnumber", ((ChildVisualDetailed)(ViewBag.Profile)).FinCardNumber, new
+        {
+            @id = "cardnumber",
+            @placeholder = "Введите номер карты",
+            @maxlength = "50",
+            @class = "forms-input"
+        })
+    </div>
+    <div class="forms-line">
+        <div class="forms-label">Имя на карте</div>
+        @Html.TextBox("cardname", ((ChildVisualDetailed)(ViewBag.Profile)).FinCardName, new
+        {
+            @id = "cardname",
+            @placeholder = "Имя с карты",
+            @maxlength = "50",
+            @class = "forms-input"
+        })
+    </div>
+    <div class="forms-line top-30">
+        <input class="btn btn-orang" type="submit" value="Сохранить">
+    </div>
+    <div id="error-tab4" class="form-errors"></div>
+}

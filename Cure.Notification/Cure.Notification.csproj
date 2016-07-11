@@ -71,8 +71,8 @@
       <Project>{83627bd5-adee-4f16-9972-77bbd0072b7c}</Project>
       <Name>Cure.Reports</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Cure\Cure.Utils\Cure.Utils.csproj">
-      <Project>{0d0f0770-e895-4e4e-ab52-8e84868f86a5}</Project>
+    <ProjectReference Include="..\Cure.Utils\Cure.Utils.csproj">
+      <Project>{0D0F0770-E895-4E4E-AB52-8E84868F86A5}</Project>
       <Name>Cure.Utils</Name>
     </ProjectReference>
   </ItemGroup>

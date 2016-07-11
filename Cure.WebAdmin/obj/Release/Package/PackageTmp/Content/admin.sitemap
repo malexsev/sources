@@ -12,8 +12,10 @@
       <siteMapNode url="~/Admin/RefBankList.aspx" title="Банки" description="Банки применяются для профиля Финансовой помощи" />
       <siteMapNode url="~/Admin/RefOperatorList.aspx" title="Операторы связи" description="Операторы связи применяются для профиля Финансовой помощи" />
       <siteMapNode url="~/Admin/RefDiagnozList.aspx" title="Группы диагнозов" description="Устанавливаются админом для профилей НД по описанному пользователем в свободной форме диагнозу" />
+      <siteMapNode url="~/Admin/RefStopVisitTypeList.aspx" title="Типы блокировок" description="Типы блокировок заездов отделений" />
     </siteMapNode>
     <siteMapNode url="" title="Система">
+      <siteMapNode url="~/Admin/StopVisitList.aspx" title="Блокировки заездов" description="Блокировки заездов отделений" />
       <siteMapNode url="~/Admin/SettingList.aspx" title="Настройки системы" description="Редактирование использующихся в программе стран" />
       <siteMapNode url="~/Admin/NotificationLogList.aspx" title="Лог оповещения" description="Редактирование использующихся в программе стран" />
       <siteMapNode url="~/Admin/SmsLogList.aspx" title="Лог расхода sms" description="Редактирование использующихся в программе стран" />

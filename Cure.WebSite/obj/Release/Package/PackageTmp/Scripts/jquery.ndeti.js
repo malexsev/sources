@@ -139,9 +139,31 @@ $(document).ready(function () {
                 .val(selDataVal)
                 .trigger('change'); // Событие изменения в поле
         $(this).closest(".selector").removeClass("show-list");
+        //TODO: Нижнее надо только селекторам формы 'form#skiprecords'
         $("#skiprecords").val(0);
-        $('form#childrenform').submit();
+        $('form#skiprecords').submit();
     });
+    $(document).on('click', "#fincountries li", function () {
+        var serializedForm = $('#formChildTab4').serialize();
+        $.ajax({
+            url: "/Cabinet/RefreshBanks",
+            type: "POST",
+            data: serializedForm,
+            success: function (data) {
+                refreshBanks(data);
+            },
+            error: function (result) {
+                alert(result.responseText);
+            }
+        });
+    });
+    function refreshBanks(banks) {
+        $("#finbanks").html("");
+        $("#finbanktext").text("");
+        $.each(banks, function (i) {
+            $("#finbanks").append("<li data-val='" + this.Id + "'>" + this.Name + "</li>");
+        });
+    }
     //Закрытие списка селектора при клике мимо
     $(document).mouseup(function (e) {
         var selectorList = $('.selector.show-list');
@@ -157,6 +179,7 @@ $(document).ready(function () {
                 selectedText;
             if (inputVal) selectedText = $that.find('li[data-val="' + inputVal + '"]').text();
             if (selectedText) $that.children(".selector-val").text(selectedText);
+            //TODO: Нижнее надо оставить только для страницы Наши Дети
             $("#more-count").text($(".js-ajax-for-count").length);
             //console.log( selectedText );
         });
@@ -197,7 +220,7 @@ $(document).ready(function () {
                 $(element).parent().removeClass(errorClass);
             },
             submitHandler: function (form) {
-                alert("Submitted!");
+                //alert("Submitted!");
                 //form.submit();
             }
         });
@@ -304,7 +327,7 @@ $(document).ready(function () {
                         $("#loginname").val("");
                         $("#password").val("");
                         $("#error-login").hide();
-                        location.reload();
+                        location.href = $("#RedirectTo").val();
                     } else {
                         $("#loginname").parent().addClass("has-error");
                         $("#password").parent().addClass("has-error");
@@ -373,6 +396,149 @@ $(document).ready(function () {
                     } else {
                         $("#remindinp").parent().addClass("has-error");
                         $("#error-recovery").show().text("Пользователя с таким именем или адресом электронной почты в системе не найдено.");
+                    }
+                },
+                error: function (result) {
+                    alert(result.responseText);
+                }
+            });
+        }
+        e.preventDefault();
+    });
+    
+    /*------------ Сохранение Моя страница Таб1 ----------------------------*/
+    $("#formChildTab1").submit(function (e) {
+        $("#error-tab1").hide();
+        var form = $('#formChildTab1');
+        if (form.valid()) {
+            var serializedForm = form.serialize();
+            $.ajax({
+                url: "/Cabinet/SaveTab1",
+                type: "POST",
+                data: serializedForm,
+                success: function (result) {
+                    if (result == "1") {
+                        $("#error-tab1").removeClass("form-errors");
+                        $("#error-tab1").show().text("Сохранено.");
+                    } else {
+                        $("#error-tab1").addClass("form-errors");
+                        $("#error-tab1").show().text("Ошибка при сохранении данных, проверьте данные и попробуйте снова.");
+                    }
+                },
+                error: function (result) {
+                    alert(result.responseText);
+                }
+            });
+        }
+        e.preventDefault();
+    });
+    
+    /*------------ Сохранение главной фото Таб1 ----------------------------*/
+    $('#fileUpload').on('change', function (e) {
+        var files = e.target.files;
+        if (files.length > 0) {
+            if (window.FormData !== undefined) {
+                var data = new FormData();
+                for (var x = 0; x < files.length; x++) {
+                    data.append(files[x].name, files[x]);
+                }
+
+                $.ajax({
+                    type: "POST",
+                    url: '/Cabinet/UploadAva',
+                    contentType: false,
+                    processData: false,
+                    data: data,
+                    success: function (result) {
+                        $("#error-tab1").removeClass("form-errors");
+                        $("#error-tab1").show().text("Файл загружен. Обновите страницу для просмотра.");
+                        console.log(result);
+                    },
+                    error: function (xhr, status, p3, p4) {
+                        var err = "Error " + " " + status + " " + p3 + " " + p4;
+                        if (xhr.responseText && xhr.responseText[0] == "{")
+                            err = JSON.parse(xhr.responseText).Message;
+                        console.log(err);
+                    }
+                });
+            } else {
+                alert("This browser doesn't support HTML5 file uploads!");
+            }
+        }
+        e.preventDefault();
+    });
+
+    /*------------ Сохранение Моя страница Таб2 ----------------------------*/
+    $("#formChildTab2").submit(function (e) {
+        $("#error-tab2").hide();
+        var form = $('#formChildTab2');
+        if (form.valid()) {
+            var serializedForm = form.serialize();
+            $.ajax({
+                url: "/Cabinet/SaveTab2",
+                type: "POST",
+                data: serializedForm,
+                success: function (result) {
+                    if (result == "1") {
+                        $("#error-tab2").removeClass("form-errors");
+                        $("#error-tab2").show().text("Данные сохранены, обновите страницу.");
+                    } else {
+                        $("#error-tab2").addClass("form-errors");
+                        $("#error-tab2").show().text("Ошибка при сохранении данных, проверьте данные и попробуйте снова.");
+                    }
+                },
+                error: function (result) {
+                    alert(result.responseText);
+                }
+            });
+        }
+        e.preventDefault();
+    });
+
+    /*------------ Сохранение Моя страница Таб3 ----------------------------*/
+    $("#formChildTab3").submit(function (e) {
+        $("#error-tab3").hide();
+        var form = $('#formChildTab3');
+        if (form.valid()) {
+            var serializedForm = form.serialize();
+            $.ajax({
+                url: "/Cabinet/SaveTab3",
+                type: "POST",
+                data: serializedForm,
+                success: function (result) {
+                    if (result == "1") {
+                        $("#error-tab3").removeClass("form-errors");
+                        $("#error-tab3").show().text("Сохранено.");
+                    } else {
+                        $("#error-tab3").addClass("form-errors");
+                        $("#error-tab3").show().text("Ошибка при сохранении данных, проверьте данные и попробуйте снова.");
+                    }
+                },
+                error: function (result) {
+                    alert(result.responseText);
+                }
+            });
+        }
+        e.preventDefault();
+    });
+
+    /*------------ Сохранение Моя страница Таб4 ----------------------------*/
+    $("#formChildTab4").submit(function (e) {
+        $("#error-tab4").hide();
+        var form = $('#formChildTab4');
+        if (form.valid()) {
+            var serializedForm = form.serialize();
+            $.ajax({
+                url: "/Cabinet/SaveTab4",
+                type: "POST",
+                data: serializedForm,
+                success: function (result) {
+                    if (result == "1") {
+                        $("#error-tab4").removeClass("form-errors");
+                        $("#error-tab4").show().text("Сохранено.");
+                    } else {
+                        $("#error-tab4").addClass("form-errors");
+                        $("#error-tab4").show().text("Ошибка при сохранении данных, проверьте данные и попробуйте снова.");
                     }
                 },
                 error: function (result) {
@@ -584,6 +750,12 @@ $(document).ready(function () {
     $('.js-input-daterange').datepicker({
         format: 'dd.mm.yyyy',
         startDate: '+5d',
+        language: 'ru',
+        inputs: $('.ico-calendar')
+    });
+    $('.js-input-birthday').datepicker({
+        format: 'dd.mm.yyyy',
+        endDate: '-1m',
         language: 'ru',
         inputs: $('.ico-calendar')
     });

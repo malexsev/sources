@@ -1,0 +1,77 @@
+﻿@using Cure.DataAccess
+@using Cure.WebSite.Models
+@using (Html.BeginForm("SaveTab1", "Cabinet", FormMethod.Post, new
+                        {
+                            @id = "formChildTab1",
+                            @class = "userdata-form js-validate",
+                            enctype = "multipart/form-data"
+                        }))
+{
+    <div class="forms-line">
+        <div class="forms-label">Имя*</div>
+        @Html.TextBox("childname", ((ChildVisualDetailed)(ViewBag.Profile)).Name, new
+        {
+            @id = "childname",
+            @placeholder = "Введите имя",
+            @maxlength = "50",
+            @class = "forms-input"
+        })
+    </div>
+    <div class="forms-line js-input-birthday">
+        <div class="forms-label">Дата рождения*</div>
+        @Html.TextBox("birthday", ((ChildVisualDetailed)(ViewBag.Profile)).Birthday.ToString("dd.MM.yyyy") ?? "", new
+        {
+            @id = "birthday",
+            @placeholder = "30.12.2006",
+            @maxlength = "50",
+            @class = "forms-input has-icon ico-calendar"
+        })
+    </div>
+    <div class="forms-line">
+        <div class="forms-label">Страна*</div>
+        <div class="selector forms-selector">
+            @Html.Hidden("country", ((ChildVisualDetailed)(ViewBag.Profile)).CountryId, new { id = "country" })
+            <div class="selector-val" data-val="0">Все страны</div>
+            <ul class="selector-list">
+                <li data-val="0">Все страны</li>
+                @foreach (RefCountry country in ViewBag.Countries)
+                {
+                    <li data-val="@country.Id">@country.Name</li>
+                }
+            </ul>
+        </div>
+    </div>
+    <div class="forms-line">
+        <div class="forms-label">Регион*</div>
+        @Html.TextBox("region", ((ChildVisualDetailed)(ViewBag.Profile)).Region, new
+        {
+            @id = "region",
+            @placeholder = "Введите регион",
+            @maxlength = "50",
+            @class = "forms-input"
+        })
+    </div>
+    <div class="forms-line">
+        <div class="forms-label">Диагноз</div>
+        @Html.TextBox("diagnoz", ((ChildVisualDetailed)(ViewBag.Profile)).Diagnoz, new
+        {
+            @id = "diagnoz",
+            @placeholder = "Введите диагноз",
+            @maxlength = "250",
+            @class = "forms-input"
+        })
+    </div>
+    <div class="forms-line">
+        <div class="forms-preview">
+            <img src="@Html.Raw(((ChildVisualDetailed)(ViewBag.Profile)).PhotoItem.UrlMin)" alt="__">
+        </div>
+        <div class="forms-file top-10">
+            <div class="forms-file-msg">Изменить фото</div>
+            <input id="fileUpload" name="fileUpload" type="file" onchange="this.previousSibling.previousSibling.innerHTML = this.value">
+        </div>
+    </div>
+    <div class="forms-line top-30">
+        <input class="btn btn-orang" type="submit" value="Сохранить">
+    </div>
+    <div id="error-tab1" class="form-errors"></div>
+}

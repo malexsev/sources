@@ -281,7 +281,14 @@
     <Content Include="Views\Shared\_AccountReсovery.cshtml" />
     <Content Include="Views\Cabinet\Index.cshtml" />
     <Content Include="Views\Cabinet\MyPage.cshtml" />
-    <Content Include="Views\Shared\_CabinetChildrenEdit.cshtml" />
+    <Content Include="Views\Shared\_CabinetChildEdit.cshtml" />
+    <Content Include="Views\Shared\_CabinetChildEditTab1.cshtml" />
+    <Content Include="Views\Shared\_CabinetChildEditTab2.cshtml" />
+    <Content Include="Views\Shared\_CabinetChildEditTab3.cshtml" />
+    <Content Include="Views\Shared\_CabinetChildEditTab4.cshtml" />
+    <Content Include="Views\Cabinet\Messages.cshtml" />
+    <Content Include="Views\Cabinet\Orders.cshtml" />
+    <Content Include="Views\Cabinet\Balance.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -301,6 +308,10 @@
     <ProjectReference Include="..\Cure.Notification\Cure.Notification.csproj">
       <Project>{61C42D50-9035-4DD5-A850-D0B292949CDB}</Project>
       <Name>Cure.Notification</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cure.Utils\Cure.Utils.csproj">
+      <Project>{0d0f0770-e895-4e4e-ab52-8e84868f86a5}</Project>
+      <Name>Cure.Utils</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

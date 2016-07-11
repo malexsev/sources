@@ -82,43 +82,6 @@ namespace Cure.WebSite.Controllers
             return false;
         }
 
-        ////Возвращает сгенерированный пароль пользователя
-        //private void CreateUser(string phoneNumber, string password)
-        //{
-        //    PBKDF2 crypto = new PBKDF2();
-        //    string encrptPassword = crypto.Compute(password);
-
-        //    User user = new User
-        //    {
-        //        CreateDate = DateTime.Now,
-        //        IsApproved = false,
-        //        LastLoginDate = DateTime.Now,
-        //        Name = String.Empty,
-        //        Password = encrptPassword,
-        //        PasswordSalt = crypto.Salt,
-        //        PhoneNumber = phoneNumber,
-        //        ReservePhoneNumber = String.Empty,
-        //        SmsRenewCount = 0
-        //    };
-        //    DataAccessBL dal = new DataAccessBL();
-        //    dal.InsertUser(user);
-        //}
-
-        //private void UpdateUser(string phoneNumber, string password)
-        //{
-        //    PBKDF2 crypto = new PBKDF2();
-        //    string encrptPassword = crypto.Compute(password);
-        //    DataAccessBL dal = new DataAccessBL();
-        //    User user = dal.GetUserByPhone(phoneNumber);
-        //    if (user != null)
-        //    {
-        //        user.Password = encrptPassword;
-        //        user.PasswordSalt = crypto.Salt;
-        //        user.SmsRenewCount = SiteUtils.ParseInt(user.SmsRenewCount, 0) + 1;
-        //        dal.UpdateUser(user);
-        //    }
-        //}
-
         private void ActivateUser(string login)
         {
             var user = Membership.GetUser(login);

@@ -13,14 +13,14 @@ namespace Cure.WebSite.Controllers
             var dal = new DataAccessBL();
             int childId = int.Parse(id);
 
-            return View(new ChildVisualDetailed(dal.ViewChild(childId), dal.GetChildHideFiles(childId)));
+            return View(new ChildVisualDetailed(dal.ViewChild(childId), dal.GetChildHideFiles(childId), dal.GetChildAvaFile(childId)));
         }
 
         public ActionResult Index()
         {
             var dal = new DataAccessBL();
-            
-            var result = dal.FilterChilds(0, "0", 0, 0, 0).Select(x => new ChildVisual(x)).ToList();
+
+            var result = dal.FilterChilds(0, "0", 0, 0, 0).Select(x => new ChildVisual(x, dal.GetChildAvaFile(x.Id))).ToList();
             ViewBag.Countries = dal.GetRefCountries();
             ViewBag.Regions = dal.GetRegions();
             ViewBag.Diagnozes = dal.GetExistingDiagnozs();
@@ -39,7 +39,7 @@ namespace Cure.WebSite.Controllers
             int diagnozeId = int.Parse(filterdiagnoze);
             int skipRecords = int.Parse(skiprecords);
 
-            var result = dal.FilterChilds(countryId, filterregion, ageOption, diagnozeId, skipRecords).Select(x => new ChildVisual(x)).ToList();
+            var result = dal.FilterChilds(countryId, filterregion, ageOption, diagnozeId, skipRecords).Select(x => new ChildVisual(x, dal.GetChildAvaFile(x.Id))).ToList();
             ViewBag.Countries = dal.GetRefCountries();
 
             ViewBag.Regions = countryId == 0 ? dal.GetRegions() : dal.GetRegions(countryId);
@@ -60,7 +60,7 @@ namespace Cure.WebSite.Controllers
             int diagnozeId = int.Parse(filterdiagnoze);
             int skipRecords = int.Parse(skiprecords);
 
-            var result = dal.FilterChilds(countryId, filterregion, ageOption, diagnozeId, skipRecords).Select(x => new ChildVisual(x)).ToList();
+            var result = dal.FilterChilds(countryId, filterregion, ageOption, diagnozeId, skipRecords).Select(x => new ChildVisual(x, dal.GetChildAvaFile(x.Id))).ToList();
 
             return PartialView("_Children", result);
         }

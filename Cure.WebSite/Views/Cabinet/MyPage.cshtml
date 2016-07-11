@@ -26,7 +26,7 @@
                     <div class="child-page-aside">
                         <div class="child-aside-head in-account">
                             <div class="child-aside-img">
-                                <img src="@Model.PhotoUrl" alt="@Model.Name">
+                                <img src="@Model.PhotoItem.UrlMin" alt="@Model.Name">
                             </div>
                             <div class="child-aside-data">
                                 <div class="child-name">@Model.Name</div>
@@ -46,7 +46,8 @@
                                     <a class="info-contact" href="tel:@Model.ContactPhone">@Model.ContactPhone</a>
                                     <a class="info-contact" href="mailto:@Model.ContactEmail">@Model.ContactEmail</a>
                                 </div>
-                            </section>                            @if (Model.IsAnySocial)
+                            </section>                            
+                            @if (Model.IsAnySocial)
                             {
                                 <section class="child-aside-info mob-accordion js-mob-accordion">
                                     <h3 class="info-head js-mob-accordion-btn">Страницы в соцсетях</h3>

@@ -1,0 +1,56 @@
+﻿@using Cure.DataAccess
+@using Cure.WebSite.Models
+@using (Html.BeginForm("ChildTab2", "Cabinet", FormMethod.Post, new
+                        {
+                            @id = "formChildTab2",
+                            @class = "userdata-form js-validate"
+                        }))
+{
+    <div class="forms-line">
+        <div class="forms-label">Имя или имя и отчество*</div>
+        @Html.TextBox("contactname", ((ChildVisualDetailed)(ViewBag.Profile)).ContactName, new
+        {
+            @id = "contactname",
+            @placeholder = "Введите имя или имя и отчество",
+            @maxlength = "50",
+            @class = "forms-input"
+        })
+    </div>
+    <div class="forms-line">
+        <div class="forms-label">Кем приходится ребенку*</div>
+        <div class="selector forms-selector">
+            @Html.Hidden("rodstvo", ((ChildVisualDetailed)(ViewBag.Profile)).ContactRodstvoId, new { id = "rodstvo" })
+            <div class="selector-val" data-val="1">Мать</div>
+            <ul class="selector-list">
+                @foreach (RefRodstvo rodstvo in ViewBag.Rodstvos)
+                {
+                    <li data-val="@rodstvo.Id">@rodstvo.Name</li>
+                }
+            </ul>
+        </div>
+    </div>
+    <div class="forms-line">
+        <div class="forms-label">Электонная почта*</div>
+        @Html.TextBox("email", ((ChildVisualDetailed)(ViewBag.Profile)).ContactEmail, new
+        {
+            @id = "email",
+            @placeholder = "Введите e-mail адрес",
+            @maxlength = "50",
+            @class = "forms-input"
+        })
+    </div>
+    <div class="forms-line">
+        <div class="forms-label">Телефон (желательно)</div>
+        @Html.TextBox("telephone", ((ChildVisualDetailed)(ViewBag.Profile)).ContactPhone, new
+        {
+            @id = "telephone",
+            @placeholder = "Введите телефон",
+            @maxlength = "50",
+            @class = "forms-input"
+        })
+    </div>
+    <div class="forms-line top-30">
+        <input class="btn btn-orang" type="submit" value="Сохранить">
+    </div>
+    <div id="error-tab2" class="form-errors"></div>
+}

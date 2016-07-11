@@ -43,6 +43,7 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("DataModel", "FK_StopVisit_Department", "Department", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.Department), "StopVisit", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.StopVisit), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK_StopVisit_RefStopVisitType", "RefStopVisitType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.RefStopVisitType), "StopVisit", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.StopVisit), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK_ChildHideFile_Child", "Child", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.Child), "ChildHideFile", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.ChildHideFile), true)]
+[assembly: EdmRelationshipAttribute("DataModel", "FK_ChildAvaFile_Child", "Child", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.Child), "ChildAvaFile", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.ChildAvaFile), true)]
 
 #endregion
 
@@ -493,6 +494,22 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<ChildHideFile> _ChildHideFiles;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<ChildAvaFile> ChildAvaFiles
+        {
+            get
+            {
+                if ((_ChildAvaFiles == null))
+                {
+                    _ChildAvaFiles = base.CreateObjectSet<ChildAvaFile>("ChildAvaFiles");
+                }
+                return _ChildAvaFiles;
+            }
+        }
+        private ObjectSet<ChildAvaFile> _ChildAvaFiles;
 
         #endregion
 
@@ -696,6 +713,14 @@ namespace Cure.DataAccess
         public void AddToChildHideFiles(ChildHideFile childHideFile)
         {
             base.AddObject("ChildHideFiles", childHideFile);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the ChildAvaFiles EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToChildAvaFiles(ChildAvaFile childAvaFile)
+        {
+            base.AddObject("ChildAvaFiles", childAvaFile);
         }
 
         #endregion
@@ -2682,6 +2707,204 @@ namespace Cure.DataAccess
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ChildHideFile>("DataModel.FK_ChildHideFile_Child", "ChildHideFile", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_ChildAvaFile_Child", "ChildAvaFile")]
+        public EntityCollection<ChildAvaFile> ChildAvaFiles
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ChildAvaFile>("DataModel.FK_ChildAvaFile_Child", "ChildAvaFile");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ChildAvaFile>("DataModel.FK_ChildAvaFile_Child", "ChildAvaFile", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="ChildAvaFile")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class ChildAvaFile : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new ChildAvaFile object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="childId">Initial value of the ChildId property.</param>
+        /// <param name="fileName">Initial value of the FileName property.</param>
+        /// <param name="changeDate">Initial value of the ChangeDate property.</param>
+        public static ChildAvaFile CreateChildAvaFile(global::System.Int32 id, global::System.Int32 childId, global::System.String fileName, global::System.DateTime changeDate)
+        {
+            ChildAvaFile childAvaFile = new ChildAvaFile();
+            childAvaFile.Id = id;
+            childAvaFile.ChildId = childId;
+            childAvaFile.FileName = fileName;
+            childAvaFile.ChangeDate = changeDate;
+            return childAvaFile;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value, "Id");
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ChildId
+        {
+            get
+            {
+                return _ChildId;
+            }
+            set
+            {
+                OnChildIdChanging(value);
+                ReportPropertyChanging("ChildId");
+                _ChildId = StructuralObject.SetValidValue(value, "ChildId");
+                ReportPropertyChanged("ChildId");
+                OnChildIdChanged();
+            }
+        }
+        private global::System.Int32 _ChildId;
+        partial void OnChildIdChanging(global::System.Int32 value);
+        partial void OnChildIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String FileName
+        {
+            get
+            {
+                return _FileName;
+            }
+            set
+            {
+                OnFileNameChanging(value);
+                ReportPropertyChanging("FileName");
+                _FileName = StructuralObject.SetValidValue(value, false, "FileName");
+                ReportPropertyChanged("FileName");
+                OnFileNameChanged();
+            }
+        }
+        private global::System.String _FileName;
+        partial void OnFileNameChanging(global::System.String value);
+        partial void OnFileNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime ChangeDate
+        {
+            get
+            {
+                return _ChangeDate;
+            }
+            set
+            {
+                OnChangeDateChanging(value);
+                ReportPropertyChanging("ChangeDate");
+                _ChangeDate = StructuralObject.SetValidValue(value, "ChangeDate");
+                ReportPropertyChanged("ChangeDate");
+                OnChangeDateChanged();
+            }
+        }
+        private global::System.DateTime _ChangeDate;
+        partial void OnChangeDateChanging(global::System.DateTime value);
+        partial void OnChangeDateChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_ChildAvaFile_Child", "Child")]
+        public Child Child
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Child>("DataModel.FK_ChildAvaFile_Child", "Child").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Child>("DataModel.FK_ChildAvaFile_Child", "Child").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Child> ChildReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Child>("DataModel.FK_ChildAvaFile_Child", "Child");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Child>("DataModel.FK_ChildAvaFile_Child", "Child", value);
                 }
             }
         }

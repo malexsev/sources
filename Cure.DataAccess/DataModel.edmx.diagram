@@ -54,6 +54,8 @@
         <AssociationConnector Association="DataModel.FK_StopVisit_RefStopVisitType" />
         <EntityTypeShape EntityType="DataModel.ChildHideFile" Width="1.5" PointX="1.5" PointY="21" />
         <AssociationConnector Association="DataModel.FK_ChildHideFile_Child" />
+        <EntityTypeShape EntityType="DataModel.ChildAvaFile" Width="1.5" PointX="4.375" PointY="29.625" />
+        <AssociationConnector Association="DataModel.FK_ChildAvaFile_Child" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

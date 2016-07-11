@@ -1,0 +1,44 @@
+﻿
+<!-- Поп-ап ввода личных данных -->
+<div class="popup" id="pop-personal">
+    <div class="popup-modal"></div>
+    <div class="popup-wrap">
+        <a class="popup-close"></a>
+        <div class="popup-head">
+            <div class="popup-title">Редактирование личных данных</div>
+        </div>
+        <div class="popup-body">
+            <div class="userdata-wrap">
+                <ul class="userdata-nav js-tabs-userdata">
+                    <li><a class="js-tabs-link active" data-tab="userdata-tab-1" role="button">Мой ребенок</a></li>
+                    <li><a class="js-tabs-link" data-tab="userdata-tab-2" role="button">Контакная информация</a></li>
+                    <li><a class="js-tabs-link" data-tab="userdata-tab-3" role="button">Страницы в соцсетях</a></li>
+                    <li><a class="js-tabs-link" data-tab="userdata-tab-4" role="button">Финансовая помощь</a></li>
+                </ul>
+                <div class="userdata-tabs js-tabs-body">
+
+                    <div class="userdata-tab active js-tabs-item" id="userdata-tab-1">
+                        <!-- Мой ребенок -->
+                        @Html.Partial("_CabinetChildEditTab1")
+                    </div><!-- END userdata-tab-1 Мой ребенок -->
+
+                    <div class="userdata-tab js-tabs-item" id="userdata-tab-2">
+                        <!-- Контакная информация -->
+                        @Html.Partial("_CabinetChildEditTab2")
+                    </div><!-- END userdata-tab-2 Контакная информация -->
+
+                    <div class="userdata-tab js-tabs-item" id="userdata-tab-3">
+                        <!-- Страницы в соцсетях -->
+                        @Html.Partial("_CabinetChildEditTab3")
+                    </div><!-- END userdata-tab-3 Страницы в соцсетях -->
+
+                    <div class="userdata-tab js-tabs-item" id="userdata-tab-4">
+                        <!-- Финансовая помощь -->
+                        @Html.Partial("_CabinetChildEditTab4")
+                    </div><!-- END userdata-tab-4 Финансовая помощь -->
+
+                </div><!-- END userdata-tabs -->
+            </div><!-- END userdata-wrap -->
+        </div><!-- END popup-body -->
+    </div><!-- END popup-wrap -->
+</div><!-- END popup-personal -->

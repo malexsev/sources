@@ -46,8 +46,16 @@ namespace Cure.WebSite.Models
             }
         }
 
+        public bool CheckForActive()
+        {
+            bool result = !string.IsNullOrEmpty(this.Name)
+                          && !string.IsNullOrEmpty(this.Region)
+                          && (!string.IsNullOrEmpty(this.PhotoUrl) && !this.PhotoUrl.Contains("no_photo"));
+            return result;
+        }
 
-        public ChildVisual(ViewChild child)
+
+        public ChildVisual(ViewChild child, ChildAvaFile childAvaFile = null)
         {
             if (child != null)
             {
@@ -127,25 +135,24 @@ namespace Cure.WebSite.Models
                     var dirInfo = new DirectoryInfo(photoLocation);
                     FileInfo[] fileInfoArray = dirInfo.GetFiles();
 
-                    if (fileInfoArray.Length > 0)
-                    {
-                        PhotoUrl = Path.Combine(Path.Combine(photoUrl, "Thumb"), fileInfoArray[0].Name);
-                    }
-                    else
+                    if (fileInfoArray.Length <= 0)
                     {
                         PhotoUrl = "/Content/images/no_photo_big.jpg";
                     }
 
                     foreach (FileInfo fileInfo in fileInfoArray)
                     {
-                        if (PhotoItem == null)
+                        if ((childAvaFile == null || childAvaFile.Id == 0) || fileInfo.Name == childAvaFile.FileName)
                         {
+                            PhotoUrl = Path.Combine(Path.Combine(photoUrl, "Thumb"), fileInfo.Name);
                             PhotoItem = new PhotoItem(photoUrl, fileInfo.Name);
-                        }
-                        else
-                        {
                             break;
                         }
+                    }
+                    if (PhotoItem.UrlOriginal == string.Empty && fileInfoArray.Length > 0 && !(childAvaFile == null || childAvaFile.Id == 0))
+                    {
+                        PhotoUrl = Path.Combine(Path.Combine(photoUrl, "Thumb"), fileInfoArray[0].Name);
+                        PhotoItem = new PhotoItem(photoUrl, fileInfoArray[0].Name);
                     }
                 }
             }

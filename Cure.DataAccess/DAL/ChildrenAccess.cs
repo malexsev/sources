@@ -51,7 +51,8 @@ namespace Cure.DataAccess.DAL
             DateTime startDate = DateTime.Today.AddYears(-endYears);
             DateTime endDate = DateTime.Today.AddYears(-startYears);
 
-            return context.ViewChilds.Where(x => (countryId == 0 || x.CountryId == countryId)
+            return context.ViewChilds.Where(x => x.IsActive 
+                && (countryId == 0 || x.CountryId == countryId)
                 && (regionName == "0" || x.Region == regionName)
                 && (ageOption == 0 || (x.Birthday > startDate && x.Birthday < endDate))
                 && (diagnozeId == 0 || x.DiagnozId == diagnozeId)).OrderByDescending(x => x.Id).Count();
@@ -90,7 +91,8 @@ namespace Cure.DataAccess.DAL
             DateTime startDate = DateTime.Today.AddYears(-endYears);
             DateTime endDate = DateTime.Today.AddYears(-startYears);
 
-            return context.ViewChilds.Where(x => (countryId == 0 || x.CountryId == countryId)
+            return context.ViewChilds.Where(x => x.IsActive 
+                && (countryId == 0 || x.CountryId == countryId)
                 && (regionName == "0" || x.Region == regionName)
                 && (ageOption == 0 || (x.Birthday > startDate && x.Birthday < endDate))
                 && (diagnozeId == 0 || x.DiagnozId == diagnozeId)).OrderByDescending(x => x.Id).Skip(skipRecords).Take(takeRecords).ToList();

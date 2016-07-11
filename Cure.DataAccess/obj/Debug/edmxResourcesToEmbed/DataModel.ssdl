@@ -74,6 +74,15 @@
     <Property Name="FinCardNumber" Type="nvarchar" MaxLength="50" />
     <Property Name="FinCardName" Type="nvarchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="ChildAvaFile">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ChildId" Type="int" Nullable="false" />
+    <Property Name="FileName" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="ChangeDate" Type="datetime" Nullable="false" />
+  </EntityType>
   <EntityType Name="ChildHideFile">
     <Key>
       <PropertyRef Name="Id" />
@@ -754,6 +763,20 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_ChildAvaFile_Child">
+    <End Role="Child" Type="Self.Child" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ChildAvaFile" Type="Self.ChildAvaFile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Child">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ChildAvaFile">
+        <PropertyRef Name="ChildId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_ChildHideFile_Child">
     <End Role="Child" Type="Self.Child" Multiplicity="1">
       <OnDelete Action="Cascade" />
@@ -966,6 +989,7 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
     <EntitySet Name="aspnet_Membership" EntityType="Self.aspnet_Membership" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="aspnet_Users" EntityType="Self.aspnet_Users" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Child" EntityType="Self.Child" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChildAvaFile" EntityType="Self.ChildAvaFile" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ChildHideFile" EntityType="Self.ChildHideFile" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NotificationLog" EntityType="Self.NotificationLog" Schema="dbo" store:Type="Tables" />
@@ -1264,6 +1288,10 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
     <AssociationSet Name="FK_Child_RefRodstvo" Association="Self.FK_Child_RefRodstvo">
       <End Role="RefRodstvo" EntitySet="RefRodstvo" />
       <End Role="Child" EntitySet="Child" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChildAvaFile_Child" Association="Self.FK_ChildAvaFile_Child">
+      <End Role="Child" EntitySet="Child" />
+      <End Role="ChildAvaFile" EntitySet="ChildAvaFile" />
     </AssociationSet>
     <AssociationSet Name="FK_ChildHideFile_Child" Association="Self.FK_ChildHideFile_Child">
       <End Role="Child" EntitySet="Child" />

@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\ChildAvaFileBL.cs" />
     <Compile Include="BLL\ChildHideFileBL.cs" />
     <Compile Include="BLL\StopVisitBL.cs" />
     <Compile Include="BLL\StopVisitTypeBL.cs" />
@@ -65,6 +66,7 @@
     <Compile Include="BLL\OrderBL.cs" />
     <Compile Include="BLL\DepartmentBL.cs" />
     <Compile Include="BLL\CountryBL.cs" />
+    <Compile Include="DAL\ChildAvaFileAccess.cs" />
     <Compile Include="DAL\ChildHideFileAccess.cs" />
     <Compile Include="DAL\StopVisitAccess.cs" />
     <Compile Include="DAL\StopVisitTypeAccess.cs" />

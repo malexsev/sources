@@ -1,0 +1,57 @@
+﻿@using Cure.WebSite.Models
+@using (Html.BeginForm("ChildTab3", "Cabinet", FormMethod.Post, new
+                        {
+                            @id = "formChildTab3",
+                            @class = "userdata-form js-validate"
+                        }))
+{
+    <div class="forms-line">
+        <div class="forms-label">Одноклассники</div>
+        @Html.TextBox("socialok", ((ChildVisualDetailed)(ViewBag.Profile)).SocialOk, new
+        {
+            @id = "socialok",
+            @maxlength = "250",
+            @class = "forms-input"
+        })
+    </div>
+    <div class="forms-line">
+        <div class="forms-label">ВКонтакте</div>
+        @Html.TextBox("socialvk", ((ChildVisualDetailed)(ViewBag.Profile)).SocialVk, new
+        {
+            @id = "socialvk",
+            @maxlength = "250",
+            @class = "forms-input"
+        })
+    </div>
+    <div class="forms-line">
+        <div class="forms-label">Мой мир</div>
+        @Html.TextBox("socialmm", ((ChildVisualDetailed)(ViewBag.Profile)).SocialMm, new
+        {
+            @id = "socialmm",
+            @maxlength = "250",
+            @class = "forms-input"
+        })
+    </div>
+    <div class="forms-line">
+        <div class="forms-label">Фейсбук</div>
+        @Html.TextBox("socialfb", ((ChildVisualDetailed)(ViewBag.Profile)).SocialFb, new
+        {
+            @id = "socialfb",
+            @maxlength = "250",
+            @class = "forms-input"
+        })
+    </div>
+    <div class="forms-line">
+        <div class="forms-label">Ютуб</div>
+        @Html.TextBox("socialyoutube", ((ChildVisualDetailed)(ViewBag.Profile)).SocialYoutube, new
+        {
+            @id = "socialyoutube",
+            @maxlength = "250",
+            @class = "forms-input"
+        })
+    </div>
+    <div class="forms-line top-30">
+        <input class="btn btn-orang" type="submit" value="Сохранить">
+    </div>
+    <div id="error-tab3" class="form-errors"></div>
+}

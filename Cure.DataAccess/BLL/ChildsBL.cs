@@ -7,7 +7,26 @@
     {
         public ViewChild ViewChild(string ownerUser)
         {
-            return dataRepository.ViewChild(ownerUser);
+            var view = dataRepository.ViewChild(ownerUser);
+            var user = dataRepository.GetUserMembership(ownerUser);
+            if (view == null)
+            {
+                var child = new Child()
+                {
+                    Birthday = DateTime.Today.AddYears(-5),
+                    GuidId = Guid.NewGuid(),
+                    OwnerUser = ownerUser,
+                    CountryId = 2,
+                    IsActive = false,
+                    Name = string.Empty,
+                    ContactName = user.UserName,
+                    ContactRodstvoId = 1,
+                    ContactEmail = user.LoweredEmail,
+                    DiagnozId = 1
+                };
+                dataRepository.InsertChild(child);
+            }
+            return view ?? dataRepository.ViewChild(ownerUser);
         }
 
         public ViewChild ViewChild(int id)
@@ -18,6 +37,11 @@
         public IEnumerable<Child> GetChilds()
         {
             return dataRepository.GetChilds();
+        }
+
+        public Child GetChild(int Id)
+        {
+            return dataRepository.GetChild(Id);
         }
 
         public int CountChilds(int countryId, string regionName, int ageOption, int diagnozeId)

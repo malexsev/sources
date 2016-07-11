@@ -81,7 +81,7 @@
 
             @if (User.Identity.IsAuthenticated)
             {
-                @Html.Partial("_AccountHeader")
+                @Html.Partial("_AccountMenu")
             }
         </header>
 
@@ -91,7 +91,12 @@
 
     @Html.Partial("_Footer")
 
-    @Html.Partial("_Account")    
+    @Html.Partial("_Account")   
+    
+    @if (Request.Url.AbsolutePath.Contains("MyPage"))
+    {
+        @Html.Partial("_CabinetChildEdit")
+    }
 
     <!-- jquery cdn        -->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>

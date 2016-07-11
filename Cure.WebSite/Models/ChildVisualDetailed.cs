@@ -14,8 +14,8 @@ namespace Cure.WebSite.Models
         public List<DocItem> DocItemLst { get; set; }
 
 
-        public ChildVisualDetailed(ViewChild child, IEnumerable<ChildHideFile> hiddenFiles )
-            : base(child)
+        public ChildVisualDetailed(ViewChild child, IEnumerable<ChildHideFile> hiddenFiles, ChildAvaFile avaFile = null)
+            : base(child, avaFile)
         {
             if (child != null)
             {

@@ -35,6 +35,10 @@ namespace Cure.DataAccess.DAL
         void DeleteRefDiagnoz(RefDiagnoz refDiagnoz);
         void UpdateRefDiagnoz(RefDiagnoz refDiagnoz);
 
+        ChildAvaFile GetChildAvaFile(int childId);
+        void InsertChildAvaFile(ChildAvaFile childAvaFile);
+        void DeleteChildAvaFile(ChildAvaFile childAvaFile);
+
         bool CheckChildHideFile(int childId, string fileName);
         IEnumerable<ChildHideFile> GetChildHideFiles(int childId);
         void InsertChildHideFile(ChildHideFile childHideFile);
@@ -47,6 +51,7 @@ namespace Cure.DataAccess.DAL
         ViewChild ViewChild(string ownerUser);
         IEnumerable<Child> GetChilds();
         IEnumerable<Child> GetChilds(int countryId);
+        Child GetChild(int Id);
         void InsertChild(Child child);
         void DeleteChild(Child child);
         void UpdateChild(Child child);

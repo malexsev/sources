@@ -1,4 +1,4 @@
-﻿@model Cure.WebSite.Models.ChildVisual
+﻿@model Cure.WebSite.Models.ChildVisualDetailed
 
 @{
     ViewBag.Title = "Detail";
@@ -471,8 +471,10 @@
                                         <div class="gallery-slider js-tab-slider" id="big-slider-img">
                                             @foreach (var photoItem in Model.PhotoItemLst)
                                             {
-                                                <div class="slide"><img src="@photoItem.UrlBig" alt="__"></div>
-
+                                                if (Model.HiddenPhotoLst.All(x => x.FileName != System.IO.Path.GetFileName(photoItem.UrlOriginal)))
+                                                {
+                                                    <div class="slide"><img src="@photoItem.UrlBig" alt="__"></div>
+                                                }
                                             }
                                         </div>
                                         <!-- Блок «Поделиться» от Яндекса-->
@@ -491,13 +493,13 @@
                                 </div>
                             </div>
                             
-                            @if (Model.DocItemLst.Any())
+                            @if (Model.DocItemLst.Any(x => Model.HiddenPhotoLst.All(h => h.FileName != Path.GetFileName(x.UrlOriginal))))
                             {
                                 <div class="child-tabs-tab js-tabs-item" id="child-tab-4">
                                     <div class="child-tab-slider">
                                         <div class="slider-light">
                                             <div class="all-pages-slider js-allpages-slider js-tab-slider">
-                                                @foreach (var doc in Model.DocItemLst)
+                                                @foreach (var doc in Model.DocItemLst.Where(x => Model.HiddenPhotoLst.All(h => h.FileName != Path.GetFileName(x.UrlOriginal))))
                                                 {
                                                     <div class="slide"><img src="@doc.UrlOriginal" alt="__"></div>
                                                 }

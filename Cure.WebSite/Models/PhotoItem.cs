@@ -10,7 +10,7 @@ namespace Cure.WebSite.Models
 
         public PhotoItem()
         {
-            UrlOriginal = "/Content/images/no_photo_big.jpg";
+            UrlOriginal = "/Content/images/no_photo.jpg";
             UrlMin = "/Content/images/no_photo_min.jpg";
             UrlBig = "/Content/images/no_photo_big.jpg";
         }
