@@ -1,0 +1,30 @@
+﻿@using Cure.WebSite.Models
+@model Cure.WebSite.Models.ChildVisualDetailed
+@using (Html.BeginForm("MyPage", "Cabinet", FormMethod.Post, new
+{
+    @id = "formDocuments",
+    enctype = "multipart/form-data"
+}))
+{
+    @Html.Hidden("doctodelete", "", new {id = "doctodelete"})
+    @Html.Hidden("doctohideuphide", "", new {id = "doctohideuphide"})
+
+    <div class="images-tile-add">
+        <!--<a class="btn btn-light js-tile-images-add" role="button">ДОБАВИТЬ ФОТО</a>-->
+        <div class="comments-title">Добавить документ:</div>
+        <div class="comments-addform">
+            @*<form>*@
+            <div class="comments-addform-body">
+                <input class="btn btn-orang" type="submit" value="ДОБАВИТЬ">
+                <div class="forms-file">
+                    <div class="forms-file-msg">Выбрать документ</div>
+                    <input id="fileDocumentsUpload" name="fileDocumetnsUpload" type="file" onchange=" this.previousSibling.previousSibling.innerHTML = this.value ">
+                </div>
+            </div>
+            @*</form>*@
+        </div>
+    </div>
+    <div class="row images-tile" id="documentstales">
+        @Html.Partial("_CabinetDocumentsTales", Model)
+    </div>
+}

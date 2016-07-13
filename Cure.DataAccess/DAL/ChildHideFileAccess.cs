@@ -31,6 +31,24 @@ namespace Cure.DataAccess.DAL
             }
         }
 
+        public void DeleteChildHideFile(int childId, string fileName)
+        {
+            try
+            {
+                var hide = context.ChildHideFiles.FirstOrDefault(x => x.ChildId == childId && x.FileName == fileName);
+                if (hide != null)
+                {
+                    context.ChildHideFiles.Attach(hide);
+                    context.ChildHideFiles.DeleteObject(hide);
+                    SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public void DeleteChildHideFile(ChildHideFile childHideFile)
         {
             try
@@ -38,7 +56,8 @@ namespace Cure.DataAccess.DAL
                 context.ChildHideFiles.Attach(childHideFile);
                 context.ChildHideFiles.DeleteObject(childHideFile);
                 SaveChanges();
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }

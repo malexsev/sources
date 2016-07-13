@@ -1,0 +1,24 @@
+﻿@using Cure.WebSite.Models
+@model Cure.WebSite.Models.ChildVisualDetailed
+
+@foreach (PhotoItem photo in Model.PhotoItemLst)
+{
+    <div class="col-lg-4 col-ss-6 images-tile-item @Html.Raw(Model.HiddenPhotoLst.Any(x => x.FileName == Path.GetFileName(photo.UrlOriginal)) ? "is-disabled" : "is-enabled")">
+        <div class="tile-img">
+            <a class="tile-link" role="button">
+                <img src="@photo.UrlMin" alt="@Model.Name">
+            </a>
+        </div>
+        <div class="tile-nav">
+            @if (Model.AvaFileName != Path.GetFileName(photo.UrlOriginal))
+            {
+                <a class="btn-tile-delete"
+                   onclick="javascript:DeletePicture(@Model.Id, '@Html.Raw(Path.GetFileName(photo.UrlOriginal))');"></a>
+                <a class="btn-tile-toggle @Html.Raw(Model.HiddenPhotoLst.Any(x => x.FileName == Path.GetFileName(photo.UrlOriginal)) ? "is-disabled" : "is-enabled") js-images-tile-toggle"
+                   onclick="javascript:HideShowPicture(@Model.Id, '@Html.Raw(Path.GetFileName(photo.UrlOriginal))');"
+                   role="button">@Html.Raw(Model.HiddenPhotoLst.Any(x => x.FileName == Path.GetFileName(photo.UrlOriginal)) ? "Открыть" : "Скрыть")</a>
+            }
+
+        </div>
+    </div>
+}

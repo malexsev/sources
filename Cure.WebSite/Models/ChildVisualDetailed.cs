@@ -13,7 +13,6 @@ namespace Cure.WebSite.Models
         public List<PhotoItem> PhotoItemLst { get; set; }
         public List<DocItem> DocItemLst { get; set; }
 
-
         public ChildVisualDetailed(ViewChild child, IEnumerable<ChildHideFile> hiddenFiles, ChildAvaFile avaFile = null)
             : base(child, avaFile)
         {
@@ -50,6 +49,27 @@ namespace Cure.WebSite.Models
                         this.DocItemLst.Add(new DocItem(docsUrl, fileInfo.Name));
                     }
                 }
+            }
+        }
+
+        public void DeletePhoto(string fileName)
+        {
+            string photoLocation = Path.Combine(ConfigurationManager.AppSettings["PhotoLocation"], this.GuidId.ToString());
+            if (Directory.Exists(photoLocation))
+            {
+                string filePath = Path.Combine(photoLocation, fileName);
+                Utils.FileUtils.DeleteFileFromSubfolders(filePath);
+            }
+        }
+
+        public void DeleteDoc(string fileName)
+        {
+            string photoLocation = Path.Combine(ConfigurationManager.AppSettings["PhotoLocation"], this.GuidId.ToString());
+            string docsLocation = photoLocation.Replace("Upload", "Documents");
+            if (Directory.Exists(docsLocation))
+            {
+                string filePath = Path.Combine(docsLocation, fileName);
+                Utils.FileUtils.DeleteFileFromSubfolders(filePath);
             }
         }
     }

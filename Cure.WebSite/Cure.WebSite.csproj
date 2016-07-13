@@ -289,6 +289,10 @@
     <Content Include="Views\Cabinet\Messages.cshtml" />
     <Content Include="Views\Cabinet\Orders.cshtml" />
     <Content Include="Views\Cabinet\Balance.cshtml" />
+    <Content Include="Views\Shared\_CabinetGalery.cshtml" />
+    <Content Include="Views\Shared\_CabinetGaleryTales.cshtml" />
+    <Content Include="Views\Shared\_CabinetDocuments.cshtml" />
+    <Content Include="Views\Shared\_CabinetDocumentsTales.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

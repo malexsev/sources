@@ -12,6 +12,7 @@ namespace Cure.WebSite.Models
         public int Age { get; set; }
         public string PhotoUrl { get; set; }
         public PhotoItem PhotoItem { get; set; }
+        public string AvaFileName { get; set; }
         //public List<PhotoItem> PhotoItemLst { get; set; }
         //public List<DocItem> DocItemLst { get; set; }
         public bool IsAnySocial
@@ -140,6 +141,10 @@ namespace Cure.WebSite.Models
                         PhotoUrl = "/Content/images/no_photo_big.jpg";
                     }
 
+                    this.AvaFileName = (childAvaFile == null || childAvaFile.Id == 0)
+                        ? string.Empty
+                        : childAvaFile.FileName;
+
                     foreach (FileInfo fileInfo in fileInfoArray)
                     {
                         if ((childAvaFile == null || childAvaFile.Id == 0) || fileInfo.Name == childAvaFile.FileName)
@@ -149,7 +154,7 @@ namespace Cure.WebSite.Models
                             break;
                         }
                     }
-                    if (PhotoItem.UrlOriginal == string.Empty && fileInfoArray.Length > 0 && !(childAvaFile == null || childAvaFile.Id == 0))
+                    if ((PhotoItem.UrlOriginal == string.Empty || PhotoItem.UrlOriginal.Contains("no_photo")) && fileInfoArray.Length > 0 && !(childAvaFile == null || childAvaFile.Id == 0))
                     {
                         PhotoUrl = Path.Combine(Path.Combine(photoUrl, "Thumb"), fileInfoArray[0].Name);
                         PhotoItem = new PhotoItem(photoUrl, fileInfoArray[0].Name);

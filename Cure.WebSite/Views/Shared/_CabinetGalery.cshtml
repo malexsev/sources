@@ -1,0 +1,28 @@
+﻿@using Cure.WebSite.Models
+@model Cure.WebSite.Models.ChildVisualDetailed
+@using (Html.BeginForm("MyPage", "Cabinet", FormMethod.Post, new
+{
+    @id = "formGalery",
+    enctype = "multipart/form-data"
+}))
+{
+    @Html.Hidden("pictodelete", "", new { id = "pictodelete" })
+    @Html.Hidden("pictohideuphide", "", new { id = "pictohideuphide" })
+    <div class="images-tile-add">
+        <div class="comments-title">Добавить фото:</div>
+        <div class="comments-addform">
+            @*<form>*@
+            <div class="comments-addform-body">
+                <input class="btn btn-orang" type="submit" value="ДОБАВИТЬ">
+                <div class="forms-file">
+                    <div class="forms-file-msg">Выбрать фото</div>
+                    <input id="fileGaleryUpload" name="fileGaleryUpload" type="file" onchange="this.previousSibling.previousSibling.innerHTML = this.value">
+                </div>
+            </div>
+            @*</form>*@
+        </div>
+    </div>
+    <div class="row images-tile" id="galerytales">
+        @Html.Partial("_CabinetGaleryTales", Model)
+    </div>
+}

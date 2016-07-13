@@ -43,6 +43,7 @@ namespace Cure.DataAccess.DAL
         IEnumerable<ChildHideFile> GetChildHideFiles(int childId);
         void InsertChildHideFile(ChildHideFile childHideFile);
         void DeleteChildHideFile(ChildHideFile childHideFile);
+        void DeleteChildHideFile(int childId, string fileName);
 
         IEnumerable<ViewChild> FilterChilds(int countryId, string regionName, int ageOption, int diagnozeId, int skipRecords);
         int CountChilds(int countryId, string regionName, int ageOption, int diagnozeId);

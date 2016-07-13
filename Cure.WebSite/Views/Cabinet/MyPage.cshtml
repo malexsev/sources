@@ -46,7 +46,7 @@
                                     <a class="info-contact" href="tel:@Model.ContactPhone">@Model.ContactPhone</a>
                                     <a class="info-contact" href="mailto:@Model.ContactEmail">@Model.ContactEmail</a>
                                 </div>
-                            </section>                            
+                            </section>
                             @if (Model.IsAnySocial)
                             {
                                 <section class="child-aside-info mob-accordion js-mob-accordion">
@@ -546,153 +546,12 @@
                             <!-- END Таб "Лента впечатлений" -->
                             <!-- Таб "Фотоальбом" -->
                             <div class="child-tabs-tab js-tabs-item" id="child-tab-3">
-                                <div class="images-tile-add">
-                                    <div class="comments-title">Добавить фото:</div>
-                                    <div class="comments-addform">
-                                        <form>
-                                            <div class="comments-addform-body">
-                                                <input class="btn btn-orang" type="submit" value="ДОБАВИТЬ">
-                                                <div class="forms-file">
-                                                    <div class="forms-file-msg">Выбрать фото</div>
-                                                    <input type="file" onchange="this.previousSibling.previousSibling.innerHTML = this.value">
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="row images-tile">
-                                    <div class="col-lg-4 col-ss-6 images-tile-item is-enabled">
-                                        <div class="tile-img">
-                                            <a class="tile-link" role="button">
-                                                <img src="~/content/images/viewer/slide_1.jpg" alt="Дима">
-                                            </a>
-                                        </div>
-                                        <div class="tile-nav">
-                                            <a class="btn-tile-delete"></a>
-                                            <a class="btn-tile-toggle is-enabled js-images-tile-toggle" role="button">Скрыть</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-ss-6 images-tile-item is-disabled">
-                                        <div class="tile-img">
-                                            <a class="tile-link" role="button">
-                                                <img src="~/content/images/viewer/slide_2.jpg" alt="Дима">
-                                            </a>
-                                        </div>
-                                        <div class="tile-nav">
-                                            <a class="btn-tile-delete"></a>
-                                            <a class="btn-tile-toggle is-disabled js-images-tile-toggle" role="button">Открыть</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-ss-6 images-tile-item is-enabled">
-                                        <div class="tile-img">
-                                            <a class="tile-link" role="button">
-                                                <img src="~/content/images/viewer/slide_3.jpg" alt="Дима">
-                                            </a>
-                                        </div>
-                                        <div class="tile-nav">
-                                            <a class="btn-tile-delete"></a>
-                                            <a class="btn-tile-toggle is-enabled js-images-tile-toggle" role="button">Скрыть</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-ss-6 images-tile-item is-enabled">
-                                        <div class="tile-img">
-                                            <a class="tile-link" role="button">
-                                                <img src="~/content/images/viewer/slide_2.jpg" alt="Дима">
-                                            </a>
-                                        </div>
-                                        <div class="tile-nav">
-                                            <a class="btn-tile-delete"></a>
-                                            <a class="btn-tile-toggle is-enabled js-images-tile-toggle" role="button">Скрыть</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-ss-6 images-tile-item is-enabled">
-                                        <div class="tile-img">
-                                            <a class="tile-link" role="button">
-                                                <img src="~/content/images/viewer/slide_1.jpg" alt="Дима">
-                                            </a>
-                                        </div>
-                                        <div class="tile-nav">
-                                            <a class="btn-tile-delete"></a>
-                                            <a class="btn-tile-toggle is-enabled js-images-tile-toggle" role="button">Скрыть</a>
-                                        </div>
-                                    </div>
-                                </div>
+                                @Html.Partial("_CabinetGalery", Model)
                             </div>
                             <!-- END Таб "Фотоальбом" -->
                             <!-- Таб "Документы" -->
                             <div class="child-tabs-tab js-tabs-item" id="child-tab-4">
-                                <div class="images-tile-add">
-                                    <!--<a class="btn btn-light js-tile-images-add" role="button">ДОБАВИТЬ ФОТО</a>-->
-                                    <div class="comments-title">Добавить документ:</div>
-                                    <div class="comments-addform">
-                                        <form>
-                                            <div class="comments-addform-body">
-                                                <input class="btn btn-orang" type="submit" value="ДОБАВИТЬ">
-                                                <div class="forms-file">
-                                                    <div class="forms-file-msg">Выбрать документ</div>
-                                                    <input type="file" onchange="this.previousSibling.previousSibling.innerHTML = this.value">
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div class="row images-tile">
-                                    <div class="col-lg-4 col-ss-6 images-tile-item is-enabled">
-                                        <div class="tile-img">
-                                            <a class="tile-link" role="button">
-                                                <img src="~/content/images/docs/doc_1.jpg" alt="Дима">
-                                            </a>
-                                        </div>
-                                        <div class="tile-nav">
-                                            <a class="btn-tile-delete"></a>
-                                            <a class="btn-tile-toggle is-enabled js-images-tile-toggle" role="button">Скрыть</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-ss-6 images-tile-item is-disabled">
-                                        <div class="tile-img">
-                                            <a class="tile-link" role="button">
-                                                <img src="~/content/images/docs/doc_2.jpg" alt="Дима">
-                                            </a>
-                                        </div>
-                                        <div class="tile-nav">
-                                            <a class="btn-tile-delete"></a>
-                                            <a class="btn-tile-toggle is-disabled js-images-tile-toggle" role="button">Открыть</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-ss-6 images-tile-item is-enabled">
-                                        <div class="tile-img">
-                                            <a class="tile-link" role="button">
-                                                <img src="~/content/images/docs/doc_3.jpg" alt="Дима">
-                                            </a>
-                                        </div>
-                                        <div class="tile-nav">
-                                            <a class="btn-tile-delete"></a>
-                                            <a class="btn-tile-toggle is-enabled js-images-tile-toggle" role="button">Скрыть</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-ss-6 images-tile-item is-enabled">
-                                        <div class="tile-img">
-                                            <a class="tile-link" role="button">
-                                                <img src="~/content/images/docs/doc_4.jpg" alt="Дима">
-                                            </a>
-                                        </div>
-                                        <div class="tile-nav">
-                                            <a class="btn-tile-delete"></a>
-                                            <a class="btn-tile-toggle is-enabled js-images-tile-toggle" role="button">Скрыть</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-ss-6 images-tile-item is-enabled">
-                                        <div class="tile-img">
-                                            <a class="tile-link" role="button">
-                                                <img src="~/content/images/docs/doc_1.jpg" alt="Дима">
-                                            </a>
-                                        </div>
-                                        <div class="tile-nav">
-                                            <a class="btn-tile-delete"></a>
-                                            <a class="btn-tile-toggle is-enabled js-images-tile-toggle" role="button">Скрыть</a>
-                                        </div>
-                                    </div>
-                                </div>
+                                @Html.Partial("_CabinetDocuments")
                             </div>
                             <!-- END Таб "Документы" -->
 
