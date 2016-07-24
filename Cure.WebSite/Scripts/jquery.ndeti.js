@@ -88,7 +88,7 @@ $(document).ready(function () {
     $(".js-tabs-head").tabsInit();
     $(".js-tabs-userdata").tabsInit();
     $(".js-content-tabs").tabsInit();
-    $(".js-order-tabs").tabsInit();
+    //$(".js-order-tabs").tabsInit();
     $(".js-personal-tabs").tabsInit();
     $(".js-tabs-registr").tabsInit();
     $(".js-tabs-citymap").tabsInit();
@@ -588,7 +588,7 @@ $(document).ready(function () {
         });
         e.preventDefault();
     });
-    
+
     /*------------ Добавление файла в галерее ----------------------------*/
     $('#fileGaleryUpload').on('change', function (e) {
         var files = e.target.files;
@@ -656,6 +656,148 @@ $(document).ready(function () {
         }
         e.preventDefault();
     });
+
+    /*------------ Сохранение Заявки Шаг1 ----------------------------*/
+    $("#orderstep1next").click(function (e) {
+        $("#error-step1").hide();
+        var form = $('#formOrderStep1');
+        if (form.valid()) {
+            var serializedForm = form.serialize();
+            $.ajax({
+                url: "/Cabinet/SaveStep1",
+                type: "POST",
+                data: serializedForm,
+                success: function (result) {
+                    if (result == "1") {
+                        $("#error-step1").removeClass("form-errors");
+                        $("#error-step1").show().text("Сохранено.");
+                        $("#order-step-2").load('/Cabinet/OrderStep2Partial');
+                        setOrderStep(2);
+                    } else if (result == "0") {
+                        window.location.href = '/Home/Index/';
+                    } else {
+                        $("#error-step1").addClass("form-errors");
+                        $("#error-step1").show().text(result);
+                    }
+                },
+                error: function (result) {
+                    alert(result.responseText);
+                }
+            });
+        }
+        e.preventDefault();
+    });
+
+    /*------------ Сохранение Заявки Шаг2 ----------------------------*/
+    $(document).on('click', "#orderstep2next", function () {
+        $("#error-step2").hide();
+        var form = $('#formOrderStep2');
+        $('#formOrderStep2').data('validator', null);
+        $.validator.unobtrusive.parse('#formOrderStep2');
+        if (form.valid()) {
+            var serializedForm = form.serialize();
+            $.ajax({
+                url: "/Cabinet/SaveStep2",
+                type: "POST",
+                data: serializedForm,
+                success: function (result) {
+                    if (result == "1") {
+                        $("#error-step2").removeClass("form-errors");
+                        $("#error-step2").show().text("Сохранено.");
+                        setOrderStep(3);
+                    } else if (result == "0") {
+                        window.location.href = '/Home/Index/';
+                    } else {
+                        $("#error-step2").addClass("form-errors");
+                        $("#error-step2").show().text(result);
+                    }
+                },
+                error: function (result) {
+                    alert(result.responseText);
+                }
+            });
+        }
+        e.preventDefault();
+    });
+    
+    //$("#orderstep2next").click(function (e) {
+    //    $("#error-step2").hide();
+    //    var form = $('#formOrderStep2');
+    //    if (form.valid()) {
+    //        var serializedForm = form.serialize();
+    //        $.ajax({
+    //            url: "/Cabinet/SaveStep2",
+    //            type: "POST",
+    //            data: serializedForm,
+    //            success: function (result) {
+    //                if (result == "1") {
+    //                    $("#error-step2").removeClass("form-errors");
+    //                    $("#error-step2").show().text("Сохранено.");
+    //                    setOrderStep(3);
+    //                } else if (result == "0") {
+    //                    window.location.href = '/Home/Index/';
+    //                } else {
+    //                    $("#error-step2").addClass("form-errors");
+    //                    $("#error-step2").show().text(result);
+    //                }
+    //            },
+    //            error: function (result) {
+    //                alert(result.responseText);
+    //            }
+    //        });
+    //    }
+    //    e.preventDefault();
+    //});
+
+    /*------------ Отложить заполнение Заявки Шаг1 ----------------------------*/
+    $("#orderstep1save").click(function (e) {
+        $("#error-step1").hide();
+        var form = $('#formOrderStep1');
+        if (form.valid()) {
+            var serializedForm = form.serialize();
+            $.ajax({
+                url: "/Cabinet/SaveStep1",
+                type: "POST",
+                data: serializedForm,
+                success: function (result) {
+                    if (result == "1") {
+                        $("#error-step1").removeClass("form-errors");
+                        $("#error-step1").show().text("Сохранено.");
+                    } else if (result == "0") {
+                        window.location.href = '/Home/Index/';
+                    } else {
+                        $("#error-step1").addClass("form-errors");
+                        $("#error-step1").show().text(result);
+                    }
+                },
+                error: function (result) {
+                    alert(result.responseText);
+                }
+            });
+        }
+        e.preventDefault();
+    });
+
+    /*------------ Вернуться на шаг назад ----------------------------*/
+    $(document).on('click', ".btn-back", function () {
+            var stepId = $(this).data("move-to");
+            $("#error-step" + stepId).hide();
+            setOrderStep(stepId);
+    });
+
+    function setOrderStep(index) {
+        var $tabsHead = $('.js-order-tabs'),
+        $links = $tabsHead.find(".js-tabs-link"),
+        $tabsBody = $tabsHead.siblings(".js-tabs-body"),
+        $tabs = $tabsBody.find(".js-tabs-item");
+
+        $links.removeClass("active");
+        $('#steps-link-' + index).addClass("active");
+        $tabs.removeClass("active");
+        $('#order-step-' + index).addClass("active");
+    }
+
+
 
 
     /*----------- Галлерея картинок  -----------------------------------------*/
@@ -745,7 +887,7 @@ $(document).ready(function () {
             $btn.removeClass("is-disabled").addClass("is-enabled");
             $tileItem.removeClass("is-disabled").addClass("is-enabled");
         };
-        
+
     });
 
     /*--- Кабинет: показ/скрытие комментариев ------------------------*/
@@ -866,7 +1008,7 @@ $(document).ready(function () {
         format: 'dd.mm.yyyy',
         endDate: '-1m',
         language: 'ru',
-        inputs: $('.ico-calendar')
+        inputs: $('.ico-birthday')
     });
 
 

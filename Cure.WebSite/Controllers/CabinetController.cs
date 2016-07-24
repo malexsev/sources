@@ -11,12 +11,15 @@ using System.Drawing;
 
 namespace Cure.WebSite.Controllers
 {
+    using System.Collections.Generic;
     using System.Configuration;
     using DataAccess;
     using Utils;
 
     public class CabinetController : Controller
     {
+        private const string CalendarCulture = "ru-RU";
+
         public ActionResult Index()
         {
             return View();
@@ -29,7 +32,145 @@ namespace Cure.WebSite.Controllers
 
         public ActionResult Orders()
         {
-            return View();
+            if (!User.Identity.IsAuthenticated)
+            {
+                RedirectToAction("Index", "Home");
+            }
+            var dal = new DataAccessBL();
+
+            ViewBag.Departments = dal.GetDepartments();
+            ViewBag.Countries = dal.GetRefCountries();
+            ViewBag.Rodstvos = dal.GetRefRodstvo();
+
+            return View(clientContainer);
+        }
+
+        public PartialViewResult OrderStep2Partial()
+        {
+            if (!User.Identity.IsAuthenticated)
+            {
+                RedirectToAction("Index", "Home");
+            }
+            var dal = new DataAccessBL();
+
+            ViewBag.Departments = dal.GetDepartments();
+            ViewBag.Countries = dal.GetRefCountries();
+            ViewBag.Rodstvos = dal.GetRefRodstvo();
+
+            return PartialView("_OrderWizardStep2", new MembersViewModel(clientContainer));
+        }
+
+        [HttpPost]
+        public JsonResult SaveStep1(string department, string datefrom, string dateto, string countpacients, string countsputniks)
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                try
+                {
+                    int departmentId = SiteUtils.ParseInt(department, 0);
+                    if (departmentId == 0)
+                    {
+                        return Json("Выберите клинику для лечения", JsonRequestBehavior.AllowGet);
+                    }
+
+                    DateTime dateFrom = SiteUtils.ParseDate(datefrom, DateTime.Today, CalendarCulture);
+                    if (dateFrom < DateTime.Today.AddDays(7))
+                    {
+                        return Json("Дата заезда может быть не ранее чем через неделю.", JsonRequestBehavior.AllowGet);
+                    }
+
+                    DateTime dateTo = SiteUtils.ParseDate(dateto, DateTime.Today, CalendarCulture);
+                    if (dateFrom >= dateTo)
+                    {
+                        return Json("Дата отъезда введена неверно.", JsonRequestBehavior.AllowGet);
+                    }
+
+                    int visitsCount = SiteUtils.ParseInt(countpacients, 0);
+                    if (visitsCount <= 0 || visitsCount > 2)
+                    {
+                        return Json("Проверьте количество пациентов, в одной заявке допускается не более двух человек.", JsonRequestBehavior.AllowGet);
+                    }
+
+                    int sputniksCount = SiteUtils.ParseInt(countsputniks, 0);
+                    if (sputniksCount <= 0 || sputniksCount > 4)
+                    {
+                        return Json("Проверьте количество сопровождающих, допускается не более четырёх человек.", JsonRequestBehavior.AllowGet);
+                    }
+
+                    this.clientContainer.NewOrder.DepartmentId = departmentId;
+                    this.clientContainer.NewOrder.DateFrom = dateFrom;
+                    this.clientContainer.NewOrder.DateTo = dateTo;
+                    this.clientContainer.NewOrder.Name = "2";
+                    this.clientContainer.ActualizeVisitsCount(visitsCount);
+                    this.clientContainer.ActualizeSputniksCount(sputniksCount);
+                    this.clientContainer.Save();
+
+                    return Json("1", JsonRequestBehavior.AllowGet);
+                }
+                catch (Exception ex)
+                {
+                    return Json(ex.Message, JsonRequestBehavior.AllowGet);
+                }
+            }
+            else
+            {
+                return Json("0", JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        [HttpPost]
+        public JsonResult SaveStep2(MembersViewModel membersViewModel)
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                try
+                {
+                    if (ModelState.IsValid)
+                    {
+                        for (int i = 0; i < clientContainer.NewOrder.Visits.Count; i++)
+                        {
+                            var visit = clientContainer.NewOrder.Visits.ToList()[i];
+                            var visitVm = membersViewModel.PacientArray[i];
+                            visit.Pacient.BirthDate = SiteUtils.ParseDate(visitVm.BirthDate, DateTime.Today, CalendarCulture);
+                            visit.Pacient.CountryId = visitVm.CountryId;
+                            visit.Pacient.Familiya = visitVm.Familiya;
+                            visit.Pacient.FamiliyaEn = visitVm.FamiliyaEn;
+                            visit.Pacient.Name = visitVm.Name;
+                            visit.Pacient.Otchestvo = visitVm.Otchestvo;
+                            visit.Pacient.SerialNumber = visitVm.SerialNumber;
+                            visit.Pacient.CityName = visitVm.CityName;
+                        }
+                        for (int i = 0; i < clientContainer.NewOrder.Sputniks.Count; i++)
+                        {
+                            var sputnik = clientContainer.NewOrder.Sputniks.ToList()[i];
+                            var sputnikVm = membersViewModel.SputnikArray[i];
+                            sputnik.BirthDate = SiteUtils.ParseDate(sputnikVm.BirthDate, DateTime.Today, CalendarCulture);
+                            sputnik.Email = sputnikVm.Email;
+                            sputnik.Contacts = sputnikVm.Contacts;
+                            sputnik.CountryId = sputnikVm.CountryId;
+                            sputnik.RodstvoId = sputnikVm.RodstvoId;
+                            sputnik.Familiya = sputnikVm.Familiya;
+                            sputnik.FamiliyaEn = sputnikVm.FamiliyaEn;
+                            sputnik.Name = sputnikVm.Name;
+                            sputnik.Otchestvo = sputnikVm.Otchestvo;
+                            sputnik.SeriaNumber = sputnikVm.SerialNumber;
+                        }
+                        clientContainer.Save();
+
+                        return Json("1", JsonRequestBehavior.AllowGet);
+                    }
+
+                    return Json("", JsonRequestBehavior.AllowGet);
+                }
+                catch (Exception ex)
+                {
+                    return Json(ex.Message, JsonRequestBehavior.AllowGet);
+                }
+            }
+            else
+            {
+                return Json("0", JsonRequestBehavior.AllowGet);
+            }
         }
 
         public ActionResult MyPage()
@@ -496,6 +637,22 @@ namespace Cure.WebSite.Controllers
                         PhotoUtils.SaveToJpeg(original, path);
                     }
                 }
+            }
+        }
+
+        private ClientContainer clientContainer
+        {
+            get
+            {
+                if (Session["ClientContainer"] == null)
+                {
+                    Session["ClientContainer"] = new ClientContainer(Utils.SiteUtils.GetCurrentUserName());
+                }
+                return (ClientContainer)Session["ClientContainer"];
+            }
+            set
+            {
+                Session["ClientContainer"] = value;
             }
         }
     }

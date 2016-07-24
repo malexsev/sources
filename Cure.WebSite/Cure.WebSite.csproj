@@ -222,7 +222,15 @@
     <Content Include="Content\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\fonts\FontAwesome.otf" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery.ndeti.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\plugins\dragdealer.js" />
     <Content Include="Scripts\plugins\infobox.js" />
     <Content Include="Scripts\plugins\jquery-ui.min.js" />
@@ -254,8 +262,13 @@
     </Compile>
     <Compile Include="Models\ChildVisualDetailed.cs" />
     <Compile Include="Models\ChildVisual.cs" />
+    <Compile Include="Models\ClientContainer.cs" />
     <Compile Include="Models\DocItem.cs" />
+    <Compile Include="Models\PacientDataSoruce.cs" />
     <Compile Include="Models\PhotoItem.cs" />
+    <Compile Include="Models\SputnikDataSoruce.cs" />
+    <Compile Include="Models\ViewModelMembers.cs" />
+    <Compile Include="Models\VisitDataSoruce.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -293,6 +306,17 @@
     <Content Include="Views\Shared\_CabinetGaleryTales.cshtml" />
     <Content Include="Views\Shared\_CabinetDocuments.cshtml" />
     <Content Include="Views\Shared\_CabinetDocumentsTales.cshtml" />
+    <Content Include="Views\Shared\_OrderWizard.cshtml" />
+    <Content Include="Views\Shared\_OrderWizardStep1.cshtml" />
+    <Content Include="Views\Shared\_OrderWizardStep2.cshtml" />
+    <Content Include="Views\Shared\_OrderWizardStep3.cshtml" />
+    <Content Include="Views\Shared\_OrderWizardStep4.cshtml" />
+    <Content Include="Views\Shared\_OrderWizardStep5.cshtml" />
+    <Content Include="Views\Shared\_OrderCurrent.cshtml" />
+    <Content Include="Views\Shared\_OrderArchive.cshtml" />
+    <Content Include="Views\Shared\_OrderDrafts.cshtml" />
+    <Content Include="Views\Shared\_CabinetInfoLine.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

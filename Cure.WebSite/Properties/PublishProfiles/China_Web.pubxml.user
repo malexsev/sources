@@ -11,25 +11,25 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>07/11/2016 13:44:37</publishTime>
+      <publishTime>07/14/2016 22:47:14</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>07/11/2016 13:44:37</publishTime>
+      <publishTime>07/14/2016 22:47:14</publishTime>
     </File>
     <File Include="bin/Cure.DataAccess.dll">
-      <publishTime>07/11/2016 13:44:31</publishTime>
+      <publishTime>07/14/2016 22:47:08</publishTime>
     </File>
     <File Include="bin/Cure.Notification.dll">
-      <publishTime>07/11/2016 13:44:31</publishTime>
+      <publishTime>07/14/2016 22:47:09</publishTime>
     </File>
     <File Include="bin/Cure.Reports.dll">
-      <publishTime>07/11/2016 13:33:29</publishTime>
+      <publishTime>07/14/2016 22:45:03</publishTime>
     </File>
     <File Include="bin/Cure.Utils.dll">
-      <publishTime>07/11/2016 13:44:31</publishTime>
+      <publishTime>07/14/2016 22:47:08</publishTime>
     </File>
     <File Include="bin/Cure.WebSite.dll">
-      <publishTime>07/11/2016 13:44:32</publishTime>
+      <publishTime>07/14/2016 22:47:09</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>09/19/2015 00:46:36</publishTime>
@@ -425,10 +425,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/25/2016 14:09:29</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>07/11/2016 13:44:35</publishTime>
+      <publishTime>07/14/2016 22:47:13</publishTime>
     </File>
     <File Include="Scripts/jquery.ndeti.js">
-      <publishTime>07/09/2016 21:30:00</publishTime>
+      <publishTime>07/14/2016 01:46:15</publishTime>
     </File>
     <File Include="Scripts/plugins/dragdealer.js">
       <publishTime>05/19/2016 05:22:27</publishTime>
@@ -485,13 +485,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/08/2016 13:11:47</publishTime>
     </File>
     <File Include="Views/Cabinet/MyPage.cshtml">
-      <publishTime>07/09/2016 21:46:38</publishTime>
+      <publishTime>07/14/2016 00:58:10</publishTime>
     </File>
     <File Include="Views/Cabinet/Orders.cshtml">
       <publishTime>07/08/2016 13:14:02</publishTime>
     </File>
     <File Include="Views/Children/Detail.cshtml">
-      <publishTime>07/06/2016 14:33:25</publishTime>
+      <publishTime>07/14/2016 00:30:04</publishTime>
     </File>
     <File Include="Views/Children/Index.cshtml">
       <publishTime>06/06/2016 10:16:29</publishTime>
@@ -531,6 +531,18 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Views/Shared/_CabinetChildEditTab4.cshtml">
       <publishTime>07/09/2016 02:40:07</publishTime>
+    </File>
+    <File Include="Views/Shared/_CabinetDocuments.cshtml">
+      <publishTime>07/14/2016 01:37:42</publishTime>
+    </File>
+    <File Include="Views/Shared/_CabinetDocumentsTales.cshtml">
+      <publishTime>07/14/2016 01:48:29</publishTime>
+    </File>
+    <File Include="Views/Shared/_CabinetGalery.cshtml">
+      <publishTime>07/13/2016 23:13:37</publishTime>
+    </File>
+    <File Include="Views/Shared/_CabinetGaleryTales.cshtml">
+      <publishTime>07/14/2016 00:15:11</publishTime>
     </File>
     <File Include="Views/Shared/_ChildFilter.cshtml">
       <publishTime>07/09/2016 01:06:53</publishTime>

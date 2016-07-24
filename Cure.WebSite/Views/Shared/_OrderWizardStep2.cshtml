@@ -1,0 +1,245 @@
+﻿@using System.Globalization
+@using System.Security.AccessControl
+@using Cure.DataAccess
+@using Cure.Utils
+@model Cure.WebSite.Models.MembersViewModel
+
+@using (Html.BeginForm("SaveStep2", "Cabinet", FormMethod.Post, new
+{
+    @id = "formOrderStep2"
+}))
+{
+    <h4 class="forms-heading">
+        Заполните паспортные данные (данные свидетельства о рождении) пациента для подготовки: <br>
+        приглашения, счета на лечение, договора оказания медицинских услуг и прочих документов.
+    </h4>
+    <div class="order-section has-border" id="patients">
+        @for (int p = 0; p < Model.PacientArray.Count(); p++)
+        {
+            @Html.HiddenFor(m => Model.PacientArray[p].Id)
+            <div class="order-unit" id="patient-@Html.Raw(p)">
+                <h5 class="forms-subheading">@Html.Raw(p + 1)-й пациент</h5>
+                <div class="forms-line order-forms-line">
+                    <div class="forms-half-line">
+                        <label class="forms-label">Фамилия</label>
+                        @Html.TextBoxFor(x => Model.PacientArray[p].Familiya, new
+                                {
+                                    @class = "forms-input"
+                                })
+                        <div class="form-errors">
+                            @Html.ValidationMessageFor(x => Model.PacientArray[p].Familiya)
+                        </div>
+                    </div>
+                    <div class="forms-half-line">
+                        <label class="forms-label">Имя</label>
+                        @Html.TextBoxFor(x => Model.PacientArray[p].Name, new
+                                {
+                                    @class = "forms-input"
+                                })
+                        <div class="form-errors">
+                            @Html.ValidationMessageFor(x => Model.PacientArray[p].Name)
+                        </div>
+                    </div>
+                </div>
+                <div class="forms-line order-forms-line">
+                    <div class="forms-half-line">
+                        <label class="forms-label">Отчество</label>
+                        @Html.TextBoxFor(x => Model.PacientArray[p].Otchestvo, new
+                                {
+                                    @class = "forms-input"
+                                })
+                    </div>
+                </div>
+                <div class="forms-note">
+                    Фамилия и имя на английском языке с заграничного паспорта. <br>
+                    При отсутствии заграничного паспорта введите имя латинскими буквами
+                </div>
+                <div class="forms-line order-forms-line">
+                    <div class="forms-half-line">
+                        <label class="forms-label">Фамилия</label>
+                        @Html.TextBoxFor(x => Model.PacientArray[p].FamiliyaEn, new
+                                {
+                                    @class = "forms-input"
+                                })
+                    </div>
+                    @*<div class="forms-half-line">
+                        <label class="forms-label">Имя</label>
+                        <input class="forms-input" type="text">
+                    </div>*@
+                </div>
+                <div class="forms-line order-forms-line">
+                    <div class="forms-half-line">
+                        <label class="forms-label">Серия и номер заграничного паспорта. При отсутствии заграничного паспорта - серия и номер свидетельства о рождении</label>
+                        @Html.TextBoxFor(x => Model.PacientArray[p].SerialNumber, new
+                                {
+                                    @class = "forms-input"
+                                })
+                    </div>
+                </div>
+                <div class="forms-line order-forms-line">
+                    <div class="forms-half-line js-input-birthday">
+                        <label class="forms-label">Дата рождения</label>
+                        @Html.TextBoxFor(x => Model.PacientArray[p].BirthDate, "dd.MM.yyyy", new
+                                {
+                                    @placeholder = "Нет даты",
+                                    @maxlength = "50",
+                                    @class = "forms-input has-icon ico-birthday"
+                                })
+                    </div>
+                </div>
+                <div class="forms-line order-forms-line">
+                    <div class="forms-half-line">
+                        <label class="forms-label">Гражданство</label>
+                        <div class="selector forms-selector">
+                            @Html.HiddenFor(x => Model.PacientArray[p].CountryId)
+                            <div class="selector-val" data-val="0">Выберите страну</div>
+                            <ul class="selector-list">
+                                <li data-val="0">Выберите страну</li>
+                                @foreach (var country in ViewBag.Countries)
+                                {
+                                    <li data-val="@country.Id">@country.Name</li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="forms-line order-forms-line">
+                    <label class="forms-label">Область, город проживания</label>
+                    @Html.TextBoxFor(x => Model.PacientArray[p].CityName, new
+                            {
+                                @class = "forms-input"
+                            })
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="order-section" id="maintainers">
+        <h4 class="forms-heading">Паспортные данные сопровождающих</h4>
+        @for (int s = 0; s < Model.SputnikArray.Count(); s++)
+        {
+            @Html.HiddenFor(m => Model.SputnikArray[s].Id)
+            <div class="order-unit" id="maintainer-@Html.Raw(s)">
+                <h5 class="forms-subheading">@Html.Raw(s + 1) -й сопровождающий</h5>
+                <div class="forms-line order-forms-line">
+                    <div class="forms-half-line">
+                        <label class="forms-label">Фамилия</label>
+                        @Html.TextBoxFor(x => Model.SputnikArray[s].Familiya, new
+                                {
+                                    @class = "forms-input"
+                                })
+                        <div class="form-errors">
+                            @Html.ValidationMessageFor(x => Model.SputnikArray[s].Familiya)
+                        </div>
+                    </div>
+                    <div class="forms-half-line">
+                        <label class="forms-label">Имя</label>
+                        @Html.TextBoxFor(x => Model.SputnikArray[s].Name, new
+                                {
+                                    @class = "forms-input"
+                                })
+                        <div class="form-errors">
+                            @Html.ValidationMessageFor(x => Model.SputnikArray[s].Name)
+                        </div>
+                    </div>
+                </div>
+                <div class="forms-line order-forms-line">
+                    <div class="forms-half-line">
+                        <label class="forms-label">Отчество</label>
+                        @Html.TextBoxFor(x => Model.SputnikArray[s].Otchestvo, new
+                                {
+                                    @class = "forms-input"
+                                })
+                    </div>
+                </div>
+                <div class="forms-note">
+                    Фамилия и имя на английском языке из заграничного паспорта.
+                </div>
+                <div class="forms-line order-forms-line">
+                    <div class="forms-half-line">
+                        <label class="forms-label">Фамилия</label>
+                        @Html.TextBoxFor(x => Model.SputnikArray[s].FamiliyaEn, new
+                                {
+                                    @class = "forms-input"
+                                })
+                    </div>
+                </div>
+                <div class="forms-line order-forms-line">
+                    <div class="forms-half-line">
+                        <label class="forms-label">Серия и номер загранпаспорта</label>
+                        @Html.TextBoxFor(x => Model.SputnikArray[s].SerialNumber, new
+                                {
+                                    @class = "forms-input"
+                                })
+                    </div>
+                    <div class="forms-half-line">
+                        <label class="forms-label">Гражданство</label>
+                        <div class="selector forms-selector">
+                            @Html.HiddenFor(x => Model.SputnikArray[s].CountryId)
+                            <div class="selector-val" data-val="0">Выберите страну</div>
+                            <ul class="selector-list">
+                                <li data-val="0">Выберите страну</li>
+                                @foreach (var country in ViewBag.Countries)
+                                {
+                                    <li data-val="@country.Id">@country.Name</li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="forms-line order-forms-line top-30">
+                    <div class="forms-half-line js-input-birthday">
+                        <label class="forms-label">Дата рождения</label>
+                        @Html.TextBoxFor(x => Model.SputnikArray[s].BirthDate, "dd.MM.yyyy", new
+                                {
+                                    @placeholder = "Нет даты",
+                                    @class = "forms-input has-icon ico-birthday"
+                                })
+                    </div>
+                    <div class="forms-half-line">
+                        <label class="forms-label">Родственное отношение к пациенту</label>
+                        <div class="selector forms-selector">
+                            @Html.HiddenFor(x => Model.SputnikArray[s].RodstvoId)
+                            <div class="selector-val" data-val="0">Выберите</div>
+                            <ul class="selector-list">
+                                @foreach (RefRodstvo rodstvo in ViewBag.Rodstvos)
+                                {
+                                    <li data-val="@rodstvo.Id">@rodstvo.Name</li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="forms-line order-forms-line">
+                    <div class="forms-half-line">
+                        <label class="forms-label">Адрес электронной почты</label>
+                        @Html.TextBoxFor(x => Model.SputnikArray[s].Email, new
+                                {
+                                    @class = "forms-input"
+                                })
+                        <div class="form-errors">
+                            @Html.ValidationMessageFor(x => Model.SputnikArray[s].Email)
+                        </div>
+                    </div>
+                </div>
+                <div class="forms-line order-forms-line">
+                    <label class="forms-label">Контактный телефон (основной и запасной)</label>
+                    @Html.TextBoxFor(x => Model.SputnikArray[s].Contacts, new
+                                {
+                                    @class = "forms-input"
+                                })
+                </div>
+            </div>
+        }
+
+    </div>
+    <div class="form-errors">
+        @Html.ValidationSummary()
+    </div>
+    <div id="error-step2" class="form-errors"></div>
+    <div class="forms-line top-30">
+        <input id="orderstep2next" class="btn btn-orang" type="button" value="ПРОДОЛЖИТЬ">
+        <input class="btn btn-gray btn-back" data-move-to="1" type="button" value="Вернуться назад">
+        <input id="orderstep2save" class="btn btn-gray" type="button" value="Отложить заполнение">
+    </div>
+}

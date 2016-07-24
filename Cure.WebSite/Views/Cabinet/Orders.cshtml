@@ -1,6 +1,52 @@
-﻿@{
+﻿@model Cure.WebSite.Models.ClientContainer
+
+@{
     ViewBag.Title = "Мои заявки";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h3>Заявки. В разработке.</h3>
+
+<div class="main" role="main">
+    <div class="container">
+        @Html.Partial("_CabinetInfoLine", "Заявки")
+
+        <div class="all-pages-body">
+            <div class="content-wrap">
+                <div class="content-head js-content-tabs">
+                    <ul class="content-head-nav">
+                        <li><a class="js-tabs-link active" data-tab="order-create-tab" role="button">Новая заявка</a></li>
+                        <li><a class="js-tabs-link" data-tab="order-current-tab" role="button">Текущая заявка</a></li>
+                        @*<li><a class="js-tabs-link" data-tab="order-drafts-tab" role="button">Черновики</a></li>*@
+                        <li><a class="js-tabs-link" data-tab="order-archive-tab" role="button">Архив</a></li>
+                    </ul>
+                </div><!-- END content-head -->
+
+                <div class="content-body js-tabs-body">
+                    <div class="content-tab js-tabs-item active" id="order-create-tab">
+                        <div class="order-new">
+
+                            <ul class="order-steps-nav js-order-tabs">
+                                <!-- пройденные этапы: a class="js-tabs-link checked" -->
+                                <li><a id="steps-link-1" class="js-tabs-link @Html.Raw(Model.NewOrder.Name == "1" ? "active" : "disabled")" data-tab="order-step-1" role="button">Клиника и период лечения</a></li>
+                                <li><a id="steps-link-2" class="js-tabs-link @Html.Raw(Model.NewOrder.Name == "2" ? "active" : "disabled")" data-tab="order-step-2" role="button">Персональные данные</a></li>
+                                <li><a id="steps-link-3" class="js-tabs-link @Html.Raw(Model.NewOrder.Name == "3" ? "active" : "disabled")" data-tab="order-step-3" role="button">Медицинские данные</a></li>
+                                <li><a id="steps-link-4" class="js-tabs-link @Html.Raw(Model.NewOrder.Name == "4" ? "active" : "disabled")" data-tab="order-step-4" role="button">Состояние и навыки</a></li>
+                                <li><a id="steps-link-5" class="js-tabs-link @Html.Raw(Model.NewOrder.Name == "5" ? "active" : "disabled")" data-tab="order-step-5" role="button">Отправка заявки</a></li>
+                            </ul>
+
+                            @Html.Partial("_OrderWizard", Model)
+                        </div><!-- END order-new -->
+                    </div><!-- END order-create-tab -->
+
+                    @Html.Partial("_OrderCurrent")
+
+                    @Html.Partial("_OrderDrafts")
+
+                    @Html.Partial("_OrderArchive")
+
+                </div><!-- END content-body -->
+            </div><!-- END content-main -->
+        </div><!-- END all-pages-body -->
+    </div><!-- END container -->
+
+</div><!-- END main -->

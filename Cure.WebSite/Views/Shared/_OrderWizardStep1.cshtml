@@ -1,0 +1,83 @@
+﻿@using Cure.DataAccess
+@model Cure.WebSite.Models.ClientContainer
+
+@using (Html.BeginForm("SaveStep1", "Cabinet", FormMethod.Post, new
+{
+    @id = "formOrderStep1"
+}))
+{
+    <div class="order-steps-tab js-tabs-item @Html.Raw(Model.NewOrder.Name == "1" ? "active" : "")" id="order-step-1">
+        <h4 class="forms-heading">
+            Выберите больницы и планируемые даты лечения.<br>
+            В дальнейшем даты лечения можно откорректировать.
+        </h4>
+        <div class="forms-line">
+            @foreach (var dep in (IEnumerable<Department>)ViewBag.Departments)
+            {
+                <label class="forms-radio">
+                    @Html.RadioButton("department", dep.Id, Model.NewOrder.DepartmentId == dep.Id)
+                    <span>@dep.Name</span>
+                </label>
+            }
+        </div>
+        <div class="forms-line js-input-daterange">
+            <div class="order-date">
+                <label class="forms-label">Заезд</label>
+                @Html.TextBox("datefrom", Model.NewOrder.DateFrom.ToString("dd.MM.yyyy"), new
+                {
+                    @id = "datefrom",
+                    @placeholder = "Нет даты",
+                    @class = "forms-input has-icon ico-calendar"
+                })
+            </div>
+            <div class="order-date">
+                <label class="forms-label">Отъезд</label>
+                @Html.TextBox("dateto", Model.NewOrder.DateTo.ToString("dd.MM.yyyy"), new
+                {
+                    @id = "dateto",
+                    @placeholder = "Нет даты",
+                    @class = "forms-input has-icon ico-calendar"
+                })
+            </div>
+        </div>
+        <h4 class="forms-heading">Сколько человек едет на лечение</h4>
+        <div class="forms-line">
+            <div class="order-count">
+                <label class="forms-label">Пациенты</label>
+                <div class="counter js-counter" data-max="2">
+                    <a class="counter-btn btn-dwn">-</a>
+                    @Html.TextBox("countpacients", Model.NewOrder.Visits.Any() ? Model.NewOrder.Visits.Count : 1, new
+                    {
+                        @id = "countpacients",
+                        @class = "counter-rez",
+                        @readonly = "readonly"
+                    })
+                    <a class="counter-btn btn-upp">+</a>
+                </div>
+            </div>
+            <div class="order-count">
+                <label class="forms-label">Сопровождают</label>
+                <div class="counter js-counter" data-max="4">
+                    <a class="counter-btn btn-dwn">-</a>
+                    @Html.TextBox("countsputniks", Model.NewOrder.Visits.Any() ? Model.NewOrder.Sputniks.Count : 1, new
+                    {
+                        @id = "countsputniks",
+                        @class = "counter-rez",
+                        @readonly = "readonly"
+                    })
+                    <a class="counter-btn btn-upp">+</a>
+                </div>
+            </div>
+        </div>
+        <div id="error-step1" class="form-errors"></div>
+        <div class="forms-line top-30">
+            <input id="orderstep1next" class="btn btn-orang" type="button" value="ПРОДОЛЖИТЬ">
+            <input id="orderstep1save" class="btn btn-gray" type="button" value="Отложить заполнение">
+            <div class="order-inline-label"> - Завяка будет сохранена</div>
+        </div>
+        <div class="forms-line top-40">
+            <label class="forms-label">Нажимая кнопку “Продолжить”, даю согласие на <a href="@Url.Action("Index", "Home")" target="_blank">обработку персональных данных</a></label>
+        </div>
+    </div>
+    <!-- END order-step-1 -->
+}

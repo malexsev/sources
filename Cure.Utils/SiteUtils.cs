@@ -77,29 +77,74 @@
             return result;
         }
 
-        //public static string GetReisNumberLogist(object value)
-        //{
-        //    string result = value == null ? string.Empty : value.ToString().Trim();
-        //    if (result == "0000")
-        //    {
-        //        return "До Пекина есть билеты, до Юньченга отсутствуют / 意思是已经到达北京，没有到运城的票";
-        //    }
-        //    else
-        //    {
-        //        if (!string.IsNullOrEmpty(result.ToString(CultureInfo.InvariantCulture)))
-        //        {
-        //            string[] arr = result.Trim().Split(new string[] { "|" }, StringSplitOptions.RemoveEmptyEntries);
-        //            if (arr.GetUpperBound(0) == 0)
-        //            {
-        //                return result.Replace("|", " ");
-        //            }
-        //            else
-        //            {
-        //                return result;
-        //            }
-        //        }
-        //    }
-        //    return result;
-        //}
+        public static DateTime ParseDate(object originValue, DateTime defaultValue, string culture)
+        {
+            if (originValue == null) return defaultValue;
+            var provider = new CultureInfo(culture);
+            DateTime dateFrom;
+            if (!DateTime.TryParseExact(originValue.ToString(), "dd.MM.yyyy", provider, DateTimeStyles.None, out dateFrom))
+            {
+                dateFrom = defaultValue;
+            }
+            return dateFrom;
+        }
+
+        public static Guid ParseGuid(object originValue)
+        {
+            Guid defaultValue = Guid.Empty;
+            if (originValue == null) return defaultValue;
+            Guid result;
+            if (!Guid.TryParse(originValue.ToString(), out result))
+            {
+                result = defaultValue;
+            }
+            return result;
+        }
+
+        public static bool ParseBool(object originValue, bool defaultValue)
+        {
+            if (originValue == null) return defaultValue;
+            bool result;
+            if (!Boolean.TryParse(originValue.ToString(), out result))
+            {
+                result = defaultValue;
+            }
+            return result;
+        }
+
+        public static int ParseInt(object originValue, int defaultValue)
+        {
+            if (originValue == null) return defaultValue;
+            int result;
+            if (!Int32.TryParse(originValue.ToString(), out result))
+            {
+                result = defaultValue;
+            }
+            return result;
+        }
+
+        public static byte ParseByte(object originValue, byte defaultValue)
+        {
+            if (originValue == null)
+                return defaultValue;
+            byte result;
+            if (!Byte.TryParse(originValue.ToString(), out result))
+            {
+                result = defaultValue;
+            }
+            return result;
+        }
+
+        public static decimal ParseDecimal(object originValue, decimal defaultValue)
+        {
+            if (originValue == null)
+                return defaultValue;
+            decimal result;
+            if (!Decimal.TryParse(originValue.ToString(), out result))
+            {
+                result = defaultValue;
+            }
+            return result;
+        }
     }
 }

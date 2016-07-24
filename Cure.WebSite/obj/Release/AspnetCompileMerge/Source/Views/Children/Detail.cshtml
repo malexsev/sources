@@ -486,7 +486,10 @@
                                         <div class="gallery-thumbs js-tab-slider" id="big-slider-nav">
                                             @foreach (var photoItem in Model.PhotoItemLst)
                                             {
-                                                <div class="thumb"><img src="@photoItem.UrlBig" alt="__"></div>
+                                                if (Model.HiddenPhotoLst.All(x => x.FileName != System.IO.Path.GetFileName(photoItem.UrlOriginal)))
+                                                {
+                                                    <div class="thumb"><img src="@photoItem.UrlBig" alt="__"></div>
+                                                }
                                             }
                                         </div>
                                     </div>

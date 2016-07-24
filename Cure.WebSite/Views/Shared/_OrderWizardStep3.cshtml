@@ -1,0 +1,261 @@
+﻿@model Cure.WebSite.Models.ClientContainer
+
+<div class="order-steps-tab js-tabs-item @Html.Raw(Model.NewOrder.Name == "3" ? "active" : "")" id="order-step-3">
+    <h4 class="forms-heading">
+        Чтобы определить возможность реабилитации и лечения в нашей больнице, просим <br>
+        вас ответить на важные вопросы. Все поля не являются обязательными для заполнения.
+    </h4>
+    <div class="order-section" id="meddata">
+        <div class="forms-line order-forms-line">
+            <label class="forms-label">Диагноз пациента из последних выписок</label>
+            <textarea class="forms-text is-short"></textarea>
+        </div>
+        <div class="forms-line order-forms-line">
+            <label class="forms-label">
+                История болезни. Опишите подробно из медицинских документов: беременность,
+                роды, вес, АПГАР, ИВЛ, реанимация, обследование, лечение. Когда заметили у
+                ребенка проблемы, сопутствующие заболевания
+            </label>
+            <textarea class="forms-text"></textarea>
+        </div>
+        <div class="forms-line order-forms-line">
+            <label class="forms-label">Продолжительность заболевания</label>
+            <input class="forms-input" type="text">
+        </div>
+        <div class="forms-line order-forms-line">
+            <label class="forms-label">
+                Этапы физического развития с момента рождения <br>
+                (Когда начал держать голову, сидеть, ползать, стоять, ходить, и т д.)
+            </label>
+            <textarea class="forms-text"></textarea>
+        </div>
+        <div class="forms-line order-forms-line">
+            <div class="forms-radiotwix">
+                <div class="forms-radiotwix-title">Состоит ребенок на психиатрическом диспансерном учете?</div>
+                <label class="forms-radio">
+                    <input type="radio" name="radio-group-31" checked><span>Нет</span>
+                </label>
+                <label class="forms-radio">
+                    <input type="radio" name="radio-group-31"><span>Да</span>
+                </label>
+            </div>
+        </div>
+        <div class="forms-line order-forms-line">
+            <div class="forms-radiotwix">
+                <div class="forms-radiotwix-title">Состоит ребенок на наркологическом диспансерном учете?</div>
+                <label class="forms-radio">
+                    <input type="radio" name="radio-group-32" checked><span>Нет</span>
+                </label>
+                <label class="forms-radio">
+                    <input type="radio" name="radio-group-32"><span>Да</span>
+                </label>
+                <div class="forms-radiotwix-hidden">
+                    <label class="forms-label">Опишите подробнее</label>
+                    <input class="forms-input" type="text">
+                </div>
+            </div>
+        </div>
+        <div class="forms-line order-forms-line">
+            <div class="forms-radiotwix">
+                <div class="forms-radiotwix-title">Находится ли ребенок на кожно-венерологическом диспансерном учете?</div>
+                <label class="forms-radio">
+                    <input type="radio" name="radio-group-33" checked><span>Нет</span>
+                </label>
+                <label class="forms-radio">
+                    <input type="radio" name="radio-group-33"><span>Да</span>
+                </label>
+            </div>
+        </div>
+        <div class="forms-line order-forms-line">
+            <div class="forms-radiotwix">
+                <div class="forms-radiotwix-title">Имеет ли опасные для здоровья заболевания?</div>
+                <label class="forms-radio">
+                    <input type="radio" name="radio-group-34" checked><span>Нет</span>
+                </label>
+                <label class="forms-radio">
+                    <input type="radio" name="radio-group-34"><span>Да</span>
+                </label>
+            </div>
+        </div>
+        <div class="forms-line order-forms-line">
+            <div class="forms-radiotwix">
+                <div class="forms-radiotwix-title">Сердечно – сосудистые заболевания?</div>
+                <label class="forms-radio">
+                    <input type="radio" name="radio-group-35" checked><span>Нет</span>
+                </label>
+                <label class="forms-radio">
+                    <input type="radio" name="radio-group-35"><span>Да</span>
+                </label>
+            </div>
+        </div>
+        <div class="forms-line order-forms-line">
+            <div class="forms-radiotwix">
+                <div class="forms-radiotwix-title">Заболевания дыхательной системы?</div>
+                <label class="forms-radio">
+                    <input type="radio" name="radio-group-36" checked><span>Нет</span>
+                </label>
+                <label class="forms-radio">
+                    <input type="radio" name="radio-group-36"><span>Да</span>
+                </label>
+            </div>
+        </div>
+        <div class="forms-line order-forms-line">
+            <div class="forms-radiotwix">
+                <div class="forms-radiotwix-title">Инфекционные заболевания?</div>
+                <label class="forms-radio">
+                    <input type="radio" name="radio-group-37" checked><span>Нет</span>
+                </label>
+                <label class="forms-radio">
+                    <input type="radio" name="radio-group-37"><span>Да</span>
+                </label>
+            </div>
+        </div>
+        <div class="forms-line order-forms-line">
+            <div class="forms-radiotwix">
+                <div class="forms-radiotwix-title">Инфекционные заболевания?</div>
+                <label class="forms-radio">
+                    <input type="radio" name="radio-group-38" checked><span>Нет</span>
+                </label>
+                <label class="forms-radio">
+                    <input type="radio" name="radio-group-38"><span>Да</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="forms-line order-forms-line">
+            <div class="forms-radiotwix">
+                <div class="forms-radiotwix-title is-bigtitle">Имеются ли признаки эпилепсии, судороги?</div>
+                <label class="forms-radio">
+                    <input type="radio" name="radio-group-39" checked><span>Нет</span>
+                </label>
+                <label class="forms-radio">
+                    <input type="radio" name="radio-group-39"><span>Да</span>
+                </label>
+                <div class="forms-radiotwix-hidden">
+                    <div class="forms-line order-forms-line">
+                        <h5 class="forms-subheading">Информация для корректировки лечения по симптомам эпилепсии:</h5>
+                        <label class="forms-label">
+                            Опишите подробно приступы: тип, на фоне чего происходят, продолжительность и как протекают
+                        </label>
+                        <textarea class="forms-text is-short"></textarea>
+                    </div>
+                    <div class="forms-line order-forms-line">
+                        <label class="forms-label">Количество приступов в год  (Как часто: 2-3 раза в год,  раз в месяц, каждый день )</label>
+                        <input class="forms-input" type="text">
+                    </div>
+                    <div class="forms-line order-forms-line">
+                        <label class="forms-label">
+                            Противосудорожные препараты: наименование, дозировка и продолжительность приема
+                        </label>
+                        <textarea class="forms-text is-short"></textarea>
+                    </div>
+                    <div class="forms-line order-forms-line">
+                        <label class="forms-label">Когда был последний приступ (месяц, год)</label>
+                        <input class="forms-input" type="text">
+                    </div>
+                    <div class="forms-line order-forms-line">
+                        <label class="forms-label">
+                            Заключение ЭЭГ из выписки
+                        </label>
+                        <textarea class="forms-text is-short"></textarea>
+                    </div>
+                    <div class="forms-line order-forms-line">
+                        <label class="forms-label">Прикрепить тесктовой документ, сканированный документ, видео приступа (до 5 Мб)</label>
+                        <ul class="forms-files-list">
+                            <li>
+                                <i class="file-icon"></i><span class="file-name">12345.doc</span>
+                                <a class="file-del" role="button"></a>
+                            </li>
+                            <li>
+                                <i class="file-icon"></i><span class="file-name">video.avi</span>
+                                <a class="file-del" role="button"></a>
+                            </li>
+                        </ul>
+                        <div class="forms-file has-icon-clip">
+                            <div class="forms-file-msg">Прикрепить файл</div>
+                            <input type="file" onchange="this.previousSibling.previousSibling.innerHTML = this.value">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h4 class="forms-heading">Краткая история лечения</h4>
+        <div class="forms-note">Данная информация позволит докторам учесть пройдённое ранее лечение</div>
+        <div class="forms-line order-forms-line">
+            <div class="forms-radiotwix">
+                <div class="forms-radiotwix-title">Какое ранее проводилось лечение по Вашему заболеванию и где? Его результаты</div>
+                <label class="forms-radio">
+                    <input type="radio" name="radio-group-301" checked><span>Нет</span>
+                </label>
+                <label class="forms-radio">
+                    <input type="radio" name="radio-group-302"><span>Да</span>
+                </label>
+                <div class="forms-radiotwix-hidden">
+                    <label class="forms-label">Опишите подробнее</label>
+                    <input class="forms-input" type="text">
+                </div>
+            </div>
+        </div>
+        <div class="forms-line order-forms-line">
+            <div class="forms-radiotwix">
+                <div class="forms-radiotwix-title">Проходили ли когда-либо лечение в Китае?</div>
+                <label class="forms-radio">
+                    <input type="radio" name="radio-group-303" checked><span>Нет</span>
+                </label>
+                <label class="forms-radio">
+                    <input type="radio" name="radio-group-304"><span>Да</span>
+                </label>
+                <div class="forms-radiotwix-hidden">
+                    <label class="forms-label">Где и когда</label>
+                    <input class="forms-input" type="text">
+                </div>
+            </div>
+        </div>
+        <div class="forms-line order-forms-line">
+            <div class="forms-radiotwix">
+                <div class="forms-radiotwix-title">
+                    Лечились ли когда-либо методами китайской традиционной медицины за пределами Китая?
+                    (Иглорефлексотерапия, китайский массаж, лечение китайскими лекарственными препаратами)
+                </div>
+                <label class="forms-radio">
+                    <input type="radio" name="radio-group-305" checked><span>Нет</span>
+                </label>
+                <label class="forms-radio">
+                    <input type="radio" name="radio-group-305"><span>Да</span>
+                </label>
+                <div class="forms-radiotwix-hidden">
+                    <label class="forms-label">Где и каковы результаты</label>
+                    <input class="forms-input" type="text">
+                </div>
+            </div>
+        </div>
+        <div class="forms-line order-forms-line">
+            <div class="forms-radiotwix">
+                <div class="forms-radiotwix-title">Проводились ли хирургические операции по Вашему заболеванию?</div>
+                <label class="forms-radio">
+                    <input type="radio" name="radio-group-306" checked><span>Нет</span>
+                </label>
+                <label class="forms-radio">
+                    <input type="radio" name="radio-group-306"><span>Да</span>
+                </label>
+            </div>
+        </div>
+        <div class="forms-line order-forms-line">
+            <div class="forms-radiotwix">
+                <div class="forms-radiotwix-title">Получали ли травмы от внешних факторов? (ДТП, несчастные случаи)</div>
+                <label class="forms-radio">
+                    <input type="radio" name="radio-group-307" checked><span>Нет</span>
+                </label>
+                <label class="forms-radio">
+                    <input type="radio" name="radio-group-307"><span>Да</span>
+                </label>
+            </div>
+        </div>
+    </div><!-- END order-section #meddata -->
+    <div class="forms-line top-30">
+        <input class="btn btn-orang" type="button" value="ПРОДОЛЖИТЬ">
+        <input class="btn btn-gray btn-back" data-move-to="2" type="button" value="Вернуться назад">
+        <input class="btn btn-gray" type="button" value="Отложить заполнение">
+    </div>
+</div><!-- END order-step-3 -->

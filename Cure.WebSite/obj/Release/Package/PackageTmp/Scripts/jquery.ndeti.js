@@ -405,7 +405,7 @@ $(document).ready(function () {
         }
         e.preventDefault();
     });
-    
+
     /*------------ Сохранение Моя страница Таб1 ----------------------------*/
     $("#formChildTab1").submit(function (e) {
         $("#error-tab1").hide();
@@ -432,7 +432,7 @@ $(document).ready(function () {
         }
         e.preventDefault();
     });
-    
+
     /*------------ Сохранение главной фото Таб1 ----------------------------*/
     $('#fileUpload').on('change', function (e) {
         var files = e.target.files;
@@ -549,6 +549,114 @@ $(document).ready(function () {
         e.preventDefault();
     });
 
+    /*------------ Операции с галереей в кабинете ----------------------------*/
+    $("#formGalery").submit(function (e) {
+        var form = $('#formGalery');
+        var serializedForm = form.serialize();
+        $.ajax({
+            url: "/Cabinet/GaleryAction",
+            type: "POST",
+            data: serializedForm,
+            success: function (result) {
+                $("#pictodelete").val("");
+                $("#pictohideuphide").val("");
+                $("#galerytales").html(result);
+            },
+            error: function (result) {
+                alert(result.responseText);
+            }
+        });
+        e.preventDefault();
+    });
+
+    /*------------ Операции с документами в кабинете ----------------------------*/
+    $("#formDocuments").submit(function (e) {
+        var form = $('#formDocuments');
+        var serializedForm = form.serialize();
+        $.ajax({
+            url: "/Cabinet/DocumentsAction",
+            type: "POST",
+            data: serializedForm,
+            success: function (result) {
+                $("#doctodelete").val("");
+                $("#doctohideuphide").val("");
+                $("#documentstales").html(result);
+            },
+            error: function (result) {
+                alert(result.responseText);
+            }
+        });
+        e.preventDefault();
+    });
+    
+    /*------------ Добавление файла в галерее ----------------------------*/
+    $('#fileGaleryUpload').on('change', function (e) {
+        var files = e.target.files;
+        if (files.length > 0) {
+            if (window.FormData !== undefined) {
+                var data = new FormData();
+                for (var x = 0; x < files.length; x++) {
+                    data.append(files[x].name, files[x]);
+                }
+
+                $.ajax({
+                    type: "POST",
+                    url: '/Cabinet/UploadPhoto',
+                    contentType: false,
+                    processData: false,
+                    data: data,
+                    success: function (result) {
+                        $("#galerytales").html(result);
+                        console.log(result);
+                    },
+                    error: function (xhr, status, p3, p4) {
+                        var err = "Error " + " " + status + " " + p3 + " " + p4;
+                        if (xhr.responseText && xhr.responseText[0] == "{")
+                            err = JSON.parse(xhr.responseText).Message;
+                        console.log(err);
+                    }
+                });
+            } else {
+                alert("This browser doesn't support HTML5 file uploads!");
+            }
+        }
+        e.preventDefault();
+    });
+
+    /*------------ Добавление документа в документах ----------------------------*/
+    $('#fileDocumentsUpload').on('change', function (e) {
+        var files = e.target.files;
+        if (files.length > 0) {
+            if (window.FormData !== undefined) {
+                var data = new FormData();
+                for (var x = 0; x < files.length; x++) {
+                    data.append(files[x].name, files[x]);
+                }
+
+                $.ajax({
+                    type: "POST",
+                    url: '/Cabinet/UploadDoc',
+                    contentType: false,
+                    processData: false,
+                    data: data,
+                    success: function (result) {
+                        $("#documentstales").html(result);
+                        console.log(result);
+                    },
+                    error: function (xhr, status, p3, p4) {
+                        var err = "Error " + " " + status + " " + p3 + " " + p4;
+                        if (xhr.responseText && xhr.responseText[0] == "{")
+                            err = JSON.parse(xhr.responseText).Message;
+                        console.log(err);
+                    }
+                });
+            } else {
+                alert("This browser doesn't support HTML5 file uploads!");
+            }
+        }
+        e.preventDefault();
+    });
+
 
     /*----------- Галлерея картинок  -----------------------------------------*/
     $('#big-slider-img').slick({
@@ -637,6 +745,7 @@ $(document).ready(function () {
             $btn.removeClass("is-disabled").addClass("is-enabled");
             $tileItem.removeClass("is-disabled").addClass("is-enabled");
         };
+        
     });
 
     /*--- Кабинет: показ/скрытие комментариев ------------------------*/
@@ -779,6 +888,31 @@ $(window).load(function () {
 
 
 });
+
+function DeletePicture(id, fileName) {
+    $("#pictodelete").val(fileName);
+    $("#pictohideuphide").val("");
+    $('#formGalery').submit();
+}
+
+function HideShowPicture(id, fileName) {
+    $("#pictodelete").val("");
+    $("#pictohideuphide").val(fileName);
+    $('#formGalery').submit();
+}
+
+function HideShowDocument(id, fileName) {
+    $("#doctodelete").val("");
+    $("#doctohideuphide").val(fileName);
+    $('#formDocuments').submit();
+}
+
+function DeleteDocument(id, fileName) {
+    $("#doctodelete").val(fileName);
+    $("#doctohideuphide").val("");
+    $('#formDocuments').submit();
+}
+
 
 
 

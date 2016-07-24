@@ -1,0 +1,13 @@
+﻿@using Cure.WebSite.Models
+@model Cure.WebSite.Models.ClientContainer
+
+<div class="order-steps-body js-tabs-body">
+    @Html.Partial("_OrderWizardStep1", @Model)
+    <div class="order-steps-tab js-tabs-item @Html.Raw(Model.NewOrder.Name == "2" ? "active" : "")" id="order-step-2">
+        @Html.Partial("_OrderWizardStep2", new MembersViewModel(Model))
+    </div>
+    <!-- END order-step-2 -->
+    @Html.Partial("_OrderWizardStep3", @Model)
+    @Html.Partial("_OrderWizardStep4", @Model)
+    @Html.Partial("_OrderWizardStep5", @Model)
+</div><!-- END order-steps-body -->
