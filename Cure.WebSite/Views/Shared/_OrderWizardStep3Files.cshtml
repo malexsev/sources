@@ -1,0 +1,12 @@
+﻿@model IEnumerable<string>
+<div class="order-files-list">
+    <ul class="forms-files-list">
+        @foreach (var file in Model)
+        {
+            <li>
+                <i class="file-icon"></i><span class="file-name">@file</span>
+                <a class="file-del" role="button" data-file="@file"></a>
+            </li>
+        }
+    </ul>
+</div>

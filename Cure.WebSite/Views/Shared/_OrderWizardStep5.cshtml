@@ -1,6 +1,5 @@
 ﻿@model Cure.WebSite.Models.ClientContainer
 
-<div class="order-steps-tab js-tabs-item @Html.Raw(Model.NewOrder.Name == "5" ? "active" : "")" id="order-step-5">
     <h4 class="forms-heading">
         Ваша заявка сформирована и готова к отправке. <br>
         Проверьте правильность внесенных данных.
@@ -10,68 +9,12 @@
             Даты начала и окончания лечения вы сможете откорректировать в разделе “текущие заявки”.<br>
             После отправки заявки все изменения и дополнения производятся по электронной почте dministrator@dcp-china.ru или личным сообщением на сайте.<br>
             Ваша заявка будет доступна в личном кабинете (формат PDF), копия отправлена на почту.<br>
-            Завка будет рассмотрена в течение 3 дней. Актуальная информация по статусу заявки доступна в разделе “текущие заявки”.
+            Завка будет рассмотрена в течение 3 дней. Актуальная информация по статусу заявки доступна в разделе “текущая заявка”.
         </div>
     </div>
+    <div id="error-step5" class="form-errors"></div>
     <div class="forms-line top-30">
-        <input class="btn btn-orang" type="button" value="ОТПРАВИТЬ">
-        <input class="btn btn-gray btn-back" data-move-to="4" type="button" value="Вернуться назад">
-        <input class="btn btn-gray" type="button" value="Отправить позже">
+        <input id="orderstep5next" class="btn btn-orang" type="button" value="ОТПРАВИТЬ">
+        <input id="orderstep5back" class="btn btn-gray btn-back" data-move-to="4" type="button" value="Вернуться назад">
+        <input id="orderstep5save" class="btn btn-gray" type="button" value="Отправить позже">
     </div>
-    <!--<div class="forms-line">
-        <textarea class="forms-text" placeholder="Введите текст"></textarea>
-    </div>
-    <div class="forms-line">
-        <label class="forms-radio">
-            <input type="radio" name="radio-group"><span>Normal radio</span>
-        </label>
-        <label class="forms-radio">
-            <input type="radio" name="radio-group"><span>Normal radio</span>
-        </label>
-        <label class="forms-radio">
-            <input type="radio" name="radio-group"><span>Normal radio</span>
-        </label>
-    </div>
-    <div class="forms-line">
-        <label class="forms-checkbox">
-            <input type="checkbox"><span>Normal checkbox</span>
-        </label>
-        <label class="forms-checkbox">
-            <input type="checkbox"><span>Normal checkbox</span>
-        </label>
-        <label class="forms-checkbox">
-            <input type="checkbox"><span>Normal checkbox</span>
-        </label>
-    </div>
-    <h4 class="forms-title">Заголовок внутри форм</h4>
-    <h4 class="forms-heading">Заголовок внутри форм такой вот</h4>
-    <div class="forms-line">
-        <div class="selector forms-selector">
-            <input type="hidden" value="0">
-            <div class="selector-val" data-val="0">Выберите страну</div>
-            <ul class="selector-list">
-                <li data-val="0">Выберите страну</li>
-                <li data-val="1">Россия</li>
-                <li data-val="2">Украина</li>
-                <li data-val="3">Казахстан</li>
-                <li data-val="4">Беларусь</li>
-            </ul>
-        </div>
-    </div>
-    <div class="forms-line">
-        <div class="counter js-counter">
-            <a class="counter-btn btn-dwn">-</a>
-            <a class="counter-btn btn-upp">+</a>
-            <input class="counter-rez" type="text" value="0" readonly>
-            <label class="counter-txt">Выбор количества</label>
-        </div>
-    </div>
-    <div class="forms-line">
-        <a class="btn btn-orang">ПРОДОЛЖИТЬ</a>
-        <input class="btn btn-orang" type="button" value="ПРОДОЛЖИТЬ">
-    </div>
-    <div class="forms-line">
-        <a class="btn btn-gray">Отложить заполнение</a>
-        <input class="btn btn-gray" type="button" value="Отложить заполнение">
-    </div>-->
-</div><!-- END order-step-5 -->

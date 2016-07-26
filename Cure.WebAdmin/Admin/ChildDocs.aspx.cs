@@ -2,6 +2,7 @@
 {
     using System;
     using System.IO;
+    using System.Web;
     using System.Web.UI;
     using DataAccess;
     using DataAccess.BLL;
@@ -20,7 +21,7 @@
                     var dataAccess = new DataAccessBL();
                     ViewChild child = dataAccess.ViewChild(childId);
                     var folderPath = Path.Combine(@"~\Documents\", child.GuidId + "\\");
-                    FileUtils.CreateFolderIfNotExists(this, folderPath);
+                    FileUtils.CreateFolderIfNotExists(new HttpServerUtilityWrapper(this.Server), folderPath);
                     uxFileManager.Settings.RootFolder = folderPath;
                     uxFileManager.Visible = true;
                     uxResult.TextGreen =

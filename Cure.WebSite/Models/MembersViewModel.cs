@@ -41,6 +41,9 @@ namespace Cure.WebSite.Models
         public string SerialNumber { get; set; }
         public string BirthDate { get; set; }
         [HiddenInput]
+        [Display(Name = "Гражданство пациента")]
+        [Required(ErrorMessage = "{0} - обязательное поле")]
+        [RegularExpression(@"[1-9][0-9]*")]
         public int CountryId { get; set; }
         public string CityName { get; set; }
 
@@ -76,8 +79,14 @@ namespace Cure.WebSite.Models
         public string FamiliyaEn { get; set; }
         public string SerialNumber { get; set; }
         [HiddenInput]
+        [Display(Name = "Гражданство сопровождающего")]
+        [Required(ErrorMessage = "{0} - обязательное поле")]
+        [RegularExpression(@"[1-9][0-9]*")]
         public int? CountryId { get; set; }
         [HiddenInput]
+        [Display(Name = "Родство сопровождающего")]
+        [Required(ErrorMessage = "{0} - обязательное поле")]
+        [RegularExpression(@"[1-9][0-9]*")]
         public int RodstvoId { get; set; }
         [Display(Name = "Email сопровождающего")]
         [EmailAddress(ErrorMessage = "{0} - неверный формат адреса")]

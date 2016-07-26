@@ -15,14 +15,14 @@
 
     public class SiteUtils
     {
-        public static string GenerateVisitDetailsPdf(Visit visit, string attachmentName, Page page)
+        public static string GenerateVisitDetailsPdf(Visit visit, string attachmentName, HttpServerUtilityBase server)
         {
-            var report = new PacientVisitDetails(visit.Id, page);
+            var report = new PacientVisitDetails(visit.Id);
             var folderPath = Path.Combine(@"~\Documents\", visit.Order.GuidId + "\\");
             var fileName = String.Format("{0}", attachmentName);
-            var pdfFullPath = page.MapPath(Path.Combine(folderPath, fileName));
+            var pdfFullPath = server.MapPath(Path.Combine(folderPath, fileName));
 
-            FileUtils.CreateFolderIfNotExists(page, folderPath);
+            FileUtils.CreateFolderIfNotExists(server, folderPath);
 
             if (File.Exists(pdfFullPath))
             {

@@ -1,6 +1,7 @@
 ﻿namespace Cure.WebAdmin
 {
     using System;
+    using System.Web;
     using DataAccess.BLL;
     using Notification;
 
@@ -14,7 +15,7 @@
                 dataAccess.SwitchOrderStatusTask();
                 var notify = new Before24HoursNotification();
                 notify.Send();
-                var notifyEmail = new Before24HoursEmailNotification(this);
+                var notifyEmail = new Before24HoursEmailNotification(new HttpServerUtilityWrapper(this.Server));
                 notifyEmail.Send();
                 var notifyUsers = new BeforeArriveToUserEmailNotification();
                 notifyUsers.Send();

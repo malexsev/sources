@@ -359,6 +359,7 @@
     <Property Name="Hystoryb" Type="text" />
     <Property Name="Razvitie" Type="text" />
     <Property Name="Dispanser" Type="nvarchar" MaxLength="250" />
+    <Property Name="DispanserNarko" Type="nvarchar" MaxLength="250" />
     <Property Name="Dispanser2" Type="nvarchar" MaxLength="250" />
     <Property Name="DangerousDiseases" Type="nvarchar" MaxLength="250" />
     <Property Name="Serdce" Type="nvarchar" MaxLength="250" />

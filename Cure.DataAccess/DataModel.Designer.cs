@@ -28,8 +28,6 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("DataModel", "FK_Sputnik_RefCountry", "RefCountry", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Cure.DataAccess.RefCountry), "Sputnik", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Sputnik), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK_Sputnik_RefRodstvo", "RefRodstvo", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.RefRodstvo), "Sputnik", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Sputnik), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK_TransferUser_Department", "Department", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.Department), "TransferUser", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.TransferUser), true)]
-[assembly: EdmRelationshipAttribute("DataModel", "FK_Visit_Order", "Order", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.Order), "Visit", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Visit), true)]
-[assembly: EdmRelationshipAttribute("DataModel", "FK_Visit_Pacient", "Pacient", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.Pacient), "Visit", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Visit), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK__aspnet_Me__UserI__2F10007B", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.aspnet_Users), "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Cure.DataAccess.aspnet_Membership), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK__aspnet_Me__UserI__61316BF4", "aspnet_Users", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.aspnet_Users), "aspnet_Membership", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Cure.DataAccess.aspnet_Membership), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK_RefBank_RefCountry", "RefCountry", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.RefCountry), "RefBank", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.RefBank), true)]
@@ -44,6 +42,8 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("DataModel", "FK_StopVisit_RefStopVisitType", "RefStopVisitType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.RefStopVisitType), "StopVisit", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.StopVisit), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK_ChildHideFile_Child", "Child", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.Child), "ChildHideFile", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.ChildHideFile), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK_ChildAvaFile_Child", "Child", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.Child), "ChildAvaFile", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.ChildAvaFile), true)]
+[assembly: EdmRelationshipAttribute("DataModel", "FK_Visit_Order", "Order", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.Order), "Visit", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Visit), true)]
+[assembly: EdmRelationshipAttribute("DataModel", "FK_Visit_Pacient", "Pacient", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.Pacient), "Visit", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Visit), true)]
 
 #endregion
 
@@ -238,22 +238,6 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<TransferUser> _TransferUsers;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<Visit> Visits
-        {
-            get
-            {
-                if ((_Visits == null))
-                {
-                    _Visits = base.CreateObjectSet<Visit>("Visits");
-                }
-                return _Visits;
-            }
-        }
-        private ObjectSet<Visit> _Visits;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -510,6 +494,22 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<ChildAvaFile> _ChildAvaFiles;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Visit> Visits
+        {
+            get
+            {
+                if ((_Visits == null))
+                {
+                    _Visits = base.CreateObjectSet<Visit>("Visits");
+                }
+                return _Visits;
+            }
+        }
+        private ObjectSet<Visit> _Visits;
 
         #endregion
 
@@ -585,14 +585,6 @@ namespace Cure.DataAccess
         public void AddToTransferUsers(TransferUser transferUser)
         {
             base.AddObject("TransferUsers", transferUser);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the Visits EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToVisits(Visit visit)
-        {
-            base.AddObject("Visits", visit);
         }
     
         /// <summary>
@@ -721,6 +713,14 @@ namespace Cure.DataAccess
         public void AddToChildAvaFiles(ChildAvaFile childAvaFile)
         {
             base.AddObject("ChildAvaFiles", childAvaFile);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Visits EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToVisits(Visit visit)
+        {
+            base.AddObject("Visits", visit);
         }
 
         #endregion
@@ -14901,6 +14901,30 @@ namespace Cure.DataAccess
         private global::System.String _Dispanser;
         partial void OnDispanserChanging(global::System.String value);
         partial void OnDispanserChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String DispanserNarko
+        {
+            get
+            {
+                return _DispanserNarko;
+            }
+            set
+            {
+                OnDispanserNarkoChanging(value);
+                ReportPropertyChanging("DispanserNarko");
+                _DispanserNarko = StructuralObject.SetValidValue(value, true, "DispanserNarko");
+                ReportPropertyChanged("DispanserNarko");
+                OnDispanserNarkoChanged();
+            }
+        }
+        private global::System.String _DispanserNarko;
+        partial void OnDispanserNarkoChanging(global::System.String value);
+        partial void OnDispanserNarkoChanged();
     
         /// <summary>
         /// No Metadata Documentation available.

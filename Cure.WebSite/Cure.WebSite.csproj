@@ -267,7 +267,9 @@
     <Compile Include="Models\PacientDataSoruce.cs" />
     <Compile Include="Models\PhotoItem.cs" />
     <Compile Include="Models\SputnikDataSoruce.cs" />
-    <Compile Include="Models\ViewModelMembers.cs" />
+    <Compile Include="Models\VisitDetailViewModel.cs" />
+    <Compile Include="Models\VisitInfoViewModel.cs" />
+    <Compile Include="Models\MembersViewModel.cs" />
     <Compile Include="Models\VisitDataSoruce.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -317,6 +319,7 @@
     <Content Include="Views\Shared\_OrderDrafts.cshtml" />
     <Content Include="Views\Shared\_CabinetInfoLine.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Shared\_OrderWizardStep3Files.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

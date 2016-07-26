@@ -22,20 +22,14 @@
                 <div class="forms-line order-forms-line">
                     <div class="forms-half-line">
                         <label class="forms-label">Фамилия</label>
-                        @Html.TextBoxFor(x => Model.PacientArray[p].Familiya, new
-                                {
-                                    @class = "forms-input"
-                                })
+                        @Html.TextBoxFor(x => Model.PacientArray[p].Familiya, new { @class = "forms-input" })
                         <div class="form-errors">
                             @Html.ValidationMessageFor(x => Model.PacientArray[p].Familiya)
                         </div>
                     </div>
                     <div class="forms-half-line">
                         <label class="forms-label">Имя</label>
-                        @Html.TextBoxFor(x => Model.PacientArray[p].Name, new
-                                {
-                                    @class = "forms-input"
-                                })
+                        @Html.TextBoxFor(x => Model.PacientArray[p].Name, new { @class = "forms-input" })
                         <div class="form-errors">
                             @Html.ValidationMessageFor(x => Model.PacientArray[p].Name)
                         </div>
@@ -44,10 +38,7 @@
                 <div class="forms-line order-forms-line">
                     <div class="forms-half-line">
                         <label class="forms-label">Отчество</label>
-                        @Html.TextBoxFor(x => Model.PacientArray[p].Otchestvo, new
-                                {
-                                    @class = "forms-input"
-                                })
+                        @Html.TextBoxFor(x => Model.PacientArray[p].Otchestvo, new { @class = "forms-input" })
                     </div>
                 </div>
                 <div class="forms-note">
@@ -57,33 +48,27 @@
                 <div class="forms-line order-forms-line">
                     <div class="forms-half-line">
                         <label class="forms-label">Фамилия</label>
-                        @Html.TextBoxFor(x => Model.PacientArray[p].FamiliyaEn, new
-                                {
-                                    @class = "forms-input"
-                                })
+                        @Html.TextBoxFor(x => Model.PacientArray[p].FamiliyaEn, new { @class = "forms-input" })
                     </div>
                     @*<div class="forms-half-line">
-                        <label class="forms-label">Имя</label>
-                        <input class="forms-input" type="text">
-                    </div>*@
+                            <label class="forms-label">Имя</label>
+                            <input class="forms-input" type="text">
+                        </div>*@
                 </div>
                 <div class="forms-line order-forms-line">
                     <div class="forms-half-line">
                         <label class="forms-label">Серия и номер заграничного паспорта. При отсутствии заграничного паспорта - серия и номер свидетельства о рождении</label>
-                        @Html.TextBoxFor(x => Model.PacientArray[p].SerialNumber, new
-                                {
-                                    @class = "forms-input"
-                                })
+                        @Html.TextBoxFor(x => Model.PacientArray[p].SerialNumber, new { @class = "forms-input" })
                     </div>
                 </div>
                 <div class="forms-line order-forms-line">
                     <div class="forms-half-line js-input-birthday">
                         <label class="forms-label">Дата рождения</label>
-                        @Html.TextBoxFor(x => Model.PacientArray[p].BirthDate, "dd.MM.yyyy", new
+                        @Html.TextBoxFor(x => Model.PacientArray[p].BirthDate, new
                                 {
                                     @placeholder = "Нет даты",
                                     @maxlength = "50",
-                                    @class = "forms-input has-icon ico-birthday"
+                                    @class = "forms-input has-icon ico-calendar js-datepicker"
                                 })
                     </div>
                 </div>
@@ -92,23 +77,23 @@
                         <label class="forms-label">Гражданство</label>
                         <div class="selector forms-selector">
                             @Html.HiddenFor(x => Model.PacientArray[p].CountryId)
-                            <div class="selector-val" data-val="0">Выберите страну</div>
+                            <div class="selector-val" data-val="@Html.Raw(Model.PacientArray[p].CountryId)">@Html.Raw(Model.PacientArray[p].CountryId == 0 ? "Выберите страну" : ((IEnumerable<RefCountry>)ViewBag.Countries).FirstOrDefault(x => x.Id == Model.PacientArray[p].CountryId).Name)</div>
                             <ul class="selector-list">
-                                <li data-val="0">Выберите страну</li>
+                                @*<li data-val="0">Выберите страну</li>*@
                                 @foreach (var country in ViewBag.Countries)
                                 {
                                     <li data-val="@country.Id">@country.Name</li>
                                 }
                             </ul>
                         </div>
+                        <div class="form-errors">
+                            @Html.ValidationMessageFor(x => Model.PacientArray[p].CountryId)
+                        </div>
                     </div>
                 </div>
                 <div class="forms-line order-forms-line">
                     <label class="forms-label">Область, город проживания</label>
-                    @Html.TextBoxFor(x => Model.PacientArray[p].CityName, new
-                            {
-                                @class = "forms-input"
-                            })
+                    @Html.TextBoxFor(x => Model.PacientArray[p].CityName, new { @class = "forms-input" })
                 </div>
             </div>
         }
@@ -124,20 +109,14 @@
                 <div class="forms-line order-forms-line">
                     <div class="forms-half-line">
                         <label class="forms-label">Фамилия</label>
-                        @Html.TextBoxFor(x => Model.SputnikArray[s].Familiya, new
-                                {
-                                    @class = "forms-input"
-                                })
+                        @Html.TextBoxFor(x => Model.SputnikArray[s].Familiya, new { @class = "forms-input" })
                         <div class="form-errors">
                             @Html.ValidationMessageFor(x => Model.SputnikArray[s].Familiya)
                         </div>
                     </div>
                     <div class="forms-half-line">
                         <label class="forms-label">Имя</label>
-                        @Html.TextBoxFor(x => Model.SputnikArray[s].Name, new
-                                {
-                                    @class = "forms-input"
-                                })
+                        @Html.TextBoxFor(x => Model.SputnikArray[s].Name, new { @class = "forms-input" })
                         <div class="form-errors">
                             @Html.ValidationMessageFor(x => Model.SputnikArray[s].Name)
                         </div>
@@ -146,10 +125,7 @@
                 <div class="forms-line order-forms-line">
                     <div class="forms-half-line">
                         <label class="forms-label">Отчество</label>
-                        @Html.TextBoxFor(x => Model.SputnikArray[s].Otchestvo, new
-                                {
-                                    @class = "forms-input"
-                                })
+                        @Html.TextBoxFor(x => Model.SputnikArray[s].Otchestvo, new { @class = "forms-input" })
                     </div>
                 </div>
                 <div class="forms-note">
@@ -158,10 +134,7 @@
                 <div class="forms-line order-forms-line">
                     <div class="forms-half-line">
                         <label class="forms-label">Фамилия</label>
-                        @Html.TextBoxFor(x => Model.SputnikArray[s].FamiliyaEn, new
-                                {
-                                    @class = "forms-input"
-                                })
+                        @Html.TextBoxFor(x => Model.SputnikArray[s].FamiliyaEn, new { @class = "forms-input" })
                     </div>
                 </div>
                 <div class="forms-line order-forms-line">
@@ -176,31 +149,34 @@
                         <label class="forms-label">Гражданство</label>
                         <div class="selector forms-selector">
                             @Html.HiddenFor(x => Model.SputnikArray[s].CountryId)
-                            <div class="selector-val" data-val="0">Выберите страну</div>
+                            <div class="selector-val" data-val="@Html.Raw(Model.SputnikArray[s].CountryId)">@Html.Raw(Model.SputnikArray[s].CountryId == 0 ? "Выберите страну" : ((IEnumerable<RefCountry>)ViewBag.Countries).FirstOrDefault(x => x.Id == Model.SputnikArray[s].CountryId).Name)</div>
                             <ul class="selector-list">
-                                <li data-val="0">Выберите страну</li>
+                                @*<li data-val="0">Выберите страну</li>*@
                                 @foreach (var country in ViewBag.Countries)
                                 {
                                     <li data-val="@country.Id">@country.Name</li>
                                 }
                             </ul>
                         </div>
+                        <div class="form-errors">
+                            @Html.ValidationMessageFor(x => Model.SputnikArray[s].CountryId)
+                        </div>
                     </div>
                 </div>
                 <div class="forms-line order-forms-line top-30">
                     <div class="forms-half-line js-input-birthday">
                         <label class="forms-label">Дата рождения</label>
-                        @Html.TextBoxFor(x => Model.SputnikArray[s].BirthDate, "dd.MM.yyyy", new
+                        @Html.TextBoxFor(x => Model.SputnikArray[s].BirthDate, new
                                 {
                                     @placeholder = "Нет даты",
-                                    @class = "forms-input has-icon ico-birthday"
+                                    @class = "forms-input has-icon ico-calendar js-datepicker"
                                 })
                     </div>
                     <div class="forms-half-line">
                         <label class="forms-label">Родственное отношение к пациенту</label>
                         <div class="selector forms-selector">
                             @Html.HiddenFor(x => Model.SputnikArray[s].RodstvoId)
-                            <div class="selector-val" data-val="0">Выберите</div>
+                            <div class="selector-val" data-val="@Html.Raw(Model.SputnikArray[s].RodstvoId)">@Html.Raw(Model.SputnikArray[s].RodstvoId == 0 ? "Выберите" : ((IEnumerable<RefRodstvo>)ViewBag.Rodstvos).FirstOrDefault(x => x.Id == Model.SputnikArray[s].RodstvoId).Name)</div>
                             <ul class="selector-list">
                                 @foreach (RefRodstvo rodstvo in ViewBag.Rodstvos)
                                 {
@@ -208,15 +184,15 @@
                                 }
                             </ul>
                         </div>
+                        <div class="form-errors">
+                            @Html.ValidationMessageFor(x => Model.SputnikArray[s].RodstvoId)
+                        </div>
                     </div>
                 </div>
                 <div class="forms-line order-forms-line">
                     <div class="forms-half-line">
                         <label class="forms-label">Адрес электронной почты</label>
-                        @Html.TextBoxFor(x => Model.SputnikArray[s].Email, new
-                                {
-                                    @class = "forms-input"
-                                })
+                        @Html.TextBoxFor(x => Model.SputnikArray[s].Email, new { @class = "forms-input" })
                         <div class="form-errors">
                             @Html.ValidationMessageFor(x => Model.SputnikArray[s].Email)
                         </div>
@@ -224,10 +200,7 @@
                 </div>
                 <div class="forms-line order-forms-line">
                     <label class="forms-label">Контактный телефон (основной и запасной)</label>
-                    @Html.TextBoxFor(x => Model.SputnikArray[s].Contacts, new
-                                {
-                                    @class = "forms-input"
-                                })
+                    @Html.TextBoxFor(x => Model.SputnikArray[s].Contacts, new { @class = "forms-input" })
                 </div>
             </div>
         }

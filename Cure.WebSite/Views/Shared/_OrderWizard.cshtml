@@ -2,12 +2,19 @@
 @model Cure.WebSite.Models.ClientContainer
 
 <div class="order-steps-body js-tabs-body">
-    @Html.Partial("_OrderWizardStep1", @Model)
+    <div class="order-steps-tab js-tabs-item @Html.Raw(Model.NewOrder.Name == "1" ? "active" : "")" id="order-step-1">
+        @Html.Partial("_OrderWizardStep1", @Model)
+    </div>
     <div class="order-steps-tab js-tabs-item @Html.Raw(Model.NewOrder.Name == "2" ? "active" : "")" id="order-step-2">
         @Html.Partial("_OrderWizardStep2", new MembersViewModel(Model))
     </div>
-    <!-- END order-step-2 -->
-    @Html.Partial("_OrderWizardStep3", @Model)
-    @Html.Partial("_OrderWizardStep4", @Model)
-    @Html.Partial("_OrderWizardStep5", @Model)
-</div><!-- END order-steps-body -->
+    <div class="order-steps-tab js-tabs-item @Html.Raw(Model.NewOrder.Name == "3" ? "active" : "")" id="order-step-3">
+        @Html.Partial("_OrderWizardStep3", Model.NewOrder.Visits.Select(x => new VisitInfoViewModel(x)))
+    </div>
+    <div class="order-steps-tab js-tabs-item @Html.Raw(Model.NewOrder.Name == "4" ? "active" : "")" id="order-step-4">
+        @Html.Partial("_OrderWizardStep4", Model.NewOrder.Visits.Select(x => new VisitDetailViewModel(x)))
+    </div>
+    <div class="order-steps-tab js-tabs-item @Html.Raw(Model.NewOrder.Name == "5" ? "active" : "")" id="order-step-5">
+        @Html.Partial("_OrderWizardStep5", @Model)
+    </div>
+</div>

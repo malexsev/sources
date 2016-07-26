@@ -26,7 +26,7 @@ namespace Cure.WebAdmin.Client.Controls
         protected void uxCheckFolderCallbackPanel_Callback(object sender, CallbackEventArgsBase e)
         {
             var path = Path.Combine(@"~\Documents\", clientContainer.CurrentOrder.GuidId + "\\");
-            FileUtils.CreateFolderIfNotExists(this.Page, path);
+            FileUtils.CreateFolderIfNotExists(new HttpServerUtilityWrapper(this.Server), path);
             ASPxFileManager1.Settings.RootFolder = path;
             Session["RootFolder"] = path;
         }

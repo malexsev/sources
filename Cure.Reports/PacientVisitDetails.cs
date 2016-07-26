@@ -1,6 +1,7 @@
 ﻿namespace Cure.Reports
 {
     using System;
+    using System.Web;
     using DataAccess;
     using DataAccess.BLL;
     using Datasets;
@@ -9,13 +10,11 @@
     public partial class PacientVisitDetails : DevExpress.XtraReports.UI.XtraReport
     {
         private readonly DataAccessBL dataAccess = new DataAccessBL();
-        private System.Web.UI.Page page;
         private int visitId;
 
-        public PacientVisitDetails(int visitId, System.Web.UI.Page page)
+        public PacientVisitDetails(int visitId)
         {
             InitializeComponent();
-            this.page = page;
             this.visitId = visitId;
 
             var dt = new VisitInvitationDataset.dsVistInvitationDataTable();

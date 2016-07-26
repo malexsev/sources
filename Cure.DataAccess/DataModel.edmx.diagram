@@ -23,9 +23,6 @@
         <AssociationConnector Association="DataModel.FK_Sputnik_RefRodstvo" />
         <EntityTypeShape EntityType="DataModel.TransferUser" Width="1.5" PointX="14.375" PointY="13.25" />
         <AssociationConnector Association="DataModel.FK_TransferUser_Department" />
-        <EntityTypeShape EntityType="DataModel.Visit" Width="1.5" PointX="8.375" PointY="6.875" />
-        <AssociationConnector Association="DataModel.FK_Visit_Order" />
-        <AssociationConnector Association="DataModel.FK_Visit_Pacient" />
         <EntityTypeShape EntityType="DataModel.ViewScheduler" Width="1.875" PointX="25.75" PointY="2" />
         <EntityTypeShape EntityType="DataModel.SmsLog" Width="1.5" PointX="14.375" PointY="9.375" />
         <EntityTypeShape EntityType="DataModel.NotificationLog" Width="1.75" PointX="14.375" PointY="6.625" />
@@ -56,6 +53,9 @@
         <AssociationConnector Association="DataModel.FK_ChildHideFile_Child" />
         <EntityTypeShape EntityType="DataModel.ChildAvaFile" Width="1.5" PointX="4.375" PointY="29.625" />
         <AssociationConnector Association="DataModel.FK_ChildAvaFile_Child" />
+        <EntityTypeShape EntityType="DataModel.Visit" Width="1.5" PointX="8.5" PointY="6.75" />
+        <AssociationConnector Association="DataModel.FK_Visit_Order" />
+        <AssociationConnector Association="DataModel.FK_Visit_Pacient" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

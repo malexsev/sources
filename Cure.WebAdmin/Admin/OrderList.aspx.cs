@@ -5,6 +5,7 @@ namespace Cure.WebAdmin.Admin
     using System.Drawing.Imaging;
     using System.IO;
     using System.Linq;
+    using System.Web;
     using Cure.Reports;
     using DataAccess;
     using DataAccess.BLL;
@@ -153,7 +154,7 @@ namespace Cure.WebAdmin.Admin
                     var pdfFullPath = this.MapPath(Path.Combine(folderPath, fileName));
                     var pngFullPath = this.MapPath(Path.Combine(folderPath, fileNamePng));
 
-                    FileUtils.CreateFolderIfNotExists(this, folderPath);
+                    FileUtils.CreateFolderIfNotExists(new HttpServerUtilityWrapper(this.Server), folderPath);
 
                     if (File.Exists(pdfFullPath))
                     {

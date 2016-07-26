@@ -163,6 +163,7 @@
                         Diet = visit.Diet,
                         Dihalka = visit.Dihalka,
                         Dispanser = visit.Dispanser,
+                        DispanserNarko = visit.DispanserNarko,
                         Dispanser2 = visit.Dispanser2,
                         Eating = visit.Eating,
                         EatingProblems = visit.EatingProblems,

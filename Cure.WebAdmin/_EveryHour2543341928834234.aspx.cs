@@ -1,6 +1,7 @@
 ﻿namespace Cure.WebAdmin
 {
     using System;
+    using System.Web;
     using Notification;
 
     public partial class _EveryHour2543341928834234 : System.Web.UI.Page
@@ -11,7 +12,7 @@
             {
                 var notify = new Before2HoursNotification();
                 notify.Send();
-                var notifyEmail = new Before2HoursEmailNotification(this);
+                var notifyEmail = new Before2HoursEmailNotification(new HttpServerUtilityWrapper(this.Server));
                 notifyEmail.Send();
             }
         }

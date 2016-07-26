@@ -1,6 +1,7 @@
 ﻿namespace Cure.Utils
 {
     using System.IO;
+    using System.Web;
     using System.Web.UI;
 
     public static class FileUtils
@@ -34,9 +35,9 @@
             DeleteFromSubdirectories(fileInfo.Directory, fileInfo.Name);
         }
 
-        public static void CreateFolderIfNotExists(Page page, string folder)
+        public static void CreateFolderIfNotExists(HttpServerUtilityBase server, string folder)
         {
-            var f = page.MapPath(folder);
+            var f = server.MapPath(folder);
             if (!Directory.Exists(f))
             {
                 Directory.CreateDirectory(f);
@@ -56,7 +57,7 @@
             }
         }
 
-        private static void DeleteFile(DirectoryInfo folder, string fileName)
+        public static void DeleteFile(DirectoryInfo folder, string fileName)
         {
             string subFile = Path.Combine(folder.FullName, fileName);
             if (File.Exists(subFile))

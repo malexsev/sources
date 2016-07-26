@@ -77,6 +77,7 @@ namespace Cure.DataAccess.DAL
                 origVisit.Hystoryb = visit.Hystoryb;
                 origVisit.Razvitie = visit.Razvitie;
                 origVisit.Dispanser = visit.Dispanser;
+                origVisit.DispanserNarko = visit.DispanserNarko;
                 origVisit.Dispanser2 = visit.Dispanser2;
                 origVisit.DangerousDiseases = visit.DangerousDiseases;
                 origVisit.Serdce = visit.Serdce;

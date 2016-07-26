@@ -193,7 +193,7 @@ namespace Cure.WebAdmin.Client
                 notify.Send();
                 foreach (var visit in ClientContainer.NewOrder.Visits)
                 {
-                    var notifyEmail = new OrderSentEmailNotification(visit.Id, this);
+                    var notifyEmail = new OrderSentEmailNotification(visit.Id, new HttpServerUtilityWrapper(this.Server));
                     notifyEmail.Send();
                     var notifyEmailToUser = new OrderSentToUserEmailNotification(SiteUtils.GetCurrentUserName());
                     notifyEmailToUser.Send();

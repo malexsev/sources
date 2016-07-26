@@ -17,14 +17,14 @@
             @class = "forms-input"
         })
     </div>
-    <div class="forms-line js-input-birthday">
+    <div class="forms-line">
         <div class="forms-label">Дата рождения*</div>
         @Html.TextBox("birthday", ((ChildVisualDetailed)(ViewBag.Profile)).Birthday.ToString("dd.MM.yyyy") ?? "", new
         {
             @id = "birthday",
             @placeholder = "30.12.2006",
             @maxlength = "50",
-            @class = "forms-input has-icon ico-birthday"
+            @class = "forms-input has-icon ico-calendar js-datepicker"
         })
     </div>
     <div class="forms-line">

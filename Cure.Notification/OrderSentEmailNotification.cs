@@ -32,7 +32,7 @@
             + "{4}"; //0 - Пользователь, 1 - «ФИО» - «дата рождения», 2 - «страна», 3 - «город», 4 - «планируемая дата приезда и уезда», 5 - «короткое имя клинки»
 
 
-        public OrderSentEmailNotification(int visitId, Page page)
+        public OrderSentEmailNotification(int visitId, HttpServerUtilityBase server)
         {
             try
             {
@@ -51,7 +51,7 @@
                         : visit.Order.DateTo.ToString("dd-MM-yyyy"))
                     , visit.Order.Department.ShortName);
                 this.attachmentName = string.Format(attachmentTemplate, visit.Pacient.FullName,visit.Pacient.RefCountry.Name, visit.Pacient.CityName);
-                this.attachmentPath = SiteUtils.GenerateVisitDetailsPdf(visit, this.attachmentName, page);
+                this.attachmentPath = SiteUtils.GenerateVisitDetailsPdf(visit, this.attachmentName, server);
             }
             catch (Exception)
             {

@@ -699,9 +699,6 @@ a {
 .ico-calendar {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAPCAMAAAAxmgQeAAAAFVBMVEW4uLj///+4uLi4uLi4uLi4uLi4uLifRX2BAAAABnRSTlMAALe90tVmMp03AAAAP0lEQVR42rXPOwoAMAgD0Pi9/5FbEezHoVNDyPDAQURU1xIRxI9ImF9JA8yA3LLKy0SyuzFnf95267/xSTxtAK/4AvBHURKeAAAAAElFTkSuQmCC);
 }
-.ico-birthday {
-  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAPCAMAAAAxmgQeAAAAFVBMVEW4uLj///+4uLi4uLi4uLi4uLi4uLifRX2BAAAABnRSTlMAALe90tVmMp03AAAAP0lEQVR42rXPOwoAMAgD0Pi9/5FbEezHoVNDyPDAQURU1xIRxI9ImF9JA8yA3LLKy0SyuzFnf95267/xSTxtAK/4AvBHURKeAAAAAElFTkSuQmCC);
-}
 /*--------------------- BLOCKS: Breadcrumbs ----------------------------*/
 .breadcrumbs {
   margin: 40px 0;

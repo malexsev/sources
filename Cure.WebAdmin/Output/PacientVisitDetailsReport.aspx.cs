@@ -25,7 +25,7 @@ namespace Cure.WebAdmin.Reports
                         throw new Exception("Запрашиваемые на сервере данные связанные с Вашей учётной записью не найдены. Свяжитесь с адиминистрацией для уточнения деталей, возможно это легко исправить.");
                     } else
                     {
-                        var report = new PacientVisitDetails(visitId, this);
+                        var report = new PacientVisitDetails(visitId);
                         uxDocumentViewer.Report = report;
                     }
                 } else

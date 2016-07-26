@@ -1,96 +1,123 @@
-﻿@model Cure.WebSite.Models.ClientContainer
-
-<div class="order-steps-tab js-tabs-item @Html.Raw(Model.NewOrder.Name == "4" ? "active" : "")" id="order-step-4">
+﻿@model IEnumerable<Cure.WebSite.Models.VisitDetailViewModel>
+@using (Html.BeginForm("SaveStep4", "Cabinet", FormMethod.Post, new
+{
+    @id = "formOrderStep4"
+}))
+{
     <h4 class="forms-heading">
         Ответы на следующие вопросы помогут врачам точнее оценить состояние <br>
         пациента. Все поля заполнять не обязательно.
     </h4>
     <div class="order-section" id="condition">
-        <div class="forms-line order-forms-line">
-            <label class="forms-label">Разговаривает ли ребенок и каков словарный запас?</label>
-            <input class="forms-input" type="text">
-        </div>
-        <div class="forms-line order-forms-line">
-            <label class="forms-label">Выполняет инструкции?</label>
-            <input class="forms-input" type="text">
-        </div>
-        <div class="forms-line order-forms-line">
-            <label class="forms-label">
-                Физические навыки. Опишите, что ребенок умеет делать сам, и что - с помощью.
-            </label>
-            <textarea class="forms-text is-short"></textarea>
-        </div>
-        <div class="forms-line order-forms-line">
-            <label class="forms-label">
-                Опишите особенности питания ребенка (Ест сам? Перетертая пища или нет?)
-            </label>
-            <textarea class="forms-text is-short"></textarea>
-        </div>
-        <div class="forms-line order-forms-line">
-            <label class="forms-label">Как жует и глотает?</label>
-            <input class="forms-input" type="text">
-        </div>
-        <div class="forms-line order-forms-line">
-            <label class="forms-label">Аппетит</label>
-            <input class="forms-input" type="text">
-        </div>
-        <div class="forms-line order-forms-line">
-            <label class="forms-label">Стул</label>
-            <input class="forms-input" type="text">
-        </div>
-        <div class="forms-line order-forms-line">
-            <div class="forms-radiotwix">
-                <div class="forms-radiotwix-title">Аллергия на лекарственные препараты</div>
-                <label class="forms-radio">
-                    <input type="radio" name="radio-group-41" checked=""><span>Нет</span>
+        @for (int i = 0; i < Model.Count(); i++)
+        {
+            <h5 class="forms-subheading">@Html.Raw(i + 1)-й пациент</h5>
+            @Html.HiddenFor(m => Model.ToList()[i].Id)
+            <div class="forms-line order-forms-line">
+                <label class="forms-label">Разговаривает ли ребенок и каков словарный запас?</label>
+                @Html.TextBoxFor(x => Model.ToList()[i].Razgovor, new { @class = "forms-input" })
+                @*<input class="forms-input" type="text">*@@*Razgovor*@
+            </div>
+            <div class="forms-line order-forms-line">
+                <label class="forms-label">Выполняет инструкции?</label>
+                @Html.TextBoxFor(x => Model.ToList()[i].Instructcii, new { @class = "forms-input" })
+                @*<input class="forms-input" type="text">*@@*Instructcii*@
+            </div>
+            <div class="forms-line order-forms-line">
+                <label class="forms-label">
+                    Физические навыки. Опишите, что ребенок умеет делать сам, и что - с помощью.
                 </label>
-                <label class="forms-radio">
-                    <input type="radio" name="radio-group-41"><span>Есть</span>
+                @Html.TextAreaFor(x => Model.ToList()[i].Fisical, new { @class = "forms-text is-short" })
+                @*<textarea class="forms-text is-short"></textarea>*@@*Fisical*@
+            </div>
+            <div class="forms-line order-forms-line">
+                <label class="forms-label">
+                    Опишите особенности питания ребенка (Ест сам? Перетертая пища или нет?)
                 </label>
-                <div class="forms-radiotwix-hidden">
-                    <label class="forms-label">Укажите препараты</label>
-                    <input class="forms-input" type="text">
+                @Html.TextAreaFor(x => Model.ToList()[i].Diet, new { @class = "forms-text is-short" })
+                @*<textarea class="forms-text is-short"></textarea>*@@*Diet*@
+            </div>
+            <div class="forms-line order-forms-line">
+                <label class="forms-label">Как жует и глотает?</label>
+                @Html.TextBoxFor(x => Model.ToList()[i].Eating, new { @class = "forms-input" })
+                @*<input class="forms-input" type="text">*@@*Eating*@
+            </div>
+            <div class="forms-line order-forms-line">
+                <label class="forms-label">Аппетит</label>
+                @Html.TextBoxFor(x => Model.ToList()[i].Appetit, new { @class = "forms-input" })
+                @*<input class="forms-input" type="text">*@@*Appetit*@
+            </div>
+            <div class="forms-line order-forms-line">
+                <label class="forms-label">Стул</label>
+                @Html.TextBoxFor(x => Model.ToList()[i].Stul, new { @class = "forms-input" })
+                @*<input class="forms-input" type="text">*@@*Stul*@
+            </div>
+            <div class="forms-line order-forms-line">
+                <div class="forms-radiotwix">
+                    <div class="forms-radiotwix-title">Аллергия на лекарственные препараты</div>
+                    <label class="forms-radio">
+                        @Html.RadioButtonFor(x => Model.ToList()[i].IsAlergiya, "Нет")
+                        @*<input type="radio" name="radio-group-41" checked="">*@<span>Нет</span>@*IsAlergiya*@
+                    </label>
+                    <label class="forms-radio">
+                        @Html.RadioButtonFor(x => Model.ToList()[i].IsAlergiya, "Да")
+                        @*<input type="radio" name="radio-group-41">*@<span>Есть</span>@*IsAlergiya*@
+                    </label>
+                    <div class="forms-radiotwix-hidden">
+                        <label class="forms-label">Укажите препараты</label>
+                        @Html.TextBoxFor(x => Model.ToList()[i].Alergiya, new { @class = "forms-input" })
+                        @*<input class="forms-input" type="text">*@@*Alergiya*@
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="forms-line order-forms-line">
-            <label class="forms-label">Иммунитет к простудным заболеваниям</label>
-            <input class="forms-input" type="text">
-        </div>
-        <div class="forms-line order-forms-line">
-            <label class="forms-label">Как переносит физические нагрузки?</label>
-            <input class="forms-input" type="text">
-        </div>
-        <div class="forms-line order-forms-line">
-            <label class="forms-label">Состояние и качество сна</label>
-            <input class="forms-input" type="text">
-        </div>
-        <div class="forms-line order-forms-line">
-            <div class="forms-radiotwix">
-                <div class="forms-radiotwix-title">Увеличиваются ли приступы при физических нагрузках?</div>
-                <label class="forms-radio">
-                    <input type="radio" name="radio-group-42" checked=""><span>Нет</span>
-                </label>
-                <label class="forms-radio">
-                    <input type="radio" name="radio-group-42"><span>Да</span>
-                </label>
+            <div class="forms-line order-forms-line">
+                <label class="forms-label">Иммунитет к простудным заболеваниям</label>
+                @Html.TextBoxFor(x => Model.ToList()[i].Imunitet, new { @class = "forms-input" })
+                @*<input class="forms-input" type="text">*@@*Imunitet*@
             </div>
-        </div>
-        <div class="forms-line order-forms-line">
-            <div class="forms-radiotwix">
-                <div class="forms-radiotwix-title">Задыхается или закатывается во время болезненных процедур?</div>
-                <label class="forms-radio">
-                    <input type="radio" name="radio-group-43" checked=""><span>Нет</span>
-                </label>
-                <label class="forms-radio">
-                    <input type="radio" name="radio-group-43"><span>Да</span>
-                </label>
+            <div class="forms-line order-forms-line">
+                <label class="forms-label">Как переносит физические нагрузки?</label>
+                @Html.TextBoxFor(x => Model.ToList()[i].Fiznagruzki, new { @class = "forms-input" })
+                @*<input class="forms-input" type="text">*@@*Fiznagruzki*@
             </div>
-        </div>
-    </div><!-- END order-section #meddata -->
-    <div class="forms-line top-30">
-        <input class="btn btn-orang" type="button" value="ПРОДОЛЖИТЬ">
-        <input class="btn btn-gray btn-back" data-move-to="3" type="button" value="Вернуться назад">
-        <input class="btn btn-gray" type="button" value="Отложить заполнение">
+            <div class="forms-line order-forms-line">
+                <label class="forms-label">Состояние и качество сна</label>
+                @Html.TextBoxFor(x => Model.ToList()[i].Son, new { @class = "forms-input" })
+                @*<input class="forms-input" type="text">*@@*Son*@
+            </div>
+            <div class="forms-line order-forms-line">
+                <div class="forms-radiotwix">
+                    <div class="forms-radiotwix-title">Увеличиваются ли приступы при физических нагрузках?</div>
+                    <label class="forms-radio">
+                        @Html.RadioButtonFor(x => Model.ToList()[i].ProstupUp, "Нет")
+                        @*<input type="radio" name="radio-group-42" checked="">*@<span>Нет</span>@*ProstupUp*@
+                    </label>
+                    <label class="forms-radio">
+                        @Html.RadioButtonFor(x => Model.ToList()[i].ProstupUp, "Да")
+                        @*<input type="radio" name="radio-group-42">*@<span>Да</span>@*ProstupUp*@
+                    </label>
+                </div>
+            </div>
+            <div class="forms-line order-forms-line">
+                <div class="forms-radiotwix">
+                    <div class="forms-radiotwix-title">Задыхается или закатывается во время болезненных процедур?</div>
+                    <label class="forms-radio">
+                        @Html.RadioButtonFor(x => Model.ToList()[i].Zakativaetsa, "Нет")
+                        @*<input type="radio" name="radio-group-43" checked="">*@<span>Нет</span>@*Zakativaetsa*@
+                    </label>
+                    <label class="forms-radio">
+                        @Html.RadioButtonFor(x => Model.ToList()[i].Zakativaetsa, "Да")
+                        @*<input type="radio" name="radio-group-43">*@<span>Да</span>@*Zakativaetsa*@
+                    </label>
+                </div>
+            </div>
+        }
     </div>
-</div><!-- END order-step-4 -->
+    <!-- END order-section #meddata -->
+    <div id="error-step4" class="form-errors"></div>
+    <div class="forms-line top-30">
+        <input id="orderstep4next" class="btn btn-orang" type="button" value="ПРОДОЛЖИТЬ">
+        <input class="btn btn-gray btn-back" data-move-to="3" type="button" value="Вернуться назад">
+        <input id="orderstep4save" class="btn btn-gray" type="button" value="Отложить заполнение">
+    </div>
+}

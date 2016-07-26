@@ -17,7 +17,7 @@
     public class Before2HoursEmailNotification : INotification
     {
         private IEnumerable<Visit> visits;
-        private Page page;
+        private HttpServerUtilityBase server;
         private Setting settingAdminsEmails;
         private Setting settingAdminsEmailCopy;
         private Setting settingIsNotify;
@@ -30,14 +30,14 @@
             + @"{5}<br/>{6},<br/><br/><a href='http://lk.dcp-china.ru/{7}'>Ссылка на заявку (пдф формат)</a>"; //0 - короткое имя клиники, 1 - дата, время, 2 - рейс, 3 -ФИО дата рождения, 4 - страна, 5 - город, 6 - примечение, 7 - ссылка на пдф
 
 
-        public Before2HoursEmailNotification(Page page)
+        public Before2HoursEmailNotification(HttpServerUtilityBase server)
         {
             try
             {
                 var timeFrom = DateTime.Now.AddHours(3);
                 var timeTo = DateTime.Now.AddHours(4);
                 var dal = new DataAccessBL();
-                this.page = page;
+                this.server = server;
                 this.visits = dal.GetVisitsForTimespan(timeFrom, timeTo);
                 this.settingAdminsEmails = dal.GetSettingByCode("AdminsEmails");
                 this.settingAdminsEmailCopy = dal.GetSettingByCode("AdminsEmailCopy");
@@ -58,7 +58,7 @@
                 foreach (var visit in this.visits)
                 {
                     string attachmentName = string.Format(attachmentTemplate, visit.Pacient.FullName, visit.Pacient.RefCountry.Name, visit.Pacient.CityName);
-                    string attachmentPath = SiteUtils.GenerateVisitDetailsPdf(visit, attachmentName, page);
+                    string attachmentPath = SiteUtils.GenerateVisitDetailsPdf(visit, attachmentName, this.server);
                     string subject = string.Format(subjectTemplate, visit.Order.Department.ShortName, visit.Order.TicketPribitieTime == null ? "-" : DateTime.Parse(visit.Order.TicketPribitieTime.ToString()).ToString("dd-MM-yyyy H:mm"), visit.Order.TicketInfo
                         , visit.Pacient.FullName
                         , visit.Pacient.RefCountry.Name
