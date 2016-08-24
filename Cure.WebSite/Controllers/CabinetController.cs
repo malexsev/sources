@@ -37,7 +37,7 @@ namespace Cure.WebSite.Controllers
         {
             if (!User.Identity.IsAuthenticated)
             {
-                RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Home");
             }
             var dal = new DataAccessBL();
 
@@ -170,6 +170,10 @@ namespace Cure.WebSite.Controllers
                     {
                         this.clientContainer.NewOrder.DepartmentId = departmentId;
                     }
+                    else
+                    {
+                        return Json("1", JsonRequestBehavior.AllowGet);
+                    }
 
                     DateTime dateFrom = SiteUtils.ParseDate(datefrom, DateTime.Today, CalendarCulture);
                     if (dateFrom >= DateTime.Today.AddDays(7))
@@ -229,6 +233,7 @@ namespace Cure.WebSite.Controllers
                             visit.Pacient.CountryId = visitVm.CountryId;
                             visit.Pacient.Familiya = visitVm.Familiya;
                             visit.Pacient.FamiliyaEn = visitVm.FamiliyaEn;
+                            visit.Pacient.NameEng = visitVm.NameEn;
                             visit.Pacient.Name = visitVm.Name;
                             visit.Pacient.Otchestvo = visitVm.Otchestvo;
                             visit.Pacient.SerialNumber = visitVm.SerialNumber;
@@ -245,6 +250,7 @@ namespace Cure.WebSite.Controllers
                             sputnik.RodstvoId = sputnikVm.RodstvoId;
                             sputnik.Familiya = sputnikVm.Familiya;
                             sputnik.FamiliyaEn = sputnikVm.FamiliyaEn;
+                            sputnik.NameEn = sputnikVm.NameEn;
                             sputnik.Name = sputnikVm.Name;
                             sputnik.Otchestvo = sputnikVm.Otchestvo;
                             sputnik.SeriaNumber = sputnikVm.SerialNumber;
@@ -623,7 +629,7 @@ namespace Cure.WebSite.Controllers
         {
             if (!User.Identity.IsAuthenticated)
             {
-                RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Home");
             }
             var dal = new DataAccessBL();
             var child = dal.ViewChild(User.Identity.Name);
@@ -923,7 +929,7 @@ namespace Cure.WebSite.Controllers
             , string cardnumber
             , string cardname)
         {
-            if (!User.Identity.IsAuthenticated)
+            if (User.Identity.IsAuthenticated)
             {
                 try
                 {
@@ -1167,6 +1173,12 @@ namespace Cure.WebSite.Controllers
             string photoLocation = ConfigurationManager.AppSettings["PhotoLocation"];
             string docsLocation = photoLocation.Replace("Upload", "Documents");
             string folder = string.Format(OriginalDirectory, docsLocation, clientContainer.NewOrder.GuidId);
+
+            if (!Directory.Exists(folder))
+            {
+                Directory.CreateDirectory(folder);
+            }
+
             return Directory.GetFiles(folder).ToList().Select(Path.GetFileName);
 
         }

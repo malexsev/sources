@@ -12,16 +12,16 @@
             })
         </div>
         <ul class="account-menu">
-            <li @Html.Raw(Request.Url.AbsolutePath.Contains("Cabinet") 
+            @*<li @Html.Raw(Request.Url.AbsolutePath.Contains("Cabinet") 
             && !Request.Url.AbsolutePath.Contains("MyPage") 
             && !Request.Url.AbsolutePath.Contains("Messages") 
             && !Request.Url.AbsolutePath.Contains("Balance") 
-            && !Request.Url.AbsolutePath.Contains("Orders") ? @"class=""active""" : @"")><a href="@Url.Action("Index", "Cabinet")"><i class="ico-user"></i>Профиль</a></li>
-            <li @Html.Raw(Request.Url.AbsolutePath.Contains("Messages") ? @"class=""active""" : @"")><a href="@Url.Action("Messages", "Cabinet")"><i class="ico-mail"></i><span class="count">3</span>Cообщения</a></li>
+            && !Request.Url.AbsolutePath.Contains("Orders") ? @"class=""active""" : @"")><a href="@Url.Action("Index", "Cabinet")"><i class="ico-user"></i>Профиль</a></li>*@
+            @*<li @Html.Raw(Request.Url.AbsolutePath.Contains("Messages") ? @"class=""active""" : @"")><a href="@Url.Action("Messages", "Cabinet")"><i class="ico-mail"></i><span class="count">3</span>Cообщения</a></li>*@
             <li @Html.Raw(Request.Url.AbsolutePath.Contains("Orders") ? @"class=""active""" : @"")><a href="@Url.Action("Orders", "Cabinet")"><i class="ico-order"></i>Заявки</a></li>
-            <li @Html.Raw(Request.Url.AbsolutePath.Contains("Balance") ? @"class=""active""" : @"")><a href="@Url.Action("Balance", "Cabinet")"><i class="ico-money"></i>Баланс</a></li>
+            @*<li @Html.Raw(Request.Url.AbsolutePath.Contains("Balance") ? @"class=""active""" : @"")><a href="@Url.Action("Balance", "Cabinet")"><i class="ico-money"></i>Баланс</a></li>*@
             <li @Html.Raw(Request.Url.AbsolutePath.Contains("MyPage") ? @"class=""active""" : @"")><a href="@Url.Action("MyPage", "Cabinet")"><i class="ico-page"></i>Моя страница</a></li>
-            <li><a><i class="ico-cart"></i>Магазин</a></li>
+            @*<li><a><i class="ico-cart"></i>Магазин</a></li>*@
         </ul>
     </div>
 </div>

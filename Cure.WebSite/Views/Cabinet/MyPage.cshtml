@@ -30,7 +30,7 @@
                             </div>
                             <div class="child-aside-data">
                                 <div class="child-name">@Model.Name</div>
-                                <div class="child-age">@Model.Age лет</div>
+                                <div class="child-age">@Model.Age</div>
                                 <div class="child-city">@Model.CountryName, @Model.Region</div>
                             </div>
                         </div>
@@ -98,7 +98,7 @@
                                             {
                                                 <div class="money-account">
                                                     <i class="money-acc-icon">
-                                                        <img src="~/content/img/money-icons/beeline.png" alt="@Model.OperatorName">
+                                                        <img src="~/content/img/operators/@Html.Raw(string.IsNullOrEmpty(Model.OperatorParams) ? "nooperator.png" : Model.OperatorParams)" alt="@Model.OperatorName">
                                                     </i>
                                                     <div class="money-acc-note">@Model.OperatorName</div>
                                                     <div class="money-acc-numb">@Model.FinPhoneNumber</div>
@@ -128,7 +128,7 @@
                     <div class="child-page-tabs">
                         <ul class="child-tabs-head js-tabs-head">
                             <li><a class="active js-tabs-link" data-tab="child-tab-1">История лечения</a></li>
-                            <li><a class="js-tabs-link" data-tab="child-tab-2">Лента впечатлений</a></li>
+                            @*<li><a class="js-tabs-link" data-tab="child-tab-2">Лента впечатлений</a></li>*@
                             <li><a class="js-tabs-link" data-tab="child-tab-3">фотоальбом</a></li>
                             <li><a class="js-tabs-link" data-tab="child-tab-4">Документы</a></li>
                         </ul>

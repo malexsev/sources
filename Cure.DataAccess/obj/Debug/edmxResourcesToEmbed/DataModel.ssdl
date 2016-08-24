@@ -123,6 +123,21 @@
     <Property Name="AdditionalRu" Type="nvarchar" MaxLength="500" />
     <Property Name="AdditionalCh" Type="nvarchar" MaxLength="500" />
   </EntityType>
+  <EntityType Name="DepartmentStop">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DepartmentId" Type="int" Nullable="false" />
+    <Property Name="FromDate" Type="date" Nullable="false" />
+    <Property Name="ToDate" Type="date" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="LastUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastDate" Type="datetime" Nullable="false" />
+    <Property Name="CreateUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+  </EntityType>
   <EntityType Name="NotificationLog">
     <Key>
       <PropertyRef Name="Id" />
@@ -144,7 +159,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="GuidId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" />
-    <Property Name="DepartmentId" Type="int" Nullable="false" />
+    <Property Name="DepartmentId" Type="int" />
     <Property Name="StatusId" Type="int" Nullable="false" />
     <Property Name="OwnerUser" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="DateFrom" Type="date" Nullable="false" />
@@ -816,8 +831,22 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_DepartmentStop_Department">
+    <End Role="Department" Type="Self.Department" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="DepartmentStop" Type="Self.DepartmentStop" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DepartmentStop">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Order_Department">
-    <End Role="Department" Type="Self.Department" Multiplicity="1" />
+    <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
     <End Role="Order" Type="Self.Order" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Department">
@@ -993,6 +1022,7 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
     <EntitySet Name="ChildAvaFile" EntityType="Self.ChildAvaFile" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ChildHideFile" EntityType="Self.ChildHideFile" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DepartmentStop" EntityType="Self.DepartmentStop" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NotificationLog" EntityType="Self.NotificationLog" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" Schema="dbo" store:Type="Tables" />
@@ -1305,6 +1335,10 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
     <AssociationSet Name="FK_Department_RefCountry" Association="Self.FK_Department_RefCountry">
       <End Role="RefCountry" EntitySet="RefCountry" />
       <End Role="Department" EntitySet="Department" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DepartmentStop_Department" Association="Self.FK_DepartmentStop_Department">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="DepartmentStop" EntitySet="DepartmentStop" />
     </AssociationSet>
     <AssociationSet Name="FK_Order_Department" Association="Self.FK_Order_Department">
       <End Role="Department" EntitySet="Department" />

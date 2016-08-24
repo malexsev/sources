@@ -92,6 +92,7 @@ $(document).ready(function () {
     $(".js-personal-tabs").tabsInit();
     $(".js-tabs-registr").tabsInit();
     $(".js-tabs-citymap").tabsInit();
+    $(".js-tabs-pre-registr").tabsInit();
 
 
     /*----------- ФУНКЦИИ: Работа спойлера -----------------------------------*/
@@ -792,6 +793,7 @@ $(document).ready(function () {
                     if (result == "1") {
                         $("#error-step2").removeClass("form-errors");
                         $("#error-step2").show().text("Сохранено.");
+                        $("#order-step-3").load('/Cabinet/OrderStep3Partial');
                         setOrderStep(3);
                         $(".forms-radiotwix > .forms-radio input:checked").each(function () {
                             $(this).parent(".forms-radio").addClass("active").siblings(".forms-radio").removeClass("active");
@@ -828,6 +830,7 @@ $(document).ready(function () {
                     if (result == "1") {
                         $("#error-step3").removeClass("form-errors");
                         $("#error-step3").show().text("Сохранено.");
+                        $("#order-step-4").load('/Cabinet/OrderStep4Partial');
                         setOrderStep(4);
                     } else if (result == "0") {
                         window.location.href = '/Home/Index/';
@@ -1302,7 +1305,7 @@ $(window).load(function () {
 
     setTimeout(function () {
         $(".preloader").addClass("off");
-    }, 600);
+    }, 300);
 
 
 

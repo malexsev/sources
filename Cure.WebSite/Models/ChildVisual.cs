@@ -6,10 +6,11 @@ using System;
 
 namespace Cure.WebSite.Models
 {
+    using Utils;
 
     public class ChildVisual : ViewChild
     {
-        public int Age { get; set; }
+        public string Age { get; set; }
         public string PhotoUrl { get; set; }
         public PhotoItem PhotoItem { get; set; }
         public string AvaFileName { get; set; }
@@ -55,6 +56,7 @@ namespace Cure.WebSite.Models
             return result;
         }
 
+        public static string NoPhotoUrl;
 
         public ChildVisual(ViewChild child, ChildAvaFile childAvaFile = null)
         {
@@ -69,7 +71,7 @@ namespace Cure.WebSite.Models
                 this.BankName = child.BankName;
                 this.BankOktmo = child.BankOktmo;
                 this.BankOkved = child.BankOkved;
-                this.Birthday = child.Birthday;
+                this.Birthday = child.Birthday.Year == 2111 ? DateTime.Today : child.Birthday;
                 this.ContactEmail = child.ContactEmail;
                 this.ContactName = child.ContactName;
                 this.ContactPhone = child.ContactPhone;
@@ -121,10 +123,13 @@ namespace Cure.WebSite.Models
                 this.UserLoweredEmail = child.UserLoweredEmail;
                 this.UserLoweredUserName = child.UserLoweredUserName;
 
-                PhotoItem = new PhotoItem();
+                ChildVisual.NoPhotoUrl = string.Format("/Content/img/userpics/no_photo_{0}.jpg",
+                    SiteUtils.GetRandom(this.Id, 3));
+
+                this.PhotoItem = new PhotoItem(this.Id);
                 //PhotoItemLst = new List<PhotoItem>();
                 //DocItemLst = new List<DocItem>();
-                Age = DateTime.Today.Year - child.Birthday.Year;
+                Age = child.Birthday.Year == 2111 ? "Возраст не указан" : string.Format("{0} лет", (DateTime.Today.Year - child.Birthday.Year).ToString());
                 string photoLocation = Path.Combine(ConfigurationManager.AppSettings["PhotoLocation"], this.GuidId.ToString());
                 string photoUrl = Path.Combine(ConfigurationManager.AppSettings["PhotoUrl"], this.GuidId.ToString());
                 string docsLocation = photoLocation.Replace("Upload", "Documents");
@@ -138,7 +143,7 @@ namespace Cure.WebSite.Models
 
                     if (fileInfoArray.Length <= 0)
                     {
-                        PhotoUrl = "/Content/images/no_photo_big.jpg";
+                        this.PhotoUrl = ChildVisual.NoPhotoUrl;
                     }
 
                     this.AvaFileName = (childAvaFile == null || childAvaFile.Id == 0)
@@ -149,16 +154,21 @@ namespace Cure.WebSite.Models
                     {
                         if ((childAvaFile == null || childAvaFile.Id == 0) || fileInfo.Name == childAvaFile.FileName)
                         {
-                            PhotoUrl = Path.Combine(Path.Combine(photoUrl, "Thumb"), fileInfo.Name);
-                            PhotoItem = new PhotoItem(photoUrl, fileInfo.Name);
+                            this.PhotoUrl = Path.Combine(Path.Combine(photoUrl, "Thumb"), fileInfo.Name);
+                            this.PhotoItem = new PhotoItem(photoUrl, fileInfo.Name);
                             break;
                         }
                     }
                     if ((PhotoItem.UrlOriginal == string.Empty || PhotoItem.UrlOriginal.Contains("no_photo")) && fileInfoArray.Length > 0 && !(childAvaFile == null || childAvaFile.Id == 0))
                     {
-                        PhotoUrl = Path.Combine(Path.Combine(photoUrl, "Thumb"), fileInfoArray[0].Name);
-                        PhotoItem = new PhotoItem(photoUrl, fileInfoArray[0].Name);
+                        this.PhotoUrl = Path.Combine(Path.Combine(photoUrl, "Thumb"), fileInfoArray[0].Name);
+                        this.PhotoItem = new PhotoItem(photoUrl, fileInfoArray[0].Name);
                     }
+                }
+                else
+                {
+                    this.PhotoUrl = ChildVisual.NoPhotoUrl;
+                    this.PhotoItem = new PhotoItem(this.Id);
                 }
             }
         }

@@ -14,6 +14,7 @@ namespace Cure.WebSite.Models
     {
         [Key]
         public int Id { get; set; }
+        public string Name { get; set; }
         public string Razgovor { get; set; }
         public string Instructcii { get; set; }
         public string Fisical { get; set; }
@@ -37,6 +38,9 @@ namespace Cure.WebSite.Models
         public VisitDetailViewModel(Visit visit)
         {
             this.Id = visit.Id;
+            this.Name = (!string.IsNullOrEmpty(visit.Pacient.NameEng) && !string.IsNullOrEmpty(visit.Pacient.FamiliyaEn))
+                ? string.Format(" {0} {1}", visit.Pacient.NameEng, visit.Pacient.FamiliyaEn)
+                : string.Empty;
             this.Razgovor = visit.Razgovor;
             this.Instructcii = visit.Instructcii;
             this.Fisical = visit.Fisical;
@@ -49,8 +53,8 @@ namespace Cure.WebSite.Models
             this.Imunitet = visit.Imunitet;
             this.Fiznagruzki = visit.Fiznagruzki;
             this.Son = visit.Son;
-            this.ProstupUp = visit.ProstupUp;
-            this.Zakativaetsa = visit.Zakativaetsa;
+            this.ProstupUp = string.IsNullOrEmpty(visit.ProstupUp) ? "Нет" : visit.ProstupUp;
+            this.Zakativaetsa = string.IsNullOrEmpty(visit.Zakativaetsa) ? "Нет" : visit.Zakativaetsa;
         }
     }
 }

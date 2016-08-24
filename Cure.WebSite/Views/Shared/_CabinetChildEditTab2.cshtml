@@ -20,7 +20,7 @@
         <div class="forms-label">Кем приходится ребенку*</div>
         <div class="selector forms-selector">
             @Html.Hidden("rodstvo", ((ChildVisualDetailed)(ViewBag.Profile)).ContactRodstvoId, new { id = "rodstvo" })
-            <div class="selector-val" data-val="1">Мать</div>
+            <div class="selector-val" data-val="10">Родство не указано</div>
             <ul class="selector-list">
                 @foreach (RefRodstvo rodstvo in ViewBag.Rodstvos)
                 {

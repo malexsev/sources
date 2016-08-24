@@ -90,44 +90,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Orders">
-      <EntityTypeMapping TypeName="DataModel.Order">
-        <MappingFragment StoreEntitySet="Order">
-          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
-          <ScalarProperty Name="LastDate" ColumnName="LastDate" />
-          <ScalarProperty Name="LastUser" ColumnName="LastUser" />
-          <ScalarProperty Name="ServiceRoomIsPosuda" ColumnName="ServiceRoomIsPosuda" />
-          <ScalarProperty Name="ServiceRoomIsVoda" ColumnName="ServiceRoomIsVoda" />
-          <ScalarProperty Name="ServiceRoomIsMilo" ColumnName="ServiceRoomIsMilo" />
-          <ScalarProperty Name="ServiceRoomIsOpolask" ColumnName="ServiceRoomIsOpolask" />
-          <ScalarProperty Name="ServiceRoomIsStiral" ColumnName="ServiceRoomIsStiral" />
-          <ScalarProperty Name="ServiceRoomIsPaper" ColumnName="ServiceRoomIsPaper" />
-          <ScalarProperty Name="ServiceUnchenOther" ColumnName="ServiceUnchenOther" />
-          <ScalarProperty Name="ServiceUnchenIsVstrecha" ColumnName="ServiceUnchenIsVstrecha" />
-          <ScalarProperty Name="ServicePekinOther" ColumnName="ServicePekinOther" />
-          <ScalarProperty Name="ServicePekinIsHotel" ColumnName="ServicePekinIsHotel" />
-          <ScalarProperty Name="ServicePekinIsPerevod" ColumnName="ServicePekinIsPerevod" />
-          <ScalarProperty Name="StatusDecription" ColumnName="StatusDecription" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="Notes" ColumnName="Notes" />
-          <ScalarProperty Name="VizaDney" ColumnName="VizaDney" />
-          <ScalarProperty Name="TicketInfo" ColumnName="TicketInfo" />
-          <ScalarProperty Name="TicketUbitieTime" ColumnName="TicketUbitieTime" />
-          <ScalarProperty Name="TicketPribitieTime" ColumnName="TicketPribitieTime" />
-          <ScalarProperty Name="Price" ColumnName="Price" />
-          <ScalarProperty Name="Dney" ColumnName="Dney" />
-          <ScalarProperty Name="DateTo" ColumnName="DateTo" />
-          <ScalarProperty Name="DateFrom" ColumnName="DateFrom" />
-          <ScalarProperty Name="OwnerUser" ColumnName="OwnerUser" />
-          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
-          <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="GuidId" ColumnName="GuidId" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Departments">
       <EntityTypeMapping TypeName="DataModel.Department">
         <MappingFragment StoreEntitySet="Department">
@@ -190,69 +152,6 @@
         <MappingFragment StoreEntitySet="TransferUser">
           <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
           <ScalarProperty Name="Username" ColumnName="Username" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Visits">
-      <EntityTypeMapping TypeName="DataModel.Visit">
-        <MappingFragment StoreEntitySet="Visit">
-          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
-          <ScalarProperty Name="LastDate" ColumnName="LastDate" />
-          <ScalarProperty Name="LastUser" ColumnName="LastUser" />
-          <ScalarProperty Name="Recomend" ColumnName="Recomend" />
-          <ScalarProperty Name="Resultat" ColumnName="Resultat" />
-          <ScalarProperty Name="Postuplenie" ColumnName="Postuplenie" />
-          <ScalarProperty Name="RequiredDocs" ColumnName="RequiredDocs" />
-          <ScalarProperty Name="Requirements" ColumnName="Requirements" />
-          <ScalarProperty Name="Travmi" ColumnName="Travmi" />
-          <ScalarProperty Name="Hirurg" ColumnName="Hirurg" />
-          <ScalarProperty Name="NonTradicial" ColumnName="NonTradicial" />
-          <ScalarProperty Name="KursesChinaRanee" ColumnName="KursesChinaRanee" />
-          <ScalarProperty Name="KursesRanee" ColumnName="KursesRanee" />
-          <ScalarProperty Name="Zakativaetsa" ColumnName="Zakativaetsa" />
-          <ScalarProperty Name="ProstupUp" ColumnName="ProstupUp" />
-          <ScalarProperty Name="Son" ColumnName="Son" />
-          <ScalarProperty Name="Fiznagruzki" ColumnName="Fiznagruzki" />
-          <ScalarProperty Name="Imunitet" ColumnName="Imunitet" />
-          <ScalarProperty Name="Alergiya" ColumnName="Alergiya" />
-          <ScalarProperty Name="Stul" ColumnName="Stul" />
-          <ScalarProperty Name="Appetit" ColumnName="Appetit" />
-          <ScalarProperty Name="EatingProblems" ColumnName="EatingProblems" />
-          <ScalarProperty Name="Eating" ColumnName="Eating" />
-          <ScalarProperty Name="Diet" ColumnName="Diet" />
-          <ScalarProperty Name="Fisical" ColumnName="Fisical" />
-          <ScalarProperty Name="Instructcii" ColumnName="Instructcii" />
-          <ScalarProperty Name="Razgovor" ColumnName="Razgovor" />
-          <ScalarProperty Name="MainGoal" ColumnName="MainGoal" />
-          <ScalarProperty Name="Encefalogram" ColumnName="Encefalogram" />
-          <ScalarProperty Name="Remission" ColumnName="Remission" />
-          <ScalarProperty Name="SudorogiMedcine" ColumnName="SudorogiMedcine" />
-          <ScalarProperty Name="SudorogiCount" ColumnName="SudorogiCount" />
-          <ScalarProperty Name="SudorogiType" ColumnName="SudorogiType" />
-          <ScalarProperty Name="Epilispiya" ColumnName="Epilispiya" />
-          <ScalarProperty Name="OtherDiseases" ColumnName="OtherDiseases" />
-          <ScalarProperty Name="Infections" ColumnName="Infections" />
-          <ScalarProperty Name="Dihalka" ColumnName="Dihalka" />
-          <ScalarProperty Name="Serdce" ColumnName="Serdce" />
-          <ScalarProperty Name="DangerousDiseases" ColumnName="DangerousDiseases" />
-          <ScalarProperty Name="Dispanser2" ColumnName="Dispanser2" />
-          <ScalarProperty Name="Dispanser" ColumnName="Dispanser" />
-          <ScalarProperty Name="Razvitie" ColumnName="Razvitie" />
-          <ScalarProperty Name="Hystoryb" ColumnName="Hystoryb" />
-          <ScalarProperty Name="HystoryA" ColumnName="HystoryA" />
-          <ScalarProperty Name="TodaysDiagnoz" ColumnName="TodaysDiagnoz" />
-          <ScalarProperty Name="Additional" ColumnName="Additional" />
-          <ScalarProperty Name="IsInvicePrint" ColumnName="IsInvicePrint" />
-          <ScalarProperty Name="IsInvite" ColumnName="IsInvite" />
-          <ScalarProperty Name="AmbNumber" ColumnName="AmbNumber" />
-          <ScalarProperty Name="DateDogovor" ColumnName="DateDogovor" />
-          <ScalarProperty Name="Fond" ColumnName="Fond" />
-          <ScalarProperty Name="Price" ColumnName="Price" />
-          <ScalarProperty Name="Vipiska" ColumnName="Vipiska" />
-          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
-          <ScalarProperty Name="PacientId" ColumnName="PacientId" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -677,6 +576,108 @@
           <ScalarProperty Name="ChangeDate" ColumnName="ChangeDate" />
           <ScalarProperty Name="FileName" ColumnName="FileName" />
           <ScalarProperty Name="ChildId" ColumnName="ChildId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Visits">
+      <EntityTypeMapping TypeName="DataModel.Visit">
+        <MappingFragment StoreEntitySet="Visit">
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+          <ScalarProperty Name="LastDate" ColumnName="LastDate" />
+          <ScalarProperty Name="LastUser" ColumnName="LastUser" />
+          <ScalarProperty Name="Recomend" ColumnName="Recomend" />
+          <ScalarProperty Name="Resultat" ColumnName="Resultat" />
+          <ScalarProperty Name="Postuplenie" ColumnName="Postuplenie" />
+          <ScalarProperty Name="RequiredDocs" ColumnName="RequiredDocs" />
+          <ScalarProperty Name="Requirements" ColumnName="Requirements" />
+          <ScalarProperty Name="Travmi" ColumnName="Travmi" />
+          <ScalarProperty Name="Hirurg" ColumnName="Hirurg" />
+          <ScalarProperty Name="NonTradicial" ColumnName="NonTradicial" />
+          <ScalarProperty Name="KursesChinaRanee" ColumnName="KursesChinaRanee" />
+          <ScalarProperty Name="KursesRanee" ColumnName="KursesRanee" />
+          <ScalarProperty Name="Zakativaetsa" ColumnName="Zakativaetsa" />
+          <ScalarProperty Name="ProstupUp" ColumnName="ProstupUp" />
+          <ScalarProperty Name="Son" ColumnName="Son" />
+          <ScalarProperty Name="Fiznagruzki" ColumnName="Fiznagruzki" />
+          <ScalarProperty Name="Imunitet" ColumnName="Imunitet" />
+          <ScalarProperty Name="Alergiya" ColumnName="Alergiya" />
+          <ScalarProperty Name="Stul" ColumnName="Stul" />
+          <ScalarProperty Name="Appetit" ColumnName="Appetit" />
+          <ScalarProperty Name="EatingProblems" ColumnName="EatingProblems" />
+          <ScalarProperty Name="Eating" ColumnName="Eating" />
+          <ScalarProperty Name="Diet" ColumnName="Diet" />
+          <ScalarProperty Name="Fisical" ColumnName="Fisical" />
+          <ScalarProperty Name="Instructcii" ColumnName="Instructcii" />
+          <ScalarProperty Name="Razgovor" ColumnName="Razgovor" />
+          <ScalarProperty Name="MainGoal" ColumnName="MainGoal" />
+          <ScalarProperty Name="Encefalogram" ColumnName="Encefalogram" />
+          <ScalarProperty Name="Remission" ColumnName="Remission" />
+          <ScalarProperty Name="SudorogiMedcine" ColumnName="SudorogiMedcine" />
+          <ScalarProperty Name="SudorogiCount" ColumnName="SudorogiCount" />
+          <ScalarProperty Name="SudorogiType" ColumnName="SudorogiType" />
+          <ScalarProperty Name="Epilispiya" ColumnName="Epilispiya" />
+          <ScalarProperty Name="OtherDiseases" ColumnName="OtherDiseases" />
+          <ScalarProperty Name="Infections" ColumnName="Infections" />
+          <ScalarProperty Name="Dihalka" ColumnName="Dihalka" />
+          <ScalarProperty Name="Serdce" ColumnName="Serdce" />
+          <ScalarProperty Name="DangerousDiseases" ColumnName="DangerousDiseases" />
+          <ScalarProperty Name="Dispanser2" ColumnName="Dispanser2" />
+          <ScalarProperty Name="DispanserNarko" ColumnName="DispanserNarko" />
+          <ScalarProperty Name="Dispanser" ColumnName="Dispanser" />
+          <ScalarProperty Name="Razvitie" ColumnName="Razvitie" />
+          <ScalarProperty Name="Hystoryb" ColumnName="Hystoryb" />
+          <ScalarProperty Name="HystoryA" ColumnName="HystoryA" />
+          <ScalarProperty Name="TodaysDiagnoz" ColumnName="TodaysDiagnoz" />
+          <ScalarProperty Name="Additional" ColumnName="Additional" />
+          <ScalarProperty Name="IsInvicePrint" ColumnName="IsInvicePrint" />
+          <ScalarProperty Name="IsInvite" ColumnName="IsInvite" />
+          <ScalarProperty Name="AmbNumber" ColumnName="AmbNumber" />
+          <ScalarProperty Name="DateDogovor" ColumnName="DateDogovor" />
+          <ScalarProperty Name="Fond" ColumnName="Fond" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Vipiska" ColumnName="Vipiska" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="PacientId" ColumnName="PacientId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="DataModel.Order">
+        <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+          <ScalarProperty Name="LastDate" ColumnName="LastDate" />
+          <ScalarProperty Name="LastUser" ColumnName="LastUser" />
+          <ScalarProperty Name="ServiceRoomIsPosuda" ColumnName="ServiceRoomIsPosuda" />
+          <ScalarProperty Name="ServiceRoomIsVoda" ColumnName="ServiceRoomIsVoda" />
+          <ScalarProperty Name="ServiceRoomIsMilo" ColumnName="ServiceRoomIsMilo" />
+          <ScalarProperty Name="ServiceRoomIsOpolask" ColumnName="ServiceRoomIsOpolask" />
+          <ScalarProperty Name="ServiceRoomIsStiral" ColumnName="ServiceRoomIsStiral" />
+          <ScalarProperty Name="ServiceRoomIsPaper" ColumnName="ServiceRoomIsPaper" />
+          <ScalarProperty Name="ServiceUnchenOther" ColumnName="ServiceUnchenOther" />
+          <ScalarProperty Name="ServiceUnchenIsVstrecha" ColumnName="ServiceUnchenIsVstrecha" />
+          <ScalarProperty Name="ServicePekinOther" ColumnName="ServicePekinOther" />
+          <ScalarProperty Name="ServicePekinIsHotel" ColumnName="ServicePekinIsHotel" />
+          <ScalarProperty Name="ServicePekinIsPerevod" ColumnName="ServicePekinIsPerevod" />
+          <ScalarProperty Name="StatusDecription" ColumnName="StatusDecription" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="VizaDney" ColumnName="VizaDney" />
+          <ScalarProperty Name="TicketInfo" ColumnName="TicketInfo" />
+          <ScalarProperty Name="TicketUbitieTime" ColumnName="TicketUbitieTime" />
+          <ScalarProperty Name="TicketPribitieTime" ColumnName="TicketPribitieTime" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Dney" ColumnName="Dney" />
+          <ScalarProperty Name="DateTo" ColumnName="DateTo" />
+          <ScalarProperty Name="DateFrom" ColumnName="DateFrom" />
+          <ScalarProperty Name="OwnerUser" ColumnName="OwnerUser" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="GuidId" ColumnName="GuidId" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

@@ -188,162 +188,167 @@
                                     </PropertiesTextEdit>
                                     <EditFormSettings Visible="True" />
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Находитесь ли на кожно-венерологическом диспансерном учете?" FieldName="Dispanser2" Visible="False" VisibleIndex="23">
+                                <dx:GridViewDataTextColumn Caption="Находитесь ли на нарко-диспансерном учете?" FieldName="DispanserNarko" Visible="False" VisibleIndex="23">
                                     <PropertiesTextEdit MaxLength="250">
                                     </PropertiesTextEdit>
                                     <EditFormSettings Visible="True" />
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Имеет ли опасные для здоровья заболевания?" FieldName="DangerousDiseases" Visible="False" VisibleIndex="24">
+                                <dx:GridViewDataTextColumn Caption="Находитесь ли на кожно-венерологическом диспансерном учете?" FieldName="Dispanser2" Visible="False" VisibleIndex="24">
                                     <PropertiesTextEdit MaxLength="250">
                                     </PropertiesTextEdit>
                                     <EditFormSettings Visible="True" />
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Сердечно – сосудистые заболевания?" FieldName="Serdce" Visible="False" VisibleIndex="25">
+                                <dx:GridViewDataTextColumn Caption="Имеет ли опасные для здоровья заболевания?" FieldName="DangerousDiseases" Visible="False" VisibleIndex="25">
                                     <PropertiesTextEdit MaxLength="250">
                                     </PropertiesTextEdit>
                                     <EditFormSettings Visible="True" />
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Заболевания дыхательной системы?" FieldName="Dihalka" Visible="False" VisibleIndex="26">
+                                <dx:GridViewDataTextColumn Caption="Сердечно – сосудистые заболевания?" FieldName="Serdce" Visible="False" VisibleIndex="26">
                                     <PropertiesTextEdit MaxLength="250">
                                     </PropertiesTextEdit>
                                     <EditFormSettings Visible="True" />
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Инфекционные заболевания?" FieldName="Infections" Visible="False" VisibleIndex="27">
+                                <dx:GridViewDataTextColumn Caption="Заболевания дыхательной системы?" FieldName="Dihalka" Visible="False" VisibleIndex="27">
                                     <PropertiesTextEdit MaxLength="250">
                                     </PropertiesTextEdit>
                                     <EditFormSettings Visible="True" />
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Другие опасные для здоровья и окружающих заболевания?" FieldName="OtherDiseases" Visible="False" VisibleIndex="28">
+                                <dx:GridViewDataTextColumn Caption="Инфекционные заболевания?" FieldName="Infections" Visible="False" VisibleIndex="28">
                                     <PropertiesTextEdit MaxLength="250">
                                     </PropertiesTextEdit>
                                     <EditFormSettings Visible="True" />
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Эпилепсия (Судороги)" FieldName="Epilispiya" Visible="False" VisibleIndex="29">
+                                <dx:GridViewDataTextColumn Caption="Другие опасные для здоровья и окружающих заболевания?" FieldName="OtherDiseases" Visible="False" VisibleIndex="29">
                                     <PropertiesTextEdit MaxLength="250">
                                     </PropertiesTextEdit>
                                     <EditFormSettings Visible="True" />
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Тип судорог" FieldName="SudorogiType" Visible="False" VisibleIndex="30">
+                                <dx:GridViewDataTextColumn Caption="Эпилепсия (Судороги)" FieldName="Epilispiya" Visible="False" VisibleIndex="30">
                                     <PropertiesTextEdit MaxLength="250">
                                     </PropertiesTextEdit>
                                     <EditFormSettings Visible="True" />
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Количество эпилептических приступов" FieldName="SudorogiCount" Visible="False" VisibleIndex="31">
+                                <dx:GridViewDataTextColumn Caption="Тип судорог" FieldName="SudorogiType" Visible="False" VisibleIndex="31">
                                     <PropertiesTextEdit MaxLength="250">
                                     </PropertiesTextEdit>
                                     <EditFormSettings Visible="True" />
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Противосудорожные препараты" FieldName="SudorogiMedcine" Visible="False" VisibleIndex="32">
+                                <dx:GridViewDataTextColumn Caption="Количество эпилептических приступов" FieldName="SudorogiCount" Visible="False" VisibleIndex="32">
                                     <PropertiesTextEdit MaxLength="250">
                                     </PropertiesTextEdit>
                                     <EditFormSettings Visible="True" />
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Ремиссия" FieldName="Remission" Visible="False" VisibleIndex="33">
+                                <dx:GridViewDataTextColumn Caption="Противосудорожные препараты" FieldName="SudorogiMedcine" Visible="False" VisibleIndex="33">
                                     <PropertiesTextEdit MaxLength="250">
                                     </PropertiesTextEdit>
                                     <EditFormSettings Visible="True" />
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Заключение электроэнцефалограммы" FieldName="Encefalogram" Visible="False" VisibleIndex="34">
+                                <dx:GridViewDataTextColumn Caption="Ремиссия" FieldName="Remission" Visible="False" VisibleIndex="34">
                                     <PropertiesTextEdit MaxLength="250">
                                     </PropertiesTextEdit>
                                     <EditFormSettings Visible="True" />
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Цель поездки?" FieldName="MainGoal" Visible="False" VisibleIndex="35">
+                                <dx:GridViewDataTextColumn Caption="Заключение электроэнцефалограммы" FieldName="Encefalogram" Visible="False" VisibleIndex="35">
                                     <PropertiesTextEdit MaxLength="250">
                                     </PropertiesTextEdit>
                                     <EditFormSettings Visible="True" />
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="физические навыки?" FieldName="Fisical" Visible="False" VisibleIndex="36">
+                                <dx:GridViewDataTextColumn Caption="Цель поездки?" FieldName="MainGoal" Visible="False" VisibleIndex="36">
                                     <PropertiesTextEdit MaxLength="250">
                                     </PropertiesTextEdit>
                                     <EditFormSettings Visible="True" />
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Особенности питания ребенка?" FieldName="Diet" Visible="False" VisibleIndex="37">
+                                <dx:GridViewDataTextColumn Caption="физические навыки?" FieldName="Fisical" Visible="False" VisibleIndex="37">
                                     <PropertiesTextEdit MaxLength="250">
                                     </PropertiesTextEdit>
                                     <EditFormSettings Visible="True" />
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Как жует и глотает?" FieldName="Eating" Visible="False" VisibleIndex="38">
+                                <dx:GridViewDataTextColumn Caption="Особенности питания ребенка?" FieldName="Diet" Visible="False" VisibleIndex="38">
                                     <PropertiesTextEdit MaxLength="250">
                                     </PropertiesTextEdit>
                                     <EditFormSettings Visible="True" />
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Пищеварительные проблемы?" FieldName="EatingProblems" Visible="False" VisibleIndex="39">
+                                <dx:GridViewDataTextColumn Caption="Как жует и глотает?" FieldName="Eating" Visible="False" VisibleIndex="39">
                                     <PropertiesTextEdit MaxLength="250">
                                     </PropertiesTextEdit>
                                     <EditFormSettings Visible="True" />
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Аппетит?" FieldName="Appetit" Visible="False" VisibleIndex="40">
+                                <dx:GridViewDataTextColumn Caption="Пищеварительные проблемы?" FieldName="EatingProblems" Visible="False" VisibleIndex="40">
                                     <PropertiesTextEdit MaxLength="250">
                                     </PropertiesTextEdit>
                                     <EditFormSettings Visible="True" />
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Стул?" FieldName="Stul" Visible="False" VisibleIndex="41">
+                                <dx:GridViewDataTextColumn Caption="Аппетит?" FieldName="Appetit" Visible="False" VisibleIndex="41">
                                     <PropertiesTextEdit MaxLength="250">
                                     </PropertiesTextEdit>
                                     <EditFormSettings Visible="True" />
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Аллергия на лекарственные препараты?" FieldName="Alergiya" Visible="False" VisibleIndex="42">
+                                <dx:GridViewDataTextColumn Caption="Стул?" FieldName="Stul" Visible="False" VisibleIndex="42">
                                     <PropertiesTextEdit MaxLength="250">
                                     </PropertiesTextEdit>
                                     <EditFormSettings Visible="True" />
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Иммунитет к простудными заболеваниями?" FieldName="Imunitet" Visible="False" VisibleIndex="43">
+                                <dx:GridViewDataTextColumn Caption="Аллергия на лекарственные препараты?" FieldName="Alergiya" Visible="False" VisibleIndex="43">
                                     <PropertiesTextEdit MaxLength="250">
                                     </PropertiesTextEdit>
                                     <EditFormSettings Visible="True" />
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Как переносит физические нагрузки?" FieldName="Fiznagruzki" Visible="False" VisibleIndex="44">
+                                <dx:GridViewDataTextColumn Caption="Иммунитет к простудными заболеваниями?" FieldName="Imunitet" Visible="False" VisibleIndex="44">
                                     <PropertiesTextEdit MaxLength="250">
                                     </PropertiesTextEdit>
                                     <EditFormSettings Visible="True" />
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Состояние и качество сна?" FieldName="Son" Visible="False" VisibleIndex="45">
+                                <dx:GridViewDataTextColumn Caption="Как переносит физические нагрузки?" FieldName="Fiznagruzki" Visible="False" VisibleIndex="45">
                                     <PropertiesTextEdit MaxLength="250">
                                     </PropertiesTextEdit>
                                     <EditFormSettings Visible="True" />
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Увеличиваются приступы при физических нагрузках?" FieldName="ProstupUp" Visible="False" VisibleIndex="46">
+                                <dx:GridViewDataTextColumn Caption="Состояние и качество сна?" FieldName="Son" Visible="False" VisibleIndex="46">
                                     <PropertiesTextEdit MaxLength="250">
                                     </PropertiesTextEdit>
                                     <EditFormSettings Visible="True" />
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Задыхается или закатывается во время болезненных процедур?" FieldName="Zakativaetsa" Visible="False" VisibleIndex="47">
+                                <dx:GridViewDataTextColumn Caption="Увеличиваются приступы при физических нагрузках?" FieldName="ProstupUp" Visible="False" VisibleIndex="47">
                                     <PropertiesTextEdit MaxLength="250">
                                     </PropertiesTextEdit>
                                     <EditFormSettings Visible="True" />
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Какое ранее проводилось лечение?" FieldName="KursesRanee" Visible="False" VisibleIndex="48">
+                                <dx:GridViewDataTextColumn Caption="Задыхается или закатывается во время болезненных процедур?" FieldName="Zakativaetsa" Visible="False" VisibleIndex="48">
                                     <PropertiesTextEdit MaxLength="250">
                                     </PropertiesTextEdit>
                                     <EditFormSettings Visible="True" />
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Проходили ли когда-либо лечение в Китае?" FieldName="KursesChinaRanee" Visible="False" VisibleIndex="49">
+                                <dx:GridViewDataTextColumn Caption="Какое ранее проводилось лечение?" FieldName="KursesRanee" Visible="False" VisibleIndex="49">
                                     <PropertiesTextEdit MaxLength="250">
                                     </PropertiesTextEdit>
                                     <EditFormSettings Visible="True" />
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Лечились ли когда-либо нетрадиционными методами?" FieldName="NonTradicial" Visible="False" VisibleIndex="50">
+                                <dx:GridViewDataTextColumn Caption="Проходили ли когда-либо лечение в Китае?" FieldName="KursesChinaRanee" Visible="False" VisibleIndex="50">
                                     <PropertiesTextEdit MaxLength="250">
                                     </PropertiesTextEdit>
                                     <EditFormSettings Visible="True" />
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Проводились ли хирургические операции по Вашему заболеванию?" FieldName="Hirurg" Visible="False" VisibleIndex="51">
+                                <dx:GridViewDataTextColumn Caption="Лечились ли когда-либо нетрадиционными методами?" FieldName="NonTradicial" Visible="False" VisibleIndex="51">
                                     <PropertiesTextEdit MaxLength="250">
                                     </PropertiesTextEdit>
                                     <EditFormSettings Visible="True" />
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Получали ли травмы от внешних факторов?" FieldName="Travmi" Visible="False" VisibleIndex="52">
+                                <dx:GridViewDataTextColumn Caption="Проводились ли хирургические операции по Вашему заболеванию?" FieldName="Hirurg" Visible="False" VisibleIndex="52">
                                     <PropertiesTextEdit MaxLength="250">
                                     </PropertiesTextEdit>
                                     <EditFormSettings Visible="True" />
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Особые пожелания по проживанию, лечению, реабилитации" FieldName="Requirements" Visible="False" VisibleIndex="53">
+                                <dx:GridViewDataTextColumn Caption="Получали ли травмы от внешних факторов?" FieldName="Travmi" Visible="False" VisibleIndex="53">
                                     <PropertiesTextEdit MaxLength="250">
                                     </PropertiesTextEdit>
                                     <EditFormSettings Visible="True" />
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataTextColumn Caption="Какие необходимы документы от клиники." FieldName="RequiredDocs" Visible="False" VisibleIndex="54">
+                                <dx:GridViewDataTextColumn Caption="Особые пожелания по проживанию, лечению, реабилитации" FieldName="Requirements" Visible="False" VisibleIndex="54">
+                                    <PropertiesTextEdit MaxLength="250">
+                                    </PropertiesTextEdit>
+                                    <EditFormSettings Visible="True" />
+                                </dx:GridViewDataTextColumn>
+                                <dx:GridViewDataTextColumn Caption="Какие необходимы документы от клиники." FieldName="RequiredDocs" Visible="False" VisibleIndex="55">
                                     <PropertiesTextEdit MaxLength="250">
                                     </PropertiesTextEdit>
                                     <EditFormSettings Visible="True" />

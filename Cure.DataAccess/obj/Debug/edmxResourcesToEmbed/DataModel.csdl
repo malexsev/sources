@@ -10,11 +10,6 @@
       <End Role="RefCountry" EntitySet="RefCountries" />
       <End Role="Pacient" EntitySet="Pacients" />
     </AssociationSet>
-    <EntitySet Name="Orders" EntityType="DataModel.Order" />
-    <AssociationSet Name="FK_Order_OrderStatus" Association="DataModel.FK_Order_OrderStatus">
-      <End Role="OrderStatu" EntitySet="OrderStatus" />
-      <End Role="Order" EntitySet="Orders" />
-    </AssociationSet>
     <EntitySet Name="Departments" EntityType="DataModel.Department" />
     <AssociationSet Name="FK_Department_Department" Association="DataModel.FK_Department_Department">
       <End Role="Department" EntitySet="Departments" />
@@ -24,15 +19,7 @@
       <End Role="RefCountry" EntitySet="RefCountries" />
       <End Role="Department" EntitySet="Departments" />
     </AssociationSet>
-    <AssociationSet Name="FK_Order_Department" Association="DataModel.FK_Order_Department">
-      <End Role="Department" EntitySet="Departments" />
-      <End Role="Order" EntitySet="Orders" />
-    </AssociationSet>
     <EntitySet Name="Sputniks" EntityType="DataModel.Sputnik" />
-    <AssociationSet Name="FK_Sputnik_Order" Association="DataModel.FK_Sputnik_Order">
-      <End Role="Order" EntitySet="Orders" />
-      <End Role="Sputnik" EntitySet="Sputniks" />
-    </AssociationSet>
     <AssociationSet Name="FK_Sputnik_RefCountry" Association="DataModel.FK_Sputnik_RefCountry">
       <End Role="RefCountry" EntitySet="RefCountries" />
       <End Role="Sputnik" EntitySet="Sputniks" />
@@ -119,13 +106,31 @@
       <End Role="ChildAvaFile" EntitySet="ChildAvaFiles" />
     </AssociationSet>
     <EntitySet Name="Visits" EntityType="DataModel.Visit" />
+    <AssociationSet Name="FK_Visit_Pacient" Association="DataModel.FK_Visit_Pacient">
+      <End Role="Pacient" EntitySet="Pacients" />
+      <End Role="Visit" EntitySet="Visits" />
+    </AssociationSet>
+    <EntitySet Name="Orders" EntityType="DataModel.Order" />
+    <AssociationSet Name="FK_Order_Department" Association="DataModel.FK_Order_Department">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_OrderStatus" Association="DataModel.FK_Order_OrderStatus">
+      <End Role="OrderStatu" EntitySet="OrderStatus" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sputnik_Order" Association="DataModel.FK_Sputnik_Order">
+      <End Role="Order" EntitySet="Orders" />
+      <End Role="Sputnik" EntitySet="Sputniks" />
+    </AssociationSet>
     <AssociationSet Name="FK_Visit_Order" Association="DataModel.FK_Visit_Order">
       <End Role="Order" EntitySet="Orders" />
       <End Role="Visit" EntitySet="Visits" />
     </AssociationSet>
-    <AssociationSet Name="FK_Visit_Pacient" Association="DataModel.FK_Visit_Pacient">
-      <End Role="Pacient" EntitySet="Pacients" />
-      <End Role="Visit" EntitySet="Visits" />
+    <EntitySet Name="DepartmentStops" EntityType="DataModel.DepartmentStop" />
+    <AssociationSet Name="FK_DepartmentStop_Department" Association="DataModel.FK_DepartmentStop_Department">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="DepartmentStop" EntitySet="DepartmentStops" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="OrderStatu">
@@ -236,59 +241,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityType Name="Order">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="Guid" Name="GuidId" Nullable="false" />
-    <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Type="Int32" Name="DepartmentId" Nullable="false" />
-    <Property Type="Int32" Name="StatusId" Nullable="false" />
-    <Property Type="String" Name="OwnerUser" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Type="DateTime" Name="DateFrom" Nullable="false" Precision="0" />
-    <Property Type="DateTime" Name="DateTo" Nullable="false" Precision="0" />
-    <Property Type="Int32" Name="Dney" />
-    <Property Type="Decimal" Name="Price" Precision="18" Scale="0" />
-    <Property Type="DateTime" Name="TicketPribitieTime" Precision="3" />
-    <Property Type="DateTime" Name="TicketUbitieTime" Precision="3" />
-    <Property Type="String" Name="TicketInfo" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Type="Int32" Name="VizaDney" />
-    <Property Type="String" Name="Notes" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="Description" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="StatusDecription" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Type="Boolean" Name="ServicePekinIsPerevod" />
-    <Property Type="Boolean" Name="ServicePekinIsHotel" />
-    <Property Type="String" Name="ServicePekinOther" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Type="Boolean" Name="ServiceUnchenIsVstrecha" />
-    <Property Type="String" Name="ServiceUnchenOther" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Type="Boolean" Name="ServiceRoomIsPaper" />
-    <Property Type="Boolean" Name="ServiceRoomIsStiral" />
-    <Property Type="Boolean" Name="ServiceRoomIsOpolask" />
-    <Property Type="Boolean" Name="ServiceRoomIsMilo" />
-    <Property Type="Boolean" Name="ServiceRoomIsVoda" />
-    <Property Type="Boolean" Name="ServiceRoomIsPosuda" />
-    <Property Type="String" Name="LastUser" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Type="DateTime" Name="LastDate" Precision="3" />
-    <Property Type="String" Name="CreateUser" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Type="DateTime" Name="CreateDate" Precision="3" />
-    <NavigationProperty Name="OrderStatu" Relationship="DataModel.FK_Order_OrderStatus" FromRole="Order" ToRole="OrderStatu" />
-    <NavigationProperty Name="Department" Relationship="DataModel.FK_Order_Department" FromRole="Order" ToRole="Department" />
-    <NavigationProperty Name="Sputniks" Relationship="DataModel.FK_Sputnik_Order" FromRole="Order" ToRole="Sputnik" />
-    <NavigationProperty Name="Visits" Relationship="DataModel.FK_Visit_Order" FromRole="Order" ToRole="Visit" />
-  </EntityType>
-  <Association Name="FK_Order_OrderStatus">
-    <End Type="DataModel.OrderStatu" Role="OrderStatu" Multiplicity="1" />
-    <End Type="DataModel.Order" Role="Order" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="OrderStatu">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Order">
-        <PropertyRef Name="StatusId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityType Name="Department">
     <Key>
       <PropertyRef Name="Id" />
@@ -321,10 +273,11 @@
     <NavigationProperty Name="Department1" Relationship="DataModel.FK_Department_Department" FromRole="Department" ToRole="Department1" />
     <NavigationProperty Name="Department2" Relationship="DataModel.FK_Department_Department" FromRole="Department1" ToRole="Department" />
     <NavigationProperty Name="RefCountry" Relationship="DataModel.FK_Department_RefCountry" FromRole="Department" ToRole="RefCountry" />
-    <NavigationProperty Name="Orders" Relationship="DataModel.FK_Order_Department" FromRole="Department" ToRole="Order" />
     <NavigationProperty Name="TransferUsers" Relationship="DataModel.FK_TransferUser_Department" FromRole="Department" ToRole="TransferUser" />
     <Property Type="String" Name="ShortName" MaxLength="10" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="StopVisits" Relationship="DataModel.FK_StopVisit_Department" FromRole="Department" ToRole="StopVisit" />
+    <NavigationProperty Name="Orders" Relationship="DataModel.FK_Order_Department" FromRole="Department" ToRole="Order" />
+    <NavigationProperty Name="DepartmentStops" Relationship="DataModel.FK_DepartmentStop_Department" FromRole="Department" ToRole="DepartmentStop" />
   </EntityType>
   <Association Name="FK_Department_Department">
     <End Type="DataModel.Department" Role="Department" Multiplicity="0..1" />
@@ -347,18 +300,6 @@
       </Principal>
       <Dependent Role="Department">
         <PropertyRef Name="CountryId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Order_Department">
-    <End Type="DataModel.Department" Role="Department" Multiplicity="1" />
-    <End Type="DataModel.Order" Role="Order" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Department">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Order">
-        <PropertyRef Name="DepartmentId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -385,24 +326,10 @@
     <Property Type="DateTime" Name="LastDate" Precision="3" />
     <Property Type="String" Name="CreateUser" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Type="DateTime" Name="CreateDate" Precision="3" />
-    <NavigationProperty Name="Order" Relationship="DataModel.FK_Sputnik_Order" FromRole="Sputnik" ToRole="Order" />
     <NavigationProperty Name="RefCountry" Relationship="DataModel.FK_Sputnik_RefCountry" FromRole="Sputnik" ToRole="RefCountry" />
     <NavigationProperty Name="RefRodstvo" Relationship="DataModel.FK_Sputnik_RefRodstvo" FromRole="Sputnik" ToRole="RefRodstvo" />
+    <NavigationProperty Name="Order" Relationship="DataModel.FK_Sputnik_Order" FromRole="Sputnik" ToRole="Order" />
   </EntityType>
-  <Association Name="FK_Sputnik_Order">
-    <End Type="DataModel.Order" Role="Order" Multiplicity="0..1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Type="DataModel.Sputnik" Role="Sputnik" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Order">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Sputnik">
-        <PropertyRef Name="OrderId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Sputnik_RefCountry">
     <End Type="DataModel.RefCountry" Role="RefCountry" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
@@ -1125,9 +1052,102 @@
     <Property Name="LastDate" Type="DateTime" Precision="3" />
     <Property Name="CreateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="CreateDate" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="Order" Relationship="DataModel.FK_Visit_Order" FromRole="Visit" ToRole="Order" />
     <NavigationProperty Name="Pacient" Relationship="DataModel.FK_Visit_Pacient" FromRole="Visit" ToRole="Pacient" />
+    <NavigationProperty Name="Order" Relationship="DataModel.FK_Visit_Order" FromRole="Visit" ToRole="Order" />
   </EntityType>
+  <Association Name="FK_Visit_Pacient">
+    <End Type="DataModel.Pacient" Role="Pacient" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="DataModel.Visit" Role="Visit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pacient">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Visit">
+        <PropertyRef Name="PacientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GuidId" Type="Guid" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DepartmentId" Type="Int32" />
+    <Property Name="StatusId" Type="Int32" Nullable="false" />
+    <Property Name="OwnerUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DateFrom" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DateTo" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Dney" Type="Int32" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="TicketPribitieTime" Type="DateTime" Precision="3" />
+    <Property Name="TicketUbitieTime" Type="DateTime" Precision="3" />
+    <Property Name="TicketInfo" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="VizaDney" Type="Int32" />
+    <Property Name="Notes" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="StatusDecription" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="ServicePekinIsPerevod" Type="Boolean" />
+    <Property Name="ServicePekinIsHotel" Type="Boolean" />
+    <Property Name="ServicePekinOther" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ServiceUnchenIsVstrecha" Type="Boolean" />
+    <Property Name="ServiceUnchenOther" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ServiceRoomIsPaper" Type="Boolean" />
+    <Property Name="ServiceRoomIsStiral" Type="Boolean" />
+    <Property Name="ServiceRoomIsOpolask" Type="Boolean" />
+    <Property Name="ServiceRoomIsMilo" Type="Boolean" />
+    <Property Name="ServiceRoomIsVoda" Type="Boolean" />
+    <Property Name="ServiceRoomIsPosuda" Type="Boolean" />
+    <Property Name="LastUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Department" Relationship="DataModel.FK_Order_Department" FromRole="Order" ToRole="Department" />
+    <NavigationProperty Name="OrderStatu" Relationship="DataModel.FK_Order_OrderStatus" FromRole="Order" ToRole="OrderStatu" />
+    <NavigationProperty Name="Sputniks" Relationship="DataModel.FK_Sputnik_Order" FromRole="Order" ToRole="Sputnik" />
+    <NavigationProperty Name="Visits" Relationship="DataModel.FK_Visit_Order" FromRole="Order" ToRole="Visit" />
+  </EntityType>
+  <Association Name="FK_Order_Department">
+    <End Type="DataModel.Department" Role="Department" Multiplicity="0..1" />
+    <End Type="DataModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_OrderStatus">
+    <End Type="DataModel.OrderStatu" Role="OrderStatu" Multiplicity="1" />
+    <End Type="DataModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderStatu">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sputnik_Order">
+    <End Type="DataModel.Order" Role="Order" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="DataModel.Sputnik" Role="Sputnik" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sputnik">
+        <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Visit_Order">
     <End Type="DataModel.Order" Role="Order" Multiplicity="1">
       <OnDelete Action="Cascade" />
@@ -1142,17 +1162,33 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Visit_Pacient">
-    <End Type="DataModel.Pacient" Role="Pacient" Multiplicity="1">
+  <EntityType Name="DepartmentStop">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DepartmentId" Type="Int32" Nullable="false" />
+    <Property Name="FromDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ToDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="LastUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreateUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Department" Relationship="DataModel.FK_DepartmentStop_Department" FromRole="DepartmentStop" ToRole="Department" />
+  </EntityType>
+  <Association Name="FK_DepartmentStop_Department">
+    <End Type="DataModel.Department" Role="Department" Multiplicity="1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Type="DataModel.Visit" Role="Visit" Multiplicity="*" />
+    <End Type="DataModel.DepartmentStop" Role="DepartmentStop" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Pacient">
+      <Principal Role="Department">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="Visit">
-        <PropertyRef Name="PacientId" />
+      <Dependent Role="DepartmentStop">
+        <PropertyRef Name="DepartmentId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

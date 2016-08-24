@@ -1,0 +1,96 @@
+﻿@using Cure.DataAccess
+@using (Html.BeginForm("Index", "Preorder", FormMethod.Post, new
+{
+    @id = "formPreorder"
+}))
+{
+    <div class="fastorder">
+        <div class="fastorder-clinic">
+            <label class="fastorder-label">Клиника</label>
+            <div class="selector fastorder-selector">
+                @*<input type="hidden" value="0">*@
+                @Html.Hidden("department", Session["OrderDepartmentId"] ?? 0, new { id = "department" })
+                <div class="selector-val" data-val="@Html.Raw(Session["OrderDepartmentId"] ?? 0)">
+                    @if (Session["OrderDepartmentId"] == null)
+                    {
+                        <text>
+                            Не выбрана клиника
+                        </text>
+                    }
+                    else
+                    {
+                        foreach (var dep in (IEnumerable<Department>)ViewBag.Departments)
+                        {
+                            if (dep.Id == (Session["OrderDepartmentId"] == null ? 0 : (int)Session["OrderDepartmentId"]))
+                            {
+                                @dep.Name
+                            }
+                        }
+                    }
+
+                </div>
+
+                <ul class="selector-list">
+                    <li data-val="0">Не выбрана клиника</li>
+                    @foreach (var dep in (IEnumerable<Department>)ViewBag.Departments)
+                    {
+                        <li data-val="@dep.Id">@dep.Name</li>
+                    }
+                </ul>
+            </div>
+        </div>
+        <div class="fastorder-dates js-input-daterange">
+            <div class="fastorder-date">
+                <label class="fastorder-label">Заезд</label>
+                @*<input class="forms-input has-icon ico-calendar" type="text" placeholder="Нет даты">*@
+                @Html.TextBox("datefrom", (Session["OrderDateFrom"] == null ? "" : ((DateTime)Session["OrderDateFrom"]).ToString("dd.MM.yyyy")), new
+                {
+                    @id = "datefrom",
+                    @placeholder = "Нет даты",
+                    @class = "forms-input has-icon ico-calendar"
+                })
+            </div>
+            <div class="fastorder-date">
+                <label class="fastorder-label">Отъезд</label>
+                @*<input class="forms-input has-icon ico-calendar" type="text" placeholder="Нет даты">*@
+                @Html.TextBox("dateto", (Session["OrderDateTo"] == null ? "" : ((DateTime)Session["OrderDateTo"]).ToString("dd.MM.yyyy")), new
+                {
+                    @id = "dateto",
+                    @placeholder = "Нет даты",
+                    @class = "forms-input has-icon ico-calendar"
+                })
+            </div>
+        </div>
+        <div class="fastorder-count">
+            <label class="fastorder-label">Пациенты</label>
+            <div class="fastorder-counter js-counter" data-max="2">
+                <a class="counter-btn btn-dwn">-</a>
+                @*<input class="counter-rez" type="text" value="0" readonly>*@
+                @Html.TextBox("pacients", Session["OrderPacientCount"] ?? 0, new
+                {
+                    @id = "pacients",
+                    @readonly = "true",
+                    @class = "counter-rez"
+                })
+                <a class="counter-btn btn-upp">+</a>
+            </div>
+        </div>
+        <div class="fastorder-count">
+            <label class="fastorder-label">Сопровождают</label>
+            <div class="fastorder-counter js-counter" data-max="4">
+                <a class="counter-btn btn-dwn">-</a>
+                @*<input class="counter-rez" type="text" value="0" readonly>*@
+                @Html.TextBox("sputniks", Session["OrderSputnikCount"] ?? 0, new
+                {
+                    @id = "sputniks",
+                    @readonly = "true",
+                    @class = "counter-rez"
+                })
+                <a class="counter-btn btn-upp">+</a>
+            </div>
+        </div>
+        <div class="fastorder-btn">
+            <input class="btn btn-orang" type="submit" value="ПРОВЕРИТЬ">
+        </div>
+    </div>
+}

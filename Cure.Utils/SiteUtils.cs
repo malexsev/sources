@@ -15,6 +15,24 @@
 
     public class SiteUtils
     {
+        /// <summary>
+        /// Возвращает число от 1 до upto, в зависимости от указанного ID
+        /// </summary>
+        /// <returns></returns>
+        public static string GetRandom(int id, int upto)
+        {
+            string thelast = id.ToString().Substring(id.ToString().Length - 1, 1);
+            if (thelast == "1" || thelast == "2" || thelast == "3")
+            {
+                return "1";
+            }
+            if (thelast == "4" || thelast == "5" || thelast == "6")
+            {
+                return "2";
+            }
+            return "3";
+        }
+
         public static string GenerateVisitDetailsPdf(Visit visit, string attachmentName, HttpServerUtilityBase server)
         {
             var report = new PacientVisitDetails(visit.Id);

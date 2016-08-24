@@ -1,0 +1,174 @@
+﻿@using Cure.DataAccess
+@{
+    ViewBag.Title = "Наличие мест";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="main has-gray-bg is-full-screen" role="main">
+    <div class="all-pages-head preorder-head">
+        <h1 class="all-pages-H1">Наличие мест</h1>
+        <a class="preorder-head-close js-page-back" role="button"></a>
+    </div>
+    <div class="container preorder-body">
+        @using (Html.BeginForm("Index", "Preorder", FormMethod.Post, new
+        {
+            @id = "formPreorder"
+        }))
+        {
+            <div class="fastorder has-dark-bg">
+                <div class="fastorder-clinic">
+                    <label class="fastorder-label">Клиника</label>
+                    <div class="selector fastorder-selector">
+                        @Html.Hidden("department", Session["OrderDepartmentId"] ?? 0, new { id = "department" })
+                        <div class="selector-val" data-val="@Html.Raw(Session["OrderDepartmentId"] ?? 0)">
+                            @if (Session["OrderDepartmentId"] == null)
+                            {
+                                <text>
+                                    Не выбрана клиника
+                                </text>
+                            }
+                            else
+                            {
+                                foreach (var dep in (IEnumerable<Department>)ViewBag.Departments)
+                                {
+                                    if (dep.Id == (Session["OrderDepartmentId"] == null ? 0 : (int)Session["OrderDepartmentId"]))
+                                    {
+                                        @dep.Name
+                                    }
+                                }
+                            }
+
+                        </div>
+                        <ul class="selector-list">
+                            <li data-val="0">Не выбрана клиника</li>
+                            @foreach (var dep in (IEnumerable<Department>)ViewBag.Departments)
+                            {
+                                <li data-val="@dep.Id">@dep.Name</li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+                <div class="fastorder-dates js-input-daterange">
+                    <div class="fastorder-date-title fastorder-label">Планируемый период лечения</div>
+                    <div class="fastorder-date">
+                        @*<input class="forms-input has-icon ico-calendar" type="text" placeholder="Заезд">*@
+                        @Html.TextBox("datefrom", (Session["OrderDateFrom"] == null ? "" : ((DateTime)Session["OrderDateFrom"]).ToString("dd.MM.yyyy")), new
+                        {
+                            @id = "datefrom",
+                            @placeholder = "Заезд",
+                            @class = "forms-input has-icon ico-calendar"
+                        })
+                    </div>
+                    <div class="fastorder-date">
+                        @*<input class="forms-input has-icon ico-calendar" type="text" placeholder="Отъезд">*@
+                        @Html.TextBox("dateto", (Session["OrderDateTo"] == null ? "" : ((DateTime)Session["OrderDateTo"]).ToString("dd.MM.yyyy")), new
+                        {
+                            @id = "dateto",
+                            @placeholder = "Отъезд",
+                            @class = "forms-input has-icon ico-calendar"
+                        })
+                    </div>
+                </div>
+                <div class="fastorder-count">
+                    <label class="fastorder-label">Пациенты</label>
+                    <div class="fastorder-counter js-counter" data-max="2">
+                        <a class="counter-btn btn-dwn">-</a>
+                        @Html.TextBox("pacients", Session["OrderPacientCount"] ?? 0, new
+                        {
+                            @id = "pacients",
+                            @readonly = "true",
+                            @class = "counter-rez"
+                        })
+                        <a class="counter-btn btn-upp">+</a>
+                    </div>
+                </div>
+                <div class="fastorder-count">
+                    <label class="fastorder-label">Сопровождают</label>
+                    <div class="fastorder-counter js-counter" data-max="4">
+                        <a class="counter-btn btn-dwn">-</a>
+                        @Html.TextBox("sputniks", Session["OrderSputnikCount"] ?? 0, new
+                        {
+                            @id = "sputniks",
+                            @readonly = "true",
+                            @class = "counter-rez"
+                        })
+                        <a class="counter-btn btn-upp">+</a>
+                    </div>
+                </div>
+                <div class="fastorder-btn">
+                    <input class="btn btn-orang" type="submit" value="ПРОВЕРИТЬ">
+                </div>
+            </div>
+        }
+
+        @{
+            if ((bool)ViewBag.PlacesAvailable)
+            {
+                <text>
+                    <div class="preorder-rez">
+                        <img src="content/img/preorder_yes.png" alt="preorder yes">
+                    </div>
+                    <h2 class="preorder-title">На выбранный период места есть</h2>
+                    <div class="preorder-text">
+                        <p>
+                            Сроки заезда и отъезда  - предварительные и вы сможете окорректировать их в
+                            процессе оформления завявки и подготовки документов.
+                        </p>
+                    </div>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <div class="btm-50">
+                            <a class="btn btn-orang" role="button" href="@Url.Action("Orders", "Cabinet")">ПЕРЕЙТИ К ОФОРМЛЕНИЮ ЗАЯВКИ</a>
+                        </div>
+                    }
+                </text>
+            }
+            else
+            {
+                <text>
+                    <div class="preorder-rez">
+                        Увы...
+                    </div>
+                    <h2 class="preorder-title">На выбранный период мест нет</h2>
+                    <div class="preorder-text">
+                        <p>
+                            Выберите другие сроки или начните оформлять заявку, - даты заезда и отъезда сможете откорректировать позже.
+                        </p>
+                        @if (!User.Identity.IsAuthenticated)
+                        {
+                            <p>
+                                Для оформления заявки на лечение (реабилитацию) вам следует зарегистрироваться.
+                            </p>
+                        }
+                    </div>
+                </text>
+            }
+            if (!User.Identity.IsAuthenticated)
+            {
+                <text>
+
+                    <!-- Повтор регистрации -->
+                    <div class="popup-registr preorder-registr">
+                        <div class="popup-head js-tabs-pre-registr">
+                            <div class="popup-title registr-tabshead">
+                                <a class="registr-tabshead-link js-tabs-link active" data-tab="pre-registr-tab-1" role="button">Регистрация</a>
+                                <a class="registr-tabshead-link js-tabs-link" data-tab="pre-registr-tab-2" role="button">Вход</a>
+                            </div>
+                        </div>
+                        <div class="popup-body js-tabs-body">
+                            <div class="registr-tab js-tabs-item active" id="pre-registr-tab-1">
+                                <!-- Форма регистрации -->
+                                @Html.Partial("_AccountRegister")
+                            </div><!-- END registr-tab-1 -->
+                            <div class="registr-tab js-tabs-item" id="pre-registr-tab-2">
+                                <!-- Форма входа -->
+                                @Html.Partial("_AccountLogin")
+                            </div><!-- END registr-tab-2 -->
+                        </div><!-- END popup-body -->
+                    </div>
+                </text>
+            }
+        }
+    </div><!-- END container -->
+
+</div><!-- END main -->

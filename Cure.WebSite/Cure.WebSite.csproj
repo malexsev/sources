@@ -208,7 +208,25 @@
     <Content Include="Content\img\money-icons\beeline.png" />
     <Content Include="Content\img\money-icons\sberbank.png" />
     <Content Include="Content\img\money-icons\webmoney.png" />
+    <Content Include="Content\img\operators\azerfon-nar.png" />
+    <Content Include="Content\img\operators\bakucell.png" />
+    <Content Include="Content\img\operators\beline.png" />
+    <Content Include="Content\img\operators\kievstar.png" />
+    <Content Include="Content\img\operators\life-bel.png" />
+    <Content Include="Content\img\operators\life-ukr.png" />
+    <Content Include="Content\img\operators\mailru.png" />
+    <Content Include="Content\img\operators\megafon.png" />
+    <Content Include="Content\img\operators\mts.png" />
+    <Content Include="Content\img\operators\qiwi.png" />
+    <Content Include="Content\img\operators\tele2.png" />
+    <Content Include="Content\img\operators\uz-k-az-cell.png" />
+    <Content Include="Content\img\operators\ym.png" />
     <Content Include="Content\img\preloader.gif" />
+    <Content Include="Content\img\preorder_yes.png" />
+    <Content Include="Content\img\userpics\child1.jpg" />
+    <Content Include="Content\img\userpics\child2.jpg" />
+    <Content Include="Content\img\userpics\child3.jpg" />
+    <Content Include="Content\img\userpics\no_photo_min.jpg" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\video\main-page-video.mp4" />
     <Content Include="Global.asax" />
@@ -231,6 +249,8 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\plugins\bootstrap-datepicker.min.js" />
+    <Content Include="Scripts\plugins\bootstrap-datepicker.ru.min.js" />
     <Content Include="Scripts\plugins\dragdealer.js" />
     <Content Include="Scripts\plugins\infobox.js" />
     <Content Include="Scripts\plugins\jquery-ui.min.js" />
@@ -242,6 +262,7 @@
     <Content Include="Scripts\plugins\jquery.scroolly.min.js" />
     <Content Include="Scripts\plugins\jquery.validate.min.js" />
     <Content Include="Scripts\plugins\jquery.viewportchecker.min.js" />
+    <Content Include="Scripts\plugins\odometer.min.js" />
     <Content Include="Scripts\plugins\slick.min.js" />
     <Content Include="Scripts\vendor\jquery-1.11.3.min.js" />
     <Content Include="Scripts\vendor\less.min.js" />
@@ -257,6 +278,7 @@
     <Compile Include="Controllers\ChildrenController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\PreorderController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -320,6 +342,8 @@
     <Content Include="Views\Shared\_CabinetInfoLine.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Shared\_OrderWizardStep3Files.cshtml" />
+    <Content Include="Views\Shared\_Preorder.cshtml" />
+    <Content Include="Views\Preorder\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

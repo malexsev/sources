@@ -144,7 +144,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="GuidId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" />
-    <Property Name="DepartmentId" Type="int" Nullable="false" />
+    <Property Name="DepartmentId" Type="int" />
     <Property Name="StatusId" Type="int" Nullable="false" />
     <Property Name="OwnerUser" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="DateFrom" Type="date" Nullable="false" />
@@ -359,6 +359,7 @@
     <Property Name="Hystoryb" Type="text" />
     <Property Name="Razvitie" Type="text" />
     <Property Name="Dispanser" Type="nvarchar" MaxLength="250" />
+    <Property Name="DispanserNarko" Type="nvarchar" MaxLength="250" />
     <Property Name="Dispanser2" Type="nvarchar" MaxLength="250" />
     <Property Name="DangerousDiseases" Type="nvarchar" MaxLength="250" />
     <Property Name="Serdce" Type="nvarchar" MaxLength="250" />
@@ -816,7 +817,7 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Order_Department">
-    <End Role="Department" Type="Self.Department" Multiplicity="1" />
+    <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
     <End Role="Order" Type="Self.Order" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Department">

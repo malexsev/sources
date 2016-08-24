@@ -37,6 +37,11 @@ namespace Cure.WebSite.Models
         [Required(ErrorMessage = "{0} - обязательное поле")]
         public string Name { get; set; }
         public string Otchestvo { get; set; }
+        [Display(Name = "Имя пациента на латинице")]
+        [Required(ErrorMessage = "{0} - обязательное поле")]
+        public string NameEn { get; set; }
+        [Display(Name = "Фамилия пациента на латинице")]
+        [Required(ErrorMessage = "{0} - обязательное поле")]
         public string FamiliyaEn { get; set; }
         public string SerialNumber { get; set; }
         public string BirthDate { get; set; }
@@ -59,6 +64,7 @@ namespace Cure.WebSite.Models
             this.CountryId = pacient.CountryId;
             this.Familiya = pacient.Familiya;
             this.FamiliyaEn = pacient.FamiliyaEn;
+            this.NameEn = pacient.NameEng;
             this.Name = pacient.Name;
             this.Otchestvo = pacient.Otchestvo;
             this.SerialNumber = pacient.SerialNumber;
@@ -76,7 +82,12 @@ namespace Cure.WebSite.Models
         [Required(ErrorMessage = "{0} - обязательное поле")]
         public string Name { get; set; }
         public string Otchestvo { get; set; }
+        //[Display(Name = "Фамилия сопровождающего на латинице")]
+        //[Required(ErrorMessage = "{0} - обязательное поле")]
         public string FamiliyaEn { get; set; }
+        //[Display(Name = "Имя сопровождающего на латинице")]
+        //[Required(ErrorMessage = "{0} - обязательное поле")]
+        public string NameEn { get; set; }
         public string SerialNumber { get; set; }
         [HiddenInput]
         [Display(Name = "Гражданство сопровождающего")]
@@ -108,6 +119,7 @@ namespace Cure.WebSite.Models
             this.RodstvoId = sputnik.RodstvoId;
             this.Familiya = sputnik.Familiya;
             this.FamiliyaEn = sputnik.FamiliyaEn;
+            this.NameEn = sputnik.NameEn;
             this.Name = sputnik.Name;
             this.Otchestvo = sputnik.Otchestvo;
             this.SerialNumber = sputnik.SeriaNumber;

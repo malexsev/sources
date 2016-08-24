@@ -92,7 +92,7 @@
                     StatusId = (int)OrderStatus.Черновик,
                     OwnerUser = _userName,
                     LastUser = _userName,
-                    DepartmentId = 3,
+                    DepartmentId = null,
                     Name = "1"
                 };
                 dataAccess.InsertOrder(this.NewOrder);
@@ -260,7 +260,7 @@
 
         private void AddVisit()
         {
-            var pacient = new Pacient() { CountryId = 3, Name = "" };
+            var pacient = new Pacient() { CountryId = 10, Name = "" };
             dataAccess.InsertPacient(pacient);
             var visit = new Visit() { PacientId = pacient.Id, OrderId = this.NewOrder.Id };
             this.dataAccess.InsertVisit(visit);
@@ -274,8 +274,8 @@
                 OrderId = this.NewOrder.Id,
                 IsPrimary = !this.NewOrder.Sputniks.Any(),
                 Name = "",
-                CountryId = 3,
-                RodstvoId = 1
+                CountryId = 10,
+                RodstvoId = 10
             };
             dataAccess.InsertSputnik(sputnik);
             this.Save();

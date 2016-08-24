@@ -30,51 +30,7 @@
         </div><!-- END sec-intro-front -->
         <div class="sec-intro-form">
             <div class="container">
-                <form>
-                    <div class="fastorder">
-                        <div class="fastorder-clinic">
-                            <label class="fastorder-label">Клиника</label>
-                            <div class="selector fastorder-selector">
-                                <input type="hidden" value="0">
-                                <div class="selector-val" data-val="0">Не выбрана клиника</div>
-                                <ul class="selector-list">
-                                    <li data-val="0">Не выбрана клиника</li>
-                                    <li data-val="1">Вторая народная многопрофильная больница г.Юньчэн</li>
-                                    <li data-val="2">Больница заболеваний головного мозга при НИИ акупунктуры головы</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="fastorder-dates js-input-daterange">
-                            <div class="fastorder-date">
-                                <label class="fastorder-label">Заезд</label>
-                                <input class="forms-input has-icon ico-calendar" type="text" placeholder="Нет даты">
-                            </div>
-                            <div class="fastorder-date">
-                                <label class="fastorder-label">Отъезд</label>
-                                <input class="forms-input has-icon ico-calendar" type="text" placeholder="Нет даты">
-                            </div>
-                        </div>
-                        <div class="fastorder-count">
-                            <label class="fastorder-label">Пациенты</label>
-                            <div class="fastorder-counter js-counter">
-                                <a class="counter-btn btn-dwn">-</a>
-                                <input class="counter-rez" type="text" value="0" readonly>
-                                <a class="counter-btn btn-upp">+</a>
-                            </div>
-                        </div>
-                        <div class="fastorder-count">
-                            <label class="fastorder-label">Сопровождают</label>
-                            <div class="fastorder-counter js-counter">
-                                <a class="counter-btn btn-dwn">-</a>
-                                <input class="counter-rez" type="text" value="0" readonly>
-                                <a class="counter-btn btn-upp">+</a>
-                            </div>
-                        </div>
-                        <div class="fastorder-btn">
-                            <input class="btn btn-orang" type="button" value="ПРОДОЛЖИТЬ">
-                        </div>
-                    </div>
-                </form>
+                @Html.Partial("_Preorder")
             </div>
         </div><!-- END sec-intro-form -->
     </section><!-- END sec-intro -->

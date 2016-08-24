@@ -8,7 +8,7 @@
                         }))
 {
     <div class="forms-line">
-        <div class="forms-label">Имя*</div>
+        <div class="forms-label">Имя ребёнка*</div>
         @Html.TextBox("childname", ((ChildVisualDetailed)(ViewBag.Profile)).Name, new
         {
             @id = "childname",
@@ -18,17 +18,16 @@
         })
     </div>
     <div class="forms-line">
-        <div class="forms-label">Дата рождения*</div>
+        <div class="forms-label">Дата рождения ребёнка*</div>
         @Html.TextBox("birthday", ((ChildVisualDetailed)(ViewBag.Profile)).Birthday.ToString("dd.MM.yyyy") ?? "", new
-        {
-            @id = "birthday",
-            @placeholder = "30.12.2006",
-            @maxlength = "50",
-            @class = "forms-input has-icon ico-calendar js-datepicker"
+         {
+             @placeholder = "Нет даты",
+             @maxlength = "50",
+             @class = "forms-input has-icon ico-calendar js-datepicker"
         })
     </div>
     <div class="forms-line">
-        <div class="forms-label">Страна*</div>
+        <div class="forms-label">Страна проживания*</div>
         <div class="selector forms-selector">
             @Html.Hidden("country", ((ChildVisualDetailed)(ViewBag.Profile)).CountryId, new { id = "country" })
             <div class="selector-val" data-val="0">Все страны</div>
@@ -42,7 +41,7 @@
         </div>
     </div>
     <div class="forms-line">
-        <div class="forms-label">Регион*</div>
+        <div class="forms-label">Регион, область проживания*</div>
         @Html.TextBox("region", ((ChildVisualDetailed)(ViewBag.Profile)).Region, new
         {
             @id = "region",

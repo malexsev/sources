@@ -88,7 +88,7 @@ $(document).ready(function () {
     $(".js-tabs-head").tabsInit();
     $(".js-tabs-userdata").tabsInit();
     $(".js-content-tabs").tabsInit();
-    $(".js-order-tabs").tabsInit();
+    //$(".js-order-tabs").tabsInit();
     $(".js-personal-tabs").tabsInit();
     $(".js-tabs-registr").tabsInit();
     $(".js-tabs-citymap").tabsInit();
@@ -139,9 +139,9 @@ $(document).ready(function () {
                 .val(selDataVal)
                 .trigger('change'); // Событие изменения в поле
         $(this).closest(".selector").removeClass("show-list");
-        //TODO: Нижнее надо только селекторам формы 'form#skiprecords'
+        //TODO: Нижнее надо только селекторам формы 'form#childrenform'
         $("#skiprecords").val(0);
-        $('form#skiprecords').submit();
+        $('form#childrenform').submit();
     });
     $(document).on('click', "#fincountries li", function () {
         var serializedForm = $('#formChildTab4').serialize();
@@ -171,19 +171,47 @@ $(document).ready(function () {
             selectorList.removeClass("show-list");
         };
     });
+
+    $(document).on('click', ".selector li", function () {
+        var selDataVal = $(this).data("val");
+        var selDataTxt = $(this).text();
+        $(this).parents("ul").siblings("div").text(selDataTxt).attr({ "data-val": selDataVal });
+        $(this).parents("ul").siblings("input")
+                .val(selDataVal)
+                .trigger('change'); // Событие изменения в поле
+        $(this).closest(".selector").removeClass("show-list");
+        $(this).addClass("active").siblings("li").removeClass("active");
+        $("#skiprecords").val(0);
+        $('form#childrenform').submit();
+    });
+    //Закрытие списка селектора при клике мимо
+    $(document).mouseup(function (e) {
+        var selectorList = $('.selector.show-list');
+        if (e.target !== selectorList[0] && !selectorList.has(e.target).length) {
+            selectorList.removeClass("show-list");
+        };
+    });
+
     //Выставление правильного предзаданного значения в селекте
     $(window).load(function () {
-        $(".selector").each(function () {
+        selectorName = selectorName || ".selector";
+        $(selectorName).each(function () {
             var $that = $(this),
                 inputVal = $that.children("input").val(),
-                selectedText;
-            if (inputVal) selectedText = $that.find('li[data-val="' + inputVal + '"]').text();
+                selectedText,
+                $selectedItem;
+            if (inputVal) {
+                $selectedItem = $that.find('li[data-val="' + inputVal + '"]');
+                selectedText = $selectedItem.text();
+                $selectedItem.addClass("active").siblings("li").removeClass("active");
+            };
             if (selectedText) $that.children(".selector-val").text(selectedText);
             //TODO: Нижнее надо оставить только для страницы Наши Дети
             $("#more-count").text($(".js-ajax-for-count").length);
-            //console.log( selectedText );
+            console.log(selectedText);
         });
     });
+
     //  Вертикальная прокрутка в селекторах
     //  $(".selector ul").jScrollPane();
 
@@ -588,7 +616,7 @@ $(document).ready(function () {
         });
         e.preventDefault();
     });
-    
+
     /*------------ Добавление файла в галерее ----------------------------*/
     $('#fileGaleryUpload').on('change', function (e) {
         var files = e.target.files;
@@ -623,6 +651,59 @@ $(document).ready(function () {
         e.preventDefault();
     });
 
+    /*------------ Добавление файла в заявке ----------------------------*/
+    $(document).on('change', "#fileOrderUpload", function (e) {
+        var files = e.target.files;
+        if (files.length > 0) {
+            if (window.FormData !== undefined) {
+                var data = new FormData();
+                for (var x = 0; x < files.length; x++) {
+                    data.append(files[x].name, files[x]);
+                }
+
+                $.ajax({
+                    type: "POST",
+                    url: '/Cabinet/UploadOrderFile',
+                    contentType: false,
+                    processData: false,
+                    data: data,
+                    success: function (result) {
+                        $(".order-files-list").html(result);
+                    },
+                    error: function (xhr, status, p3, p4) {
+                        var err = "Error " + " " + status + " " + p3 + " " + p4;
+                        if (xhr.responseText && xhr.responseText[0] == "{")
+                            err = JSON.parse(xhr.responseText).Message;
+                        console.log(err);
+                    }
+                });
+            } else {
+                alert("This browser doesn't support HTML5 file uploads!");
+            }
+        }
+        e.preventDefault();
+    });
+    /*------------ Удаление файла из заявки ----------------------------*/
+    $(document).on('click', '.file-del', function() {
+        var filename = $(this).data("file");
+        $.ajax({
+            type: "POST",
+            url: '/Cabinet/DeleteOrderFile',
+            datatype: "text",
+            data: { 'filename': filename },
+            success: function (result) {
+                $(".order-files-list").html(result);
+                console.log(result);
+            },
+            error: function (xhr, status, p3, p4) {
+                var err = "Error " + " " + status + " " + p3 + " " + p4;
+                if (xhr.responseText && xhr.responseText[0] == "{")
+                    err = JSON.parse(xhr.responseText).Message;
+                console.log(err);
+            }
+        });
+    });
+
     /*------------ Добавление документа в документах ----------------------------*/
     $('#fileDocumentsUpload').on('change', function (e) {
         var files = e.target.files;
@@ -641,7 +722,6 @@ $(document).ready(function () {
                     data: data,
                     success: function (result) {
                         $("#documentstales").html(result);
-                        console.log(result);
                     },
                     error: function (xhr, status, p3, p4) {
                         var err = "Error " + " " + status + " " + p3 + " " + p4;
@@ -656,6 +736,336 @@ $(document).ready(function () {
         }
         e.preventDefault();
     });
+
+    /*------------ Сохранение Заявки Шаг1 ----------------------------*/
+    $("#orderstep1next").click(function (e) {
+        $("#error-step1").hide();
+        var form = $('#formOrderStep1');
+        if (form.valid()) {
+            var serializedForm = form.serialize();
+            $.ajax({
+                url: "/Cabinet/SaveStep1",
+                type: "POST",
+                data: serializedForm,
+                success: function (result) {
+                    if (result == "1") {
+                        $("#error-step1").removeClass("form-errors");
+                        $("#error-step1").show().text("Сохранено.");
+                        $("#order-step-2").load('/Cabinet/OrderStep2Partial');
+                        $("#order-step-3").load('/Cabinet/OrderStep3Partial');
+                        $("#order-step-4").load('/Cabinet/OrderStep4Partial');
+                        setOrderStep(2);
+                        $(".forms-radiotwix > .forms-radio input:checked").each(function () {
+                            $(this).parent(".forms-radio").addClass("active").siblings(".forms-radio").removeClass("active");
+                        });
+                        $(".forms-radiotwix > .forms-radio").click(function () {
+                            $(this).addClass("active").siblings(".forms-radio").removeClass("active");
+                        });
+                    } else if (result == "0") {
+                        window.location.href = '/Home/Index/';
+                    } else {
+                        $("#error-step1").addClass("form-errors");
+                        $("#error-step1").show().text(result);
+                    }
+                },
+                error: function (result) {
+                    alert(result.responseText);
+                }
+            });
+        }
+        e.preventDefault();
+    });
+
+    /*------------ Сохранение Заявки Шаг2 ----------------------------*/
+    $(document).on('click', "#orderstep2next", function () {
+        $("#error-step2").hide();
+        var form = $('#formOrderStep2');
+        $('#formOrderStep2').data('validator', null);
+        $.validator.unobtrusive.parse('#formOrderStep2');
+        if (form.valid()) {
+            var serializedForm = form.serialize();
+            $.ajax({
+                url: "/Cabinet/SaveStep2",
+                type: "POST",
+                data: serializedForm,
+                success: function (result) {
+                    if (result == "1") {
+                        $("#error-step2").removeClass("form-errors");
+                        $("#error-step2").show().text("Сохранено.");
+                        $("#order-step-3").load('/Cabinet/OrderStep3Partial');
+                        setOrderStep(3);
+                        $(".forms-radiotwix > .forms-radio input:checked").each(function () {
+                            $(this).parent(".forms-radio").addClass("active").siblings(".forms-radio").removeClass("active");
+                        });
+                        $(".forms-radiotwix > .forms-radio").click(function () {
+                            $(this).addClass("active").siblings(".forms-radio").removeClass("active");
+                        });
+                    } else if (result == "0") {
+                        window.location.href = '/Home/Index/';
+                    } else {
+                        $("#error-step2").addClass("form-errors");
+                        $("#error-step2").show().text(result);
+                    }
+                },
+                error: function (result) {
+                    alert(result.responseText);
+                }
+            });
+        }
+        e.preventDefault();
+    });
+
+    /*------------ Сохранение Заявки Шаг3 ----------------------------*/
+    $(document).on('click', "#orderstep3next", function () {
+        $("#error-step3").hide();
+        var form = $('#formOrderStep3');
+        if (form.valid()) {
+            var serializedForm = form.serialize();
+            $.ajax({
+                url: "/Cabinet/SaveStep3",
+                type: "POST",
+                data: serializedForm,
+                success: function (result) {
+                    if (result == "1") {
+                        $("#error-step3").removeClass("form-errors");
+                        $("#error-step3").show().text("Сохранено.");
+                        $("#order-step-4").load('/Cabinet/OrderStep4Partial');
+                        setOrderStep(4);
+                    } else if (result == "0") {
+                        window.location.href = '/Home/Index/';
+                    } else {
+                        $("#error-step3").addClass("form-errors");
+                        $("#error-step3").show().text(result);
+                    }
+                },
+                error: function (result) {
+                    alert(result.responseText);
+                }
+            });
+        }
+        e.preventDefault();
+    });
+
+    /*------------ Сохранение Заявки Шаг4 ----------------------------*/
+    $(document).on('click', "#orderstep4next", function () {
+        $("#error-step4").hide();
+        var form = $('#formOrderStep4');
+        if (form.valid()) {
+            var serializedForm = form.serialize();
+            $.ajax({
+                url: "/Cabinet/SaveStep4",
+                type: "POST",
+                data: serializedForm,
+                success: function (result) {
+                    if (result == "1") {
+                        $("#error-step4").removeClass("form-errors");
+                        $("#error-step4").show().text("Заявка отправлена.");
+                        setOrderStep(5);
+                    } else if (result == "0") {
+                        window.location.href = '/Home/Index/';
+                    } else {
+                        $("#error-step4").addClass("form-errors");
+                        $("#error-step4").show().text(result);
+                    }
+                },
+                error: function (result) {
+                    alert(result.responseText);
+                }
+            });
+        }
+        e.preventDefault();
+    });
+
+    /*------------ Сохранение Заявки Шаг5 ----------------------------*/
+    $("#orderstep5next").click(function (e) {
+        $("#error-step5").hide();
+        $.ajax({
+            url: "/Cabinet/SaveStep5",
+            type: "POST",
+            success: function (result) {
+                if (result == "1") {
+                    $("#error-step5").removeClass("form-errors");
+                    $("#error-step5").show().text("Заявка успешно отправлена.");
+                    $("#orderstep5next").hide();
+                    $("#orderstep5back").hide();
+                    $("#orderstep5save").hide();
+                    setTimeout(function () { setOrderTab('order-current'); }, 3000);
+                } else if (result == "0") {
+                    window.location.href = '/Home/Index/';
+                } else {
+                    $("#error-step5").addClass("form-errors");
+                    $("#error-step5").show().text(result);
+                }
+            },
+            error: function (result) {
+                alert(result.responseText);
+            }
+        });
+        e.preventDefault();
+    });
+
+    /*------------ Отложить заполнение Заявки Шаг1 ----------------------------*/
+    $("#orderstep1save").click(function (e) {
+        $("#error-step1").hide();
+        var form = $('#formOrderStep1');
+        var serializedForm = form.serialize();
+        $.ajax({
+            url: "/Cabinet/PendStep1",
+            type: "POST",
+            data: serializedForm,
+            success: function (result) {
+                if (result == "1") {
+                    $("#error-step1").removeClass("form-errors");
+                    $("#error-step1").show().text("Данные сохранены. Вы можете вернуться к заполнению в любое время.");
+                } else if (result == "0") {
+                    window.location.href = '/Home/Index/';
+                } else {
+                    $("#error-step1").addClass("form-errors");
+                    $("#error-step1").show().text(result);
+                }
+            },
+            error: function (result) {
+                alert(result.responseText);
+            }
+        });
+        e.preventDefault();
+    });
+
+    /*------------ Отложить заполнение Заявки Шаг2 ----------------------------*/
+    $(document).on('click', "#orderstep2save", function () {
+        $("#error-step2").hide();
+        var form = $('#formOrderStep2');
+        var serializedForm = form.serialize();
+        $.ajax({
+            url: "/Cabinet/PendStep2",
+            type: "POST",
+            data: serializedForm,
+            success: function (result) {
+                if (result == "1") {
+                    $("#error-step2").removeClass("form-errors");
+                    $("#error-step2").show().text("Данные сохранены. Вы можете вернуться к заполнению в любое время.");
+                } else if (result == "0") {
+                    window.location.href = '/Home/Index/';
+                } else {
+                    $("#error-step2").addClass("form-errors");
+                    $("#error-step2").show().text(result);
+                }
+            },
+            error: function (result) {
+                alert(result.responseText);
+            }
+        });
+        e.preventDefault();
+    });
+
+    /*------------ Отложить заполнение Заявки Шаг3 ----------------------------*/
+    $(document).on('click', "#orderstep3save", function () {
+        $("#error-step3").hide();
+        var form = $('#formOrderStep3');
+        var serializedForm = form.serialize();
+        $.ajax({
+            url: "/Cabinet/PendStep3",
+            type: "POST",
+            data: serializedForm,
+            success: function (result) {
+                if (result == "1") {
+                    $("#error-step3").removeClass("form-errors");
+                    $("#error-step3").show().text("Данные сохранены. Вы можете вернуться к заполнению в любое время.");
+                } else if (result == "0") {
+                    window.location.href = '/Home/Index/';
+                } else {
+                    $("#error-step3").addClass("form-errors");
+                    $("#error-step3").show().text(result);
+                }
+            },
+            error: function (result) {
+                alert(result.responseText);
+            }
+        });
+        e.preventDefault();
+    });
+
+    /*------------ Отложить заполнение Заявки Шаг4 ----------------------------*/
+    $(document).on('click', "#orderstep4save", function () {
+        $("#error-step4").hide();
+        var form = $('#formOrderStep4');
+        var serializedForm = form.serialize();
+        $.ajax({
+            url: "/Cabinet/PendStep4",
+            type: "POST",
+            data: serializedForm,
+            success: function (result) {
+                if (result == "1") {
+                    $("#error-step4").removeClass("form-errors");
+                    $("#error-step4").show().text("Данные сохранены. Вы можете вернуться к заполнению в любое время.");
+                } else if (result == "0") {
+                    window.location.href = '/Home/Index/';
+                } else {
+                    $("#error-step4").addClass("form-errors");
+                    $("#error-step4").show().text(result);
+                }
+            },
+            error: function (result) {
+                alert(result.responseText);
+            }
+        });
+        e.preventDefault();
+    });
+
+    /*------------ Отложить заполнение Заявки Шаг5 ----------------------------*/
+    $(document).on('click', "#orderstep5save", function () {
+        $("#error-step5").hide();
+        $.ajax({
+            url: "/Cabinet/PendStep5",
+            type: "POST",
+            success: function (result) {
+                if (result == "1") {
+                    $("#error-step5").removeClass("form-errors");
+                    $("#error-step5").show().text("Данные сохранены. Вы можете вернуться к заполнению в любое время.");
+                } else if (result == "0") {
+                    window.location.href = '/Home/Index/';
+                } else {
+                    $("#error-step5").addClass("form-errors");
+                    $("#error-step5").show().text(result);
+                }
+            },
+            error: function (result) {
+                alert(result.responseText);
+            }
+        });
+        e.preventDefault();
+    });
+
+    /*------------ Вернуться на шаг назад ----------------------------*/
+    $(document).on('click', ".btn-back", function () {
+        var stepId = $(this).data("move-to");
+        $("#error-step" + stepId).hide();
+        setOrderStep(stepId);
+    });
+
+    function setOrderStep(index) {
+        var $tabsHead = $('.js-order-tabs'),
+        $links = $tabsHead.find(".js-tabs-link"),
+        $tabsBody = $tabsHead.siblings(".js-tabs-body"),
+        $tabs = $tabsBody.find(".js-tabs-item");
+
+        $links.removeClass("active");
+        $('#steps-link-' + index).addClass("active");
+        $tabs.removeClass("active");
+        $('#order-step-' + index).addClass("active");
+    }
+
+    function setOrderTab(index) {
+        var $tabsHead = $('.js-content-tabs'),
+        $links = $tabsHead.find(".js-tabs-link"),
+        $tabsBody = $tabsHead.siblings(".js-tabs-body"),
+        $tabs = $tabsBody.find(".js-tabs-item");
+
+        $links.removeClass("active");
+        $tabs.removeClass("active");
+        $('#' + index + "-tab").addClass("active");
+        $('#' + index + "-link").addClass("active");
+    }
 
 
     /*----------- Галлерея картинок  -----------------------------------------*/
@@ -745,7 +1155,7 @@ $(document).ready(function () {
             $btn.removeClass("is-disabled").addClass("is-enabled");
             $tileItem.removeClass("is-disabled").addClass("is-enabled");
         };
-        
+
     });
 
     /*--- Кабинет: показ/скрытие комментариев ------------------------*/
@@ -766,7 +1176,12 @@ $(document).ready(function () {
     });
     $(".js-counter .btn-upp").click(function () {
         var $input = $(this).siblings(".counter-rez");
-        $input.val(parseInt($input.val()) + 1).change();
+        //$input.val(parseInt($input.val()) + 1).change();
+        $counterMax = parseInt($(this).parent(".js-counter").data("max")) || 99,
+        $inputVal = parseInt($input.val());
+        if ($counterMax > 0 && $inputVal < $counterMax) {
+            $input.val($inputVal + 1).change();
+        };
     });
 
 
@@ -860,18 +1275,24 @@ $(document).ready(function () {
         format: 'dd.mm.yyyy',
         startDate: '+5d',
         language: 'ru',
-        inputs: $('.ico-calendar')
+        inputs: $('.js-input-daterange .ico-calendar')
     });
-    $('.js-input-birthday').datepicker({
+    // Если один инпут:
+    $('.js-datepicker').datepicker({
         format: 'dd.mm.yyyy',
-        endDate: '-1m',
         language: 'ru',
-        inputs: $('.ico-calendar')
+        autoclose: true,
+        multidate: false
     });
 
-
-
-
+    /*------------ Radiotwix с показом на "да" -------------------------------*/
+    $(".forms-radiotwix > .forms-radio input:checked").each(function () {
+        $(this).parent(".forms-radio").addClass("active").siblings(".forms-radio").removeClass("active");
+    });
+    $(document).on('click', ".forms-radiotwix > .forms-radio", function () {
+        //$(".forms-radiotwix > .forms-radio").click(function () {
+        $(this).addClass("active").siblings(".forms-radio").removeClass("active");
+    });
 
 
 });

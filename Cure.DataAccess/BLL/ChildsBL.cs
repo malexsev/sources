@@ -9,18 +9,18 @@
         {
             var view = dataRepository.ViewChild(ownerUser);
             var user = dataRepository.GetUserMembership(ownerUser);
-            if (view == null)
+            if (view == null && !string.IsNullOrEmpty(ownerUser))
             {
                 var child = new Child()
                 {
-                    Birthday = DateTime.Today.AddYears(-5),
+                    Birthday = new DateTime(2111,1,1),
                     GuidId = Guid.NewGuid(),
                     OwnerUser = ownerUser,
-                    CountryId = 2,
+                    CountryId = 10,
                     IsActive = false,
                     Name = string.Empty,
                     ContactName = user.UserName,
-                    ContactRodstvoId = 1,
+                    ContactRodstvoId = 10,
                     ContactEmail = user.LoweredEmail,
                     DiagnozId = 1
                 };

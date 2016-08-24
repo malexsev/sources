@@ -2,17 +2,19 @@
 
 namespace Cure.WebSite.Models
 {
+    using Utils;
+
     public class PhotoItem
     {
         public string UrlOriginal { get; set; }
         public string UrlMin { get; set; }
         public string UrlBig { get; set; }
 
-        public PhotoItem()
+        public PhotoItem(int id)
         {
-            UrlOriginal = "/Content/images/no_photo.jpg";
-            UrlMin = "/Content/images/no_photo_min.jpg";
-            UrlBig = "/Content/images/no_photo_big.jpg";
+            string uri = string.Format("/Content/img/userpics/no_photo_{0}.jpg",
+                    SiteUtils.GetRandom(id, 3));
+            UrlOriginal = UrlMin = UrlBig = uri;
         }
 
         public PhotoItem(string photoUrl, string fileName)
