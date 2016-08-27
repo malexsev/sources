@@ -883,7 +883,7 @@ namespace Cure.WebSite.Controllers
         }
 
         [HttpPost]
-        public JsonResult SaveTab3(string socialok, string socialvk, string socialmm, string socialfb, string socialyoutube)
+        public JsonResult SaveTab3(SocialLinksModel socialLinks)
         {
             if (User.Identity.IsAuthenticated)
             {
@@ -893,11 +893,11 @@ namespace Cure.WebSite.Controllers
                     var view = dal.ViewChild(User.Identity.Name);
                     var child = dal.GetChild(view.Id);
 
-                    child.SocialOk = socialok;
-                    child.SocialVk = socialvk;
-                    child.SocialMm = socialmm;
-                    child.SocialFb = socialfb;
-                    child.SocialYoutube = socialyoutube;
+                    child.SocialOk = socialLinks.SocialOk;
+                    child.SocialVk = socialLinks.SocialVk;
+                    child.SocialMm = socialLinks.SocialMm;
+                    child.SocialFb = socialLinks.SocialFb;
+                    child.SocialYoutube = socialLinks.SocialYoutube;
 
                     dal.UpdateChild(child);
                     this.UpdateIsActive(ref child, ref dal);
@@ -919,10 +919,17 @@ namespace Cure.WebSite.Controllers
         public JsonResult SaveTab4(string webmoney
             , string webmoney2
             , string webmoney3
+            , string webmoney4
             , string yandexmoney
             , string kiwi
             , string finoperator
+            , string finoperator2
+            , string finoperator3
+            , string finoperator4
             , string fintelephone
+            , string fintelephone2
+            , string fintelephone3
+            , string fintelephone4
             , string fincountry
             , string bank
             , string bankother
@@ -935,6 +942,12 @@ namespace Cure.WebSite.Controllers
                 {
                     int operatorId;
                     int.TryParse(finoperator, out operatorId);
+                    int operator2Id;
+                    int.TryParse(finoperator2, out operator2Id);
+                    int operator3Id;
+                    int.TryParse(finoperator3, out operator3Id);
+                    int operator4Id;
+                    int.TryParse(finoperator4, out operator4Id);
 
                     int countryId;
                     int.TryParse(fincountry, out countryId);
@@ -949,6 +962,7 @@ namespace Cure.WebSite.Controllers
                     child.FinWebmoney = webmoney;
                     child.FinWebmoney2 = webmoney2;
                     child.FinWebmoney3 = webmoney3;
+                    child.FinWebmoney4 = webmoney4;
                     child.FinYandexMoney = yandexmoney;
                     child.FinKiwi = kiwi;
                     if (operatorId == 0)
@@ -959,7 +973,34 @@ namespace Cure.WebSite.Controllers
                     {
                         child.FinOperatorId = operatorId;
                     }
+                    if (operator2Id == 0)
+                    {
+                        child.FinOperator2Id = null;
+                    }
+                    else
+                    {
+                        child.FinOperator2Id = operator2Id;
+                    }
+                    if (operator3Id == 0)
+                    {
+                        child.FinOperator3Id = null;
+                    }
+                    else
+                    {
+                        child.FinOperator3Id = operator3Id;
+                    }
+                    if (operator4Id == 0)
+                    {
+                        child.FinOperator4Id = null;
+                    }
+                    else
+                    {
+                        child.FinOperator4Id = operator4Id;
+                    }
                     child.FinPhoneNumber = fintelephone;
+                    child.FinPhoneNumber2 = fintelephone2;
+                    child.FinPhoneNumber3 = fintelephone3;
+                    child.FinPhoneNumber4 = fintelephone4;
                     if (countryId == 0)
                     {
                         child.FinCountryId = null;

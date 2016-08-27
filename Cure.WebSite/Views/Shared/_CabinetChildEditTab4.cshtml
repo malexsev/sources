@@ -8,25 +8,32 @@
 {
     <div class="forms-title top-0">Платежные системы</div>
     <div class="forms-line">
-        <div class="forms-label">Вэбмани</div>
+        <div class="forms-label">WebMoney</div>
         @Html.TextBox("webmoney", ((ChildVisualDetailed)(ViewBag.Profile)).FinWebmoney, new
         {
             @id = "webmoney",
-            @placeholder = "Номер счёта одной валюты",
+            @placeholder = "Введите номер кошелька",
             @maxlength = "50",
             @class = "forms-input btm-10"
         })
         @Html.TextBox("webmoney2", ((ChildVisualDetailed)(ViewBag.Profile)).FinWebmoney2, new
         {
             @id = "webmoney2",
-            @placeholder = "Номер счёта другой валюты",
+            @placeholder = "Введите номер кошелька",
             @maxlength = "50",
             @class = "forms-input btm-10"
         })
         @Html.TextBox("webmoney3", ((ChildVisualDetailed)(ViewBag.Profile)).FinWebmoney3, new
         {
             @id = "webmoney3",
-            @placeholder = "Номер счёта третьей валюты",
+            @placeholder = "Введите номер кошелька",
+            @maxlength = "50",
+            @class = "forms-input btm-10"
+        })
+        @Html.TextBox("webmoney4", ((ChildVisualDetailed)(ViewBag.Profile)).FinWebmoney4, new
+        {
+            @id = "webmoney4",
+            @placeholder = "Введите номер кошелька",
             @maxlength = "50",
             @class = "forms-input"
         })
@@ -56,12 +63,29 @@
     <div class="forms-line">
         <div class="selector forms-selector">
             @Html.Hidden("finoperator", ((ChildVisualDetailed)(ViewBag.Profile)).FinOperatorId, new { id = "operator" })
-            <div class="selector-val" data-val="0">Не выбрано</div>
+            <div class="selector-val" data-val="@Html.Raw(((ChildVisualDetailed)(ViewBag.Profile)).FinOperatorId == null ? 0 : ((int)(((ChildVisualDetailed)(ViewBag.Profile)).FinOperatorId)))">
+                @if (((ChildVisualDetailed)(ViewBag.Profile)).FinOperatorId == null)
+                {
+                    <text>
+                        Не выбрано
+                    </text>
+                }
+                else
+                {
+                    foreach (var oper in (IEnumerable<RefOperator>)ViewBag.Operators)
+                    {
+                        if (oper.Id == (((ChildVisualDetailed)(ViewBag.Profile)).FinOperatorId == null ? 0 : ((int)(((ChildVisualDetailed)(ViewBag.Profile)).FinOperatorId))))
+                        {
+                            @oper.Name
+                        }
+                    }
+                }
+            </div>
             <ul class="selector-list">
                 <li data-val="0">Не нашёл в списке</li>
                 @foreach (RefOperator oper in ViewBag.Operators)
                 {
-                    <li data-val="@oper.Id">@oper.Name & </li>
+                    <li data-val="@oper.Id">@oper.Name</li>
                 }
             </ul>
         </div>
@@ -71,6 +95,129 @@
         @Html.TextBox("fintelephone", ((ChildVisualDetailed)(ViewBag.Profile)).FinPhoneNumber, new
         {
             @id = "fintelephone",
+            @placeholder = "Номер телефона",
+            @maxlength = "50",
+            @class = "forms-input"
+        })
+    </div>
+    <div class="forms-label">Оператор2</div>
+    <div class="forms-line">
+        <div class="selector forms-selector">
+            @Html.Hidden("finoperator2", ((ChildVisualDetailed)(ViewBag.Profile)).FinOperator2Id, new { id = "operator2" })
+            <div class="selector-val" data-val="@Html.Raw(((ChildVisualDetailed)(ViewBag.Profile)).FinOperator2Id == null ? 0 : ((int)(((ChildVisualDetailed)(ViewBag.Profile)).FinOperator2Id)))">
+                @if (((ChildVisualDetailed)(ViewBag.Profile)).FinOperator2Id == null)
+                {
+                    <text>
+                        Не выбрано
+                    </text>
+                }
+                else
+                {
+                    foreach (var oper in (IEnumerable<RefOperator>)ViewBag.Operators)
+                    {
+                        if (oper.Id == (((ChildVisualDetailed)(ViewBag.Profile)).FinOperator2Id == null ? 0 : ((int)(((ChildVisualDetailed)(ViewBag.Profile)).FinOperator2Id))))
+                        {
+                            @oper.Name
+                        }
+                    }
+                }
+            </div>
+            <ul class="selector-list">
+                <li data-val="0">Не нашёл в списке</li>
+                @foreach (RefOperator oper in ViewBag.Operators)
+                {
+                    <li data-val="@oper.Id">@oper.Name</li>
+                }
+            </ul>
+        </div>
+    </div>
+    <div class="forms-line">
+        <div class="forms-label">Номер2</div>
+        @Html.TextBox("fintelephone2", ((ChildVisualDetailed)(ViewBag.Profile)).FinPhoneNumber2, new
+        {
+            @id = "fintelephone2",
+            @placeholder = "Номер телефона",
+            @maxlength = "50",
+            @class = "forms-input"
+        })
+    </div>
+    <div class="forms-label">Оператор3</div>
+    <div class="forms-line">
+        <div class="selector forms-selector">
+            @Html.Hidden("finoperator3", ((ChildVisualDetailed)(ViewBag.Profile)).FinOperator3Id, new { id = "operator3" })
+            <div class="selector-val" data-val="@Html.Raw(((ChildVisualDetailed)(ViewBag.Profile)).FinOperator3Id == null ? 0 : ((int)(((ChildVisualDetailed)(ViewBag.Profile)).FinOperator3Id)))">
+                @if (((ChildVisualDetailed)(ViewBag.Profile)).FinOperator3Id == null)
+                {
+                    <text>
+                        Не выбрано
+                    </text>
+                }
+                else
+                {
+                    foreach (var oper in (IEnumerable<RefOperator>)ViewBag.Operators)
+                    {
+                        if (oper.Id == (((ChildVisualDetailed)(ViewBag.Profile)).FinOperator3Id == null ? 0 : ((int)(((ChildVisualDetailed)(ViewBag.Profile)).FinOperator3Id))))
+                        {
+                            @oper.Name
+                        }
+                    }
+                }
+            </div>
+            <ul class="selector-list">
+                <li data-val="0">Не нашёл в списке</li>
+                @foreach (RefOperator oper in ViewBag.Operators)
+                {
+                    <li data-val="@oper.Id">@oper.Name</li>
+                }
+            </ul>
+        </div>
+    </div>
+    <div class="forms-line">
+        <div class="forms-label">Номер3</div>
+        @Html.TextBox("fintelephone3", ((ChildVisualDetailed)(ViewBag.Profile)).FinPhoneNumber3, new
+        {
+            @id = "fintelephone3",
+            @placeholder = "Номер телефона",
+            @maxlength = "50",
+            @class = "forms-input"
+        })
+    </div>
+    <div class="forms-label">Оператор4</div>
+    <div class="forms-line">
+        <div class="selector forms-selector">
+            @Html.Hidden("finoperator4", ((ChildVisualDetailed)(ViewBag.Profile)).FinOperator4Id, new { id = "operator4" })
+            <div class="selector-val" data-val="@Html.Raw(((ChildVisualDetailed)(ViewBag.Profile)).FinOperator4Id == null ? 0 : ((int)(((ChildVisualDetailed)(ViewBag.Profile)).FinOperator4Id)))">
+                @if (((ChildVisualDetailed)(ViewBag.Profile)).FinOperator4Id == null)
+                {
+                    <text>
+                        Не выбрано
+                    </text>
+                }
+                else
+                {
+                    foreach (var oper in (IEnumerable<RefOperator>)ViewBag.Operators)
+                    {
+                        if (oper.Id == (((ChildVisualDetailed)(ViewBag.Profile)).FinOperator4Id == null ? 0 : ((int)(((ChildVisualDetailed)(ViewBag.Profile)).FinOperator4Id))))
+                        {
+                            @oper.Name
+                        }
+                    }
+                }
+            </div>
+            <ul class="selector-list">
+                <li data-val="0">Не нашёл в списке</li>
+                @foreach (RefOperator oper in ViewBag.Operators)
+                {
+                    <li data-val="@oper.Id">@oper.Name</li>
+                }
+            </ul>
+        </div>
+    </div>
+    <div class="forms-line">
+        <div class="forms-label">Номер4</div>
+        @Html.TextBox("fintelephone4", ((ChildVisualDetailed)(ViewBag.Profile)).FinPhoneNumber4, new
+        {
+            @id = "fintelephone4",
             @placeholder = "Номер телефона",
             @maxlength = "50",
             @class = "forms-input"

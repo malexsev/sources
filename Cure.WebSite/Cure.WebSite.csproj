@@ -170,8 +170,10 @@
     <Content Include="Content\img\backgrounds\bg_sec-steps.jpg" />
     <Content Include="Content\img\bg_main.jpg" />
     <Content Include="Content\img\bg_review.png" />
+    <Content Include="Content\img\donations-icon.png" />
     <Content Include="Content\img\favicon-16x16.png" />
     <Content Include="Content\img\favicon-32x32.png" />
+    <Content Include="Content\img\friends-icon.png" />
     <Content Include="Content\img\icons_carret.png" />
     <Content Include="Content\img\icon_carret.png" />
     <Content Include="Content\img\icon_carret_green.png" />
@@ -221,11 +223,12 @@
     <Content Include="Content\img\operators\tele2.png" />
     <Content Include="Content\img\operators\uz-k-az-cell.png" />
     <Content Include="Content\img\operators\ym.png" />
+    <Content Include="Content\img\orders-icon.png" />
     <Content Include="Content\img\preloader.gif" />
     <Content Include="Content\img\preorder_yes.png" />
-    <Content Include="Content\img\userpics\child1.jpg" />
-    <Content Include="Content\img\userpics\child2.jpg" />
-    <Content Include="Content\img\userpics\child3.jpg" />
+    <Content Include="Content\img\userpics\no_photo_1.jpg" />
+    <Content Include="Content\img\userpics\no_photo_2.jpg" />
+    <Content Include="Content\img\userpics\no_photo_3.jpg" />
     <Content Include="Content\img\userpics\no_photo_min.jpg" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\video\main-page-video.mp4" />
@@ -288,6 +291,7 @@
     <Compile Include="Models\DocItem.cs" />
     <Compile Include="Models\PacientDataSoruce.cs" />
     <Compile Include="Models\PhotoItem.cs" />
+    <Compile Include="Models\SocialLinksModel.cs" />
     <Compile Include="Models\SputnikDataSoruce.cs" />
     <Compile Include="Models\VisitDetailViewModel.cs" />
     <Compile Include="Models\VisitInfoViewModel.cs" />
@@ -344,6 +348,7 @@
     <Content Include="Views\Shared\_OrderWizardStep3Files.cshtml" />
     <Content Include="Views\Shared\_Preorder.cshtml" />
     <Content Include="Views\Preorder\Index.cshtml" />
+    <Content Include="Views\Preorder\Registration.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

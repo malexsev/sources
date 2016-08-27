@@ -597,7 +597,7 @@
                 </div><!-- END row -->
                 <div class="row">
                     <div class="col-lg-12 txt-center">
-                        <a class="btn btn-orang-outlined" href="#">ЗАПИСАТЬСЯ НА ЛЕЧЕНИЕ</a>
+                        <a class="btn btn-orang-outlined" href="@Html.Raw(User.Identity.IsAuthenticated ? Url.Action("Orders", "Cabinet") : Url.Action("Registration", "Preorder"))">ЗАПИСАТЬСЯ НА ЛЕЧЕНИЕ</a>
                         <div class="sec-steps-bttm">Начните заполнять заявку. На любом этапе вы сможете прервать заполнение и все данные сохранятся</div>
                     </div>
                 </div><!-- END row -->

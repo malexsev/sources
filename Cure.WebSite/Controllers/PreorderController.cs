@@ -10,6 +10,11 @@ namespace Cure.WebSite.Controllers
     {
         private const string CalendarCulture = "ru-RU";
 
+        public ActionResult Registration()
+        {
+            return View();
+        }
+
         public ActionResult Index()
         {
             var dal = new DataAccessBL();

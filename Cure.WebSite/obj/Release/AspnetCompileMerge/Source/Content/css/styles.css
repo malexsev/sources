@@ -2,9 +2,7 @@
 @import "_fonts.css";
 @import "_font-awesome.min.css";
 @import "_bootstrap-datepicker3.standalone.min.css";
-/*------------ Created on : 15.06.2016 --- Author: WM ------------------------*/
-/*--------------------- PRELIMINARY AJUSTMENT ----------------*/
-/*--------------------- MOST POPULAR MIXINS ------------------*/
+
 /*--------------------- LAYOUT -----------------------------------------------*/
 * {
   -webkit-box-sizing: border-box;
@@ -44,6 +42,13 @@ body {
 }
 .main {
   padding: 20px 0 50px;
+}
+.main.has-gray-bg{
+  background: #f2f2ea;
+}
+.main.is-full-screen{
+  min-height: 800px;
+  min-height: calc(100vh - 200px);
 }
 .footer {
   position: relative;
@@ -103,11 +108,11 @@ a {
   bottom: 0;
   width: 50%;
   background: #fff;
-  -webkit-transition: all 0.6s ease-in-out 0.4s;
-  -moz-transition: all 0.6s ease-in-out 0.4s;
-  -ms-transition: all 0.6s ease-in-out 0.4s;
-  -o-transition: all 0.6s ease-in-out 0.4s;
-  transition: all 0.6s ease-in-out 0.4s;
+  -webkit-transition: all 0.6s ease-in-out 0s;
+  -moz-transition: all 0.6s ease-in-out 0s;
+  -ms-transition: all 0.6s ease-in-out 0s;
+  -o-transition: all 0.6s ease-in-out 0s;
+  transition: all 0.6s ease-in-out 0s;
 }
 .preloader:before {
   left: 0;
@@ -123,12 +128,9 @@ a {
   width: 66px;
   height: 66px;
   margin: -33px 0 0 -33px;
+  border-radius: 50%;
   z-index: 10;
-  -webkit-transition: all 0.3s ease-in-out 0s;
-  -moz-transition: all 0.3s ease-in-out 0s;
-  -ms-transition: all 0.3s ease-in-out 0s;
-  -o-transition: all 0.3s ease-in-out 0s;
-  transition: all 0.3s ease-in-out 0s;
+
 }
 .preloader.off:before {
   left: -50%;
@@ -469,7 +471,7 @@ a {
   border-color: #e07827;
 }
 .forms-input.has-icon {
-  padding-right: 20px;
+  padding-right: 28px;
   background-position: right center;
   background-repeat: no-repeat;
 }
@@ -697,6 +699,9 @@ a {
   z-index: 2;
 }
 .ico-calendar {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAZCAMAAAAVHr4VAAAAQlBMVEVqamr///9qampqampqampqampqampqampqampqampqampqampqampqampqampqampqampqampqampqampqamrl5eVnenbcAAAAFHRSTlMAAAYtM01PUFJTiImQkcPE3+Dt7hvVEEQAAACASURBVHjazdLBDoMgEEXRh2JLrSLi4/9/tU4mYCDGuLM3YTZnMyEDIzGZXKIpXWM3RwpSE+Q2d4rT+rKCVhO07zAqRgcIApAnCHyiInsATMglAuhZsOk+etKjHgdyD/W4iZ5cUI9HF3InC7l//aHo0HZcwhQG2zaEb76+jU3l+n4s3BeHh8Xr0QAAAABJRU5ErkJggg==);
+}
+.ico-birthday {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAPCAMAAAAxmgQeAAAAFVBMVEW4uLj///+4uLi4uLi4uLi4uLi4uLifRX2BAAAABnRSTlMAALe90tVmMp03AAAAP0lEQVR42rXPOwoAMAgD0Pi9/5FbEezHoVNDyPDAQURU1xIRxI9ImF9JA8yA3LLKy0SyuzFnf95267/xSTxtAK/4AvBHURKeAAAAAElFTkSuQmCC);
 }
 /*--------------------- BLOCKS: Breadcrumbs ----------------------------*/
@@ -2333,6 +2338,7 @@ a {
 }
 .fastorder {
   padding: 5px 0 15px;
+  text-align: left;
 }
 .fastorder-clinic {
   float: left;
@@ -2346,6 +2352,9 @@ a {
 .fastorder-date {
   float: left;
   width: 50%;
+  padding: 0 5px;
+}
+.fastorder-date-title {
   padding: 0 5px;
 }
 .fastorder-count {
@@ -2404,6 +2413,15 @@ a {
   margin: 0;
   text-align: left;
 }
+.fastorder.has-dark-bg{
+  padding: 5px 10px 15px;
+  background: #e3e2d7;
+}
+.fastorder.has-dark-bg .fastorder-label{
+  color: #343434;
+}
+
+
 /*--------------------- CHILDREN PAGE BLOCKS ---------------------------------*/
 .children-page-filter {
   text-align: right;
@@ -3295,6 +3313,61 @@ a {
 .order-section.has-border {
   border-bottom: 2px solid #d2d2d2;
 }
+
+/*--------------------- PREORDER PAGE STYLES ---------------------------------*/
+.preorder{
+    
+}
+.preorder-head{
+    position: relative;
+    text-align: center;
+}
+.preorder-body{
+    text-align: center;
+}
+.preorder-head-close{
+    display: block;
+    position: absolute;
+    top: -25px;
+    right: 15px;
+    width: 25px;
+    height: 25px;
+    background: no-repeat center url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAMAAAAMs7fIAAAAGFBMVEU0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDSP0BrvAAAAB3RSTlMANjdsbar9Ml2gdAAAAEVJREFUeNplkAsKACAIQ2dm3f/GFQ0mTETHQ/wBgW5xfWUDucYL2cAEhKgolIUYOyIQqg9ktYvKa7yPz/J9fGe/y2/3/xzS2wFgiZqy7gAAAABJRU5ErkJggg==);
+    opacity: 0.7;
+}
+.preorder-head-close:hover{
+    opacity: 1;
+}
+.preorder-rez{
+    margin: 40px 0 30px;
+    font: 800 36px/40px 'Open Sans', sans-serif;
+}
+.preorder-rez img{
+    vertical-align: top;
+}
+.preorder-title{
+    margin: 30px 0 40px;
+    font: 400 30px/30px 'Open Sans', sans-serif;
+}
+.preorder-text{
+    max-width: 940px;
+    margin: 25px auto;
+    font: 400 16px/24px 'Open Sans', sans-serif;
+}
+.preorder-text p{
+    margin: 25px 0;
+    font: 400 16px/24px 'Open Sans', sans-serif;
+}
+.preorder-registr{
+    max-width: 730px;
+    margin: 50px auto;
+    padding: 30px;
+    text-align: left;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 7px rgba(2,3,3,.2);
+}
+
 /*--------------------- POP-UP -----------------------------------------------*/
 .popup {
   display: none;

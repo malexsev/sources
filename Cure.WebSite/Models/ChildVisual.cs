@@ -6,6 +6,7 @@ using System;
 
 namespace Cure.WebSite.Models
 {
+    using System.Globalization;
     using Utils;
 
     public class ChildVisual : ViewChild
@@ -43,6 +44,10 @@ namespace Cure.WebSite.Models
                 if (!string.IsNullOrEmpty(this.FinWebmoney3))
                 {
                     lines.Add(this.FinWebmoney3);
+                }
+                if (!string.IsNullOrEmpty(this.FinWebmoney4))
+                {
+                    lines.Add(this.FinWebmoney4);
                 }
                 return string.Join(@"<br />", lines);
             }
@@ -88,10 +93,17 @@ namespace Cure.WebSite.Models
                 this.FinCountryName = child.FinCountryName;
                 this.FinKiwi = child.FinKiwi;
                 this.FinOperatorId = child.FinOperatorId;
+                this.FinOperator2Id = child.FinOperator2Id;
+                this.FinOperator3Id = child.FinOperator3Id;
+                this.FinOperator4Id = child.FinOperator4Id;
                 this.FinPhoneNumber = child.FinPhoneNumber;
+                this.FinPhoneNumber2 = child.FinPhoneNumber2;
+                this.FinPhoneNumber3 = child.FinPhoneNumber3;
+                this.FinPhoneNumber4 = child.FinPhoneNumber4;
                 this.FinWebmoney = child.FinWebmoney;
                 this.FinWebmoney2 = child.FinWebmoney2;
                 this.FinWebmoney3 = child.FinWebmoney3;
+                this.FinWebmoney4 = child.FinWebmoney4;
                 this.FinYandexMoney = child.FinYandexMoney;
                 this.GuidId = child.GuidId;
                 this.Id = child.Id;
@@ -101,6 +113,15 @@ namespace Cure.WebSite.Models
                 this.OperatorDescription = child.OperatorDescription;
                 this.OperatorName = child.OperatorName;
                 this.OperatorParams = child.OperatorParams;
+                this.Operator2Description = child.Operator2Description;
+                this.Operator2Name = child.Operator2Name;
+                this.Operator2Params = child.Operator2Params;
+                this.Operator3Description = child.Operator3Description;
+                this.Operator3Name = child.Operator3Name;
+                this.Operator3Params = child.Operator3Params;
+                this.Operator4Description = child.Operator4Description;
+                this.Operator4Name = child.Operator4Name;
+                this.Operator4Params = child.Operator4Params;
                 this.OwnerUser = child.OwnerUser;
                 this.Region = child.Region;
                 this.RodstvoDescription = child.RodstvoDescription;
@@ -129,7 +150,17 @@ namespace Cure.WebSite.Models
                 this.PhotoItem = new PhotoItem(this.Id);
                 //PhotoItemLst = new List<PhotoItem>();
                 //DocItemLst = new List<DocItem>();
-                Age = child.Birthday.Year == 2111 ? "Возраст не указан" : string.Format("{0} лет", (DateTime.Today.Year - child.Birthday.Year).ToString());
+                int age = DateTime.Today.Year - child.Birthday.Year;
+                string let = "лет";
+                if (age > 1 && age < 5)
+                {
+                    let = "года";
+                }
+                else if (age == 1)
+                {
+                    let = "год";
+                }
+                Age = child.Birthday.Year == 2111 ? "Возраст не указан" : string.Format("{0} {1}", age.ToString(CultureInfo.InvariantCulture), let);
                 string photoLocation = Path.Combine(ConfigurationManager.AppSettings["PhotoLocation"], this.GuidId.ToString());
                 string photoUrl = Path.Combine(ConfigurationManager.AppSettings["PhotoUrl"], this.GuidId.ToString());
                 string docsLocation = photoLocation.Replace("Upload", "Documents");

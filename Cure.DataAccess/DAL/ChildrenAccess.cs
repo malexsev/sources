@@ -164,10 +164,17 @@ namespace Cure.DataAccess.DAL
                 origChild.FinCountryId = child.FinCountryId;
                 origChild.FinKiwi = child.FinKiwi;
                 origChild.FinOperatorId = child.FinOperatorId;
+                origChild.FinOperator2Id = child.FinOperator2Id;
+                origChild.FinOperator3Id = child.FinOperator3Id;
+                origChild.FinOperator4Id = child.FinOperator4Id;
                 origChild.FinPhoneNumber = child.FinPhoneNumber;
+                origChild.FinPhoneNumber2 = child.FinPhoneNumber2;
+                origChild.FinPhoneNumber3 = child.FinPhoneNumber3;
+                origChild.FinPhoneNumber4 = child.FinPhoneNumber4;
                 origChild.FinWebmoney = child.FinWebmoney;
                 origChild.FinWebmoney2 = child.FinWebmoney2;
                 origChild.FinWebmoney3 = child.FinWebmoney3;
+                origChild.FinWebmoney4 = child.FinWebmoney4;
                 origChild.FinYandexMoney = child.FinYandexMoney;
                 origChild.IsActive = child.IsActive;
                 origChild.Name = child.Name;

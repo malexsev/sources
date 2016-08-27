@@ -1,4 +1,5 @@
-﻿@using Cure.WebSite.Models
+﻿@model SocialLinksModel
+@using Cure.WebSite.Models
 @using (Html.BeginForm("ChildTab3", "Cabinet", FormMethod.Post, new
                         {
                             @id = "formChildTab3",
@@ -7,48 +8,68 @@
 {
     <div class="forms-line">
         <div class="forms-label">Одноклассники</div>
-        @Html.TextBox("socialok", ((ChildVisualDetailed)(ViewBag.Profile)).SocialOk, new
+        @Html.TextBoxFor(x => Model.SocialOk, new
         {
             @id = "socialok",
             @maxlength = "250",
-            @class = "forms-input"
+            @class = "forms-input",
+            @placeholder = "введите ссылку на страницу"
         })
+        <div class="form-errors">
+            @Html.ValidationMessageFor(x => Model.SocialOk)
+        </div>
     </div>
     <div class="forms-line">
         <div class="forms-label">ВКонтакте</div>
-        @Html.TextBox("socialvk", ((ChildVisualDetailed)(ViewBag.Profile)).SocialVk, new
+        @Html.TextBoxFor(x => Model.SocialVk, new
         {
             @id = "socialvk",
             @maxlength = "250",
-            @class = "forms-input"
+            @class = "forms-input",
+            @placeholder = "введите ссылку на страницу"
         })
+        <div class="form-errors">
+            @Html.ValidationMessageFor(x => Model.SocialVk)
+        </div>
     </div>
     <div class="forms-line">
-        <div class="forms-label">Мой мир</div>
-        @Html.TextBox("socialmm", ((ChildVisualDetailed)(ViewBag.Profile)).SocialMm, new
+        <div class="forms-label">МОЙ МИР@Mail.ru</div>
+        @Html.TextBoxFor(x => Model.SocialMm, new
         {
             @id = "socialmm",
             @maxlength = "250",
-            @class = "forms-input"
+            @class = "forms-input",
+            @placeholder = "введите ссылку на страницу"
         })
+        <div class="form-errors">
+            @Html.ValidationMessageFor(x => Model.SocialMm)
+        </div>
     </div>
     <div class="forms-line">
-        <div class="forms-label">Фейсбук</div>
-        @Html.TextBox("socialfb", ((ChildVisualDetailed)(ViewBag.Profile)).SocialFb, new
+        <div class="forms-label">facebook</div>
+        @Html.TextBoxFor(x => Model.SocialFb, new
         {
             @id = "socialfb",
             @maxlength = "250",
-            @class = "forms-input"
+            @class = "forms-input",
+            @placeholder = "введите ссылку на страницу"
         })
+        <div class="form-errors">
+            @Html.ValidationMessageFor(x => Model.SocialFb)
+        </div>
     </div>
     <div class="forms-line">
-        <div class="forms-label">Ютуб</div>
-        @Html.TextBox("socialyoutube", ((ChildVisualDetailed)(ViewBag.Profile)).SocialYoutube, new
+        <div class="forms-label">instagram</div>
+        @Html.TextBoxFor(x => Model.SocialYoutube, new
         {
             @id = "socialyoutube",
             @maxlength = "250",
-            @class = "forms-input"
+            @class = "forms-input",
+            @placeholder = "введите ссылку на страницу"
         })
+        <div class="form-errors">
+            @Html.ValidationMessageFor(x => Model.SocialYoutube)
+        </div>
     </div>
     <div class="forms-line top-30">
         <input class="btn btn-orang" type="submit" value="Сохранить">

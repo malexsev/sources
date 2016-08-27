@@ -64,12 +64,19 @@
     <Property Name="FinWebmoney" Type="nvarchar" MaxLength="50" />
     <Property Name="FinWebmoney2" Type="nvarchar" MaxLength="50" />
     <Property Name="FinWebmoney3" Type="nvarchar" MaxLength="50" />
+    <Property Name="FinWebmoney4" Type="nvarchar" MaxLength="50" />
     <Property Name="FinYandexMoney" Type="nvarchar" MaxLength="50" />
     <Property Name="FinKiwi" Type="nvarchar" MaxLength="50" />
-    <Property Name="FinOperatorId" Type="int" />
     <Property Name="FinCountryId" Type="int" />
     <Property Name="FinBankId" Type="int" />
+    <Property Name="FinOperatorId" Type="int" />
     <Property Name="FinPhoneNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="FinOperator2Id" Type="int" />
+    <Property Name="FinPhoneNumber2" Type="nvarchar" MaxLength="50" />
+    <Property Name="FinOperator3Id" Type="int" />
+    <Property Name="FinPhoneNumber3" Type="nvarchar" MaxLength="50" />
+    <Property Name="FinOperator4Id" Type="int" />
+    <Property Name="FinPhoneNumber4" Type="nvarchar" MaxLength="50" />
     <Property Name="FinBankOther" Type="nvarchar" MaxLength="50" />
     <Property Name="FinCardNumber" Type="nvarchar" MaxLength="50" />
     <Property Name="FinCardName" Type="nvarchar" MaxLength="50" />
@@ -422,6 +429,17 @@ warning 6002: The table/view 'Cure.dbo.ViewChild' does not have a primary key de
   <EntityType Name="ViewChild">
     <Key>
       <PropertyRef Name="Id" />
+      <PropertyRef Name="GuidId" />
+      <PropertyRef Name="OwnerUser" />
+      <PropertyRef Name="IsActive" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Birthday" />
+      <PropertyRef Name="CountryId" />
+      <PropertyRef Name="ContactName" />
+      <PropertyRef Name="ContactRodstvoId" />
+      <PropertyRef Name="ContactEmail" />
+      <PropertyRef Name="DiagnozId" />
+      <PropertyRef Name="DiagnozName" />
     </Key>
     <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="GuidId" Type="uniqueidentifier" Nullable="false" />
@@ -485,6 +503,22 @@ warning 6002: The table/view 'Cure.dbo.ViewChild' does not have a primary key de
     <Property Name="FinWebmoney2" Type="nvarchar" MaxLength="50" />
     <Property Name="FinWebmoney3" Type="nvarchar" MaxLength="50" />
     <Property Name="FinCardName" Type="nvarchar" MaxLength="50" />
+    <Property Name="FinWebmoney4" Type="nvarchar" MaxLength="50" />
+    <Property Name="FinOperator2Id" Type="int" />
+    <Property Name="FinPhoneNumber2" Type="nvarchar" MaxLength="50" />
+    <Property Name="FinOperator3Id" Type="int" />
+    <Property Name="FinPhoneNumber3" Type="nvarchar" MaxLength="50" />
+    <Property Name="FinOperator4Id" Type="int" />
+    <Property Name="FinPhoneNumber4" Type="nvarchar" MaxLength="50" />
+    <Property Name="Operator2Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Operator2Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="Operator2Params" Type="nvarchar" MaxLength="250" />
+    <Property Name="Operator3Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Operator3Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="Operator3Params" Type="nvarchar" MaxLength="250" />
+    <Property Name="Operator4Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Operator4Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="Operator4Params" Type="nvarchar" MaxLength="250" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'Cure.dbo.ViewScheduler' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -651,9 +685,6 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
   <EntityType Name="ViewUserMembership">
     <Key>
       <PropertyRef Name="Expr1" />
-      <PropertyRef Name="Password" />
-      <PropertyRef Name="PasswordFormat" />
-      <PropertyRef Name="PasswordSalt" />
     </Key>
     <Property Name="Expr1" Type="uniqueidentifier" Nullable="false" />
     <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
@@ -764,6 +795,42 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
       </Principal>
       <Dependent Role="Child">
         <PropertyRef Name="FinOperatorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Child_RefOperator2">
+    <End Role="RefOperator" Type="Self.RefOperator" Multiplicity="0..1" />
+    <End Role="Child" Type="Self.Child" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RefOperator">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Child">
+        <PropertyRef Name="FinOperator2Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Child_RefOperator3">
+    <End Role="RefOperator" Type="Self.RefOperator" Multiplicity="0..1" />
+    <End Role="Child" Type="Self.Child" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RefOperator">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Child">
+        <PropertyRef Name="FinOperator3Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Child_RefOperator4">
+    <End Role="RefOperator" Type="Self.RefOperator" Multiplicity="0..1" />
+    <End Role="Child" Type="Self.Child" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RefOperator">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Child">
+        <PropertyRef Name="FinOperator4Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1102,7 +1169,23 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
 [ViewChild].[SocialYoutube] AS [SocialYoutube], 
 [ViewChild].[FinWebmoney2] AS [FinWebmoney2], 
 [ViewChild].[FinWebmoney3] AS [FinWebmoney3], 
-[ViewChild].[FinCardName] AS [FinCardName]
+[ViewChild].[FinCardName] AS [FinCardName], 
+[ViewChild].[FinWebmoney4] AS [FinWebmoney4], 
+[ViewChild].[FinOperator2Id] AS [FinOperator2Id], 
+[ViewChild].[FinPhoneNumber2] AS [FinPhoneNumber2], 
+[ViewChild].[FinOperator3Id] AS [FinOperator3Id], 
+[ViewChild].[FinPhoneNumber3] AS [FinPhoneNumber3], 
+[ViewChild].[FinOperator4Id] AS [FinOperator4Id], 
+[ViewChild].[FinPhoneNumber4] AS [FinPhoneNumber4], 
+[ViewChild].[Operator2Name] AS [Operator2Name], 
+[ViewChild].[Operator2Description] AS [Operator2Description], 
+[ViewChild].[Operator2Params] AS [Operator2Params], 
+[ViewChild].[Operator3Name] AS [Operator3Name], 
+[ViewChild].[Operator3Description] AS [Operator3Description], 
+[ViewChild].[Operator3Params] AS [Operator3Params], 
+[ViewChild].[Operator4Name] AS [Operator4Name], 
+[ViewChild].[Operator4Description] AS [Operator4Description], 
+[ViewChild].[Operator4Params] AS [Operator4Params]
 FROM [dbo].[ViewChild] AS [ViewChild]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="ViewScheduler" EntityType="Self.ViewScheduler" store:Type="Views" store:Schema="dbo">
@@ -1313,6 +1396,18 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
       <End Role="Child" EntitySet="Child" />
     </AssociationSet>
     <AssociationSet Name="FK_Child_RefOperator" Association="Self.FK_Child_RefOperator">
+      <End Role="RefOperator" EntitySet="RefOperator" />
+      <End Role="Child" EntitySet="Child" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Child_RefOperator2" Association="Self.FK_Child_RefOperator2">
+      <End Role="RefOperator" EntitySet="RefOperator" />
+      <End Role="Child" EntitySet="Child" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Child_RefOperator3" Association="Self.FK_Child_RefOperator3">
+      <End Role="RefOperator" EntitySet="RefOperator" />
+      <End Role="Child" EntitySet="Child" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Child_RefOperator4" Association="Self.FK_Child_RefOperator4">
       <End Role="RefOperator" EntitySet="RefOperator" />
       <End Role="Child" EntitySet="Child" />
     </AssociationSet>

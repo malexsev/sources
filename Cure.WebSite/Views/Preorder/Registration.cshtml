@@ -1,0 +1,73 @@
+﻿
+<div class="main has-gray-bg is-full-screen sec-clinic-title" role="main">
+    <div class="all-pages-head preorder-head">
+        <h1 class="main-page-title">Запись на лечение</h1>
+        <a class="preorder-head-close js-page-back" role="button"></a>
+        <h2 class="preorder-title">Для записи на лечение необходима регистрация</h2>
+        <h4 class="forms-heading">
+            Зарегистрировавшись, Вы сможете:
+        </h4>
+    </div>
+    <div class="container preorder-body">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-2">
+                <div class="row">
+                    <img class="map-picture" src="~/Content/img/orders-icon.png" alt="Создавать и отслеживать заявки на лечение">
+                </div>
+                <div class="row">
+                    <p>Создавать и отслеживать заявки на лечение</p>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <img class="map-picture" src="~/Content/img/friends-icon.png" alt="Находить новых друхей и общаться с ними">
+                </div>
+                <div class="row">
+                    <p>Находить новых друхей и общаться с ними</p>
+                </div>
+                
+            </div>
+            <div class="col-md-2">
+                <div class="row">
+                    <img class="map-picture" src="~/Content/img/donations-icon.png" alt="Получать материальную поддержку">
+                </div>
+                <div class="row">
+                    <p>Получать материальную поддержку</p>
+                </div>
+                
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div class="btm-50">
+                <a class="btn btn-orang" role="button" href="@Url.Action("Orders", "Cabinet")">ПЕРЕЙТИ К ОФОРМЛЕНИЮ ЗАЯВКИ</a>
+            </div>
+        }
+        else
+        {
+            <!-- Повтор регистрации -->
+            <div class="popup-registr preorder-registr">
+                <div class="popup-head js-tabs-pre-registr">
+                    <div class="popup-title registr-tabshead">
+                        <a class="registr-tabshead-link js-tabs-link active" data-tab="pre-registr-tab-1" role="button">Регистрация</a>
+                        <a class="registr-tabshead-link js-tabs-link" data-tab="pre-registr-tab-2" role="button">Вход</a>
+                    </div>
+                </div>
+                <div class="popup-body js-tabs-body">
+                    <div class="registr-tab js-tabs-item active" id="pre-registr-tab-1">
+                        <!-- Форма регистрации -->
+                        @Html.Partial("_AccountRegister")
+                    </div><!-- END registr-tab-1 -->
+                    <div class="registr-tab js-tabs-item" id="pre-registr-tab-2">
+                        <!-- Форма входа -->
+                        @Html.Partial("_AccountLogin")
+                    </div><!-- END registr-tab-2 -->
+                </div><!-- END popup-body -->
+            </div>
+        }
+    </div><!-- END container -->
+
+</div><!-- END main -->

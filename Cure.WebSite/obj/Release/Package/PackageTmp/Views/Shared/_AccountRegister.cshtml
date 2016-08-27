@@ -67,7 +67,10 @@
         Если Вы не получите письмо в течение 10 минут,<br> проверьте папку “Спам”,
         и не переполнен ли почтовый ящик.<br> Если письма нет, свяжитесь с администратором.
     </div>
-    <div class="forms-line txt-center">
-        <a class="btn btn-small js-close-popup" role="button">Закрыть</a>
-    </div>
+    @if (!Request.Url.AbsolutePath.Contains("Preorder"))
+    {
+        <div class="forms-line txt-center">
+            <a class="btn btn-small js-close-popup" role="button">Закрыть</a>
+        </div>
+    }
 </div>

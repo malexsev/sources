@@ -31,7 +31,7 @@
                             <div class="child-aside-data">
                                 <div class="child-name">@Model.Name</div>
                                 <div class="child-age">@Model.Age</div>
-                                <div class="child-city">@Model.CountryName, @Model.Region</div>
+                                <div class="child-city">@Model.CountryName@Html.Raw(string.IsNullOrEmpty(Model.Region) ? "" : ", ") @Model.Region</div>
                             </div>
                         </div>
                         <div class="child-aside-body">
@@ -63,15 +63,15 @@
                                             }
                                             @if (!string.IsNullOrEmpty(Model.SocialFb))
                                             {
-                                                <li><a class="fb" href="@Model.SocialFb" target="_blank" title="Фейсбук"><i class="fa fa-facebook"></i></a></li>
+                                                <li><a class="fb" href="@Model.SocialFb" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></li>
                                             }
                                             @if (!string.IsNullOrEmpty(Model.SocialMm))
                                             {
-                                                <li><a class="yt" href="@Model.SocialMm" target="_blank" title="Мой Мир"><i class="fa fa-at"></i></a></li>
+                                                <li><a class="yt" href="@Model.SocialMm" target="_blank" title="Мой Мир@Mail.ru"><i class="fa fa-at"></i></a></li>
                                             }
                                             @if (!string.IsNullOrEmpty(Model.SocialYoutube))
                                             {
-                                                <li><a class="yt" href="@Model.SocialYoutube" target="_blank" title="Ютуб"><i class="fa fa-youtube"></i></a></li>
+                                                <li><a class="yt" href="@Model.SocialYoutube" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a></li>
                                             }
                                         </ul>
                                     </div>
@@ -80,7 +80,7 @@
 
                             <section class="child-aside-info mob-accordion js-mob-accordion">
                                 <h3 class="info-head js-mob-accordion-btn">Финансовая помощь</h3>
-                                @if (!string.IsNullOrEmpty(Model.FinWebMoneyString) || !string.IsNullOrEmpty(Model.OperatorName) || !string.IsNullOrEmpty(Model.FinCardNumber))
+                                @if (!string.IsNullOrEmpty(Model.FinWebMoneyString) || !string.IsNullOrEmpty(Model.OperatorName) || !string.IsNullOrEmpty(Model.Operator2Name) || !string.IsNullOrEmpty(Model.Operator3Name) || !string.IsNullOrEmpty(Model.Operator4Name) || !string.IsNullOrEmpty(Model.FinCardNumber))
                                 {
                                     <div class="info-body js-mob-accordion-body">
                                         <div class="child-info-money">
@@ -102,6 +102,36 @@
                                                     </i>
                                                     <div class="money-acc-note">@Model.OperatorName</div>
                                                     <div class="money-acc-numb">@Model.FinPhoneNumber</div>
+                                                </div>
+                                            }
+                                            @if (!string.IsNullOrEmpty(Model.Operator2Name))
+                                            {
+                                                <div class="money-account">
+                                                    <i class="money-acc-icon">
+                                                        <img src="~/content/img/operators/@Html.Raw(string.IsNullOrEmpty(Model.Operator2Params) ? "nooperator.png" : Model.Operator2Params)" alt="@Model.Operator2Name">
+                                                    </i>
+                                                    <div class="money-acc-note">@Model.Operator2Name</div>
+                                                    <div class="money-acc-numb">@Model.FinPhoneNumber2</div>
+                                                </div>
+                                            }
+                                            @if (!string.IsNullOrEmpty(Model.Operator3Name))
+                                            {
+                                                <div class="money-account">
+                                                    <i class="money-acc-icon">
+                                                        <img src="~/content/img/operators/@Html.Raw(string.IsNullOrEmpty(Model.Operator3Params) ? "nooperator.png" : Model.Operator3Params)" alt="@Model.Operator3Name">
+                                                    </i>
+                                                    <div class="money-acc-note">@Model.Operator3Name</div>
+                                                    <div class="money-acc-numb">@Model.FinPhoneNumber3</div>
+                                                </div>
+                                            }
+                                            @if (!string.IsNullOrEmpty(Model.Operator4Name))
+                                            {
+                                                <div class="money-account">
+                                                    <i class="money-acc-icon">
+                                                        <img src="~/content/img/operators/@Html.Raw(string.IsNullOrEmpty(Model.Operator4Params) ? "nooperator.png" : Model.Operator4Params)" alt="@Model.Operator4Name">
+                                                    </i>
+                                                    <div class="money-acc-note">@Model.Operator4Name</div>
+                                                    <div class="money-acc-numb">@Model.FinPhoneNumber4</div>
                                                 </div>
                                             }
                                             @if (!string.IsNullOrEmpty(Model.FinCardNumber))
@@ -136,60 +166,62 @@
 
                             <!-- Таб "История лечения" -->
                             <div class="child-tabs-tab active js-tabs-item" id="child-tab-1">
-                                <div class="child-tab-wrap" id="js-for-load-history">
-                                    <div class="child-tab-post">
-                                        <div class="post-date">
-                                            12.05.2015 - 15.06.2015 / <span class="post-days">45 дней</span>
+                                <div class="content-tab-empty">Данный раздел заполняется администрацией больницы из  истории болезни</div>
+
+                                @*<div class="child-tab-wrap" id="js-for-load-history">
+                                        <div class="child-tab-post">
+                                            <div class="post-date">
+                                                12.05.2015 - 15.06.2015 / <span class="post-days">45 дней</span>
+                                            </div>
+                                            <h2 class="post-title">Проведено лечение в Больнице заболеваний головного мозга при ННИ акупунктуры головы</h2>
+                                            <h3 class="post-subtitle">Результат</h3>
+                                            <div class="post-body user-content">
+                                                <p>
+                                                    Мышечный тонус в конечностях снизился, увеличился объем пассивных и активных движений.
+                                                    Улучшилась опора на предплечья в положении лежа на животе. Крепче стала спина. Начал
+                                                    раскрывать кисти, движение руками стали более точными и целенаправленными.
+                                                </p>
+                                            </div>
                                         </div>
-                                        <h2 class="post-title">Проведено лечение в Больнице заболеваний головного мозга при ННИ акупунктуры головы</h2>
-                                        <h3 class="post-subtitle">Результат</h3>
-                                        <div class="post-body user-content">
-                                            <p>
-                                                Мышечный тонус в конечностях снизился, увеличился объем пассивных и активных движений.
-                                                Улучшилась опора на предплечья в положении лежа на животе. Крепче стала спина. Начал
-                                                раскрывать кисти, движение руками стали более точными и целенаправленными.
-                                            </p>
+                                        <div class="child-tab-post">
+                                            <div class="post-date">
+                                                12.05.2015 - 15.06.2015 / <span class="post-days">32 дня</span>
+                                            </div>
+                                            <h2 class="post-title">Проведено лечение в Больнице заболеваний головного мозга при ННИ акупунктуры головы</h2>
+                                            <h3 class="post-subtitle">Результат</h3>
+                                            <div class="post-body user-content">
+                                                <p>
+                                                    Мышечный тонус в конечностях снизился, увеличился объем пассивных и активных движений.
+                                                    Улучшилась опора на предплечья в положении лежа на животе. Крепче стала спина. Начал
+                                                    раскрывать кисти, движение руками стали более точными и целенаправленными.
+                                                </p>
+                                                <p>
+                                                    Мышечный тонус в конечностях снизился, увеличился объем пассивных и активных движений.
+                                                    Улучшилась опора на предплечья в положении лежа на животе. Крепче стала спина. Начал
+                                                    раскрывать кисти, движение руками стали более точными и целенаправленными.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="child-tab-post">
+                                            <div class="post-date">
+                                                12.05.2015 - 15.06.2015 / <span class="post-days">45 дней</span>
+                                            </div>
+                                            <h2 class="post-title">Проведено лечение в Больнице заболеваний головного мозга при ННИ акупунктуры головы</h2>
+                                            <h3 class="post-subtitle">Результат</h3>
+                                            <div class="post-body user-content">
+                                                <p>
+                                                    Мышечный тонус в конечностях снизился, увеличился объем пассивных и активных движений.
+                                                    Улучшилась опора на предплечья в положении лежа на животе. Крепче стала спина. Начал
+                                                    раскрывать кисти, движение руками стали более точными и целенаправленными.
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="child-tab-post">
-                                        <div class="post-date">
-                                            12.05.2015 - 15.06.2015 / <span class="post-days">32 дня</span>
+                                    <div class="all-pages-more child-tab-more">
+                                        <div class="more-btn">
+                                            <a class="btn btn-light has-loading js-load-more-history">Показать еще</a>
                                         </div>
-                                        <h2 class="post-title">Проведено лечение в Больнице заболеваний головного мозга при ННИ акупунктуры головы</h2>
-                                        <h3 class="post-subtitle">Результат</h3>
-                                        <div class="post-body user-content">
-                                            <p>
-                                                Мышечный тонус в конечностях снизился, увеличился объем пассивных и активных движений.
-                                                Улучшилась опора на предплечья в положении лежа на животе. Крепче стала спина. Начал
-                                                раскрывать кисти, движение руками стали более точными и целенаправленными.
-                                            </p>
-                                            <p>
-                                                Мышечный тонус в конечностях снизился, увеличился объем пассивных и активных движений.
-                                                Улучшилась опора на предплечья в положении лежа на животе. Крепче стала спина. Начал
-                                                раскрывать кисти, движение руками стали более точными и целенаправленными.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="child-tab-post">
-                                        <div class="post-date">
-                                            12.05.2015 - 15.06.2015 / <span class="post-days">45 дней</span>
-                                        </div>
-                                        <h2 class="post-title">Проведено лечение в Больнице заболеваний головного мозга при ННИ акупунктуры головы</h2>
-                                        <h3 class="post-subtitle">Результат</h3>
-                                        <div class="post-body user-content">
-                                            <p>
-                                                Мышечный тонус в конечностях снизился, увеличился объем пассивных и активных движений.
-                                                Улучшилась опора на предплечья в положении лежа на животе. Крепче стала спина. Начал
-                                                раскрывать кисти, движение руками стали более точными и целенаправленными.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="all-pages-more child-tab-more">
-                                    <div class="more-btn">
-                                        <a class="btn btn-light has-loading js-load-more-history">Показать еще</a>
-                                    </div>
-                                </div>
+                                    </div>*@
                             </div>
                             <!-- END Таб "История лечения" -->
                             <!-- Таб "Лента впечатлений" -->

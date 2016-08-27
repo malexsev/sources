@@ -10,7 +10,7 @@
         <div class="all-pages-head">
             <div class="row">
                 <div class="col-lg-7">
-                    <h1 class="all-pages-H1">@Model.Name <span class="subtitle">@Model.Age лет, @Model.CountryName, @Model.Region</span></h1>
+                    <h1 class="all-pages-H1">@Model.Name <span class="subtitle">@Model.Age,<br /> @Model.CountryName@Html.Raw(string.IsNullOrEmpty(Model.Region) ? "" : ", ") @Model.Region</span></h1>
                 </div>
                 <div class="col-lg-5">
                     <div class="head-btns mob-md-mw-313">
@@ -49,7 +49,7 @@
                                     <ul class="info-seti-list">
                                         @if (!string.IsNullOrEmpty(Model.SocialVk))
                                         {
-                                            <li><a class="vk" href="@Model.SocialVk" target="_blank" title="В контакте"><i class="fa fa-vk"></i></a></li>
+                                            <li><a class="vk" href="@Model.SocialVk" target="_blank" title="ВКонтакте"><i class="fa fa-vk"></i></a></li>
                                         }
                                         @if (!string.IsNullOrEmpty(Model.SocialOk))
                                         {
@@ -57,15 +57,15 @@
                                         }
                                         @if (!string.IsNullOrEmpty(Model.SocialFb))
                                         {
-                                            <li><a class="fb" href="@Model.SocialFb" target="_blank" title="Фейсбук"><i class="fa fa-facebook"></i></a></li>
+                                            <li><a class="fb" href="@Model.SocialFb" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></li>
                                         }
                                         @if (!string.IsNullOrEmpty(Model.SocialMm))
                                         {
-                                            <li><a class="yt" href="@Model.SocialMm" target="_blank" title="Мой Мир"><i class="fa fa-at"></i></a></li>
+                                            <li><a class="yt" href="@Model.SocialMm" target="_blank" title="Мой Мир@Mail.ru"><i class="fa fa-at"></i></a></li>
                                         }
                                         @if (!string.IsNullOrEmpty(Model.SocialYoutube))
                                         {
-                                            <li><a class="yt" href="@Model.SocialYoutube" target="_blank" title="Ютуб"><i class="fa fa-youtube"></i></a></li>
+                                            <li><a class="yt" href="@Model.SocialYoutube" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a></li>
                                         }
                                     </ul>
                                 </div>
@@ -74,7 +74,7 @@
 
                         <section class="child-aside-info mob-accordion js-mob-accordion">
                             <h3 class="info-head js-mob-accordion-btn">Финансовая помощь</h3>
-                            @if (!string.IsNullOrEmpty(Model.FinWebMoneyString) || !string.IsNullOrEmpty(Model.OperatorName) || !string.IsNullOrEmpty(Model.FinCardNumber))
+                            @if (!string.IsNullOrEmpty(Model.FinWebMoneyString) || !string.IsNullOrEmpty(Model.OperatorName) || !string.IsNullOrEmpty(Model.Operator2Name) || !string.IsNullOrEmpty(Model.Operator3Name) || !string.IsNullOrEmpty(Model.Operator4Name) || !string.IsNullOrEmpty(Model.FinCardNumber))
                             {
                                 <div class="info-body js-mob-accordion-body">
                                     <div class="child-info-money">
@@ -92,12 +92,42 @@
                                         {
                                             <div class="money-account">
                                                 <i class="money-acc-icon">
-                                                    <img src="~/content/img/money-icons/beeline.png" alt="@Model.OperatorName">
+                                                    <img src="~/content/img/operators/@Html.Raw(string.IsNullOrEmpty(Model.OperatorParams) ? "nooperator.png" : Model.OperatorParams)" alt="@Model.OperatorName">
                                                 </i>
                                                 <div class="money-acc-note">@Model.OperatorName</div>
                                                 <div class="money-acc-numb">@Model.FinPhoneNumber</div>
                                             </div>
                                         }
+                                    @if (!string.IsNullOrEmpty(Model.Operator2Name))
+                                    {
+                                        <div class="money-account">
+                                            <i class="money-acc-icon">
+                                                <img src="~/content/img/operators/@Html.Raw(string.IsNullOrEmpty(Model.Operator2Params) ? "nooperator.png" : Model.Operator2Params)" alt="@Model.OperatorName">
+                                            </i>
+                                            <div class="money-acc-note">@Model.Operator2Name</div>
+                                            <div class="money-acc-numb">@Model.FinPhoneNumber2</div>
+                                        </div>
+                                    }
+                                    @if (!string.IsNullOrEmpty(Model.Operator3Name))
+                                    {
+                                        <div class="money-account">
+                                            <i class="money-acc-icon">
+                                                <img src="~/content/img/operators/@Html.Raw(string.IsNullOrEmpty(Model.Operator3Params) ? "nooperator.png" : Model.Operator3Params)" alt="@Model.OperatorName">
+                                            </i>
+                                            <div class="money-acc-note">@Model.Operator3Name</div>
+                                            <div class="money-acc-numb">@Model.FinPhoneNumber3</div>
+                                        </div>
+                                    }
+                                    @if (!string.IsNullOrEmpty(Model.Operator4Name))
+                                    {
+                                        <div class="money-account">
+                                            <i class="money-acc-icon">
+                                                <img src="~/content/img/operators/@Html.Raw(string.IsNullOrEmpty(Model.Operator4Params) ? "nooperator.png" : Model.Operator4Params)" alt="@Model.OperatorName">
+                                            </i>
+                                            <div class="money-acc-note">@Model.Operator4Name</div>
+                                            <div class="money-acc-numb">@Model.FinPhoneNumber4</div>
+                                        </div>
+                                    }
                                         @if (!string.IsNullOrEmpty(Model.FinCardNumber))
                                         {
                                             <div class="money-card">
@@ -121,7 +151,7 @@
                     <div class="child-page-tabs">
                         <ul class="child-tabs-head js-tabs-head">
                             <li><a class="active js-tabs-link" data-tab="child-tab-1">История лечения</a></li>
-                            <li><a class="js-tabs-link" data-tab="child-tab-2">Лента впечатлений</a></li>
+                            @*<li><a class="js-tabs-link" data-tab="child-tab-2">Лента впечатлений</a></li>*@
                             <li><a class="js-tabs-link" data-tab="child-tab-3">фотоальбом</a></li>
                             <li><a class="js-tabs-link" data-tab="child-tab-4">Документы</a></li>
                         </ul>

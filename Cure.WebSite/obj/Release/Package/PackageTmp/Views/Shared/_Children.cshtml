@@ -6,8 +6,8 @@
         <a class="children-page-child" href="@Url.Action("Detail", "Children", new { id = item.Id })">
             <img class="child-img" src="@item.PhotoUrl" alt="@item.Name">
             <div class="child-txt">
-                <div class="child-name">@item.Name, <span class="child-age">@item.Age лет</span></div>
-                <div class="child-city">@item.CountryName, @item.Region</div>
+                <div class="child-name">@item.Name, <span class="child-age">@item.Age</span></div>
+                <div class="child-city">@item.CountryName@Html.Raw(string.IsNullOrEmpty(item.Region) ? "" : ", ") @item.Region</div>
             </div>
         </a>
     </div>

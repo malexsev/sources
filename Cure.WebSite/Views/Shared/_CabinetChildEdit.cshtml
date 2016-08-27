@@ -1,4 +1,5 @@
-﻿
+﻿@using Cure.WebSite.Models
+
 <!-- Поп-ап ввода личных данных -->
 <div class="popup" id="pop-personal">
     <div class="popup-modal"></div>
@@ -29,7 +30,7 @@
 
                     <div class="userdata-tab js-tabs-item" id="userdata-tab-3">
                         <!-- Страницы в соцсетях -->
-                        @Html.Partial("_CabinetChildEditTab3")
+                        @Html.Partial("_CabinetChildEditTab3", new SocialLinksModel((ChildVisualDetailed)(ViewBag.Profile)))
                     </div><!-- END userdata-tab-3 Страницы в соцсетях -->
 
                     <div class="userdata-tab js-tabs-item" id="userdata-tab-4">

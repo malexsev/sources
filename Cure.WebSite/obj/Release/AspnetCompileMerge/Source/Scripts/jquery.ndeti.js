@@ -92,6 +92,7 @@ $(document).ready(function () {
     $(".js-personal-tabs").tabsInit();
     $(".js-tabs-registr").tabsInit();
     $(".js-tabs-citymap").tabsInit();
+    $(".js-tabs-pre-registr").tabsInit();
 
 
     /*----------- ФУНКЦИИ: Работа спойлера -----------------------------------*/
@@ -1304,7 +1305,7 @@ $(window).load(function () {
 
     setTimeout(function () {
         $(".preloader").addClass("off");
-    }, 600);
+    }, 300);
 
 
 
