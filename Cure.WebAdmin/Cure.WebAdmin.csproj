@@ -210,6 +210,7 @@
     <Content Include="Admin\ChildList.aspx" />
     <Content Include="Admin\ChildDocs.aspx" />
     <Content Include="Admin\DepartmentStopList.aspx" />
+    <Content Include="Admin\EditVipiska.aspx" />
     <Content Include="Admin\StopVisitList.aspx" />
     <Content Include="Admin\RefStopVisitTypeList.aspx" />
     <Content Include="Admin\RefDiagnozList.aspx" />
@@ -534,6 +535,13 @@
     </Compile>
     <Compile Include="Admin\DepartmentStopList.aspx.designer.cs">
       <DependentUpon>DepartmentStopList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EditVipiska.aspx.cs">
+      <DependentUpon>EditVipiska.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EditVipiska.aspx.designer.cs">
+      <DependentUpon>EditVipiska.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\StopVisitList.aspx.cs">
       <DependentUpon>StopVisitList.aspx</DependentUpon>

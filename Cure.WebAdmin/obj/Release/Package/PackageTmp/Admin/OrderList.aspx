@@ -45,6 +45,12 @@
             win.focus();
         }
 
+        function OpenVipiska(visitId) {
+            var url = '/Admin/EditVipiska.aspx?visitId=' + visitId;
+            var win = window.open(url, '_blank');
+            win.focus();
+        }
+
         function OpenReps(visitId) {
             var url = '/Output/PacientVisitDetailsReport.aspx?visitId=' + visitId;
             var win = window.open(url, '_blank');
@@ -377,11 +383,19 @@
                                         <a onclick="javascript:OpenReps('<%# Container.KeyValue %>');" class="hyperlink">Детальный отчёт</a>
                                     </DataItemTemplate>
                                 </dx:GridViewDataTextColumn>--%>
-                                <dx:GridViewDataTextColumn Caption="Печать" VisibleIndex="80" Width="25px">
+                                <dx:GridViewDataTextColumn Caption="Приглашение" VisibleIndex="80" Width="80px" ToolTip="Генерация приглашения">
                                     <EditFormSettings Visible="False" />
                                     <DataItemTemplate>
-                                        <a onclick="javascript:Invite('<%# Container.KeyValue %>');" class="hyperlink" style="color: #27408b">
-                                            <img src="../Content/Images/editors_apps.gif" />
+                                        <a onclick="javascript:Invite('<%# Container.KeyValue %>');"  class="hyperlink" style="color: #27408b">
+                                            Сгенерировать<%--<img src="../Content/Images/editors_apps.gif" />--%>
+                                        </a>
+                                    </DataItemTemplate>
+                                </dx:GridViewDataTextColumn>
+                                <dx:GridViewDataTextColumn Caption="Выписка" VisibleIndex="81" Width="80px" ToolTip="Редактирование выписки">
+                                    <EditFormSettings Visible="False" />
+                                    <DataItemTemplate>
+                                        <a onclick="javascript:OpenVipiska('<%# Container.KeyValue %>');" class="hyperlink" style="color: #27408b">
+                                            Редактировать<%--<img src="../Content/Images/editors_upload.gif" />--%>
                                         </a>
                                     </DataItemTemplate>
                                 </dx:GridViewDataTextColumn>
@@ -512,7 +526,7 @@
                         </ValidationSettings>
                     </PropertiesComboBox>
                 </dx:GridViewDataComboBoxColumn>
-                <dx:GridViewDataMemoColumn Caption="Примечание" ToolTip="Видно только администраторам" FieldName="Notes" VisibleIndex="26">
+                <dx:GridViewDataMemoColumn Caption="Примечание" ToolTip="Видно только администраторам" FieldName="Notes" VisibleIndex="25">
                     <PropertiesMemoEdit MaxLength="500" Rows="2">
                     </PropertiesMemoEdit>
                 </dx:GridViewDataMemoColumn>
@@ -548,7 +562,7 @@
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn Caption="GuidId" FieldName="GuidId" Visible="False" VisibleIndex="23">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Док" VisibleIndex="25" Width="25px">
+                <dx:GridViewDataTextColumn Caption="Док" VisibleIndex="26" Width="25px">
                     <EditFormSettings Visible="False" />
                     <DataItemTemplate>
                         <a onclick="javascript:OpenDocs('<%# Container.KeyValue %>');" class="hyperlink" style="color: #27408b">

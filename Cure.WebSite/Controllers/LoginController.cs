@@ -10,6 +10,7 @@ namespace Cure.WebSite.Controllers
     using System.Security.Cryptography;
     using DataAccess.BLL;
     using Notification;
+    using Utils;
 
     public class LoginController : Controller
     {
@@ -19,6 +20,23 @@ namespace Cure.WebSite.Controllers
         {
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
+        }
+
+        [HttpPost]
+        public JsonResult ChangePass(string currentpass, string newpass, string newpasstwice)
+        {
+            string loginname = SiteUtils.GetCurrentUserName();
+            if (!string.IsNullOrEmpty(loginname))
+            {
+                var user = Membership.GetUser(loginname);
+                if (user != null && user.ChangePassword(currentpass, newpass))
+                {
+
+                    var notificationToUser = new ChangedPassToUserEmailNotification(loginname, newpass);
+                    notificationToUser.Send();
+                }
+            }
+            return Json("0", JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]

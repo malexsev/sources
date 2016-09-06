@@ -721,5 +721,19 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Vipiskas">
+      <EntityTypeMapping TypeName="DataModel.Vipiska">
+        <MappingFragment StoreEntitySet="Vipiska">
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+          <ScalarProperty Name="LastDate" ColumnName="LastDate" />
+          <ScalarProperty Name="LastUser" ColumnName="LastUser" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="VisitId" ColumnName="VisitId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -35,7 +35,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/17/2016 14:11:16</publishTime>
     </File>
     <File Include="Admin/ChildList.aspx">
-      <publishTime>06/17/2016 14:09:48</publishTime>
+      <publishTime>09/02/2016 00:01:09</publishTime>
     </File>
     <File Include="Admin/Controls/CurrentVisitsList.ascx">
       <publishTime>03/03/2016 20:11:53</publishTime>
@@ -52,6 +52,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Admin/DepartmentStopList.aspx">
       <publishTime>08/19/2016 03:12:07</publishTime>
     </File>
+    <File Include="Admin/EditVipiska.aspx">
+      <publishTime>08/31/2016 00:29:12</publishTime>
+    </File>
     <File Include="Admin/NotificationLogList.aspx">
       <publishTime>03/03/2016 21:00:49</publishTime>
     </File>
@@ -59,7 +62,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/20/2016 00:29:03</publishTime>
     </File>
     <File Include="Admin/OrderList.aspx">
-      <publishTime>07/25/2016 13:01:09</publishTime>
+      <publishTime>08/31/2016 00:00:58</publishTime>
     </File>
     <File Include="Admin/PacientList.aspx">
       <publishTime>02/10/2016 00:22:28</publishTime>
@@ -893,28 +896,28 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/30/2015 22:06:30</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>08/27/2016 22:52:56</publishTime>
+      <publishTime>09/02/2016 01:02:13</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>08/27/2016 22:52:56</publishTime>
+      <publishTime>09/02/2016 01:02:13</publishTime>
     </File>
     <File Include="bin/Cure.Admin.dll">
       <publishTime>10/13/2015 22:39:42</publishTime>
     </File>
     <File Include="bin/Cure.DataAccess.dll">
-      <publishTime>08/27/2016 22:52:46</publishTime>
+      <publishTime>09/01/2016 10:52:37</publishTime>
     </File>
     <File Include="bin/Cure.Notification.dll">
-      <publishTime>08/27/2016 22:52:48</publishTime>
+      <publishTime>09/02/2016 01:02:05</publishTime>
     </File>
     <File Include="bin/Cure.Reports.dll">
-      <publishTime>08/27/2016 22:52:47</publishTime>
+      <publishTime>09/02/2016 01:02:04</publishTime>
     </File>
     <File Include="bin/Cure.Utils.dll">
-      <publishTime>08/27/2016 22:52:47</publishTime>
+      <publishTime>09/02/2016 01:02:04</publishTime>
     </File>
     <File Include="bin/Cure.WebAdmin.dll">
-      <publishTime>08/27/2016 22:52:49</publishTime>
+      <publishTime>09/02/2016 01:02:07</publishTime>
     </File>
     <File Include="bin/de/DevExpress.Data.v14.1.resources.dll">
       <publishTime>06/27/2014 13:41:12</publishTime>
@@ -1583,7 +1586,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/18/2015 20:52:41</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>08/27/2016 22:52:52</publishTime>
+      <publishTime>09/02/2016 01:02:10</publishTime>
     </File>
     <File Include="Report.master">
       <publishTime>12/10/2015 23:44:31</publishTime>

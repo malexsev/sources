@@ -104,27 +104,27 @@
                     </PropertiesTextEdit>
                     <editformsettings visible="True" />
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="ЯндексДеньги" FieldName="FinYandexMoney" Visible="False" VisibleIndex="23">
+                <dx:GridViewDataTextColumn Caption="ЯндексДеньги" FieldName="FinYandexMoney" Visible="False" VisibleIndex="24">
                     <PropertiesTextEdit MaxLength="50">
                     </PropertiesTextEdit>
                     <editformsettings visible="True" />
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Киви" FieldName="FinKiwi" Visible="False" VisibleIndex="24">
+                <dx:GridViewDataTextColumn Caption="Киви" FieldName="FinKiwi" Visible="False" VisibleIndex="25">
                     <PropertiesTextEdit MaxLength="50">
                     </PropertiesTextEdit>
                     <editformsettings visible="True" />
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Номер телефона" FieldName="FinPhoneNumber" Visible="False" VisibleIndex="27">
+                <dx:GridViewDataTextColumn Caption="Номер телефона" FieldName="FinPhoneNumber" Visible="False" VisibleIndex="34">
                     <PropertiesTextEdit MaxLength="50">
                     </PropertiesTextEdit>
                     <editformsettings visible="True" />
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Банк другой" FieldName="FinBankOther" Visible="False" VisibleIndex="32">
+                <dx:GridViewDataTextColumn Caption="Банк другой" FieldName="FinBankOther" Visible="False" VisibleIndex="42">
                     <PropertiesTextEdit MaxLength="50">
                     </PropertiesTextEdit>
                     <editformsettings visible="True" />
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Номер карточки банка" FieldName="FinCardNumber" Visible="False" VisibleIndex="34">
+                <dx:GridViewDataTextColumn Caption="Номер карточки банка" FieldName="FinCardNumber" Visible="False" VisibleIndex="44">
                     <PropertiesTextEdit MaxLength="50">
                     </PropertiesTextEdit>
                     <editformsettings visible="True" />
@@ -141,22 +141,22 @@
                     <propertiescombobox datasourceid="uxRodstvoDataSource" textfield="Name" valuefield="Id" valuetype="System.Int32"><validationsettings><requiredfield isrequired="True"></requiredfield></validationsettings></propertiescombobox>
                     <editformsettings visible="True" />
                 </dx:GridViewDataComboBoxColumn>
-                <dx:GridViewDataComboBoxColumn Caption="Оператор связи" FieldName="FinOperatorId" Visible="False" VisibleIndex="26">
+                <dx:GridViewDataComboBoxColumn Caption="Оператор связи" FieldName="FinOperatorId" Visible="False" VisibleIndex="27">
                     <PropertiesComboBox DataSourceID="uxOperatorDataSource" TextField="Name" ValueField="Id" ValueType="System.Int32">
                     </PropertiesComboBox>
                     <EditFormSettings Visible="True" />
                 </dx:GridViewDataComboBoxColumn>
-                <dx:GridViewDataComboBoxColumn Caption="Страна банка" FieldName="FinCountryId" Visible="False" VisibleIndex="29">
+                <dx:GridViewDataComboBoxColumn Caption="Страна банка" FieldName="FinCountryId" Visible="False" VisibleIndex="39">
                     <PropertiesComboBox DataSourceID="uxCountryDataSource" TextField="Name" ValueField="Id" ValueType="System.Int32">
                     </PropertiesComboBox>
                     <EditFormSettings Visible="True" />
                 </dx:GridViewDataComboBoxColumn>
-                <dx:GridViewDataComboBoxColumn Caption="Банк" FieldName="FinBankId" Visible="False" VisibleIndex="31">
+                <dx:GridViewDataComboBoxColumn Caption="Банк" FieldName="FinBankId" Visible="False" VisibleIndex="41">
                     <PropertiesComboBox DataSourceID="uxBankDataSource" TextField="Name" ValueField="Id" ValueType="System.Int32">
                     </PropertiesComboBox>
                     <EditFormSettings Visible="True" />
                 </dx:GridViewDataComboBoxColumn>
-                <dx:GridViewDataTextColumn Caption="GuidId" FieldName="GuidId" Visible="False" VisibleIndex="33">
+                <dx:GridViewDataTextColumn Caption="GuidId" FieldName="GuidId" Visible="False" VisibleIndex="43">
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataComboBoxColumn Caption="Группа диагноза" FieldName="DiagnozId" VisibleIndex="5">
                     <PropertiesComboBox DataSourceID="uxDiagnozDataSource" TextField="Name" ValueField="Id" ValueType="System.Int32">
@@ -180,12 +180,12 @@
                     </PropertiesTextEdit>
                     <EditFormSettings Visible="True" />
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Имя на карточке" FieldName="FinCardName" Visible="False" VisibleIndex="35">
+                <dx:GridViewDataTextColumn Caption="Имя на карточке" FieldName="FinCardName" Visible="False" VisibleIndex="45">
                     <PropertiesTextEdit MaxLength="50">
                     </PropertiesTextEdit>
                     <EditFormSettings Visible="True" />
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Док" VisibleIndex="55" Width="25px">
+                <dx:GridViewDataTextColumn Caption="Док" VisibleIndex="65" Width="25px">
                     <EditFormSettings Visible="False" />
                     <DataItemTemplate>
                         <a onclick="javascript:OpenDocs('<%# Container.KeyValue %>');" class="hyperlink" style="color: #27408b">
@@ -193,6 +193,41 @@
                         </a>
                     </DataItemTemplate>
                 </dx:GridViewDataTextColumn>
+                <dx:GridViewDataTextColumn Caption="Вебмани4" FieldName="FinWebmoney4" Visible="False" VisibleIndex="23">
+                    <PropertiesTextEdit MaxLength="50">
+                    </PropertiesTextEdit>
+                    <EditFormSettings Visible="True" />
+                </dx:GridViewDataTextColumn>
+                <dx:GridViewDataTextColumn Caption="Номер телефона2" FieldName="FinPhoneNumber2" Visible="False" VisibleIndex="36">
+                    <PropertiesTextEdit MaxLength="50">
+                    </PropertiesTextEdit>
+                    <EditFormSettings Visible="True" />
+                </dx:GridViewDataTextColumn>
+                <dx:GridViewDataTextColumn Caption="Номер телефона3" FieldName="FinPhoneNumber3" Visible="False" VisibleIndex="37">
+                    <PropertiesTextEdit MaxLength="50">
+                    </PropertiesTextEdit>
+                    <EditFormSettings Visible="True" />
+                </dx:GridViewDataTextColumn>
+                <dx:GridViewDataTextColumn Caption="Номер телефона4" FieldName="FinPhoneNumber4" Visible="False" VisibleIndex="38">
+                    <PropertiesTextEdit MaxLength="50">
+                    </PropertiesTextEdit>
+                    <EditFormSettings Visible="True" />
+                </dx:GridViewDataTextColumn>
+                <dx:GridViewDataComboBoxColumn Caption="Оператор связи2" FieldName="FinOperator2Id" Visible="False" VisibleIndex="29">
+                    <PropertiesComboBox DataSourceID="uxOperatorDataSource" TextField="Name" ValueField="Id">
+                    </PropertiesComboBox>
+                    <EditFormSettings Visible="True" />
+                </dx:GridViewDataComboBoxColumn>
+                <dx:GridViewDataComboBoxColumn Caption="Оператор связи3" FieldName="FinOperator3Id" Visible="False" VisibleIndex="31">
+                    <PropertiesComboBox DataSourceID="uxOperatorDataSource" TextField="Name" ValueField="Id">
+                    </PropertiesComboBox>
+                    <EditFormSettings Visible="True" />
+                </dx:GridViewDataComboBoxColumn>
+                <dx:GridViewDataComboBoxColumn Caption="Оператор связи4" FieldName="FinOperator4Id" Visible="False" VisibleIndex="33">
+                    <PropertiesComboBox DataSourceID="uxOperatorDataSource" TextField="Name" ValueField="Id">
+                    </PropertiesComboBox>
+                    <EditFormSettings Visible="True" />
+                </dx:GridViewDataComboBoxColumn>
             </Columns>
             <SettingsEditing Mode="PopupEditForm" EditFormColumnCount="1">
             </SettingsEditing>

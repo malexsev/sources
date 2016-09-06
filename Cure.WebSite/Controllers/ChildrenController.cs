@@ -5,6 +5,7 @@ using System.Web.Mvc;
 namespace Cure.WebSite.Controllers
 {
     using System.Linq;
+    using DataAccess;
 
     public class ChildrenController : Controller
     {
@@ -12,8 +13,10 @@ namespace Cure.WebSite.Controllers
         {
             var dal = new DataAccessBL();
             int childId = int.Parse(id);
+            ViewChild view = dal.ViewChild(childId);
+            ViewBag.Vipiskas = dal.GetMyVipiskas(view.OwnerUser).Select(x => new VisitResultViewModel(x));
 
-            return View(new ChildVisualDetailed(dal.ViewChild(childId), dal.GetChildHideFiles(childId), dal.GetChildAvaFile(childId)));
+            return View(new ChildVisualDetailed(view, dal.GetChildHideFiles(childId), dal.GetChildAvaFile(childId)));
         }
 
         public ActionResult Index()

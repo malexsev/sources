@@ -221,6 +221,7 @@
     <Content Include="Content\img\operators\mts.png" />
     <Content Include="Content\img\operators\qiwi.png" />
     <Content Include="Content\img\operators\tele2.png" />
+    <Content Include="Content\img\operators\nooperator.png" />
     <Content Include="Content\img\operators\uz-k-az-cell.png" />
     <Content Include="Content\img\operators\ym.png" />
     <Content Include="Content\img\orders-icon.png" />
@@ -297,6 +298,7 @@
     <Compile Include="Models\VisitInfoViewModel.cs" />
     <Compile Include="Models\MembersViewModel.cs" />
     <Compile Include="Models\VisitDataSoruce.cs" />
+    <Compile Include="Models\VisitResultViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -349,6 +351,7 @@
     <Content Include="Views\Shared\_Preorder.cshtml" />
     <Content Include="Views\Preorder\Index.cshtml" />
     <Content Include="Views\Preorder\Registration.cshtml" />
+    <Content Include="Views\Shared\_AccountChangePass.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

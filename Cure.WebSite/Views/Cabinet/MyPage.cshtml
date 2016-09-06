@@ -1,4 +1,5 @@
-﻿@model Cure.WebSite.Models.ChildVisualDetailed
+﻿@using Cure.WebSite.Models
+@model Cure.WebSite.Models.ChildVisualDetailed
 
 @{
     ViewBag.Title = "Моя страница";
@@ -39,7 +40,7 @@
                                 <h3 class="info-head js-mob-accordion-btn">Контактная информация</h3>
                                 <div class="info-body js-mob-accordion-body">
                                     <div class="info-contact">
-                                        <div class="info-contact-img"><img src="~/content/images/users/contact_user_1_48x48.jpg" alt="@Model.ContactName"></div>
+                                        <div class="info-contact-img"><img src="~/content/img/userpics/no_photo_min.jpg" alt="@Model.ContactName"></div>
                                         <div class="info-contact-txt">@Model.ContactName</div>
                                         <div class="info-contact-who">@Model.RodstvoName</div>
                                     </div>
@@ -166,57 +167,31 @@
 
                             <!-- Таб "История лечения" -->
                             <div class="child-tabs-tab active js-tabs-item" id="child-tab-1">
-                                <div class="content-tab-empty">Данный раздел заполняется администрацией больницы из  истории болезни</div>
-
-                                @*<div class="child-tab-wrap" id="js-for-load-history">
-                                        <div class="child-tab-post">
-                                            <div class="post-date">
-                                                12.05.2015 - 15.06.2015 / <span class="post-days">45 дней</span>
+                                @if (((IEnumerable<VisitResultViewModel>)ViewBag.Vipiskas).Any())
+                                {
+                                    <div class="child-tab-wrap" id="js-for-load-history">
+                                        @foreach (VisitResultViewModel visit in (IEnumerable<VisitResultViewModel>)ViewBag.Vipiskas)
+                                        {
+                                            <div class="child-tab-post">
+                                                <div class="post-date">
+                                                    @visit.DateFrom.ToString("dd-MM-yyyy") - @visit.DateTo.ToString("dd-MM-yyyy") / <span class="post-days">в днях: @visit.DaysTotal </span>
+                                                </div>
+                                                <h2 class="post-title">Проведено лечение в клинике - @visit.DepartmentName</h2>
+                                                <h3 class="post-subtitle">Результат</h3>
+                                                <div class="post-body user-content">
+                                                    <p>
+                                                        @visit.Results
+                                                    </p>
+                                                </div>
                                             </div>
-                                            <h2 class="post-title">Проведено лечение в Больнице заболеваний головного мозга при ННИ акупунктуры головы</h2>
-                                            <h3 class="post-subtitle">Результат</h3>
-                                            <div class="post-body user-content">
-                                                <p>
-                                                    Мышечный тонус в конечностях снизился, увеличился объем пассивных и активных движений.
-                                                    Улучшилась опора на предплечья в положении лежа на животе. Крепче стала спина. Начал
-                                                    раскрывать кисти, движение руками стали более точными и целенаправленными.
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="child-tab-post">
-                                            <div class="post-date">
-                                                12.05.2015 - 15.06.2015 / <span class="post-days">32 дня</span>
-                                            </div>
-                                            <h2 class="post-title">Проведено лечение в Больнице заболеваний головного мозга при ННИ акупунктуры головы</h2>
-                                            <h3 class="post-subtitle">Результат</h3>
-                                            <div class="post-body user-content">
-                                                <p>
-                                                    Мышечный тонус в конечностях снизился, увеличился объем пассивных и активных движений.
-                                                    Улучшилась опора на предплечья в положении лежа на животе. Крепче стала спина. Начал
-                                                    раскрывать кисти, движение руками стали более точными и целенаправленными.
-                                                </p>
-                                                <p>
-                                                    Мышечный тонус в конечностях снизился, увеличился объем пассивных и активных движений.
-                                                    Улучшилась опора на предплечья в положении лежа на животе. Крепче стала спина. Начал
-                                                    раскрывать кисти, движение руками стали более точными и целенаправленными.
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="child-tab-post">
-                                            <div class="post-date">
-                                                12.05.2015 - 15.06.2015 / <span class="post-days">45 дней</span>
-                                            </div>
-                                            <h2 class="post-title">Проведено лечение в Больнице заболеваний головного мозга при ННИ акупунктуры головы</h2>
-                                            <h3 class="post-subtitle">Результат</h3>
-                                            <div class="post-body user-content">
-                                                <p>
-                                                    Мышечный тонус в конечностях снизился, увеличился объем пассивных и активных движений.
-                                                    Улучшилась опора на предплечья в положении лежа на животе. Крепче стала спина. Начал
-                                                    раскрывать кисти, движение руками стали более точными и целенаправленными.
-                                                </p>
-                                            </div>
-                                        </div>
+                                        }
                                     </div>
+                                }
+                                else
+                                {
+                                    <div class="content-tab-empty">Данный раздел заполняется администрацией больницы из  истории болезни</div>
+                                }
+                                @*
                                     <div class="all-pages-more child-tab-more">
                                         <div class="more-btn">
                                             <a class="btn btn-light has-loading js-load-more-history">Показать еще</a>
@@ -233,7 +208,7 @@
                                         <form>
                                             <div class="comments-addform-head">
                                                 <div class="head-imgs">
-                                                    <img class="head-img" src="~/content/images/users/contact_user_1_48x48.jpg" alt="Наталья Константинова">
+                                                    <img class="head-img" src="~/content/img/userpics/no_photo_min.jpg" alt="Наталья Константинова">
                                                 </div>
                                                 <div class="head-txt">
                                                     <div class="head-name">Наталья Константинова</div>
@@ -335,7 +310,7 @@
                                                             <li><a class="post-btn-delete" role="button" title="Удалить комментарий"></a></li>
                                                         </ul>
                                                         <div class="head-imgs">
-                                                            <img class="head-img" src="~/content/images/users/contact_user_1_48x48.jpg" alt="Наталья Константинова">
+                                                            <img class="head-img" src="~/content/img/userpics/no_photo_min.jpg" alt="Наталья Константинова">
                                                         </div>
                                                         <div class="head-txt">
                                                             <div class="head-name">Наталья Константинова</div>
@@ -357,7 +332,7 @@
                                                     <form>
                                                         <div class="comments-addform-head">
                                                             <div class="head-imgs">
-                                                                <img class="head-img" src="~/content/images/users/contact_user_1_48x48.jpg" alt="Наталья Константинова">
+                                                                <img class="head-img" src="~/content/img/userpics/no_photo_min.jpg" alt="Наталья Константинова">
                                                             </div>
                                                             <div class="head-txt">
                                                                 <div class="head-name">Наталья Константинова</div>
@@ -473,7 +448,7 @@
                                                             <li><a class="post-btn-delete" role="button" title="Удалить комментарий"></a></li>
                                                         </ul>
                                                         <div class="head-imgs">
-                                                            <img class="head-img" src="~/content/images/users/contact_user_1_48x48.jpg" alt="Наталья Константинова">
+                                                            <img class="head-img" src="~/content/img/userpics/no_photo_min.jpg" alt="Наталья Константинова">
                                                         </div>
                                                         <div class="head-txt">
                                                             <div class="head-name">Наталья Константинова</div>
@@ -495,7 +470,7 @@
                                                     <form>
                                                         <div class="comments-addform-head">
                                                             <div class="head-imgs">
-                                                                <img class="head-img" src="~/content/images/users/contact_user_1_48x48.jpg" alt="Наталья Константинова">
+                                                                <img class="head-img" src="~/content/img/userpics/no_photo_min.jpg" alt="Наталья Константинова">
                                                             </div>
                                                             <div class="head-txt">
                                                                 <div class="head-name">Наталья Константинова</div>
@@ -549,7 +524,7 @@
                                                     <form>
                                                         <div class="comments-addform-head">
                                                             <div class="head-imgs">
-                                                                <img class="head-img" src="~/content/images/users/contact_user_1_48x48.jpg" alt="Наталья Константинова">
+                                                                <img class="head-img" src="~/content/img/userpics/no_photo_min.jpg" alt="Наталья Константинова">
                                                             </div>
                                                             <div class="head-txt">
                                                                 <div class="head-name">Наталья Константинова</div>

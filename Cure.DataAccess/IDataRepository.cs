@@ -19,6 +19,12 @@ namespace Cure.DataAccess.DAL
         void DeleteStopVisit(StopVisit stopVisit);
         void UpdateStopVisit(StopVisit stopVisit);
 
+        IEnumerable<Vipiska> GetMyVipiskas(string username);
+        Vipiska GetVipiska(int visitId);
+        void InsertVipiska(Vipiska vipiska);
+        void DeleteVipiska(Vipiska vipiska);
+        void UpdateVipiska(Vipiska vipiska);
+
         IEnumerable<RefStopVisitType> GetRefStopVisitTypes();
         void InsertRefStopVisitType(RefStopVisitType refStopVisitType);
         void DeleteRefStopVisitType(RefStopVisitType refStopVisitType);

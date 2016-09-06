@@ -61,6 +61,8 @@
         <AssociationConnector Association="DataModel.FK_ChildHideFile_Child" />
         <EntityTypeShape EntityType="DataModel.ViewUserMembership" Width="2.875" PointX="28.75" PointY="2" />
         <EntityTypeShape EntityType="DataModel.ViewChild" Width="2" PointX="32.625" PointY="2" />
+        <EntityTypeShape EntityType="DataModel.Vipiska" Width="1.5" PointX="5.625" PointY="7.5" />
+        <AssociationConnector Association="DataModel.FK_Vipiska_Visit" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

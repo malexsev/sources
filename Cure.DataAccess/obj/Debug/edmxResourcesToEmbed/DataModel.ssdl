@@ -361,6 +361,19 @@
     <Property Name="Username" Type="nvarchar" MaxLength="150" Nullable="false" />
     <Property Name="DepartmentId" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="Vipiska">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VisitId" Type="int" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="Result" Type="text" />
+    <Property Name="LastUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastDate" Type="datetime" />
+    <Property Name="CreateUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreateDate" Type="datetime" />
+  </EntityType>
   <EntityType Name="Visit">
     <Key>
       <PropertyRef Name="Id" />
@@ -1054,6 +1067,20 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Vipiska_Visit">
+    <End Role="Visit" Type="Self.Visit" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Vipiska" Type="Self.Vipiska" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Visit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vipiska">
+        <PropertyRef Name="VisitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Visit_Order">
     <End Role="Order" Type="Self.Order" Multiplicity="1">
       <OnDelete Action="Cascade" />
@@ -1105,6 +1132,7 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
     <EntitySet Name="Sputnik" EntityType="Self.Sputnik" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="StopVisit" EntityType="Self.StopVisit" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TransferUser" EntityType="Self.TransferUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vipiska" EntityType="Self.Vipiska" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Visit" EntityType="Self.Visit" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ViewChild" EntityType="Self.ViewChild" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
@@ -1478,6 +1506,10 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
     <AssociationSet Name="FK_TransferUser_Department" Association="Self.FK_TransferUser_Department">
       <End Role="Department" EntitySet="Department" />
       <End Role="TransferUser" EntitySet="TransferUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vipiska_Visit" Association="Self.FK_Vipiska_Visit">
+      <End Role="Visit" EntitySet="Visit" />
+      <End Role="Vipiska" EntitySet="Vipiska" />
     </AssociationSet>
     <AssociationSet Name="FK_Visit_Order" Association="Self.FK_Visit_Order">
       <End Role="Order" EntitySet="Order" />

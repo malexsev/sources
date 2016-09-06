@@ -1,0 +1,45 @@
+﻿@using (Html.BeginForm("ChangePass", "Login", FormMethod.Post, new
+{
+    @id = "formChangePass",
+    @class = "registr-form js-password-change"
+}))
+{
+    @Html.Hidden("RedirectTo", Url.Action("MyPage", "Cabinet"));
+    <div class="forms-line">
+        <div class="forms-label">Имя пользователя</div>
+        @Html.TextBox("currentpass", "", new
+        {
+            @id = "currentpass",
+            @placeholder = "Текущий праоль",
+            @maxlength = "50",
+            @class = "forms-input"
+        })
+        <div class="note-label"></div>
+    </div>
+    <div class="forms-line">
+        <div class="forms-label">Новый пароль</div>
+        @Html.TextBox("regpass", "", new
+        {
+            @id = "regpass",
+            @maxlength = "50",
+            @class = "forms-input",
+            @type = "password"
+        })
+        <div class="note-label">Латинские или русские буквы и цифры</div>
+    </div>
+    <div class="forms-line">
+        <div class="forms-label">Новый пароль ещё раз</div>
+        @Html.TextBox("passtwice", "", new
+        {
+            @id = "passtwice",
+            @maxlength = "50",
+            @class = "forms-input",
+            @type = "password"
+        })
+        <div class="note-label"></div>
+    </div>
+    <div class="forms-line txt-center">
+        <input id="submit-login" class="btn btn-orang registr-submit" type="submit" value="ВОЙТИ">
+    </div>
+    <div id="error-passchange" class="form-errors"></div>
+}

@@ -25,7 +25,20 @@ namespace Cure.WebSite.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            var dal = new DataAccessBL();
+            var child = dal.ViewChild(User.Identity.Name);
+            ViewBag.Countries = dal.GetRefCountries();
+            ViewBag.Rodstvos = dal.GetRefRodstvo();
+            ViewBag.Operators = dal.GetRefOperators(child.CountryId);
+            ViewBag.CountryBanks = dal.GetRefBanks(child.FinCountryId ?? child.CountryId);
+            ViewBag.Vipiskas = dal.GetMyVipiskas(User.Identity.Name).Select(x => new VisitResultViewModel(x));
+
+            ViewBag.Profile = new ChildVisualDetailed(child, dal.GetChildHideFiles(child.Id), dal.GetChildAvaFile(child.Id));
+            return View(ViewBag.Profile);
         }
 
         public ActionResult Messages()
@@ -301,6 +314,7 @@ namespace Cure.WebSite.Controllers
                             visit.Pacient.Familiya = visitVm.Familiya;
                         }
                         visit.Pacient.FamiliyaEn = visitVm.FamiliyaEn;
+                        visit.Pacient.NameEng = visitVm.NameEn;
                         if (ModelState.IsValidField(String.Format("PacientArray[{0}].Name", i)))
                         {
                             visit.Pacient.Name = visitVm.Name;
@@ -335,6 +349,7 @@ namespace Cure.WebSite.Controllers
                             sputnik.Familiya = sputnikVm.Familiya;
                         }
                         sputnik.FamiliyaEn = sputnikVm.FamiliyaEn;
+                        sputnik.NameEn = sputnikVm.NameEn;
                         if (ModelState.IsValidField(String.Format("SputnikArray[{0}].Name", i)))
                         {
                             sputnik.Name = sputnikVm.Name;
@@ -637,6 +652,7 @@ namespace Cure.WebSite.Controllers
             ViewBag.Rodstvos = dal.GetRefRodstvo();
             ViewBag.Operators = dal.GetRefOperators(child.CountryId);
             ViewBag.CountryBanks = dal.GetRefBanks(child.FinCountryId ?? child.CountryId);
+            ViewBag.Vipiskas = dal.GetMyVipiskas(User.Identity.Name).Select(x => new VisitResultViewModel(x));
 
             ViewBag.Profile = new ChildVisualDetailed(child, dal.GetChildHideFiles(child.Id), dal.GetChildAvaFile(child.Id));
             return View(ViewBag.Profile);

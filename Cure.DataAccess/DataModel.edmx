@@ -366,6 +366,19 @@
           <Property Name="Username" Type="nvarchar" MaxLength="150" Nullable="false" />
           <Property Name="DepartmentId" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="Vipiska">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VisitId" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="250" />
+          <Property Name="Result" Type="text" />
+          <Property Name="LastUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastDate" Type="datetime" />
+          <Property Name="CreateUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreateDate" Type="datetime" />
+        </EntityType>
         <EntityType Name="Visit">
           <Key>
             <PropertyRef Name="Id" />
@@ -1086,6 +1099,20 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Vipiska_Visit">
+          <End Role="Visit" Type="Self.Visit" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Vipiska" Type="Self.Vipiska" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Visit">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Vipiska">
+              <PropertyRef Name="VisitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Visit_Order">
           <End Role="Order" Type="Self.Order" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -1137,6 +1164,7 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
           <EntitySet Name="Sputnik" EntityType="Self.Sputnik" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="StopVisit" EntityType="Self.StopVisit" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TransferUser" EntityType="Self.TransferUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vipiska" EntityType="Self.Vipiska" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Visit" EntityType="Self.Visit" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ViewChild" EntityType="Self.ViewChild" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -1511,6 +1539,10 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
             <End Role="Department" EntitySet="Department" />
             <End Role="TransferUser" EntitySet="TransferUser" />
           </AssociationSet>
+          <AssociationSet Name="FK_Vipiska_Visit" Association="Self.FK_Vipiska_Visit">
+            <End Role="Visit" EntitySet="Visit" />
+            <End Role="Vipiska" EntitySet="Vipiska" />
+          </AssociationSet>
           <AssociationSet Name="FK_Visit_Order" Association="Self.FK_Visit_Order">
             <End Role="Order" EntitySet="Order" />
             <End Role="Visit" EntitySet="Visit" />
@@ -1668,6 +1700,11 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
           </AssociationSet>
           <EntitySet Name="ViewUserMemberships" EntityType="DataModel.ViewUserMembership" />
           <EntitySet Name="ViewChilds" EntityType="DataModel.ViewChild" />
+          <EntitySet Name="Vipiskas" EntityType="DataModel.Vipiska" />
+          <AssociationSet Name="FK_Vipiska_Visit" Association="DataModel.FK_Vipiska_Visit">
+            <End Role="Visit" EntitySet="Visits" />
+            <End Role="Vipiska" EntitySet="Vipiskas" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="OrderStatu">
           <Key>
@@ -2347,6 +2384,7 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
           <Property Name="CreateDate" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Pacient" Relationship="DataModel.FK_Visit_Pacient" FromRole="Visit" ToRole="Pacient" />
           <NavigationProperty Name="Order" Relationship="DataModel.FK_Visit_Order" FromRole="Visit" ToRole="Order" />
+          <NavigationProperty Name="Vipiskas" Relationship="DataModel.FK_Vipiska_Visit" FromRole="Visit" ToRole="Vipiska" />
         </EntityType>
         <Association Name="FK_Visit_Pacient">
           <End Type="DataModel.Pacient" Role="Pacient" Multiplicity="1">
@@ -2801,6 +2839,34 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
           <Property Name="Operator4Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="Operator4Params" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="Vipiska">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VisitId" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Result" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="LastUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastDate" Type="DateTime" Precision="3" />
+          <Property Name="CreateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Visit" Relationship="DataModel.FK_Vipiska_Visit" FromRole="Vipiska" ToRole="Visit" />
+        </EntityType>
+        <Association Name="FK_Vipiska_Visit">
+          <End Type="DataModel.Visit" Role="Visit" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="DataModel.Vipiska" Role="Vipiska" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Visit">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Vipiska">
+              <PropertyRef Name="VisitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3523,6 +3589,20 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="OwnerUser" ColumnName="OwnerUser" />
                 <ScalarProperty Name="GuidId" ColumnName="GuidId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vipiskas">
+            <EntityTypeMapping TypeName="DataModel.Vipiska">
+              <MappingFragment StoreEntitySet="Vipiska">
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="LastDate" ColumnName="LastDate" />
+                <ScalarProperty Name="LastUser" ColumnName="LastUser" />
+                <ScalarProperty Name="Result" ColumnName="Result" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="VisitId" ColumnName="VisitId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

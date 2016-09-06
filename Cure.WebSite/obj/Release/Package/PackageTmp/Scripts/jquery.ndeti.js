@@ -478,17 +478,23 @@ $(document).ready(function () {
                     contentType: false,
                     processData: false,
                     data: data,
+                    beforeSend: function () {
+                        $('#uploadprogress').html("<img src='/content/img/preloader.gif' />");
+                    },
                     success: function (result) {
                         $("#error-tab1").removeClass("form-errors");
                         $("#error-tab1").show().text("Файл загружен. Обновите страницу для просмотра.");
                         console.log(result);
+                        $('#uploadprogress').html("");
                     },
                     error: function (xhr, status, p3, p4) {
                         var err = "Error " + " " + status + " " + p3 + " " + p4;
                         if (xhr.responseText && xhr.responseText[0] == "{")
                             err = JSON.parse(xhr.responseText).Message;
                         console.log(err);
+                        $('#uploadprogress').html("");
                     }
+                    
                 });
             } else {
                 alert("This browser doesn't support HTML5 file uploads!");
@@ -685,7 +691,7 @@ $(document).ready(function () {
         e.preventDefault();
     });
     /*------------ Удаление файла из заявки ----------------------------*/
-    $(document).on('click', '.file-del', function() {
+    $(document).on('click', '.file-del', function () {
         var filename = $(this).data("file");
         $.ajax({
             type: "POST",
@@ -1273,14 +1279,14 @@ $(document).ready(function () {
     }); */
     //Если диапазон:
     $('.js-input-daterange').datepicker({
-        format: 'dd.mm.yyyy',
+        dateFormat: 'dd.mm.yyyy',
         startDate: '+5d',
         language: 'ru',
         inputs: $('.js-input-daterange .ico-calendar')
     });
     // Если один инпут:
     $('.js-datepicker').datepicker({
-        format: 'dd.mm.yyyy',
+        dateFormat: 'dd.mm.yyyy',
         language: 'ru',
         autoclose: true,
         multidate: false

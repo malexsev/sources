@@ -149,11 +149,11 @@
                         CreateDate = sputnik.CreateDate,
                         Familiya = sputnik.Familiya,
                         FamiliyaEn = sputnik.FamiliyaEn,
+                        NameEn = sputnik.NameEn,
                         IsPrimary = sputnik.IsPrimary,
                         Name = sputnik.Name,
                         Otchestvo = sputnik.Otchestvo,
                         OrderId = this.NewOrder.Id,
-                        NameEn = sputnik.NameEn,
                         RodstvoId = sputnik.RodstvoId,
                         SeriaNumber = sputnik.SeriaNumber,
                         OwnerUser = sputnik.OwnerUser

@@ -144,6 +144,11 @@
     </AssociationSet>
     <EntitySet Name="ViewUserMemberships" EntityType="DataModel.ViewUserMembership" />
     <EntitySet Name="ViewChilds" EntityType="DataModel.ViewChild" />
+    <EntitySet Name="Vipiskas" EntityType="DataModel.Vipiska" />
+    <AssociationSet Name="FK_Vipiska_Visit" Association="DataModel.FK_Vipiska_Visit">
+      <End Role="Visit" EntitySet="Visits" />
+      <End Role="Vipiska" EntitySet="Vipiskas" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="OrderStatu">
     <Key>
@@ -823,6 +828,7 @@
     <Property Name="CreateDate" Type="DateTime" Precision="3" />
     <NavigationProperty Name="Pacient" Relationship="DataModel.FK_Visit_Pacient" FromRole="Visit" ToRole="Pacient" />
     <NavigationProperty Name="Order" Relationship="DataModel.FK_Visit_Order" FromRole="Visit" ToRole="Order" />
+    <NavigationProperty Name="Vipiskas" Relationship="DataModel.FK_Vipiska_Visit" FromRole="Visit" ToRole="Vipiska" />
   </EntityType>
   <Association Name="FK_Visit_Pacient">
     <End Type="DataModel.Pacient" Role="Pacient" Multiplicity="1">
@@ -1277,4 +1283,32 @@
     <Property Name="Operator4Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="Operator4Params" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
   </EntityType>
+  <EntityType Name="Vipiska">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VisitId" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Result" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="LastUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Visit" Relationship="DataModel.FK_Vipiska_Visit" FromRole="Vipiska" ToRole="Visit" />
+  </EntityType>
+  <Association Name="FK_Vipiska_Visit">
+    <End Type="DataModel.Visit" Role="Visit" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="DataModel.Vipiska" Role="Vipiska" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Visit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vipiska">
+        <PropertyRef Name="VisitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

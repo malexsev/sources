@@ -57,6 +57,7 @@
     <Compile Include="OrderSentToUserEmailNotification.cs" />
     <Compile Include="TiketsBoughtEmailNotification.cs" />
     <Compile Include="RegistrationToUserEmailNotification.cs" />
+    <Compile Include="ChangedPassToUserEmailNotification.cs" />
     <Compile Include="UserRegisteredEmailNotification.cs" />
     <Compile Include="INotification.cs" />
     <Compile Include="OrderSentNotification.cs" />
