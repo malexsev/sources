@@ -1,572 +1,139 @@
 ﻿@using Cure.WebSite.Models
+@using Cure.DataAccess
 @model Cure.WebSite.Models.ChildVisualDetailed
 
 @{
     ViewBag.Title = "Профиль пользователя";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@{
+    ViewBag.Title = "Мои заявки";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
-<div class="main child-page" role="main">
+<div class="main common-page" role="main">
     <div class="container">
-        <div class="all-pages-head">
+        @Html.Partial("_CabinetInfoLine", "Настройки")
+
+        <div class="content-wrap">
+            <h3>
+                Данные учётной записи
+            </h3>
+
             <div class="row">
-                <div class="col-lg-7">
-                    <h1 class="all-pages-H1">Настройки</h1>
-                </div>
-                <div class="col-lg-5">
-                    <div class="head-btns mob-md-mw-313">
-                        <a class="btn btn-clear ico-redact btn-two-lines js-show-popup" data-pop="pop-personal">Редактировать<br>личные данные</a>
+                <div class="col-md-7">
+                    <table class="common-sheet">
+                        <tbody>
+                            <tr>
+                                <td>Эл. почта</td>
+                                <td>@Model.ContactEmail</td>
+                                <td class="txt-right"><a class="btn btn-small js-show-popup" data-pop="pop-email-change" role="button">Изменить</a></td>
+                            </tr>
+                            <tr>
+                                <td>Телефон</td>
+                                <td>@Model.ContactPhone</td>
+                                <td class="txt-right"><a class="btn btn-small js-show-popup" data-pop="pop-phone-change" role="button">Изменить</a></td>
+                            </tr>
+                            <tr>
+                                <td>Пароль</td>
+                                <td>******************</td>
+                                <td class="txt-right"><a class="btn btn-small js-show-popup" data-pop="pop-password-change" role="button">Изменить</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>
+                        Фото профиля
+                    </h3>
+
+                    <div class="settings-line">
+                        <div class="item">
+                            <img src="@Model.Userpic.UrlOriginal" alt="@Html.Raw(((ChildVisualDetailed)(ViewBag.Profile)).ContactName)">
+                        </div>
+                        @using (Html.BeginForm("UploadUserpic", "Cabinet", FormMethod.Post, new
+                        {
+                            @id = "formUploadUserpic",
+                            @class = "userdata-form js-validate",
+                            enctype = "multipart/form-data"
+                        }))
+                        {
+                            <div>
+                                <div class="item forms-file">
+                                    <div>
+                                        <div>Обновить</div>
+                                        <input id="fileUserpicUpload" name="fileUserpicUpload" type="file" onchange="this.previousSibling.previousSibling.innerHTML = this.value" />
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div>
+                                        <a class="btn btn-gray userpic-del" data-pop="pop-email" role="button">Удалить</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="uploadprogress"></div>
+                            <div id="error-settings" class="form-errors"></div>
+                        }
                     </div>
+
+                    <h3>
+                        Ссылка на мою страницу
+                    </h3>
+
+                    <div class="row settings-line">
+                        <div class="col-md-8">
+                            <div id="mypageurl" class="note">
+                                @Html.Raw(string.Format("dcp-china.ru/children/detail/{0}", Model.Id))
+                            </div>
+                        </div>
+                        <div class="col-md-4 txt-right">
+                            <a class="btn btn-small js-copy-clipboard" data-text="@Html.Raw(string.Format("dcp-china.ru/children/detail/{0}", Model.Id))" role="button">Скопировать в буфер обмена</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <p>Электронная почта, телефон и фото профиля<br />так-же отображаются на Вашей страние<br />раздела "Наши дети"</p>
                 </div>
             </div>
-        </div>
-        <div class="child-page-body">
-            <div class="row">
-                <div class="col-lg-3 col-md-4">
-                    <div class="child-page-aside">
-                        <div class="child-aside-head in-account">
-                            <div class="child-aside-img">
-                                <img src="@Model.PhotoItem.UrlMin" alt="@Model.Name">
-                            </div>
-                            <div class="child-aside-data">
-                                <div class="child-name">@Model.Name</div>
-                                <div class="child-age">@Model.Age</div>
-                                <div class="child-city">@Model.CountryName@Html.Raw(string.IsNullOrEmpty(Model.Region) ? "" : ", ") @Model.Region</div>
-                            </div>
-                        </div>
-                        <div class="child-aside-body">
-                            <section class="child-aside-info mob-accordion js-mob-accordion">
-                                <h3 class="info-head js-mob-accordion-btn">Контактная информация</h3>
-                                <div class="info-body js-mob-accordion-body">
-                                    <div class="info-contact">
-                                        <div class="info-contact-img"><img src="~/content/img/userpics/no_photo_min.jpg" alt="@Model.ContactName"></div>
-                                        <div class="info-contact-txt">@Model.ContactName</div>
-                                        <div class="info-contact-who">@Model.RodstvoName</div>
-                                    </div>
-                                    <a class="info-contact" href="tel:@Model.ContactPhone">@Model.ContactPhone</a>
-                                    <a class="info-contact" href="mailto:@Model.ContactEmail">@Model.ContactEmail</a>
-                                </div>
-                            </section>
-                            @if (Model.IsAnySocial)
-                            {
-                                <section class="child-aside-info mob-accordion js-mob-accordion">
-                                    <h3 class="info-head js-mob-accordion-btn">Страницы в соцсетях</h3>
-                                    <div class="info-body js-mob-accordion-body">
-                                        <ul class="info-seti-list">
-                                            @if (!string.IsNullOrEmpty(Model.SocialVk))
-                                            {
-                                                <li><a class="vk" href="@Model.SocialVk" target="_blank" title="В контакте"><i class="fa fa-vk"></i></a></li>
-                                            }
-                                            @if (!string.IsNullOrEmpty(Model.SocialOk))
-                                            {
-                                                <li><a class="ok" href="@Model.SocialOk" target="_blank" title="Одноклассники"><i class="fa fa-odnoklassniki"></i></a></li>
-                                            }
-                                            @if (!string.IsNullOrEmpty(Model.SocialFb))
-                                            {
-                                                <li><a class="fb" href="@Model.SocialFb" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></li>
-                                            }
-                                            @if (!string.IsNullOrEmpty(Model.SocialMm))
-                                            {
-                                                <li><a class="yt" href="@Model.SocialMm" target="_blank" title="Мой Мир@Mail.ru"><i class="fa fa-at"></i></a></li>
-                                            }
-                                            @if (!string.IsNullOrEmpty(Model.SocialYoutube))
-                                            {
-                                                <li><a class="yt" href="@Model.SocialYoutube" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a></li>
-                                            }
-                                        </ul>
-                                    </div>
-                                </section>
-                            }
-
-                            <section class="child-aside-info mob-accordion js-mob-accordion">
-                                <h3 class="info-head js-mob-accordion-btn">Финансовая помощь</h3>
-                                @if (!string.IsNullOrEmpty(Model.FinWebMoneyString) || !string.IsNullOrEmpty(Model.OperatorName) || !string.IsNullOrEmpty(Model.Operator2Name) || !string.IsNullOrEmpty(Model.Operator3Name) || !string.IsNullOrEmpty(Model.Operator4Name) || !string.IsNullOrEmpty(Model.FinCardNumber))
-                                {
-                                    <div class="info-body js-mob-accordion-body">
-                                        <div class="child-info-money">
-                                            @if (!string.IsNullOrEmpty(Model.FinWebMoneyString))
-                                            {
-                                                <div class="money-account">
-                                                    <i class="money-acc-icon">
-                                                        <img src="~/content/img/money-icons/webmoney.png" alt="Вэбмани">
-                                                    </i>
-                                                    <div class="money-acc-note">Вэбмани</div>
-                                                    <div class="money-acc-numb">@Html.Raw(Model.FinWebMoneyString)</div>
-                                                </div>
-                                            }
-                                            @if (!string.IsNullOrEmpty(Model.OperatorName))
-                                            {
-                                                <div class="money-account">
-                                                    <i class="money-acc-icon">
-                                                        <img src="~/content/img/operators/@Html.Raw(string.IsNullOrEmpty(Model.OperatorParams) ? "nooperator.png" : Model.OperatorParams)" alt="@Model.OperatorName">
-                                                    </i>
-                                                    <div class="money-acc-note">@Model.OperatorName</div>
-                                                    <div class="money-acc-numb">@Model.FinPhoneNumber</div>
-                                                </div>
-                                            }
-                                            @if (!string.IsNullOrEmpty(Model.Operator2Name))
-                                            {
-                                                <div class="money-account">
-                                                    <i class="money-acc-icon">
-                                                        <img src="~/content/img/operators/@Html.Raw(string.IsNullOrEmpty(Model.Operator2Params) ? "nooperator.png" : Model.Operator2Params)" alt="@Model.Operator2Name">
-                                                    </i>
-                                                    <div class="money-acc-note">@Model.Operator2Name</div>
-                                                    <div class="money-acc-numb">@Model.FinPhoneNumber2</div>
-                                                </div>
-                                            }
-                                            @if (!string.IsNullOrEmpty(Model.Operator3Name))
-                                            {
-                                                <div class="money-account">
-                                                    <i class="money-acc-icon">
-                                                        <img src="~/content/img/operators/@Html.Raw(string.IsNullOrEmpty(Model.Operator3Params) ? "nooperator.png" : Model.Operator3Params)" alt="@Model.Operator3Name">
-                                                    </i>
-                                                    <div class="money-acc-note">@Model.Operator3Name</div>
-                                                    <div class="money-acc-numb">@Model.FinPhoneNumber3</div>
-                                                </div>
-                                            }
-                                            @if (!string.IsNullOrEmpty(Model.Operator4Name))
-                                            {
-                                                <div class="money-account">
-                                                    <i class="money-acc-icon">
-                                                        <img src="~/content/img/operators/@Html.Raw(string.IsNullOrEmpty(Model.Operator4Params) ? "nooperator.png" : Model.Operator4Params)" alt="@Model.Operator4Name">
-                                                    </i>
-                                                    <div class="money-acc-note">@Model.Operator4Name</div>
-                                                    <div class="money-acc-numb">@Model.FinPhoneNumber4</div>
-                                                </div>
-                                            }
-                                            @if (!string.IsNullOrEmpty(Model.FinCardNumber))
-                                            {
-                                                <div class="money-card">
-                                                    <div class="money-card-title">Карта @Model.BankName</div>
-                                                    <div class="money-card-numb">@Model.FinCardNumber</div>
-                                                    <div class="money-card-name">@Model.FinCardName</div>
-                                                </div>
-                                            }
-
-                                        </div>
-                                    </div>
-                                }
-                                else
-                                {
-                                    <div class="info-contact-txt">Информации для финансовой помощи пока отсутствует.</div>
-                                }
-                            </section>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-9 col-md-8">
-                    <div class="child-page-tabs">
-                        <ul class="child-tabs-head js-tabs-head">
-                            <li><a class="active js-tabs-link" data-tab="child-tab-1">История лечения</a></li>
-                            @*<li><a class="js-tabs-link" data-tab="child-tab-2">Лента впечатлений</a></li>*@
-                            <li><a class="js-tabs-link" data-tab="child-tab-3">фотоальбом</a></li>
-                            <li><a class="js-tabs-link" data-tab="child-tab-4">Документы</a></li>
-                        </ul>
-                        <div class="child-tabs-body js-tabs-body">
-
-                            <!-- Таб "История лечения" -->
-                            <div class="child-tabs-tab active js-tabs-item" id="child-tab-1">
-                                @if (((IEnumerable<VisitResultViewModel>)ViewBag.Vipiskas).Any())
-                                {
-                                    <div class="child-tab-wrap" id="js-for-load-history">
-                                        @foreach (VisitResultViewModel visit in (IEnumerable<VisitResultViewModel>)ViewBag.Vipiskas)
-                                        {
-                                            <div class="child-tab-post">
-                                                <div class="post-date">
-                                                    @visit.DateFrom.ToString("dd-MM-yyyy") - @visit.DateTo.ToString("dd-MM-yyyy") / <span class="post-days">в днях: @visit.DaysTotal </span>
-                                                </div>
-                                                <h2 class="post-title">Проведено лечение в клинике - @visit.DepartmentName</h2>
-                                                <h3 class="post-subtitle">Результат</h3>
-                                                <div class="post-body user-content">
-                                                    <p>
-                                                        @visit.Results
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        }
-                                    </div>
-                                }
-                                else
-                                {
-                                    <div class="content-tab-empty">Данный раздел заполняется администрацией больницы из  истории болезни</div>
-                                }
-                                @*
-                                    <div class="all-pages-more child-tab-more">
-                                        <div class="more-btn">
-                                            <a class="btn btn-light has-loading js-load-more-history">Показать еще</a>
-                                        </div>
-                                    </div>*@
-                            </div>
-                            <!-- END Таб "История лечения" -->
-                            <!-- Таб "Лента впечатлений" -->
-                            <div class="child-tabs-tab js-tabs-item" id="child-tab-2">
-                                <div class="child-tab-wrap" id="js-for-load-feelings">
-                                    <div class="comments-title">Новые впечатления:</div>
-                                    <div class="comments-addform">
-                                        <!-- Запостить новое впечатление -->
-                                        <form>
-                                            <div class="comments-addform-head">
-                                                <div class="head-imgs">
-                                                    <img class="head-img" src="~/content/img/userpics/no_photo_min.jpg" alt="Наталья Константинова">
-                                                </div>
-                                                <div class="head-txt">
-                                                    <div class="head-name">Наталья Константинова</div>
-                                                </div>
-                                            </div>
-                                            <div class="comments-addform-body">
-                                                <textarea class="forms-text" placeholder="Ваше сообщение"></textarea>
-                                                <input class="btn btn-orang" type="submit" value="ДОБАВИТЬ">
-                                                <div class="forms-file">
-                                                    <div class="forms-file-msg">Добавить фото</div>
-                                                    <input type="file" onchange="this.previousSibling.previousSibling.innerHTML = this.value">
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="child-tab-post">
-                                        <div class="post-head">
-                                            <ul class="all-posts-btns">
-                                                <li><a class="post-btn-edit" role="button" title="Изменить комментарий"></a></li>
-                                                <li><a class="post-btn-delete" role="button" title="Удалить комментарий"></a></li>
-                                            </ul>
-                                            <div class="post-date">12.05.2015 23:12</div>
-                                        </div>
-                                        <div class="post-body user-content">
-                                            <p>
-                                                Перед поездкой смотрели прогноз, были нарисованы сплошные дожди. Подумали:
-                                                все равно очень тепло и вода теплая, поедем. В результате была одна ночная гроза,
-                                                и один смешной дождик - одна минута, три капли днем. Два дня была облачность,
-                                                остальное время солнечно. Мышечный тонус в конечностях снизился,
-                                                увеличился объем пассивных и активных движений.
-                                                Улучшилась опора на предплечья в положении лежа на животе. Крепче стала спина. Начал
-                                                раскрывать кисти, движение руками стали более точными и целенаправленными.
-                                            </p>
-                                        </div>
-                                        <div class="comments post-comments">
-                                            <div class="comments-head">
-                                                <a class="comments-count js-comments-open" role="button">3</a>
-                                            </div>
-                                            <div class="comments-body post-comments-body">
-                                                <div class="comments-title">Комментарии (2)</div>
-                                                <div class="comments-item">
-                                                    <div class="comments-item-head">
-                                                        <ul class="head-btns all-posts-btns">
-                                                            <li><a class="post-btn-delete" role="button" title="Удалить комментарий"></a></li>
-                                                        </ul>
-                                                        <div class="head-imgs">
-                                                            <img class="head-img" src="~/content/images/users/contact_user_2_48x48.jpg" alt="Елена Матвеева">
-                                                            <img class="head-img" src="~/content/images/users/contact_user_3_48x48.jpg" alt="Олег">
-                                                        </div>
-                                                        <div class="head-txt">
-                                                            <div class="head-name">Елена Матвеева (Олег)</div>
-                                                            <div class="head-date">24.04.2015 11:45</div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="comments-item-boby">
-                                                        <div class="user-content">
-                                                            <p>
-                                                                Замечательная экскурсия!<br>
-                                                                Напишите плз в личку сколько стоит поездка. Вы сами ездили или организовывали
-                                                                вам поездку?
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="comments-item-footer">
-                                                        <a class="comments-reply" role="button">Ответить</a>
-                                                    </div>
-                                                </div>
-                                                <div class="comments-item">
-                                                    <div class="comments-item-head">
-                                                        <ul class="head-btns all-posts-btns">
-                                                            <li><a class="post-btn-delete" role="button" title="Удалить комментарий"></a></li>
-                                                        </ul>
-                                                        <div class="head-imgs">
-                                                            <img class="head-img" src="~/content/images/users/contact_user_default_48x48.jpg" alt="Инна Ткачук">
-                                                            <img class="head-img" src="~/content/images/users/contact_user_4_48x48.jpg" alt="Марина">
-                                                        </div>
-                                                        <div class="head-txt">
-                                                            <div class="head-name">Инна Ткачук (Марина)</div>
-                                                            <div class="head-date">24.04.2015 12:23</div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="comments-item-boby">
-                                                        <div class="user-content">
-                                                            <p>
-                                                                Замечательная экскурсия!<br>
-                                                                Напишите плз в личку сколько стоит поездка. Вы сами ездили или организовывали
-                                                                вам поездку?
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="comments-item-footer">
-                                                        <a class="comments-reply" role="button">Ответить</a>
-                                                    </div>
-                                                </div>
-                                                <div class="comments-item">
-                                                    <div class="comments-item-head">
-                                                        <ul class="head-btns all-posts-btns">
-                                                            <li><a class="post-btn-edit" role="button" title="Изменить комментарий"></a></li>
-                                                            <li><a class="post-btn-delete" role="button" title="Удалить комментарий"></a></li>
-                                                        </ul>
-                                                        <div class="head-imgs">
-                                                            <img class="head-img" src="~/content/img/userpics/no_photo_min.jpg" alt="Наталья Константинова">
-                                                        </div>
-                                                        <div class="head-txt">
-                                                            <div class="head-name">Наталья Константинова</div>
-                                                            <div class="head-date">24.04.2015 14:57</div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="comments-item-boby">
-                                                        <div class="user-content">
-                                                            <p>
-                                                                Спасибо всем за комментарии!!!
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="comments-item-footer">
-                                                        <a class="comments-reply" role="button">Ответить</a>
-                                                    </div>
-                                                </div>
-                                                <div class="comments-addform">
-                                                    <form>
-                                                        <div class="comments-addform-head">
-                                                            <div class="head-imgs">
-                                                                <img class="head-img" src="~/content/img/userpics/no_photo_min.jpg" alt="Наталья Константинова">
-                                                            </div>
-                                                            <div class="head-txt">
-                                                                <div class="head-name">Наталья Константинова</div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="comments-addform-body">
-                                                            <textarea class="forms-text" placeholder="Текст комментария"></textarea>
-                                                            <input class="btn btn-orang" type="submit" value="ОТПРАВИТЬ">
-                                                            <div class="forms-file">
-                                                                <div class="forms-file-msg">Добавить фото</div>
-                                                                <input type="file" onchange="this.previousSibling.previousSibling.innerHTML = this.value">
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="child-tab-post">
-                                        <div class="post-head">
-                                            <ul class="all-posts-btns">
-                                                <li><a class="post-btn-edit" role="button" title="Изменить комментарий"></a></li>
-                                                <li><a class="post-btn-delete" role="button" title="Удалить комментарий"></a></li>
-                                            </ul>
-                                            <div class="post-date">23.04.2015 11:16</div>
-                                        </div>
-                                        <div class="post-body user-content">
-                                            <p>
-                                                Наш семейный друг проживает в Китае и именно он нам посоветовал для отдыха этот
-                                                отель и сам приезжал к нам на несколько дней, так как в России бывает не часто
-                                                и вся связь у нас через интернет. В аэропорту возникли проблемы с визами,
-                                                вернее с каким-то их подтверждением. Это касалось не только нас, но и всей
-                                                группы, которая приехала в этот отель. Нам повезло с гидами, которые оказались
-                                                отличными ребятами и не стали все пускать на самотек. Когда выяснилось в чем суть
-                                                проблемы, они сразу же созвонились с нашим отелем, который выслал какое-то
-                                                подтверждение и нас сразу же пропустили.
-                                            </p>
-                                            <img src="~/content/images/trips/trip_1.jpg" alt="trip">
-                                            <p>
-                                                У нас был можно сказать, что хороший номер. Конечно, можно придраться к старой мебели
-                                                и специфическому запаху в номере, но шикарных апартаментов нам никто не обещал
-                                                и мы прекрасно понимали в какую страну мы едем. Интерьер номера в смешанном
-                                                европейско-китайском стиле. Придираться можно было в том случае, когда проводишь
-                                                в отеле большую часть времени, а так позавтракали и гулять, а возвращались уже ночью.
-                                                На уборку номера внимания не обращали, я даже затрудняюсь сказать как часто убирали
-                                                номер, но всегда было чисто. Один раз оставили чаевые на тумбочке, но их никто не забрал.
-                                            </p>
-                                        </div>
-                                        <div class="comments post-comments is-open">
-                                            <div class="comments-head">
-                                                <a class="comments-count js-comments-open" role="button">2</a>
-                                            </div>
-                                            <div class="comments-body post-comments-body">
-                                                <div class="comments-title">Комментарии (2)</div>
-                                                <div class="comments-item">
-                                                    <div class="comments-item-head">
-                                                        <ul class="head-btns all-posts-btns">
-                                                            <li><a class="post-btn-delete" role="button" title="Удалить комментарий"></a></li>
-                                                        </ul>
-                                                        <div class="head-imgs">
-                                                            <img class="head-img" src="~/content/images/users/contact_user_2_48x48.jpg" alt="Елена Матвеева">
-                                                            <img class="head-img" src="~/content/images/users/contact_user_3_48x48.jpg" alt="Олег">
-                                                        </div>
-                                                        <div class="head-txt">
-                                                            <div class="head-name">Елена Матвеева (Олег)</div>
-                                                            <div class="head-date">24.04.2015 11:45</div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="comments-item-boby">
-                                                        <div class="user-content">
-                                                            <p>
-                                                                Замечательная экскурсия!<br>
-                                                                Напишите плз в личку сколько стоит поездка. Вы сами ездили или организовывали
-                                                                вам поездку?
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="comments-item-footer">
-                                                        <a class="comments-reply" role="button">Ответить</a>
-                                                    </div>
-                                                </div>
-                                                <div class="comments-item">
-                                                    <div class="comments-item-head">
-                                                        <ul class="head-btns all-posts-btns">
-                                                            <li><a class="post-btn-delete" role="button" title="Удалить комментарий"></a></li>
-                                                        </ul>
-                                                        <div class="head-imgs">
-                                                            <img class="head-img" src="~/content/images/users/contact_user_default_48x48.jpg" alt="Инна Ткачук">
-                                                            <img class="head-img" src="~/content/images/users/contact_user_4_48x48.jpg" alt="Марина">
-                                                        </div>
-                                                        <div class="head-txt">
-                                                            <div class="head-name">Инна Ткачук (Марина)</div>
-                                                            <div class="head-date">24.04.2015 12:23</div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="comments-item-boby">
-                                                        <div class="user-content">
-                                                            <p>
-                                                                Замечательная экскурсия!<br>
-                                                                Напишите плз в личку сколько стоит поездка. Вы сами ездили или организовывали
-                                                                вам поездку?
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="comments-item-footer">
-                                                        <a class="comments-reply" role="button">Ответить</a>
-                                                    </div>
-                                                </div>
-                                                <div class="comments-item">
-                                                    <div class="comments-item-head">
-                                                        <ul class="head-btns all-posts-btns">
-                                                            <li><a class="post-btn-edit" role="button" title="Изменить комментарий"></a></li>
-                                                            <li><a class="post-btn-delete" role="button" title="Удалить комментарий"></a></li>
-                                                        </ul>
-                                                        <div class="head-imgs">
-                                                            <img class="head-img" src="~/content/img/userpics/no_photo_min.jpg" alt="Наталья Константинова">
-                                                        </div>
-                                                        <div class="head-txt">
-                                                            <div class="head-name">Наталья Константинова</div>
-                                                            <div class="head-date">24.04.2015 14:57</div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="comments-item-boby">
-                                                        <div class="user-content">
-                                                            <p>
-                                                                Спасибо всем за комментарии!!!
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="comments-item-footer">
-                                                        <a class="comments-reply" role="button">Ответить</a>
-                                                    </div>
-                                                </div>
-                                                <div class="comments-addform">
-                                                    <form>
-                                                        <div class="comments-addform-head">
-                                                            <div class="head-imgs">
-                                                                <img class="head-img" src="~/content/img/userpics/no_photo_min.jpg" alt="Наталья Константинова">
-                                                            </div>
-                                                            <div class="head-txt">
-                                                                <div class="head-name">Наталья Константинова</div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="comments-addform-body">
-                                                            <textarea class="forms-text" placeholder="Текст комментария"></textarea>
-                                                            <input class="btn btn-orang" type="submit" value="ОТПРАВИТЬ">
-                                                            <div class="forms-file">
-                                                                <div class="forms-file-msg">Добавить фото</div>
-                                                                <input type="file" onchange="this.previousSibling.previousSibling.innerHTML = this.value">
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="child-tab-post">
-                                        <div class="post-head">
-                                            <ul class="all-posts-btns">
-                                                <li><a class="post-btn-edit" role="button" title="Изменить комментарий"></a></li>
-                                                <li><a class="post-btn-delete" role="button" title="Удалить комментарий"></a></li>
-                                            </ul>
-                                            <div class="post-date">21.04.2015 12:50</div>
-                                        </div>
-                                        <div class="post-body user-content">
-                                            <p>
-                                                Территория небольшая, есть компактный внутренней дворик с прудом и утками, которые живут
-                                                в деревянных домиках. По стенам отелей вьется плющ. По всей видимости эти мелочи
-                                                являются визитной карточкой этой гостиницы. Все время у нас было расписано по
-                                                экскурсиям и поездкам, у нас даже не было времени искупаться в бассейне.
-                                            </p>
-                                            <p>
-                                                Перед поездкой смотрели прогноз, были нарисованы сплошные дожди. Подумали:
-                                                все равно очень тепло и вода теплая, поедем. В результате была одна ночная гроза,
-                                                и один смешной дождик - одна минута, три капли днем. Два дня была облачность,
-                                                остальное время солнечно. Мышечный тонус в конечностях снизился,
-                                                увеличился объем пассивных и активных движений.
-                                                Улучшилась опора на предплечья в положении лежа на животе. Крепче стала спина. Начал
-                                                раскрывать кисти, движение руками стали более точными и целенаправленными.
-                                            </p>
-                                        </div>
-                                        <div class="comments post-comments">
-                                            <div class="comments-head">
-                                                <a class="comments-count js-comments-open" role="button">0</a>
-                                            </div>
-                                            <div class="comments-body post-comments-body">
-                                                <div class="comments-title">Комментарии (0)</div>
-                                                <div class="comments-addform">
-                                                    <form>
-                                                        <div class="comments-addform-head">
-                                                            <div class="head-imgs">
-                                                                <img class="head-img" src="~/content/img/userpics/no_photo_min.jpg" alt="Наталья Константинова">
-                                                            </div>
-                                                            <div class="head-txt">
-                                                                <div class="head-name">Наталья Константинова</div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="comments-addform-body">
-                                                            <textarea class="forms-text" placeholder="Текст комментария"></textarea>
-                                                            <input class="btn btn-orang" type="submit" value="ОТПРАВИТЬ">
-                                                            <div class="forms-file">
-                                                                <div class="forms-file-msg">Добавить фото</div>
-                                                                <input type="file" onchange="this.previousSibling.previousSibling.innerHTML = this.value">
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="all-pages-more child-tab-more">
-                                    <div class="more-btn">
-                                        <a class="btn btn-light has-loading js-load-more-feelings">Показать еще</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- END Таб "Лента впечатлений" -->
-                            <!-- Таб "Фотоальбом" -->
-                            <div class="child-tabs-tab js-tabs-item" id="child-tab-3">
-                                @Html.Partial("_CabinetGalery", Model)
-                            </div>
-                            <!-- END Таб "Фотоальбом" -->
-                            <!-- Таб "Документы" -->
-                            <div class="child-tabs-tab js-tabs-item" id="child-tab-4">
-                                @Html.Partial("_CabinetDocuments")
-                            </div>
-                            <!-- END Таб "Документы" -->
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        </div><!-- END all-pages-body -->
     </div><!-- END container -->
 
 </div><!-- END main -->
+
+<div class="popup popup-registr" id="pop-password-change">
+    <div class="popup-modal"></div>
+    <div class="popup-wrap">
+        <a class="popup-close"></a>
+        <div class="popup-head js-tabs-registr">
+            <div class="popup-title">Изменение пароля</div>
+        </div>
+        <div class="popup-body">
+            @Html.Partial("_AccountChangePass")
+        </div>
+    </div>
+</div>
+
+<div class="popup popup-registr" id="pop-email-change">
+    <div class="popup-modal"></div>
+    <div class="popup-wrap">
+        <a class="popup-close"></a>
+        <div class="popup-head js-tabs-registr">
+            <div class="popup-title">Изменение e-mail адреса</div>
+        </div>
+        <div class="popup-body">
+            @Html.Partial("_AccountChangeEmail")
+        </div>
+    </div>
+</div>
+
+<div class="popup popup-registr" id="pop-phone-change">
+    <div class="popup-modal"></div>
+    <div class="popup-wrap">
+        <a class="popup-close"></a>
+        <div class="popup-head js-tabs-registr">
+            <div class="popup-title">Изменение контактного телефона</div>
+        </div>
+        <div class="popup-body">
+            @Html.Partial("_AccountChangePhone")
+        </div>
+    </div>
+</div>

@@ -8,7 +8,7 @@ namespace Cure.WebSite.Models
 
         public DocItem()
         {
-            UrlOriginal = "/Content/images/no_photo_big.jpg";
+            UrlOriginal = "/content/img/userpics/no_photo_min.jpg";
         }
 
         public DocItem(string photoUrl, string fileName)

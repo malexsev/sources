@@ -10,8 +10,7 @@
 
     public class ChangedPassToUserEmailNotification : INotification
     {
-        private Setting settingAdminsEmails;
-        private Setting settingAdminsEmailCopy;
+        private ViewUserMembership user;
         private string subject;
         private string body;
         private const string subjectTemplate = "Изменение пароля на сайте www.dcp-china.ru"; //0 - Логин, 1 - Электронная почта
@@ -43,9 +42,7 @@
         public ChangedPassToUserEmailNotification(string username, string password)
         {
             var dal = new DataAccessBL();
-            var user = dal.GetUserMembership(username);
-            this.settingAdminsEmails = dal.GetSettingByCode("AdminsEmails");
-            this.settingAdminsEmailCopy = dal.GetSettingByCode("AdminsEmailCopy");
+            this.user = dal.GetUserMembership(username);
             this.subject = string.Format(subjectTemplate);
             this.body = string.Format(bodyTemplate, user.UserName, password);
         }
@@ -54,8 +51,8 @@
         {
             bool result = false;
 
-            result = EmailUtils.SendEmail(this.settingAdminsEmails.Value, this.settingAdminsEmailCopy.Value, this.subject, this.body, "Новый пользователь");
-            this.Log(result ? "Доставлено" : "Ошибка доставки", settingAdminsEmails.Value);
+            result = EmailUtils.SendEmail(this.user.LoweredEmail, string.Empty, this.subject, this.body, "Смена пароля");
+            this.Log(result ? "Доставлено" : "Ошибка доставки", this.user.LoweredEmail);
 
             return result;
         }

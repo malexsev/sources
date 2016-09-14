@@ -4,7 +4,7 @@
     @class = "registr-form js-registr-validate"
 }))
 {
-@*<form class="registr-form js-registr-validate">*@
+    @*<form class="registr-form js-registr-validate">*@
     <div class="forms-line">
         <div class="forms-label">Имя пользователя</div>
         @Html.TextBox("regname", "", new
@@ -55,6 +55,8 @@
     </div>
     <div class="forms-line txt-center">
         <input class="btn btn-orang registr-submit" type="submit" value="ЗАРЕГИСТРИРОВАТЬСЯ">
+        <div id="registerprogress">
+        </div>
     </div>
     <div id="error-register" class="form-errors"></div>
     <div class="registr-note">

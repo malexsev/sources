@@ -24,7 +24,7 @@
                 <div class="all-pages-more">
                 @Html.Hidden("skiprecords", 0, new { id = "skiprecords" })
                     <div class="more-title">
-                        Позаканы <span id="more-count">16</span> из <span id="more-all">@ViewBag.TotalCount</span>
+                        Позаканы <span id="more-count">@Html.Raw((ViewBag.TotalCount <= 12 ? ViewBag.TotalCount : 12))</span> из <span id="more-all">@ViewBag.TotalCount</span>
                     </div>
                     <div class="more-btn">
                         <a class="btn btn-light has-loading js-load-more-children">Показать еще</a>

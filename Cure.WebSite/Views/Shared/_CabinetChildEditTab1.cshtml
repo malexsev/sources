@@ -22,15 +22,17 @@
         @Html.TextBox("birthday", ((ChildVisualDetailed)(ViewBag.Profile)).Birthday.ToString("dd.MM.yyyy") ?? "", new
          {
              @placeholder = "Нет даты",
+             @readonly = "true",
              @maxlength = "50",
-             @class = "forms-input has-icon ico-calendar js-datepicker"
+             @class = "forms-input has-icon ico-calendar js-datepicker",
+             @data_val = "false"
         })
     </div>
     <div class="forms-line">
         <div class="forms-label">Страна проживания*</div>
         <div class="selector forms-selector">
             @Html.Hidden("country", ((ChildVisualDetailed)(ViewBag.Profile)).CountryId, new { id = "country" })
-            <div class="selector-val" data-val="0">Все страны</div>
+            <div class="selector-val" data-val="@Html.Raw(((ChildVisualDetailed)(ViewBag.Profile)).CountryId)">@Html.Raw(((ChildVisualDetailed)(ViewBag.Profile)).CountryId == 0 || ((ChildVisualDetailed)(ViewBag.Profile)).CountryId == 10 ? "Выберите страну" : ((IEnumerable<RefCountry>)ViewBag.Countries).FirstOrDefault(x => x.Id == ((ChildVisualDetailed)(ViewBag.Profile)).CountryId).Name)</div>
             <ul class="selector-list">
                 <li data-val="0">Все страны</li>
                 @foreach (RefCountry country in ViewBag.Countries)
@@ -62,7 +64,7 @@
     </div>
     <div class="forms-line">
         <div class="forms-preview">
-            <img src="@Html.Raw(((ChildVisualDetailed)(ViewBag.Profile)).PhotoItem.UrlMin)" alt="__">
+            <img src="@Html.Raw(((ChildVisualDetailed)(ViewBag.Profile)).PhotoItem.UrlMin)" alt="@Html.Raw(((ChildVisualDetailed)(ViewBag.Profile)).ContactName)">
         </div>
         <div class="forms-file top-10">
             <div class="forms-file-msg">Изменить фото</div>
@@ -73,7 +75,6 @@
         <input id="saveedittab1" class="btn btn-orang has-loading" type="submit" value="Сохранить">
     </div>
     <div id="uploadprogress">
-        @*<img src="~/content/img/preloader.gif" alt="Preloader">*@
     </div>
     <div id="error-tab1" class="form-errors"></div>
 }

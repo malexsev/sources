@@ -22,7 +22,6 @@ namespace Cure.WebSite.Controllers
         public ActionResult Index()
         {
             var dal = new DataAccessBL();
-
             var result = dal.FilterChilds(0, "0", 0, 0, 0).Select(x => new ChildVisual(x, dal.GetChildAvaFile(x.Id))).ToList();
             ViewBag.Countries = dal.GetRefCountries();
             ViewBag.Regions = dal.GetRegions();

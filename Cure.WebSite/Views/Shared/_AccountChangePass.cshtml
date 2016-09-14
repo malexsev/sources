@@ -6,7 +6,7 @@
 {
     @Html.Hidden("RedirectTo", Url.Action("MyPage", "Cabinet"));
     <div class="forms-line">
-        <div class="forms-label">Имя пользователя</div>
+        <div class="forms-label">Текущий пароль</div>
         @Html.TextBox("currentpass", "", new
         {
             @id = "currentpass",
@@ -39,7 +39,8 @@
         <div class="note-label"></div>
     </div>
     <div class="forms-line txt-center">
-        <input id="submit-login" class="btn btn-orang registr-submit" type="submit" value="ВОЙТИ">
+        <input class="btn btn-orang" type="submit" value="СОХРАНИТЬ">
+        <input class="btn btn-gray" onclick="javascript: $('.popup').hide();" type="button" value="ОТМЕНА">
     </div>
     <div id="error-passchange" class="form-errors"></div>
 }

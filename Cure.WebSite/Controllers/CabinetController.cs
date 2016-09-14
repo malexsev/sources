@@ -46,6 +46,36 @@ namespace Cure.WebSite.Controllers
             return View();
         }
 
+        [HttpPost]
+        public JsonResult ChangeEmail(string email)
+        {
+            var dal = new DataAccessBL();
+            var view = dal.ViewChild(User.Identity.Name);
+            if (view != null)
+            {
+                var child = dal.GetChild(view.Id);
+                child.ContactEmail = email;
+                dal.UpdateChild(child);
+                return Json("1", JsonRequestBehavior.AllowGet);
+            }
+            return Json("0", JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult ChangePhone(string phone)
+        {
+            var dal = new DataAccessBL();
+            var view = dal.ViewChild(User.Identity.Name);
+            if (view != null)
+            {
+                var child = dal.GetChild(view.Id);
+                child.ContactPhone = phone;
+                dal.UpdateChild(child);
+                return Json("1", JsonRequestBehavior.AllowGet);
+            }
+            return Json("0", JsonRequestBehavior.AllowGet);
+        }
+
         public ActionResult Orders()
         {
             if (!User.Identity.IsAuthenticated)
@@ -441,40 +471,40 @@ namespace Cure.WebSite.Controllers
             {
                 try
                 {
-                        for (int i = 0; i < clientContainer.NewOrder.Visits.Count; i++)
-                        {
-                            var visit = clientContainer.NewOrder.Visits.ToList()[i];
-                            var visitVm = infoModels.ToList()[i];
-                            visit.TodaysDiagnoz = visitVm.TodaysDiagnoz;
-                            visit.HystoryA = visitVm.HystoryA;
-                            visit.Hystoryb = visitVm.HystoryB;
-                            visit.Razvitie = visitVm.Razvitie;
-                            visit.Dispanser = visitVm.Dispanser;
-                            visit.DispanserNarko = (string.IsNullOrEmpty(visitVm.IsDispanserNarko) || visitVm.IsDispanserNarko == "Нет") ? "Нет" : (string.IsNullOrEmpty(visitVm.DispanserNarko) ? visitVm.IsDispanserNarko : visitVm.DispanserNarko);
-                            visit.Dispanser2 = visitVm.Dispanser2;
-                            visit.DangerousDiseases = visitVm.DangerousDiseases;
-                            visit.Serdce = visitVm.Serdce;
-                            visit.Dihalka = visitVm.Dihalka;
-                            visit.Infections = visitVm.Infections;
-                            visit.OtherDiseases = visitVm.OtherDiseases;
-                            visit.Epilispiya = visitVm.Epilispiya;
-                            visit.SudorogiType = visitVm.SudorogiType;
-                            visit.SudorogiCount = visitVm.SudorogiCount;
-                            visit.SudorogiMedcine = visitVm.SudorogiMedcine;
-                            visit.Remission = visitVm.Remission;
-                            visit.Encefalogram = visitVm.Encefalogram;
-                            visit.KursesRanee = (string.IsNullOrEmpty(visitVm.IsKursesRanee) || visitVm.IsKursesRanee == "Нет") ? "Нет" : (string.IsNullOrEmpty(visitVm.KursesRanee) ? visitVm.IsKursesRanee : visitVm.KursesRanee);
-                            visit.KursesChinaRanee = (string.IsNullOrEmpty(visitVm.IsKursesChinaRanee) || visitVm.IsKursesChinaRanee == "Нет") ? "Нет" : (string.IsNullOrEmpty(visitVm.KursesChinaRanee) ? visitVm.IsKursesChinaRanee : visitVm.KursesChinaRanee);
-                            visit.NonTradicial = (string.IsNullOrEmpty(visitVm.IsNonTradicial) || visitVm.IsNonTradicial == "Нет") ? "Нет" : (string.IsNullOrEmpty(visitVm.NonTradicial) ? visitVm.IsNonTradicial : visitVm.NonTradicial);
-                            visit.Hirurg = visitVm.Hirurg;
-                            visit.Travmi = visitVm.Travmi;
-                        }
+                    for (int i = 0; i < clientContainer.NewOrder.Visits.Count; i++)
+                    {
+                        var visit = clientContainer.NewOrder.Visits.ToList()[i];
+                        var visitVm = infoModels.ToList()[i];
+                        visit.TodaysDiagnoz = visitVm.TodaysDiagnoz;
+                        visit.HystoryA = visitVm.HystoryA;
+                        visit.Hystoryb = visitVm.HystoryB;
+                        visit.Razvitie = visitVm.Razvitie;
+                        visit.Dispanser = visitVm.Dispanser;
+                        visit.DispanserNarko = (string.IsNullOrEmpty(visitVm.IsDispanserNarko) || visitVm.IsDispanserNarko == "Нет") ? "Нет" : (string.IsNullOrEmpty(visitVm.DispanserNarko) ? visitVm.IsDispanserNarko : visitVm.DispanserNarko);
+                        visit.Dispanser2 = visitVm.Dispanser2;
+                        visit.DangerousDiseases = visitVm.DangerousDiseases;
+                        visit.Serdce = visitVm.Serdce;
+                        visit.Dihalka = visitVm.Dihalka;
+                        visit.Infections = visitVm.Infections;
+                        visit.OtherDiseases = visitVm.OtherDiseases;
+                        visit.Epilispiya = visitVm.Epilispiya;
+                        visit.SudorogiType = visitVm.SudorogiType;
+                        visit.SudorogiCount = visitVm.SudorogiCount;
+                        visit.SudorogiMedcine = visitVm.SudorogiMedcine;
+                        visit.Remission = visitVm.Remission;
+                        visit.Encefalogram = visitVm.Encefalogram;
+                        visit.KursesRanee = (string.IsNullOrEmpty(visitVm.IsKursesRanee) || visitVm.IsKursesRanee == "Нет") ? "Нет" : (string.IsNullOrEmpty(visitVm.KursesRanee) ? visitVm.IsKursesRanee : visitVm.KursesRanee);
+                        visit.KursesChinaRanee = (string.IsNullOrEmpty(visitVm.IsKursesChinaRanee) || visitVm.IsKursesChinaRanee == "Нет") ? "Нет" : (string.IsNullOrEmpty(visitVm.KursesChinaRanee) ? visitVm.IsKursesChinaRanee : visitVm.KursesChinaRanee);
+                        visit.NonTradicial = (string.IsNullOrEmpty(visitVm.IsNonTradicial) || visitVm.IsNonTradicial == "Нет") ? "Нет" : (string.IsNullOrEmpty(visitVm.NonTradicial) ? visitVm.IsNonTradicial : visitVm.NonTradicial);
+                        visit.Hirurg = visitVm.Hirurg;
+                        visit.Travmi = visitVm.Travmi;
+                    }
 
-                        this.clientContainer.NewOrder.LastUser = SiteUtils.GetCurrentUserName();
-                        this.clientContainer.NewOrder.LastDate = DateTime.Now;
-                        this.clientContainer.Save();
+                    this.clientContainer.NewOrder.LastUser = SiteUtils.GetCurrentUserName();
+                    this.clientContainer.NewOrder.LastDate = DateTime.Now;
+                    this.clientContainer.Save();
 
-                        return Json("1", JsonRequestBehavior.AllowGet);
+                    return Json("1", JsonRequestBehavior.AllowGet);
                 }
                 catch (Exception ex)
                 {
@@ -515,7 +545,7 @@ namespace Cure.WebSite.Controllers
                             visit.Zakativaetsa = visitVm.Zakativaetsa;
                         }
 
-                        this.clientContainer.NewOrder.Name = "5";
+                        clientContainer.NewOrder.Name = "5";
                         this.clientContainer.NewOrder.LastUser = SiteUtils.GetCurrentUserName();
                         this.clientContainer.NewOrder.LastDate = DateTime.Now;
                         this.clientContainer.Save();
@@ -543,30 +573,30 @@ namespace Cure.WebSite.Controllers
             {
                 try
                 {
-                        for (int i = 0; i < clientContainer.NewOrder.Visits.Count; i++)
-                        {
-                            var visit = clientContainer.NewOrder.Visits.ToList()[i];
-                            var visitVm = detailModels.ToList()[i];
-                            visit.Razgovor = visitVm.Razgovor;
-                            visit.Instructcii = visitVm.Instructcii;
-                            visit.Fisical = visitVm.Fisical;
-                            visit.Diet = visitVm.Diet;
-                            visit.Eating = visitVm.Eating;
-                            visit.Appetit = visitVm.Appetit;
-                            visit.Stul = visitVm.Stul;
-                            visit.Alergiya = (string.IsNullOrEmpty(visitVm.IsAlergiya) || visitVm.IsAlergiya == "Нет") ? "Нет" : (string.IsNullOrEmpty(visitVm.Alergiya) ? visitVm.IsAlergiya : visitVm.Alergiya);
-                            visit.Imunitet = visitVm.Imunitet;
-                            visit.Fiznagruzki = visitVm.Fiznagruzki;
-                            visit.Son = visitVm.Son;
-                            visit.ProstupUp = visitVm.ProstupUp;
-                            visit.Zakativaetsa = visitVm.Zakativaetsa;
-                        }
+                    for (int i = 0; i < clientContainer.NewOrder.Visits.Count; i++)
+                    {
+                        var visit = clientContainer.NewOrder.Visits.ToList()[i];
+                        var visitVm = detailModels.ToList()[i];
+                        visit.Razgovor = visitVm.Razgovor;
+                        visit.Instructcii = visitVm.Instructcii;
+                        visit.Fisical = visitVm.Fisical;
+                        visit.Diet = visitVm.Diet;
+                        visit.Eating = visitVm.Eating;
+                        visit.Appetit = visitVm.Appetit;
+                        visit.Stul = visitVm.Stul;
+                        visit.Alergiya = (string.IsNullOrEmpty(visitVm.IsAlergiya) || visitVm.IsAlergiya == "Нет") ? "Нет" : (string.IsNullOrEmpty(visitVm.Alergiya) ? visitVm.IsAlergiya : visitVm.Alergiya);
+                        visit.Imunitet = visitVm.Imunitet;
+                        visit.Fiznagruzki = visitVm.Fiznagruzki;
+                        visit.Son = visitVm.Son;
+                        visit.ProstupUp = visitVm.ProstupUp;
+                        visit.Zakativaetsa = visitVm.Zakativaetsa;
+                    }
 
-                        this.clientContainer.NewOrder.LastUser = SiteUtils.GetCurrentUserName();
-                        this.clientContainer.NewOrder.LastDate = DateTime.Now;
-                        this.clientContainer.Save();
+                    this.clientContainer.NewOrder.LastUser = SiteUtils.GetCurrentUserName();
+                    this.clientContainer.NewOrder.LastDate = DateTime.Now;
+                    this.clientContainer.Save();
 
-                        return Json("1", JsonRequestBehavior.AllowGet);
+                    return Json("1", JsonRequestBehavior.AllowGet);
                 }
                 catch (Exception ex)
                 {
@@ -856,6 +886,56 @@ namespace Cure.WebSite.Controllers
                 }
 
                 return Json("File uploaded successfully");
+            }
+            else
+            {
+                Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                return Json("Пользователь не определён");
+            }
+        }
+
+        [HttpPost]
+        public async Task<JsonResult> UploadUserpic()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                try
+                {
+                    UploadUserpicFile();
+                    Session["UserpicUrl"] = null;
+                }
+                catch (Exception)
+                {
+                    Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                    return Json("Upload failed");
+                }
+
+                return Json("File uploaded successfully");
+            }
+            else
+            {
+                Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                return Json("Пользователь не определён");
+            }
+        }
+
+        [HttpPost]
+        public async Task<JsonResult> RemoveUserpic()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                try
+                {
+                    RemoveUserpicFile();
+                    Session["UserpicUrl"] = null;
+                }
+                catch (Exception)
+                {
+                    Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                    return Json("Removing failed");
+                }
+
+                return Json("File removed successfully");
             }
             else
             {
@@ -1190,6 +1270,58 @@ namespace Cure.WebSite.Controllers
                         PhotoUtils.SaveToJpeg(original, path);
                     }
                 }
+            }
+        }
+
+        private void UploadUserpicFile()
+        {
+            foreach (string file in Request.Files)
+            {
+                var fileContent = Request.Files[file];
+                if (fileContent != null && fileContent.ContentLength > 0)
+                {
+                    var dal = new DataAccessBL();
+                    var view = dal.ViewChild(User.Identity.Name);
+
+                    const string OriginalDirectory = @"{0}{1}\";
+
+                    var stream = fileContent.InputStream;
+                    var fileName = Path.GetFileName(file); // + ".jpg";
+
+                    string photoLocation = ConfigurationManager.AppSettings["PhotoLocation"];
+                    string docsLocation = photoLocation.Replace("Upload", "Userpics");
+                    string folder = string.Format(OriginalDirectory, docsLocation, view.GuidId);
+
+                    if (Directory.Exists(folder))
+                    {
+                        FileUtils.DeleteFolder(folder);
+                    }
+                    Directory.CreateDirectory(folder);
+
+                    var path = Path.Combine(folder, fileName);
+
+                    using (Image original = PhotoUtils.Inscribe(Image.FromStream(stream), 48, 48))
+                    {
+                        PhotoUtils.SaveToJpeg(original, path);
+                    }
+                }
+            }
+        }
+
+        private void RemoveUserpicFile()
+        {
+            var dal = new DataAccessBL();
+            var view = dal.ViewChild(User.Identity.Name);
+
+            const string OriginalDirectory = @"{0}{1}\";
+
+            string photoLocation = ConfigurationManager.AppSettings["PhotoLocation"];
+            string docsLocation = photoLocation.Replace("Upload", "Userpics");
+            string folder = string.Format(OriginalDirectory, docsLocation, view.GuidId);
+
+            if (Directory.Exists(folder))
+            {
+                FileUtils.DeleteFolder(folder);
             }
         }
 

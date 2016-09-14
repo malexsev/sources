@@ -1,4 +1,6 @@
-﻿<div class="account-header">
+﻿@using System.Configuration
+@using Cure.Utils
+<div class="account-header">
     <div class="container">
         <div class="account-logout">
             <ul class="logout-settings account-menu">
@@ -7,7 +9,12 @@
                 </li>
             </ul>
             <div class="logout-img">
-                <img src="~/content/img/userpics/no_photo_min.jpg" alt="@User.Identity.Name" title="@User.Identity.Name">
+                <img src="@Html.Raw(SiteUtils.GetUserUserpic(Server, 
+                            Session, 
+                            User.Identity.Name, 
+                            ConfigurationManager.AppSettings["PhotoLocation"], 
+                            ConfigurationManager.AppSettings["PhotoUrl"]))" 
+                     alt="@User.Identity.Name" title="@User.Identity.Name">
             </div>
 
             @Html.ActionLink("Выход", "Logout", "Login", null, new

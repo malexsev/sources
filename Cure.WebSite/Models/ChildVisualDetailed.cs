@@ -12,6 +12,7 @@ namespace Cure.WebSite.Models
         public List<ChildHideFile> HiddenPhotoLst { get; set; }
         public List<PhotoItem> PhotoItemLst { get; set; }
         public List<DocItem> DocItemLst { get; set; }
+        public DocItem Userpic { get; set; }
 
         public ChildVisualDetailed(ViewChild child, IEnumerable<ChildHideFile> hiddenFiles, ChildAvaFile avaFile = null)
             : base(child, avaFile)
@@ -21,10 +22,13 @@ namespace Cure.WebSite.Models
                 this.PhotoItemLst = new List<PhotoItem>();
                 this.DocItemLst = new List<DocItem>();
                 this.HiddenPhotoLst = new List<ChildHideFile>(hiddenFiles);
+                this.Userpic = new DocItem();
                 string photoLocation = Path.Combine(ConfigurationManager.AppSettings["PhotoLocation"], this.GuidId.ToString());
                 string photoUrl = Path.Combine(ConfigurationManager.AppSettings["PhotoUrl"], this.GuidId.ToString());
                 string docsLocation = photoLocation.Replace("Upload", "Documents");
                 string docsUrl = photoUrl.Replace("Upload", "Documents");
+                string userpicLocation = photoLocation.Replace("Upload", "Userpics");
+                string userpicUrl = photoUrl.Replace("Upload", "Userpics");
 
                 //Галлерея
                 if (Directory.Exists(photoLocation))
@@ -49,6 +53,18 @@ namespace Cure.WebSite.Models
                         this.DocItemLst.Add(new DocItem(docsUrl, fileInfo.Name));
                     }
                 }
+
+                //Юзерпики
+                if (Directory.Exists(userpicLocation))
+                {
+                    var dirInfo = new DirectoryInfo(userpicLocation);
+                    FileInfo[] fileInfoArray = dirInfo.GetFiles();
+
+                    foreach (FileInfo fileInfo in fileInfoArray)
+                    {
+                        this.Userpic = new DocItem(userpicUrl, fileInfo.Name);
+                    }
+                }
             }
         }
 
@@ -69,6 +85,17 @@ namespace Cure.WebSite.Models
             if (Directory.Exists(docsLocation))
             {
                 string filePath = Path.Combine(docsLocation, fileName);
+                Utils.FileUtils.DeleteFileFromSubfolders(filePath);
+            }
+        }
+
+        public void DeleteUserpic(string fileName)
+        {
+            string photoLocation = Path.Combine(ConfigurationManager.AppSettings["PhotoLocation"], this.GuidId.ToString());
+            string userpicLocation = photoLocation.Replace("Upload", "Userpics");
+            if (Directory.Exists(userpicLocation))
+            {
+                string filePath = Path.Combine(userpicLocation, fileName);
                 Utils.FileUtils.DeleteFileFromSubfolders(filePath);
             }
         }

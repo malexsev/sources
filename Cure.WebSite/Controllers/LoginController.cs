@@ -18,22 +18,23 @@ namespace Cure.WebSite.Controllers
 
         public ActionResult Logout()
         {
+            Session.Abandon();
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]
-        public JsonResult ChangePass(string currentpass, string newpass, string newpasstwice)
+        public JsonResult ChangePass(string currentpass, string regpass, string passtwice)
         {
             string loginname = SiteUtils.GetCurrentUserName();
             if (!string.IsNullOrEmpty(loginname))
             {
                 var user = Membership.GetUser(loginname);
-                if (user != null && user.ChangePassword(currentpass, newpass))
+                if (user != null && user.ChangePassword(currentpass, regpass))
                 {
-
-                    var notificationToUser = new ChangedPassToUserEmailNotification(loginname, newpass);
+                    var notificationToUser = new ChangedPassToUserEmailNotification(loginname, regpass);
                     notificationToUser.Send();
+                    return Json("1", JsonRequestBehavior.AllowGet);
                 }
             }
             return Json("0", JsonRequestBehavior.AllowGet);
@@ -45,6 +46,7 @@ namespace Cure.WebSite.Controllers
             bool isValid = IsValid(loginname, loginpass);
             if (isValid)
             {
+                Session.Abandon();
                 ActivateUser(loginname);
                 FormsAuthentication.SetAuthCookie(loginname, false);
                 return Json("1", JsonRequestBehavior.AllowGet);
@@ -93,6 +95,7 @@ namespace Cure.WebSite.Controllers
         {
             var dal = new DataAccessBL();
             var user = dal.GetUserMembership(login);
+            Session["UserpicUrl"] = null;
             if (user != null)
             {
                 return Membership.ValidateUser(login, password);

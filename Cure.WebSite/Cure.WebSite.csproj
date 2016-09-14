@@ -352,6 +352,8 @@
     <Content Include="Views\Preorder\Index.cshtml" />
     <Content Include="Views\Preorder\Registration.cshtml" />
     <Content Include="Views\Shared\_AccountChangePass.cshtml" />
+    <Content Include="Views\Shared\_AccountChangeEmail.cshtml" />
+    <Content Include="Views\Shared\_AccountChangePhone.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

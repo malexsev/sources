@@ -1,7 +1,8 @@
-﻿@using (Html.BeginForm("Login", "Login", FormMethod.Post, new { 
-                                                                @id = "formLogin", 
-                                                                @class = "registr-form js-login-validate" 
-                                                                }))
+﻿@using (Html.BeginForm("Login", "Login", FormMethod.Post, new
+{
+    @id = "formLogin",
+    @class = "registr-form js-login-validate"
+}))
 {
     @Html.Hidden("RedirectTo", Url.Action("MyPage", "Cabinet"));
     <div class="forms-line">
@@ -29,6 +30,8 @@
     </div>
     <div class="forms-line txt-center">
         <input id="submit-login" class="btn btn-orang registr-submit" type="submit" value="ВОЙТИ">
+        <div id="loginprogress">
+        </div>
     </div>
     <div id="error-login" class="form-errors"></div>
     <div class="forms-line txt-center">

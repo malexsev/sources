@@ -27,11 +27,16 @@
 
                             <ul class="order-steps-nav js-order-tabs">
                                 <!-- пройденные этапы: a class="js-tabs-link checked" -->
-                                <li><a id="steps-link-1" class="js-tabs-link @Html.Raw(Model.NewOrder.Name == "1" ? "active" : "disabled")" data-tab="order-step-1" role="button">Клиника и период лечения</a></li>
-                                <li><a id="steps-link-2" class="js-tabs-link @Html.Raw(Model.NewOrder.Name == "2" ? "active" : "disabled")" data-tab="order-step-2" role="button">Персональные данные</a></li>
-                                <li><a id="steps-link-3" class="js-tabs-link @Html.Raw(Model.NewOrder.Name == "3" ? "active" : "disabled")" data-tab="order-step-3" role="button">Медицинские данные</a></li>
-                                <li><a id="steps-link-4" class="js-tabs-link @Html.Raw(Model.NewOrder.Name == "4" ? "active" : "disabled")" data-tab="order-step-4" role="button">Состояние и навыки</a></li>
-                                <li><a id="steps-link-5" class="js-tabs-link @Html.Raw(Model.NewOrder.Name == "5" ? "active" : "disabled")" data-tab="order-step-5" role="button">Отправка заявки</a></li>
+                                <li><a id="steps-link-1" class="js-tabs-link btn-back @Html.Raw(Model.NewOrder.Name == "1" ? "active" : (int.Parse(Model.NewOrder.Name) > 1 ? "" : "disabled"))" 
+                                       data-move-to="@Html.Raw(int.Parse(Model.NewOrder.Name) >= 1 ? "1" : "-1")" data-move-to="1" data-tab="order-step-1" role="button">Клиника и период лечения</a></li>
+                                <li><a id="steps-link-2" class="js-tabs-link btn-back @Html.Raw(Model.NewOrder.Name == "2" ? "active" : (int.Parse(Model.NewOrder.Name) > 2 ? "" : "disabled"))" 
+                                       data-move-to="@Html.Raw(int.Parse(Model.NewOrder.Name) >= 2 ? "2" : "-1")" data-move-to="2" data-tab="order-step-2" role="button">Персональные данные</a></li>
+                                <li><a id="steps-link-3" class="js-tabs-link btn-back @Html.Raw(Model.NewOrder.Name == "3" ? "active" : (int.Parse(Model.NewOrder.Name) > 3 ? "" : "disabled"))" 
+                                       data-move-to="@Html.Raw(int.Parse(Model.NewOrder.Name) >= 3 ? "3" : "-1")" data-move-to="3" data-tab="order-step-3" role="button">Медицинские данные</a></li>
+                                <li><a id="steps-link-4" class="js-tabs-link btn-back @Html.Raw(Model.NewOrder.Name == "4" ? "active" : (int.Parse(Model.NewOrder.Name) > 4 ? "" : "disabled"))" 
+                                       data-move-to="@Html.Raw(int.Parse(Model.NewOrder.Name) >= 4 ? "4" : "-1")" data-move-to="4" data-tab="order-step-4" role="button">Состояние и навыки</a></li>
+                                <li><a id="steps-link-5" class="js-tabs-link btn-back @Html.Raw(Model.NewOrder.Name == "5" ? "active" : (int.Parse(Model.NewOrder.Name) > 5 ? "" : "disabled"))" 
+                                       data-move-to="@Html.Raw(int.Parse(Model.NewOrder.Name) >= 5 ? "5" : "-1")" data-tab="order-step-5" role="button">Отправка заявки</a></li>
                             </ul>
 
                             @Html.Partial("_OrderWizard", Model)

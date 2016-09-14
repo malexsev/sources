@@ -1,0 +1,23 @@
+﻿@using Cure.WebSite.Models
+@using (Html.BeginForm("ChangeEmail", "Login", FormMethod.Post, new
+{
+    @id = "formChangeEmail",
+    @class = "registr-form js-email-change"
+}))
+{
+    <div class="forms-line">
+        <div class="forms-label">Электонная почта*</div>
+        @Html.TextBox("email", ((ChildVisualDetailed)(ViewBag.Profile)).ContactEmail, new
+        {
+            @id = "email",
+            @placeholder = "Введите контактный e-mail адрес",
+            @maxlength = "50",
+            @class = "forms-input"
+        })
+    </div>
+    <div class="forms-line txt-center">
+        <input class="btn btn-orang" type="submit" value="СОХРАНИТЬ">
+        <input class="btn btn-gray" onclick="javascript: $('.popup').hide();" type="button" value="ОТМЕНА">
+    </div>
+    <div id="error-emailchange" class="form-errors"></div>
+}

@@ -1,6 +1,7 @@
 ﻿namespace Cure.Utils
 {
     using System;
+    using System.Collections.Specialized;
     using System.Drawing.Imaging;
     using System.Globalization;
     using System.IO;
@@ -9,12 +10,49 @@
     using System.Web;
     using System.Web.UI;
     using DataAccess;
+    using DataAccess.BLL;
     using DevExpress.XtraPrinting;
     using Reports;
     using Page = System.Web.UI.Page;
 
     public class SiteUtils
     {
+        public static string GetUserUserpic(HttpServerUtilityBase server,
+            HttpSessionStateBase session,
+            string username,
+            string photoLocation,
+            string photoUrl)
+        {
+            if (session["UserpicUrl"] == null && !string.IsNullOrEmpty(username))
+            {
+                var dal = new DataAccessBL();
+                var view = dal.ViewChild(username);
+                if (view != null)
+                {
+                    photoLocation = Path.Combine(photoLocation, view.GuidId.ToString());
+                    photoUrl = Path.Combine(photoUrl, view.GuidId.ToString());
+                    string userpicLocation = photoLocation.Replace("Upload", "Userpics");
+                    string userpicUrl = photoUrl.Replace("Upload", "Userpics");
+
+                    //Юзерпики
+                    if (Directory.Exists(userpicLocation))
+                    {
+                        var dirInfo = new DirectoryInfo(userpicLocation);
+                        FileInfo[] fileInfoArray = dirInfo.GetFiles();
+
+                        foreach (FileInfo fileInfo in fileInfoArray)
+                        {
+                            var result = Path.Combine(userpicUrl, fileInfo.Name);
+                            session["UserpicUrl"] = result;
+                            return result;
+                        }
+                    }
+                }
+            }
+            var res = session["UserpicUrl"] ?? "/content/img/userpics/no_photo_min.jpg";
+            return res.ToString();
+        }
+
         /// <summary>
         /// Возвращает число от 1 до upto, в зависимости от указанного ID
         /// </summary>

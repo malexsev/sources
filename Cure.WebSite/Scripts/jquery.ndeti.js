@@ -221,6 +221,12 @@ $(document).ready(function () {
         $(this).validate({
             focusInvalid: false,
             rules: {
+                birthday: {
+                    required: true
+                },
+                childname: {
+                    required: true
+                },
                 name: {
                     required: true
                 },
@@ -239,7 +245,9 @@ $(document).ready(function () {
                 name: "",
                 mail: "",
                 numb: "",
-                text: ""
+                text: "",
+                birthday: "Дата рождения обязательна",
+                childname: "Введите имя ребёнка"
             },
             errorClass: "input-error",
             highlight: function (element, errorClass, validClass) {
@@ -321,13 +329,57 @@ $(document).ready(function () {
             focusInvalid: false,
             rules: {
                 currentpass: { required: true, minlength: 6 },
-                newpass: { required: true, minlength: 6  },
+                newpass: { required: true, minlength: 6 },
                 newpasstwice: { equalTo: "#newpass" },
             },
             messages: {
                 currentpass: "Ошибка в текущем<br> пароле",
                 newpass: "Слишком короткий<br> пароль",
                 newpasstwice: "Пароли<br> не совпадают"
+            },
+            errorClass: "has-error",
+            highlight: function (element, errorClass) {
+                $(element).parent().addClass(errorClass);
+            },
+            unhighlight: function (element, errorClass) {
+                $(element).parent().removeClass(errorClass);
+            },
+            submitHandler: function (form) {
+            }
+        });
+    });
+
+    /* --- Валидация смены телефона ---------------------------------------------*/
+    $(".js-phone-change").each(function () {
+        $(this).validate({
+            focusInvalid: false,
+            rules: {
+                phone: { maxlength: 12, minlength: 7 },
+            },
+            messages: {
+                phone: "Проверьте введённый телефон"
+            },
+            errorClass: "has-error",
+            highlight: function (element, errorClass) {
+                $(element).parent().addClass(errorClass);
+            },
+            unhighlight: function (element, errorClass) {
+                $(element).parent().removeClass(errorClass);
+            },
+            submitHandler: function (form) {
+            }
+        });
+    });
+
+    /* --- Валидация смены email ---------------------------------------------*/
+    $(".js-email-change").each(function () {
+        $(this).validate({
+            focusInvalid: false,
+            rules: {
+                email: { email: true },
+            },
+            messages: {
+                email: "Введите корректный e-mail адрес"
             },
             errorClass: "has-error",
             highlight: function (element, errorClass) {
@@ -375,7 +427,11 @@ $(document).ready(function () {
                 url: "/Login/Login",
                 type: "POST",
                 data: serializedForm,
+                beforeSend: function () {
+                    $('#loginprogress').html("<img src='/content/img/preloader.gif' />");
+                },
                 success: function (result) {
+                    $('#loginprogress').html("");
                     if (result == "1") {
                         $("#loginname").parent().removeClass("has-error");
                         $("#password").parent().removeClass("has-error");
@@ -387,6 +443,107 @@ $(document).ready(function () {
                         $("#loginname").parent().addClass("has-error");
                         $("#password").parent().addClass("has-error");
                         $("#error-login").show().text("Неверное имя пользователя или пароль");
+                    }
+                },
+                error: function (result) {
+                    $('#loginprogress').html("");
+                    alert(result.responseText);
+                }
+            });
+        }
+        e.preventDefault();
+    });
+
+    /*------------ Изменение пароля ----------------------------*/
+    $("#formChangePass").submit(function (e) {
+        $("#error-passchange").hide();
+        var form = $('#formChangePass');
+        if (form.valid()) {
+            var serializedForm = form.serialize();
+            $.ajax({
+                url: "/Login/ChangePass",
+                type: "POST",
+                data: serializedForm,
+                success: function (result) {
+                    if (result == "1") {
+                        $("#currentpass").parent().removeClass("has-error");
+                        $("#regpass").parent().removeClass("has-error");
+                        $("#passtwice").parent().removeClass("has-error");
+                        $("#currentpass").val("");
+                        $("#regpass").val("");
+                        $("#passtwice").val("");
+                        $("#error-passchange").hide();
+                        $("#error-passchange").show().text("Пароль успешно изменён. Окно закроется автоматически.");
+                        setTimeout(function () { $(".popup").hide(); }, 3000);
+                    } else {
+                        $("#currentpass").parent().addClass("has-error");
+                        $("#error-passchange").show().text("Неверный пароль");
+                    }
+                },
+                error: function (result) {
+                    alert(result.responseText);
+                }
+            });
+        }
+        e.preventDefault();
+    });
+
+    /*------------ Изменение контактного email ----------------------------*/
+    $("#formChangeEmail").submit(function (e) {
+        $("#error-emailchange").hide();
+        var form = $('#formChangeEmail');
+        if (form.valid()) {
+            var serializedForm = form.serialize();
+            $.ajax({
+                url: "/Cabinet/ChangeEmail",
+                type: "POST",
+                data: serializedForm,
+                success: function (result) {
+                    if (result == "1") {
+                        $("#email").parent().removeClass("has-error");
+                        $("#email").val("");
+                        $("#error-emailchange").hide();
+                        $("#error-emailchange").show().text("Email успешно изменён. Окно закроется автоматически.");
+                        setTimeout(function () {
+                            $(".popup").hide();
+                            location.reload();
+                        }, 3000);
+                    } else {
+                        $("#currentpass").parent().addClass("has-error");
+                        $("#error-emailchange").show().text("Ошибка сохранения email.");
+                    }
+                },
+                error: function (result) {
+                    alert(result.responseText);
+                }
+            });
+        }
+        e.preventDefault();
+    });
+
+    /*------------ Изменение контактного телефона ----------------------------*/
+    $("#formChangePhone").submit(function (e) {
+        $("#error-phonechange").hide();
+        var form = $('#formChangePhone');
+        if (form.valid()) {
+            var serializedForm = form.serialize();
+            $.ajax({
+                url: "/Cabinet/ChangePhone",
+                type: "POST",
+                data: serializedForm,
+                success: function (result) {
+                    if (result == "1") {
+                        $("#phone").parent().removeClass("has-error");
+                        $("#phone").val("");
+                        $("#error-phonechange").hide();
+                        $("#error-phonechange").show().text("Телефон успешно изменён. Окно закроется автоматически.");
+                        setTimeout(function () {
+                            $(".popup").hide();
+                            location.reload();
+                        }, 3000);
+                    } else {
+                        $("#phone").parent().addClass("has-error");
+                        $("#error-phonechange").show().text("Ошибка сохранения телефона.");
                     }
                 },
                 error: function (result) {
@@ -407,7 +564,11 @@ $(document).ready(function () {
                 url: "/Login/Register",
                 type: "POST",
                 data: serializedForm,
+                beforeSend: function () {
+                    $('#registerprogress').html("<img src='/content/img/preloader.gif' />");
+                },
                 success: function (result) {
+                    $('#registerprogress').html("");
                     if (result == "1") {
                         $("#regname").parent().removeClass("has-error");
                         $("#regname").val("");
@@ -425,6 +586,7 @@ $(document).ready(function () {
                     }
                 },
                 error: function (result) {
+                    $('#registerprogress').html("");
                     alert(result.responseText);
                 }
             });
@@ -520,7 +682,7 @@ $(document).ready(function () {
                         console.log(err);
                         $('#uploadprogress').html("");
                     }
-                    
+
                 });
             } else {
                 alert("This browser doesn't support HTML5 file uploads!");
@@ -727,6 +889,64 @@ $(document).ready(function () {
             success: function (result) {
                 $(".order-files-list").html(result);
                 console.log(result);
+            },
+            error: function (xhr, status, p3, p4) {
+                var err = "Error " + " " + status + " " + p3 + " " + p4;
+                if (xhr.responseText && xhr.responseText[0] == "{")
+                    err = JSON.parse(xhr.responseText).Message;
+                console.log(err);
+            }
+        });
+    });
+    /*-------------------------Загрузка юзерпика---------------------------*/
+    $('#fileUserpicUpload').on('change', function (e) {
+        var files = e.target.files;
+        if (files.length > 0) {
+            if (window.FormData !== undefined) {
+                var data = new FormData();
+                for (var x = 0; x < files.length; x++) {
+                    data.append(files[x].name, files[x]);
+                }
+
+                $.ajax({
+                    type: "POST",
+                    url: '/Cabinet/UploadUserpic',
+                    contentType: false,
+                    processData: false,
+                    data: data,
+                    beforeSend: function () {
+                        $('#uploadprogress').html("<img src='/content/img/preloader.gif' />");
+                    },
+                    success: function (result) {
+                        $("#error-settings").removeClass("form-errors");
+                        console.log(result);
+                        $('#uploadprogress').html("");
+                        location.reload();
+                    },
+                    error: function (xhr, status, p3, p4) {
+                        var err = "Error " + " " + status + " " + p3 + " " + p4;
+                        if (xhr.responseText && xhr.responseText[0] == "{")
+                            err = JSON.parse(xhr.responseText).Message;
+                        console.log(err);
+                        $('#uploadprogress').html("");
+                    }
+
+                });
+            } else {
+                alert("This browser doesn't support HTML5 file uploads!");
+            }
+        }
+        e.preventDefault();
+    });
+    /*------------ Удаление юзерпика ----------------------------*/
+    $(document).on('click', '.userpic-del', function () {
+        $.ajax({
+            type: "POST",
+            url: '/Cabinet/RemoveUserpic',
+            datatype: "text",
+            success: function (result) {
+                console.log(result);
+                location.reload();
             },
             error: function (xhr, status, p3, p4) {
                 var err = "Error " + " " + status + " " + p3 + " " + p4;
@@ -1069,11 +1289,13 @@ $(document).ready(function () {
         e.preventDefault();
     });
 
-    /*------------ Вернуться на шаг назад ----------------------------*/
+    /*------------ Мастер заявки - Вернуться на шаг назад ----------------------------*/
     $(document).on('click', ".btn-back", function () {
         var stepId = $(this).data("move-to");
-        $("#error-step" + stepId).hide();
-        setOrderStep(stepId);
+        if (stepId > 0) {
+            $("#error-step" + stepId).hide();
+            setOrderStep(stepId);
+        }
     });
 
     function setOrderStep(index) {
@@ -1173,6 +1395,19 @@ $(document).ready(function () {
     $(".popup-close, .popup-modal, .js-close-popup").click(function () {
         $(".popup").hide();
         $("body").removeClass("cutted");
+    });
+
+    /*--- Включение режима Изменить ---------------------------------------------------*/
+    $(".js-enable-edit").click(function () {
+        var popId = "#" + $(this).data("pop"),
+            scrollCorr = 0;
+        alert(popId);
+    });
+
+    /*--- Копировать содержимое контрола в буфер обмена ---------------------------------------------------*/
+    $(".js-copy-clipboard").click(function () {
+        var text = $(this).data("text");
+        window.prompt("Для кипирования в буфер обмена нажмите Ctrl+C, Enter", text);
     });
 
 
