@@ -33,7 +33,7 @@ namespace Cure.WebSite.Controllers
             var child = dal.ViewChild(User.Identity.Name);
             ViewBag.Countries = dal.GetRefCountries();
             ViewBag.Rodstvos = dal.GetRefRodstvo();
-            ViewBag.Operators = dal.GetRefOperators(child.CountryId);
+            ViewBag.Operators = dal.GetRefOperators();
             ViewBag.CountryBanks = dal.GetRefBanks(child.FinCountryId ?? child.CountryId);
             ViewBag.Vipiskas = dal.GetMyVipiskas(User.Identity.Name).Select(x => new VisitResultViewModel(x));
 
@@ -680,7 +680,7 @@ namespace Cure.WebSite.Controllers
             var child = dal.ViewChild(User.Identity.Name);
             ViewBag.Countries = dal.GetRefCountries();
             ViewBag.Rodstvos = dal.GetRefRodstvo();
-            ViewBag.Operators = dal.GetRefOperators(child.CountryId);
+            ViewBag.Operators = dal.GetRefOperators();
             ViewBag.CountryBanks = dal.GetRefBanks(child.FinCountryId ?? child.CountryId);
             ViewBag.Vipiskas = dal.GetMyVipiskas(User.Identity.Name).Select(x => new VisitResultViewModel(x));
 

@@ -119,16 +119,11 @@
                     </PropertiesTextEdit>
                     <editformsettings visible="True" />
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Банк другой" FieldName="FinBankOther" Visible="False" VisibleIndex="42">
+                <%--<dx:GridViewDataTextColumn Caption="Номер карточки банка" FieldName="FinCardNumber" Visible="False" VisibleIndex="44">
                     <PropertiesTextEdit MaxLength="50">
                     </PropertiesTextEdit>
                     <editformsettings visible="True" />
-                </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Номер карточки банка" FieldName="FinCardNumber" Visible="False" VisibleIndex="44">
-                    <PropertiesTextEdit MaxLength="50">
-                    </PropertiesTextEdit>
-                    <editformsettings visible="True" />
-                </dx:GridViewDataTextColumn>
+                </dx:GridViewDataTextColumn>--%>
                 <dx:GridViewDataComboBoxColumn Caption="Страна" FieldName="CountryId" VisibleIndex="6">
                     <PropertiesComboBox DataSourceID="uxCountryDataSource" TextField="Name" ValueField="Id" ValueType="System.Int32">
                         <validationsettings>
@@ -151,12 +146,12 @@
                     </PropertiesComboBox>
                     <EditFormSettings Visible="True" />
                 </dx:GridViewDataComboBoxColumn>
-                <dx:GridViewDataComboBoxColumn Caption="Банк" FieldName="FinBankId" Visible="False" VisibleIndex="41">
+                <%--<dx:GridViewDataComboBoxColumn Caption="Банк" FieldName="FinBankId" Visible="False" VisibleIndex="41">
                     <PropertiesComboBox DataSourceID="uxBankDataSource" TextField="Name" ValueField="Id" ValueType="System.Int32">
                     </PropertiesComboBox>
                     <EditFormSettings Visible="True" />
-                </dx:GridViewDataComboBoxColumn>
-                <dx:GridViewDataTextColumn Caption="GuidId" FieldName="GuidId" Visible="False" VisibleIndex="43">
+                </dx:GridViewDataComboBoxColumn>--%>
+                <dx:GridViewDataTextColumn Caption="GuidId" FieldName="GuidId" Visible="False" VisibleIndex="44">
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataComboBoxColumn Caption="Группа диагноза" FieldName="DiagnozId" VisibleIndex="5">
                     <PropertiesComboBox DataSourceID="uxDiagnozDataSource" TextField="Name" ValueField="Id" ValueType="System.Int32">
@@ -180,12 +175,12 @@
                     </PropertiesTextEdit>
                     <EditFormSettings Visible="True" />
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Имя на карточке" FieldName="FinCardName" Visible="False" VisibleIndex="45">
+                <%--<dx:GridViewDataTextColumn Caption="Имя на карточке" FieldName="FinCardName" Visible="False" VisibleIndex="45">
                     <PropertiesTextEdit MaxLength="50">
                     </PropertiesTextEdit>
                     <EditFormSettings Visible="True" />
-                </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Док" VisibleIndex="65" Width="25px">
+                </dx:GridViewDataTextColumn>--%>
+                <dx:GridViewDataTextColumn Caption="Док" VisibleIndex="66" Width="25px">
                     <EditFormSettings Visible="False" />
                     <DataItemTemplate>
                         <a onclick="javascript:OpenDocs('<%# Container.KeyValue %>');" class="hyperlink" style="color: #27408b">
@@ -228,6 +223,11 @@
                     </PropertiesComboBox>
                     <EditFormSettings Visible="True" />
                 </dx:GridViewDataComboBoxColumn>
+                <dx:GridViewDataMemoColumn Caption="Банковские реквизиты" FieldName="FinBankOther" Visible="False" VisibleIndex="43">
+                    <PropertiesMemoEdit Columns="2" MaxLength="500" Rows="7">
+                    </PropertiesMemoEdit>
+                    <EditFormSettings ColumnSpan="2" Visible="True" />
+                </dx:GridViewDataMemoColumn>
             </Columns>
             <SettingsEditing Mode="PopupEditForm" EditFormColumnCount="1">
             </SettingsEditing>

@@ -75,7 +75,7 @@
 
                         <section class="child-aside-info mob-accordion js-mob-accordion">
                             <h3 class="info-head js-mob-accordion-btn">Финансовая помощь</h3>
-                            @if (!string.IsNullOrEmpty(Model.FinWebMoneyString) || !string.IsNullOrEmpty(Model.OperatorName) || !string.IsNullOrEmpty(Model.Operator2Name) || !string.IsNullOrEmpty(Model.Operator3Name) || !string.IsNullOrEmpty(Model.Operator4Name) || !string.IsNullOrEmpty(Model.FinCardNumber))
+                            @if (!string.IsNullOrEmpty(Model.FinWebMoneyString) || !string.IsNullOrEmpty(Model.OperatorName) || !string.IsNullOrEmpty(Model.Operator2Name) || !string.IsNullOrEmpty(Model.Operator3Name) || !string.IsNullOrEmpty(Model.Operator4Name) || !string.IsNullOrEmpty(Model.FinBankOther))
                             {
                                 <div class="info-body js-mob-accordion-body">
                                     <div class="child-info-money">
@@ -129,13 +129,16 @@
                                                 <div class="money-acc-numb">@Model.FinPhoneNumber4</div>
                                             </div>
                                         }
-                                        @if (!string.IsNullOrEmpty(Model.FinCardNumber))
+                                        @if (!string.IsNullOrEmpty(Model.FinBankOther))
                                         {
-                                            <div class="money-card">
-                                                <div class="money-card-title">Карта @Model.BankName</div>
-                                                <div class="money-card-numb">@Model.FinCardNumber</div>
-                                                <div class="money-card-name">@Model.FinCardName</div>
+                                            <div class="money-account">
+                                                @Html.Raw(Model.FinBankOther.Replace("\n", "<br/>"))
                                             </div>
+                                            @*<div class="money-card">
+                                                    <div class="money-card-title">Карта @Model.BankName</div>
+                                                    <div class="money-card-numb">@Model.FinCardNumber</div>
+                                                    <div class="money-card-name">@Model.FinCardName</div>
+                                                </div>*@
                                         }
 
                                     </div>
@@ -508,15 +511,13 @@
                                 <div class="child-tab-gallery">
                                     @if (Model.DocItemLst.Any(x => Model.HiddenPhotoLst.All(h => h.FileName != Path.GetFileName(x.UrlOriginal))))
                                     {
-                                        <div class="child-tabs-tab js-tabs-item" id="child-tab-4">
-                                            <div class="child-tab-slider">
-                                                <div class="slider-light">
-                                                    <div class="all-pages-slider js-allpages-slider js-tab-slider">
-                                                        @foreach (var doc in Model.DocItemLst.Where(x => Model.HiddenPhotoLst.All(h => h.FileName != Path.GetFileName(x.UrlOriginal))))
-                                                        {
-                                                            <div class="slide"><img src="@doc.UrlOriginal" alt="__"></div>
-                                                        }
-                                                    </div>
+                                        <div class="child-tab-slider">
+                                            <div class="slider-light">
+                                                <div class="all-pages-slider js-allpages-slider js-tab-slider">
+                                                    @foreach (var doc in Model.DocItemLst.Where(x => Model.HiddenPhotoLst.All(h => h.FileName != Path.GetFileName(x.UrlOriginal))))
+                                                    {
+                                                        <div class="slide"><img src="@doc.UrlOriginal" alt="@Model.Name"></div>
+                                                    }
                                                 </div>
                                             </div>
                                         </div>

@@ -77,7 +77,7 @@
     <Property Name="FinPhoneNumber3" Type="nvarchar" MaxLength="50" />
     <Property Name="FinOperator4Id" Type="int" />
     <Property Name="FinPhoneNumber4" Type="nvarchar" MaxLength="50" />
-    <Property Name="FinBankOther" Type="nvarchar" MaxLength="50" />
+    <Property Name="FinBankOther" Type="nvarchar" MaxLength="500" />
     <Property Name="FinCardNumber" Type="nvarchar" MaxLength="50" />
     <Property Name="FinCardName" Type="nvarchar" MaxLength="50" />
   </EntityType>
@@ -270,7 +270,6 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="CountryId" Type="int" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Description" Type="nvarchar" MaxLength="250" />
     <Property Name="Params" Type="nvarchar" MaxLength="250" />
@@ -442,17 +441,6 @@ warning 6002: The table/view 'Cure.dbo.ViewChild' does not have a primary key de
   <EntityType Name="ViewChild">
     <Key>
       <PropertyRef Name="Id" />
-      <PropertyRef Name="GuidId" />
-      <PropertyRef Name="OwnerUser" />
-      <PropertyRef Name="IsActive" />
-      <PropertyRef Name="Name" />
-      <PropertyRef Name="Birthday" />
-      <PropertyRef Name="CountryId" />
-      <PropertyRef Name="ContactName" />
-      <PropertyRef Name="ContactRodstvoId" />
-      <PropertyRef Name="ContactEmail" />
-      <PropertyRef Name="DiagnozId" />
-      <PropertyRef Name="DiagnozName" />
     </Key>
     <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="GuidId" Type="uniqueidentifier" Nullable="false" />
@@ -478,7 +466,7 @@ warning 6002: The table/view 'Cure.dbo.ViewChild' does not have a primary key de
     <Property Name="FinPhoneNumber" Type="nvarchar" MaxLength="50" />
     <Property Name="FinCountryId" Type="int" />
     <Property Name="FinBankId" Type="int" />
-    <Property Name="FinBankOther" Type="nvarchar" MaxLength="50" />
+    <Property Name="FinBankOther" Type="nvarchar" MaxLength="500" />
     <Property Name="FinCardNumber" Type="nvarchar" MaxLength="50" />
     <Property Name="CountryName" Type="nvarchar" MaxLength="50" />
     <Property Name="UserLoweredUserName" Type="nvarchar" MaxLength="256" />
@@ -506,7 +494,6 @@ warning 6002: The table/view 'Cure.dbo.ViewChild' does not have a primary key de
     <Property Name="OperatorName" Type="nvarchar" MaxLength="50" />
     <Property Name="OperatorDescription" Type="nvarchar" MaxLength="250" />
     <Property Name="OperatorParams" Type="nvarchar" MaxLength="250" />
-    <Property Name="OperatorCountryName" Type="nvarchar" MaxLength="50" />
     <Property Name="BankCountryName" Type="nvarchar" MaxLength="50" />
     <Property Name="FinCountryName" Type="nvarchar" MaxLength="50" />
     <Property Name="DiagnozId" Type="int" Nullable="false" />
@@ -975,18 +962,6 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_RefOperator_RefCountry">
-    <End Role="RefCountry" Type="Self.RefCountry" Multiplicity="1" />
-    <End Role="RefOperator" Type="Self.RefOperator" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="RefCountry">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="RefOperator">
-        <PropertyRef Name="CountryId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Sputnik_Order">
     <End Role="Order" Type="Self.Order" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
@@ -1188,7 +1163,6 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
 [ViewChild].[OperatorName] AS [OperatorName], 
 [ViewChild].[OperatorDescription] AS [OperatorDescription], 
 [ViewChild].[OperatorParams] AS [OperatorParams], 
-[ViewChild].[OperatorCountryName] AS [OperatorCountryName], 
 [ViewChild].[BankCountryName] AS [BankCountryName], 
 [ViewChild].[FinCountryName] AS [FinCountryName], 
 [ViewChild].[DiagnozId] AS [DiagnozId], 
@@ -1478,10 +1452,6 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
     <AssociationSet Name="FK_RefBank_RefCountry" Association="Self.FK_RefBank_RefCountry">
       <End Role="RefCountry" EntitySet="RefCountry" />
       <End Role="RefBank" EntitySet="RefBank" />
-    </AssociationSet>
-    <AssociationSet Name="FK_RefOperator_RefCountry" Association="Self.FK_RefOperator_RefCountry">
-      <End Role="RefCountry" EntitySet="RefCountry" />
-      <End Role="RefOperator" EntitySet="RefOperator" />
     </AssociationSet>
     <AssociationSet Name="FK_Sputnik_Order" Association="Self.FK_Sputnik_Order">
       <End Role="Order" EntitySet="Order" />

@@ -223,7 +223,7 @@
             @class = "forms-input"
         })
     </div>
-    <div class="forms-title">Банковская карта</div>
+    @*<div class="forms-title">Банковская карта</div>
     <div class="forms-line">
         <div class="forms-label">Страна</div>
         <div class="selector forms-selector" id="fincountries">
@@ -250,18 +250,19 @@
                 }
             </ul>
         </div>
-    </div>
+    </div>*@
     <div class="forms-line">
-        <div class="forms-label">Название банка</div>
-        @Html.TextBox("bankother", ((ChildVisualDetailed)(ViewBag.Profile)).FinBankOther, new
+        <div class="forms-label">Банковские реквизиты</div>
+        @Html.TextArea("bankother", ((ChildVisualDetailed)(ViewBag.Profile)).FinBankOther, new
         {
             @id = "bankother",
-            @placeholder = "Введите название банка",
-            @maxlength = "50",
+            @placeholder = "Введите необходимые для перевода средств реквизиты",
+            @maxlength = "500",
+            @rows = "15",
             @class = "forms-input"
         })
     </div>
-    <div class="forms-line">
+    @*<div class="forms-line">
         <div class="forms-label">Номер карты</div>
         @Html.TextBox("cardnumber", ((ChildVisualDetailed)(ViewBag.Profile)).FinCardNumber, new
         {
@@ -280,9 +281,11 @@
             @maxlength = "50",
             @class = "forms-input"
         })
-    </div>
+    </div>*@
     <div class="forms-line top-30">
         <input class="btn btn-orang" type="submit" value="Сохранить">
+    </div>
+    <div id="uploadprogress4">
     </div>
     <div id="error-tab4" class="form-errors"></div>
 }

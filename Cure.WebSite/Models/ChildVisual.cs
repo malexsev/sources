@@ -109,7 +109,6 @@ namespace Cure.WebSite.Models
                 this.Id = child.Id;
                 this.IsActive = child.IsActive;
                 this.Name = child.Name;
-                this.OperatorCountryName = child.OperatorCountryName;
                 this.OperatorDescription = child.OperatorDescription;
                 this.OperatorName = child.OperatorName;
                 this.OperatorParams = child.OperatorParams;

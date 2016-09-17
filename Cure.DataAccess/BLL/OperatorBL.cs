@@ -10,11 +10,6 @@
             return dataRepository.GetRefOperators();
         }
 
-        public IEnumerable<RefOperator> GetRefOperators(int countryId)
-        {
-            return dataRepository.GetRefOperators(countryId);
-        }
-
         public void InsertRefOperator(RefOperator refOperator)
         {
             try

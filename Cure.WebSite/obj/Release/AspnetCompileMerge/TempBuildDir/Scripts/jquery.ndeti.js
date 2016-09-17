@@ -144,27 +144,27 @@ $(document).ready(function () {
         $("#skiprecords").val(0);
         $('form#childrenform').submit();
     });
-    $(document).on('click', "#fincountries li", function () {
-        var serializedForm = $('#formChildTab4').serialize();
-        $.ajax({
-            url: "/Cabinet/RefreshBanks",
-            type: "POST",
-            data: serializedForm,
-            success: function (data) {
-                refreshBanks(data);
-            },
-            error: function (result) {
-                alert(result.responseText);
-            }
-        });
-    });
-    function refreshBanks(banks) {
-        $("#finbanks").html("");
-        $("#finbanktext").text("");
-        $.each(banks, function (i) {
-            $("#finbanks").append("<li data-val='" + this.Id + "'>" + this.Name + "</li>");
-        });
-    }
+    //$(document).on('click', "#fincountries li", function () {
+    //    var serializedForm = $('#formChildTab4').serialize();
+    //    $.ajax({
+    //        url: "/Cabinet/RefreshBanks",
+    //        type: "POST",
+    //        data: serializedForm,
+    //        success: function (data) {
+    //            refreshBanks(data);
+    //        },
+    //        error: function (result) {
+    //            alert(result.responseText);
+    //        }
+    //    });
+    //});
+    //function refreshBanks(banks) {
+    //    $("#finbanks").html("");
+    //    $("#finbanktext").text("");
+    //    $.each(banks, function (i) {
+    //        $("#finbanks").append("<li data-val='" + this.Id + "'>" + this.Name + "</li>");
+    //    });
+    //}
     //Закрытие списка селектора при клике мимо
     $(document).mouseup(function (e) {
         var selectorList = $('.selector.show-list');
@@ -633,6 +633,9 @@ $(document).ready(function () {
                 url: "/Cabinet/SaveTab1",
                 type: "POST",
                 data: serializedForm,
+                beforeSend: function () {
+                    $('#uploadprogress').html("<img src='/content/img/preloader.gif' />");
+                },
                 success: function (result) {
                     if (result == "1") {
                         $("#error-tab1").removeClass("form-errors");
@@ -641,8 +644,10 @@ $(document).ready(function () {
                         $("#error-tab1").addClass("form-errors");
                         $("#error-tab1").show().text("Ошибка при сохранении данных, проверьте данные и попробуйте снова.");
                     }
+                    $('#uploadprogress').html("");
                 },
                 error: function (result) {
+                    $('#uploadprogress').html("");
                     alert(result.responseText);
                 }
             });
@@ -671,7 +676,7 @@ $(document).ready(function () {
                     },
                     success: function (result) {
                         $("#error-tab1").removeClass("form-errors");
-                        $("#error-tab1").show().text("Файл загружен. Обновите страницу для просмотра.");
+                        $("#error-tab1").show().text("Файл загружен.");
                         console.log(result);
                         $('#uploadprogress').html("");
                     },
@@ -701,16 +706,21 @@ $(document).ready(function () {
                 url: "/Cabinet/SaveTab2",
                 type: "POST",
                 data: serializedForm,
+                beforeSend: function () {
+                    $('#uploadprogress2').html("<img src='/content/img/preloader.gif' />");
+                },
                 success: function (result) {
                     if (result == "1") {
                         $("#error-tab2").removeClass("form-errors");
-                        $("#error-tab2").show().text("Данные сохранены, обновите страницу.");
+                        $("#error-tab2").show().text("Данные сохранены.");
                     } else {
                         $("#error-tab2").addClass("form-errors");
                         $("#error-tab2").show().text("Ошибка при сохранении данных, проверьте данные и попробуйте снова.");
                     }
+                    $('#uploadprogress2').html("");
                 },
                 error: function (result) {
+                    $('#uploadprogress2').html("");
                     alert(result.responseText);
                 }
             });
@@ -728,6 +738,9 @@ $(document).ready(function () {
                 url: "/Cabinet/SaveTab3",
                 type: "POST",
                 data: serializedForm,
+                beforeSend: function () {
+                    $('#uploadprogress3').html("<img src='/content/img/preloader.gif' />");
+                },
                 success: function (result) {
                     if (result == "1") {
                         $("#error-tab3").removeClass("form-errors");
@@ -736,8 +749,10 @@ $(document).ready(function () {
                         $("#error-tab3").addClass("form-errors");
                         $("#error-tab3").show().text("Ошибка при сохранении данных, проверьте данные и попробуйте снова.");
                     }
+                    $('#uploadprogress3').html("");
                 },
                 error: function (result) {
+                    $('#uploadprogress3').html("");
                     alert(result.responseText);
                 }
             });
@@ -755,6 +770,9 @@ $(document).ready(function () {
                 url: "/Cabinet/SaveTab4",
                 type: "POST",
                 data: serializedForm,
+                beforeSend: function () {
+                    $('#uploadprogress4').html("<img src='/content/img/preloader.gif' />");
+                },
                 success: function (result) {
                     if (result == "1") {
                         $("#error-tab4").removeClass("form-errors");
@@ -763,8 +781,10 @@ $(document).ready(function () {
                         $("#error-tab4").addClass("form-errors");
                         $("#error-tab4").show().text("Ошибка при сохранении данных, проверьте данные и попробуйте снова.");
                     }
+                        $('#uploadprogress4').html("");
                 },
                 error: function (result) {
+                    $('#uploadprogress4').html("");
                     alert(result.responseText);
                 }
             });
@@ -1395,6 +1415,10 @@ $(document).ready(function () {
     $(".popup-close, .popup-modal, .js-close-popup").click(function () {
         $(".popup").hide();
         $("body").removeClass("cutted");
+        var isReload = $(this).data("reload");
+        if (isReload == true) {
+            location.reload();
+        }
     });
 
     /*--- Включение режима Изменить ---------------------------------------------------*/

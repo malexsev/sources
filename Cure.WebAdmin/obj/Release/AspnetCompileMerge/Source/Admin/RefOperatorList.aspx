@@ -21,15 +21,15 @@
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn FieldName="Description" VisibleIndex="2" Caption="Описание">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn FieldName="Params" VisibleIndex="4" Caption="Параметры">
+                <dx:GridViewDataTextColumn FieldName="Params" VisibleIndex="4" Caption="Файл логотипа">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataComboBoxColumn Caption="Страна" FieldName="CountryId" VisibleIndex="3" Width="150px">
+<%--                <dx:GridViewDataComboBoxColumn Caption="Страна" FieldName="CountryId" VisibleIndex="3" Width="150px">
                     <PropertiesComboBox DataSourceID="uxCountryDataSource" TextField="Name" ValueField="Id" ValueType="System.Int32">
                         <ValidationSettings>
                             <RequiredField IsRequired="True" />
                         </ValidationSettings>
                     </PropertiesComboBox>
-                </dx:GridViewDataComboBoxColumn>
+                </dx:GridViewDataComboBoxColumn>--%>
             </Columns>
             <SettingsEditing Mode="PopupEditForm" EditFormColumnCount="1">
             </SettingsEditing>

@@ -13,11 +13,6 @@ namespace Cure.DataAccess.DAL
             return context.RefOperators.OrderByDescending(o => o.Name).ToList();
         }
 
-        public IEnumerable<RefOperator> GetRefOperators(int countryId)
-        {
-            return context.RefOperators.Where(o => o.CountryId == countryId).OrderByDescending(o => o.Name).ToList();
-        }
-
         public RefOperator GetRefOperator(int id)
         {
             return context.RefOperators.FirstOrDefault(o => o.Id == id);

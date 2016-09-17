@@ -70,7 +70,6 @@ namespace Cure.DataAccess.DAL
         void UpdateRefBank(RefBank refBank);
 
         IEnumerable<RefOperator> GetRefOperators();
-        IEnumerable<RefOperator> GetRefOperators(int countryId);
         void InsertRefOperator(RefOperator refOperator);
         void DeleteRefOperator(RefOperator refOperator);
         void UpdateRefOperator(RefOperator refOperator);
