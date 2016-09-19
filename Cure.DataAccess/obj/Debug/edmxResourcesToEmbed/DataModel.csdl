@@ -145,6 +145,11 @@
       <End Role="Child" EntitySet="Children" />
     </AssociationSet>
     <EntitySet Name="ViewChilds" EntityType="DataModel.ViewChild" />
+    <EntitySet Name="Mensions" EntityType="DataModel.Mension" />
+    <AssociationSet Name="FK_Mension_Department" Association="DataModel.FK_Mension_Department">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="Mension" EntitySet="Mensions" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="OrderStatu">
     <Key>
@@ -290,6 +295,7 @@
     <NavigationProperty Name="StopVisits" Relationship="DataModel.FK_StopVisit_Department" FromRole="Department" ToRole="StopVisit" />
     <NavigationProperty Name="Orders" Relationship="DataModel.FK_Order_Department" FromRole="Department" ToRole="Order" />
     <NavigationProperty Name="DepartmentStops" Relationship="DataModel.FK_DepartmentStop_Department" FromRole="Department" ToRole="DepartmentStop" />
+    <NavigationProperty Name="Mensions" Relationship="DataModel.FK_Mension_Department" FromRole="Department" ToRole="Mension" />
   </EntityType>
   <Association Name="FK_Department_Department">
     <End Type="DataModel.Department" Role="Department" Multiplicity="0..1" />
@@ -1280,4 +1286,32 @@
     <Property Name="Operator4Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="Operator4Params" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
   </EntityType>
+  <EntityType Name="Mension">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DepartmentId" Type="Int32" />
+    <Property Name="OwnerUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CopySubject" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CopyUserName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CopyUserLocation" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="SortOrder" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="Department" Relationship="DataModel.FK_Mension_Department" FromRole="Mension" ToRole="Department" />
+  </EntityType>
+  <Association Name="FK_Mension_Department">
+    <End Type="DataModel.Department" Role="Department" Multiplicity="0..1" />
+    <End Type="DataModel.Mension" Role="Mension" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mension">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

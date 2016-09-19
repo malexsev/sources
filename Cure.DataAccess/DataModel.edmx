@@ -150,6 +150,21 @@
           <Property Name="CreateUser" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="CreateDate" Type="datetime" Nullable="false" />
         </EntityType>
+        <EntityType Name="Mension">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DepartmentId" Type="int" />
+          <Property Name="OwnerUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="Text" Type="text" />
+          <Property Name="CopySubject" Type="nvarchar" MaxLength="250" />
+          <Property Name="CopyUserName" Type="nvarchar" MaxLength="250" />
+          <Property Name="CopyUserLocation" Type="nvarchar" MaxLength="250" />
+          <Property Name="SortOrder" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
         <EntityType Name="NotificationLog">
           <Key>
             <PropertyRef Name="Id" />
@@ -446,6 +461,17 @@ warning 6002: The table/view 'Cure.dbo.ViewChild' does not have a primary key de
         <EntityType Name="ViewChild">
           <Key>
             <PropertyRef Name="Id" />
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="GuidId" Type="uniqueidentifier" Nullable="false" />
@@ -944,6 +970,18 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Mension_Department">
+          <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+          <End Role="Mension" Type="Self.Mension" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Mension">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Order_Department">
           <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
           <End Role="Order" Type="Self.Order" Multiplicity="*" />
@@ -1124,6 +1162,7 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
           <EntitySet Name="ChildHideFile" EntityType="Self.ChildHideFile" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DepartmentStop" EntityType="Self.DepartmentStop" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mension" EntityType="Self.Mension" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NotificationLog" EntityType="Self.NotificationLog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" Schema="dbo" store:Type="Tables" />
@@ -1469,6 +1508,10 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
             <End Role="Department" EntitySet="Department" />
             <End Role="DepartmentStop" EntitySet="DepartmentStop" />
           </AssociationSet>
+          <AssociationSet Name="FK_Mension_Department" Association="Self.FK_Mension_Department">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="Mension" EntitySet="Mension" />
+          </AssociationSet>
           <AssociationSet Name="FK_Order_Department" Association="Self.FK_Order_Department">
             <End Role="Department" EntitySet="Department" />
             <End Role="Order" EntitySet="Order" />
@@ -1671,6 +1714,11 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
             <End Role="Child" EntitySet="Children" />
           </AssociationSet>
           <EntitySet Name="ViewChilds" EntityType="DataModel.ViewChild" />
+          <EntitySet Name="Mensions" EntityType="DataModel.Mension" />
+          <AssociationSet Name="FK_Mension_Department" Association="DataModel.FK_Mension_Department">
+            <End Role="Department" EntitySet="Departments" />
+            <End Role="Mension" EntitySet="Mensions" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="OrderStatu">
           <Key>
@@ -1816,6 +1864,7 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
           <NavigationProperty Name="StopVisits" Relationship="DataModel.FK_StopVisit_Department" FromRole="Department" ToRole="StopVisit" />
           <NavigationProperty Name="Orders" Relationship="DataModel.FK_Order_Department" FromRole="Department" ToRole="Order" />
           <NavigationProperty Name="DepartmentStops" Relationship="DataModel.FK_DepartmentStop_Department" FromRole="Department" ToRole="DepartmentStop" />
+          <NavigationProperty Name="Mensions" Relationship="DataModel.FK_Mension_Department" FromRole="Department" ToRole="Mension" />
         </EntityType>
         <Association Name="FK_Department_Department">
           <End Type="DataModel.Department" Role="Department" Multiplicity="0..1" />
@@ -2806,6 +2855,34 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
           <Property Name="Operator4Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="Operator4Params" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="Mension">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepartmentId" Type="Int32" />
+          <Property Name="OwnerUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CopySubject" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="CopyUserName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="CopyUserLocation" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="SortOrder" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="Department" Relationship="DataModel.FK_Mension_Department" FromRole="Mension" ToRole="Department" />
+        </EntityType>
+        <Association Name="FK_Mension_Department">
+          <End Type="DataModel.Department" Role="Department" Multiplicity="0..1" />
+          <End Type="DataModel.Mension" Role="Mension" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Mension">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3540,6 +3617,22 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="OwnerUser" ColumnName="OwnerUser" />
                 <ScalarProperty Name="GuidId" ColumnName="GuidId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mensions">
+            <EntityTypeMapping TypeName="DataModel.Mension">
+              <MappingFragment StoreEntitySet="Mension">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+                <ScalarProperty Name="CopyUserLocation" ColumnName="CopyUserLocation" />
+                <ScalarProperty Name="CopyUserName" ColumnName="CopyUserName" />
+                <ScalarProperty Name="CopySubject" ColumnName="CopySubject" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="OwnerUser" ColumnName="OwnerUser" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

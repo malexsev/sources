@@ -211,6 +211,7 @@
     <Content Include="Admin\ChildDocs.aspx" />
     <Content Include="Admin\DepartmentStopList.aspx" />
     <Content Include="Admin\EditVipiska.aspx" />
+    <Content Include="Admin\MensionList.aspx" />
     <Content Include="Admin\StopVisitList.aspx" />
     <Content Include="Admin\RefStopVisitTypeList.aspx" />
     <Content Include="Admin\RefDiagnozList.aspx" />
@@ -542,6 +543,13 @@
     </Compile>
     <Compile Include="Admin\EditVipiska.aspx.designer.cs">
       <DependentUpon>EditVipiska.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\MensionList.aspx.cs">
+      <DependentUpon>MensionList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\MensionList.aspx.designer.cs">
+      <DependentUpon>MensionList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\StopVisitList.aspx.cs">
       <DependentUpon>StopVisitList.aspx</DependentUpon>

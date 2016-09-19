@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="BLL\ChildAvaFileBL.cs" />
     <Compile Include="BLL\ChildHideFileBL.cs" />
+    <Compile Include="BLL\MensionBL.cs" />
     <Compile Include="BLL\VipiskaBL.cs" />
     <Compile Include="BLL\StopVisitBL.cs" />
     <Compile Include="BLL\StopVisitTypeBL.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="BLL\CountryBL.cs" />
     <Compile Include="DAL\ChildAvaFileAccess.cs" />
     <Compile Include="DAL\ChildHideFileAccess.cs" />
+    <Compile Include="DAL\MensionAccess.cs" />
     <Compile Include="DAL\VipiskaAccess.cs" />
     <Compile Include="DAL\StopVisitAccess.cs" />
     <Compile Include="DAL\StopVisitTypeAccess.cs" />

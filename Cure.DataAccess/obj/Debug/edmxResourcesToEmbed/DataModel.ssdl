@@ -145,6 +145,21 @@
     <Property Name="CreateUser" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="CreateDate" Type="datetime" Nullable="false" />
   </EntityType>
+  <EntityType Name="Mension">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DepartmentId" Type="int" />
+    <Property Name="OwnerUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="Text" Type="text" />
+    <Property Name="CopySubject" Type="nvarchar" MaxLength="250" />
+    <Property Name="CopyUserName" Type="nvarchar" MaxLength="250" />
+    <Property Name="CopyUserLocation" Type="nvarchar" MaxLength="250" />
+    <Property Name="SortOrder" Type="int" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
   <EntityType Name="NotificationLog">
     <Key>
       <PropertyRef Name="Id" />
@@ -912,6 +927,18 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Mension_Department">
+    <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+    <End Role="Mension" Type="Self.Mension" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mension">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Order_Department">
     <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
     <End Role="Order" Type="Self.Order" Multiplicity="*" />
@@ -1092,6 +1119,7 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
     <EntitySet Name="ChildHideFile" EntityType="Self.ChildHideFile" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DepartmentStop" EntityType="Self.DepartmentStop" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Mension" EntityType="Self.Mension" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NotificationLog" EntityType="Self.NotificationLog" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" Schema="dbo" store:Type="Tables" />
@@ -1436,6 +1464,10 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
     <AssociationSet Name="FK_DepartmentStop_Department" Association="Self.FK_DepartmentStop_Department">
       <End Role="Department" EntitySet="Department" />
       <End Role="DepartmentStop" EntitySet="DepartmentStop" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mension_Department" Association="Self.FK_Mension_Department">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="Mension" EntitySet="Mension" />
     </AssociationSet>
     <AssociationSet Name="FK_Order_Department" Association="Self.FK_Order_Department">
       <End Role="Department" EntitySet="Department" />

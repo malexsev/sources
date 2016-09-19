@@ -23,8 +23,8 @@
         <EntityTypeShape EntityType="DataModel.SmsLog" Width="1.5" PointX="14.375" PointY="9.375" />
         <EntityTypeShape EntityType="DataModel.NotificationLog" Width="1.75" PointX="14.375" PointY="6.625" />
         <EntityTypeShape EntityType="DataModel.Setting" Width="1.5" PointX="14.25" PointY="3" />
-        <EntityTypeShape EntityType="DataModel.aspnet_Membership" Width="2.875" PointX="16.625" PointY="20.625" />
-        <EntityTypeShape EntityType="DataModel.aspnet_Users" Width="1.5" PointX="14.375" PointY="21.75" />
+        <EntityTypeShape EntityType="DataModel.aspnet_Membership" Width="2.875" PointX="20.125" PointY="20.75" />
+        <EntityTypeShape EntityType="DataModel.aspnet_Users" Width="1.5" PointX="17.5" PointY="20.75" />
         <AssociationConnector Association="DataModel.FK__aspnet_Me__UserI__2F10007B" />
         <AssociationConnector Association="DataModel.FK__aspnet_Me__UserI__61316BF4" />
         <EntityTypeShape EntityType="DataModel.RefBank" Width="1.5" PointX="10" PointY="22.25" />
@@ -62,6 +62,8 @@
         <AssociationConnector Association="DataModel.FK_Child_RefOperator3" />
         <AssociationConnector Association="DataModel.FK_Child_RefOperator4" />
         <EntityTypeShape EntityType="DataModel.ViewChild" Width="2" PointX="32.75" PointY="2" />
+        <EntityTypeShape EntityType="DataModel.Mension" Width="1.5" PointX="13.625" PointY="21.125" />
+        <AssociationConnector Association="DataModel.FK_Mension_Department" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -12,6 +12,12 @@ namespace Cure.DataAccess.DAL
         IEnumerable<ViewUserMembership> ViewUserMembership();
         void UpdateUserMembership(ViewUserMembership userMembership);
 
+        IEnumerable<Mension> GetMensions();
+        IEnumerable<Mension> GetMensionsByDepartment(int? department);
+        void InsertMension(Mension mension);
+        void DeleteMension(Mension mension);
+        void UpdateMension(Mension mension);
+
         bool CheckStopVisit(int departmentId, DateTime dateFrom, DateTime dateTo);
         IEnumerable<StopVisit> GetStopVisitsForDepartment(int departmentId);
         IEnumerable<StopVisit> GetStopVisits();

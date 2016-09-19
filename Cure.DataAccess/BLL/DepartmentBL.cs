@@ -9,6 +9,13 @@ namespace Cure.DataAccess.BLL
     public partial class DataAccessBL
     {
 
+        public IEnumerable<Department> GetDepSubject()
+        {
+            var deps = dataRepository.GetDepartments().ToList();
+            deps.Add(new Department() { Name = "Работа сервиса, организация лечения", Id = -1 });
+            return deps;
+        }
+
         public IEnumerable<Department> GetDepartments()
         {
             return dataRepository.GetDepartments();
