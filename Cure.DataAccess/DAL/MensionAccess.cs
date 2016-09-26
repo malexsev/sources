@@ -9,6 +9,11 @@ namespace Cure.DataAccess.DAL
     internal partial class DataRepository
     {
 
+        public IEnumerable<Mension> GetTopMensions()
+        {
+            return context.Mensions.OrderByDescending(o => o.SortOrder).ToList();
+        }
+
         public IEnumerable<Mension> GetMensions()
         {
             return context.Mensions.OrderByDescending(o => o.CreatedDate).ToList();

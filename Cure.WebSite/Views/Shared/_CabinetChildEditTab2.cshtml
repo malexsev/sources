@@ -20,7 +20,15 @@
         <div class="forms-label">Кем приходится ребенку*</div>
         <div class="selector forms-selector">
             @Html.Hidden("rodstvo", ((ChildVisualDetailed)(ViewBag.Profile)).ContactRodstvoId, new { id = "rodstvo" })
-            <div class="selector-val" data-val="10">Родство не указано</div>
+            <div class="selector-val" data-val="@Html.Raw(((ChildVisualDetailed)(ViewBag.Profile)).ContactRodstvoId)">
+                    @foreach (var rodstvo in (IEnumerable<RefRodstvo>)ViewBag.Rodstvos)
+                    {
+                        if (rodstvo.Id == (((ChildVisualDetailed)(ViewBag.Profile)).ContactRodstvoId))
+                        {
+                            @rodstvo.Name
+                        }
+                    }
+            </div>
             <ul class="selector-list">
                 @foreach (RefRodstvo rodstvo in ViewBag.Rodstvos)
                 {

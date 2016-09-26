@@ -677,8 +677,10 @@ $(document).ready(function () {
                     success: function (result) {
                         $("#error-tab1").removeClass("form-errors");
                         $("#error-tab1").show().text("Файл загружен.");
-                        console.log(result);
+                        console.log("Upload success.");
                         $('#uploadprogress').html("");
+                        var img = $("#mainphoto");
+                        img.attr("src", result);
                     },
                     error: function (xhr, status, p3, p4) {
                         var err = "Error " + " " + status + " " + p3 + " " + p4;
@@ -848,8 +850,12 @@ $(document).ready(function () {
                     contentType: false,
                     processData: false,
                     data: data,
+                    beforeSend: function () {
+                        $('#uploadgaleryprogress').html("<img src='/content/img/preloader.gif' />");
+                    },
                     success: function (result) {
                         $("#galerytales").html(result);
+                        $('#uploadgaleryprogress').html("");
                         console.log(result);
                     },
                     error: function (xhr, status, p3, p4) {
@@ -857,6 +863,7 @@ $(document).ready(function () {
                         if (xhr.responseText && xhr.responseText[0] == "{")
                             err = JSON.parse(xhr.responseText).Message;
                         console.log(err);
+                        $('#uploadgaleryprogress').html("");
                     }
                 });
             } else {
@@ -993,14 +1000,19 @@ $(document).ready(function () {
                     contentType: false,
                     processData: false,
                     data: data,
+                    beforeSend: function () {
+                        $('#uploaddocprogress').html("<img src='/content/img/preloader.gif' />");
+                    },
                     success: function (result) {
                         $("#documentstales").html(result);
+                        $('#uploaddocprogress').html("");
                     },
                     error: function (xhr, status, p3, p4) {
                         var err = "Error " + " " + status + " " + p3 + " " + p4;
                         if (xhr.responseText && xhr.responseText[0] == "{")
                             err = JSON.parse(xhr.responseText).Message;
                         console.log(err);
+                        $('#uploaddocprogress').html("");
                     }
                 });
             } else {

@@ -11,14 +11,16 @@
 
     <div class="images-tile-add">
         <!--<a class="btn btn-light js-tile-images-add" role="button">ДОБАВИТЬ ФОТО</a>-->
-        <div class="comments-title">Добавить документ:</div>
+        @*<div class="comments-title">Добавить документ:</div>*@
         <div class="comments-addform">
             @*<form>*@
             <div class="comments-addform-body">
-                <input class="btn btn-orang" type="button" value="ДОБАВИТЬ">
+                @*<input class="btn btn-orang" type="button" value="ДОБАВИТЬ">*@
+                <div id="uploaddocprogress">
+                </div>
                 <div class="forms-file">
-                    <div class="forms-file-msg">Выбрать документ</div>
-                    <input id="fileDocumentsUpload" name="fileDocumetnsUpload" type="file" onchange=" this.previousSibling.previousSibling.innerHTML = this.value ">
+                    <div class="forms-file-msg">Добавить документ</div>
+                    <input class="btn btn-orang" id="fileDocumentsUpload" name="fileDocumetnsUpload" type="file">
                 </div>
             </div>
             @*</form>*@

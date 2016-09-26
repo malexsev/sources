@@ -165,6 +165,19 @@
           <Property Name="SortOrder" Type="int" />
           <Property Name="IsActive" Type="bit" />
         </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FromUserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FromDisplay" Type="nvarchar" MaxLength="50" />
+          <Property Name="ToUserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ToDisplay" Type="nvarchar" MaxLength="50" />
+          <Property Name="SendTime" Type="datetime" Nullable="false" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="250" />
+          <Property Name="Text" Type="text" />
+        </EntityType>
         <EntityType Name="NotificationLog">
           <Key>
             <PropertyRef Name="Id" />
@@ -1163,6 +1176,7 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
           <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DepartmentStop" EntityType="Self.DepartmentStop" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Mension" EntityType="Self.Mension" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Message" EntityType="Self.Message" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NotificationLog" EntityType="Self.NotificationLog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" Schema="dbo" store:Type="Tables" />
@@ -1719,6 +1733,7 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
             <End Role="Department" EntitySet="Departments" />
             <End Role="Mension" EntitySet="Mensions" />
           </AssociationSet>
+          <EntitySet Name="Messages" EntityType="DataModel.Message" />
           </EntityContainer>
         <EntityType Name="OrderStatu">
           <Key>
@@ -2883,6 +2898,19 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FromUserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FromDisplay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ToUserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ToDisplay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SendTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Subject" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3633,6 +3661,20 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
                 <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
                 <ScalarProperty Name="OwnerUser" ColumnName="OwnerUser" />
                 <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Messages">
+            <EntityTypeMapping TypeName="DataModel.Message">
+              <MappingFragment StoreEntitySet="Message">
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="SendTime" ColumnName="SendTime" />
+                <ScalarProperty Name="ToDisplay" ColumnName="ToDisplay" />
+                <ScalarProperty Name="ToUserName" ColumnName="ToUserName" />
+                <ScalarProperty Name="FromDisplay" ColumnName="FromDisplay" />
+                <ScalarProperty Name="FromUserName" ColumnName="FromUserName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -13,6 +13,11 @@ namespace Cure.DataAccess.BLL
             return dataRepository.GetMensionsByDepartment(depId);
         }
 
+        public IEnumerable<Mension> GetTopMensions()
+        {
+            return dataRepository.GetTopMensions();
+        }
+
         public IEnumerable<Mension> GetMensions()
         {
             return dataRepository.GetMensions();

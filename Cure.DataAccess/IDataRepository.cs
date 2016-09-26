@@ -13,6 +13,7 @@ namespace Cure.DataAccess.DAL
         void UpdateUserMembership(ViewUserMembership userMembership);
 
         IEnumerable<Mension> GetMensions();
+        IEnumerable<Mension> GetTopMensions();
         IEnumerable<Mension> GetMensionsByDepartment(int? department);
         void InsertMension(Mension mension);
         void DeleteMension(Mension mension);
@@ -24,6 +25,13 @@ namespace Cure.DataAccess.DAL
         void InsertStopVisit(StopVisit stopVisit);
         void DeleteStopVisit(StopVisit stopVisit);
         void UpdateStopVisit(StopVisit stopVisit);
+
+        IEnumerable<Message> GetMyMessages(string username);
+        IEnumerable<Message> GetMessages();
+        Message GetMessage(int messageId);
+        void InsertMessage(Message message);
+        void DeleteMessage(Message message);
+        void UpdateMessage(Message message);
 
         IEnumerable<Vipiska> GetMyVipiskas(string username);
         Vipiska GetVipiska(int visitId);
@@ -57,7 +65,7 @@ namespace Cure.DataAccess.DAL
         void DeleteChildHideFile(ChildHideFile childHideFile);
         void DeleteChildHideFile(int childId, string fileName);
 
-        IEnumerable<ViewChild> FilterChilds(int countryId, string regionName, int ageOption, int diagnozeId, int skipRecords);
+        IEnumerable<ViewChild> FilterChilds(int countryId, string regionName, int ageOption, int diagnozeId, int skipRecords, int takeRecords = 12);
         int CountChilds(int countryId, string regionName, int ageOption, int diagnozeId);
         IEnumerable<ViewChild> ViewChilds();
         ViewChild ViewChild(int id);

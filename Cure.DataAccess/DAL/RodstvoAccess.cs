@@ -10,7 +10,7 @@ namespace Cure.DataAccess.DAL
     {
         public IEnumerable<RefRodstvo> GetRefRodstvo()
         {
-            return context.RefRodstvoes.OrderBy(o => o.Name).ToList();
+            return context.RefRodstvoes.OrderBy(o => o.Sort).ToList();
         }
 
         public RefRodstvo GetRefRodstvo(int id)

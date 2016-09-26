@@ -15,8 +15,6 @@ namespace Cure.WebSite.Models
         public string PhotoUrl { get; set; }
         public PhotoItem PhotoItem { get; set; }
         public string AvaFileName { get; set; }
-        //public List<PhotoItem> PhotoItemLst { get; set; }
-        //public List<DocItem> DocItemLst { get; set; }
         public bool IsAnySocial
         {
             get
@@ -166,39 +164,49 @@ namespace Cure.WebSite.Models
                 string docsUrl = photoUrl.Replace("Upload", "Documents");
 
                 //Галлерея
-                if (Directory.Exists(photoLocation))
+                this.AvaFileName = (childAvaFile == null || childAvaFile.Id == 0)
+                    ? string.Empty
+                    : childAvaFile.FileName;
+
+                if (!string.IsNullOrEmpty(AvaFileName))
                 {
-                    var dirInfo = new DirectoryInfo(photoLocation);
-                    FileInfo[] fileInfoArray = dirInfo.GetFiles();
-
-                    if (fileInfoArray.Length <= 0)
-                    {
-                        this.PhotoUrl = ChildVisual.NoPhotoUrl;
-                    }
-
-                    this.AvaFileName = (childAvaFile == null || childAvaFile.Id == 0)
-                        ? string.Empty
-                        : childAvaFile.FileName;
-
-                    foreach (FileInfo fileInfo in fileInfoArray)
-                    {
-                        if ((childAvaFile == null || childAvaFile.Id == 0) || fileInfo.Name == childAvaFile.FileName)
-                        {
-                            this.PhotoUrl = Path.Combine(Path.Combine(photoUrl, "Thumb"), fileInfo.Name);
-                            this.PhotoItem = new PhotoItem(photoUrl, fileInfo.Name);
-                            break;
-                        }
-                    }
-                    if ((PhotoItem.UrlOriginal == string.Empty || PhotoItem.UrlOriginal.Contains("no_photo")) && fileInfoArray.Length > 0 && !(childAvaFile == null || childAvaFile.Id == 0))
-                    {
-                        this.PhotoUrl = Path.Combine(Path.Combine(photoUrl, "Thumb"), fileInfoArray[0].Name);
-                        this.PhotoItem = new PhotoItem(photoUrl, fileInfoArray[0].Name);
-                    }
+                    this.PhotoUrl = Path.Combine(Path.Combine(photoUrl, "Thumb"), AvaFileName);
+                    this.PhotoItem = new PhotoItem(photoUrl, AvaFileName);
                 }
                 else
                 {
-                    this.PhotoUrl = ChildVisual.NoPhotoUrl;
-                    this.PhotoItem = new PhotoItem(this.Id);
+                    if (Directory.Exists(photoLocation))
+                    {
+                        var dirInfo = new DirectoryInfo(photoLocation);
+                        FileInfo[] fileInfoArray = dirInfo.GetFiles();
+
+                        if (fileInfoArray.Length <= 0)
+                        {
+                            this.PhotoUrl = ChildVisual.NoPhotoUrl;
+                        }
+
+
+                        foreach (FileInfo fileInfo in fileInfoArray)
+                        {
+                            if ((childAvaFile == null || childAvaFile.Id == 0) || fileInfo.Name == childAvaFile.FileName)
+                            {
+                                this.PhotoUrl = Path.Combine(Path.Combine(photoUrl, "Thumb"), fileInfo.Name);
+                                this.PhotoItem = new PhotoItem(photoUrl, fileInfo.Name);
+                                break;
+                            }
+                        }
+                        if ((PhotoItem.UrlOriginal == string.Empty || PhotoItem.UrlOriginal.Contains("no_photo")) && fileInfoArray.Length > 0 && !(childAvaFile == null || childAvaFile.Id == 0))
+                        {
+                            this.PhotoUrl = Path.Combine(Path.Combine(photoUrl, "Thumb"), fileInfoArray[0].Name);
+                            this.PhotoItem = new PhotoItem(photoUrl, fileInfoArray[0].Name);
+                        }
+
+                    }
+                    else
+                    {
+                        this.PhotoUrl = ChildVisual.NoPhotoUrl;
+                        this.PhotoItem = new PhotoItem(this.Id);
+                    }
                 }
             }
         }

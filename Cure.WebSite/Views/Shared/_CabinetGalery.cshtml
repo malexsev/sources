@@ -9,14 +9,16 @@
     @Html.Hidden("pictodelete", "", new { id = "pictodelete" })
     @Html.Hidden("pictohideuphide", "", new { id = "pictohideuphide" })
     <div class="images-tile-add">
-        <div class="comments-title">Добавить фото:</div>
+        @*<div class="comments-title">Добавить фото:</div>*@
         <div class="comments-addform">
             @*<form>*@
             <div class="comments-addform-body">
-                <input class="btn btn-orang" type="button" value="ДОБАВИТЬ">
+                @*<input class="btn btn-orang" type="button" value="ДОБАВИТЬ">*@
+                <div id="uploadgaleryprogress">
+                </div>
                 <div class="forms-file">
-                    <div class="forms-file-msg">Выбрать фото</div>
-                    <input id="fileGaleryUpload" name="fileGaleryUpload" type="file" onchange="this.previousSibling.previousSibling.innerHTML = this.value">
+                    <div class="forms-file-msg">Добавить фото</div>
+                    <input id="fileGaleryUpload" name="fileGaleryUpload" type="file">
                 </div>
             </div>
             @*</form>*@

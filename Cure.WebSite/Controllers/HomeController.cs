@@ -10,6 +10,8 @@ namespace Cure.WebSite.Controllers
         {
             var dal = new DataAccessBL();
 
+            ViewBag.ChildrenHome = dal.FilterChilds(0, "0", 0, 0, 0, 8);
+            ViewBag.MensionsHome = dal.GetTopMensions();
             ViewBag.Departments = dal.GetDepartments();
             return View();
         }

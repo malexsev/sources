@@ -875,9 +875,10 @@ namespace Cure.WebSite.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
+                string newUrl;
                 try
                 {
-                    UploadFile();
+                    newUrl = UploadFile().Replace(@"/", @"\");
                 }
                 catch (Exception)
                 {
@@ -885,7 +886,7 @@ namespace Cure.WebSite.Controllers
                     return Json("Upload failed");
                 }
 
-                return Json("File uploaded successfully");
+                return Json(newUrl);
             }
             else
             {
@@ -1171,7 +1172,12 @@ namespace Cure.WebSite.Controllers
             }
         }
 
-        private void UploadFile(bool isAva = true)
+        /// <summary>
+        /// Загружает новую фотографию в галерею и делает её главной. Возвращает новый url картинки.
+        /// </summary>
+        /// <param name="isAva"></param>
+        /// <returns></returns>
+        private string UploadFile(bool isAva = true)
         {
             foreach (string file in Request.Files)
             {
@@ -1189,6 +1195,7 @@ namespace Cure.WebSite.Controllers
                     var fileName = Path.GetFileName(file); // + ".jpg";
 
                     string photoLocation = ConfigurationManager.AppSettings["PhotoLocation"];
+                    string photoUrl = Path.Combine(ConfigurationManager.AppSettings["PhotoUrl"], view.GuidId.ToString());
                     string folder = string.Format(OriginalDirectory, photoLocation, view.GuidId);
                     string folderThumb = string.Format(ThumbDirectory, photoLocation, view.GuidId);
                     string folderBig = string.Format(BigDirectory, photoLocation, view.GuidId);
@@ -1236,8 +1243,13 @@ namespace Cure.WebSite.Controllers
 
                     var child = dal.GetChild(view.Id);
                     this.UpdateIsActive(ref child, ref dal);
+                    if (isAva)
+                    {
+                        return Path.Combine(Path.Combine(photoUrl, "Thumb"), fileName);
+                    }
                 }
             }
+            return string.Empty;
         }
 
         private void UploadDocFile()

@@ -1,0 +1,18 @@
+﻿@model  Cure.DataAccess.Mension
+    
+<div class="col-lg-6 col-sm-8 col-ss-12 children-page-item">
+    <div class="children-page-review">
+        <div class="review-front">
+            <div class="review-text">
+                @Model.Text
+            </div>
+            <div class="review-writer">
+                <span class="writer-name">@Model.CopyUserName</span>,
+                <span class="writer-city">@Model.CopyUserLocation</span>
+            </div>
+            <div class="review-more">
+                <a class="btn btn-light" href="@Url.Action("Index", "Children")">Все отзывы</a>
+            </div>
+        </div>
+    </div>
+</div>

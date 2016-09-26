@@ -58,7 +58,7 @@ namespace Cure.DataAccess.DAL
                 && (diagnozeId == 0 || x.DiagnozId == diagnozeId)).OrderByDescending(x => x.Id).Count();
         }
 
-        public IEnumerable<ViewChild> FilterChilds(int countryId, string regionName, int ageOption, int diagnozeId, int skipRecords)
+        public IEnumerable<ViewChild> FilterChilds(int countryId, string regionName, int ageOption, int diagnozeId, int skipRecords, int takeRecords = 12)
         {
             int startYears = 0;
             int endYears = 0;
@@ -87,7 +87,6 @@ namespace Cure.DataAccess.DAL
                     break;
             }
 
-            var takeRecords = 12;
             DateTime startDate = DateTime.Today.AddYears(-endYears);
             DateTime endDate = DateTime.Today.AddYears(-startYears);
 

@@ -749,5 +749,19 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Messages">
+      <EntityTypeMapping TypeName="DataModel.Message">
+        <MappingFragment StoreEntitySet="Message">
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="SendTime" ColumnName="SendTime" />
+          <ScalarProperty Name="ToDisplay" ColumnName="ToDisplay" />
+          <ScalarProperty Name="ToUserName" ColumnName="ToUserName" />
+          <ScalarProperty Name="FromDisplay" ColumnName="FromDisplay" />
+          <ScalarProperty Name="FromUserName" ColumnName="FromUserName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -2722,16 +2722,16 @@ a {
   display: table-cell;
   width: 80px;
   padding: 3px 8px;
-  vertical-align: middle;
+  vertical-align: text-top;
   font-size: 12px;
   line-height: 14px;
   letter-spacing: -0.3px;
 }
 .child-info-money .money-acc-numb {
   display: table-cell;
-  vertical-align: middle;
+  vertical-align: text-top;
   font-size: 16px;
-  line-height: 16px;
+  line-height: 24px;
 }
 .child-info-money .money-card {
   margin: 15px 0;

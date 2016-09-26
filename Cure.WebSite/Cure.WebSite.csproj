@@ -354,6 +354,8 @@
     <Content Include="Views\Shared\_AccountChangePass.cshtml" />
     <Content Include="Views\Shared\_AccountChangeEmail.cshtml" />
     <Content Include="Views\Shared\_AccountChangePhone.cshtml" />
+    <Content Include="Views\Shared\_ChildTalesHome.cshtml" />
+    <Content Include="Views\Shared\_Mension.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

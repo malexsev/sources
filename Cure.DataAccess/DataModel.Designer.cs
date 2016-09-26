@@ -563,6 +563,22 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<Mension> _Mensions;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Message> Messages
+        {
+            get
+            {
+                if ((_Messages == null))
+                {
+                    _Messages = base.CreateObjectSet<Message>("Messages");
+                }
+                return _Messages;
+            }
+        }
+        private ObjectSet<Message> _Messages;
 
         #endregion
 
@@ -798,6 +814,14 @@ namespace Cure.DataAccess
         public void AddToMensions(Mension mension)
         {
             base.AddObject("Mensions", mension);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Messages EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToMessages(Message message)
+        {
+            base.AddObject("Messages", message);
         }
 
         #endregion
@@ -4961,6 +4985,236 @@ namespace Cure.DataAccess
                 }
             }
         }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="Message")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Message : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Message object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="fromUserName">Initial value of the FromUserName property.</param>
+        /// <param name="toUserName">Initial value of the ToUserName property.</param>
+        /// <param name="sendTime">Initial value of the SendTime property.</param>
+        public static Message CreateMessage(global::System.Int32 id, global::System.String fromUserName, global::System.String toUserName, global::System.DateTime sendTime)
+        {
+            Message message = new Message();
+            message.Id = id;
+            message.FromUserName = fromUserName;
+            message.ToUserName = toUserName;
+            message.SendTime = sendTime;
+            return message;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value, "Id");
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String FromUserName
+        {
+            get
+            {
+                return _FromUserName;
+            }
+            set
+            {
+                OnFromUserNameChanging(value);
+                ReportPropertyChanging("FromUserName");
+                _FromUserName = StructuralObject.SetValidValue(value, false, "FromUserName");
+                ReportPropertyChanged("FromUserName");
+                OnFromUserNameChanged();
+            }
+        }
+        private global::System.String _FromUserName;
+        partial void OnFromUserNameChanging(global::System.String value);
+        partial void OnFromUserNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String FromDisplay
+        {
+            get
+            {
+                return _FromDisplay;
+            }
+            set
+            {
+                OnFromDisplayChanging(value);
+                ReportPropertyChanging("FromDisplay");
+                _FromDisplay = StructuralObject.SetValidValue(value, true, "FromDisplay");
+                ReportPropertyChanged("FromDisplay");
+                OnFromDisplayChanged();
+            }
+        }
+        private global::System.String _FromDisplay;
+        partial void OnFromDisplayChanging(global::System.String value);
+        partial void OnFromDisplayChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String ToUserName
+        {
+            get
+            {
+                return _ToUserName;
+            }
+            set
+            {
+                OnToUserNameChanging(value);
+                ReportPropertyChanging("ToUserName");
+                _ToUserName = StructuralObject.SetValidValue(value, false, "ToUserName");
+                ReportPropertyChanged("ToUserName");
+                OnToUserNameChanged();
+            }
+        }
+        private global::System.String _ToUserName;
+        partial void OnToUserNameChanging(global::System.String value);
+        partial void OnToUserNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ToDisplay
+        {
+            get
+            {
+                return _ToDisplay;
+            }
+            set
+            {
+                OnToDisplayChanging(value);
+                ReportPropertyChanging("ToDisplay");
+                _ToDisplay = StructuralObject.SetValidValue(value, true, "ToDisplay");
+                ReportPropertyChanged("ToDisplay");
+                OnToDisplayChanged();
+            }
+        }
+        private global::System.String _ToDisplay;
+        partial void OnToDisplayChanging(global::System.String value);
+        partial void OnToDisplayChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime SendTime
+        {
+            get
+            {
+                return _SendTime;
+            }
+            set
+            {
+                OnSendTimeChanging(value);
+                ReportPropertyChanging("SendTime");
+                _SendTime = StructuralObject.SetValidValue(value, "SendTime");
+                ReportPropertyChanged("SendTime");
+                OnSendTimeChanged();
+            }
+        }
+        private global::System.DateTime _SendTime;
+        partial void OnSendTimeChanging(global::System.DateTime value);
+        partial void OnSendTimeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Subject
+        {
+            get
+            {
+                return _Subject;
+            }
+            set
+            {
+                OnSubjectChanging(value);
+                ReportPropertyChanging("Subject");
+                _Subject = StructuralObject.SetValidValue(value, true, "Subject");
+                ReportPropertyChanged("Subject");
+                OnSubjectChanged();
+            }
+        }
+        private global::System.String _Subject;
+        partial void OnSubjectChanging(global::System.String value);
+        partial void OnSubjectChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Text
+        {
+            get
+            {
+                return _Text;
+            }
+            set
+            {
+                OnTextChanging(value);
+                ReportPropertyChanging("Text");
+                _Text = StructuralObject.SetValidValue(value, true, "Text");
+                ReportPropertyChanged("Text");
+                OnTextChanged();
+            }
+        }
+        private global::System.String _Text;
+        partial void OnTextChanging(global::System.String value);
+        partial void OnTextChanged();
 
         #endregion
 

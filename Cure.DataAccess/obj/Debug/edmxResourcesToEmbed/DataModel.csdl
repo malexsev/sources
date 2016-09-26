@@ -150,6 +150,7 @@
       <End Role="Department" EntitySet="Departments" />
       <End Role="Mension" EntitySet="Mensions" />
     </AssociationSet>
+    <EntitySet Name="Messages" EntityType="DataModel.Message" />
   </EntityContainer>
   <EntityType Name="OrderStatu">
     <Key>
@@ -1314,4 +1315,17 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="Message">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FromUserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FromDisplay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ToUserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ToDisplay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SendTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Subject" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>

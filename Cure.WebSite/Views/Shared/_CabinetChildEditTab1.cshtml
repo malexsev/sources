@@ -64,11 +64,11 @@
     </div>
     <div class="forms-line">
         <div class="forms-preview">
-            <img src="@Html.Raw(((ChildVisualDetailed)(ViewBag.Profile)).PhotoItem.UrlMin)" alt="@Html.Raw(((ChildVisualDetailed)(ViewBag.Profile)).ContactName)">
+            <img id="mainphoto" src="@Html.Raw(((ChildVisualDetailed)(ViewBag.Profile)).PhotoItem.UrlMin)" alt="@Html.Raw(((ChildVisualDetailed)(ViewBag.Profile)).ContactName)">
         </div>
         <div class="forms-file top-10">
             <div class="forms-file-msg">Изменить фото</div>
-            <input id="fileUpload" name="fileUpload" type="file" onchange="this.previousSibling.previousSibling.innerHTML = this.value">
+            <input id="fileUpload" name="fileUpload" type="file">
         </div>
     </div>
     <div class="forms-line top-30">

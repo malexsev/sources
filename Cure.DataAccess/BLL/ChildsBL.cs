@@ -49,9 +49,9 @@
             return dataRepository.CountChilds(countryId, regionName, ageOption, diagnozeId);
         }
 
-        public IEnumerable<ViewChild> FilterChilds(int countryId, string regionName, int ageOption, int diagnozeId, int skipRecords)
+        public IEnumerable<ViewChild> FilterChilds(int countryId, string regionName, int ageOption, int diagnozeId, int skipRecords, int takeRecords = 12)
         {
-            return dataRepository.FilterChilds(countryId, regionName, ageOption, diagnozeId, skipRecords);
+            return dataRepository.FilterChilds(countryId, regionName, ageOption, diagnozeId, skipRecords, takeRecords);
         }
 
         public IEnumerable<ViewChild> ViewChilds()

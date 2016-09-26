@@ -1,0 +1,19 @@
+﻿@using Cure.DataAccess
+@using Cure.WebSite.Models
+@model IEnumerable<Cure.WebSite.Models.ChildVisual>
+
+<div class="row">
+    @Html.Partial("_Children", ((IEnumerable<ViewChild>)ViewBag.ChildrenHome).Take(4).Select(x => new ChildVisual(x)).ToList())
+
+    @if (((IEnumerable<Mension>)ViewBag.MensionsHome).Any())
+    {
+        @Html.Partial("_Mension", ((IEnumerable<Mension>)ViewBag.MensionsHome).ToList()[0])
+    }
+
+    @Html.Partial("_Children", ((IEnumerable<ViewChild>)ViewBag.ChildrenHome).Skip(4).Select(x => new ChildVisual(x)).ToList())
+
+    @if (((IEnumerable<Mension>)ViewBag.MensionsHome).Count() > 1)
+    {
+        @Html.Partial("_Mension", ((IEnumerable<Mension>)ViewBag.MensionsHome).ToList()[1])
+    }
+</div><!-- END row -->
