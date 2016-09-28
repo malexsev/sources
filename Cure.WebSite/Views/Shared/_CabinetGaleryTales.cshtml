@@ -10,13 +10,34 @@
             </a>
         </div>
         <div class="tile-nav">
+            @*<a class="btn-tile-toggle is-enabled js-images-tile-toggle" role="button" title="Скрыть/Показывать"></a>
+                <a class="btn-tile-delete" role="button" title="Удалить"></a>*@
+            @*<div class="tile-nav-left">
+                    <label class="forms-checkbox">
+                        <input type="checkbox" checked>
+                        <span>Фото профиля</span>
+                    </label>
+                </div>*@
             @if (Model.AvaFileName != Path.GetFileName(photo.UrlOriginal))
             {
-                <a class="btn-tile-delete"
-                   onclick="javascript:DeletePicture(@Model.Id, '@Html.Raw(Path.GetFileName(photo.UrlOriginal))');"></a>
-                <a class="btn-tile-toggle @Html.Raw(Model.HiddenPhotoLst.Any(x => x.FileName == Path.GetFileName(photo.UrlOriginal)) ? "is-disabled" : "is-enabled") js-images-tile-toggle"
-                   onclick="javascript:HideShowPicture(@Model.Id, '@Html.Raw(Path.GetFileName(photo.UrlOriginal))');"
-                   role="button">@Html.Raw(Model.HiddenPhotoLst.Any(x => x.FileName == Path.GetFileName(photo.UrlOriginal)) ? "Открыть" : "Скрыть")</a>
+                <div class="tile-nav-right">
+                    <a class="btn-tile-toggle @Html.Raw(Model.HiddenPhotoLst.Any(x => x.FileName == Path.GetFileName(photo.UrlOriginal)) ? "is-disabled" : "is-enabled") js-images-tile-toggle"
+                       onclick="javascript:HideShowPicture(@Model.Id, '@Html.Raw(Path.GetFileName(photo.UrlOriginal))');"
+                       role="button" title="@Html.Raw(Model.HiddenPhotoLst.Any(x => x.FileName == Path.GetFileName(photo.UrlOriginal)) ? "Показывать" : "Скрыть")"></a>
+                    <a class="btn-tile-delete" role="button"
+                       onclick="javascript:DeletePicture(@Model.Id, '@Html.Raw(Path.GetFileName(photo.UrlOriginal))');"></a>
+                </div>
+            }
+            @if (Model.HiddenPhotoLst.All(x => x.FileName != Path.GetFileName(photo.UrlOriginal)))
+            {
+                <div class="tile-nav-left">
+                    <label class="forms-checkbox">
+                        <input type="checkbox" @Html.Raw(Model.AvaFileName == Path.GetFileName(photo.UrlOriginal) ? "checked" : "")
+                               onclick="javascript:TopPicture(@Model.Id, '@Html.Raw(Path.GetFileName(photo.UrlOriginal))');">
+                        <span>Фото профиля</span>
+                    </label>
+                </div>
+
             }
 
         </div>

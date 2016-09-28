@@ -689,38 +689,53 @@ namespace Cure.WebSite.Controllers
         }
 
         [HttpPost]
-        public PartialViewResult GaleryAction(string pictodelete, string pictohideuphide)
+        public PartialViewResult GaleryAction(string pictodelete, string pictohideuphide, string pictotop)
         {
             if (User.Identity.IsAuthenticated)
             {
                 var dal = new DataAccessBL();
-                var child = dal.ViewChild(User.Identity.Name);
+                var view = dal.ViewChild(User.Identity.Name);
 
                 if (!string.IsNullOrEmpty(pictodelete))
                 {
-                    var visual = new ChildVisualDetailed(child, dal.GetChildHideFiles(child.Id), dal.GetChildAvaFile(child.Id));
+                    var visual = new ChildVisualDetailed(view, dal.GetChildHideFiles(view.Id), dal.GetChildAvaFile(view.Id));
                     visual.DeletePhoto(pictodelete);
-                    dal.DeleteChildHideFile(child.Id, pictodelete);
+                    dal.DeleteChildHideFile(view.Id, pictodelete);
                 }
                 else if (!string.IsNullOrEmpty(pictohideuphide))
                 {
-                    if (dal.CheckChildHideFile(child.Id, pictohideuphide))
+                    if (dal.CheckChildHideFile(view.Id, pictohideuphide))
                     {
                         dal.DeleteChildHideFile(
-                            dal.GetChildHideFiles(child.Id).FirstOrDefault(x => x.FileName == pictohideuphide));
+                            dal.GetChildHideFiles(view.Id).FirstOrDefault(x => x.FileName == pictohideuphide));
                     }
                     else
                     {
                         dal.InsertChildHideFile(new ChildHideFile()
                         {
                             FileName = pictohideuphide,
-                            ChildId = child.Id,
+                            ChildId = view.Id,
                             HideDate = DateTime.Now
                         });
                     }
                 }
+                else if (!string.IsNullOrEmpty(pictotop))
+                {
+                    var ava = dal.GetChildAvaFile(view.Id);
+                    if (ava != null && ava.Id != 0)
+                    {
+                        dal.DeleteChildAvaFile(ava);
+                    }
+                    ava = new ChildAvaFile
+                    {
+                        ChangeDate = DateTime.Today,
+                        ChildId = view.Id,
+                        FileName = pictotop
+                    };
+                    dal.InsertChildAvaFile(ava);
+                }
 
-                ViewBag.Profile = new ChildVisualDetailed(child, dal.GetChildHideFiles(child.Id), dal.GetChildAvaFile(child.Id));
+                ViewBag.Profile = new ChildVisualDetailed(view, dal.GetChildHideFiles(view.Id), dal.GetChildAvaFile(view.Id));
             }
             return PartialView("_CabinetGaleryTales", ViewBag.Profile);
         }
