@@ -98,6 +98,13 @@
       <End Role="Visit" EntitySet="Visits" />
       <End Role="Vipiska" EntitySet="Vipiskas" />
     </AssociationSet>
+    <EntitySet Name="RefOperators" EntityType="DataModel.RefOperator" />
+    <EntitySet Name="Mensions" EntityType="DataModel.Mension" />
+    <AssociationSet Name="FK_Mension_Department" Association="DataModel.FK_Mension_Department">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="Mension" EntitySet="Mensions" />
+    </AssociationSet>
+    <EntitySet Name="Messages" EntityType="DataModel.Message" />
     <EntitySet Name="Children" EntityType="DataModel.Child" />
     <AssociationSet Name="FK_Child_RefBank" Association="DataModel.FK_Child_RefBank">
       <End Role="RefBank" EntitySet="RefBanks" />
@@ -115,19 +122,6 @@
       <End Role="RefDiagnoz" EntitySet="RefDiagnozs" />
       <End Role="Child" EntitySet="Children" />
     </AssociationSet>
-    <AssociationSet Name="FK_Child_RefRodstvo" Association="DataModel.FK_Child_RefRodstvo">
-      <End Role="RefRodstvo" EntitySet="RefRodstvoes" />
-      <End Role="Child" EntitySet="Children" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ChildAvaFile_Child" Association="DataModel.FK_ChildAvaFile_Child">
-      <End Role="Child" EntitySet="Children" />
-      <End Role="ChildAvaFile" EntitySet="ChildAvaFiles" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ChildHideFile_Child" Association="DataModel.FK_ChildHideFile_Child">
-      <End Role="Child" EntitySet="Children" />
-      <End Role="ChildHideFile" EntitySet="ChildHideFiles" />
-    </AssociationSet>
-    <EntitySet Name="RefOperators" EntityType="DataModel.RefOperator" />
     <AssociationSet Name="FK_Child_RefOperator" Association="DataModel.FK_Child_RefOperator">
       <End Role="RefOperator" EntitySet="RefOperators" />
       <End Role="Child" EntitySet="Children" />
@@ -144,13 +138,20 @@
       <End Role="RefOperator" EntitySet="RefOperators" />
       <End Role="Child" EntitySet="Children" />
     </AssociationSet>
-    <EntitySet Name="ViewChilds" EntityType="DataModel.ViewChild" />
-    <EntitySet Name="Mensions" EntityType="DataModel.Mension" />
-    <AssociationSet Name="FK_Mension_Department" Association="DataModel.FK_Mension_Department">
-      <End Role="Department" EntitySet="Departments" />
-      <End Role="Mension" EntitySet="Mensions" />
+    <AssociationSet Name="FK_Child_RefRodstvo" Association="DataModel.FK_Child_RefRodstvo">
+      <End Role="RefRodstvo" EntitySet="RefRodstvoes" />
+      <End Role="Child" EntitySet="Children" />
     </AssociationSet>
-    <EntitySet Name="Messages" EntityType="DataModel.Message" />
+    <AssociationSet Name="FK_ChildAvaFile_Child" Association="DataModel.FK_ChildAvaFile_Child">
+      <End Role="Child" EntitySet="Children" />
+      <End Role="ChildAvaFile" EntitySet="ChildAvaFiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChildHideFile_Child" Association="DataModel.FK_ChildHideFile_Child">
+      <End Role="Child" EntitySet="Children" />
+      <End Role="ChildHideFile" EntitySet="ChildHideFiles" />
+    </AssociationSet>
+    <EntitySet Name="ViewChilds" EntityType="DataModel.ViewChild" />
+    <EntitySet Name="ViewMensions" EntityType="DataModel.ViewMension" />
   </EntityContainer>
   <EntityType Name="OrderStatu">
     <Key>
@@ -1000,6 +1001,60 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="RefOperator">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Params" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Children" Relationship="DataModel.FK_Child_RefOperator" FromRole="RefOperator" ToRole="Child" />
+    <NavigationProperty Name="Children1" Relationship="DataModel.FK_Child_RefOperator2" FromRole="RefOperator" ToRole="Child" />
+    <NavigationProperty Name="Children2" Relationship="DataModel.FK_Child_RefOperator3" FromRole="RefOperator" ToRole="Child" />
+    <NavigationProperty Name="Children3" Relationship="DataModel.FK_Child_RefOperator4" FromRole="RefOperator" ToRole="Child" />
+  </EntityType>
+  <EntityType Name="Mension">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DepartmentId" Type="Int32" />
+    <Property Name="OwnerUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CopySubject" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CopyUserName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CopyUserLocation" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="SortOrder" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="Department" Relationship="DataModel.FK_Mension_Department" FromRole="Mension" ToRole="Department" />
+  </EntityType>
+  <Association Name="FK_Mension_Department">
+    <End Type="DataModel.Department" Role="Department" Multiplicity="0..1" />
+    <End Type="DataModel.Mension" Role="Mension" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mension">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Message">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FromUserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FromDisplay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ToUserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ToDisplay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SendTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Subject" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
   <EntityType Name="Child">
     <Key>
       <PropertyRef Name="Id" />
@@ -1008,6 +1063,8 @@
     <Property Name="GuidId" Type="Guid" Nullable="false" />
     <Property Name="CountryId" Type="Int32" Nullable="false" />
     <Property Name="OwnerUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="OwnerUserPic" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="OwnerAvaFile" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="IsActive" Type="Boolean" Nullable="false" />
     <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="3" />
@@ -1046,13 +1103,13 @@
     <NavigationProperty Name="RefCountry" Relationship="DataModel.FK_Child_RefCountry" FromRole="Child" ToRole="RefCountry" />
     <NavigationProperty Name="RefCountry1" Relationship="DataModel.FK_Child_RefCountryFin" FromRole="Child" ToRole="RefCountry" />
     <NavigationProperty Name="RefDiagnoz" Relationship="DataModel.FK_Child_RefDiagnoz" FromRole="Child" ToRole="RefDiagnoz" />
-    <NavigationProperty Name="RefRodstvo" Relationship="DataModel.FK_Child_RefRodstvo" FromRole="Child" ToRole="RefRodstvo" />
-    <NavigationProperty Name="ChildAvaFiles" Relationship="DataModel.FK_ChildAvaFile_Child" FromRole="Child" ToRole="ChildAvaFile" />
-    <NavigationProperty Name="ChildHideFiles" Relationship="DataModel.FK_ChildHideFile_Child" FromRole="Child" ToRole="ChildHideFile" />
     <NavigationProperty Name="RefOperator" Relationship="DataModel.FK_Child_RefOperator" FromRole="Child" ToRole="RefOperator" />
     <NavigationProperty Name="RefOperator1" Relationship="DataModel.FK_Child_RefOperator2" FromRole="Child" ToRole="RefOperator" />
     <NavigationProperty Name="RefOperator2" Relationship="DataModel.FK_Child_RefOperator3" FromRole="Child" ToRole="RefOperator" />
     <NavigationProperty Name="RefOperator3" Relationship="DataModel.FK_Child_RefOperator4" FromRole="Child" ToRole="RefOperator" />
+    <NavigationProperty Name="RefRodstvo" Relationship="DataModel.FK_Child_RefRodstvo" FromRole="Child" ToRole="RefRodstvo" />
+    <NavigationProperty Name="ChildAvaFiles" Relationship="DataModel.FK_ChildAvaFile_Child" FromRole="Child" ToRole="ChildAvaFile" />
+    <NavigationProperty Name="ChildHideFiles" Relationship="DataModel.FK_ChildHideFile_Child" FromRole="Child" ToRole="ChildHideFile" />
   </EntityType>
   <Association Name="FK_Child_RefBank">
     <End Type="DataModel.RefBank" Role="RefBank" Multiplicity="0..1" />
@@ -1104,59 +1161,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Child_RefRodstvo">
-    <End Type="DataModel.RefRodstvo" Role="RefRodstvo" Multiplicity="1" />
-    <End Type="DataModel.Child" Role="Child" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="RefRodstvo">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Child">
-        <PropertyRef Name="ContactRodstvoId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ChildAvaFile_Child">
-    <End Type="DataModel.Child" Role="Child" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Type="DataModel.ChildAvaFile" Role="ChildAvaFile" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Child">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="ChildAvaFile">
-        <PropertyRef Name="ChildId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ChildHideFile_Child">
-    <End Type="DataModel.Child" Role="Child" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Type="DataModel.ChildHideFile" Role="ChildHideFile" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Child">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="ChildHideFile">
-        <PropertyRef Name="ChildId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityType Name="RefOperator">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="Params" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Children" Relationship="DataModel.FK_Child_RefOperator" FromRole="RefOperator" ToRole="Child" />
-    <NavigationProperty Name="Children1" Relationship="DataModel.FK_Child_RefOperator2" FromRole="RefOperator" ToRole="Child" />
-    <NavigationProperty Name="Children2" Relationship="DataModel.FK_Child_RefOperator3" FromRole="RefOperator" ToRole="Child" />
-    <NavigationProperty Name="Children3" Relationship="DataModel.FK_Child_RefOperator4" FromRole="RefOperator" ToRole="Child" />
-  </EntityType>
   <Association Name="FK_Child_RefOperator">
     <End Type="DataModel.RefOperator" Role="RefOperator" Multiplicity="0..1" />
     <End Type="DataModel.Child" Role="Child" Multiplicity="*" />
@@ -1202,6 +1206,46 @@
       </Principal>
       <Dependent Role="Child">
         <PropertyRef Name="FinOperator4Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Child_RefRodstvo">
+    <End Type="DataModel.RefRodstvo" Role="RefRodstvo" Multiplicity="1" />
+    <End Type="DataModel.Child" Role="Child" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RefRodstvo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Child">
+        <PropertyRef Name="ContactRodstvoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChildAvaFile_Child">
+    <End Type="DataModel.Child" Role="Child" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="DataModel.ChildAvaFile" Role="ChildAvaFile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Child">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ChildAvaFile">
+        <PropertyRef Name="ChildId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChildHideFile_Child">
+    <End Type="DataModel.Child" Role="Child" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="DataModel.ChildHideFile" Role="ChildHideFile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Child">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ChildHideFile">
+        <PropertyRef Name="ChildId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1286,12 +1330,14 @@
     <Property Name="Operator4Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Operator4Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="Operator4Params" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="OwnerUserPic" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="OwnerAvaFile" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
   </EntityType>
-  <EntityType Name="Mension">
+  <EntityType Name="ViewMension">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="Int32" Nullable="false" />
     <Property Name="DepartmentId" Type="Int32" />
     <Property Name="OwnerUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
@@ -1301,31 +1347,10 @@
     <Property Name="CopyUserLocation" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="SortOrder" Type="Int32" />
     <Property Name="IsActive" Type="Boolean" />
-    <NavigationProperty Name="Department" Relationship="DataModel.FK_Mension_Department" FromRole="Mension" ToRole="Department" />
-  </EntityType>
-  <Association Name="FK_Mension_Department">
-    <End Type="DataModel.Department" Role="Department" Multiplicity="0..1" />
-    <End Type="DataModel.Mension" Role="Mension" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Department">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Mension">
-        <PropertyRef Name="DepartmentId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityType Name="Message">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="FromUserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="FromDisplay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="ToUserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="ToDisplay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="SendTime" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="Subject" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="OwnerUserPic" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ContactName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ContactEmail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ContactPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GuidId" Type="Guid" />
   </EntityType>
 </Schema>

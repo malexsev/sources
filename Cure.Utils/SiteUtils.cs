@@ -17,6 +17,18 @@
 
     public class SiteUtils
     {
+        public static string GetUserUserpic(string userpicLocation,
+            Guid? guid,
+            string filename)
+        {
+            if (guid != null && !string.IsNullOrEmpty(filename))
+            {
+                return Path.Combine(userpicLocation, filename);
+            }
+
+            return "/content/img/userpics/no_photo_min.jpg";
+        }
+
         public static string GetUserUserpic(HttpServerUtilityBase server,
             HttpSessionStateBase session,
             string username,

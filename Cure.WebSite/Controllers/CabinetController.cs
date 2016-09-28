@@ -1294,11 +1294,15 @@ namespace Cure.WebSite.Controllers
                 {
                     var dal = new DataAccessBL();
                     var view = dal.ViewChild(User.Identity.Name);
+                    var child = dal.GetChild(view.Id);
 
                     const string OriginalDirectory = @"{0}{1}\";
 
                     var stream = fileContent.InputStream;
                     var fileName = Path.GetFileName(file); // + ".jpg";
+
+                    child.OwnerUserPic = fileName;
+                    dal.UpdateChild(child);
 
                     string photoLocation = ConfigurationManager.AppSettings["PhotoLocation"];
                     string docsLocation = photoLocation.Replace("Upload", "Userpics");

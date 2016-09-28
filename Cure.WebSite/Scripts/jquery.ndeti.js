@@ -23,16 +23,17 @@ $(document).ready(function () {
 
 
     /* --- Загрузка больше контента -------------------------------------------*/
-    function dataAjaxLoad(loadingBtn, loadingPlace, addr, counter, forCount, showCount) {
+    function dataAjaxLoad(loadingBtn, loadingPlace, addr, counter, forCount, showCount, form) {
         $(loadingBtn).click(function () {
             var $loadingBtn = $(this),
                 $loadingPlace = $(loadingPlace),
                 $counter = $(counter),
                 $showCount = $(showCount),
-                $forCount = $(forCount);
+                $forCount = $(forCount),
+                $form = $(form);
 
             $showCount.val($(counter).text());
-            var serializedForm = $('#childrenform').serialize();
+            var serializedForm = $form.serialize();
 
             if ($loadingPlace.length) {
                 $loadingBtn.addClass("loading");
@@ -60,9 +61,12 @@ $(document).ready(function () {
             };
         });
     };
+    //Загрузка больше отзывов
+    dataAjaxLoad(".js-load-more-testimonials", "#js-for-load-testimonials", "/Mension/More",
+                 "#more-count", ".js-ajax-for-count", "#skiprecords", '#mensionform');
     //Загрузка больше фото детей и отзывов
     dataAjaxLoad(".js-load-more-children", "#js-for-load-children", "/Children/More",
-                 "#more-count", ".js-ajax-for-count", "#skiprecords");
+                 "#more-count", ".js-ajax-for-count", "#skiprecords", '#childrenform');
     //Загрузка больше историй
     dataAjaxLoad(".js-load-more-history", "#js-for-load-history", "ajax/more_history.php");
     //Загрузка больше впечатлений
@@ -105,6 +109,13 @@ $(document).ready(function () {
         $spoilerBody.height(startHeight);
 
         $spoilerBtn.click(function () {
+            var $spoilerBtn = $(this),
+                $spoilerBody = $spoilerBtn.siblings(".js-spoiler-body"),
+                thisStartHeight = $spoilerBody.height();
+            autoHeight = $spoilerBody.css('height', 'auto').height();
+
+            $spoilerBody.height(thisStartHeight);
+
             if ($spoilerBtn.hasClass("active")) {
                 $spoilerBody.animate({ height: startHeight }, 600);
                 $spoilerBtn.removeClass("active").text("Читать дальше");
@@ -117,6 +128,7 @@ $(document).ready(function () {
     };
     //  Инициализация работы спойлеров (с начальной высотой)
     $(".js-spoiler-clinic").spoilerInit(240);
+    $(".js-spoiler-testimonials").spoilerInit(72);
 
 
     /* --- Замена селектов списком со скрытым полем для отправки данных ------*/
@@ -195,7 +207,7 @@ $(document).ready(function () {
 
     //Выставление правильного предзаданного значения в селекте
     $(window).load(function () {
-        selectorName = selectorName || ".selector";
+        var selectorName = selectorName || ".selector";
         $(selectorName).each(function () {
             var $that = $(this),
                 inputVal = $that.children("input").val(),
@@ -259,6 +271,7 @@ $(document).ready(function () {
             submitHandler: function (form) {
                 //alert("Submitted!");
                 //form.submit();
+                $(form).hide().siblings(".js-submit-ok").show();
             }
         });
     });
@@ -380,6 +393,30 @@ $(document).ready(function () {
             },
             messages: {
                 email: "Введите корректный e-mail адрес"
+            },
+            errorClass: "has-error",
+            highlight: function (element, errorClass) {
+                $(element).parent().addClass(errorClass);
+            },
+            unhighlight: function (element, errorClass) {
+                $(element).parent().removeClass(errorClass);
+            },
+            submitHandler: function (form) {
+            }
+        });
+    });
+
+    /* --- Валидация добавления отзыва ---------------------------------------------*/
+    $(".js-mension-add").each(function () {
+        $(this).validate({
+            focusInvalid: false,
+            rules: {
+                subject: { number: true, range: [-1,100] },
+                text: { required: true, maxlength: 10000, minlength: 10 }
+            },
+            messages: {
+                subject: "Выберите тему отзыва",
+                text: "Слишком короткий отзыв"
             },
             errorClass: "has-error",
             highlight: function (element, errorClass) {
@@ -1320,16 +1357,7 @@ $(document).ready(function () {
         });
         e.preventDefault();
     });
-
-    /*------------ Мастер заявки - Вернуться на шаг назад ----------------------------*/
-    $(document).on('click', ".btn-back", function () {
-        var stepId = $(this).data("move-to");
-        if (stepId > 0) {
-            $("#error-step" + stepId).hide();
-            setOrderStep(stepId);
-        }
-    });
-
+    
     function setOrderStep(index) {
         var $tabsHead = $('.js-order-tabs'),
         $links = $tabsHead.find(".js-tabs-link"),
@@ -1354,7 +1382,67 @@ $(document).ready(function () {
         $('#' + index + "-link").addClass("active");
     }
 
+    /*------------ Мастер заявки - Вернуться на шаг назад ----------------------------*/
+    $(document).on('click', ".btn-back", function () {
+        var stepId = $(this).data("move-to");
+        if (stepId > 0) {
+            $("#error-step" + stepId).hide();
+            setOrderStep(stepId);
+        }
+    });
 
+    /*------------ Добавление нового отзыва ----------------------------*/
+    $("#formMensionAdd").submit(function (e) {
+        $("#error-phonechange").hide();
+        var form = $('#formMensionAdd');
+        if (form.valid()) {
+            var serializedForm = form.serialize();
+            $.ajax({
+                url: "/Mension/AddNew",
+                type: "POST",
+                data: serializedForm,
+                beforeSend: function () {
+                    $('#addmensionprogress').html("<img src='/content/img/preloader.gif' />");
+                },
+                success: function (result) {
+                    if (result == "1") {
+                        $("#error-mensionadd").hide();
+                        $(form).hide().siblings(".js-submit-ok").show();
+                    } else {
+                        $("#error-mensionadd").show().text("Ошибка сохранения отзыва.");
+                    }
+                    $('#addmensionprogress').html("");
+                },
+                error: function (result) {
+                    $('#addmensionprogress').html("");
+                    alert(result.responseText);
+                }
+            });
+        }
+        e.preventDefault();
+    });
+
+    /*------------ Фильтрация отзывов ----------------------------*/
+    $(document).on('change', "#mensionfilter", function () {
+        var filter = $(this);
+        
+        $("#skiprecords").val(0);
+        
+        var form = $('#mensionform');
+        var serializedForm = form.serialize();
+        $.ajax({
+            url: "/Mension/More",
+            type: "POST",
+            data: serializedForm,
+            success: function (result) {
+                $("#js-for-load-testimonials").html(result);
+            },
+            error: function (result) {
+                alert(result.responseText);
+            }
+        });
+    });
+    
     /*----------- Галлерея картинок  -----------------------------------------*/
     $('#big-slider-img').slick({
         slidesToShow: 1,

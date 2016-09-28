@@ -282,6 +282,7 @@
     <Compile Include="Controllers\ChildrenController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MensionController.cs" />
     <Compile Include="Controllers\PreorderController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -356,6 +357,9 @@
     <Content Include="Views\Shared\_AccountChangePhone.cshtml" />
     <Content Include="Views\Shared\_ChildTalesHome.cshtml" />
     <Content Include="Views\Shared\_Mension.cshtml" />
+    <Content Include="Views\Mension\Index.cshtml" />
+    <Content Include="Views\Shared\_MensionAddPopup.cshtml" />
+    <Content Include="Views\Shared\_Mensions.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

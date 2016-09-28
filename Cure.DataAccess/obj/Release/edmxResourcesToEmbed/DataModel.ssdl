@@ -46,6 +46,8 @@
     <Property Name="GuidId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="CountryId" Type="int" Nullable="false" />
     <Property Name="OwnerUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="OwnerUserPic" Type="nvarchar" MaxLength="250" />
+    <Property Name="OwnerAvaFile" Type="nvarchar" MaxLength="250" />
     <Property Name="IsActive" Type="bit" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Birthday" Type="datetime" Nullable="false" />
@@ -159,6 +161,19 @@
     <Property Name="CopyUserLocation" Type="nvarchar" MaxLength="250" />
     <Property Name="SortOrder" Type="int" />
     <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="Message">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FromUserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="FromDisplay" Type="nvarchar" MaxLength="50" />
+    <Property Name="ToUserName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ToDisplay" Type="nvarchar" MaxLength="50" />
+    <Property Name="SendTime" Type="datetime" Nullable="false" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="250" />
+    <Property Name="Text" Type="text" />
   </EntityType>
   <EntityType Name="NotificationLog">
     <Key>
@@ -534,6 +549,30 @@ warning 6002: The table/view 'Cure.dbo.ViewChild' does not have a primary key de
     <Property Name="Operator4Name" Type="nvarchar" MaxLength="50" />
     <Property Name="Operator4Description" Type="nvarchar" MaxLength="250" />
     <Property Name="Operator4Params" Type="nvarchar" MaxLength="250" />
+    <Property Name="OwnerUserPic" Type="nvarchar" MaxLength="250" />
+    <Property Name="OwnerAvaFile" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Cure.dbo.ViewMension' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ViewMension">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="DepartmentId" Type="int" />
+    <Property Name="OwnerUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="Text" Type="text" />
+    <Property Name="CopySubject" Type="nvarchar" MaxLength="250" />
+    <Property Name="CopyUserName" Type="nvarchar" MaxLength="250" />
+    <Property Name="CopyUserLocation" Type="nvarchar" MaxLength="250" />
+    <Property Name="SortOrder" Type="int" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="OwnerUserPic" Type="nvarchar" MaxLength="250" />
+    <Property Name="ContactName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContactEmail" Type="nvarchar" MaxLength="250" />
+    <Property Name="ContactPhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="GuidId" Type="uniqueidentifier" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'Cure.dbo.ViewScheduler' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1120,6 +1159,7 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
     <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DepartmentStop" EntityType="Self.DepartmentStop" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Mension" EntityType="Self.Mension" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Message" EntityType="Self.Message" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NotificationLog" EntityType="Self.NotificationLog" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" Schema="dbo" store:Type="Tables" />
@@ -1215,8 +1255,29 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
 [ViewChild].[Operator3Params] AS [Operator3Params], 
 [ViewChild].[Operator4Name] AS [Operator4Name], 
 [ViewChild].[Operator4Description] AS [Operator4Description], 
-[ViewChild].[Operator4Params] AS [Operator4Params]
+[ViewChild].[Operator4Params] AS [Operator4Params], 
+[ViewChild].[OwnerUserPic] AS [OwnerUserPic], 
+[ViewChild].[OwnerAvaFile] AS [OwnerAvaFile]
 FROM [dbo].[ViewChild] AS [ViewChild]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ViewMension" EntityType="Self.ViewMension" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[ViewMension].[Id] AS [Id], 
+[ViewMension].[DepartmentId] AS [DepartmentId], 
+[ViewMension].[OwnerUser] AS [OwnerUser], 
+[ViewMension].[CreatedDate] AS [CreatedDate], 
+[ViewMension].[Text] AS [Text], 
+[ViewMension].[CopySubject] AS [CopySubject], 
+[ViewMension].[CopyUserName] AS [CopyUserName], 
+[ViewMension].[CopyUserLocation] AS [CopyUserLocation], 
+[ViewMension].[SortOrder] AS [SortOrder], 
+[ViewMension].[IsActive] AS [IsActive], 
+[ViewMension].[OwnerUserPic] AS [OwnerUserPic], 
+[ViewMension].[ContactName] AS [ContactName], 
+[ViewMension].[ContactEmail] AS [ContactEmail], 
+[ViewMension].[ContactPhone] AS [ContactPhone], 
+[ViewMension].[GuidId] AS [GuidId]
+FROM [dbo].[ViewMension] AS [ViewMension]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="ViewScheduler" EntityType="Self.ViewScheduler" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 

@@ -228,6 +228,11 @@
                     </PropertiesMemoEdit>
                     <EditFormSettings ColumnSpan="2" Visible="True" />
                 </dx:GridViewDataMemoColumn>
+                <dx:GridViewDataTextColumn Caption="UserPicFilename" FieldName="OwnerUserPic" Visible="False" VisibleIndex="67">
+                    <PropertiesTextEdit MaxLength="50">
+                    </PropertiesTextEdit>
+                    <EditFormSettings Visible="True" />
+                </dx:GridViewDataTextColumn>
             </Columns>
             <SettingsEditing Mode="PopupEditForm" EditFormColumnCount="1">
             </SettingsEditing>

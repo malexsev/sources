@@ -8,6 +8,16 @@ namespace Cure.DataAccess.BLL
 {
     public partial class DataAccessBL
     {
+        public int CountMensions(int filterId)
+        {
+            return dataRepository.CountMensions(filterId);
+        }
+
+        public IEnumerable<ViewMension> ViewMensions(int filterId, int skipRecords, int takeRecords = 12)
+        {
+            return dataRepository.ViewMensions(filterId, skipRecords, takeRecords);
+        }
+
         public IEnumerable<Mension> GetMensionsByDepartment(int? depId)
         {
             return dataRepository.GetMensionsByDepartment(depId);

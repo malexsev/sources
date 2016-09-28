@@ -8,6 +8,17 @@ namespace Cure.DataAccess.DAL
 {
     internal partial class DataRepository
     {
+        public IEnumerable<ViewMension> ViewMensions(int filterId, int skipRecords, int takeRecords = 12)
+        {
+            return context.ViewMensions.Where(o => filterId == o.DepartmentId || filterId == 0 || (filterId == -1 && o.DepartmentId == null))
+                .OrderByDescending(x => x.CreatedDate)
+                .Skip(skipRecords).Take(takeRecords).ToList();
+        }
+
+        public int CountMensions(int filterId)
+        {
+            return context.ViewMensions.Count(o => filterId == o.DepartmentId || filterId == 0 || (filterId == -1 && o.DepartmentId == null));
+        }
 
         public IEnumerable<Mension> GetTopMensions()
         {
@@ -35,7 +46,8 @@ namespace Cure.DataAccess.DAL
             {
                 context.Mensions.AddObject(setting);
                 context.SaveChanges();
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -48,7 +60,8 @@ namespace Cure.DataAccess.DAL
                 context.Mensions.Attach(setting);
                 context.Mensions.DeleteObject(setting);
                 SaveChanges();
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -69,7 +82,8 @@ namespace Cure.DataAccess.DAL
                 origMension.SortOrder = setting.SortOrder;
                 origMension.Text = setting.Text;
                 SaveChanges();
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }

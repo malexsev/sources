@@ -1,0 +1,50 @@
+﻿@using System.Collections
+@using Cure.DataAccess
+<!-- Поп-ап добавления нового отзыва -->
+<div class="popup testimonials-popup" id="pop-add-testimonial">
+    <div class="popup-modal"></div>
+    <div class="popup-wrap">
+        <a class="popup-close"></a>
+        <div class="popup-head js-tabs-registr">
+            <div class="popup-title">Написать отзыв</div>
+        </div>
+        <div class="popup-body">
+            @using (Html.BeginForm("AddNew", "Mension", FormMethod.Post, new
+            {
+                @id = "formMensionAdd",
+                @class = "registr-form js-mension-add"
+            }))
+            {
+                <div class="forms-line">
+                    <div class="selector forms-selector">
+                        @Html.Hidden("subject", 0, new { id = "subject" })
+                        <div class="selector-val" data-val="0">Выберите тему отзыва</div>
+                        <ul class="selector-list">
+                            @foreach (Department dep in (IEnumerable<Department>)ViewBag.DepSubjects)
+                            {
+                                <li data-val="@dep.Id">@dep.Name</li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+                <div class="forms-line">
+                    @Html.TextArea("text", new { @id = "text", @class = "forms-text" })
+                </div>
+                <div class="forms-line txt-center">
+                    <input class="btn btn-orang" type="submit" title="ОТПРАВИТЬ">
+                    <div id="addmensionprogress">
+                    </div>
+                    <div id="error-mensionadd" class="form-errors"></div>
+                </div>
+            }
+            <div class="forms-on-submit js-submit-ok">
+                <div class="registr-text txt-center top-50 btm-50">
+                    Отзыв отправлен. После того, как его проверит модератор, отзыв будет опубликован.
+                </div>
+                <div class="forms-line txt-center">
+                    <a class="btn btn-small js-close-popup" role="button">Закрыть</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

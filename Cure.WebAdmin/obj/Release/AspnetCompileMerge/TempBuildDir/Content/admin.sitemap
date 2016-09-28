@@ -6,6 +6,7 @@
     <siteMapNode url="~/Admin/PacientList.aspx" title="Пациенты" />
     <siteMapNode url="~/Admin/OrderList.aspx" title="Заезды" />
     <siteMapNode url="~/Admin/MensionList.aspx" title="Отзывы" />
+    <siteMapNode url="~/Admin/MessageList.aspx" title="Сообщения" />
     <siteMapNode url="~/Admin/ChildList.aspx" title="Наши дети" />
     <siteMapNode url="~/Admin/Scheduler.aspx" title="Календарь" />
     <siteMapNode url="" title="Справочники">

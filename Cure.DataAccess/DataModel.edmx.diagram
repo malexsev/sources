@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ad57fe02ed604b0a903ad8a8a051004e" Name="Diagram1" ZoomLevel="51">
+      <Diagram DiagramId="ad57fe02ed604b0a903ad8a8a051004e" Name="Diagram1" ZoomLevel="50">
         <EntityTypeShape EntityType="DataModel.OrderStatu" Width="1.5" PointX="10.875" PointY="1.875" />
         <EntityTypeShape EntityType="DataModel.Pacient" Width="1.5" PointX="5.25" PointY="15.125" />
         <EntityTypeShape EntityType="DataModel.ViewSoonVisit" Width="1.5" PointX="23.125" PointY="2" />
@@ -35,7 +35,7 @@
         <AssociationConnector Association="DataModel.FK_StopVisit_Department" />
         <AssociationConnector Association="DataModel.FK_StopVisit_RefStopVisitType" />
         <EntityTypeShape EntityType="DataModel.ChildHideFile" Width="1.5" PointX="1.5" PointY="21" />
-        <EntityTypeShape EntityType="DataModel.ChildAvaFile" Width="1.5" PointX="4.375" PointY="29.625" />
+        <EntityTypeShape EntityType="DataModel.ChildAvaFile" Width="1.5" PointX="4.5" PointY="30.75" />
         <EntityTypeShape EntityType="DataModel.Visit" Width="1.5" PointX="8.5" PointY="6.75" />
         <AssociationConnector Association="DataModel.FK_Visit_Pacient" />
         <EntityTypeShape EntityType="DataModel.Order" Width="1.5" PointX="11.25" PointY="5.125" />
@@ -48,23 +48,24 @@
         <EntityTypeShape EntityType="DataModel.ViewUserMembership" Width="2.875" PointX="28.75" PointY="2" />
         <EntityTypeShape EntityType="DataModel.Vipiska" Width="1.5" PointX="5.625" PointY="7.5" />
         <AssociationConnector Association="DataModel.FK_Vipiska_Visit" />
-        <EntityTypeShape EntityType="DataModel.Child" Width="1.5" PointX="4.125" PointY="20" />
+        <EntityTypeShape EntityType="DataModel.RefOperator" Width="1.5" PointX="7.875" PointY="26.625" />
+        <EntityTypeShape EntityType="DataModel.Mension" Width="1.5" PointX="13.625" PointY="21.125" />
+        <AssociationConnector Association="DataModel.FK_Mension_Department" />
+        <EntityTypeShape EntityType="DataModel.Message" Width="1.5" PointX="18.5" PointY="8.75" />
+        <EntityTypeShape EntityType="DataModel.Child" Width="1.5" PointX="4.75" PointY="20.5" />
         <AssociationConnector Association="DataModel.FK_Child_RefBank" />
         <AssociationConnector Association="DataModel.FK_Child_RefCountry" />
         <AssociationConnector Association="DataModel.FK_Child_RefCountryFin" />
         <AssociationConnector Association="DataModel.FK_Child_RefDiagnoz" />
-        <AssociationConnector Association="DataModel.FK_Child_RefRodstvo" />
-        <AssociationConnector Association="DataModel.FK_ChildAvaFile_Child" />
-        <AssociationConnector Association="DataModel.FK_ChildHideFile_Child" />
-        <EntityTypeShape EntityType="DataModel.RefOperator" Width="1.5" PointX="7.875" PointY="26.625" />
         <AssociationConnector Association="DataModel.FK_Child_RefOperator" />
         <AssociationConnector Association="DataModel.FK_Child_RefOperator2" />
         <AssociationConnector Association="DataModel.FK_Child_RefOperator3" />
         <AssociationConnector Association="DataModel.FK_Child_RefOperator4" />
-        <EntityTypeShape EntityType="DataModel.ViewChild" Width="2" PointX="32.75" PointY="2" />
-        <EntityTypeShape EntityType="DataModel.Mension" Width="1.5" PointX="13.625" PointY="21.125" />
-        <AssociationConnector Association="DataModel.FK_Mension_Department" />
-        <EntityTypeShape EntityType="DataModel.Message" Width="1.5" PointX="18.5" PointY="8.75" />
+        <AssociationConnector Association="DataModel.FK_Child_RefRodstvo" />
+        <AssociationConnector Association="DataModel.FK_ChildAvaFile_Child" />
+        <AssociationConnector Association="DataModel.FK_ChildHideFile_Child" />
+        <EntityTypeShape EntityType="DataModel.ViewChild" Width="1.875" PointX="32.75" PointY="2" />
+        <EntityTypeShape EntityType="DataModel.ViewMension" Width="1.5" PointX="35.75" PointY="2" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -12,6 +12,8 @@ namespace Cure.DataAccess.DAL
         IEnumerable<ViewUserMembership> ViewUserMembership();
         void UpdateUserMembership(ViewUserMembership userMembership);
 
+        IEnumerable<ViewMension> ViewMensions(int filterId, int skipRecords, int takeRecords = 12);
+        int CountMensions(int filterId);
         IEnumerable<Mension> GetMensions();
         IEnumerable<Mension> GetTopMensions();
         IEnumerable<Mension> GetMensionsByDepartment(int? department);

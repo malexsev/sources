@@ -596,6 +596,46 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="RefOperators">
+      <EntityTypeMapping TypeName="DataModel.RefOperator">
+        <MappingFragment StoreEntitySet="RefOperator">
+          <ScalarProperty Name="Params" ColumnName="Params" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mensions">
+      <EntityTypeMapping TypeName="DataModel.Mension">
+        <MappingFragment StoreEntitySet="Mension">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+          <ScalarProperty Name="CopyUserLocation" ColumnName="CopyUserLocation" />
+          <ScalarProperty Name="CopyUserName" ColumnName="CopyUserName" />
+          <ScalarProperty Name="CopySubject" ColumnName="CopySubject" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="OwnerUser" ColumnName="OwnerUser" />
+          <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Messages">
+      <EntityTypeMapping TypeName="DataModel.Message">
+        <MappingFragment StoreEntitySet="Message">
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="SendTime" ColumnName="SendTime" />
+          <ScalarProperty Name="ToDisplay" ColumnName="ToDisplay" />
+          <ScalarProperty Name="ToUserName" ColumnName="ToUserName" />
+          <ScalarProperty Name="FromDisplay" ColumnName="FromDisplay" />
+          <ScalarProperty Name="FromUserName" ColumnName="FromUserName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Children">
       <EntityTypeMapping TypeName="DataModel.Child">
         <MappingFragment StoreEntitySet="Child">
@@ -633,6 +673,8 @@
           <ScalarProperty Name="Birthday" ColumnName="Birthday" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="OwnerAvaFile" ColumnName="OwnerAvaFile" />
+          <ScalarProperty Name="OwnerUserPic" ColumnName="OwnerUserPic" />
           <ScalarProperty Name="OwnerUser" ColumnName="OwnerUser" />
           <ScalarProperty Name="CountryId" ColumnName="CountryId" />
           <ScalarProperty Name="GuidId" ColumnName="GuidId" />
@@ -640,19 +682,11 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="RefOperators">
-      <EntityTypeMapping TypeName="DataModel.RefOperator">
-        <MappingFragment StoreEntitySet="RefOperator">
-          <ScalarProperty Name="Params" ColumnName="Params" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="ViewChilds">
       <EntityTypeMapping TypeName="DataModel.ViewChild">
         <MappingFragment StoreEntitySet="ViewChild">
+          <ScalarProperty Name="OwnerAvaFile" ColumnName="OwnerAvaFile" />
+          <ScalarProperty Name="OwnerUserPic" ColumnName="OwnerUserPic" />
           <ScalarProperty Name="Operator4Params" ColumnName="Operator4Params" />
           <ScalarProperty Name="Operator4Description" ColumnName="Operator4Description" />
           <ScalarProperty Name="Operator4Name" ColumnName="Operator4Name" />
@@ -733,9 +767,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Mensions">
-      <EntityTypeMapping TypeName="DataModel.Mension">
-        <MappingFragment StoreEntitySet="Mension">
+    <EntitySetMapping Name="ViewMensions">
+      <EntityTypeMapping TypeName="DataModel.ViewMension">
+        <MappingFragment StoreEntitySet="ViewMension">
+          <ScalarProperty Name="GuidId" ColumnName="GuidId" />
+          <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+          <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+          <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+          <ScalarProperty Name="OwnerUserPic" ColumnName="OwnerUserPic" />
           <ScalarProperty Name="IsActive" ColumnName="IsActive" />
           <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
           <ScalarProperty Name="CopyUserLocation" ColumnName="CopyUserLocation" />

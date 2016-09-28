@@ -37,18 +37,18 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("DataModel", "FK_Visit_Order", "Order", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.Order), "Visit", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Visit), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK_DepartmentStop_Department", "Department", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.Department), "DepartmentStop", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.DepartmentStop), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK_Vipiska_Visit", "Visit", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.Visit), "Vipiska", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Vipiska), true)]
+[assembly: EdmRelationshipAttribute("DataModel", "FK_Mension_Department", "Department", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Cure.DataAccess.Department), "Mension", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Mension), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK_Child_RefBank", "RefBank", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Cure.DataAccess.RefBank), "Child", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Child), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK_Child_RefCountry", "RefCountry", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.RefCountry), "Child", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Child), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK_Child_RefCountryFin", "RefCountry", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Cure.DataAccess.RefCountry), "Child", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Child), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK_Child_RefDiagnoz", "RefDiagnoz", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.RefDiagnoz), "Child", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Child), true)]
-[assembly: EdmRelationshipAttribute("DataModel", "FK_Child_RefRodstvo", "RefRodstvo", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.RefRodstvo), "Child", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Child), true)]
-[assembly: EdmRelationshipAttribute("DataModel", "FK_ChildAvaFile_Child", "Child", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.Child), "ChildAvaFile", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.ChildAvaFile), true)]
-[assembly: EdmRelationshipAttribute("DataModel", "FK_ChildHideFile_Child", "Child", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.Child), "ChildHideFile", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.ChildHideFile), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK_Child_RefOperator", "RefOperator", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Cure.DataAccess.RefOperator), "Child", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Child), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK_Child_RefOperator2", "RefOperator", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Cure.DataAccess.RefOperator), "Child", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Child), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK_Child_RefOperator3", "RefOperator", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Cure.DataAccess.RefOperator), "Child", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Child), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK_Child_RefOperator4", "RefOperator", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Cure.DataAccess.RefOperator), "Child", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Child), true)]
-[assembly: EdmRelationshipAttribute("DataModel", "FK_Mension_Department", "Department", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Cure.DataAccess.Department), "Mension", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Mension), true)]
+[assembly: EdmRelationshipAttribute("DataModel", "FK_Child_RefRodstvo", "RefRodstvo", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.RefRodstvo), "Child", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Child), true)]
+[assembly: EdmRelationshipAttribute("DataModel", "FK_ChildAvaFile_Child", "Child", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.Child), "ChildAvaFile", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.ChildAvaFile), true)]
+[assembly: EdmRelationshipAttribute("DataModel", "FK_ChildHideFile_Child", "Child", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.Child), "ChildHideFile", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.ChildHideFile), true)]
 
 #endregion
 
@@ -503,22 +503,6 @@ namespace Cure.DataAccess
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Child> Children
-        {
-            get
-            {
-                if ((_Children == null))
-                {
-                    _Children = base.CreateObjectSet<Child>("Children");
-                }
-                return _Children;
-            }
-        }
-        private ObjectSet<Child> _Children;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<RefOperator> RefOperators
         {
             get
@@ -531,22 +515,6 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<RefOperator> _RefOperators;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<ViewChild> ViewChilds
-        {
-            get
-            {
-                if ((_ViewChilds == null))
-                {
-                    _ViewChilds = base.CreateObjectSet<ViewChild>("ViewChilds");
-                }
-                return _ViewChilds;
-            }
-        }
-        private ObjectSet<ViewChild> _ViewChilds;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -579,6 +547,54 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<Message> _Messages;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Child> Children
+        {
+            get
+            {
+                if ((_Children == null))
+                {
+                    _Children = base.CreateObjectSet<Child>("Children");
+                }
+                return _Children;
+            }
+        }
+        private ObjectSet<Child> _Children;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<ViewChild> ViewChilds
+        {
+            get
+            {
+                if ((_ViewChilds == null))
+                {
+                    _ViewChilds = base.CreateObjectSet<ViewChild>("ViewChilds");
+                }
+                return _ViewChilds;
+            }
+        }
+        private ObjectSet<ViewChild> _ViewChilds;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<ViewMension> ViewMensions
+        {
+            get
+            {
+                if ((_ViewMensions == null))
+                {
+                    _ViewMensions = base.CreateObjectSet<ViewMension>("ViewMensions");
+                }
+                return _ViewMensions;
+            }
+        }
+        private ObjectSet<ViewMension> _ViewMensions;
 
         #endregion
 
@@ -785,27 +801,11 @@ namespace Cure.DataAccess
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Children EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToChildren(Child child)
-        {
-            base.AddObject("Children", child);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the RefOperators EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToRefOperators(RefOperator refOperator)
         {
             base.AddObject("RefOperators", refOperator);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the ViewChilds EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToViewChilds(ViewChild viewChild)
-        {
-            base.AddObject("ViewChilds", viewChild);
         }
     
         /// <summary>
@@ -822,6 +822,30 @@ namespace Cure.DataAccess
         public void AddToMessages(Message message)
         {
             base.AddObject("Messages", message);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Children EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToChildren(Child child)
+        {
+            base.AddObject("Children", child);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the ViewChilds EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToViewChilds(ViewChild viewChild)
+        {
+            base.AddObject("ViewChilds", viewChild);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the ViewMensions EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToViewMensions(ViewMension viewMension)
+        {
+            base.AddObject("ViewMensions", viewMension);
         }
 
         #endregion
@@ -1913,6 +1937,54 @@ namespace Cure.DataAccess
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String OwnerUserPic
+        {
+            get
+            {
+                return _OwnerUserPic;
+            }
+            set
+            {
+                OnOwnerUserPicChanging(value);
+                ReportPropertyChanging("OwnerUserPic");
+                _OwnerUserPic = StructuralObject.SetValidValue(value, true, "OwnerUserPic");
+                ReportPropertyChanged("OwnerUserPic");
+                OnOwnerUserPicChanged();
+            }
+        }
+        private global::System.String _OwnerUserPic;
+        partial void OnOwnerUserPicChanging(global::System.String value);
+        partial void OnOwnerUserPicChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String OwnerAvaFile
+        {
+            get
+            {
+                return _OwnerAvaFile;
+            }
+            set
+            {
+                OnOwnerAvaFileChanging(value);
+                ReportPropertyChanging("OwnerAvaFile");
+                _OwnerAvaFile = StructuralObject.SetValidValue(value, true, "OwnerAvaFile");
+                ReportPropertyChanged("OwnerAvaFile");
+                OnOwnerAvaFileChanged();
+            }
+        }
+        private global::System.String _OwnerAvaFile;
+        partial void OnOwnerAvaFileChanging(global::System.String value);
+        partial void OnOwnerAvaFileChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsActive
@@ -2888,88 +2960,6 @@ namespace Cure.DataAccess
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_Child_RefRodstvo", "RefRodstvo")]
-        public RefRodstvo RefRodstvo
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RefRodstvo>("DataModel.FK_Child_RefRodstvo", "RefRodstvo").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RefRodstvo>("DataModel.FK_Child_RefRodstvo", "RefRodstvo").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<RefRodstvo> RefRodstvoReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RefRodstvo>("DataModel.FK_Child_RefRodstvo", "RefRodstvo");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<RefRodstvo>("DataModel.FK_Child_RefRodstvo", "RefRodstvo", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_ChildAvaFile_Child", "ChildAvaFile")]
-        public EntityCollection<ChildAvaFile> ChildAvaFiles
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ChildAvaFile>("DataModel.FK_ChildAvaFile_Child", "ChildAvaFile");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ChildAvaFile>("DataModel.FK_ChildAvaFile_Child", "ChildAvaFile", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_ChildHideFile_Child", "ChildHideFile")]
-        public EntityCollection<ChildHideFile> ChildHideFiles
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ChildHideFile>("DataModel.FK_ChildHideFile_Child", "ChildHideFile");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ChildHideFile>("DataModel.FK_ChildHideFile_Child", "ChildHideFile", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_Child_RefOperator", "RefOperator")]
         public RefOperator RefOperator
         {
@@ -3112,6 +3102,88 @@ namespace Cure.DataAccess
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<RefOperator>("DataModel.FK_Child_RefOperator4", "RefOperator", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_Child_RefRodstvo", "RefRodstvo")]
+        public RefRodstvo RefRodstvo
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RefRodstvo>("DataModel.FK_Child_RefRodstvo", "RefRodstvo").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RefRodstvo>("DataModel.FK_Child_RefRodstvo", "RefRodstvo").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<RefRodstvo> RefRodstvoReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<RefRodstvo>("DataModel.FK_Child_RefRodstvo", "RefRodstvo");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<RefRodstvo>("DataModel.FK_Child_RefRodstvo", "RefRodstvo", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_ChildAvaFile_Child", "ChildAvaFile")]
+        public EntityCollection<ChildAvaFile> ChildAvaFiles
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ChildAvaFile>("DataModel.FK_ChildAvaFile_Child", "ChildAvaFile");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ChildAvaFile>("DataModel.FK_ChildAvaFile_Child", "ChildAvaFile", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_ChildHideFile_Child", "ChildHideFile")]
+        public EntityCollection<ChildHideFile> ChildHideFiles
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ChildHideFile>("DataModel.FK_ChildHideFile_Child", "ChildHideFile");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ChildHideFile>("DataModel.FK_ChildHideFile_Child", "ChildHideFile", value);
                 }
             }
         }
@@ -11859,6 +11931,450 @@ namespace Cure.DataAccess
         private global::System.String _Operator4Params;
         partial void OnOperator4ParamsChanging(global::System.String value);
         partial void OnOperator4ParamsChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String OwnerUserPic
+        {
+            get
+            {
+                return _OwnerUserPic;
+            }
+            set
+            {
+                OnOwnerUserPicChanging(value);
+                ReportPropertyChanging("OwnerUserPic");
+                _OwnerUserPic = StructuralObject.SetValidValue(value, true, "OwnerUserPic");
+                ReportPropertyChanged("OwnerUserPic");
+                OnOwnerUserPicChanged();
+            }
+        }
+        private global::System.String _OwnerUserPic;
+        partial void OnOwnerUserPicChanging(global::System.String value);
+        partial void OnOwnerUserPicChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String OwnerAvaFile
+        {
+            get
+            {
+                return _OwnerAvaFile;
+            }
+            set
+            {
+                OnOwnerAvaFileChanging(value);
+                ReportPropertyChanging("OwnerAvaFile");
+                _OwnerAvaFile = StructuralObject.SetValidValue(value, true, "OwnerAvaFile");
+                ReportPropertyChanged("OwnerAvaFile");
+                OnOwnerAvaFileChanged();
+            }
+        }
+        private global::System.String _OwnerAvaFile;
+        partial void OnOwnerAvaFileChanging(global::System.String value);
+        partial void OnOwnerAvaFileChanged();
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="ViewMension")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class ViewMension : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new ViewMension object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="ownerUser">Initial value of the OwnerUser property.</param>
+        /// <param name="createdDate">Initial value of the CreatedDate property.</param>
+        public static ViewMension CreateViewMension(global::System.Int32 id, global::System.String ownerUser, global::System.DateTime createdDate)
+        {
+            ViewMension viewMension = new ViewMension();
+            viewMension.Id = id;
+            viewMension.OwnerUser = ownerUser;
+            viewMension.CreatedDate = createdDate;
+            return viewMension;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value, "Id");
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> DepartmentId
+        {
+            get
+            {
+                return _DepartmentId;
+            }
+            set
+            {
+                OnDepartmentIdChanging(value);
+                ReportPropertyChanging("DepartmentId");
+                _DepartmentId = StructuralObject.SetValidValue(value, "DepartmentId");
+                ReportPropertyChanged("DepartmentId");
+                OnDepartmentIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _DepartmentId;
+        partial void OnDepartmentIdChanging(Nullable<global::System.Int32> value);
+        partial void OnDepartmentIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String OwnerUser
+        {
+            get
+            {
+                return _OwnerUser;
+            }
+            set
+            {
+                OnOwnerUserChanging(value);
+                ReportPropertyChanging("OwnerUser");
+                _OwnerUser = StructuralObject.SetValidValue(value, false, "OwnerUser");
+                ReportPropertyChanged("OwnerUser");
+                OnOwnerUserChanged();
+            }
+        }
+        private global::System.String _OwnerUser;
+        partial void OnOwnerUserChanging(global::System.String value);
+        partial void OnOwnerUserChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime CreatedDate
+        {
+            get
+            {
+                return _CreatedDate;
+            }
+            set
+            {
+                OnCreatedDateChanging(value);
+                ReportPropertyChanging("CreatedDate");
+                _CreatedDate = StructuralObject.SetValidValue(value, "CreatedDate");
+                ReportPropertyChanged("CreatedDate");
+                OnCreatedDateChanged();
+            }
+        }
+        private global::System.DateTime _CreatedDate;
+        partial void OnCreatedDateChanging(global::System.DateTime value);
+        partial void OnCreatedDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Text
+        {
+            get
+            {
+                return _Text;
+            }
+            set
+            {
+                OnTextChanging(value);
+                ReportPropertyChanging("Text");
+                _Text = StructuralObject.SetValidValue(value, true, "Text");
+                ReportPropertyChanged("Text");
+                OnTextChanged();
+            }
+        }
+        private global::System.String _Text;
+        partial void OnTextChanging(global::System.String value);
+        partial void OnTextChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String CopySubject
+        {
+            get
+            {
+                return _CopySubject;
+            }
+            set
+            {
+                OnCopySubjectChanging(value);
+                ReportPropertyChanging("CopySubject");
+                _CopySubject = StructuralObject.SetValidValue(value, true, "CopySubject");
+                ReportPropertyChanged("CopySubject");
+                OnCopySubjectChanged();
+            }
+        }
+        private global::System.String _CopySubject;
+        partial void OnCopySubjectChanging(global::System.String value);
+        partial void OnCopySubjectChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String CopyUserName
+        {
+            get
+            {
+                return _CopyUserName;
+            }
+            set
+            {
+                OnCopyUserNameChanging(value);
+                ReportPropertyChanging("CopyUserName");
+                _CopyUserName = StructuralObject.SetValidValue(value, true, "CopyUserName");
+                ReportPropertyChanged("CopyUserName");
+                OnCopyUserNameChanged();
+            }
+        }
+        private global::System.String _CopyUserName;
+        partial void OnCopyUserNameChanging(global::System.String value);
+        partial void OnCopyUserNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String CopyUserLocation
+        {
+            get
+            {
+                return _CopyUserLocation;
+            }
+            set
+            {
+                OnCopyUserLocationChanging(value);
+                ReportPropertyChanging("CopyUserLocation");
+                _CopyUserLocation = StructuralObject.SetValidValue(value, true, "CopyUserLocation");
+                ReportPropertyChanged("CopyUserLocation");
+                OnCopyUserLocationChanged();
+            }
+        }
+        private global::System.String _CopyUserLocation;
+        partial void OnCopyUserLocationChanging(global::System.String value);
+        partial void OnCopyUserLocationChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> SortOrder
+        {
+            get
+            {
+                return _SortOrder;
+            }
+            set
+            {
+                OnSortOrderChanging(value);
+                ReportPropertyChanging("SortOrder");
+                _SortOrder = StructuralObject.SetValidValue(value, "SortOrder");
+                ReportPropertyChanged("SortOrder");
+                OnSortOrderChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _SortOrder;
+        partial void OnSortOrderChanging(Nullable<global::System.Int32> value);
+        partial void OnSortOrderChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> IsActive
+        {
+            get
+            {
+                return _IsActive;
+            }
+            set
+            {
+                OnIsActiveChanging(value);
+                ReportPropertyChanging("IsActive");
+                _IsActive = StructuralObject.SetValidValue(value, "IsActive");
+                ReportPropertyChanged("IsActive");
+                OnIsActiveChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _IsActive;
+        partial void OnIsActiveChanging(Nullable<global::System.Boolean> value);
+        partial void OnIsActiveChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String OwnerUserPic
+        {
+            get
+            {
+                return _OwnerUserPic;
+            }
+            set
+            {
+                OnOwnerUserPicChanging(value);
+                ReportPropertyChanging("OwnerUserPic");
+                _OwnerUserPic = StructuralObject.SetValidValue(value, true, "OwnerUserPic");
+                ReportPropertyChanged("OwnerUserPic");
+                OnOwnerUserPicChanged();
+            }
+        }
+        private global::System.String _OwnerUserPic;
+        partial void OnOwnerUserPicChanging(global::System.String value);
+        partial void OnOwnerUserPicChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ContactName
+        {
+            get
+            {
+                return _ContactName;
+            }
+            set
+            {
+                OnContactNameChanging(value);
+                ReportPropertyChanging("ContactName");
+                _ContactName = StructuralObject.SetValidValue(value, true, "ContactName");
+                ReportPropertyChanged("ContactName");
+                OnContactNameChanged();
+            }
+        }
+        private global::System.String _ContactName;
+        partial void OnContactNameChanging(global::System.String value);
+        partial void OnContactNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ContactEmail
+        {
+            get
+            {
+                return _ContactEmail;
+            }
+            set
+            {
+                OnContactEmailChanging(value);
+                ReportPropertyChanging("ContactEmail");
+                _ContactEmail = StructuralObject.SetValidValue(value, true, "ContactEmail");
+                ReportPropertyChanged("ContactEmail");
+                OnContactEmailChanged();
+            }
+        }
+        private global::System.String _ContactEmail;
+        partial void OnContactEmailChanging(global::System.String value);
+        partial void OnContactEmailChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ContactPhone
+        {
+            get
+            {
+                return _ContactPhone;
+            }
+            set
+            {
+                OnContactPhoneChanging(value);
+                ReportPropertyChanging("ContactPhone");
+                _ContactPhone = StructuralObject.SetValidValue(value, true, "ContactPhone");
+                ReportPropertyChanged("ContactPhone");
+                OnContactPhoneChanged();
+            }
+        }
+        private global::System.String _ContactPhone;
+        partial void OnContactPhoneChanging(global::System.String value);
+        partial void OnContactPhoneChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Guid> GuidId
+        {
+            get
+            {
+                return _GuidId;
+            }
+            set
+            {
+                OnGuidIdChanging(value);
+                ReportPropertyChanging("GuidId");
+                _GuidId = StructuralObject.SetValidValue(value, "GuidId");
+                ReportPropertyChanged("GuidId");
+                OnGuidIdChanged();
+            }
+        }
+        private Nullable<global::System.Guid> _GuidId;
+        partial void OnGuidIdChanging(Nullable<global::System.Guid> value);
+        partial void OnGuidIdChanged();
 
         #endregion
 

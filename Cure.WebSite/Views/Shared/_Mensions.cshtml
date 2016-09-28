@@ -1,0 +1,31 @@
+﻿@using System.Configuration
+@using Cure.DataAccess
+@using Cure.Utils
+@foreach (ViewMension mension in (IEnumerable<ViewMension>)ViewBag.ViewMensions)
+{
+    <div class="testimonials-unit js-ajax-for-count">
+        <div class="container">
+            <div class="testimonials-head">
+                <div class="testimonials-writer">
+                    <div class="writer-img">
+                        <a href="#" title="@mension.ContactName">
+                            <img src="@Html.Raw(SiteUtils.GetUserUserpic(Path.Combine(ConfigurationManager.AppSettings["PhotoUrl"], mension.GuidId.ToString()).Replace("Upload", "Userpics"),
+                                                            mension.GuidId,
+                                                            mension.OwnerUserPic))" alt="@mension.ContactName">
+                        </a>
+                    </div>
+                    <div class="writer-txt">
+                        <div class="writer-name"><a href="#">@mension.ContactName</a></div>
+                        <div class="writer-addr">@mension.CopyUserLocation</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonials-body">
+                <div class="testimonials-text js-spoiler-body">
+                    @mension.Text
+                </div>
+                <a class="testimonials-toggle js-spoiler-testimonials" role="button">Читать дальше</a>
+            </div>
+        </div>
+    </div>
+}

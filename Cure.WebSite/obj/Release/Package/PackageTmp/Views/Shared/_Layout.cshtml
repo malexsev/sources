@@ -93,9 +93,14 @@
 
     @Html.Partial("_Account")   
     
-    @if (Request.Url.AbsolutePath.Contains("MyPage"))
+    @if (Request.Url.AbsolutePath.ToLower().Contains("mypage"))
     {
         @Html.Partial("_CabinetChildEdit")
+    }
+    
+    @if (Request.Url.AbsolutePath.ToLower().Contains("mension"))
+    {
+        @Html.Partial("_MensionAddPopup");
     }
 
     <!-- jquery cdn        -->

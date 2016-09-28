@@ -178,6 +178,8 @@ namespace Cure.DataAccess.DAL
                 origChild.IsActive = child.IsActive;
                 origChild.Name = child.Name;
                 origChild.OwnerUser = child.OwnerUser;
+                origChild.OwnerUserPic = child.OwnerUserPic;
+                origChild.OwnerAvaFile = child.OwnerAvaFile;
                 origChild.Region = child.Region;
                 origChild.SocialFb = child.SocialFb;
                 origChild.SocialMm = child.SocialMm;
