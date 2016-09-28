@@ -2,11 +2,11 @@
 <nav class="header-nav" role="navigation">
     <ul class="header-menu">
         <li><a href="#">Клиники</a></li>
-        <li><a>Процедуры и препараты</a></li>
+        <li @Html.Raw(Request.Url.AbsolutePath.Contains("Procedure") || Request.Url.AbsolutePath.Contains("Medicine") ? @"class=""active""" : @"")><a href="@Url.Action("Procedure", "Home")">Процедуры и препараты</a></li>
         <li @Html.Raw(Request.Url.AbsolutePath.Contains("Children") ? @"class=""active""" : @"")><a href="@Url.Action("Index", "Children")">Наши дети</a></li>
         <li><a href="#">Полезное</a></li>
         <li><a href="#">О нас</a></li>
-        <li><a href="#">Цены</a></li>
+        <li @Html.Raw(Request.Url.AbsolutePath.Contains("Price") ? @"class=""active""" : @"")><a href="@Url.Action("Price", "Home")">Цены</a></li>
         <li @Html.Raw(Request.Url.AbsolutePath.Contains("Mension") ? @"class=""active""" : @"")><a href="@Url.Action("Index", "Mension")">Отзывы</a></li>
     </ul>
 </nav>

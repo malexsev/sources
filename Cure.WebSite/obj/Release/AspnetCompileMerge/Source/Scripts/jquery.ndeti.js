@@ -841,6 +841,7 @@ $(document).ready(function () {
             data: serializedForm,
             success: function (result) {
                 $("#pictodelete").val("");
+                $("#pictotop").val("");
                 $("#pictohideuphide").val("");
                 $("#galerytales").html(result);
             },
@@ -1705,11 +1706,20 @@ $(window).load(function () {
 function DeletePicture(id, fileName) {
     $("#pictodelete").val(fileName);
     $("#pictohideuphide").val("");
+    $("#pictotop").val((""));
+    $('#formGalery').submit();
+}
+
+function TopPicture(id, fileName) {
+    $("#pictotop").val(fileName);
+    $("#pictodelete").val("");
+    $("#pictohideuphide").val("");
     $('#formGalery').submit();
 }
 
 function HideShowPicture(id, fileName) {
     $("#pictodelete").val("");
+    $("#pictotop").val((""));
     $("#pictohideuphide").val(fileName);
     $('#formGalery').submit();
 }

@@ -135,9 +135,31 @@
     <Content Include="Content\images\doctors\doctor_2_120x120.jpg" />
     <Content Include="Content\images\doctors\doctor_3_120x120.jpg" />
     <Content Include="Content\images\doctors\doctor_boss_170x170.jpg" />
+    <Content Include="Content\images\img_wallet.png" />
     <Content Include="Content\images\main-slider\slide_main-page_1.jpg" />
     <Content Include="Content\images\main-slider\slide_main-page_2.jpg" />
     <Content Include="Content\images\main-slider\slide_main-page_3.jpg" />
+    <Content Include="Content\images\medicine\medicament_1.jpg" />
+    <Content Include="Content\images\medicine\medicament_2.jpg" />
+    <Content Include="Content\images\medicine\medicament_3.jpg" />
+    <Content Include="Content\images\medicine\medicament_4.jpg" />
+    <Content Include="Content\images\medicine\medicament_5.jpg" />
+    <Content Include="Content\images\medicine\medicament_6.jpg" />
+    <Content Include="Content\images\medicine\medicament_descr.jpg" />
+    <Content Include="Content\images\medicine\prop-icon_1.png" />
+    <Content Include="Content\images\medicine\prop-icon_2.png" />
+    <Content Include="Content\images\medicine\prop-icon_3.png" />
+    <Content Include="Content\images\medicine\prop-icon_4.png" />
+    <Content Include="Content\images\procedures\procedures_1.jpg" />
+    <Content Include="Content\images\procedures\procedures_2.jpg" />
+    <Content Include="Content\images\procedures\procedures_3.jpg" />
+    <Content Include="Content\images\procedures\procedures_4.jpg" />
+    <Content Include="Content\images\procedures\procedures_5.jpg" />
+    <Content Include="Content\images\procedures\procedures_6.jpg" />
+    <Content Include="Content\images\procedures\procedures_7.jpg" />
+    <Content Include="Content\images\procedures\procedures_8.jpg" />
+    <Content Include="Content\images\procedures\procedure_explanation.jpg" />
+    <Content Include="Content\images\procedures\procedure_page.jpg" />
     <Content Include="Content\images\sec-steps\main-page_step_1.jpg" />
     <Content Include="Content\images\sec-steps\main-page_step_2.jpg" />
     <Content Include="Content\images\sec-steps\main-page_step_3.jpg" />
@@ -360,6 +382,9 @@
     <Content Include="Views\Mension\Index.cshtml" />
     <Content Include="Views\Shared\_MensionAddPopup.cshtml" />
     <Content Include="Views\Shared\_Mensions.cshtml" />
+    <Content Include="Views\Home\Price.cshtml" />
+    <Content Include="Views\Home\Procedure.cshtml" />
+    <Content Include="Views\Home\Medicine.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

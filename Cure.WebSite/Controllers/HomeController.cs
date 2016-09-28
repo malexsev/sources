@@ -15,5 +15,20 @@ namespace Cure.WebSite.Controllers
             ViewBag.Departments = dal.GetDepartments();
             return View();
         }
+
+        public ActionResult Price()
+        {
+            return View();
+        }
+
+        public ActionResult Procedure()
+        {
+            return View();
+        }
+
+        public ActionResult Medicine()
+        {
+            return View();
+        }
     }
 }
