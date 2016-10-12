@@ -16,7 +16,7 @@ namespace Cure.WebSite.Controllers
             ViewChild view = dal.ViewChild(childId);
             ViewBag.Vipiskas = dal.GetMyVipiskas(view.OwnerUser).Select(x => new VisitResultViewModel(x));
 
-            return View(new ChildVisualDetailed(view, dal.GetChildHideFiles(childId), dal.GetChildAvaFile(childId)));
+            return View(new ChildVisualDetailed(view, dal.GetChildHideFiles(childId), dal.GetChildAvaFile(childId), dal.GetMyPosts(childId)));
         }
 
         public ActionResult Index()

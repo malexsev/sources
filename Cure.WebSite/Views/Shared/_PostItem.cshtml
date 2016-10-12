@@ -1,0 +1,12 @@
+﻿@using Cure.WebSite.Models;
+@model PostModel
+
+<div class="post-head">
+    <div class="post-date">@Html.Raw(Model.CreateDate.ToString("dd-MM-yyyy H:mm"))</div>
+</div>
+<div class="post-body user-content">
+    <p>
+        @Html.Raw(Model.Text)
+    </p>
+</div>
+

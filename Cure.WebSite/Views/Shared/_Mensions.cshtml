@@ -8,14 +8,14 @@
             <div class="testimonials-head">
                 <div class="testimonials-writer">
                     <div class="writer-img">
-                        <a href="#" title="@mension.ContactName">
+                        <a href="@Url.Action("Detail", "Children", new { id = mension.ChildId })" title="@mension.ContactName">
                             <img src="@Html.Raw(SiteUtils.GetUserUserpic(Path.Combine(ConfigurationManager.AppSettings["PhotoUrl"], mension.GuidId.ToString()).Replace("Upload", "Userpics"),
                                                             mension.GuidId,
                                                             mension.OwnerUserPic))" alt="@mension.ContactName">
                         </a>
                     </div>
                     <div class="writer-txt">
-                        <div class="writer-name"><a href="#">@mension.ContactName</a></div>
+                        <div class="writer-name"><a href="@Url.Action("Detail", "Children", new { id = mension.ChildId })">@mension.ContactName</a></div>
                         <div class="writer-addr">@mension.CopyUserLocation</div>
                     </div>
                 </div>

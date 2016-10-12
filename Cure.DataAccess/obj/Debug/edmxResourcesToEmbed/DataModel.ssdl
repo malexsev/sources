@@ -259,6 +259,23 @@
     <Property Name="CreateUser" Type="nvarchar" MaxLength="50" />
     <Property Name="CreateDate" Type="datetime" />
   </EntityType>
+  <EntityType Name="Post">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ParentPostId" Type="int" />
+    <Property Name="ChildId" Type="int" Nullable="false" />
+    <Property Name="GuidId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="OwnerUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AnserToUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="CopyOwnerName" Type="nvarchar" MaxLength="250" />
+    <Property Name="CopyOwnerLocation" Type="nvarchar" MaxLength="250" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="250" />
+    <Property Name="Text" Type="text" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+    <Property Name="LastEdit" Type="datetime" Nullable="false" />
+  </EntityType>
   <EntityType Name="RefBank">
     <Key>
       <PropertyRef Name="Id" />
@@ -573,6 +590,7 @@ warning 6002: The table/view 'Cure.dbo.ViewMension' does not have a primary key 
     <Property Name="ContactEmail" Type="nvarchar" MaxLength="250" />
     <Property Name="ContactPhone" Type="nvarchar" MaxLength="50" />
     <Property Name="GuidId" Type="uniqueidentifier" />
+    <Property Name="ChildId" Type="int" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'Cure.dbo.ViewScheduler' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -722,7 +740,7 @@ warning 6002: The table/view 'Cure.dbo.ViewSoonVisit' does not have a primary ke
     <Property Name="Otchestvo" Type="nvarchar" MaxLength="250" />
     <Property Name="OtchestvoEn" Type="nvarchar" MaxLength="250" />
     <Property Name="CityName" Type="nvarchar" MaxLength="250" />
-    <Property Name="DepartmentId" Type="int" Nullable="false" />
+    <Property Name="DepartmentId" Type="int" />
     <Property Name="StatusId" Type="int" Nullable="false" />
     <Property Name="DateFrom" Type="date" Nullable="false" />
     <Property Name="DateTo" Type="date" Nullable="false" />
@@ -733,6 +751,7 @@ warning 6002: The table/view 'Cure.dbo.ViewSoonVisit' does not have a primary ke
     <Property Name="Notes" Type="nvarchar" MaxLength="250" />
     <Property Name="Description" Type="nvarchar" MaxLength="500" />
     <Property Name="Email" Type="nvarchar" MaxLength="250" />
+    <Property Name="BirthDate" Type="date" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -787,6 +806,18 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
       </Principal>
       <Dependent Role="aspnet_Membership">
         <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Child_Child">
+    <End Role="Child" Type="Self.Child" Multiplicity="1" />
+    <End Role="Child1" Type="Self.Child" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Child">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Child1">
+        <PropertyRef Name="Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1014,6 +1045,32 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Post_Child">
+    <End Role="Child" Type="Self.Child" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Post" Type="Self.Post" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Child">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Post">
+        <PropertyRef Name="ChildId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Post_Post">
+    <End Role="Post" Type="Self.Post" Multiplicity="0..1" />
+    <End Role="Post1" Type="Self.Post" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Post">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Post1">
+        <PropertyRef Name="ParentPostId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_RefBank_RefCountry">
     <End Role="RefCountry" Type="Self.RefCountry" Multiplicity="1">
       <OnDelete Action="Cascade" />
@@ -1164,6 +1221,7 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
     <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Pacient" EntityType="Self.Pacient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RefBank" EntityType="Self.RefBank" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RefCountry" EntityType="Self.RefCountry" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RefDiagnoz" EntityType="Self.RefDiagnoz" Schema="dbo" store:Type="Tables" />
@@ -1276,7 +1334,8 @@ FROM [dbo].[ViewChild] AS [ViewChild]</DefiningQuery>
 [ViewMension].[ContactName] AS [ContactName], 
 [ViewMension].[ContactEmail] AS [ContactEmail], 
 [ViewMension].[ContactPhone] AS [ContactPhone], 
-[ViewMension].[GuidId] AS [GuidId]
+[ViewMension].[GuidId] AS [GuidId], 
+[ViewMension].[ChildId] AS [ChildId]
 FROM [dbo].[ViewMension] AS [ViewMension]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="ViewScheduler" EntityType="Self.ViewScheduler" store:Type="Views" store:Schema="dbo">
@@ -1430,7 +1489,8 @@ FROM [dbo].[ViewScheduler] AS [ViewScheduler]</DefiningQuery>
 [ViewSoonVisit].[TicketInfo] AS [TicketInfo], 
 [ViewSoonVisit].[Notes] AS [Notes], 
 [ViewSoonVisit].[Description] AS [Description], 
-[ViewSoonVisit].[Email] AS [Email]
+[ViewSoonVisit].[Email] AS [Email], 
+[ViewSoonVisit].[BirthDate] AS [BirthDate]
 FROM [dbo].[ViewSoonVisit] AS [ViewSoonVisit]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="ViewUserMembership" EntityType="Self.ViewUserMembership" store:Type="Views" store:Schema="dbo">
@@ -1469,6 +1529,10 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
     <AssociationSet Name="FK__aspnet_Me__UserI__61316BF4" Association="Self.FK__aspnet_Me__UserI__61316BF4">
       <End Role="aspnet_Users" EntitySet="aspnet_Users" />
       <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Child_Child" Association="Self.FK_Child_Child">
+      <End Role="Child" EntitySet="Child" />
+      <End Role="Child1" EntitySet="Child" />
     </AssociationSet>
     <AssociationSet Name="FK_Child_RefBank" Association="Self.FK_Child_RefBank">
       <End Role="RefBank" EntitySet="RefBank" />
@@ -1541,6 +1605,14 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
     <AssociationSet Name="FK_Pacient_RefCountry" Association="Self.FK_Pacient_RefCountry">
       <End Role="RefCountry" EntitySet="RefCountry" />
       <End Role="Pacient" EntitySet="Pacient" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Post_Child" Association="Self.FK_Post_Child">
+      <End Role="Child" EntitySet="Child" />
+      <End Role="Post" EntitySet="Post" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Post_Post" Association="Self.FK_Post_Post">
+      <End Role="Post" EntitySet="Post" />
+      <End Role="Post1" EntitySet="Post" />
     </AssociationSet>
     <AssociationSet Name="FK_RefBank_RefCountry" Association="Self.FK_RefBank_RefCountry">
       <End Role="RefCountry" EntitySet="RefCountry" />

@@ -39,7 +39,7 @@
                     </PropertiesTextEdit>
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTimeEditColumn Caption="Время отправки" FieldName="SendTime" VisibleIndex="7" Width="150px">
-                    <PropertiesTimeEdit DisplayFormatString="dd-MM-yyyy hh:mm:ss" EditFormat="DateTime">
+                    <PropertiesTimeEdit DisplayFormatString="dd-MM-yyyy hh:mm:ss" EditFormat="DateTime" EditFormatString="dd-MM-yyyy hh:mm:ss">
                         <ValidationSettings>
                             <RequiredField IsRequired="True" />
                         </ValidationSettings>

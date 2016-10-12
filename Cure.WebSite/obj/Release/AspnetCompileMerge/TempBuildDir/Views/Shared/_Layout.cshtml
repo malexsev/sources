@@ -79,6 +79,8 @@
                 </div>
             </div>
 
+            @Html.Partial("_MainMenuExt")
+
             @if (User.Identity.IsAuthenticated)
             {
                 @Html.Partial("_AccountMenu")
@@ -125,6 +127,9 @@
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
     <!-- main scripts      -->
     <script src="~/Scripts/jquery.ndeti.js"></script>
+    <!-- zoom images       -->
+    <script src="~/Scripts/plugins/transition.js"></script>
+    <script src="~/Scripts/plugins/zoom.min.js"></script>
 
 </body>
 </html>

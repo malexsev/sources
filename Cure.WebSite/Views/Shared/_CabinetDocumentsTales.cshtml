@@ -1,9 +1,9 @@
 ﻿@using Cure.WebSite.Models
 @model Cure.WebSite.Models.ChildVisualDetailed
  
-@foreach (DocItem doc in Model.DocItemLst)
+@foreach (DocItem doc in Model.DocItemList)
 {
-    <div class="col-lg-4 col-ss-6 images-tile-item @Html.Raw(Model.HiddenPhotoLst.Any(x => x.FileName == Path.GetFileName(doc.UrlOriginal)) ? "is-disabled" : "is-enabled")">
+    <div class="col-lg-4 col-ss-6 images-tile-item @Html.Raw(Model.HiddenPhotoList.Any(x => x.FileName == Path.GetFileName(doc.UrlOriginal)) ? "is-disabled" : "is-enabled")">
         <div class="tile-img">
             <a class="tile-link" role="button">
                 <img src="@doc.UrlOriginal" alt="@Model.Name">
@@ -12,9 +12,9 @@
         <div class="tile-nav">
             <a class="btn-tile-delete"
                onclick="javascript:DeleteDocument(@Model.Id, '@Html.Raw(Path.GetFileName(doc.UrlOriginal))');"></a>
-            <a class="btn-tile-toggle @Html.Raw(Model.HiddenPhotoLst.Any(x => x.FileName == Path.GetFileName(doc.UrlOriginal)) ? "is-disabled" : "is-enabled") js-images-tile-toggle"
+            <a class="btn-tile-toggle @Html.Raw(Model.HiddenPhotoList.Any(x => x.FileName == Path.GetFileName(doc.UrlOriginal)) ? "is-disabled" : "is-enabled") js-images-tile-toggle"
                onclick="javascript:HideShowDocument(@Model.Id, '@Html.Raw(Path.GetFileName(doc.UrlOriginal))');"
-               role="button">@Html.Raw(Model.HiddenPhotoLst.Any(x => x.FileName == Path.GetFileName(doc.UrlOriginal)) ? "Открыть" : "Скрыть")</a>
+               role="button">@Html.Raw(Model.HiddenPhotoList.Any(x => x.FileName == Path.GetFileName(doc.UrlOriginal)) ? "Открыть" : "Скрыть")</a>
         </div>
     </div>
 }

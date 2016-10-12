@@ -16,6 +16,11 @@ namespace Cure.WebSite.Controllers
             return View();
         }
 
+        public ActionResult AboutUs()
+        {
+            return View();
+        }
+
         public ActionResult Price()
         {
             return View();

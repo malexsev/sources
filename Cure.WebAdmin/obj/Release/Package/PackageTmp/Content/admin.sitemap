@@ -5,10 +5,13 @@
     <siteMapNode url="~/Admin/DepartmentList.aspx" title="Клиники/Отделения" />
     <siteMapNode url="~/Admin/PacientList.aspx" title="Пациенты" />
     <siteMapNode url="~/Admin/OrderList.aspx" title="Заезды" />
-    <siteMapNode url="~/Admin/MensionList.aspx" title="Отзывы" />
-    <siteMapNode url="~/Admin/MessageList.aspx" title="Сообщения" />
     <siteMapNode url="~/Admin/ChildList.aspx" title="Наши дети" />
     <siteMapNode url="~/Admin/Scheduler.aspx" title="Календарь" />
+    <siteMapNode url="" title="Сообщения">
+      <siteMapNode url="~/Admin/MensionList.aspx" title="Отзывы" />
+      <siteMapNode url="~/Admin/MessageList.aspx" title="Сообщения" />
+      <siteMapNode url="~/Admin/PostList.aspx" title="Впечатления" />
+    </siteMapNode>
     <siteMapNode url="" title="Справочники">
       <siteMapNode url="~/Admin/RefCountryList.aspx" title="Страны" description="Страны в системе" />
       <siteMapNode url="~/Admin/RefBankList.aspx" title="Банки" description="Банки применяются для профиля Финансовой помощи" />

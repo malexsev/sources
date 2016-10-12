@@ -1,9 +1,9 @@
 ﻿@using Cure.WebSite.Models
 @model Cure.WebSite.Models.ChildVisualDetailed
 
-@foreach (PhotoItem photo in Model.PhotoItemLst)
+@foreach (PhotoItem photo in Model.PhotoItemList)
 {
-    <div class="col-lg-4 col-ss-6 images-tile-item @Html.Raw(Model.HiddenPhotoLst.Any(x => x.FileName == Path.GetFileName(photo.UrlOriginal)) ? "is-disabled" : "is-enabled")">
+    <div class="col-lg-4 col-ss-6 images-tile-item @Html.Raw(Model.HiddenPhotoList.Any(x => x.FileName == Path.GetFileName(photo.UrlOriginal)) ? "is-disabled" : "is-enabled")">
         <div class="tile-img">
             <a class="tile-link" role="button">
                 <img src="@photo.UrlMin" alt="@Model.Name">
@@ -21,14 +21,14 @@
             @if (Model.AvaFileName != Path.GetFileName(photo.UrlOriginal))
             {
                 <div class="tile-nav-right">
-                    <a class="btn-tile-toggle @Html.Raw(Model.HiddenPhotoLst.Any(x => x.FileName == Path.GetFileName(photo.UrlOriginal)) ? "is-disabled" : "is-enabled") js-images-tile-toggle"
+                    <a class="btn-tile-toggle @Html.Raw(Model.HiddenPhotoList.Any(x => x.FileName == Path.GetFileName(photo.UrlOriginal)) ? "is-disabled" : "is-enabled") js-images-tile-toggle"
                        onclick="javascript:HideShowPicture(@Model.Id, '@Html.Raw(Path.GetFileName(photo.UrlOriginal))');"
-                       role="button" title="@Html.Raw(Model.HiddenPhotoLst.Any(x => x.FileName == Path.GetFileName(photo.UrlOriginal)) ? "Показывать" : "Скрыть")"></a>
+                       role="button" title="@Html.Raw(Model.HiddenPhotoList.Any(x => x.FileName == Path.GetFileName(photo.UrlOriginal)) ? "Показывать" : "Скрыть")"></a>
                     <a class="btn-tile-delete" role="button"
                        onclick="javascript:DeletePicture(@Model.Id, '@Html.Raw(Path.GetFileName(photo.UrlOriginal))');"></a>
                 </div>
             }
-            @if (Model.HiddenPhotoLst.All(x => x.FileName != Path.GetFileName(photo.UrlOriginal)))
+            @if (Model.HiddenPhotoList.All(x => x.FileName != Path.GetFileName(photo.UrlOriginal)))
             {
                 <div class="tile-nav-left">
                     <label class="forms-checkbox">

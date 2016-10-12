@@ -37,7 +37,7 @@ namespace Cure.WebSite.Controllers
             ViewBag.CountryBanks = dal.GetRefBanks(child.FinCountryId ?? child.CountryId);
             ViewBag.Vipiskas = dal.GetMyVipiskas(User.Identity.Name).Select(x => new VisitResultViewModel(x));
 
-            ViewBag.Profile = new ChildVisualDetailed(child, dal.GetChildHideFiles(child.Id), dal.GetChildAvaFile(child.Id));
+            ViewBag.Profile = new ChildVisualDetailed(child, dal.GetChildHideFiles(child.Id), dal.GetChildAvaFile(child.Id), dal.GetMyPosts(child.Id));
             return View(ViewBag.Profile);
         }
 
@@ -684,7 +684,7 @@ namespace Cure.WebSite.Controllers
             ViewBag.CountryBanks = dal.GetRefBanks(child.FinCountryId ?? child.CountryId);
             ViewBag.Vipiskas = dal.GetMyVipiskas(User.Identity.Name).Select(x => new VisitResultViewModel(x));
 
-            ViewBag.Profile = new ChildVisualDetailed(child, dal.GetChildHideFiles(child.Id), dal.GetChildAvaFile(child.Id));
+            ViewBag.Profile = new ChildVisualDetailed(child, dal.GetChildHideFiles(child.Id), dal.GetChildAvaFile(child.Id), dal.GetMyPosts(child.Id));
             return View(ViewBag.Profile);
         }
 
@@ -735,7 +735,7 @@ namespace Cure.WebSite.Controllers
                     dal.InsertChildAvaFile(ava);
                 }
 
-                ViewBag.Profile = new ChildVisualDetailed(view, dal.GetChildHideFiles(view.Id), dal.GetChildAvaFile(view.Id));
+                ViewBag.Profile = new ChildVisualDetailed(view, dal.GetChildHideFiles(view.Id), dal.GetChildAvaFile(view.Id), dal.GetMyPosts(view.Id));
             }
             return PartialView("_CabinetGaleryTales", ViewBag.Profile);
         }
@@ -772,7 +772,7 @@ namespace Cure.WebSite.Controllers
                     }
                 }
 
-                ViewBag.Profile = new ChildVisualDetailed(child, dal.GetChildHideFiles(child.Id), dal.GetChildAvaFile(child.Id));
+                ViewBag.Profile = new ChildVisualDetailed(child, dal.GetChildHideFiles(child.Id), dal.GetChildAvaFile(child.Id), dal.GetMyPosts(child.Id));
             }
             return PartialView("_CabinetDocumentsTales", ViewBag.Profile);
         }
@@ -820,7 +820,7 @@ namespace Cure.WebSite.Controllers
 
                 var dal = new DataAccessBL();
                 var child = dal.ViewChild(User.Identity.Name);
-                ViewBag.Profile = new ChildVisualDetailed(child, dal.GetChildHideFiles(child.Id), dal.GetChildAvaFile(child.Id));
+                ViewBag.Profile = new ChildVisualDetailed(child, dal.GetChildHideFiles(child.Id), dal.GetChildAvaFile(child.Id), dal.GetMyPosts(child.Id));
                 return PartialView("_CabinetGaleryTales", ViewBag.Profile);
             }
             else
@@ -839,7 +839,7 @@ namespace Cure.WebSite.Controllers
 
                 var dal = new DataAccessBL();
                 var child = dal.ViewChild(User.Identity.Name);
-                ViewBag.Profile = new ChildVisualDetailed(child, dal.GetChildHideFiles(child.Id), dal.GetChildAvaFile(child.Id));
+                ViewBag.Profile = new ChildVisualDetailed(child, dal.GetChildHideFiles(child.Id), dal.GetChildAvaFile(child.Id), dal.GetMyPosts(child.Id));
                 return PartialView("_CabinetDocumentsTales", ViewBag.Profile);
             }
             else
@@ -973,7 +973,11 @@ namespace Cure.WebSite.Controllers
                     var view = dal.ViewChild(User.Identity.Name);
                     var child = dal.GetChild(view.Id);
 
-                    child.ContactName = contactname;
+                    if (child.ContactName != contactname)
+                    {
+                        Session["UserContactName"] = contactname;
+                        child.ContactName = contactname;
+                    }
                     child.ContactRodstvoId = rodstvoId;
                     child.ContactEmail = email;
                     child.ContactPhone = telephone;
@@ -1343,6 +1347,9 @@ namespace Cure.WebSite.Controllers
         {
             var dal = new DataAccessBL();
             var view = dal.ViewChild(User.Identity.Name);
+            var child = dal.GetChild(view.Id);
+            child.OwnerUserPic = string.Empty;
+            dal.UpdateChild(child);
 
             const string OriginalDirectory = @"{0}{1}\";
 

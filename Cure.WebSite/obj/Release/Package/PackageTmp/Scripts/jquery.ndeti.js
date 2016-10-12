@@ -271,7 +271,7 @@ $(document).ready(function () {
             submitHandler: function (form) {
                 //alert("Submitted!");
                 //form.submit();
-                $(form).hide().siblings(".js-submit-ok").show();
+                //$(form).hide().siblings(".js-submit-ok").show();
             }
         });
     });
@@ -1687,6 +1687,19 @@ $(document).ready(function () {
         $(this).addClass("active").siblings(".forms-radio").removeClass("active");
     });
 
+    /*--- Всплывающее мегаменю -----------------------------------------------*/
+    // Открыть
+    $(".js-megamenu-open").click(function (e) {
+        var $btn = $(this);
+        menuId = "#" + $btn.data("menu");
+        e.stopPropagation();
+        $(menuId).addClass("active").children(".megamenu-back").height($(document).height());
+    });
+    // Закрыть
+    $(".js-megamenu-close").click(function (e) {
+        e.stopPropagation();
+        $(".megamenu").removeClass("active");
+    });
 
 });
 

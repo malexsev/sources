@@ -6,22 +6,25 @@ using System;
 
 namespace Cure.WebSite.Models
 {
+    using System.Linq;
 
     public class ChildVisualDetailed : ChildVisual
     {
-        public List<ChildHideFile> HiddenPhotoLst { get; set; }
-        public List<PhotoItem> PhotoItemLst { get; set; }
-        public List<DocItem> DocItemLst { get; set; }
+        public List<ChildHideFile> HiddenPhotoList { get; set; }
+        public List<PhotoItem> PhotoItemList { get; set; }
+        public List<DocItem> DocItemList { get; set; }
+        public List<PostModel> PostItemList { get; set; }
         public DocItem Userpic { get; set; }
 
-        public ChildVisualDetailed(ViewChild child, IEnumerable<ChildHideFile> hiddenFiles, ChildAvaFile avaFile = null)
+        public ChildVisualDetailed(ViewChild child, IEnumerable<ChildHideFile> hiddenFiles, ChildAvaFile avaFile = null, IEnumerable<Post> posts = null)
             : base(child, avaFile)
         {
             if (child != null)
             {
-                this.PhotoItemLst = new List<PhotoItem>();
-                this.DocItemLst = new List<DocItem>();
-                this.HiddenPhotoLst = new List<ChildHideFile>(hiddenFiles);
+                this.PhotoItemList = new List<PhotoItem>();
+                this.DocItemList = new List<DocItem>();
+                this.PostItemList = new List<PostModel>();
+                this.HiddenPhotoList = new List<ChildHideFile>(hiddenFiles);
                 this.Userpic = new DocItem();
                 string photoLocation = Path.Combine(ConfigurationManager.AppSettings["PhotoLocation"], this.GuidId.ToString());
                 string photoUrl = Path.Combine(ConfigurationManager.AppSettings["PhotoUrl"], this.GuidId.ToString());
@@ -38,7 +41,7 @@ namespace Cure.WebSite.Models
 
                     foreach (FileInfo fileInfo in fileInfoArray)
                     {
-                        this.PhotoItemLst.Add(new PhotoItem(photoUrl, fileInfo.Name));
+                        this.PhotoItemList.Add(new PhotoItem(photoUrl, fileInfo.Name));
                     }
                 }
 
@@ -50,7 +53,7 @@ namespace Cure.WebSite.Models
 
                     foreach (FileInfo fileInfo in fileInfoArray)
                     {
-                        this.DocItemLst.Add(new DocItem(docsUrl, fileInfo.Name));
+                        this.DocItemList.Add(new DocItem(docsUrl, fileInfo.Name));
                     }
                 }
 
@@ -64,6 +67,13 @@ namespace Cure.WebSite.Models
                     {
                         this.Userpic = new DocItem(userpicUrl, fileInfo.Name);
                     }
+                }
+
+                //Лента впечатлений
+                if (posts != null)
+                {
+                    var enumerable = posts as IList<Post> ?? posts.ToList();
+                    this.PostItemList = enumerable.Select(x => new PostModel(x)).ToList();
                 }
             }
         }

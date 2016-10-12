@@ -14,11 +14,11 @@
                     <h1 class="all-pages-H1">@Model.Name <span class="subtitle">@Model.Age,<br /> @Model.CountryName@Html.Raw(string.IsNullOrEmpty(Model.Region) ? "" : ", ") @Model.Region</span></h1>
                 </div>
                 <div class="col-lg-5">
-                    @*<div class="head-btns mob-md-mw-313">
-                            <a class="btn btn-white has-shadow ico-seti btn-two-lines">Поделиться<br>в соцсетях</a>
-                            <a class="btn btn-white has-shadow ico-mail btn-two-lines">Написать<br>сообщение</a>
-                            <a class="btn btn-orang has-shadow ico-help">Оказать помощь</a>
-                        </div>*@
+                    @*<div class="head-btns mob-md-mw-313">*@
+                    @*<a class="btn btn-white has-shadow ico-seti btn-two-lines">Поделиться<br>в соцсетях</a>*@
+                    @*<a class="btn btn-white has-shadow ico-mail btn-two-lines">Написать<br>сообщение</a>*@
+                    @*<a class="btn btn-orang has-shadow ico-help">Оказать помощь</a>*@
+                    @*</div>*@
                 </div>
             </div>
         </div>
@@ -193,295 +193,17 @@
                                     </div>*@
                             </div>
 
-                            <div class="child-tabs-tab js-tabs-item" id="child-tab-2">
-                                <div class="child-tab-wrap" id="js-for-load-feelings">
-                                    <div class="child-tab-post">
-                                        <div class="post-head">
-                                            <div class="post-date">12.05.2015 23:12</div>
-                                        </div>
-                                        <div class="post-body user-content">
-                                            <p>
-                                                Перед поездкой смотрели прогноз, были нарисованы сплошные дожди. Подумали:
-                                                все равно очень тепло и вода теплая, поедем. В результате была одна ночная гроза,
-                                                и один смешной дождик - одна минута, три капли днем. Два дня была облачность,
-                                                остальное время солнечно. Мышечный тонус в конечностях снизился,
-                                                увеличился объем пассивных и активных движений.
-                                                Улучшилась опора на предплечья в положении лежа на животе. Крепче стала спина. Начал
-                                                раскрывать кисти, движение руками стали более точными и целенаправленными.
-                                            </p>
-                                        </div>
-                                        <div class="comments post-comments is-open">
-                                            <div class="comments-head">
-                                                <a class="comments-count js-comments-open" role="button">4</a>
-                                            </div>
-                                            <div class="comments-body post-comments-body">
-                                                <div class="comments-title">Комментарии (2)</div>
-                                                <div class="comments-item">
-                                                    <div class="comments-item-head">
-                                                        <div class="head-imgs">
-                                                            <img class="head-img" src="~/content/images/users/contact_user_2_48x48.jpg" alt="Елена Матвеева">
-                                                            <img class="head-img" src="~/content/images/users/contact_user_3_48x48.jpg" alt="Олег">
-                                                        </div>
-                                                        <div class="head-txt">
-                                                            <div class="head-name">Елена Матвеева (Олег)</div>
-                                                            <div class="head-date">24.04.2015 11:45</div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="comments-item-boby">
-                                                        <div class="user-content">
-                                                            <p>
-                                                                Замечательная экскурсия!<br>
-                                                                Напишите плз в личку сколько стоит поездка. Вы сами ездили или организовывали
-                                                                вам поездку?
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="comments-item-footer">
-                                                        <a class="comments-reply" role="button">Ответить</a>
-                                                    </div>
-                                                </div>
-                                                <div class="comments-item">
-                                                    <div class="comments-item-head">
-                                                        <div class="head-imgs">
-                                                            <img class="head-img" src="~/content/images/users/contact_user_default_48x48.jpg" alt="Инна Ткачук">
-                                                            <img class="head-img" src="~/content/images/users/contact_user_4_48x48.jpg" alt="Марина">
-                                                        </div>
-                                                        <div class="head-txt">
-                                                            <div class="head-name">Инна Ткачук (Марина)</div>
-                                                            <div class="head-date">24.04.2015 12:23</div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="comments-item-boby">
-                                                        <div class="user-content">
-                                                            <p>
-                                                                Замечательная экскурсия!<br>
-                                                                Напишите плз в личку сколько стоит поездка. Вы сами ездили или организовывали
-                                                                вам поездку?
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="comments-item-footer">
-                                                        <a class="comments-reply" role="button">Ответить</a>
-                                                    </div>
-                                                </div>
-                                                <div class="comments-addform">
-                                                    <form>
-                                                        <div class="comments-addform-head">
-                                                            <div class="head-imgs">
-                                                                <img class="head-img" src="~/content/images/users/contact_user_5_48x48.jpg" alt="Валентина Евдокимовская">
-                                                            </div>
-                                                            <div class="head-txt">
-                                                                <div class="head-name">Валентина Евдокимовская</div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="comments-addform-body">
-                                                            <textarea class="forms-text" placeholder="Ваше сообщение"></textarea>
-                                                            <input class="btn btn-orang" type="submit" value="ОТПРАВИТЬ">
-                                                            <div class="forms-file">
-                                                                <div class="forms-file-msg">Добавить фото</div>
-                                                                <input type="file" onchange="this.previousSibling.previousSibling.innerHTML = this.value">
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="child-tab-post">
-                                        <div class="post-head">
-                                            <div class="post-date">23.04.2015 11:16</div>
-                                        </div>
-                                        <div class="post-body user-content">
-                                            <p>
-                                                Наш семейный друг проживает в Китае и именно он нам посоветовал для отдыха этот
-                                                отель и сам приезжал к нам на несколько дней, так как в России бывает не часто
-                                                и вся связь у нас через интернет. В аэропорту возникли проблемы с визами,
-                                                вернее с каким-то их подтверждением. Это касалось не только нас, но и всей
-                                                группы, которая приехала в этот отель. Нам повезло с гидами, которые оказались
-                                                отличными ребятами и не стали все пускать на самотек. Когда выяснилось в чем суть
-                                                проблемы, они сразу же созвонились с нашим отелем, который выслал какое-то
-                                                подтверждение и нас сразу же пропустили.
-                                            </p>
-                                            <img src="~/content/images/trips/trip_1.jpg" alt="trip">
-                                            <p>
-                                                У нас был можно сказать, что хороший номер. Конечно, можно придраться к старой мебели
-                                                и специфическому запаху в номере, но шикарных апартаментов нам никто не обещал
-                                                и мы прекрасно понимали в какую страну мы едем. Интерьер номера в смешанном
-                                                европейско-китайском стиле. Придираться можно было в том случае, когда проводишь
-                                                в отеле большую часть времени, а так позавтракали и гулять, а возвращались уже ночью.
-                                                На уборку номера внимания не обращали, я даже затрудняюсь сказать как часто убирали
-                                                номер, но всегда было чисто. Один раз оставили чаевые на тумбочке, но их никто не забрал.
-                                            </p>
-                                            <p>
-                                                Как интерьер номера, так и завтрак был смешанный. Чего только стоит зеленый китайский чай.
-                                                Булочки от наших, ничем не отличаются. В этом отеле правильно делают, что делают
-                                                ставку не только на китайскую, но и на европейскую кухню. За пределами отеля ничего
-                                                экстремального не пробовали, кушали курицу с рисом, бульоны, суши. Вся еда вкусная.
-                                                Смело покупали еду на улице и не боялись за свое самочувствие.
-                                            </p>
-                                            <p>
-                                                Территория небольшая, есть компактный внутренней дворик с прудом и утками, которые живут
-                                                в деревянных домиках. По стенам отелей вьется плющ. По всей видимости эти мелочи
-                                                являются визитной карточкой этой гостиницы. Все время у нас было расписано по
-                                                экскурсиям и поездкам, у нас даже не было времени искупаться в бассейне.
-                                            </p>
-                                            <p>
-                                                Понравилось, что в отеле было много европейцев, а не только китайцы. В таком обществе
-                                                чувствуешь себя как-то уверенно, хотя китайцы к нам относились доброжелательно,
-                                                никакой агрессии не проявляют.
-                                            </p>
-                                            <p>
-                                                Вещи сдавали в отеле в прачечную, стирали быстро и недорого. Назад вещи возвращали
-                                                чистыми, не застиранными.
-                                            </p>
-                                            <p>
-                                                Отель неплохо расположен, мы сами запросто сориентировались в городе и несколько
-                                                раз вечером выходили погулять. До центра города километра два, можно ехать на такси,
-                                                можно прогуляться пешком.
-                                            </p>
-                                        </div>
-                                        <div class="comments post-comments">
-                                            <div class="comments-head">
-                                                <a class="comments-count js-comments-open" role="button">2</a>
-                                            </div>
-                                            <div class="comments-body post-comments-body">
-                                                <div class="comments-title">Комментарии (2)</div>
-                                                <div class="comments-item">
-                                                    <div class="comments-item-head">
-                                                        <div class="head-imgs">
-                                                            <img class="head-img" src="~/content/images/users/contact_user_2_48x48.jpg" alt="Елена Матвеева">
-                                                            <img class="head-img" src="~/content/images/users/contact_user_3_48x48.jpg" alt="Олег">
-                                                        </div>
-                                                        <div class="head-txt">
-                                                            <div class="head-name">Елена Матвеева (Олег)</div>
-                                                            <div class="head-date">24.04.2015 11:45</div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="comments-item-boby">
-                                                        <div class="user-content">
-                                                            <p>
-                                                                Замечательная экскурсия!<br>
-                                                                Напишите плз в личку сколько стоит поездка. Вы сами ездили или организовывали
-                                                                вам поездку?
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="comments-item-footer">
-                                                        <a class="comments-reply" role="button">Ответить</a>
-                                                    </div>
-                                                </div>
-                                                <div class="comments-item">
-                                                    <div class="comments-item-head">
-                                                        <div class="head-imgs">
-                                                            <img class="head-img" src="~/content/images/users/contact_user_default_48x48.jpg" alt="Инна Ткачук">
-                                                            <img class="head-img" src="~/content/images/users/contact_user_4_48x48.jpg" alt="Марина">
-                                                        </div>
-                                                        <div class="head-txt">
-                                                            <div class="head-name">Инна Ткачук (Марина)</div>
-                                                            <div class="head-date">24.04.2015 12:23</div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="comments-item-boby">
-                                                        <div class="user-content">
-                                                            <p>
-                                                                Замечательная экскурсия!<br>
-                                                                Напишите плз в личку сколько стоит поездка. Вы сами ездили или организовывали
-                                                                вам поездку?
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="comments-item-footer">
-                                                        <a class="comments-reply" role="button">Ответить</a>
-                                                    </div>
-                                                </div>
-                                                <div class="comments-addform">
-                                                    <form>
-                                                        <div class="comments-addform-head">
-                                                            <div class="head-imgs">
-                                                                <img class="head-img" src="~/content/images/users/contact_user_5_48x48.jpg" alt="Наталья Константиновна">
-                                                            </div>
-                                                            <div class="head-txt">
-                                                                <div class="head-name">Валентина Евдокимовская</div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="comments-addform-body">
-                                                            <textarea class="addform-text"></textarea>
-                                                            <input class="btn btn-orang" type="submit" value="ОТПРАВИТЬ">
-                                                            <div class="forms-file">
-                                                                <div class="forms-file-msg">Добавить фото</div>
-                                                                <input type="file" onchange="this.previousSibling.previousSibling.innerHTML = this.value">
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="child-tab-post">
-                                        <div class="post-head">
-                                            <div class="post-date">21.04.2015 12:50</div>
-                                        </div>
-                                        <div class="post-body user-content">
-                                            <p>
-                                                Территория небольшая, есть компактный внутренней дворик с прудом и утками, которые живут
-                                                в деревянных домиках. По стенам отелей вьется плющ. По всей видимости эти мелочи
-                                                являются визитной карточкой этой гостиницы. Все время у нас было расписано по
-                                                экскурсиям и поездкам, у нас даже не было времени искупаться в бассейне.
-                                            </p>
-                                            <p>
-                                                Перед поездкой смотрели прогноз, были нарисованы сплошные дожди. Подумали:
-                                                все равно очень тепло и вода теплая, поедем. В результате была одна ночная гроза,
-                                                и один смешной дождик - одна минута, три капли днем. Два дня была облачность,
-                                                остальное время солнечно. Мышечный тонус в конечностях снизился,
-                                                увеличился объем пассивных и активных движений.
-                                                Улучшилась опора на предплечья в положении лежа на животе. Крепче стала спина. Начал
-                                                раскрывать кисти, движение руками стали более точными и целенаправленными.
-                                            </p>
-                                        </div>
-                                        <div class="comments post-comments">
-                                            <div class="comments-head">
-                                                <a class="comments-count js-comments-open" role="button">0</a>
-                                            </div>
-                                            <div class="comments-body post-comments-body">
-                                                <div class="comments-title">Комментарии (0)</div>
-                                                <div class="comments-addform">
-                                                    <form>
-                                                        <div class="comments-addform-head">
-                                                            <div class="head-imgs">
-                                                                <img class="head-img" src="~/content/images/users/contact_user_5_48x48.jpg" alt="Наталья Константиновна">
-                                                            </div>
-                                                            <div class="head-txt">
-                                                                <div class="head-name">Валентина Евдокимовская</div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="comments-addform-body">
-                                                            <textarea class="addform-text"></textarea>
-                                                            <input class="btn btn-orang" type="submit" value="ОТПРАВИТЬ">
-                                                            <div class="forms-file">
-                                                                <div class="forms-file-msg">Добавить фото</div>
-                                                                <input type="file" onchange="this.previousSibling.previousSibling.innerHTML = this.value">
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="all-pages-more child-tab-more">
-                                    <div class="more-btn">
-                                        <a class="btn btn-light has-loading js-load-more-feelings">Показать еще</a>
-                                    </div>
-                                </div>
-                            </div>
+                            @*<div class="child-tabs-tab js-tabs-item" id="child-tab-2">
+                                @Html.Partial("_PostBoard", Model)
+                            </div>*@
 
                             <div class="child-tabs-tab js-tabs-item" id="child-tab-3">
                                 <div class="child-tab-gallery">
                                     <div class="gallery-light">
                                         <div class="gallery-slider js-tab-slider" id="big-slider-img">
-                                            @foreach (var photoItem in Model.PhotoItemLst)
+                                            @foreach (var photoItem in Model.PhotoItemList)
                                             {
-                                                if (Model.HiddenPhotoLst.All(x => x.FileName != System.IO.Path.GetFileName(photoItem.UrlOriginal)))
+                                                if (Model.HiddenPhotoList.All(x => x.FileName != System.IO.Path.GetFileName(photoItem.UrlOriginal)))
                                                 {
                                                     <div class="slide"><img src="@photoItem.UrlBig" alt="__"></div>
                                                 }
@@ -494,9 +216,9 @@
                                     </div>
                                     <div class="has-underline">
                                         <div class="gallery-thumbs js-tab-slider" id="big-slider-nav">
-                                            @foreach (var photoItem in Model.PhotoItemLst)
+                                            @foreach (var photoItem in Model.PhotoItemList)
                                             {
-                                                if (Model.HiddenPhotoLst.All(x => x.FileName != System.IO.Path.GetFileName(photoItem.UrlOriginal)))
+                                                if (Model.HiddenPhotoList.All(x => x.FileName != System.IO.Path.GetFileName(photoItem.UrlOriginal)))
                                                 {
                                                     <div class="thumb"><img src="@photoItem.UrlBig" alt="__"></div>
                                                 }
@@ -509,12 +231,12 @@
                             <!-- Таб "Документы" -->
                             <div class="child-tabs-tab js-tabs-item" id="child-tab-4">
                                 <div class="child-tab-gallery">
-                                    @if (Model.DocItemLst.Any(x => Model.HiddenPhotoLst.All(h => h.FileName != Path.GetFileName(x.UrlOriginal))))
+                                    @if (Model.DocItemList.Any(x => Model.HiddenPhotoList.All(h => h.FileName != Path.GetFileName(x.UrlOriginal))))
                                     {
                                         <div class="child-tab-slider">
                                             <div class="slider-light">
                                                 <div class="all-pages-slider js-allpages-slider js-tab-slider">
-                                                    @foreach (var doc in Model.DocItemLst.Where(x => Model.HiddenPhotoLst.All(h => h.FileName != Path.GetFileName(x.UrlOriginal))))
+                                                    @foreach (var doc in Model.DocItemList.Where(x => Model.HiddenPhotoList.All(h => h.FileName != Path.GetFileName(x.UrlOriginal))))
                                                     {
                                                         <div class="slide"><img src="@doc.UrlOriginal" alt="@Model.Name"></div>
                                                     }

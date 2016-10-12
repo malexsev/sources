@@ -10,14 +10,14 @@ namespace Cure.DataAccess.DAL
     {
         public IEnumerable<ViewMension> ViewMensions(int filterId, int skipRecords, int takeRecords = 12)
         {
-            return context.ViewMensions.Where(o => filterId == o.DepartmentId || filterId == 0 || (filterId == -1 && o.DepartmentId == null))
+            return context.ViewMensions.Where(o => o.IsActive == true && (filterId == o.DepartmentId || filterId == 0 || (filterId == -1 && o.DepartmentId == null)))
                 .OrderByDescending(x => x.CreatedDate)
                 .Skip(skipRecords).Take(takeRecords).ToList();
         }
 
         public int CountMensions(int filterId)
         {
-            return context.ViewMensions.Count(o => filterId == o.DepartmentId || filterId == 0 || (filterId == -1 && o.DepartmentId == null));
+            return context.ViewMensions.Where(o => o.IsActive == true).Count(o => filterId == o.DepartmentId || filterId == 0 || (filterId == -1 && o.DepartmentId == null));
         }
 
         public IEnumerable<Mension> GetTopMensions()

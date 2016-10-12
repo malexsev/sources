@@ -1,0 +1,24 @@
+﻿@model Cure.WebSite.Models.PostModel
+
+<div class="comments-item">
+    <div class="comments-item-head">
+        <div class="head-imgs">
+            <img class="head-img" src="@Model.UserpicUrl" alt="@Model.CopyOwnerName">
+            <img class="head-img" src="@Model.ChildAvaUrl" alt="@Model.ChildName">
+        </div>
+        <div class="head-txt">
+            <div class="head-name">@Model.CopyOwnerName @Html.Raw(string.IsNullOrEmpty(Model.ChildName) ? "" : string.Format("({0})", Model.ChildName))</div>
+            <div class="head-date">@Model.CreateDate.ToString("dd-MM-yyyy H:mm")</div>
+        </div>
+    </div>
+    <div class="comments-item-boby">
+        <div class="user-content">
+            <p>
+                @Model.Text
+            </p>
+        </div>
+    </div>
+    <div class="comments-item-footer">
+        <a class="comments-reply" role="button">Ответить</a>
+    </div>
+</div>

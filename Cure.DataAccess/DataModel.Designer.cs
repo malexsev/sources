@@ -35,9 +35,10 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("DataModel", "FK_Order_OrderStatus", "OrderStatu", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.OrderStatu), "Order", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Order), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK_Sputnik_Order", "Order", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Cure.DataAccess.Order), "Sputnik", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Sputnik), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK_Visit_Order", "Order", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.Order), "Visit", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Visit), true)]
-[assembly: EdmRelationshipAttribute("DataModel", "FK_DepartmentStop_Department", "Department", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.Department), "DepartmentStop", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.DepartmentStop), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK_Vipiska_Visit", "Visit", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.Visit), "Vipiska", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Vipiska), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK_Mension_Department", "Department", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Cure.DataAccess.Department), "Mension", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Mension), true)]
+[assembly: EdmRelationshipAttribute("DataModel", "FK_DepartmentStop_Department", "Department", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.Department), "DepartmentStop", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.DepartmentStop), true)]
+[assembly: EdmRelationshipAttribute("DataModel", "FK_Child_Child", "Child", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.Child), "Child1", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Cure.DataAccess.Child), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK_Child_RefBank", "RefBank", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Cure.DataAccess.RefBank), "Child", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Child), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK_Child_RefCountry", "RefCountry", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.RefCountry), "Child", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Child), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK_Child_RefCountryFin", "RefCountry", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Cure.DataAccess.RefCountry), "Child", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Child), true)]
@@ -49,6 +50,8 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("DataModel", "FK_Child_RefRodstvo", "RefRodstvo", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.RefRodstvo), "Child", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Child), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK_ChildAvaFile_Child", "Child", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.Child), "ChildAvaFile", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.ChildAvaFile), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK_ChildHideFile_Child", "Child", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.Child), "ChildHideFile", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.ChildHideFile), true)]
+[assembly: EdmRelationshipAttribute("DataModel", "FK_Post_Child", "Child", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.Child), "Post", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Post), true)]
+[assembly: EdmRelationshipAttribute("DataModel", "FK_Post_Post", "Post", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Cure.DataAccess.Post), "Post1", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Post), true)]
 
 #endregion
 
@@ -131,22 +134,6 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<Pacient> _Pacients;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<ViewSoonVisit> ViewSoonVisits
-        {
-            get
-            {
-                if ((_ViewSoonVisits == null))
-                {
-                    _ViewSoonVisits = base.CreateObjectSet<ViewSoonVisit>("ViewSoonVisits");
-                }
-                return _ViewSoonVisits;
-            }
-        }
-        private ObjectSet<ViewSoonVisit> _ViewSoonVisits;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -455,22 +442,6 @@ namespace Cure.DataAccess
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<DepartmentStop> DepartmentStops
-        {
-            get
-            {
-                if ((_DepartmentStops == null))
-                {
-                    _DepartmentStops = base.CreateObjectSet<DepartmentStop>("DepartmentStops");
-                }
-                return _DepartmentStops;
-            }
-        }
-        private ObjectSet<DepartmentStop> _DepartmentStops;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<ViewUserMembership> ViewUserMemberships
         {
             get
@@ -535,6 +506,38 @@ namespace Cure.DataAccess
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<ViewChild> ViewChilds
+        {
+            get
+            {
+                if ((_ViewChilds == null))
+                {
+                    _ViewChilds = base.CreateObjectSet<ViewChild>("ViewChilds");
+                }
+                return _ViewChilds;
+            }
+        }
+        private ObjectSet<ViewChild> _ViewChilds;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<DepartmentStop> DepartmentStops
+        {
+            get
+            {
+                if ((_DepartmentStops == null))
+                {
+                    _DepartmentStops = base.CreateObjectSet<DepartmentStop>("DepartmentStops");
+                }
+                return _DepartmentStops;
+            }
+        }
+        private ObjectSet<DepartmentStop> _DepartmentStops;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<Message> Messages
         {
             get
@@ -547,6 +550,22 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<Message> _Messages;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<ViewSoonVisit> ViewSoonVisits
+        {
+            get
+            {
+                if ((_ViewSoonVisits == null))
+                {
+                    _ViewSoonVisits = base.CreateObjectSet<ViewSoonVisit>("ViewSoonVisits");
+                }
+                return _ViewSoonVisits;
+            }
+        }
+        private ObjectSet<ViewSoonVisit> _ViewSoonVisits;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -567,18 +586,18 @@ namespace Cure.DataAccess
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<ViewChild> ViewChilds
+        public ObjectSet<Post> Posts
         {
             get
             {
-                if ((_ViewChilds == null))
+                if ((_Posts == null))
                 {
-                    _ViewChilds = base.CreateObjectSet<ViewChild>("ViewChilds");
+                    _Posts = base.CreateObjectSet<Post>("Posts");
                 }
-                return _ViewChilds;
+                return _Posts;
             }
         }
-        private ObjectSet<ViewChild> _ViewChilds;
+        private ObjectSet<Post> _Posts;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -614,14 +633,6 @@ namespace Cure.DataAccess
         public void AddToPacients(Pacient pacient)
         {
             base.AddObject("Pacients", pacient);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the ViewSoonVisits EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToViewSoonVisits(ViewSoonVisit viewSoonVisit)
-        {
-            base.AddObject("ViewSoonVisits", viewSoonVisit);
         }
     
         /// <summary>
@@ -777,14 +788,6 @@ namespace Cure.DataAccess
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the DepartmentStops EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToDepartmentStops(DepartmentStop departmentStop)
-        {
-            base.AddObject("DepartmentStops", departmentStop);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the ViewUserMemberships EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToViewUserMemberships(ViewUserMembership viewUserMembership)
@@ -817,11 +820,35 @@ namespace Cure.DataAccess
         }
     
         /// <summary>
+        /// Deprecated Method for adding a new object to the ViewChilds EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToViewChilds(ViewChild viewChild)
+        {
+            base.AddObject("ViewChilds", viewChild);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the DepartmentStops EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToDepartmentStops(DepartmentStop departmentStop)
+        {
+            base.AddObject("DepartmentStops", departmentStop);
+        }
+    
+        /// <summary>
         /// Deprecated Method for adding a new object to the Messages EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToMessages(Message message)
         {
             base.AddObject("Messages", message);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the ViewSoonVisits EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToViewSoonVisits(ViewSoonVisit viewSoonVisit)
+        {
+            base.AddObject("ViewSoonVisits", viewSoonVisit);
         }
     
         /// <summary>
@@ -833,11 +860,11 @@ namespace Cure.DataAccess
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the ViewChilds EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the Posts EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToViewChilds(ViewChild viewChild)
+        public void AddToPosts(Post post)
         {
-            base.AddObject("ViewChilds", viewChild);
+            base.AddObject("Posts", post);
         }
     
         /// <summary>
@@ -2808,6 +2835,82 @@ namespace Cure.DataAccess
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_Child_Child", "Child1")]
+        public Child Child1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Child>("DataModel.FK_Child_Child", "Child1").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Child>("DataModel.FK_Child_Child", "Child1").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Child> Child1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Child>("DataModel.FK_Child_Child", "Child1");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Child>("DataModel.FK_Child_Child", "Child1", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_Child_Child", "Child")]
+        public Child Child2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Child>("DataModel.FK_Child_Child", "Child").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Child>("DataModel.FK_Child_Child", "Child").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Child> Child2Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Child>("DataModel.FK_Child_Child", "Child");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Child>("DataModel.FK_Child_Child", "Child", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_Child_RefBank", "RefBank")]
         public RefBank RefBank
         {
@@ -3184,6 +3287,28 @@ namespace Cure.DataAccess
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ChildHideFile>("DataModel.FK_ChildHideFile_Child", "ChildHideFile", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_Post_Child", "Post")]
+        public EntityCollection<Post> Posts
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Post>("DataModel.FK_Post_Child", "Post");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Post>("DataModel.FK_Post_Child", "Post", value);
                 }
             }
         }
@@ -4374,28 +4499,6 @@ namespace Cure.DataAccess
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_DepartmentStop_Department", "DepartmentStop")]
-        public EntityCollection<DepartmentStop> DepartmentStops
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<DepartmentStop>("DataModel.FK_DepartmentStop_Department", "DepartmentStop");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<DepartmentStop>("DataModel.FK_DepartmentStop_Department", "DepartmentStop", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_Mension_Department", "Mension")]
         public EntityCollection<Mension> Mensions
         {
@@ -4408,6 +4511,28 @@ namespace Cure.DataAccess
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Mension>("DataModel.FK_Mension_Department", "Mension", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_DepartmentStop_Department", "DepartmentStop")]
+        public EntityCollection<DepartmentStop> DepartmentStops
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<DepartmentStop>("DataModel.FK_DepartmentStop_Department", "DepartmentStop");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<DepartmentStop>("DataModel.FK_DepartmentStop_Department", "DepartmentStop", value);
                 }
             }
         }
@@ -7182,6 +7307,438 @@ namespace Cure.DataAccess
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Visit>("DataModel.FK_Visit_Pacient", "Visit", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="Post")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Post : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Post object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="childId">Initial value of the ChildId property.</param>
+        /// <param name="guidId">Initial value of the GuidId property.</param>
+        /// <param name="ownerUser">Initial value of the OwnerUser property.</param>
+        /// <param name="createDate">Initial value of the CreateDate property.</param>
+        /// <param name="lastEdit">Initial value of the LastEdit property.</param>
+        public static Post CreatePost(global::System.Int32 id, global::System.Int32 childId, global::System.Guid guidId, global::System.String ownerUser, global::System.DateTime createDate, global::System.DateTime lastEdit)
+        {
+            Post post = new Post();
+            post.Id = id;
+            post.ChildId = childId;
+            post.GuidId = guidId;
+            post.OwnerUser = ownerUser;
+            post.CreateDate = createDate;
+            post.LastEdit = lastEdit;
+            return post;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value, "Id");
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> ParentPostId
+        {
+            get
+            {
+                return _ParentPostId;
+            }
+            set
+            {
+                OnParentPostIdChanging(value);
+                ReportPropertyChanging("ParentPostId");
+                _ParentPostId = StructuralObject.SetValidValue(value, "ParentPostId");
+                ReportPropertyChanged("ParentPostId");
+                OnParentPostIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _ParentPostId;
+        partial void OnParentPostIdChanging(Nullable<global::System.Int32> value);
+        partial void OnParentPostIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ChildId
+        {
+            get
+            {
+                return _ChildId;
+            }
+            set
+            {
+                OnChildIdChanging(value);
+                ReportPropertyChanging("ChildId");
+                _ChildId = StructuralObject.SetValidValue(value, "ChildId");
+                ReportPropertyChanged("ChildId");
+                OnChildIdChanged();
+            }
+        }
+        private global::System.Int32 _ChildId;
+        partial void OnChildIdChanging(global::System.Int32 value);
+        partial void OnChildIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid GuidId
+        {
+            get
+            {
+                return _GuidId;
+            }
+            set
+            {
+                OnGuidIdChanging(value);
+                ReportPropertyChanging("GuidId");
+                _GuidId = StructuralObject.SetValidValue(value, "GuidId");
+                ReportPropertyChanged("GuidId");
+                OnGuidIdChanged();
+            }
+        }
+        private global::System.Guid _GuidId;
+        partial void OnGuidIdChanging(global::System.Guid value);
+        partial void OnGuidIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String OwnerUser
+        {
+            get
+            {
+                return _OwnerUser;
+            }
+            set
+            {
+                OnOwnerUserChanging(value);
+                ReportPropertyChanging("OwnerUser");
+                _OwnerUser = StructuralObject.SetValidValue(value, false, "OwnerUser");
+                ReportPropertyChanged("OwnerUser");
+                OnOwnerUserChanged();
+            }
+        }
+        private global::System.String _OwnerUser;
+        partial void OnOwnerUserChanging(global::System.String value);
+        partial void OnOwnerUserChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String AnserToUser
+        {
+            get
+            {
+                return _AnserToUser;
+            }
+            set
+            {
+                OnAnserToUserChanging(value);
+                ReportPropertyChanging("AnserToUser");
+                _AnserToUser = StructuralObject.SetValidValue(value, true, "AnserToUser");
+                ReportPropertyChanged("AnserToUser");
+                OnAnserToUserChanged();
+            }
+        }
+        private global::System.String _AnserToUser;
+        partial void OnAnserToUserChanging(global::System.String value);
+        partial void OnAnserToUserChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String CopyOwnerName
+        {
+            get
+            {
+                return _CopyOwnerName;
+            }
+            set
+            {
+                OnCopyOwnerNameChanging(value);
+                ReportPropertyChanging("CopyOwnerName");
+                _CopyOwnerName = StructuralObject.SetValidValue(value, true, "CopyOwnerName");
+                ReportPropertyChanged("CopyOwnerName");
+                OnCopyOwnerNameChanged();
+            }
+        }
+        private global::System.String _CopyOwnerName;
+        partial void OnCopyOwnerNameChanging(global::System.String value);
+        partial void OnCopyOwnerNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String CopyOwnerLocation
+        {
+            get
+            {
+                return _CopyOwnerLocation;
+            }
+            set
+            {
+                OnCopyOwnerLocationChanging(value);
+                ReportPropertyChanging("CopyOwnerLocation");
+                _CopyOwnerLocation = StructuralObject.SetValidValue(value, true, "CopyOwnerLocation");
+                ReportPropertyChanged("CopyOwnerLocation");
+                OnCopyOwnerLocationChanged();
+            }
+        }
+        private global::System.String _CopyOwnerLocation;
+        partial void OnCopyOwnerLocationChanging(global::System.String value);
+        partial void OnCopyOwnerLocationChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Subject
+        {
+            get
+            {
+                return _Subject;
+            }
+            set
+            {
+                OnSubjectChanging(value);
+                ReportPropertyChanging("Subject");
+                _Subject = StructuralObject.SetValidValue(value, true, "Subject");
+                ReportPropertyChanged("Subject");
+                OnSubjectChanged();
+            }
+        }
+        private global::System.String _Subject;
+        partial void OnSubjectChanging(global::System.String value);
+        partial void OnSubjectChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Text
+        {
+            get
+            {
+                return _Text;
+            }
+            set
+            {
+                OnTextChanging(value);
+                ReportPropertyChanging("Text");
+                _Text = StructuralObject.SetValidValue(value, true, "Text");
+                ReportPropertyChanged("Text");
+                OnTextChanged();
+            }
+        }
+        private global::System.String _Text;
+        partial void OnTextChanging(global::System.String value);
+        partial void OnTextChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime CreateDate
+        {
+            get
+            {
+                return _CreateDate;
+            }
+            set
+            {
+                OnCreateDateChanging(value);
+                ReportPropertyChanging("CreateDate");
+                _CreateDate = StructuralObject.SetValidValue(value, "CreateDate");
+                ReportPropertyChanged("CreateDate");
+                OnCreateDateChanged();
+            }
+        }
+        private global::System.DateTime _CreateDate;
+        partial void OnCreateDateChanging(global::System.DateTime value);
+        partial void OnCreateDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime LastEdit
+        {
+            get
+            {
+                return _LastEdit;
+            }
+            set
+            {
+                OnLastEditChanging(value);
+                ReportPropertyChanging("LastEdit");
+                _LastEdit = StructuralObject.SetValidValue(value, "LastEdit");
+                ReportPropertyChanged("LastEdit");
+                OnLastEditChanged();
+            }
+        }
+        private global::System.DateTime _LastEdit;
+        partial void OnLastEditChanging(global::System.DateTime value);
+        partial void OnLastEditChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_Post_Child", "Child")]
+        public Child Child
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Child>("DataModel.FK_Post_Child", "Child").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Child>("DataModel.FK_Post_Child", "Child").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Child> ChildReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Child>("DataModel.FK_Post_Child", "Child");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Child>("DataModel.FK_Post_Child", "Child", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_Post_Post", "Post1")]
+        public EntityCollection<Post> Post1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Post>("DataModel.FK_Post_Post", "Post1");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Post>("DataModel.FK_Post_Post", "Post1", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_Post_Post", "Post")]
+        public Post Post2
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Post>("DataModel.FK_Post_Post", "Post").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Post>("DataModel.FK_Post_Post", "Post").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Post> Post2Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Post>("DataModel.FK_Post_Post", "Post");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Post>("DataModel.FK_Post_Post", "Post", value);
                 }
             }
         }
@@ -12375,6 +12932,30 @@ namespace Cure.DataAccess
         private Nullable<global::System.Guid> _GuidId;
         partial void OnGuidIdChanging(Nullable<global::System.Guid> value);
         partial void OnGuidIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> ChildId
+        {
+            get
+            {
+                return _ChildId;
+            }
+            set
+            {
+                OnChildIdChanging(value);
+                ReportPropertyChanging("ChildId");
+                _ChildId = StructuralObject.SetValidValue(value, "ChildId");
+                ReportPropertyChanged("ChildId");
+                OnChildIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _ChildId;
+        partial void OnChildIdChanging(Nullable<global::System.Int32> value);
+        partial void OnChildIdChanged();
 
         #endregion
 
@@ -15406,26 +15987,24 @@ namespace Cure.DataAccess
         /// Create a new ViewSoonVisit object.
         /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="visitId">Initial value of the VisitId property.</param>
         /// <param name="pacientId">Initial value of the PacientId property.</param>
         /// <param name="countryId">Initial value of the CountryId property.</param>
         /// <param name="name">Initial value of the Name property.</param>
-        /// <param name="departmentId">Initial value of the DepartmentId property.</param>
         /// <param name="statusId">Initial value of the StatusId property.</param>
         /// <param name="dateFrom">Initial value of the DateFrom property.</param>
         /// <param name="dateTo">Initial value of the DateTo property.</param>
-        /// <param name="visitId">Initial value of the VisitId property.</param>
-        public static ViewSoonVisit CreateViewSoonVisit(global::System.Guid id, global::System.Int32 pacientId, global::System.Int32 countryId, global::System.String name, global::System.Int32 departmentId, global::System.Int32 statusId, global::System.DateTime dateFrom, global::System.DateTime dateTo, global::System.Int32 visitId)
+        public static ViewSoonVisit CreateViewSoonVisit(global::System.Guid id, global::System.Int32 visitId, global::System.Int32 pacientId, global::System.Int32 countryId, global::System.String name, global::System.Int32 statusId, global::System.DateTime dateFrom, global::System.DateTime dateTo)
         {
             ViewSoonVisit viewSoonVisit = new ViewSoonVisit();
             viewSoonVisit.Id = id;
+            viewSoonVisit.VisitId = visitId;
             viewSoonVisit.PacientId = pacientId;
             viewSoonVisit.CountryId = countryId;
             viewSoonVisit.Name = name;
-            viewSoonVisit.DepartmentId = departmentId;
             viewSoonVisit.StatusId = statusId;
             viewSoonVisit.DateFrom = dateFrom;
             viewSoonVisit.DateTo = dateTo;
-            viewSoonVisit.VisitId = visitId;
             return viewSoonVisit;
         }
 
@@ -15459,6 +16038,30 @@ namespace Cure.DataAccess
         private global::System.Guid _Id;
         partial void OnIdChanging(global::System.Guid value);
         partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 VisitId
+        {
+            get
+            {
+                return _VisitId;
+            }
+            set
+            {
+                OnVisitIdChanging(value);
+                ReportPropertyChanging("VisitId");
+                _VisitId = StructuralObject.SetValidValue(value, "VisitId");
+                ReportPropertyChanged("VisitId");
+                OnVisitIdChanged();
+            }
+        }
+        private global::System.Int32 _VisitId;
+        partial void OnVisitIdChanging(global::System.Int32 value);
+        partial void OnVisitIdChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -15679,9 +16282,9 @@ namespace Cure.DataAccess
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Int32 DepartmentId
+        public Nullable<global::System.Int32> DepartmentId
         {
             get
             {
@@ -15696,8 +16299,8 @@ namespace Cure.DataAccess
                 OnDepartmentIdChanged();
             }
         }
-        private global::System.Int32 _DepartmentId;
-        partial void OnDepartmentIdChanging(global::System.Int32 value);
+        private Nullable<global::System.Int32> _DepartmentId;
+        partial void OnDepartmentIdChanging(Nullable<global::System.Int32> value);
         partial void OnDepartmentIdChanged();
     
         /// <summary>
@@ -15943,26 +16546,26 @@ namespace Cure.DataAccess
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Int32 VisitId
+        public Nullable<global::System.DateTime> BirthDate
         {
             get
             {
-                return _VisitId;
+                return _BirthDate;
             }
             set
             {
-                OnVisitIdChanging(value);
-                ReportPropertyChanging("VisitId");
-                _VisitId = StructuralObject.SetValidValue(value, "VisitId");
-                ReportPropertyChanged("VisitId");
-                OnVisitIdChanged();
+                OnBirthDateChanging(value);
+                ReportPropertyChanging("BirthDate");
+                _BirthDate = StructuralObject.SetValidValue(value, "BirthDate");
+                ReportPropertyChanged("BirthDate");
+                OnBirthDateChanged();
             }
         }
-        private global::System.Int32 _VisitId;
-        partial void OnVisitIdChanging(global::System.Int32 value);
-        partial void OnVisitIdChanged();
+        private Nullable<global::System.DateTime> _BirthDate;
+        partial void OnBirthDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnBirthDateChanged();
 
         #endregion
 

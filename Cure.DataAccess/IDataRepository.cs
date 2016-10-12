@@ -28,6 +28,13 @@ namespace Cure.DataAccess.DAL
         void DeleteStopVisit(StopVisit stopVisit);
         void UpdateStopVisit(StopVisit stopVisit);
 
+        IEnumerable<Post> GetMyPosts(int childId);
+        IEnumerable<Post> GetPosts();
+        Post GetPost(int postId);
+        void InsertPost(Post post);
+        void DeletePost(Post post);
+        void UpdatePost(Post post);
+
         IEnumerable<Message> GetMyMessages(string username);
         IEnumerable<Message> GetMessages();
         Message GetMessage(int messageId);

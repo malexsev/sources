@@ -61,7 +61,7 @@
             <PropertiesComboBox DataSourceID="uxPacientDataSource" TextField="BirthDate" ValueField="Id" ValueType="System.Int32" >
             </PropertiesComboBox>
             <DataItemTemplate>
-                <%# Convert.ToDateTime(Container.Text).ToString("dd-MM-yyyy") %>
+                <%# SiteUtils.ParseDate(Container.Text, DateTime.Today, "ru-RU").ToString("dd-MM-yyyy") %>
             </DataItemTemplate>
         </dx:GridViewDataComboBoxColumn>
     </Columns>

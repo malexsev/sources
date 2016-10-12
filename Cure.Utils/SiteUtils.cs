@@ -17,19 +17,19 @@
 
     public class SiteUtils
     {
-        public static string GetUserUserpic(string userpicLocation,
+        public static string GetUserUserpic(string userpicUrl,
             Guid? guid,
             string filename)
         {
             if (guid != null && !string.IsNullOrEmpty(filename))
             {
-                return Path.Combine(userpicLocation, filename);
+                return Path.Combine(userpicUrl, filename);
             }
 
             return "/content/img/userpics/no_photo_min.jpg";
         }
 
-        public static string GetUserUserpic(HttpServerUtilityBase server,
+        public static string GetMyUserpic(HttpServerUtilityBase server,
             HttpSessionStateBase session,
             string username,
             string photoLocation,
@@ -41,23 +41,14 @@
                 var view = dal.ViewChild(username);
                 if (view != null)
                 {
-                    photoLocation = Path.Combine(photoLocation, view.GuidId.ToString());
-                    photoUrl = Path.Combine(photoUrl, view.GuidId.ToString());
-                    string userpicLocation = photoLocation.Replace("Upload", "Userpics");
-                    string userpicUrl = photoUrl.Replace("Upload", "Userpics");
-
-                    //Юзерпики
-                    if (Directory.Exists(userpicLocation))
+                    session["UserContactName"] = string.IsNullOrEmpty(view.ContactName) ? username : view.ContactName;
+                    if (!string.IsNullOrEmpty(view.OwnerUserPic))
                     {
-                        var dirInfo = new DirectoryInfo(userpicLocation);
-                        FileInfo[] fileInfoArray = dirInfo.GetFiles();
-
-                        foreach (FileInfo fileInfo in fileInfoArray)
-                        {
-                            var result = Path.Combine(userpicUrl, fileInfo.Name);
-                            session["UserpicUrl"] = result;
-                            return result;
-                        }
+                        photoUrl = Path.Combine(photoUrl, view.GuidId.ToString());
+                        string userpicUrl = photoUrl.Replace("Upload", "Userpics");
+                        var result = Path.Combine(userpicUrl, view.OwnerUserPic);
+                        session["UserpicUrl"] = result;
+                        return result;
                     }
                 }
             }
@@ -150,9 +141,12 @@
             if (originValue == null) return defaultValue;
             var provider = new CultureInfo(culture);
             DateTime dateFrom;
-            if (!DateTime.TryParseExact(originValue.ToString(), "dd.MM.yyyy", provider, DateTimeStyles.None, out dateFrom))
+            if (!DateTime.TryParse(originValue.ToString(), provider, DateTimeStyles.None, out dateFrom))
             {
-                dateFrom = defaultValue;
+                if (!DateTime.TryParseExact(originValue.ToString(), "dd.MM.yyyy", provider, DateTimeStyles.None, out dateFrom))
+                {
+                    dateFrom = defaultValue;
+                }
             }
             return dateFrom;
         }

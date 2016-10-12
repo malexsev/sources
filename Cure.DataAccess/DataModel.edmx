@@ -264,6 +264,23 @@
           <Property Name="CreateUser" Type="nvarchar" MaxLength="50" />
           <Property Name="CreateDate" Type="datetime" />
         </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ParentPostId" Type="int" />
+          <Property Name="ChildId" Type="int" Nullable="false" />
+          <Property Name="GuidId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="OwnerUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AnserToUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="CopyOwnerName" Type="nvarchar" MaxLength="250" />
+          <Property Name="CopyOwnerLocation" Type="nvarchar" MaxLength="250" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="250" />
+          <Property Name="Text" Type="text" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="LastEdit" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="RefBank">
           <Key>
             <PropertyRef Name="Id" />
@@ -589,6 +606,7 @@ warning 6002: The table/view 'Cure.dbo.ViewMension' does not have a primary key 
           <Property Name="ContactEmail" Type="nvarchar" MaxLength="250" />
           <Property Name="ContactPhone" Type="nvarchar" MaxLength="50" />
           <Property Name="GuidId" Type="uniqueidentifier" />
+          <Property Name="ChildId" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Cure.dbo.ViewScheduler' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -734,7 +752,6 @@ warning 6002: The table/view 'Cure.dbo.ViewSoonVisit' does not have a primary ke
             
             
             
-            
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
@@ -748,7 +765,7 @@ warning 6002: The table/view 'Cure.dbo.ViewSoonVisit' does not have a primary ke
           <Property Name="Otchestvo" Type="nvarchar" MaxLength="250" />
           <Property Name="OtchestvoEn" Type="nvarchar" MaxLength="250" />
           <Property Name="CityName" Type="nvarchar" MaxLength="250" />
-          <Property Name="DepartmentId" Type="int" Nullable="false" />
+          <Property Name="DepartmentId" Type="int" />
           <Property Name="StatusId" Type="int" Nullable="false" />
           <Property Name="DateFrom" Type="date" Nullable="false" />
           <Property Name="DateTo" Type="date" Nullable="false" />
@@ -759,6 +776,7 @@ warning 6002: The table/view 'Cure.dbo.ViewSoonVisit' does not have a primary ke
           <Property Name="Notes" Type="nvarchar" MaxLength="250" />
           <Property Name="Description" Type="nvarchar" MaxLength="500" />
           <Property Name="Email" Type="nvarchar" MaxLength="250" />
+          <Property Name="BirthDate" Type="date" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -830,6 +848,18 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
             </Principal>
             <Dependent Role="aspnet_Membership">
               <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Child_Child">
+          <End Role="Child" Type="Self.Child" Multiplicity="1" />
+          <End Role="Child1" Type="Self.Child" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Child">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Child1">
+              <PropertyRef Name="Id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1057,6 +1087,32 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Post_Child">
+          <End Role="Child" Type="Self.Child" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Post" Type="Self.Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Child">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="ChildId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Post_Post">
+          <End Role="Post" Type="Self.Post" Multiplicity="0..1" />
+          <End Role="Post1" Type="Self.Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Post1">
+              <PropertyRef Name="ParentPostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_RefBank_RefCountry">
           <End Role="RefCountry" Type="Self.RefCountry" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -1207,6 +1263,7 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
           <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Pacient" EntityType="Self.Pacient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RefBank" EntityType="Self.RefBank" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RefCountry" EntityType="Self.RefCountry" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RefDiagnoz" EntityType="Self.RefDiagnoz" Schema="dbo" store:Type="Tables" />
@@ -1319,7 +1376,8 @@ FROM [dbo].[ViewChild] AS [ViewChild]</DefiningQuery>
 [ViewMension].[ContactName] AS [ContactName], 
 [ViewMension].[ContactEmail] AS [ContactEmail], 
 [ViewMension].[ContactPhone] AS [ContactPhone], 
-[ViewMension].[GuidId] AS [GuidId]
+[ViewMension].[GuidId] AS [GuidId], 
+[ViewMension].[ChildId] AS [ChildId]
 FROM [dbo].[ViewMension] AS [ViewMension]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="ViewScheduler" EntityType="Self.ViewScheduler" store:Type="Views" store:Schema="dbo">
@@ -1473,7 +1531,8 @@ FROM [dbo].[ViewScheduler] AS [ViewScheduler]</DefiningQuery>
 [ViewSoonVisit].[TicketInfo] AS [TicketInfo], 
 [ViewSoonVisit].[Notes] AS [Notes], 
 [ViewSoonVisit].[Description] AS [Description], 
-[ViewSoonVisit].[Email] AS [Email]
+[ViewSoonVisit].[Email] AS [Email], 
+[ViewSoonVisit].[BirthDate] AS [BirthDate]
 FROM [dbo].[ViewSoonVisit] AS [ViewSoonVisit]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="ViewUserMembership" EntityType="Self.ViewUserMembership" store:Type="Views" store:Schema="dbo">
@@ -1512,6 +1571,10 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
           <AssociationSet Name="FK__aspnet_Me__UserI__61316BF4" Association="Self.FK__aspnet_Me__UserI__61316BF4">
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
             <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Child_Child" Association="Self.FK_Child_Child">
+            <End Role="Child" EntitySet="Child" />
+            <End Role="Child1" EntitySet="Child" />
           </AssociationSet>
           <AssociationSet Name="FK_Child_RefBank" Association="Self.FK_Child_RefBank">
             <End Role="RefBank" EntitySet="RefBank" />
@@ -1585,6 +1648,14 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
             <End Role="RefCountry" EntitySet="RefCountry" />
             <End Role="Pacient" EntitySet="Pacient" />
           </AssociationSet>
+          <AssociationSet Name="FK_Post_Child" Association="Self.FK_Post_Child">
+            <End Role="Child" EntitySet="Child" />
+            <End Role="Post" EntitySet="Post" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Post_Post" Association="Self.FK_Post_Post">
+            <End Role="Post" EntitySet="Post" />
+            <End Role="Post1" EntitySet="Post" />
+          </AssociationSet>
           <AssociationSet Name="FK_RefBank_RefCountry" Association="Self.FK_RefBank_RefCountry">
             <End Role="RefCountry" EntitySet="RefCountry" />
             <End Role="RefBank" EntitySet="RefBank" />
@@ -1633,7 +1704,6 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
         <EntityContainer Name="DataEntities" p1:LazyLoadingEnabled="true">
           <EntitySet Name="OrderStatus" EntityType="DataModel.OrderStatu" />
           <EntitySet Name="Pacients" EntityType="DataModel.Pacient" />
-          <EntitySet Name="ViewSoonVisits" EntityType="DataModel.ViewSoonVisit" />
           <EntitySet Name="RefCountries" EntityType="DataModel.RefCountry" />
           <EntitySet Name="RefRodstvoes" EntityType="DataModel.RefRodstvo" />
           <AssociationSet Name="FK_Pacient_RefCountry" Association="DataModel.FK_Pacient_RefCountry">
@@ -1717,11 +1787,6 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
             <End Role="Order" EntitySet="Orders" />
             <End Role="Visit" EntitySet="Visits" />
           </AssociationSet>
-          <EntitySet Name="DepartmentStops" EntityType="DataModel.DepartmentStop" />
-          <AssociationSet Name="FK_DepartmentStop_Department" Association="DataModel.FK_DepartmentStop_Department">
-            <End Role="Department" EntitySet="Departments" />
-            <End Role="DepartmentStop" EntitySet="DepartmentStops" />
-          </AssociationSet>
           <EntitySet Name="ViewUserMemberships" EntityType="DataModel.ViewUserMembership" />
           <EntitySet Name="Vipiskas" EntityType="DataModel.Vipiska" />
           <AssociationSet Name="FK_Vipiska_Visit" Association="DataModel.FK_Vipiska_Visit">
@@ -1734,8 +1799,19 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
             <End Role="Department" EntitySet="Departments" />
             <End Role="Mension" EntitySet="Mensions" />
           </AssociationSet>
+          <EntitySet Name="ViewChilds" EntityType="DataModel.ViewChild" />
+          <EntitySet Name="DepartmentStops" EntityType="DataModel.DepartmentStop" />
           <EntitySet Name="Messages" EntityType="DataModel.Message" />
+          <AssociationSet Name="FK_DepartmentStop_Department" Association="DataModel.FK_DepartmentStop_Department">
+            <End Role="Department" EntitySet="Departments" />
+            <End Role="DepartmentStop" EntitySet="DepartmentStops" />
+          </AssociationSet>
+          <EntitySet Name="ViewSoonVisits" EntityType="DataModel.ViewSoonVisit" />
           <EntitySet Name="Children" EntityType="DataModel.Child" />
+          <AssociationSet Name="FK_Child_Child" Association="DataModel.FK_Child_Child">
+            <End Role="Child" EntitySet="Children" />
+            <End Role="Child1" EntitySet="Children" />
+          </AssociationSet>
           <AssociationSet Name="FK_Child_RefBank" Association="DataModel.FK_Child_RefBank">
             <End Role="RefBank" EntitySet="RefBanks" />
             <End Role="Child" EntitySet="Children" />
@@ -1780,7 +1856,15 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
             <End Role="Child" EntitySet="Children" />
             <End Role="ChildHideFile" EntitySet="ChildHideFiles" />
           </AssociationSet>
-          <EntitySet Name="ViewChilds" EntityType="DataModel.ViewChild" />
+          <EntitySet Name="Posts" EntityType="DataModel.Post" />
+          <AssociationSet Name="FK_Post_Child" Association="DataModel.FK_Post_Child">
+            <End Role="Child" EntitySet="Children" />
+            <End Role="Post" EntitySet="Posts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Post_Post" Association="DataModel.FK_Post_Post">
+            <End Role="Post" EntitySet="Posts" />
+            <End Role="Post1" EntitySet="Posts" />
+          </AssociationSet>
           <EntitySet Name="ViewMensions" EntityType="DataModel.ViewMension" />
           </EntityContainer>
         <EntityType Name="OrderStatu">
@@ -1818,33 +1902,6 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
           <Property Type="DateTime" Name="CreateDate" Precision="3" />
           <NavigationProperty Name="RefCountry" Relationship="DataModel.FK_Pacient_RefCountry" FromRole="Pacient" ToRole="RefCountry" />
           <NavigationProperty Name="Visits" Relationship="DataModel.FK_Visit_Pacient" FromRole="Pacient" ToRole="Visit" />
-        </EntityType>
-        <EntityType Name="ViewSoonVisit">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Type="Guid" Name="Id" Nullable="false" />
-          <Property Type="Int32" Name="PacientId" Nullable="false" />
-          <Property Type="Int32" Name="CountryId" Nullable="false" />
-          <Property Type="String" Name="Name" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="NameEng" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Familiya" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="FamiliyaEn" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Otchestvo" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="OtchestvoEn" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="CityName" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="DepartmentId" Nullable="false" />
-          <Property Type="Int32" Name="StatusId" Nullable="false" />
-          <Property Type="DateTime" Name="DateFrom" Nullable="false" Precision="0" />
-          <Property Type="DateTime" Name="DateTo" Nullable="false" Precision="0" />
-          <Property Type="Int32" Name="Dney" />
-          <Property Type="DateTime" Name="TicketPribitieTime" Precision="3" />
-          <Property Type="DateTime" Name="TicketUbitieTime" Precision="3" />
-          <Property Type="String" Name="TicketInfo" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Notes" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Description" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Email" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="VisitId" Nullable="false" />
         </EntityType>
         <EntityType Name="RefCountry">
           <Key>
@@ -1926,8 +1983,8 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
           <Property Type="String" Name="ShortName" MaxLength="10" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="StopVisits" Relationship="DataModel.FK_StopVisit_Department" FromRole="Department" ToRole="StopVisit" />
           <NavigationProperty Name="Orders" Relationship="DataModel.FK_Order_Department" FromRole="Department" ToRole="Order" />
-          <NavigationProperty Name="DepartmentStops" Relationship="DataModel.FK_DepartmentStop_Department" FromRole="Department" ToRole="DepartmentStop" />
           <NavigationProperty Name="Mensions" Relationship="DataModel.FK_Mension_Department" FromRole="Department" ToRole="Mension" />
+          <NavigationProperty Name="DepartmentStops" Relationship="DataModel.FK_DepartmentStop_Department" FromRole="Department" ToRole="DepartmentStop" />
         </EntityType>
         <Association Name="FK_Department_Department">
           <End Type="DataModel.Department" Role="Department" Multiplicity="0..1" />
@@ -2543,36 +2600,6 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="DepartmentStop">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DepartmentId" Type="Int32" Nullable="false" />
-          <Property Name="FromDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="ToDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="LastUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LastDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="CreateUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Department" Relationship="DataModel.FK_DepartmentStop_Department" FromRole="DepartmentStop" ToRole="Department" />
-        </EntityType>
-        <Association Name="FK_DepartmentStop_Department">
-          <End Type="DataModel.Department" Role="Department" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="DataModel.DepartmentStop" Role="DepartmentStop" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Department">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="DepartmentStop">
-              <PropertyRef Name="DepartmentId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="ViewUserMembership">
           <Key>
             <PropertyRef Name="Expr1" />
@@ -2672,6 +2699,106 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="ViewChild">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="GuidId" Type="Guid" Nullable="false" />
+          <Property Name="OwnerUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CountryId" Type="Int32" Nullable="false" />
+          <Property Name="Region" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Diagnoz" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ContactName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactRodstvoId" Type="Int32" Nullable="false" />
+          <Property Name="ContactEmail" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ContactPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SocialOk" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="SocialVk" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="SocialMm" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="SocialFb" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="FinWebmoney" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FinYandexMoney" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FinKiwi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FinOperatorId" Type="Int32" />
+          <Property Name="FinPhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FinCountryId" Type="Int32" />
+          <Property Name="FinBankId" Type="Int32" />
+          <Property Name="FinBankOther" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="FinCardNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CountryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserLoweredUserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="UserIsAnonymous" Type="Boolean" />
+          <Property Name="UserLastActivityDate" Type="DateTime" Precision="3" />
+          <Property Name="UserEmail" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="UserLoweredEmail" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="UserIsApproved" Type="Boolean" />
+          <Property Name="UserIsLockedOut" Type="Boolean" />
+          <Property Name="UserLastLoginDate" Type="DateTime" Precision="3" />
+          <Property Name="UserComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BankName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BankDescription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="BankInn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BankKpp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BankOktmo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BankOkved" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BankBik" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BankKorrAccount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RodstvoName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RodstvoDescription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="RodstvoSort" Type="Int32" />
+          <Property Name="RodstvoSoprovodRuLabel" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="RodstvoSoprovodChLabel" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="OperatorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OperatorDescription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="OperatorParams" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="BankCountryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FinCountryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DiagnozId" Type="Int32" Nullable="false" />
+          <Property Name="DiagnozName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DiagnozDescription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="SocialYoutube" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="FinWebmoney2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FinWebmoney3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FinCardName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FinWebmoney4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FinOperator2Id" Type="Int32" />
+          <Property Name="FinPhoneNumber2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FinOperator3Id" Type="Int32" />
+          <Property Name="FinPhoneNumber3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FinOperator4Id" Type="Int32" />
+          <Property Name="FinPhoneNumber4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Operator2Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Operator2Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Operator2Params" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Operator3Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Operator3Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Operator3Params" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Operator4Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Operator4Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Operator4Params" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="OwnerUserPic" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="OwnerAvaFile" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DepartmentStop">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepartmentId" Type="Int32" Nullable="false" />
+          <Property Name="FromDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ToDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="LastUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Department" Relationship="DataModel.FK_DepartmentStop_Department" FromRole="DepartmentStop" ToRole="Department" />
+        </EntityType>
         <EntityType Name="Message">
           <Key>
             <PropertyRef Name="Id" />
@@ -2684,6 +2811,48 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
           <Property Name="SendTime" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Subject" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_DepartmentStop_Department">
+          <End Type="DataModel.Department" Role="Department" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="DataModel.DepartmentStop" Role="DepartmentStop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DepartmentStop">
+              <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ViewSoonVisit">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="VisitId" Type="Int32" Nullable="false" />
+          <Property Name="PacientId" Type="Int32" Nullable="false" />
+          <Property Name="CountryId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NameEng" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Familiya" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="FamiliyaEn" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Otchestvo" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="OtchestvoEn" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="CityName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DepartmentId" Type="Int32" />
+          <Property Name="StatusId" Type="Int32" Nullable="false" />
+          <Property Name="DateFrom" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DateTo" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Dney" Type="Int32" />
+          <Property Name="TicketPribitieTime" Type="DateTime" Precision="3" />
+          <Property Name="TicketUbitieTime" Type="DateTime" Precision="3" />
+          <Property Name="TicketInfo" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Notes" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="BirthDate" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="Child">
           <Key>
@@ -2729,6 +2898,8 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
           <Property Name="FinBankOther" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="FinCardNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="FinCardName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Child1" Relationship="DataModel.FK_Child_Child" FromRole="Child" ToRole="Child1" />
+          <NavigationProperty Name="Child2" Relationship="DataModel.FK_Child_Child" FromRole="Child1" ToRole="Child" />
           <NavigationProperty Name="RefBank" Relationship="DataModel.FK_Child_RefBank" FromRole="Child" ToRole="RefBank" />
           <NavigationProperty Name="RefCountry" Relationship="DataModel.FK_Child_RefCountry" FromRole="Child" ToRole="RefCountry" />
           <NavigationProperty Name="RefCountry1" Relationship="DataModel.FK_Child_RefCountryFin" FromRole="Child" ToRole="RefCountry" />
@@ -2740,7 +2911,20 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
           <NavigationProperty Name="RefRodstvo" Relationship="DataModel.FK_Child_RefRodstvo" FromRole="Child" ToRole="RefRodstvo" />
           <NavigationProperty Name="ChildAvaFiles" Relationship="DataModel.FK_ChildAvaFile_Child" FromRole="Child" ToRole="ChildAvaFile" />
           <NavigationProperty Name="ChildHideFiles" Relationship="DataModel.FK_ChildHideFile_Child" FromRole="Child" ToRole="ChildHideFile" />
+          <NavigationProperty Name="Posts" Relationship="DataModel.FK_Post_Child" FromRole="Child" ToRole="Post" />
         </EntityType>
+        <Association Name="FK_Child_Child">
+          <End Type="DataModel.Child" Role="Child" Multiplicity="1" />
+          <End Type="DataModel.Child" Role="Child1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Child">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Child1">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Child_RefBank">
           <End Type="DataModel.RefBank" Role="RefBank" Multiplicity="0..1" />
           <End Type="DataModel.Child" Role="Child" Multiplicity="*" />
@@ -2879,90 +3063,52 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="ViewChild">
+        <EntityType Name="Post">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ParentPostId" Type="Int32" />
+          <Property Name="ChildId" Type="Int32" Nullable="false" />
           <Property Name="GuidId" Type="Guid" Nullable="false" />
           <Property Name="OwnerUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="CountryId" Type="Int32" Nullable="false" />
-          <Property Name="Region" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="Diagnoz" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="ContactName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ContactRodstvoId" Type="Int32" Nullable="false" />
-          <Property Name="ContactEmail" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="ContactPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="SocialOk" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="SocialVk" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="SocialMm" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="SocialFb" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="FinWebmoney" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FinYandexMoney" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FinKiwi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FinOperatorId" Type="Int32" />
-          <Property Name="FinPhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FinCountryId" Type="Int32" />
-          <Property Name="FinBankId" Type="Int32" />
-          <Property Name="FinBankOther" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="FinCardNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CountryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="UserLoweredUserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="UserIsAnonymous" Type="Boolean" />
-          <Property Name="UserLastActivityDate" Type="DateTime" Precision="3" />
-          <Property Name="UserEmail" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="UserLoweredEmail" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="UserIsApproved" Type="Boolean" />
-          <Property Name="UserIsLockedOut" Type="Boolean" />
-          <Property Name="UserLastLoginDate" Type="DateTime" Precision="3" />
-          <Property Name="UserComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="BankName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="BankDescription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="BankInn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="BankKpp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="BankOktmo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="BankOkved" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="BankBik" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="BankKorrAccount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="RodstvoName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="RodstvoDescription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="RodstvoSort" Type="Int32" />
-          <Property Name="RodstvoSoprovodRuLabel" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="RodstvoSoprovodChLabel" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="OperatorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="OperatorDescription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="OperatorParams" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="BankCountryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FinCountryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="DiagnozId" Type="Int32" Nullable="false" />
-          <Property Name="DiagnozName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="DiagnozDescription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="SocialYoutube" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="FinWebmoney2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FinWebmoney3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FinCardName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FinWebmoney4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FinOperator2Id" Type="Int32" />
-          <Property Name="FinPhoneNumber2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FinOperator3Id" Type="Int32" />
-          <Property Name="FinPhoneNumber3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FinOperator4Id" Type="Int32" />
-          <Property Name="FinPhoneNumber4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Operator2Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Operator2Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="Operator2Params" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="Operator3Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Operator3Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="Operator3Params" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="Operator4Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Operator4Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="Operator4Params" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="OwnerUserPic" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="OwnerAvaFile" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="AnserToUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CopyOwnerName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="CopyOwnerLocation" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Subject" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastEdit" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Child" Relationship="DataModel.FK_Post_Child" FromRole="Post" ToRole="Child" />
+          <NavigationProperty Name="Post1" Relationship="DataModel.FK_Post_Post" FromRole="Post" ToRole="Post1" />
+          <NavigationProperty Name="Post2" Relationship="DataModel.FK_Post_Post" FromRole="Post1" ToRole="Post" />
         </EntityType>
+        <Association Name="FK_Post_Child">
+          <End Type="DataModel.Child" Role="Child" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="DataModel.Post" Role="Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Child">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="ChildId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Post_Post">
+          <End Type="DataModel.Post" Role="Post" Multiplicity="0..1" />
+          <End Type="DataModel.Post" Role="Post1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Post1">
+              <PropertyRef Name="ParentPostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityType Name="ViewMension">
           <Key>
             <PropertyRef Name="Id" />
@@ -2982,6 +3128,7 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
           <Property Name="ContactEmail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="ContactPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="GuidId" Type="Guid" />
+          <Property Name="ChildId" Type="Int32" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -3020,34 +3167,6 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
                 <ScalarProperty Name="NameEng" ColumnName="NameEng" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="CountryId" ColumnName="CountryId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ViewSoonVisits">
-            <EntityTypeMapping TypeName="DataModel.ViewSoonVisit">
-              <MappingFragment StoreEntitySet="ViewSoonVisit">
-                <ScalarProperty Name="VisitId" ColumnName="VisitId" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Notes" ColumnName="Notes" />
-                <ScalarProperty Name="TicketInfo" ColumnName="TicketInfo" />
-                <ScalarProperty Name="TicketUbitieTime" ColumnName="TicketUbitieTime" />
-                <ScalarProperty Name="TicketPribitieTime" ColumnName="TicketPribitieTime" />
-                <ScalarProperty Name="Dney" ColumnName="Dney" />
-                <ScalarProperty Name="DateTo" ColumnName="DateTo" />
-                <ScalarProperty Name="DateFrom" ColumnName="DateFrom" />
-                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
-                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
-                <ScalarProperty Name="CityName" ColumnName="CityName" />
-                <ScalarProperty Name="OtchestvoEn" ColumnName="OtchestvoEn" />
-                <ScalarProperty Name="Otchestvo" ColumnName="Otchestvo" />
-                <ScalarProperty Name="FamiliyaEn" ColumnName="FamiliyaEn" />
-                <ScalarProperty Name="Familiya" ColumnName="Familiya" />
-                <ScalarProperty Name="NameEng" ColumnName="NameEng" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
-                <ScalarProperty Name="PacientId" ColumnName="PacientId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -3523,22 +3642,6 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="DepartmentStops">
-            <EntityTypeMapping TypeName="DataModel.DepartmentStop">
-              <MappingFragment StoreEntitySet="DepartmentStop">
-                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
-                <ScalarProperty Name="LastDate" ColumnName="LastDate" />
-                <ScalarProperty Name="LastUser" ColumnName="LastUser" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
-                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
-                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="ViewUserMemberships">
             <EntityTypeMapping TypeName="DataModel.ViewUserMembership">
               <MappingFragment StoreEntitySet="ViewUserMembership">
@@ -3606,66 +3709,6 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
                 <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
                 <ScalarProperty Name="OwnerUser" ColumnName="OwnerUser" />
                 <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Messages">
-            <EntityTypeMapping TypeName="DataModel.Message">
-              <MappingFragment StoreEntitySet="Message">
-                <ScalarProperty Name="Text" ColumnName="Text" />
-                <ScalarProperty Name="Subject" ColumnName="Subject" />
-                <ScalarProperty Name="SendTime" ColumnName="SendTime" />
-                <ScalarProperty Name="ToDisplay" ColumnName="ToDisplay" />
-                <ScalarProperty Name="ToUserName" ColumnName="ToUserName" />
-                <ScalarProperty Name="FromDisplay" ColumnName="FromDisplay" />
-                <ScalarProperty Name="FromUserName" ColumnName="FromUserName" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Children">
-            <EntityTypeMapping TypeName="DataModel.Child">
-              <MappingFragment StoreEntitySet="Child">
-                <ScalarProperty Name="FinCardName" ColumnName="FinCardName" />
-                <ScalarProperty Name="FinCardNumber" ColumnName="FinCardNumber" />
-                <ScalarProperty Name="FinBankOther" ColumnName="FinBankOther" />
-                <ScalarProperty Name="FinPhoneNumber4" ColumnName="FinPhoneNumber4" />
-                <ScalarProperty Name="FinOperator4Id" ColumnName="FinOperator4Id" />
-                <ScalarProperty Name="FinPhoneNumber3" ColumnName="FinPhoneNumber3" />
-                <ScalarProperty Name="FinOperator3Id" ColumnName="FinOperator3Id" />
-                <ScalarProperty Name="FinPhoneNumber2" ColumnName="FinPhoneNumber2" />
-                <ScalarProperty Name="FinOperator2Id" ColumnName="FinOperator2Id" />
-                <ScalarProperty Name="FinPhoneNumber" ColumnName="FinPhoneNumber" />
-                <ScalarProperty Name="FinOperatorId" ColumnName="FinOperatorId" />
-                <ScalarProperty Name="FinBankId" ColumnName="FinBankId" />
-                <ScalarProperty Name="FinCountryId" ColumnName="FinCountryId" />
-                <ScalarProperty Name="FinKiwi" ColumnName="FinKiwi" />
-                <ScalarProperty Name="FinYandexMoney" ColumnName="FinYandexMoney" />
-                <ScalarProperty Name="FinWebmoney4" ColumnName="FinWebmoney4" />
-                <ScalarProperty Name="FinWebmoney3" ColumnName="FinWebmoney3" />
-                <ScalarProperty Name="FinWebmoney2" ColumnName="FinWebmoney2" />
-                <ScalarProperty Name="FinWebmoney" ColumnName="FinWebmoney" />
-                <ScalarProperty Name="SocialYoutube" ColumnName="SocialYoutube" />
-                <ScalarProperty Name="SocialFb" ColumnName="SocialFb" />
-                <ScalarProperty Name="SocialMm" ColumnName="SocialMm" />
-                <ScalarProperty Name="SocialVk" ColumnName="SocialVk" />
-                <ScalarProperty Name="SocialOk" ColumnName="SocialOk" />
-                <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
-                <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
-                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
-                <ScalarProperty Name="ContactRodstvoId" ColumnName="ContactRodstvoId" />
-                <ScalarProperty Name="Diagnoz" ColumnName="Diagnoz" />
-                <ScalarProperty Name="DiagnozId" ColumnName="DiagnozId" />
-                <ScalarProperty Name="Region" ColumnName="Region" />
-                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="OwnerAvaFile" ColumnName="OwnerAvaFile" />
-                <ScalarProperty Name="OwnerUserPic" ColumnName="OwnerUserPic" />
-                <ScalarProperty Name="OwnerUser" ColumnName="OwnerUser" />
-                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
-                <ScalarProperty Name="GuidId" ColumnName="GuidId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -3755,9 +3798,133 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="DepartmentStops">
+            <EntityTypeMapping TypeName="DataModel.DepartmentStop">
+              <MappingFragment StoreEntitySet="DepartmentStop">
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="LastDate" ColumnName="LastDate" />
+                <ScalarProperty Name="LastUser" ColumnName="LastUser" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Messages">
+            <EntityTypeMapping TypeName="DataModel.Message">
+              <MappingFragment StoreEntitySet="Message">
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="SendTime" ColumnName="SendTime" />
+                <ScalarProperty Name="ToDisplay" ColumnName="ToDisplay" />
+                <ScalarProperty Name="ToUserName" ColumnName="ToUserName" />
+                <ScalarProperty Name="FromDisplay" ColumnName="FromDisplay" />
+                <ScalarProperty Name="FromUserName" ColumnName="FromUserName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ViewSoonVisits">
+            <EntityTypeMapping TypeName="DataModel.ViewSoonVisit">
+              <MappingFragment StoreEntitySet="ViewSoonVisit">
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="TicketInfo" ColumnName="TicketInfo" />
+                <ScalarProperty Name="TicketUbitieTime" ColumnName="TicketUbitieTime" />
+                <ScalarProperty Name="TicketPribitieTime" ColumnName="TicketPribitieTime" />
+                <ScalarProperty Name="Dney" ColumnName="Dney" />
+                <ScalarProperty Name="DateTo" ColumnName="DateTo" />
+                <ScalarProperty Name="DateFrom" ColumnName="DateFrom" />
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="OtchestvoEn" ColumnName="OtchestvoEn" />
+                <ScalarProperty Name="Otchestvo" ColumnName="Otchestvo" />
+                <ScalarProperty Name="FamiliyaEn" ColumnName="FamiliyaEn" />
+                <ScalarProperty Name="Familiya" ColumnName="Familiya" />
+                <ScalarProperty Name="NameEng" ColumnName="NameEng" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="PacientId" ColumnName="PacientId" />
+                <ScalarProperty Name="VisitId" ColumnName="VisitId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Children">
+            <EntityTypeMapping TypeName="DataModel.Child">
+              <MappingFragment StoreEntitySet="Child">
+                <ScalarProperty Name="FinCardName" ColumnName="FinCardName" />
+                <ScalarProperty Name="FinCardNumber" ColumnName="FinCardNumber" />
+                <ScalarProperty Name="FinBankOther" ColumnName="FinBankOther" />
+                <ScalarProperty Name="FinPhoneNumber4" ColumnName="FinPhoneNumber4" />
+                <ScalarProperty Name="FinOperator4Id" ColumnName="FinOperator4Id" />
+                <ScalarProperty Name="FinPhoneNumber3" ColumnName="FinPhoneNumber3" />
+                <ScalarProperty Name="FinOperator3Id" ColumnName="FinOperator3Id" />
+                <ScalarProperty Name="FinPhoneNumber2" ColumnName="FinPhoneNumber2" />
+                <ScalarProperty Name="FinOperator2Id" ColumnName="FinOperator2Id" />
+                <ScalarProperty Name="FinPhoneNumber" ColumnName="FinPhoneNumber" />
+                <ScalarProperty Name="FinOperatorId" ColumnName="FinOperatorId" />
+                <ScalarProperty Name="FinBankId" ColumnName="FinBankId" />
+                <ScalarProperty Name="FinCountryId" ColumnName="FinCountryId" />
+                <ScalarProperty Name="FinKiwi" ColumnName="FinKiwi" />
+                <ScalarProperty Name="FinYandexMoney" ColumnName="FinYandexMoney" />
+                <ScalarProperty Name="FinWebmoney4" ColumnName="FinWebmoney4" />
+                <ScalarProperty Name="FinWebmoney3" ColumnName="FinWebmoney3" />
+                <ScalarProperty Name="FinWebmoney2" ColumnName="FinWebmoney2" />
+                <ScalarProperty Name="FinWebmoney" ColumnName="FinWebmoney" />
+                <ScalarProperty Name="SocialYoutube" ColumnName="SocialYoutube" />
+                <ScalarProperty Name="SocialFb" ColumnName="SocialFb" />
+                <ScalarProperty Name="SocialMm" ColumnName="SocialMm" />
+                <ScalarProperty Name="SocialVk" ColumnName="SocialVk" />
+                <ScalarProperty Name="SocialOk" ColumnName="SocialOk" />
+                <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+                <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                <ScalarProperty Name="ContactRodstvoId" ColumnName="ContactRodstvoId" />
+                <ScalarProperty Name="Diagnoz" ColumnName="Diagnoz" />
+                <ScalarProperty Name="DiagnozId" ColumnName="DiagnozId" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="OwnerAvaFile" ColumnName="OwnerAvaFile" />
+                <ScalarProperty Name="OwnerUserPic" ColumnName="OwnerUserPic" />
+                <ScalarProperty Name="OwnerUser" ColumnName="OwnerUser" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="GuidId" ColumnName="GuidId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Posts">
+            <EntityTypeMapping TypeName="DataModel.Post">
+              <MappingFragment StoreEntitySet="Post">
+                <ScalarProperty Name="LastEdit" ColumnName="LastEdit" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="CopyOwnerLocation" ColumnName="CopyOwnerLocation" />
+                <ScalarProperty Name="CopyOwnerName" ColumnName="CopyOwnerName" />
+                <ScalarProperty Name="AnserToUser" ColumnName="AnserToUser" />
+                <ScalarProperty Name="OwnerUser" ColumnName="OwnerUser" />
+                <ScalarProperty Name="GuidId" ColumnName="GuidId" />
+                <ScalarProperty Name="ChildId" ColumnName="ChildId" />
+                <ScalarProperty Name="ParentPostId" ColumnName="ParentPostId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="ViewMensions">
             <EntityTypeMapping TypeName="DataModel.ViewMension">
               <MappingFragment StoreEntitySet="ViewMension">
+                <ScalarProperty Name="ChildId" ColumnName="ChildId" />
                 <ScalarProperty Name="GuidId" ColumnName="GuidId" />
                 <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
                 <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
