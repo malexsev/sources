@@ -55,7 +55,7 @@ namespace Cure.WebSite.Controllers
                 var mension = new Mension()
                 {
                     CopySubject = subjText,
-                    CopyUserLocation = string.Format("{0}, {1}", view.CountryName, view.Region),
+                    CopyUserLocation = string.Format("{0}{1}{2}", view.CountryName, (string.IsNullOrEmpty(view.Region) ? "" : ", "), view.Region),
                     CopyUserName = view.ContactName,
                     CreatedDate = DateTime.Now,
                     DepartmentId = depId,

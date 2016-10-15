@@ -199,7 +199,9 @@
     <Content Include="Content\images\viewer\thumb_2.jpg" />
     <Content Include="Content\images\viewer\thumb_3.jpg" />
     <Content Include="Content\img\apple-touch-icon-152x152.png" />
+    <Content Include="Content\img\backgrounds\bg_flower.jpg" />
     <Content Include="Content\img\backgrounds\bg_main.jpg" />
+    <Content Include="Content\img\backgrounds\bg_sec-patients.jpg" />
     <Content Include="Content\img\backgrounds\bg_sec-procedure.jpg" />
     <Content Include="Content\img\backgrounds\bg_sec-since.png" />
     <Content Include="Content\img\backgrounds\bg_sec-steps.jpg" />
@@ -260,6 +262,8 @@
     <Content Include="Content\img\in-base-64\icon_plus_white.png" />
     <Content Include="Content\img\in-base-64\icon_popup-close_gray.png" />
     <Content Include="Content\img\in-base-64\icon_prev.png" />
+    <Content Include="Content\img\in-base-64\icon_quote_btm.png" />
+    <Content Include="Content\img\in-base-64\icon_quote_top.png" />
     <Content Include="Content\img\in-base-64\icon_step-checked_orange.png" />
     <Content Include="Content\img\in-base-64\icon_topline-help_gray.png" />
     <Content Include="Content\img\in-base-64\icon_topline-search_gray.png" />
@@ -348,6 +352,7 @@
     <Compile Include="Controllers\ChildrenController.cs" />
     <Compile Include="Controllers\BibliotekaController.cs" />
     <Compile Include="Controllers\FinanceController.cs" />
+    <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\SevastopolController.cs" />
     <Compile Include="Controllers\ChinaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -442,7 +447,6 @@
     <Content Include="Views\Shared\_PostItem.cshtml" />
     <Content Include="Views\Shared\_PostAdd.cshtml" />
     <Content Include="Views\Shared\_PostCommentItem.cshtml" />
-    <Content Include="Views\Shared\_PostCommentAdd.cshtml" />
     <Content Include="Views\Home\AboutUs.cshtml" />
     <Content Include="Views\China\Priglashenie.cshtml" />
     <Content Include="Views\China\Dobratsa.cshtml" />
@@ -463,6 +467,22 @@
     <Content Include="Views\Biblioteka\Procedures.cshtml" />
     <Content Include="Views\Biblioteka\Tests.cshtml" />
     <Content Include="Views\Biblioteka\Metod.cshtml" />
+    <Content Include="Views\Procedure\Acupuncture.cshtml" />
+    <Content Include="Views\Procedure\Electric.cshtml" />
+    <Content Include="Views\Procedure\Massage.cshtml" />
+    <Content Include="Views\Procedure\PtPhysical.cshtml" />
+    <Content Include="Views\Procedure\Acupoint.cshtml" />
+    <Content Include="Views\Procedure\OtOccupational.cshtml" />
+    <Content Include="Views\Procedure\StSpeech.cshtml" />
+    <Content Include="Views\Procedure\Kinesiotaping.cshtml" />
+    <Content Include="Views\Procedure\Sensory.cshtml" />
+    <Content Include="Views\Procedure\SlingExercise.cshtml" />
+    <Content Include="Views\Procedure\Implantation.cshtml" />
+    <Content Include="Views\Procedure\TheraSuit.cshtml" />
+    <Content Include="Views\Procedure\Universal.cshtml" />
+    <Content Include="Views\Procedure\Itp.cshtml" />
+    <Content Include="Views\Shared\_PostItems.cshtml" />
+    <Content Include="Views\Shared\_PostAdd - Copy.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -473,6 +493,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Login\" />
+    <Folder Include="Views\Post\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Cure.DataAccess\Cure.DataAccess.csproj">

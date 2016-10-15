@@ -11,25 +11,25 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>10/12/2016 21:38:37</publishTime>
+      <publishTime>10/15/2016 11:17:51</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>10/12/2016 21:38:36</publishTime>
+      <publishTime>10/15/2016 11:17:51</publishTime>
     </File>
     <File Include="bin/Cure.DataAccess.dll">
       <publishTime>10/12/2016 21:38:30</publishTime>
     </File>
     <File Include="bin/Cure.Notification.dll">
-      <publishTime>10/12/2016 21:38:31</publishTime>
+      <publishTime>10/15/2016 11:14:45</publishTime>
     </File>
     <File Include="bin/Cure.Reports.dll">
-      <publishTime>10/12/2016 21:15:49</publishTime>
+      <publishTime>10/15/2016 11:14:14</publishTime>
     </File>
     <File Include="bin/Cure.Utils.dll">
-      <publishTime>10/12/2016 21:38:31</publishTime>
+      <publishTime>10/15/2016 11:14:45</publishTime>
     </File>
     <File Include="bin/Cure.WebSite.dll">
-      <publishTime>10/12/2016 21:38:32</publishTime>
+      <publishTime>10/15/2016 11:17:47</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>09/19/2015 00:46:36</publishTime>
@@ -68,10 +68,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/12/2016 23:32:40</publishTime>
     </File>
     <File Include="Content/css/styles.css">
-      <publishTime>10/04/2016 19:42:44</publishTime>
+      <publishTime>10/12/2016 23:50:20</publishTime>
     </File>
     <File Include="Content/css/styles.less">
-      <publishTime>10/12/2016 01:24:43</publishTime>
+      <publishTime>10/12/2016 11:40:54</publishTime>
     </File>
     <File Include="Content/css/_animate.css">
       <publishTime>02/25/2016 14:07:46</publishTime>
@@ -194,7 +194,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/12/2016 01:27:52</publishTime>
     </File>
     <File Include="Content/images/doctors/doctor_3_120x120.jpg">
-      <publishTime>05/31/2016 22:14:52</publishTime>
+      <publishTime>10/12/2016 01:27:52</publishTime>
     </File>
     <File Include="Content/images/doctors/doctor_boss_170x170.jpg">
       <publishTime>10/12/2016 01:27:52</publishTime>
@@ -230,7 +230,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/12/2016 01:27:52</publishTime>
     </File>
     <File Include="Content/images/medicine/medicament_descr.jpg">
-      <publishTime>09/27/2016 12:33:52</publishTime>
+      <publishTime>10/12/2016 01:27:52</publishTime>
     </File>
     <File Include="Content/images/medicine/prop-icon_1.png">
       <publishTime>10/12/2016 01:27:52</publishTime>
@@ -248,7 +248,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/12/2016 01:27:52</publishTime>
     </File>
     <File Include="Content/images/procedures/procedures_2.jpg">
-      <publishTime>09/26/2016 21:10:52</publishTime>
+      <publishTime>10/12/2016 01:27:52</publishTime>
     </File>
     <File Include="Content/images/procedures/procedures_3.jpg">
       <publishTime>10/12/2016 01:27:52</publishTime>
@@ -278,7 +278,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/12/2016 01:27:52</publishTime>
     </File>
     <File Include="Content/images/sec-steps/main-page_step_2.jpg">
-      <publishTime>05/31/2016 19:05:52</publishTime>
+      <publishTime>10/12/2016 01:27:52</publishTime>
     </File>
     <File Include="Content/images/sec-steps/main-page_step_3.jpg">
       <publishTime>10/12/2016 01:27:52</publishTime>
@@ -382,8 +382,14 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Content/img/apple-touch-icon-152x152.png">
       <publishTime>05/19/2016 05:22:04</publishTime>
     </File>
+    <File Include="Content/img/backgrounds/bg_flower.jpg">
+      <publishTime>10/11/2016 15:50:38</publishTime>
+    </File>
     <File Include="Content/img/backgrounds/bg_main.jpg">
       <publishTime>02/19/2016 11:36:10</publishTime>
+    </File>
+    <File Include="Content/img/backgrounds/bg_sec-patients.jpg">
+      <publishTime>10/11/2016 16:29:10</publishTime>
     </File>
     <File Include="Content/img/backgrounds/bg_sec-procedure.jpg">
       <publishTime>05/30/2016 10:04:24</publishTime>
@@ -395,13 +401,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/31/2016 18:46:56</publishTime>
     </File>
     <File Include="Content/img/bg_main.jpg">
-      <publishTime>05/19/2016 05:22:04</publishTime>
+      <publishTime>05/19/2016 05:22:06</publishTime>
     </File>
     <File Include="Content/img/bg_review.png">
-      <publishTime>05/19/2016 05:22:04</publishTime>
+      <publishTime>05/19/2016 05:22:06</publishTime>
     </File>
     <File Include="Content/img/donations-icon.png">
-      <publishTime>08/27/2016 11:32:38</publishTime>
+      <publishTime>08/27/2016 11:32:40</publishTime>
     </File>
     <File Include="Content/img/favicon-16x16.png">
       <publishTime>05/19/2016 05:22:04</publishTime>
@@ -410,7 +416,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/19/2016 05:22:04</publishTime>
     </File>
     <File Include="Content/img/friends-icon.png">
-      <publishTime>08/27/2016 11:32:52</publishTime>
+      <publishTime>08/27/2016 11:32:54</publishTime>
     </File>
     <File Include="Content/img/icons_carret.png">
       <publishTime>05/19/2016 05:22:04</publishTime>
@@ -422,13 +428,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/19/2016 05:22:04</publishTime>
     </File>
     <File Include="Content/img/icon_login.png">
-      <publishTime>05/19/2016 05:22:04</publishTime>
+      <publishTime>05/19/2016 05:22:06</publishTime>
     </File>
     <File Include="Content/img/icon_map.png">
       <publishTime>05/19/2016 05:22:04</publishTime>
     </File>
     <File Include="Content/img/icon_messfge.png">
-      <publishTime>05/19/2016 05:22:04</publishTime>
+      <publishTime>05/19/2016 05:22:06</publishTime>
     </File>
     <File Include="Content/img/icon_mob-menu.png">
       <publishTime>05/19/2016 05:22:04</publishTime>
@@ -443,7 +449,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/24/2016 09:33:40</publishTime>
     </File>
     <File Include="Content/img/icon_search.png">
-      <publishTime>05/19/2016 05:22:04</publishTime>
+      <publishTime>05/19/2016 05:22:06</publishTime>
     </File>
     <File Include="Content/img/icon_slider.png">
       <publishTime>05/19/2016 05:22:04</publishTime>
@@ -476,7 +482,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/19/2016 05:22:04</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icon_account-settings_gray.png">
-      <publishTime>09/07/2016 00:32:08</publishTime>
+      <publishTime>09/07/2016 00:32:10</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icon_account-user_gray.png">
       <publishTime>05/19/2016 05:22:04</publishTime>
@@ -565,6 +571,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Content/img/in-base-64/icon_prev.png">
       <publishTime>09/27/2016 10:28:24</publishTime>
     </File>
+    <File Include="Content/img/in-base-64/icon_quote_btm.png">
+      <publishTime>10/11/2016 20:12:00</publishTime>
+    </File>
+    <File Include="Content/img/in-base-64/icon_quote_top.png">
+      <publishTime>10/11/2016 20:11:30</publishTime>
+    </File>
     <File Include="Content/img/in-base-64/icon_step-checked_orange.png">
       <publishTime>05/08/2016 23:14:24</publishTime>
     </File>
@@ -593,67 +605,67 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/19/2016 05:22:04</publishTime>
     </File>
     <File Include="Content/img/operators/azerfon-nar.png">
-      <publishTime>08/22/2016 21:56:25</publishTime>
+      <publishTime>08/22/2016 21:56:26</publishTime>
     </File>
     <File Include="Content/img/operators/bakucell.png">
-      <publishTime>08/22/2016 21:56:25</publishTime>
+      <publishTime>08/22/2016 21:56:26</publishTime>
     </File>
     <File Include="Content/img/operators/beline.png">
-      <publishTime>08/22/2016 21:56:25</publishTime>
+      <publishTime>08/22/2016 21:56:26</publishTime>
     </File>
     <File Include="Content/img/operators/kievstar.png">
-      <publishTime>08/22/2016 21:56:25</publishTime>
+      <publishTime>08/22/2016 21:56:26</publishTime>
     </File>
     <File Include="Content/img/operators/life-bel.png">
-      <publishTime>08/22/2016 21:56:25</publishTime>
+      <publishTime>08/22/2016 21:56:26</publishTime>
     </File>
     <File Include="Content/img/operators/life-ukr.png">
-      <publishTime>08/22/2016 21:56:25</publishTime>
+      <publishTime>08/22/2016 21:56:26</publishTime>
     </File>
     <File Include="Content/img/operators/mailru.png">
-      <publishTime>08/22/2016 21:56:25</publishTime>
+      <publishTime>08/22/2016 21:56:26</publishTime>
     </File>
     <File Include="Content/img/operators/megafon.png">
-      <publishTime>08/22/2016 21:56:25</publishTime>
+      <publishTime>08/22/2016 21:56:26</publishTime>
     </File>
     <File Include="Content/img/operators/mts.png">
-      <publishTime>08/22/2016 21:56:25</publishTime>
+      <publishTime>08/22/2016 21:56:26</publishTime>
     </File>
     <File Include="Content/img/operators/nooperator.png">
-      <publishTime>08/31/2016 11:46:26</publishTime>
+      <publishTime>08/31/2016 11:46:28</publishTime>
     </File>
     <File Include="Content/img/operators/qiwi.png">
-      <publishTime>08/22/2016 21:56:25</publishTime>
+      <publishTime>08/22/2016 21:56:26</publishTime>
     </File>
     <File Include="Content/img/operators/tele2.png">
-      <publishTime>08/22/2016 21:56:25</publishTime>
+      <publishTime>08/22/2016 21:56:26</publishTime>
     </File>
     <File Include="Content/img/operators/uz-k-az-cell.png">
-      <publishTime>08/22/2016 21:56:25</publishTime>
+      <publishTime>08/22/2016 21:56:26</publishTime>
     </File>
     <File Include="Content/img/operators/ym.png">
-      <publishTime>08/22/2016 21:56:25</publishTime>
+      <publishTime>08/22/2016 21:56:26</publishTime>
     </File>
     <File Include="Content/img/orders-icon.png">
-      <publishTime>08/27/2016 11:33:00</publishTime>
+      <publishTime>08/27/2016 11:33:02</publishTime>
     </File>
     <File Include="Content/img/preloader.gif">
       <publishTime>05/19/2016 05:22:04</publishTime>
     </File>
     <File Include="Content/img/preorder_yes.png">
-      <publishTime>08/24/2016 19:40:47</publishTime>
+      <publishTime>08/24/2016 19:40:48</publishTime>
     </File>
     <File Include="Content/img/userpics/no_photo_1.jpg">
-      <publishTime>07/27/2016 23:00:56</publishTime>
+      <publishTime>07/27/2016 23:00:58</publishTime>
     </File>
     <File Include="Content/img/userpics/no_photo_2.jpg">
-      <publishTime>07/27/2016 23:00:55</publishTime>
+      <publishTime>07/27/2016 23:00:56</publishTime>
     </File>
     <File Include="Content/img/userpics/no_photo_3.jpg">
-      <publishTime>07/27/2016 23:01:04</publishTime>
+      <publishTime>07/27/2016 23:01:06</publishTime>
     </File>
     <File Include="Content/img/userpics/no_photo_min.jpg">
-      <publishTime>07/27/2016 23:00:45</publishTime>
+      <publishTime>07/27/2016 23:00:46</publishTime>
     </File>
     <File Include="Content/pdf/price-1.pdf">
       <publishTime>10/03/2016 11:39:07</publishTime>
@@ -680,7 +692,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/24/2016 03:40:02</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>10/12/2016 21:38:34</publishTime>
+      <publishTime>10/15/2016 11:17:49</publishTime>
     </File>
     <File Include="Scripts/jquery-1.10.2.js">
       <publishTime>07/24/2016 03:40:00</publishTime>
@@ -859,8 +871,53 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/Preorder/Registration.cshtml">
       <publishTime>08/27/2016 12:17:35</publishTime>
     </File>
+    <File Include="Views/Procedure/Acupoint.cshtml">
+      <publishTime>10/15/2016 11:17:33</publishTime>
+    </File>
+    <File Include="Views/Procedure/Acupuncture.cshtml">
+      <publishTime>10/12/2016 23:51:26</publishTime>
+    </File>
+    <File Include="Views/Procedure/Electric.cshtml">
+      <publishTime>10/12/2016 23:52:31</publishTime>
+    </File>
+    <File Include="Views/Procedure/Implantation.cshtml">
+      <publishTime>10/12/2016 23:52:31</publishTime>
+    </File>
     <File Include="Views/Procedure/Index.cshtml">
-      <publishTime>10/06/2016 10:56:18</publishTime>
+      <publishTime>10/15/2016 11:17:33</publishTime>
+    </File>
+    <File Include="Views/Procedure/Itp.cshtml">
+      <publishTime>10/12/2016 23:52:31</publishTime>
+    </File>
+    <File Include="Views/Procedure/Kinesiotaping.cshtml">
+      <publishTime>10/12/2016 23:52:31</publishTime>
+    </File>
+    <File Include="Views/Procedure/Massage.cshtml">
+      <publishTime>10/12/2016 23:52:31</publishTime>
+    </File>
+    <File Include="Views/Procedure/OtOccupational.cshtml">
+      <publishTime>10/12/2016 23:55:54</publishTime>
+    </File>
+    <File Include="Views/Procedure/PtPhysical.cshtml">
+      <publishTime>10/12/2016 23:52:31</publishTime>
+    </File>
+    <File Include="Views/Procedure/Sensory.cshtml">
+      <publishTime>10/12/2016 23:52:31</publishTime>
+    </File>
+    <File Include="Views/Procedure/SlingExercise.cshtml">
+      <publishTime>10/12/2016 23:52:30</publishTime>
+    </File>
+    <File Include="Views/Procedure/StSpeech.cshtml">
+      <publishTime>10/15/2016 11:17:33</publishTime>
+    </File>
+    <File Include="Views/Procedure/TheraSuit.cshtml">
+      <publishTime>10/12/2016 23:52:30</publishTime>
+    </File>
+    <File Include="Views/Procedure/Universal.cshtml">
+      <publishTime>10/12/2016 23:52:30</publishTime>
+    </File>
+    <File Include="Views/Procedure/ОtOccupational.cshtml">
+      <publishTime>10/12/2016 23:55:54</publishTime>
     </File>
     <File Include="Views/Sevastopol/Dobratsa.cshtml">
       <publishTime>10/12/2016 02:14:54</publishTime>
@@ -950,7 +1007,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/21/2016 00:36:48</publishTime>
     </File>
     <File Include="Views/Shared/_Footer.cshtml">
-      <publishTime>06/24/2016 11:24:42</publishTime>
+      <publishTime>10/12/2016 21:53:59</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
       <publishTime>10/12/2016 01:24:10</publishTime>
@@ -1001,7 +1058,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/14/2016 20:59:12</publishTime>
     </File>
     <File Include="Views/Shared/_PostAdd.cshtml">
-      <publishTime>10/12/2016 00:46:41</publishTime>
+      <publishTime>10/12/2016 23:02:01</publishTime>
     </File>
     <File Include="Views/Shared/_PostBoard.cshtml">
       <publishTime>10/11/2016 23:55:13</publishTime>

@@ -10,7 +10,7 @@ namespace Cure.DataAccess.DAL
     {
         public IEnumerable<Post> GetMyPosts(int childId)
         {
-            return context.Posts.Where(x => x.ChildId == childId).OrderByDescending(x => x.CreateDate);
+            return context.Posts.Where(x => x.ChildId == childId && x.ParentPostId == null).OrderByDescending(x => x.CreateDate);
         }
 
         public IEnumerable<Post> GetPosts()
@@ -40,6 +40,10 @@ namespace Cure.DataAccess.DAL
         {
             try
             {
+                for (int i = post.Post1.Count - 1; i >= 0; i--)
+                {
+                    DeletePost(post.Post1.ToList()[i]);
+                }
                 context.Posts.Attach(post);
                 context.Posts.DeleteObject(post);
                 SaveChanges();

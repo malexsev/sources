@@ -2,6 +2,19 @@
 
 <div class="comments-item">
     <div class="comments-item-head">
+        @if (Model.OwnerUser == User.Identity.Name)
+        {
+            <ul class="all-posts-btns">
+                <li><a class="post-btn-edit" role="button" title="Изменить комментарий" data-postid="@Model.Id"></a></li>
+                <li><a class="post-btn-delete" role="button" title="Удалить комментарий" data-postid="@Model.Id"></a></li>
+            </ul>
+        }
+        else if (Model.ParentPostId != null && Model.AnserToUser == User.Identity.Name)
+        {
+            <ul class="all-posts-btns">
+                <li><a class="post-btn-delete" role="button" title="Удалить комментарий" data-postid="@Model.Id"></a></li>
+            </ul>
+        }
         <div class="head-imgs">
             <img class="head-img" src="@Model.UserpicUrl" alt="@Model.CopyOwnerName">
             <img class="head-img" src="@Model.ChildAvaUrl" alt="@Model.ChildName">
@@ -14,11 +27,21 @@
     <div class="comments-item-boby">
         <div class="user-content">
             <p>
-                @Model.Text
+                <div id="@Html.Raw(string.Format("editblock-{0}", Model.Id))" style="display: none">
+                    @Html.TextArea("text", "", new { @id = string.Format("editmemo-{0}", Model.Id), @placeholder = "Ваше сообщение", @class = "forms-text" })
+                    <input class="btn btn-orang post-edit" data-postid="@Model.Id" type="button" value="СОХРАНИТЬ">
+                    <input class="btn btn-gray post-cancel" data-postid="@Model.Id" type="button" value="ОТМЕНА">
+                </div>
+                <div id="@Html.Raw(string.Format("textpost-{0}", Model.Id))">@Model.Text</div>
+                <div id="@Html.Raw(string.Format("postprogress-{0}", Model.Id) )">
+                </div>
             </p>
         </div>
     </div>
-    <div class="comments-item-footer">
-        <a class="comments-reply" role="button">Ответить</a>
-    </div>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="comments-item-footer">
+            <a class="comments-reply" data-username="@Model.CopyOwnerName" role="button">Ответить</a>
+        </div>
+    }
 </div>

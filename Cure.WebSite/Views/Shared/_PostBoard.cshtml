@@ -3,36 +3,13 @@
 @using Cure.WebSite.Models
 @model ChildVisualDetailed
 
+@if (Model.OwnerUser == User.Identity.Name)
+{
+    <div class="comments-title">Новые впечатления:</div>
+    @Html.Partial("_PostAdd", 0)
+}
 <div class="child-tab-wrap" id="js-for-load-feelings">
-    @if (Model.OwnerUser == User.Identity.Name)
-    {
-        @Html.Partial("_PostAdd")
-    }
-
-    @foreach (PostModel postModel in Model.PostItemList)
-    {
-        <div class="child-tab-post">
-            @Html.Partial("_PostItem", postModel)
-        </div>
-
-        <div class="comments post-comments">
-            <div class="comments-head">
-                <a class="comments-count js-comments-open" role="button">@postModel.CommentCount</a>
-            </div>
-            <div class="comments-body post-comments-body">
-                <div class="comments-title">Комментарии (@postModel.CommentCount)</div>
-                
-                @foreach (PostModel comment in postModel.Comments)
-                {
-                    @Html.Partial("_PostComment", comment)
-                }
-                
-                <div class="comments-addform">
-                    @Html.Partial("_PostCommentAdd", postModel)
-                </div>
-            </div>
-        </div>
-    }
+    @Html.Partial("_PostItems", Model)
 </div>
 <div class="all-pages-more child-tab-more">
     <div class="more-btn">

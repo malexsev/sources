@@ -411,7 +411,7 @@ $(document).ready(function () {
         $(this).validate({
             focusInvalid: false,
             rules: {
-                subject: { number: true, range: [-1,100] },
+                subject: { number: true, range: [-1, 100] },
                 text: { required: true, maxlength: 10000, minlength: 10 }
             },
             messages: {
@@ -820,7 +820,7 @@ $(document).ready(function () {
                         $("#error-tab4").addClass("form-errors");
                         $("#error-tab4").show().text("Ошибка при сохранении данных, проверьте данные и попробуйте снова.");
                     }
-                        $('#uploadprogress4').html("");
+                    $('#uploadprogress4').html("");
                 },
                 error: function (result) {
                     $('#uploadprogress4').html("");
@@ -1358,7 +1358,7 @@ $(document).ready(function () {
         });
         e.preventDefault();
     });
-    
+
     function setOrderStep(index) {
         var $tabsHead = $('.js-order-tabs'),
         $links = $tabsHead.find(".js-tabs-link"),
@@ -1394,7 +1394,7 @@ $(document).ready(function () {
 
     /*------------ Добавление нового отзыва ----------------------------*/
     $("#formMensionAdd").submit(function (e) {
-        $("#error-phonechange").hide();
+        $("#error-mensionadd").hide();
         var form = $('#formMensionAdd');
         if (form.valid()) {
             var serializedForm = form.serialize();
@@ -1426,9 +1426,9 @@ $(document).ready(function () {
     /*------------ Фильтрация отзывов ----------------------------*/
     $(document).on('change', "#mensionfilter", function () {
         var filter = $(this);
-        
+
         $("#skiprecords").val(0);
-        
+
         var form = $('#mensionform');
         var serializedForm = form.serialize();
         $.ajax({
@@ -1443,7 +1443,118 @@ $(document).ready(function () {
             }
         });
     });
-    
+
+    /*------------ Добавление нового поста в летну впечатлений ----------------------------*/
+    $(document).on('click', ".post-add", function () {
+        $("#error-postadd").hide();
+
+        var answerForPost = $(this).data("postid");
+        var text = $(this).parent().children('#newtext');
+        var data = new FormData();
+        data.append("answerForPost", answerForPost);
+        data.append("text", text.val());
+
+        $.ajax({
+            url: "/Post/NewPost",
+            type: "POST",
+            data: data,
+            contentType: false,
+            processData: false,
+            beforeSend: function () {
+                $('#addpostprogress').html("<img src='/content/img/preloader.gif' />");
+            },
+            success: function (result) {
+                $("#error-postadd").hide();
+                $('#addpostprogress').html("");
+                $("#js-for-load-feelings").html(result);
+                text.val('');
+            },
+            error: function (result) {
+                $('#addpostprogress').html("");
+                alert(result.responseText);
+            }
+        });
+    });
+
+    /*------------ Удаление поста из ленты впечатлений ----------------------------*/
+    $(document).on('click', ".post-btn-delete", function () {
+        var post = $(this).data("postid");
+        var data = new FormData();
+        data.append("post", post);
+        $.ajax({
+            url: "/Post/DeletePost",
+            type: "POST",
+            data: data,
+            contentType: false,
+            processData: false,
+            beforeSend: function () {
+                $('#postprogress-' + post).html("<img src='/content/img/preloader.gif' />");
+            },
+            success: function (result) {
+                $('#postprogress-' + post).html("");
+                $("#js-for-load-feelings").html(result);
+            },
+            error: function (result) {
+                $('#postprogress-' + post).html("");
+                alert(result.responseText);
+            }
+        });
+    });
+
+    /*------------ Включение режима редактирования поста в ленте впечатлений ----------------------------*/
+    $(document).on('click', ".post-btn-edit", function () {
+        var post = $(this).data("postid");
+        var editdiv = $('#editblock-' + post);
+        var textpost = $('#textpost-' + post);
+        var memotext = $('#editmemo-' + post);
+        memotext.val(textpost.html());
+        textpost.slideUp();
+        editdiv.slideDown();
+    });
+
+    /*------------ Отмена режима редактирования поста в ленте впечатлений ----------------------------*/
+    $(document).on('click', ".post-cancel", function () {
+        var post = $(this).data("postid");
+        var editdiv = $('#editblock-' + post);
+        var textpost = $('#textpost-' + post);
+        textpost.slideDown();
+        editdiv.slideUp();
+    });
+
+    /*------------ Вставка имени пользователя при Ответить ----------------------------*/
+    $(document).on('click', ".comments-reply", function () {
+        var username = $(this).data("username");
+        $(this).parents('.post-comments-body').find('#newtext').val(username + ', ').focus();
+    });
+
+    /*------------ Сохранение отредактированного поста из ленты впечатлений ----------------------------*/
+    $(document).on('click', ".post-edit", function () {
+        var post = $(this).data("postid");
+        var memotext = $('#editmemo-' + post);
+
+        var data = new FormData();
+        data.append("text", memotext.val());
+        data.append("postid", post);
+        $.ajax({
+            url: "/Post/UpdatePost",
+            type: "POST",
+            data: data,
+            contentType: false,
+            processData: false,
+            beforeSend: function () {
+                $('#postprogress-' + post).html("<img src='/content/img/preloader.gif' />");
+            },
+            success: function (result) {
+                $('#postprogress-' + post).html("");
+                $("#js-for-load-feelings").html(result);
+            },
+            error: function (result) {
+                $('#postprogress-' + post).html("");
+                alert(result.responseText);
+            }
+        });
+    });
+
     /*----------- Галлерея картинок  -----------------------------------------*/
     $('#big-slider-img').slick({
         slidesToShow: 1,
@@ -1552,9 +1663,10 @@ $(document).ready(function () {
     });
 
     /*--- Кабинет: показ/скрытие комментариев ------------------------*/
-    $(".js-comments-open").click(function () {
+    $(document).on('click', ".js-comments-open", function () {
         var $btn = $(this),
             $commentsItem = $btn.closest(".post-comments");
+        $('#text').val('');
 
         $commentsItem.addClass("is-open");
     });
