@@ -614,6 +614,22 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<ViewMension> _ViewMensions;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Newsletter> Newsletters
+        {
+            get
+            {
+                if ((_Newsletters == null))
+                {
+                    _Newsletters = base.CreateObjectSet<Newsletter>("Newsletters");
+                }
+                return _Newsletters;
+            }
+        }
+        private ObjectSet<Newsletter> _Newsletters;
 
         #endregion
 
@@ -873,6 +889,14 @@ namespace Cure.DataAccess
         public void AddToViewMensions(ViewMension viewMension)
         {
             base.AddObject("ViewMensions", viewMension);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Newsletters EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToNewsletters(Newsletter newsletter)
+        {
+            base.AddObject("Newsletters", newsletter);
         }
 
         #endregion
@@ -5412,6 +5436,212 @@ namespace Cure.DataAccess
         private global::System.String _Text;
         partial void OnTextChanging(global::System.String value);
         partial void OnTextChanged();
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="Newsletter")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Newsletter : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Newsletter object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="email">Initial value of the Email property.</param>
+        /// <param name="entryDate">Initial value of the EntryDate property.</param>
+        /// <param name="entryType">Initial value of the EntryType property.</param>
+        public static Newsletter CreateNewsletter(global::System.Int32 id, global::System.String email, global::System.DateTime entryDate, global::System.String entryType)
+        {
+            Newsletter newsletter = new Newsletter();
+            newsletter.Id = id;
+            newsletter.Email = email;
+            newsletter.EntryDate = entryDate;
+            newsletter.EntryType = entryType;
+            return newsletter;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value, "Id");
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Email
+        {
+            get
+            {
+                return _Email;
+            }
+            set
+            {
+                OnEmailChanging(value);
+                ReportPropertyChanging("Email");
+                _Email = StructuralObject.SetValidValue(value, false, "Email");
+                ReportPropertyChanged("Email");
+                OnEmailChanged();
+            }
+        }
+        private global::System.String _Email;
+        partial void OnEmailChanging(global::System.String value);
+        partial void OnEmailChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime EntryDate
+        {
+            get
+            {
+                return _EntryDate;
+            }
+            set
+            {
+                OnEntryDateChanging(value);
+                ReportPropertyChanging("EntryDate");
+                _EntryDate = StructuralObject.SetValidValue(value, "EntryDate");
+                ReportPropertyChanged("EntryDate");
+                OnEntryDateChanged();
+            }
+        }
+        private global::System.DateTime _EntryDate;
+        partial void OnEntryDateChanging(global::System.DateTime value);
+        partial void OnEntryDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String EntryType
+        {
+            get
+            {
+                return _EntryType;
+            }
+            set
+            {
+                OnEntryTypeChanging(value);
+                ReportPropertyChanging("EntryType");
+                _EntryType = StructuralObject.SetValidValue(value, false, "EntryType");
+                ReportPropertyChanged("EntryType");
+                OnEntryTypeChanged();
+            }
+        }
+        private global::System.String _EntryType;
+        partial void OnEntryTypeChanging(global::System.String value);
+        partial void OnEntryTypeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Settings
+        {
+            get
+            {
+                return _Settings;
+            }
+            set
+            {
+                OnSettingsChanging(value);
+                ReportPropertyChanging("Settings");
+                _Settings = StructuralObject.SetValidValue(value, true, "Settings");
+                ReportPropertyChanged("Settings");
+                OnSettingsChanged();
+            }
+        }
+        private global::System.String _Settings;
+        partial void OnSettingsChanging(global::System.String value);
+        partial void OnSettingsChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> SuccessCount
+        {
+            get
+            {
+                return _SuccessCount;
+            }
+            set
+            {
+                OnSuccessCountChanging(value);
+                ReportPropertyChanging("SuccessCount");
+                _SuccessCount = StructuralObject.SetValidValue(value, "SuccessCount");
+                ReportPropertyChanged("SuccessCount");
+                OnSuccessCountChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _SuccessCount;
+        partial void OnSuccessCountChanging(Nullable<global::System.Int32> value);
+        partial void OnSuccessCountChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> ErrorsCount
+        {
+            get
+            {
+                return _ErrorsCount;
+            }
+            set
+            {
+                OnErrorsCountChanging(value);
+                ReportPropertyChanging("ErrorsCount");
+                _ErrorsCount = StructuralObject.SetValidValue(value, "ErrorsCount");
+                ReportPropertyChanged("ErrorsCount");
+                OnErrorsCountChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _ErrorsCount;
+        partial void OnErrorsCountChanging(Nullable<global::System.Int32> value);
+        partial void OnErrorsCountChanged();
 
         #endregion
 

@@ -12,6 +12,11 @@ namespace Cure.DataAccess.DAL
         IEnumerable<ViewUserMembership> ViewUserMembership();
         void UpdateUserMembership(ViewUserMembership userMembership);
 
+        IEnumerable<Newsletter> GetNewsletters();
+        void InsertNewsletter(Newsletter newsletter);
+        void DeleteNewsletter(Newsletter newsletter);
+        void UpdateNewsletter(Newsletter newsletter);
+
         IEnumerable<ViewMension> ViewMensions(int filterId, int skipRecords, int takeRecords = 12);
         int CountMensions(int filterId);
         IEnumerable<Mension> GetMensions();

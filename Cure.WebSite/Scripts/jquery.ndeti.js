@@ -310,6 +310,29 @@ $(document).ready(function () {
         });
     });
 
+    /* --- Валидация добавления в рассылку ---------------------------------------*/
+    $(".js-newsletter-validate").each(function () {
+        $(this).validate({
+            focusInvalid: false,
+            rules: {
+                email: { required: true, email: true }
+            },
+            messages: {
+                email: "Не верный адрес"
+            },
+            errorClass: "has-error",
+            highlight: function (element, errorClass) {
+                $(element).parent().addClass(errorClass);
+            },
+            unhighlight: function (element, errorClass) {
+                $(element).parent().removeClass(errorClass);
+            },
+            submitHandler: function (form) {
+                //form.submit();
+            }
+        });
+    });
+
     /* --- Валидация формы обратной связи ---------------------------------------*/
     $(".js-feedback-validate").each(function () {
         $(this).validate({
@@ -324,7 +347,7 @@ $(document).ready(function () {
                     required: "Не введено"
                 },
                 email: "Не верный адрес",
-                text: "Введите текст сообщения"
+                text: "Введите текст"
             },
             errorClass: "has-error",
             highlight: function (element, errorClass) {
@@ -1501,6 +1524,39 @@ $(document).ready(function () {
                 },
                 error: function (result) {
                     $('#feedbackprogress').html("");
+                    alert(result.responseText);
+                }
+            });
+        }
+        e.preventDefault();
+    });
+
+    /*------------ Добавление в список рассылки ----------------------------*/
+    $("#formNewsletter").submit(function (e) {
+        $('#error-newsletter').hide();
+        var form = $('#formNewsletter');
+        if (form.valid()) {
+            var serializedForm = form.serialize();
+            $.ajax({
+                url: "/Newsletter/AddNew",
+                type: "POST",
+                data: serializedForm,
+                beforeSend: function () {
+                    $('#newsletterprogress').html("<img src='/content/img/preloader.gif' />");
+                },
+                success: function (result) {
+                    $('#newsletterprogress').html("");
+                    if (result == "1") {
+                        $("#error-newsletter").removeClass("form-errors");
+                        $("#error-newsletter").show().text("Рассылка подключена.");
+                        $('#email').val('');
+                    } else {
+                        $("#error-newsletter").addClass("form-errors");
+                        $('#error-newsletter').show().text("Ошибка подключения.");
+                    }
+                },
+                error: function (result) {
+                    $('#newsletterprogress').html("");
                     alert(result.responseText);
                 }
             });

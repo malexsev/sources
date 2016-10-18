@@ -51,6 +51,7 @@
     <Compile Include="BLL\MensionBL.cs" />
     <Compile Include="BLL\PostBL.cs" />
     <Compile Include="BLL\MessageBL.cs" />
+    <Compile Include="BLL\NewsletterBL.cs" />
     <Compile Include="BLL\VipiskaBL.cs" />
     <Compile Include="BLL\StopVisitBL.cs" />
     <Compile Include="BLL\StopVisitTypeBL.cs" />
@@ -75,6 +76,7 @@
     <Compile Include="DAL\MensionAccess.cs" />
     <Compile Include="DAL\PostAccess.cs" />
     <Compile Include="DAL\MessageAccess.cs" />
+    <Compile Include="DAL\NewsletterAccess.cs" />
     <Compile Include="DAL\VipiskaAccess.cs" />
     <Compile Include="DAL\StopVisitAccess.cs" />
     <Compile Include="DAL\StopVisitTypeAccess.cs" />

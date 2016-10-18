@@ -70,6 +70,7 @@
         <AssociationConnector Association="DataModel.FK_Post_Child" />
         <AssociationConnector Association="DataModel.FK_Post_Post" />
         <EntityTypeShape EntityType="DataModel.ViewMension" Width="1.5" PointX="35.75" PointY="2" />
+        <EntityTypeShape EntityType="DataModel.Newsletter" Width="1.5" PointX="18.25" PointY="6" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

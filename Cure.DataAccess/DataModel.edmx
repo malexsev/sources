@@ -180,6 +180,18 @@
           <Property Name="Subject" Type="nvarchar" MaxLength="250" />
           <Property Name="Text" Type="text" />
         </EntityType>
+        <EntityType Name="Newsletter">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="EntryDate" Type="datetime" Nullable="false" />
+          <Property Name="EntryType" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Settings" Type="nvarchar" MaxLength="50" />
+          <Property Name="SuccessCount" Type="int" />
+          <Property Name="ErrorsCount" Type="int" />
+        </EntityType>
         <EntityType Name="NotificationLog">
           <Key>
             <PropertyRef Name="Id" />
@@ -590,6 +602,8 @@ warning 6002: The table/view 'Cure.dbo.ViewMension' does not have a primary key 
         <EntityType Name="ViewMension">
           <Key>
             <PropertyRef Name="Id" />
+            
+            
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="DepartmentId" Type="int" />
@@ -1259,6 +1273,7 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
           <EntitySet Name="DepartmentStop" EntityType="Self.DepartmentStop" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Mension" EntityType="Self.Mension" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Message" EntityType="Self.Message" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Newsletter" EntityType="Self.Newsletter" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NotificationLog" EntityType="Self.NotificationLog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" Schema="dbo" store:Type="Tables" />
@@ -1866,6 +1881,7 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
             <End Role="Post1" EntitySet="Posts" />
           </AssociationSet>
           <EntitySet Name="ViewMensions" EntityType="DataModel.ViewMension" />
+          <EntitySet Name="Newsletters" EntityType="DataModel.Newsletter" />
           </EntityContainer>
         <EntityType Name="OrderStatu">
           <Key>
@@ -3130,6 +3146,18 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
           <Property Name="GuidId" Type="Guid" />
           <Property Name="ChildId" Type="Int32" />
         </EntityType>
+        <EntityType Name="Newsletter">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="EntryDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EntryType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Settings" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SuccessCount" Type="Int32" />
+          <Property Name="ErrorsCount" Type="Int32" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3939,6 +3967,19 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
                 <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
                 <ScalarProperty Name="OwnerUser" ColumnName="OwnerUser" />
                 <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Newsletters">
+            <EntityTypeMapping TypeName="DataModel.Newsletter">
+              <MappingFragment StoreEntitySet="Newsletter">
+                <ScalarProperty Name="ErrorsCount" ColumnName="ErrorsCount" />
+                <ScalarProperty Name="SuccessCount" ColumnName="SuccessCount" />
+                <ScalarProperty Name="Settings" ColumnName="Settings" />
+                <ScalarProperty Name="EntryType" ColumnName="EntryType" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
