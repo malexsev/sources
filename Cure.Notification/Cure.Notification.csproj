@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FeedbackNotification.cs" />
     <Compile Include="Before2HoursEmailNotification.cs" />
     <Compile Include="Before2HoursNotification.cs" />
     <Compile Include="Before24HoursNotification.cs" />

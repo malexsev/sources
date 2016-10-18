@@ -310,6 +310,34 @@ $(document).ready(function () {
         });
     });
 
+    /* --- Валидация формы обратной связи ---------------------------------------*/
+    $(".js-feedback-validate").each(function () {
+        $(this).validate({
+            focusInvalid: false,
+            rules: {
+                name: { required: true },
+                email: { required: true, email: true },
+                text: { required: true },
+            },
+            messages: {
+                name: {
+                    required: "Не введено"
+                },
+                email: "Не верный адрес",
+                text: "Введите текст сообщения"
+            },
+            errorClass: "has-error",
+            highlight: function (element, errorClass) {
+                $(element).parent().addClass(errorClass);
+            },
+            unhighlight: function (element, errorClass) {
+                $(element).parent().removeClass(errorClass);
+            },
+            submitHandler: function (form) {
+            }
+        });
+    });
+
     /* --- Валидация формы входа ---------------------------------------------*/
     $(".js-login-validate").each(function () {
         $(this).validate({
@@ -1442,6 +1470,42 @@ $(document).ready(function () {
                 alert(result.responseText);
             }
         });
+    });
+
+    /*------------ Добавление обратной связи ----------------------------*/
+    $("#formFeedback").submit(function (e) {
+        $('#error-feedback').hide();
+        var form = $('#formFeedback');
+        if (form.valid()) {
+            var serializedForm = form.serialize();
+            $.ajax({
+                url: "/Feedback/AddFeedback",
+                type: "POST",
+                data: serializedForm,
+                beforeSend: function () {
+                    $('#feedbackprogress').html("<img src='/content/img/preloader.gif' />");
+                },
+                success: function (result) {
+                    $('#feedbackprogress').html("");
+                    if (result == "1") {
+                        $("#error-feedback").removeClass("form-errors");
+                        $("#error-feedback").show().text("Сообщение отправлено.");
+                        $('#name').val('');
+                        $('#email').val('');
+                        $('#phone').val('');
+                        $('#text').val('');
+                    } else {
+                        $("#error-feedback").addClass("form-errors");
+                        $('#error-feedback').show().text("Ошибка сохранения сообщения.");
+                    }
+                },
+                error: function (result) {
+                    $('#feedbackprogress').html("");
+                    alert(result.responseText);
+                }
+            });
+        }
+        e.preventDefault();
     });
 
     /*------------ Добавление нового поста в летну впечатлений ----------------------------*/

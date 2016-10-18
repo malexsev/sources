@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "О нас";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -221,29 +220,56 @@
                         </ul>
                     </div>
                     <div class="col-md-9">
-                        <form class="sec-message-form">
+                        @using (Html.BeginForm("AddFeedback", "Feedback", FormMethod.Post, new
+                        {
+                            @id = "formFeedback",
+                            @class = "sec-message-form js-feedback-validate"
+                        }))
+                        {
                             <div class="forms-line">
                                 <div class="forms-label">Ваше имя*</div>
-                                <input class="forms-input" type="text">
+                                @Html.TextBox("name", "", new
+                                {
+                                    @id = "name",
+                                    @maxlength = "50",
+                                    @class = "forms-input"
+                                })
                             </div>
                             <div class="forms-line">
                                 <div class="forms-label">Эл. почта*</div>
-                                <input class="forms-input" type="text">
+                                @Html.TextBox("email", "", new
+                                {
+                                    @id = "email",
+                                    @maxlength = "250",
+                                    @class = "forms-input"
+                                })
                             </div>
                             <div class="forms-line">
                                 <div class="forms-label">Телефон</div>
-                                <input class="forms-input" type="text">
+                                @Html.TextBox("phone", "", new
+                                {
+                                    @id = "phone",
+                                    @maxlength = "15",
+                                    @class = "forms-input"
+                                })
                                 <div class="note-label">- Если хотите, чтобы мы перезвонили</div>
                             </div>
                             <div class="forms-line">
                                 <div class="forms-label">Текст cообщения*</div>
-                                <textarea class="forms-text" type="text"></textarea>
+                                @Html.TextArea("text", "", new
+                                {
+                                    @id = "text",
+                                    @class = "forms-text"
+                                })
                             </div>
                             <div class="forms-line">
                                 <div class="forms-label"></div>
                                 <input class="btn btn-orang" type="submit" value="ОТПРАВИТЬ">
+                                <div id="feedbackprogress">
+                                </div>
+                                <div id="error-feedback" class="form-errors"></div>
                             </div>
-                        </form>
+                        }
                     </div>
                 </div>
 
@@ -254,4 +280,3 @@
 
 
 </div><!-- END main -->
-
