@@ -175,6 +175,18 @@
     <Property Name="Subject" Type="nvarchar" MaxLength="250" />
     <Property Name="Text" Type="text" />
   </EntityType>
+  <EntityType Name="Newsletter">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="EntryDate" Type="datetime" Nullable="false" />
+    <Property Name="EntryType" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Settings" Type="nvarchar" MaxLength="50" />
+    <Property Name="SuccessCount" Type="int" />
+    <Property Name="ErrorsCount" Type="int" />
+  </EntityType>
   <EntityType Name="NotificationLog">
     <Key>
       <PropertyRef Name="Id" />
@@ -1217,6 +1229,7 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
     <EntitySet Name="DepartmentStop" EntityType="Self.DepartmentStop" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Mension" EntityType="Self.Mension" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Message" EntityType="Self.Message" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Newsletter" EntityType="Self.Newsletter" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NotificationLog" EntityType="Self.NotificationLog" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" Schema="dbo" store:Type="Tables" />

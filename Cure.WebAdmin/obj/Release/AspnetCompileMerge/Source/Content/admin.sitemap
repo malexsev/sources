@@ -11,6 +11,7 @@
       <siteMapNode url="~/Admin/MensionList.aspx" title="Отзывы" />
       <siteMapNode url="~/Admin/MessageList.aspx" title="Сообщения" />
       <siteMapNode url="~/Admin/PostList.aspx" title="Впечатления" />
+      <siteMapNode url="~/Admin/NewsletterList.aspx" title="Новостная рассылка" />
     </siteMapNode>
     <siteMapNode url="" title="Справочники">
       <siteMapNode url="~/Admin/RefCountryList.aspx" title="Страны" description="Страны в системе" />

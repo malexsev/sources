@@ -223,7 +223,7 @@
                         @using (Html.BeginForm("AddFeedback", "Feedback", FormMethod.Post, new
                         {
                             @id = "formFeedback",
-                            @class = "sec-message-form js-feedback-validate"
+                            @class = "sec-message-form js-validate"
                         }))
                         {
                             <div class="forms-line">
@@ -232,16 +232,18 @@
                                 {
                                     @id = "name",
                                     @maxlength = "50",
-                                    @class = "forms-input"
+                                    @class = "forms-input",
+                                    @title = "Ваше имя"
                                 })
                             </div>
                             <div class="forms-line">
                                 <div class="forms-label">Эл. почта*</div>
-                                @Html.TextBox("email", "", new
+                                @Html.TextBox("mail", "", new
                                 {
-                                    @id = "email",
+                                    @id = "mail",
                                     @maxlength = "250",
-                                    @class = "forms-input"
+                                    @class = "forms-input",
+                                    @title = "Эл. почта"
                                 })
                             </div>
                             <div class="forms-line">
@@ -250,7 +252,8 @@
                                 {
                                     @id = "phone",
                                     @maxlength = "15",
-                                    @class = "forms-input"
+                                    @class = "forms-input",
+                                    @title = "Телефон"
                                 })
                                 <div class="note-label">- Если хотите, чтобы мы перезвонили</div>
                             </div>
@@ -259,7 +262,8 @@
                                 @Html.TextArea("text", "", new
                                 {
                                     @id = "text",
-                                    @class = "forms-text"
+                                    @class = "forms-text",
+                                    @title = "Текст cообщения"
                                 })
                             </div>
                             <div class="forms-line">

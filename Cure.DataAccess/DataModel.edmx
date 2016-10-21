@@ -106,6 +106,16 @@
           <Property Name="FileName" Type="nvarchar" MaxLength="250" Nullable="false" />
           <Property Name="HideDate" Type="datetime" Nullable="false" />
         </EntityType>
+        <EntityType Name="Currency">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CurrencyFrom" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="CurrencyTo" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="Rate" Type="money" Nullable="false" />
+          <Property Name="GetDate" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="Department">
           <Key>
             <PropertyRef Name="Id" />
@@ -1269,6 +1279,7 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
           <EntitySet Name="Child" EntityType="Self.Child" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ChildAvaFile" EntityType="Self.ChildAvaFile" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ChildHideFile" EntityType="Self.ChildHideFile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Currency" EntityType="Self.Currency" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DepartmentStop" EntityType="Self.DepartmentStop" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Mension" EntityType="Self.Mension" Schema="dbo" store:Type="Tables" />
@@ -1882,6 +1893,7 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
           </AssociationSet>
           <EntitySet Name="ViewMensions" EntityType="DataModel.ViewMension" />
           <EntitySet Name="Newsletters" EntityType="DataModel.Newsletter" />
+          <EntitySet Name="Currencies" EntityType="DataModel.Currency" />
           </EntityContainer>
         <EntityType Name="OrderStatu">
           <Key>
@@ -3158,6 +3170,16 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
           <Property Name="SuccessCount" Type="Int32" />
           <Property Name="ErrorsCount" Type="Int32" />
         </EntityType>
+        <EntityType Name="Currency">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CurrencyFrom" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="CurrencyTo" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="Rate" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="GetDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3980,6 +4002,17 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
                 <ScalarProperty Name="EntryType" ColumnName="EntryType" />
                 <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Currencies">
+            <EntityTypeMapping TypeName="DataModel.Currency">
+              <MappingFragment StoreEntitySet="Currency">
+                <ScalarProperty Name="GetDate" ColumnName="GetDate" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="CurrencyTo" ColumnName="CurrencyTo" />
+                <ScalarProperty Name="CurrencyFrom" ColumnName="CurrencyFrom" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

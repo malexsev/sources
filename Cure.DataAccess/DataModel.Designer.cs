@@ -630,6 +630,22 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<Newsletter> _Newsletters;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Currency> Currencies
+        {
+            get
+            {
+                if ((_Currencies == null))
+                {
+                    _Currencies = base.CreateObjectSet<Currency>("Currencies");
+                }
+                return _Currencies;
+            }
+        }
+        private ObjectSet<Currency> _Currencies;
 
         #endregion
 
@@ -897,6 +913,14 @@ namespace Cure.DataAccess
         public void AddToNewsletters(Newsletter newsletter)
         {
             base.AddObject("Newsletters", newsletter);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Currencies EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToCurrencies(Currency currency)
+        {
+            base.AddObject("Currencies", currency);
         }
 
         #endregion
@@ -3688,6 +3712,166 @@ namespace Cure.DataAccess
                 }
             }
         }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="Currency")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Currency : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Currency object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="currencyFrom">Initial value of the CurrencyFrom property.</param>
+        /// <param name="currencyTo">Initial value of the CurrencyTo property.</param>
+        /// <param name="rate">Initial value of the Rate property.</param>
+        /// <param name="getDate">Initial value of the GetDate property.</param>
+        public static Currency CreateCurrency(global::System.Int32 id, global::System.String currencyFrom, global::System.String currencyTo, global::System.Decimal rate, global::System.DateTime getDate)
+        {
+            Currency currency = new Currency();
+            currency.Id = id;
+            currency.CurrencyFrom = currencyFrom;
+            currency.CurrencyTo = currencyTo;
+            currency.Rate = rate;
+            currency.GetDate = getDate;
+            return currency;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value, "Id");
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String CurrencyFrom
+        {
+            get
+            {
+                return _CurrencyFrom;
+            }
+            set
+            {
+                OnCurrencyFromChanging(value);
+                ReportPropertyChanging("CurrencyFrom");
+                _CurrencyFrom = StructuralObject.SetValidValue(value, false, "CurrencyFrom");
+                ReportPropertyChanged("CurrencyFrom");
+                OnCurrencyFromChanged();
+            }
+        }
+        private global::System.String _CurrencyFrom;
+        partial void OnCurrencyFromChanging(global::System.String value);
+        partial void OnCurrencyFromChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String CurrencyTo
+        {
+            get
+            {
+                return _CurrencyTo;
+            }
+            set
+            {
+                OnCurrencyToChanging(value);
+                ReportPropertyChanging("CurrencyTo");
+                _CurrencyTo = StructuralObject.SetValidValue(value, false, "CurrencyTo");
+                ReportPropertyChanged("CurrencyTo");
+                OnCurrencyToChanged();
+            }
+        }
+        private global::System.String _CurrencyTo;
+        partial void OnCurrencyToChanging(global::System.String value);
+        partial void OnCurrencyToChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal Rate
+        {
+            get
+            {
+                return _Rate;
+            }
+            set
+            {
+                OnRateChanging(value);
+                ReportPropertyChanging("Rate");
+                _Rate = StructuralObject.SetValidValue(value, "Rate");
+                ReportPropertyChanged("Rate");
+                OnRateChanged();
+            }
+        }
+        private global::System.Decimal _Rate;
+        partial void OnRateChanging(global::System.Decimal value);
+        partial void OnRateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime GetDate
+        {
+            get
+            {
+                return _GetDate;
+            }
+            set
+            {
+                OnGetDateChanging(value);
+                ReportPropertyChanging("GetDate");
+                _GetDate = StructuralObject.SetValidValue(value, "GetDate");
+                ReportPropertyChanged("GetDate");
+                OnGetDateChanged();
+            }
+        }
+        private global::System.DateTime _GetDate;
+        partial void OnGetDateChanging(global::System.DateTime value);
+        partial void OnGetDateChanged();
 
         #endregion
 

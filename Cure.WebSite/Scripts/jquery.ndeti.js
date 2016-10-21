@@ -1,5 +1,47 @@
 
 
+/* --- ГЛОБАЛЬНАЯ ФУНКЦИЯ: Карта на странице ---------------------------------*/
+var mapInitialize, google;
+function mapStart() {
+    mapInitialize = function (params) {
+        console.log("Карта стартовала");
+        var myMapPlace = document.getElementById("map-wrap"),
+          myLatlng = new google.maps.LatLng(+params.myLat, +params.myLng);
+
+        var myOptions = {
+            disableDefaultUI: true,
+            zoom: 15,
+            center: myLatlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(myMapPlace, myOptions);
+
+        var companyLogo = new google.maps.MarkerImage('Content/img/icon_map.png',
+          new google.maps.Size(28, 37),
+          new google.maps.Point(0, 0),
+          new google.maps.Point(14, 37)
+        );
+        var company = myLatlng;
+        var companyMarker = new google.maps.Marker({
+            position: company,
+            map: map,
+            icon: companyLogo,
+            title: "Санкт-Петербург, проспект Энгельса, д. 33, корп. 1, лит. А, офис 610"
+        });
+        var styles = [{ "stylers": [{ "saturation": -100 }] }, {}];
+        map.setOptions({ styles: styles });
+    };
+    var $mapWrap = $("#map-wrap");
+    if ($mapWrap.length > 0) {
+        mapInitialize({
+            myLat: $mapWrap.data("lat"),
+            myLng: $mapWrap.data("lng")
+        });
+    }
+}
+
+
+
 
 /*----------- ФУНКЦИИ ПОСЛЕ ГОТОВНОСТИ ---------------------------------------*/
 
@@ -254,10 +296,10 @@ $(document).ready(function () {
                 }
             },
             messages: {
-                name: "",
-                mail: "",
+                name: "Введите имя",
+                mail: "Введите корректный адрес",
                 numb: "",
-                text: "",
+                text: "Введите сообщение",
                 birthday: "Дата рождения обязательна",
                 childname: "Введите имя ребёнка"
             },
@@ -329,34 +371,6 @@ $(document).ready(function () {
             },
             submitHandler: function (form) {
                 //form.submit();
-            }
-        });
-    });
-
-    /* --- Валидация формы обратной связи ---------------------------------------*/
-    $(".js-feedback-validate").each(function () {
-        $(this).validate({
-            focusInvalid: false,
-            rules: {
-                name: { required: true },
-                email: { required: true, email: true },
-                text: { required: true },
-            },
-            messages: {
-                name: {
-                    required: "Не введено"
-                },
-                email: "Не верный адрес",
-                text: "Введите текст"
-            },
-            errorClass: "has-error",
-            highlight: function (element, errorClass) {
-                $(element).parent().addClass(errorClass);
-            },
-            unhighlight: function (element, errorClass) {
-                $(element).parent().removeClass(errorClass);
-            },
-            submitHandler: function (form) {
             }
         });
     });
@@ -1514,7 +1528,7 @@ $(document).ready(function () {
                         $("#error-feedback").removeClass("form-errors");
                         $("#error-feedback").show().text("Сообщение отправлено.");
                         $('#name').val('');
-                        $('#email').val('');
+                        $('#mail').val('');
                         $('#phone').val('');
                         $('#text').val('');
                     } else {
@@ -1681,7 +1695,11 @@ $(document).ready(function () {
         slidesToScroll: 1,
         arrows: true,
         fade: true,
-        asNavFor: '#big-slider-nav'
+        asNavFor: '#big-slider-nav',
+        infinite: true,
+        speed: 500,
+        autoplay: true,
+        autoplaySpeed: 5000
     });
     $('#big-slider-nav').slick({
         slidesToShow: 5,
@@ -1691,7 +1709,10 @@ $(document).ready(function () {
         arrows: false,
         centerMode: true,
         focusOnSelect: true,
-        variableWidth: true
+        variableWidth: true,
+        speed: 500,
+        autoplay: true,
+        autoplaySpeed: 5000
     });
 
     /*----------- Слайдер картинок  ----------------------------------------------*/
@@ -1919,12 +1940,14 @@ $(document).ready(function () {
         $(this).addClass("active").siblings(".forms-radio").removeClass("active");
     });
 
+
     /*--- Всплывающее мегаменю -----------------------------------------------*/
     // Открыть
     $(".js-megamenu-open").click(function (e) {
         var $btn = $(this);
         menuId = "#" + $btn.data("menu");
         e.stopPropagation();
+        $(".megamenu").removeClass("active");
         $(menuId).addClass("active").children(".megamenu-back").height($(document).height());
     });
     // Закрыть
@@ -1933,6 +1956,81 @@ $(document).ready(function () {
         $(".megamenu").removeClass("active");
     });
 
+
+    /* --- СКРОЛЛ: Движение меню на страницах больниц ------------------------*/
+    $("#js-moved-menu").scroolly([
+        {
+            to: "con-bottom - 100el = vp-top",
+            css: {
+                position: "absolute",
+                bottom: "0",
+                top: "auto"
+            },
+            removeClass: 'is-sticked'
+        },
+        {
+            from: "con-bottom - 100el = vp-top",
+            css: {
+                position: "fixed",
+                bottom: "auto",
+                top: "0"
+            },
+            addClass: 'is-sticked'
+        }
+    ], $("#js-moved-menu-wrapper"));
+
+
+    /* --- Галлерея в всплывающем окне ---------------------------------------*/
+    $(".js-popup-gallery").swipebox();
+
+
+    /*---  Плавная прокрутка -------------------------------------------------*/
+    $(".js-scroll-to").click(function (e) {
+        var $link = $(this),
+          $target = $($link.attr('href') || $link.data('target')),
+          targetTop;
+
+        if ($target.length) {
+            e.preventDefault(); //отменим перход
+            targetTop = $target.offset().top - 70; //сколько прокрутить
+            $("html, body").animate({ scrollTop: targetTop }, 1000); //крутим враппер
+        };
+        return false; // и ничего не вернем
+    });
+
+    /* --- СКРОЛЛ: Подсветка пунктов в меню на страницах больниц -------------*/
+    $('.js-for-menu').scroolly([
+        {
+            direction: 1,
+            from: 'el-top - 75px = vp-top',
+            //to: 'el-bottom - 75px = vp-top',
+            onCheckIn: function ($el) {
+                //console.log( $el.attr('id') );
+                $('.hosp-page-nav a[data-target]').removeClass('active');
+                $('.hosp-page-nav a[data-target="#' + $el.attr('id') + '"]').addClass('active');
+            },
+            onCheckOut: function ($el) {
+                console.log($el.attr('id'));
+                $('.hosp-page-nav a[data-target]').removeClass('active');
+                $('.hosp-page-nav a[data-target="#' + $el.attr('id') + '"]').addClass('active');
+            }
+        },
+        {
+            direction: -1,
+            from: 'el-top - 65px = vp-top',
+            //to: 'el-bottom - 65px = vp-top',
+            onCheckIn: function ($el) {
+                //console.log( $el.attr('id') );
+                $('.hosp-page-nav a[data-target]').removeClass('active');
+                $('.hosp-page-nav a[data-target="#' + $el.attr('id') + '"]').addClass('active');
+            },
+            onCheckOut: function ($el) {
+                console.log($el.attr('id'));
+                $('.hosp-page-nav a[data-target]').removeClass('active');
+                $('.hosp-page-nav a[data-target="#' + $el.attr('id') + '"]').addClass('active');
+            }
+        }
+    ], $('.hosp-page'));
 });
 
 
@@ -1947,6 +2045,16 @@ $(window).load(function () {
 
 
 });
+
+/*--- Подключим maps api ----*/
+if ($("#map-wrap").length > 0) {
+    $.getScript(
+        "http://maps.google.com/maps/api/js?sensor=false&callback=mapStart",
+        function () {
+            console.log("Кaрта загружена");
+        }
+    );
+}
 
 function DeletePicture(id, fileName) {
     $("#pictodelete").val(fileName);

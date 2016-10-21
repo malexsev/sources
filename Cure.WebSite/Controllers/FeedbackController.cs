@@ -11,9 +11,9 @@ namespace Cure.WebSite.Controllers
     public class FeedbackController : Controller
     {
         [HttpPost]
-        public JsonResult AddFeedback(string name, string email, string phone, string text)
+        public JsonResult AddFeedback(string name, string mail, string phone, string text)
         {
-            var notifyEmail = new FeedbackNotification(name, email, phone, text);
+            var notifyEmail = new FeedbackNotification(name, mail, phone, text);
             if (notifyEmail.Send())
             {
                 return Json("1", JsonRequestBehavior.AllowGet);

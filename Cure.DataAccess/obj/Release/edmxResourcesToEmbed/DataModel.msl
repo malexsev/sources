@@ -808,5 +808,18 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Newsletters">
+      <EntityTypeMapping TypeName="DataModel.Newsletter">
+        <MappingFragment StoreEntitySet="Newsletter">
+          <ScalarProperty Name="ErrorsCount" ColumnName="ErrorsCount" />
+          <ScalarProperty Name="SuccessCount" ColumnName="SuccessCount" />
+          <ScalarProperty Name="Settings" ColumnName="Settings" />
+          <ScalarProperty Name="EntryType" ColumnName="EntryType" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

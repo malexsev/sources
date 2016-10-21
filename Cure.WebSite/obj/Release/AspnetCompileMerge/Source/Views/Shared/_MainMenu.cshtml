@@ -1,7 +1,10 @@
 ﻿
 <nav class="header-nav" role="navigation">
     <ul class="header-menu">
-        <li><a href="#">Клиники</a></li>
+        <li @Html.Raw((Request.Url.AbsolutePath.Contains("Sevastopol") ||
+                Request.Url.AbsolutePath.Contains("Almaata") ||
+                Request.Url.AbsolutePath.Contains("Yancheng1") ||
+                Request.Url.AbsolutePath.Contains("Yancheng2")) ? @"class=""active""" : @"")><a class="js-megamenu-open" data-menu="megamenu-clinics">Клиники</a></li>
         <li @Html.Raw(Request.Url.AbsolutePath.Contains("Procedure") || Request.Url.AbsolutePath.Contains("Medicine") ? @"class=""active""" : @"")><a href="@Url.Action("Index", "Procedure")">Процедуры и препараты</a></li>
         <li @Html.Raw(Request.Url.AbsolutePath.Contains("Children") ? @"class=""active""" : @"")><a href="@Url.Action("Index", "Children")">Наши дети</a></li>
         <li><a class="js-megamenu-open" data-menu="megamenu-useful" role="button">Полезное</a></li>

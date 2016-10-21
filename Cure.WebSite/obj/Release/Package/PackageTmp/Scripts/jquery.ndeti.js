@@ -1,5 +1,47 @@
 
 
+/* --- ГЛОБАЛЬНАЯ ФУНКЦИЯ: Карта на странице ---------------------------------*/
+var mapInitialize, google;
+function mapStart() {
+    mapInitialize = function (params) {
+        console.log("Карта стартовала");
+        var myMapPlace = document.getElementById("map-wrap"),
+          myLatlng = new google.maps.LatLng(+params.myLat, +params.myLng);
+
+        var myOptions = {
+            disableDefaultUI: true,
+            zoom: 15,
+            center: myLatlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(myMapPlace, myOptions);
+
+        var companyLogo = new google.maps.MarkerImage('Content/img/icon_map.png',
+          new google.maps.Size(28, 37),
+          new google.maps.Point(0, 0),
+          new google.maps.Point(14, 37)
+        );
+        var company = myLatlng;
+        var companyMarker = new google.maps.Marker({
+            position: company,
+            map: map,
+            icon: companyLogo,
+            title: "Санкт-Петербург, проспект Энгельса, д. 33, корп. 1, лит. А, офис 610"
+        });
+        var styles = [{ "stylers": [{ "saturation": -100 }] }, {}];
+        map.setOptions({ styles: styles });
+    };
+    var $mapWrap = $("#map-wrap");
+    if ($mapWrap.length > 0) {
+        mapInitialize({
+            myLat: $mapWrap.data("lat"),
+            myLng: $mapWrap.data("lng")
+        });
+    }
+}
+
+
+
 
 /*----------- ФУНКЦИИ ПОСЛЕ ГОТОВНОСТИ ---------------------------------------*/
 
@@ -254,10 +296,10 @@ $(document).ready(function () {
                 }
             },
             messages: {
-                name: "",
-                mail: "",
+                name: "Введите имя",
+                mail: "Введите корректный адрес",
                 numb: "",
-                text: "",
+                text: "Введите сообщение",
                 birthday: "Дата рождения обязательна",
                 childname: "Введите имя ребёнка"
             },
@@ -296,6 +338,29 @@ $(document).ready(function () {
                 regmail: "Введите электронную почту",
                 regpass: "Заполните поле<br> пароля",
                 passtwice: "Пароли<br> не совпадают"
+            },
+            errorClass: "has-error",
+            highlight: function (element, errorClass) {
+                $(element).parent().addClass(errorClass);
+            },
+            unhighlight: function (element, errorClass) {
+                $(element).parent().removeClass(errorClass);
+            },
+            submitHandler: function (form) {
+                //form.submit();
+            }
+        });
+    });
+
+    /* --- Валидация добавления в рассылку ---------------------------------------*/
+    $(".js-newsletter-validate").each(function () {
+        $(this).validate({
+            focusInvalid: false,
+            rules: {
+                email: { required: true, email: true }
+            },
+            messages: {
+                email: "Не верный адрес"
             },
             errorClass: "has-error",
             highlight: function (element, errorClass) {
@@ -411,7 +476,7 @@ $(document).ready(function () {
         $(this).validate({
             focusInvalid: false,
             rules: {
-                subject: { number: true, range: [-1,100] },
+                subject: { number: true, range: [-1, 100] },
                 text: { required: true, maxlength: 10000, minlength: 10 }
             },
             messages: {
@@ -820,7 +885,7 @@ $(document).ready(function () {
                         $("#error-tab4").addClass("form-errors");
                         $("#error-tab4").show().text("Ошибка при сохранении данных, проверьте данные и попробуйте снова.");
                     }
-                        $('#uploadprogress4').html("");
+                    $('#uploadprogress4').html("");
                 },
                 error: function (result) {
                     $('#uploadprogress4').html("");
@@ -1358,7 +1423,7 @@ $(document).ready(function () {
         });
         e.preventDefault();
     });
-    
+
     function setOrderStep(index) {
         var $tabsHead = $('.js-order-tabs'),
         $links = $tabsHead.find(".js-tabs-link"),
@@ -1394,7 +1459,7 @@ $(document).ready(function () {
 
     /*------------ Добавление нового отзыва ----------------------------*/
     $("#formMensionAdd").submit(function (e) {
-        $("#error-phonechange").hide();
+        $("#error-mensionadd").hide();
         var form = $('#formMensionAdd');
         if (form.valid()) {
             var serializedForm = form.serialize();
@@ -1426,9 +1491,9 @@ $(document).ready(function () {
     /*------------ Фильтрация отзывов ----------------------------*/
     $(document).on('change', "#mensionfilter", function () {
         var filter = $(this);
-        
+
         $("#skiprecords").val(0);
-        
+
         var form = $('#mensionform');
         var serializedForm = form.serialize();
         $.ajax({
@@ -1443,14 +1508,198 @@ $(document).ready(function () {
             }
         });
     });
-    
+
+    /*------------ Добавление обратной связи ----------------------------*/
+    $("#formFeedback").submit(function (e) {
+        $('#error-feedback').hide();
+        var form = $('#formFeedback');
+        if (form.valid()) {
+            var serializedForm = form.serialize();
+            $.ajax({
+                url: "/Feedback/AddFeedback",
+                type: "POST",
+                data: serializedForm,
+                beforeSend: function () {
+                    $('#feedbackprogress').html("<img src='/content/img/preloader.gif' />");
+                },
+                success: function (result) {
+                    $('#feedbackprogress').html("");
+                    if (result == "1") {
+                        $("#error-feedback").removeClass("form-errors");
+                        $("#error-feedback").show().text("Сообщение отправлено.");
+                        $('#name').val('');
+                        $('#mail').val('');
+                        $('#phone').val('');
+                        $('#text').val('');
+                    } else {
+                        $("#error-feedback").addClass("form-errors");
+                        $('#error-feedback').show().text("Ошибка сохранения сообщения.");
+                    }
+                },
+                error: function (result) {
+                    $('#feedbackprogress').html("");
+                    alert(result.responseText);
+                }
+            });
+        }
+        e.preventDefault();
+    });
+
+    /*------------ Добавление в список рассылки ----------------------------*/
+    $("#formNewsletter").submit(function (e) {
+        $('#error-newsletter').hide();
+        var form = $('#formNewsletter');
+        if (form.valid()) {
+            var serializedForm = form.serialize();
+            $.ajax({
+                url: "/Newsletter/AddNew",
+                type: "POST",
+                data: serializedForm,
+                beforeSend: function () {
+                    $('#newsletterprogress').html("<img src='/content/img/preloader.gif' />");
+                },
+                success: function (result) {
+                    $('#newsletterprogress').html("");
+                    if (result == "1") {
+                        $("#error-newsletter").removeClass("form-errors");
+                        $("#error-newsletter").show().text("Рассылка подключена.");
+                        $('#email').val('');
+                    } else {
+                        $("#error-newsletter").addClass("form-errors");
+                        $('#error-newsletter').show().text("Ошибка подключения.");
+                    }
+                },
+                error: function (result) {
+                    $('#newsletterprogress').html("");
+                    alert(result.responseText);
+                }
+            });
+        }
+        e.preventDefault();
+    });
+
+    /*------------ Добавление нового поста в летну впечатлений ----------------------------*/
+    $(document).on('click', ".post-add", function () {
+        $("#error-postadd").hide();
+
+        var answerForPost = $(this).data("postid");
+        var text = $(this).parent().children('#newtext');
+        var data = new FormData();
+        data.append("answerForPost", answerForPost);
+        data.append("text", text.val());
+
+        $.ajax({
+            url: "/Post/NewPost",
+            type: "POST",
+            data: data,
+            contentType: false,
+            processData: false,
+            beforeSend: function () {
+                $('#addpostprogress').html("<img src='/content/img/preloader.gif' />");
+            },
+            success: function (result) {
+                $("#error-postadd").hide();
+                $('#addpostprogress').html("");
+                $("#js-for-load-feelings").html(result);
+                text.val('');
+            },
+            error: function (result) {
+                $('#addpostprogress').html("");
+                alert(result.responseText);
+            }
+        });
+    });
+
+    /*------------ Удаление поста из ленты впечатлений ----------------------------*/
+    $(document).on('click', ".post-btn-delete", function () {
+        var post = $(this).data("postid");
+        var data = new FormData();
+        data.append("post", post);
+        $.ajax({
+            url: "/Post/DeletePost",
+            type: "POST",
+            data: data,
+            contentType: false,
+            processData: false,
+            beforeSend: function () {
+                $('#postprogress-' + post).html("<img src='/content/img/preloader.gif' />");
+            },
+            success: function (result) {
+                $('#postprogress-' + post).html("");
+                $("#js-for-load-feelings").html(result);
+            },
+            error: function (result) {
+                $('#postprogress-' + post).html("");
+                alert(result.responseText);
+            }
+        });
+    });
+
+    /*------------ Включение режима редактирования поста в ленте впечатлений ----------------------------*/
+    $(document).on('click', ".post-btn-edit", function () {
+        var post = $(this).data("postid");
+        var editdiv = $('#editblock-' + post);
+        var textpost = $('#textpost-' + post);
+        var memotext = $('#editmemo-' + post);
+        memotext.val(textpost.html());
+        textpost.slideUp();
+        editdiv.slideDown();
+    });
+
+    /*------------ Отмена режима редактирования поста в ленте впечатлений ----------------------------*/
+    $(document).on('click', ".post-cancel", function () {
+        var post = $(this).data("postid");
+        var editdiv = $('#editblock-' + post);
+        var textpost = $('#textpost-' + post);
+        textpost.slideDown();
+        editdiv.slideUp();
+    });
+
+    /*------------ Вставка имени пользователя при Ответить ----------------------------*/
+    $(document).on('click', ".comments-reply", function () {
+        var username = $(this).data("username");
+        $(this).parents('.post-comments-body').find('#newtext').val(username + ', ').focus();
+    });
+
+    /*------------ Сохранение отредактированного поста из ленты впечатлений ----------------------------*/
+    $(document).on('click', ".post-edit", function () {
+        var post = $(this).data("postid");
+        var memotext = $('#editmemo-' + post);
+
+        var data = new FormData();
+        data.append("text", memotext.val());
+        data.append("postid", post);
+        $.ajax({
+            url: "/Post/UpdatePost",
+            type: "POST",
+            data: data,
+            contentType: false,
+            processData: false,
+            beforeSend: function () {
+                $('#postprogress-' + post).html("<img src='/content/img/preloader.gif' />");
+            },
+            success: function (result) {
+                $('#postprogress-' + post).html("");
+                $("#js-for-load-feelings").html(result);
+            },
+            error: function (result) {
+                $('#postprogress-' + post).html("");
+                alert(result.responseText);
+            }
+        });
+    });
+
     /*----------- Галлерея картинок  -----------------------------------------*/
     $('#big-slider-img').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
         arrows: true,
         fade: true,
-        asNavFor: '#big-slider-nav'
+        asNavFor: '#big-slider-nav',
+        infinite: true,
+        speed: 500,
+        autoplay: true,
+        autoplaySpeed: 5000
     });
     $('#big-slider-nav').slick({
         slidesToShow: 5,
@@ -1460,7 +1709,10 @@ $(document).ready(function () {
         arrows: false,
         centerMode: true,
         focusOnSelect: true,
-        variableWidth: true
+        variableWidth: true,
+        speed: 500,
+        autoplay: true,
+        autoplaySpeed: 5000
     });
 
     /*----------- Слайдер картинок  ----------------------------------------------*/
@@ -1552,9 +1804,10 @@ $(document).ready(function () {
     });
 
     /*--- Кабинет: показ/скрытие комментариев ------------------------*/
-    $(".js-comments-open").click(function () {
+    $(document).on('click', ".js-comments-open", function () {
         var $btn = $(this),
             $commentsItem = $btn.closest(".post-comments");
+        $('#text').val('');
 
         $commentsItem.addClass("is-open");
     });
@@ -1687,12 +1940,14 @@ $(document).ready(function () {
         $(this).addClass("active").siblings(".forms-radio").removeClass("active");
     });
 
+
     /*--- Всплывающее мегаменю -----------------------------------------------*/
     // Открыть
     $(".js-megamenu-open").click(function (e) {
         var $btn = $(this);
         menuId = "#" + $btn.data("menu");
         e.stopPropagation();
+        $(".megamenu").removeClass("active");
         $(menuId).addClass("active").children(".megamenu-back").height($(document).height());
     });
     // Закрыть
@@ -1701,6 +1956,81 @@ $(document).ready(function () {
         $(".megamenu").removeClass("active");
     });
 
+
+    /* --- СКРОЛЛ: Движение меню на страницах больниц ------------------------*/
+    $("#js-moved-menu").scroolly([
+        {
+            to: "con-bottom - 100el = vp-top",
+            css: {
+                position: "absolute",
+                bottom: "0",
+                top: "auto"
+            },
+            removeClass: 'is-sticked'
+        },
+        {
+            from: "con-bottom - 100el = vp-top",
+            css: {
+                position: "fixed",
+                bottom: "auto",
+                top: "0"
+            },
+            addClass: 'is-sticked'
+        }
+    ], $("#js-moved-menu-wrapper"));
+
+
+    /* --- Галлерея в всплывающем окне ---------------------------------------*/
+    $(".js-popup-gallery").swipebox();
+
+
+    /*---  Плавная прокрутка -------------------------------------------------*/
+    $(".js-scroll-to").click(function (e) {
+        var $link = $(this),
+          $target = $($link.attr('href') || $link.data('target')),
+          targetTop;
+
+        if ($target.length) {
+            e.preventDefault(); //отменим перход
+            targetTop = $target.offset().top - 70; //сколько прокрутить
+            $("html, body").animate({ scrollTop: targetTop }, 1000); //крутим враппер
+        };
+        return false; // и ничего не вернем
+    });
+
+    /* --- СКРОЛЛ: Подсветка пунктов в меню на страницах больниц -------------*/
+    $('.js-for-menu').scroolly([
+        {
+            direction: 1,
+            from: 'el-top - 75px = vp-top',
+            //to: 'el-bottom - 75px = vp-top',
+            onCheckIn: function ($el) {
+                //console.log( $el.attr('id') );
+                $('.hosp-page-nav a[data-target]').removeClass('active');
+                $('.hosp-page-nav a[data-target="#' + $el.attr('id') + '"]').addClass('active');
+            },
+            onCheckOut: function ($el) {
+                console.log($el.attr('id'));
+                $('.hosp-page-nav a[data-target]').removeClass('active');
+                $('.hosp-page-nav a[data-target="#' + $el.attr('id') + '"]').addClass('active');
+            }
+        },
+        {
+            direction: -1,
+            from: 'el-top - 65px = vp-top',
+            //to: 'el-bottom - 65px = vp-top',
+            onCheckIn: function ($el) {
+                //console.log( $el.attr('id') );
+                $('.hosp-page-nav a[data-target]').removeClass('active');
+                $('.hosp-page-nav a[data-target="#' + $el.attr('id') + '"]').addClass('active');
+            },
+            onCheckOut: function ($el) {
+                console.log($el.attr('id'));
+                $('.hosp-page-nav a[data-target]').removeClass('active');
+                $('.hosp-page-nav a[data-target="#' + $el.attr('id') + '"]').addClass('active');
+            }
+        }
+    ], $('.hosp-page'));
 });
 
 
@@ -1715,6 +2045,16 @@ $(window).load(function () {
 
 
 });
+
+/*--- Подключим maps api ----*/
+if ($("#map-wrap").length > 0) {
+    $.getScript(
+        "http://maps.google.com/maps/api/js?sensor=false&callback=mapStart",
+        function () {
+            console.log("Кaрта загружена");
+        }
+    );
+}
 
 function DeletePicture(id, fileName) {
     $("#pictodelete").val(fileName);

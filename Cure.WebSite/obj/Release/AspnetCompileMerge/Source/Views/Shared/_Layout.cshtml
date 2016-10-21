@@ -43,7 +43,7 @@
     <div class="preloader">
         <img src="~/content/img/preloader.gif" alt="Preloader">
     </div>
-    
+
     <div class="wrapper account">
         <header class="header">
             <div class="header-topline">
@@ -90,20 +90,40 @@
         @RenderBody()
 
     </div><!-- END main-wrapper -->
-
     @Html.Partial("_Footer")
 
-    @Html.Partial("_Account")   
-    
+    @Html.Partial("_Account")
+
     @if (Request.Url.AbsolutePath.ToLower().Contains("mypage"))
     {
         @Html.Partial("_CabinetChildEdit")
     }
-    
+
     @if (Request.Url.AbsolutePath.ToLower().Contains("mension"))
     {
-        @Html.Partial("_MensionAddPopup");
+        @Html.Partial("_MensionAddPopup")    ;
     }
+
+    @if (Request.Url.AbsolutePath.ToLower().Contains("department") && Request.Url.AbsolutePath.ToLower().Contains("sevastopol"))
+    {
+        @Html.Partial("_SevastopolPops")    ;
+    }
+
+    @if (Request.Url.AbsolutePath.ToLower().Contains("department") && Request.Url.AbsolutePath.ToLower().Contains("almaata"))
+    {
+        @Html.Partial("_AlmaataPops")    ;
+    }
+
+    @if (Request.Url.AbsolutePath.ToLower().Contains("department") && Request.Url.AbsolutePath.ToLower().Contains("yancheng1"))
+    {
+        @Html.Partial("_Yancheng1Pops")    ;
+    }
+
+    @if (Request.Url.AbsolutePath.ToLower().Contains("department") && Request.Url.AbsolutePath.ToLower().Contains("yancheng2"))
+    {
+        @Html.Partial("_Yancheng2Pops");
+    }
+
 
     <!-- jquery cdn        -->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
@@ -130,8 +150,11 @@
     <!-- zoom images       -->
     <script src="~/Scripts/plugins/transition.js"></script>
     <script src="~/Scripts/plugins/zoom.min.js"></script>
+    <!-- scroll effects    -->
+    <script src="~/Scripts/plugins/jquery.scroolly.min.js"></script>
+    <!-- pop-up plugin  -  -->
+    <script src="~/Scripts/plugins/jquery.swipebox.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/plugins/gismeteo.js"></script>
 
 </body>
 </html>
-
-
