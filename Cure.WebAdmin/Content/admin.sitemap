@@ -21,6 +21,8 @@
       <siteMapNode url="~/Admin/RefStopVisitTypeList.aspx" title="Типы блокировок" description="Типы блокировок заездов отделений" />
     </siteMapNode>
     <siteMapNode url="" title="Система">
+      <siteMapNode url="~/Admin/CurrencyList.aspx" title="Валюты" description="Список валют с которыми работает система" />
+      <siteMapNode url="~/Admin/CurrencyRateList.aspx" title="Курсы валют" description="Курсы валют системы" />
       <siteMapNode url="~/Admin/StopVisitList.aspx" title="Блокировки заездов" description="Блокировки заездов отделений" />
       <siteMapNode url="~/Admin/SettingList.aspx" title="Настройки системы" description="Редактирование использующихся в программе стран" />
       <siteMapNode url="~/Admin/NotificationLogList.aspx" title="Лог оповещения" description="Редактирование использующихся в программе стран" />

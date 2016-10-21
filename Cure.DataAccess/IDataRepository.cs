@@ -8,6 +8,17 @@ namespace Cure.DataAccess.DAL
 {
     internal interface IDataRepository : IDisposable
     {
+        IEnumerable<CurrencyRate> GetCurrencyRates();
+        CurrencyRate GetCurrencyRate(string curFrom, string curTo, DateTime date);
+        void InsertCurrencyRate(CurrencyRate currencyRate);
+        void DeleteCurrencyRate(CurrencyRate currencyRate);
+        void UpdateCurrencyRate(CurrencyRate currencyRate);
+
+        IEnumerable<Currency> GetCurrencies();
+        void InsertCurrency(Currency currency);
+        void DeleteCurrency(Currency currency);
+        void UpdateCurrency(Currency currency);
+
         ViewUserMembership GetUserMembership(string username);
         IEnumerable<ViewUserMembership> ViewUserMembership();
         void UpdateUserMembership(ViewUserMembership userMembership);

@@ -524,7 +524,6 @@
     <Content Include="Views\Procedure\Universal.cshtml" />
     <Content Include="Views\Procedure\Itp.cshtml" />
     <Content Include="Views\Shared\_PostItems.cshtml" />
-    <Content Include="Views\Shared\_PostAdd - Copy.cshtml" />
     <Content Include="Views\Home\_WeatherHome.cshtml" />
     <Content Include="Views\Department\Sevastopol.cshtml" />
     <Content Include="Views\Department\Yancheng1.cshtml" />
@@ -534,6 +533,7 @@
     <Content Include="Views\Department\_AlmaataPops.cshtml" />
     <Content Include="Views\Department\_Yancheng1Pops.cshtml" />
     <Content Include="Views\Department\_Yancheng2Pops.cshtml" />
+    <Content Include="Views\Shared\_CurrencyRate.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

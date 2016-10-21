@@ -206,6 +206,8 @@
     <Content Include="Admin\Controls\CurrentVisitsList.ascx" />
     <Content Include="Admin\Controls\JustClosedVisitsList.ascx" />
     <Content Include="Admin\Controls\SoonVisitsList.ascx" />
+    <Content Include="Admin\CurrencyList.aspx" />
+    <Content Include="Admin\CurrencyRateList.aspx" />
     <Content Include="Admin\PostList.aspx" />
     <Content Include="Admin\NotificationLogList.aspx" />
     <Content Include="Admin\ChildList.aspx" />
@@ -511,6 +513,20 @@
     </Compile>
     <Compile Include="Admin\Controls\SoonVisitsList.ascx.designer.cs">
       <DependentUpon>SoonVisitsList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\CurrencyList.aspx.cs">
+      <DependentUpon>CurrencyList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\CurrencyList.aspx.designer.cs">
+      <DependentUpon>CurrencyList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\CurrencyRateList.aspx.cs">
+      <DependentUpon>CurrencyRateList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\CurrencyRateList.aspx.designer.cs">
+      <DependentUpon>CurrencyRateList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\PostList.aspx.cs">
       <DependentUpon>PostList.aspx</DependentUpon>

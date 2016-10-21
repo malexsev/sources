@@ -108,12 +108,20 @@
         </EntityType>
         <EntityType Name="Currency">
           <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="CurrencyRate">
+          <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CurrencyFrom" Type="nvarchar" MaxLength="3" Nullable="false" />
           <Property Name="CurrencyTo" Type="nvarchar" MaxLength="3" Nullable="false" />
           <Property Name="Rate" Type="money" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
           <Property Name="GetDate" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="Department">
@@ -1025,6 +1033,30 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_CurrencyRate_CurrencyFrom">
+          <End Role="Currency" Type="Self.Currency" Multiplicity="1" />
+          <End Role="CurrencyRate" Type="Self.CurrencyRate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Currency">
+              <PropertyRef Name="Name" />
+            </Principal>
+            <Dependent Role="CurrencyRate">
+              <PropertyRef Name="CurrencyFrom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CurrencyRate_CurrencyTo">
+          <End Role="Currency" Type="Self.Currency" Multiplicity="1" />
+          <End Role="CurrencyRate" Type="Self.CurrencyRate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Currency">
+              <PropertyRef Name="Name" />
+            </Principal>
+            <Dependent Role="CurrencyRate">
+              <PropertyRef Name="CurrencyTo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Department_Department">
           <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
           <End Role="Department1" Type="Self.Department" Multiplicity="*" />
@@ -1280,6 +1312,7 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
           <EntitySet Name="ChildAvaFile" EntityType="Self.ChildAvaFile" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ChildHideFile" EntityType="Self.ChildHideFile" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Currency" EntityType="Self.Currency" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CurrencyRate" EntityType="Self.CurrencyRate" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DepartmentStop" EntityType="Self.DepartmentStop" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Mension" EntityType="Self.Mension" Schema="dbo" store:Type="Tables" />
@@ -1646,6 +1679,14 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
             <End Role="Child" EntitySet="Child" />
             <End Role="ChildHideFile" EntitySet="ChildHideFile" />
           </AssociationSet>
+          <AssociationSet Name="FK_CurrencyRate_CurrencyFrom" Association="Self.FK_CurrencyRate_CurrencyFrom">
+            <End Role="Currency" EntitySet="Currency" />
+            <End Role="CurrencyRate" EntitySet="CurrencyRate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CurrencyRate_CurrencyTo" Association="Self.FK_CurrencyRate_CurrencyTo">
+            <End Role="Currency" EntitySet="Currency" />
+            <End Role="CurrencyRate" EntitySet="CurrencyRate" />
+          </AssociationSet>
           <AssociationSet Name="FK_Department_Department" Association="Self.FK_Department_Department">
             <End Role="Department" EntitySet="Department" />
             <End Role="Department1" EntitySet="Department" />
@@ -1894,6 +1935,15 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
           <EntitySet Name="ViewMensions" EntityType="DataModel.ViewMension" />
           <EntitySet Name="Newsletters" EntityType="DataModel.Newsletter" />
           <EntitySet Name="Currencies" EntityType="DataModel.Currency" />
+          <EntitySet Name="CurrencyRates" EntityType="DataModel.CurrencyRate" />
+          <AssociationSet Name="FK_CurrencyRate_CurrencyFrom" Association="DataModel.FK_CurrencyRate_CurrencyFrom">
+            <End Role="Currency" EntitySet="Currencies" />
+            <End Role="CurrencyRate" EntitySet="CurrencyRates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CurrencyRate_CurrencyTo" Association="DataModel.FK_CurrencyRate_CurrencyTo">
+            <End Role="Currency" EntitySet="Currencies" />
+            <End Role="CurrencyRate" EntitySet="CurrencyRates" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="OrderStatu">
           <Key>
@@ -3172,14 +3222,50 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
         </EntityType>
         <EntityType Name="Currency">
           <Key>
+            <PropertyRef Name="Name" />
+          </Key>
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CurrencyRates" Relationship="DataModel.FK_CurrencyRate_CurrencyFrom" FromRole="Currency" ToRole="CurrencyRate" />
+          <NavigationProperty Name="CurrencyRates1" Relationship="DataModel.FK_CurrencyRate_CurrencyTo" FromRole="Currency" ToRole="CurrencyRate" />
+        </EntityType>
+        <EntityType Name="CurrencyRate">
+          <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CurrencyFrom" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
           <Property Name="CurrencyTo" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
           <Property Name="Rate" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="GetDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Currency" Relationship="DataModel.FK_CurrencyRate_CurrencyFrom" FromRole="CurrencyRate" ToRole="Currency" />
+          <NavigationProperty Name="Currency1" Relationship="DataModel.FK_CurrencyRate_CurrencyTo" FromRole="CurrencyRate" ToRole="Currency" />
         </EntityType>
+        <Association Name="FK_CurrencyRate_CurrencyFrom">
+          <End Type="DataModel.Currency" Role="Currency" Multiplicity="1" />
+          <End Type="DataModel.CurrencyRate" Role="CurrencyRate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Currency">
+              <PropertyRef Name="Name" />
+            </Principal>
+            <Dependent Role="CurrencyRate">
+              <PropertyRef Name="CurrencyFrom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CurrencyRate_CurrencyTo">
+          <End Type="DataModel.Currency" Role="Currency" Multiplicity="1" />
+          <End Type="DataModel.CurrencyRate" Role="CurrencyRate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Currency">
+              <PropertyRef Name="Name" />
+            </Principal>
+            <Dependent Role="CurrencyRate">
+              <PropertyRef Name="CurrencyTo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -4009,7 +4095,16 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
           <EntitySetMapping Name="Currencies">
             <EntityTypeMapping TypeName="DataModel.Currency">
               <MappingFragment StoreEntitySet="Currency">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CurrencyRates">
+            <EntityTypeMapping TypeName="DataModel.CurrencyRate">
+              <MappingFragment StoreEntitySet="CurrencyRate">
                 <ScalarProperty Name="GetDate" ColumnName="GetDate" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Rate" ColumnName="Rate" />
                 <ScalarProperty Name="CurrencyTo" ColumnName="CurrencyTo" />
                 <ScalarProperty Name="CurrencyFrom" ColumnName="CurrencyFrom" />

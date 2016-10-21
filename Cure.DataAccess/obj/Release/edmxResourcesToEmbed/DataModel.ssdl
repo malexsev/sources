@@ -101,6 +101,24 @@
     <Property Name="FileName" Type="nvarchar" MaxLength="250" Nullable="false" />
     <Property Name="HideDate" Type="datetime" Nullable="false" />
   </EntityType>
+  <EntityType Name="Currency">
+    <Key>
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Name" Type="nvarchar" MaxLength="3" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="CurrencyRate">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CurrencyFrom" Type="nvarchar" MaxLength="3" Nullable="false" />
+    <Property Name="CurrencyTo" Type="nvarchar" MaxLength="3" Nullable="false" />
+    <Property Name="Rate" Type="money" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="GetDate" Type="datetime" Nullable="false" />
+  </EntityType>
   <EntityType Name="Department">
     <Key>
       <PropertyRef Name="Id" />
@@ -971,6 +989,30 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_CurrencyRate_CurrencyFrom">
+    <End Role="Currency" Type="Self.Currency" Multiplicity="1" />
+    <End Role="CurrencyRate" Type="Self.CurrencyRate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Currency">
+        <PropertyRef Name="Name" />
+      </Principal>
+      <Dependent Role="CurrencyRate">
+        <PropertyRef Name="CurrencyFrom" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CurrencyRate_CurrencyTo">
+    <End Role="Currency" Type="Self.Currency" Multiplicity="1" />
+    <End Role="CurrencyRate" Type="Self.CurrencyRate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Currency">
+        <PropertyRef Name="Name" />
+      </Principal>
+      <Dependent Role="CurrencyRate">
+        <PropertyRef Name="CurrencyTo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Department_Department">
     <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
     <End Role="Department1" Type="Self.Department" Multiplicity="*" />
@@ -1225,6 +1267,8 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
     <EntitySet Name="Child" EntityType="Self.Child" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ChildAvaFile" EntityType="Self.ChildAvaFile" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ChildHideFile" EntityType="Self.ChildHideFile" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Currency" EntityType="Self.Currency" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CurrencyRate" EntityType="Self.CurrencyRate" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DepartmentStop" EntityType="Self.DepartmentStop" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Mension" EntityType="Self.Mension" Schema="dbo" store:Type="Tables" />
@@ -1590,6 +1634,14 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
     <AssociationSet Name="FK_ChildHideFile_Child" Association="Self.FK_ChildHideFile_Child">
       <End Role="Child" EntitySet="Child" />
       <End Role="ChildHideFile" EntitySet="ChildHideFile" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CurrencyRate_CurrencyFrom" Association="Self.FK_CurrencyRate_CurrencyFrom">
+      <End Role="Currency" EntitySet="Currency" />
+      <End Role="CurrencyRate" EntitySet="CurrencyRate" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CurrencyRate_CurrencyTo" Association="Self.FK_CurrencyRate_CurrencyTo">
+      <End Role="Currency" EntitySet="Currency" />
+      <End Role="CurrencyRate" EntitySet="CurrencyRate" />
     </AssociationSet>
     <AssociationSet Name="FK_Department_Department" Association="Self.FK_Department_Department">
       <End Role="Department" EntitySet="Department" />

@@ -2,6 +2,8 @@
 
 namespace Cure.WebSite.Controllers
 {
+    using System;
+    using System.Linq;
     using DataAccess.BLL;
 
     public class HomeController : Controller
@@ -23,6 +25,7 @@ namespace Cure.WebSite.Controllers
 
         public ActionResult Price()
         {
+            ViewBag.CurrencyRateCNY = GetRate("CNY");
             return View();
         }
 
@@ -34,6 +37,20 @@ namespace Cure.WebSite.Controllers
         public ActionResult Medicine()
         {
             return View();
+        }
+
+        private decimal GetRate(string currency)
+        {
+            var dal = new DataAccessBL();
+            var rate = dal.GetCurrencyRates().FirstOrDefault(x => x.CurrencyFrom == currency);
+            if (rate != null)
+            {
+                return Math.Round(rate.Rate, 2);
+            }
+            else
+            {
+                return 0;
+            }
         }
     }
 }

@@ -72,6 +72,9 @@
         <EntityTypeShape EntityType="DataModel.ViewMension" Width="1.5" PointX="35.75" PointY="2" />
         <EntityTypeShape EntityType="DataModel.Newsletter" Width="1.5" PointX="18.25" PointY="6" />
         <EntityTypeShape EntityType="DataModel.Currency" Width="1.5" PointX="18.25" PointY="11.75" />
+        <EntityTypeShape EntityType="DataModel.CurrencyRate" Width="1.5" PointX="20.5" PointY="11.5" />
+        <AssociationConnector Association="DataModel.FK_CurrencyRate_CurrencyFrom" />
+        <AssociationConnector Association="DataModel.FK_CurrencyRate_CurrencyTo" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

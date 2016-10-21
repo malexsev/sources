@@ -34,8 +34,8 @@
         {
             try
             {
-                var timeFrom = DateTime.Now.AddHours(3);
-                var timeTo = DateTime.Now.AddHours(4);
+                var timeFrom = DateTime.Now.AddHours(6);
+                var timeTo = DateTime.Now.AddHours(7);
                 var dal = new DataAccessBL();
                 this.server = server;
                 this.visits = dal.GetVisitsForTimespan(timeFrom, timeTo);

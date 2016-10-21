@@ -166,6 +166,16 @@
     </AssociationSet>
     <EntitySet Name="ViewMensions" EntityType="DataModel.ViewMension" />
     <EntitySet Name="Newsletters" EntityType="DataModel.Newsletter" />
+    <EntitySet Name="Currencies" EntityType="DataModel.Currency" />
+    <EntitySet Name="CurrencyRates" EntityType="DataModel.CurrencyRate" />
+    <AssociationSet Name="FK_CurrencyRate_CurrencyFrom" Association="DataModel.FK_CurrencyRate_CurrencyFrom">
+      <End Role="Currency" EntitySet="Currencies" />
+      <End Role="CurrencyRate" EntitySet="CurrencyRates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CurrencyRate_CurrencyTo" Association="DataModel.FK_CurrencyRate_CurrencyTo">
+      <End Role="Currency" EntitySet="Currencies" />
+      <End Role="CurrencyRate" EntitySet="CurrencyRates" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="OrderStatu">
     <Key>
@@ -1442,4 +1452,50 @@
     <Property Name="SuccessCount" Type="Int32" />
     <Property Name="ErrorsCount" Type="Int32" />
   </EntityType>
+  <EntityType Name="Currency">
+    <Key>
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CurrencyRates" Relationship="DataModel.FK_CurrencyRate_CurrencyFrom" FromRole="Currency" ToRole="CurrencyRate" />
+    <NavigationProperty Name="CurrencyRates1" Relationship="DataModel.FK_CurrencyRate_CurrencyTo" FromRole="Currency" ToRole="CurrencyRate" />
+  </EntityType>
+  <EntityType Name="CurrencyRate">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CurrencyFrom" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="CurrencyTo" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="Rate" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="GetDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Currency" Relationship="DataModel.FK_CurrencyRate_CurrencyFrom" FromRole="CurrencyRate" ToRole="Currency" />
+    <NavigationProperty Name="Currency1" Relationship="DataModel.FK_CurrencyRate_CurrencyTo" FromRole="CurrencyRate" ToRole="Currency" />
+  </EntityType>
+  <Association Name="FK_CurrencyRate_CurrencyFrom">
+    <End Type="DataModel.Currency" Role="Currency" Multiplicity="1" />
+    <End Type="DataModel.CurrencyRate" Role="CurrencyRate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Currency">
+        <PropertyRef Name="Name" />
+      </Principal>
+      <Dependent Role="CurrencyRate">
+        <PropertyRef Name="CurrencyFrom" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CurrencyRate_CurrencyTo">
+    <End Type="DataModel.Currency" Role="Currency" Multiplicity="1" />
+    <End Type="DataModel.CurrencyRate" Role="CurrencyRate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Currency">
+        <PropertyRef Name="Name" />
+      </Principal>
+      <Dependent Role="CurrencyRate">
+        <PropertyRef Name="CurrencyTo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

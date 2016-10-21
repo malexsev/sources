@@ -52,6 +52,8 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("DataModel", "FK_ChildHideFile_Child", "Child", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.Child), "ChildHideFile", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.ChildHideFile), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK_Post_Child", "Child", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.Child), "Post", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Post), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK_Post_Post", "Post", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Cure.DataAccess.Post), "Post1", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Post), true)]
+[assembly: EdmRelationshipAttribute("DataModel", "FK_CurrencyRate_CurrencyFrom", "Currency", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.Currency), "CurrencyRate", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.CurrencyRate), true)]
+[assembly: EdmRelationshipAttribute("DataModel", "FK_CurrencyRate_CurrencyTo", "Currency", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.Currency), "CurrencyRate", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.CurrencyRate), true)]
 
 #endregion
 
@@ -646,6 +648,22 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<Currency> _Currencies;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<CurrencyRate> CurrencyRates
+        {
+            get
+            {
+                if ((_CurrencyRates == null))
+                {
+                    _CurrencyRates = base.CreateObjectSet<CurrencyRate>("CurrencyRates");
+                }
+                return _CurrencyRates;
+            }
+        }
+        private ObjectSet<CurrencyRate> _CurrencyRates;
 
         #endregion
 
@@ -921,6 +939,14 @@ namespace Cure.DataAccess
         public void AddToCurrencies(Currency currency)
         {
             base.AddObject("Currencies", currency);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the CurrencyRates EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToCurrencyRates(CurrencyRate currencyRate)
+        {
+            base.AddObject("CurrencyRates", currencyRate);
         }
 
         #endregion
@@ -3730,20 +3756,150 @@ namespace Cure.DataAccess
         /// <summary>
         /// Create a new Currency object.
         /// </summary>
+        /// <param name="name">Initial value of the Name property.</param>
+        public static Currency CreateCurrency(global::System.String name)
+        {
+            Currency currency = new Currency();
+            currency.Name = name;
+            return currency;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                if (_Name != value)
+                {
+                    OnNameChanging(value);
+                    ReportPropertyChanging("Name");
+                    _Name = StructuralObject.SetValidValue(value, false, "Name");
+                    ReportPropertyChanged("Name");
+                    OnNameChanged();
+                }
+            }
+        }
+        private global::System.String _Name;
+        partial void OnNameChanging(global::System.String value);
+        partial void OnNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Description
+        {
+            get
+            {
+                return _Description;
+            }
+            set
+            {
+                OnDescriptionChanging(value);
+                ReportPropertyChanging("Description");
+                _Description = StructuralObject.SetValidValue(value, true, "Description");
+                ReportPropertyChanged("Description");
+                OnDescriptionChanged();
+            }
+        }
+        private global::System.String _Description;
+        partial void OnDescriptionChanging(global::System.String value);
+        partial void OnDescriptionChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_CurrencyRate_CurrencyFrom", "CurrencyRate")]
+        public EntityCollection<CurrencyRate> CurrencyRates
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<CurrencyRate>("DataModel.FK_CurrencyRate_CurrencyFrom", "CurrencyRate");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CurrencyRate>("DataModel.FK_CurrencyRate_CurrencyFrom", "CurrencyRate", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_CurrencyRate_CurrencyTo", "CurrencyRate")]
+        public EntityCollection<CurrencyRate> CurrencyRates1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<CurrencyRate>("DataModel.FK_CurrencyRate_CurrencyTo", "CurrencyRate");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CurrencyRate>("DataModel.FK_CurrencyRate_CurrencyTo", "CurrencyRate", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="CurrencyRate")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class CurrencyRate : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new CurrencyRate object.
+        /// </summary>
         /// <param name="id">Initial value of the Id property.</param>
         /// <param name="currencyFrom">Initial value of the CurrencyFrom property.</param>
         /// <param name="currencyTo">Initial value of the CurrencyTo property.</param>
         /// <param name="rate">Initial value of the Rate property.</param>
+        /// <param name="date">Initial value of the Date property.</param>
         /// <param name="getDate">Initial value of the GetDate property.</param>
-        public static Currency CreateCurrency(global::System.Int32 id, global::System.String currencyFrom, global::System.String currencyTo, global::System.Decimal rate, global::System.DateTime getDate)
+        public static CurrencyRate CreateCurrencyRate(global::System.Int32 id, global::System.String currencyFrom, global::System.String currencyTo, global::System.Decimal rate, global::System.DateTime date, global::System.DateTime getDate)
         {
-            Currency currency = new Currency();
-            currency.Id = id;
-            currency.CurrencyFrom = currencyFrom;
-            currency.CurrencyTo = currencyTo;
-            currency.Rate = rate;
-            currency.GetDate = getDate;
-            return currency;
+            CurrencyRate currencyRate = new CurrencyRate();
+            currencyRate.Id = id;
+            currencyRate.CurrencyFrom = currencyFrom;
+            currencyRate.CurrencyTo = currencyTo;
+            currencyRate.Rate = rate;
+            currencyRate.Date = date;
+            currencyRate.GetDate = getDate;
+            return currencyRate;
         }
 
         #endregion
@@ -3854,6 +4010,30 @@ namespace Cure.DataAccess
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
+        public global::System.DateTime Date
+        {
+            get
+            {
+                return _Date;
+            }
+            set
+            {
+                OnDateChanging(value);
+                ReportPropertyChanging("Date");
+                _Date = StructuralObject.SetValidValue(value, "Date");
+                ReportPropertyChanged("Date");
+                OnDateChanged();
+            }
+        }
+        private global::System.DateTime _Date;
+        partial void OnDateChanging(global::System.DateTime value);
+        partial void OnDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
         public global::System.DateTime GetDate
         {
             get
@@ -3872,6 +4052,86 @@ namespace Cure.DataAccess
         private global::System.DateTime _GetDate;
         partial void OnGetDateChanging(global::System.DateTime value);
         partial void OnGetDateChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_CurrencyRate_CurrencyFrom", "Currency")]
+        public Currency Currency
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Currency>("DataModel.FK_CurrencyRate_CurrencyFrom", "Currency").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Currency>("DataModel.FK_CurrencyRate_CurrencyFrom", "Currency").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Currency> CurrencyReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Currency>("DataModel.FK_CurrencyRate_CurrencyFrom", "Currency");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Currency>("DataModel.FK_CurrencyRate_CurrencyFrom", "Currency", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_CurrencyRate_CurrencyTo", "Currency")]
+        public Currency Currency1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Currency>("DataModel.FK_CurrencyRate_CurrencyTo", "Currency").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Currency>("DataModel.FK_CurrencyRate_CurrencyTo", "Currency").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Currency> Currency1Reference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Currency>("DataModel.FK_CurrencyRate_CurrencyTo", "Currency");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Currency>("DataModel.FK_CurrencyRate_CurrencyTo", "Currency", value);
+                }
+            }
+        }
 
         #endregion
 

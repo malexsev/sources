@@ -5334,6 +5334,19 @@ html.swipebox-html.swipebox-touch {
 .popup-close:hover {
   background-color: #f3f1e9;
 }
+.page-close {
+  display: block;
+  position: absolute;
+  top: 125px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  background: no-repeat center url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAMAAAAMs7fIAAAAGFBMVEU0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDSP0BrvAAAAB3RSTlMANjdsbar9Ml2gdAAAAEVJREFUeNplkAsKACAIQ2dm3f/GFQ0mTETHQ/wBgW5xfWUDucYL2cAEhKgolIUYOyIQqg9ktYvKa7yPz/J9fGe/y2/3/xzS2wFgiZqy7gAAAABJRU5ErkJggg==);
+  border-radius: 3px;
+}
+.page-close:hover {
+  background-color: #f3f1e9;
+}
 .popup-head {
   margin: 0 0 30px 0;
 }

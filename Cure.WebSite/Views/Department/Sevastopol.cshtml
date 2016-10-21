@@ -498,21 +498,12 @@
                 <div class="col-md-3">
                     <ul class="price-list is-wide">
                         <li>
-                            <a class="price-list-link has-icon icon-pdf" href="#" title="Скачать документ">
+                            <a class="price-list-link has-icon icon-pdf" href="~/Content/pdf/price-3.pdf" title="Скачать документ">
                                 Цены на процедуры и сопутствующие услуги
                             </a>
                         </li>
                     </ul>
-                    <div class="price-exchnge">
-                        <h3 class="price-exchnge-title">Курс валют</h3>
-                        <div class="head-money">
-                            <span class="txt-data">1</span>
-                            <span class="txt-note">юань</span>
-                            <span class="txt-data">=</span>
-                            <span class="txt-data">10,4</span>
-                            <span class="txt-note">руб</span>
-                        </div>
-                    </div>
+                    @Html.Partial("_CurrencyRate")
                 </div>
             </div>
         </div>
