@@ -11,7 +11,7 @@
                 </dx:GridViewCommandColumn>
                 <dx:GridViewDataTextColumn FieldName="PhoneNumber" Width="150px" Caption="Телефонный номер" VisibleIndex="3">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataDateColumn Caption="Время" FieldName="Date" VisibleIndex="2" Width="120px">
+                <dx:GridViewDataDateColumn Caption="Время" FieldName="Date" VisibleIndex="2" Width="150px">
                     <PropertiesDateEdit DisplayFormatString="" EditFormat="DateTime">
                     </PropertiesDateEdit>
                 </dx:GridViewDataDateColumn>
