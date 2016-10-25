@@ -8,6 +8,12 @@ namespace Cure.DataAccess.DAL
 {
     internal interface IDataRepository : IDisposable
     {
+        Weather GetWeatherByCity(int cityId);
+        IEnumerable<Weather> GetWeathers();
+        void InsertWeather(Weather weather);
+        void DeleteWeather(Weather weather);
+        void UpdateWeather(Weather weather);
+
         IEnumerable<CurrencyRate> GetCurrencyRates();
         CurrencyRate GetCurrencyRate(string curFrom, string curTo, DateTime date);
         void InsertCurrencyRate(CurrencyRate currencyRate);

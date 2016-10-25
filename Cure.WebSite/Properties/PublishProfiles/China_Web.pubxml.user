@@ -11,25 +11,25 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>10/21/2016 11:55:31</publishTime>
+      <publishTime>10/24/2016 00:40:20</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>10/21/2016 11:55:31</publishTime>
+      <publishTime>10/24/2016 00:40:20</publishTime>
     </File>
     <File Include="bin/Cure.DataAccess.dll">
       <publishTime>10/21/2016 11:55:02</publishTime>
     </File>
     <File Include="bin/Cure.Notification.dll">
-      <publishTime>10/21/2016 11:55:04</publishTime>
+      <publishTime>10/24/2016 00:35:23</publishTime>
     </File>
     <File Include="bin/Cure.Reports.dll">
-      <publishTime>10/21/2016 11:07:10</publishTime>
+      <publishTime>10/23/2016 23:13:25</publishTime>
     </File>
     <File Include="bin/Cure.Utils.dll">
-      <publishTime>10/21/2016 11:55:04</publishTime>
+      <publishTime>10/24/2016 00:35:22</publishTime>
     </File>
     <File Include="bin/Cure.WebSite.dll">
-      <publishTime>10/21/2016 11:55:22</publishTime>
+      <publishTime>10/24/2016 00:35:24</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>09/19/2015 00:46:36</publishTime>
@@ -68,7 +68,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/12/2016 23:32:40</publishTime>
     </File>
     <File Include="Content/css/styles.css">
-      <publishTime>10/19/2016 13:34:02</publishTime>
+      <publishTime>10/21/2016 21:00:28</publishTime>
     </File>
     <File Include="Content/css/styles.less">
       <publishTime>10/19/2016 13:34:02</publishTime>
@@ -275,37 +275,43 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/12/2016 01:27:52</publishTime>
     </File>
     <File Include="Content/images/medicine/medicament_1.jpg">
-      <publishTime>10/12/2016 01:27:52</publishTime>
+      <publishTime>10/12/2016 21:56:00</publishTime>
     </File>
     <File Include="Content/images/medicine/medicament_2.jpg">
-      <publishTime>10/12/2016 01:27:52</publishTime>
+      <publishTime>10/12/2016 21:56:00</publishTime>
     </File>
     <File Include="Content/images/medicine/medicament_3.jpg">
-      <publishTime>10/12/2016 01:27:52</publishTime>
+      <publishTime>10/12/2016 21:56:00</publishTime>
     </File>
     <File Include="Content/images/medicine/medicament_4.jpg">
-      <publishTime>10/12/2016 01:27:52</publishTime>
+      <publishTime>10/12/2016 21:56:00</publishTime>
     </File>
     <File Include="Content/images/medicine/medicament_5.jpg">
-      <publishTime>10/12/2016 01:27:52</publishTime>
+      <publishTime>10/12/2016 21:56:00</publishTime>
     </File>
     <File Include="Content/images/medicine/medicament_6.jpg">
-      <publishTime>10/12/2016 01:27:52</publishTime>
+      <publishTime>10/12/2016 21:56:00</publishTime>
     </File>
     <File Include="Content/images/medicine/medicament_descr.jpg">
-      <publishTime>10/12/2016 01:27:52</publishTime>
+      <publishTime>10/12/2016 21:56:00</publishTime>
+    </File>
+    <File Include="Content/images/medicine/medicament_human.jpg">
+      <publishTime>10/21/2016 21:24:00</publishTime>
+    </File>
+    <File Include="Content/images/medicine/medicament_methylcobalamin.jpg">
+      <publishTime>10/21/2016 22:08:00</publishTime>
     </File>
     <File Include="Content/images/medicine/prop-icon_1.png">
-      <publishTime>10/12/2016 01:27:52</publishTime>
+      <publishTime>10/12/2016 21:56:00</publishTime>
     </File>
     <File Include="Content/images/medicine/prop-icon_2.png">
-      <publishTime>10/12/2016 01:27:52</publishTime>
+      <publishTime>10/12/2016 21:56:00</publishTime>
     </File>
     <File Include="Content/images/medicine/prop-icon_3.png">
-      <publishTime>10/12/2016 01:27:52</publishTime>
+      <publishTime>10/12/2016 21:56:00</publishTime>
     </File>
     <File Include="Content/images/medicine/prop-icon_4.png">
-      <publishTime>10/12/2016 01:27:52</publishTime>
+      <publishTime>10/12/2016 21:56:00</publishTime>
     </File>
     <File Include="Content/images/procedures/procedures_1.jpg">
       <publishTime>10/12/2016 21:56:00</publishTime>
@@ -331,11 +337,38 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Content/images/procedures/procedures_8.jpg">
       <publishTime>10/12/2016 21:56:00</publishTime>
     </File>
+    <File Include="Content/images/procedures/procedure_acupoint.jpg">
+      <publishTime>10/21/2016 17:17:00</publishTime>
+    </File>
+    <File Include="Content/images/procedures/procedure_electric.jpg">
+      <publishTime>10/21/2016 00:26:00</publishTime>
+    </File>
     <File Include="Content/images/procedures/procedure_explanation.jpg">
       <publishTime>10/12/2016 21:56:00</publishTime>
     </File>
+    <File Include="Content/images/procedures/procedure_implantation.jpg">
+      <publishTime>10/21/2016 18:40:00</publishTime>
+    </File>
+    <File Include="Content/images/procedures/procedure_itp.jpg">
+      <publishTime>10/21/2016 19:20:00</publishTime>
+    </File>
+    <File Include="Content/images/procedures/procedure_kinesiotaping.jpg">
+      <publishTime>10/21/2016 18:05:00</publishTime>
+    </File>
+    <File Include="Content/images/procedures/procedure_massage.jpg">
+      <publishTime>10/21/2016 00:33:00</publishTime>
+    </File>
+    <File Include="Content/images/procedures/procedure_ot_occupational.jpg">
+      <publishTime>10/21/2016 17:17:00</publishTime>
+    </File>
     <File Include="Content/images/procedures/procedure_page.jpg">
       <publishTime>10/20/2016 22:14:00</publishTime>
+    </File>
+    <File Include="Content/images/procedures/procedure_pt_physical.jpg">
+      <publishTime>10/21/2016 17:17:00</publishTime>
+    </File>
+    <File Include="Content/images/procedures/procedure_s_e_t.jpg">
+      <publishTime>10/21/2016 18:35:00</publishTime>
     </File>
     <File Include="Content/images/sec-steps/main-page_step_1.jpg">
       <publishTime>10/12/2016 01:27:52</publishTime>
@@ -806,7 +839,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/24/2016 03:40:02</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>10/21/2016 11:55:28</publishTime>
+      <publishTime>10/24/2016 00:40:18</publishTime>
     </File>
     <File Include="Scripts/jquery-1.10.2.js">
       <publishTime>07/24/2016 03:40:00</publishTime>
@@ -1003,8 +1036,47 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/Home/_WeatherHome.cshtml">
       <publishTime>10/18/2016 23:27:36</publishTime>
     </File>
+    <File Include="Views/Medicine/Aceglutamide.cshtml">
+      <publishTime>10/24/2016 00:34:01</publishTime>
+    </File>
+    <File Include="Views/Medicine/Aminobutyric.cshtml">
+      <publishTime>10/24/2016 00:30:40</publishTime>
+    </File>
+    <File Include="Views/Medicine/Anisodine.cshtml">
+      <publishTime>10/24/2016 00:30:29</publishTime>
+    </File>
+    <File Include="Views/Medicine/Cerebrolysin.cshtml">
+      <publishTime>10/24/2016 00:30:29</publishTime>
+    </File>
+    <File Include="Views/Medicine/Cerebroside.cshtml">
+      <publishTime>10/24/2016 00:30:29</publishTime>
+    </File>
+    <File Include="Views/Medicine/Ganoderma.cshtml">
+      <publishTime>10/24/2016 00:40:09</publishTime>
+    </File>
     <File Include="Views/Medicine/Index.cshtml">
-      <publishTime>10/06/2016 10:56:26</publishTime>
+      <publishTime>10/24/2016 00:34:01</publishTime>
+    </File>
+    <File Include="Views/Medicine/Methylcobalamin.cshtml">
+      <publishTime>10/24/2016 00:30:29</publishTime>
+    </File>
+    <File Include="Views/Medicine/Mouse.cshtml">
+      <publishTime>10/24/2016 00:28:43</publishTime>
+    </File>
+    <File Include="Views/Medicine/Musk.cshtml">
+      <publishTime>10/24/2016 00:30:29</publishTime>
+    </File>
+    <File Include="Views/Medicine/Ocular.cshtml">
+      <publishTime>10/24/2016 00:30:29</publishTime>
+    </File>
+    <File Include="Views/Medicine/Oxiracetam.cshtml">
+      <publishTime>10/24/2016 00:30:29</publishTime>
+    </File>
+    <File Include="Views/Medicine/Sodium.cshtml">
+      <publishTime>10/24/2016 00:34:01</publishTime>
+    </File>
+    <File Include="Views/Medicine/Xingnaojing.cshtml">
+      <publishTime>10/24/2016 00:31:02</publishTime>
     </File>
     <File Include="Views/Mension/Index.cshtml">
       <publishTime>09/28/2016 12:37:44</publishTime>

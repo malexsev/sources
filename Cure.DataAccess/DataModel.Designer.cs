@@ -664,6 +664,22 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<CurrencyRate> _CurrencyRates;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Weather> Weathers
+        {
+            get
+            {
+                if ((_Weathers == null))
+                {
+                    _Weathers = base.CreateObjectSet<Weather>("Weathers");
+                }
+                return _Weathers;
+            }
+        }
+        private ObjectSet<Weather> _Weathers;
 
         #endregion
 
@@ -947,6 +963,14 @@ namespace Cure.DataAccess
         public void AddToCurrencyRates(CurrencyRate currencyRate)
         {
             base.AddObject("CurrencyRates", currencyRate);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Weathers EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToWeathers(Weather weather)
+        {
+            base.AddObject("Weathers", weather);
         }
 
         #endregion
@@ -19704,6 +19728,188 @@ namespace Cure.DataAccess
                 }
             }
         }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="Weather")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Weather : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Weather object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="getDate">Initial value of the GetDate property.</param>
+        /// <param name="cityId">Initial value of the CityId property.</param>
+        /// <param name="temp">Initial value of the Temp property.</param>
+        public static Weather CreateWeather(global::System.Int32 id, global::System.DateTime getDate, global::System.Int32 cityId, global::System.Decimal temp)
+        {
+            Weather weather = new Weather();
+            weather.Id = id;
+            weather.GetDate = getDate;
+            weather.CityId = cityId;
+            weather.Temp = temp;
+            return weather;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value, "Id");
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime GetDate
+        {
+            get
+            {
+                return _GetDate;
+            }
+            set
+            {
+                OnGetDateChanging(value);
+                ReportPropertyChanging("GetDate");
+                _GetDate = StructuralObject.SetValidValue(value, "GetDate");
+                ReportPropertyChanged("GetDate");
+                OnGetDateChanged();
+            }
+        }
+        private global::System.DateTime _GetDate;
+        partial void OnGetDateChanging(global::System.DateTime value);
+        partial void OnGetDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 CityId
+        {
+            get
+            {
+                return _CityId;
+            }
+            set
+            {
+                OnCityIdChanging(value);
+                ReportPropertyChanging("CityId");
+                _CityId = StructuralObject.SetValidValue(value, "CityId");
+                ReportPropertyChanged("CityId");
+                OnCityIdChanged();
+            }
+        }
+        private global::System.Int32 _CityId;
+        partial void OnCityIdChanging(global::System.Int32 value);
+        partial void OnCityIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal Temp
+        {
+            get
+            {
+                return _Temp;
+            }
+            set
+            {
+                OnTempChanging(value);
+                ReportPropertyChanging("Temp");
+                _Temp = StructuralObject.SetValidValue(value, "Temp");
+                ReportPropertyChanged("Temp");
+                OnTempChanged();
+            }
+        }
+        private global::System.Decimal _Temp;
+        partial void OnTempChanging(global::System.Decimal value);
+        partial void OnTempChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Description
+        {
+            get
+            {
+                return _Description;
+            }
+            set
+            {
+                OnDescriptionChanging(value);
+                ReportPropertyChanging("Description");
+                _Description = StructuralObject.SetValidValue(value, true, "Description");
+                ReportPropertyChanged("Description");
+                OnDescriptionChanged();
+            }
+        }
+        private global::System.String _Description;
+        partial void OnDescriptionChanging(global::System.String value);
+        partial void OnDescriptionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Details
+        {
+            get
+            {
+                return _Details;
+            }
+            set
+            {
+                OnDetailsChanging(value);
+                ReportPropertyChanging("Details");
+                _Details = StructuralObject.SetValidValue(value, true, "Details");
+                ReportPropertyChanged("Details");
+                OnDetailsChanged();
+            }
+        }
+        private global::System.String _Details;
+        partial void OnDetailsChanging(global::System.String value);
+        partial void OnDetailsChanged();
 
         #endregion
 

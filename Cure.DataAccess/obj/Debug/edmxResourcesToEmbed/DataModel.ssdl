@@ -513,6 +513,17 @@
     <Property Name="CreateUser" Type="nvarchar" MaxLength="50" />
     <Property Name="CreateDate" Type="datetime" />
   </EntityType>
+  <EntityType Name="Weather">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GetDate" Type="datetime" Nullable="false" />
+    <Property Name="CityId" Type="int" Nullable="false" />
+    <Property Name="Temp" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" />
+    <Property Name="Details" Type="nvarchar" MaxLength="50" />
+  </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'Cure.dbo.ViewChild' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="ViewChild">
@@ -1292,6 +1303,7 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
     <EntitySet Name="TransferUser" EntityType="Self.TransferUser" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Vipiska" EntityType="Self.Vipiska" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Visit" EntityType="Self.Visit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Weather" EntityType="Self.Weather" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ViewChild" EntityType="Self.ViewChild" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
 [ViewChild].[Id] AS [Id], 

@@ -1,0 +1,63 @@
+﻿@{
+    ViewBag.Title = "Methylcobalamin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="main has-gray-bg is-full-screen">
+    <div class="container">
+        <div class="slimpage medicine-page">
+            <a href="@Url.Action("Index", "Medicine")" class="page-close"></a>
+            <div class="slimpage-nav medicine-page-nav">
+                <a class="slimpage-prev" href="@Url.Action("Human", "Medicine")" title="Предыдущая статья"></a>
+                <a class="slimpage-next" href="@Url.Action("Mouse", "Medicine")" title="Следующая статья"></a>
+            </div>
+            <div class="slimpage-head">
+                <div class="slimpage-head-img">
+                    <img src="~/Content/images/medicine/medicament_descr.jpg" alt="Мускус">
+                </div>
+                <div class="slimpage-head-txt">
+                    <h1 class="slimpage-head-title">Мускус</h1>
+                    <div class="slimpage-head-china">复方麝香注射液</div>
+                    <div class="slimpage-head-note">
+                        Мощный иммуностимулятор, регулятор сердечно - сосудистой системы,
+                        стимулятор процессов заживления.
+                    </div>
+                </div>
+            </div>
+            <div class="slimpage-body">
+                <div class="user-content">
+                    <p>
+                        Издревле препараты мускуса широко применяются при самых различных заболеваниях.
+                        Препараты работают как мощные иммуностимуляторы, регуляторы сердечно-сосудистой системы,
+                        стимуляторы половой системы, стимуляторы процессов заживления, средство для восстановления
+                        нервной системы.
+                    </p>
+                    <p>
+                        В Китае широко используется для лечения дцп в виде обкалывания (инъекций) по точкам,
+                        чаще в шею и спину.
+                    </p>
+                </div>
+                <ul class="medicament-params">
+                    <li>
+                        <div class="param-name">Состав</div>
+                        <div class="param-text">Искусственный мускус, корень куркумы, пачули, шичангу, борнеол, ментол.</div>
+                    </li>
+                    <li>
+                        <div class="param-name">Способ применения</div>
+                        <div class="param-text">Обколки</div>
+                    </li>
+                    <li>
+                        <div class="param-name">Показания</div>
+                        <div class="param-text">Детский церебральный паралич, эпилепсия, последствия травм.</div>
+                    </li>
+                    <li>
+                        <div class="param-name">Хранение</div>
+                        <div class="param-text">В темном сухом мете при темепературе не выше +20&deg;С</div>
+                    </li>
+                </ul>
+            </div>
+
+        </div><!-- END slimpage/medicine-page -->
+    </div><!-- END container -->
+</div>

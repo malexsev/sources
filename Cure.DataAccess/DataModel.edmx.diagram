@@ -75,6 +75,7 @@
         <EntityTypeShape EntityType="DataModel.CurrencyRate" Width="1.5" PointX="20.5" PointY="11.5" />
         <AssociationConnector Association="DataModel.FK_CurrencyRate_CurrencyFrom" />
         <AssociationConnector Association="DataModel.FK_CurrencyRate_CurrencyTo" />
+        <EntityTypeShape EntityType="DataModel.Weather" Width="1.5" PointX="18.25" PointY="3.375" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

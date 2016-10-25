@@ -1,4 +1,5 @@
-﻿<img class="map-picture" src="~/Content/img/img_map.png" alt="Карта Юньчен">
+﻿@using Cure.DataAccess
+<img class="map-picture" src="~/Content/img/img_map.png" alt="Карта Юньчен">
 <div class="map-pointers js-tabs-citymap">
     <a class="map-pointer pointer-alm js-tabs-link" data-tab="alm-point">Алматы</a>
     <a class="map-pointer pointer-sev js-tabs-link" data-tab="sev-point">Севастополь</a>
@@ -7,20 +8,20 @@
 <div class="map-weather js-tabs-body">
     <div class="head-weather map-weather-tab js-tabs-item" id="sev-point">
         <span class="txt-note">В Севастополе</span>
-        <span class="txt-data">14:21</span>
-        <span class="txt-data">+33&#176;</span>
-        <span class="txt-note">Жара</span>
+        <span class="txt-data">@Html.Raw(DateTime.Now.ToString("HH:mm"))</span>
+        <span class="txt-data">@Html.Raw(((List<Weather>)ViewBag.Weathers)[0].Temp > 0 ? "+" : "")@Html.Raw(((List<Weather>)ViewBag.Weathers)[0].Temp)&#176;</span>
+        <span class="txt-note">@Html.Raw(((List<Weather>)ViewBag.Weathers)[0].Description)</span>
     </div>
     <div class="head-weather map-weather-tab js-tabs-item" id="alm-point">
         <span class="txt-note">В Алматы</span>
-        <span class="txt-data">07:15</span>
-        <span class="txt-data">+28&#176;</span>
-        <span class="txt-note">Солнечно</span>
+        <span class="txt-data">@Html.Raw(DateTime.Now.AddHours(2).ToString("HH:mm"))</span>
+        <span class="txt-data">@Html.Raw(((List<Weather>)ViewBag.Weathers)[1].Temp > 0 ? "+" : "")@Html.Raw(((List<Weather>)ViewBag.Weathers)[1].Temp)&#176;</span>
+        <span class="txt-note">@Html.Raw(((List<Weather>)ViewBag.Weathers)[1].Description)</span>
     </div>
     <div class="head-weather map-weather-tab js-tabs-item active" id="unh-point">
         <span class="txt-note">В Юнчене</span>
-        <span class="txt-data">21:56</span>
-        <span class="txt-data">+11&#176;</span>
-        <span class="txt-note">Пасмурно</span>
+        <span class="txt-data">@Html.Raw(DateTime.Now.AddHours(5).ToString("HH:mm"))</span>
+        <span class="txt-data">@Html.Raw(((List<Weather>)ViewBag.Weathers)[2].Temp > 0 ? "+" : "")@Html.Raw(((List<Weather>)ViewBag.Weathers)[2].Temp)&#176;</span>
+        <span class="txt-note">@Html.Raw(((List<Weather>)ViewBag.Weathers)[2].Description)</span>
     </div>
 </div>

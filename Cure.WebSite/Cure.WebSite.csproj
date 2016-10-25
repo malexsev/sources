@@ -170,6 +170,8 @@
     <Content Include="Content\images\medicine\medicament_5.jpg" />
     <Content Include="Content\images\medicine\medicament_6.jpg" />
     <Content Include="Content\images\medicine\medicament_descr.jpg" />
+    <Content Include="Content\images\medicine\medicament_human.jpg" />
+    <Content Include="Content\images\medicine\medicament_methylcobalamin.jpg" />
     <Content Include="Content\images\medicine\prop-icon_1.png" />
     <Content Include="Content\images\medicine\prop-icon_2.png" />
     <Content Include="Content\images\medicine\prop-icon_3.png" />
@@ -182,8 +184,17 @@
     <Content Include="Content\images\procedures\procedures_6.jpg" />
     <Content Include="Content\images\procedures\procedures_7.jpg" />
     <Content Include="Content\images\procedures\procedures_8.jpg" />
+    <Content Include="Content\images\procedures\procedure_acupoint.jpg" />
+    <Content Include="Content\images\procedures\procedure_electric.jpg" />
     <Content Include="Content\images\procedures\procedure_explanation.jpg" />
+    <Content Include="Content\images\procedures\procedure_implantation.jpg" />
+    <Content Include="Content\images\procedures\procedure_itp.jpg" />
+    <Content Include="Content\images\procedures\procedure_kinesiotaping.jpg" />
+    <Content Include="Content\images\procedures\procedure_massage.jpg" />
+    <Content Include="Content\images\procedures\procedure_ot_occupational.jpg" />
     <Content Include="Content\images\procedures\procedure_page.jpg" />
+    <Content Include="Content\images\procedures\procedure_pt_physical.jpg" />
+    <Content Include="Content\images\procedures\procedure_s_e_t.jpg" />
     <Content Include="Content\images\sec-steps\main-page_step_1.jpg" />
     <Content Include="Content\images\sec-steps\main-page_step_2.jpg" />
     <Content Include="Content\images\sec-steps\main-page_step_3.jpg" />
@@ -513,7 +524,7 @@
     <Content Include="Views\Procedure\Electric.cshtml" />
     <Content Include="Views\Procedure\Massage.cshtml" />
     <Content Include="Views\Procedure\PtPhysical.cshtml" />
-    <Content Include="Views\Procedure\Acupoint.cshtml" />
+    <None Include="Views\Medicine\Human.cshtml" />
     <Content Include="Views\Procedure\OtOccupational.cshtml" />
     <Content Include="Views\Procedure\StSpeech.cshtml" />
     <Content Include="Views\Procedure\Kinesiotaping.cshtml" />
@@ -534,6 +545,19 @@
     <Content Include="Views\Department\_Yancheng1Pops.cshtml" />
     <Content Include="Views\Department\_Yancheng2Pops.cshtml" />
     <Content Include="Views\Shared\_CurrencyRate.cshtml" />
+    <Content Include="Views\Medicine\Methylcobalamin.cshtml" />
+    <Content Include="Views\Medicine\Aceglutamide.cshtml" />
+    <Content Include="Views\Medicine\Ganoderma.cshtml" />
+    <Content Include="Views\Medicine\Oxiracetam.cshtml" />
+    <Content Include="Views\Medicine\Xingnaojing.cshtml" />
+    <Content Include="Views\Medicine\Musk.cshtml" />
+    <Content Include="Views\Medicine\Cerebroside.cshtml" />
+    <Content Include="Views\Medicine\Cerebrolysin.cshtml" />
+    <Content Include="Views\Medicine\Mouse.cshtml" />
+    <Content Include="Views\Medicine\Aminobutyric.cshtml" />
+    <Content Include="Views\Medicine\Ocular.cshtml" />
+    <Content Include="Views\Medicine\Anisodine.cshtml" />
+    <Content Include="Views\Medicine\Sodium.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

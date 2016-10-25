@@ -64,6 +64,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FileUtils.cs" />
     <Compile Include="SmsUtils.cs" />
+    <Compile Include="WeatherUtils.cs" />
     <Compile Include="Web References\DailyInfoServ\Reference.cs" />
   </ItemGroup>
   <ItemGroup>

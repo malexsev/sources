@@ -3,7 +3,9 @@
 namespace Cure.WebSite.Controllers
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
+    using DataAccess;
     using DataAccess.BLL;
 
     public class HomeController : Controller
@@ -15,6 +17,8 @@ namespace Cure.WebSite.Controllers
             ViewBag.ChildrenHome = dal.FilterChilds(0, "0", 0, 0, 0, 8);
             ViewBag.MensionsHome = dal.GetTopMensions();
             ViewBag.Departments = dal.GetDepartments();
+            var weathers = new List<Weather> { dal.GetWeatherByCity(33991), dal.GetWeatherByCity(36870), dal.GetWeatherByCity(50207) };
+            ViewBag.Weathers = weathers;
             return View();
         }
 

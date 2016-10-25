@@ -208,6 +208,7 @@
     <Content Include="Admin\Controls\SoonVisitsList.ascx" />
     <Content Include="Admin\CurrencyList.aspx" />
     <Content Include="Admin\CurrencyRateList.aspx" />
+    <Content Include="Admin\WeatherList.aspx" />
     <Content Include="Admin\PostList.aspx" />
     <Content Include="Admin\NotificationLogList.aspx" />
     <Content Include="Admin\ChildList.aspx" />
@@ -527,6 +528,13 @@
     </Compile>
     <Compile Include="Admin\CurrencyRateList.aspx.designer.cs">
       <DependentUpon>CurrencyRateList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\WeatherList.aspx.cs">
+      <DependentUpon>WeatherList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\WeatherList.aspx.designer.cs">
+      <DependentUpon>WeatherList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\PostList.aspx.cs">
       <DependentUpon>PostList.aspx</DependentUpon>

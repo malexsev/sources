@@ -3,6 +3,7 @@
     using System;
     using System.Web;
     using Notification;
+    using Utils;
 
     public partial class _EveryHour2543341928834234 : System.Web.UI.Page
     {
@@ -14,6 +15,7 @@
                 notify.Send();
                 var notifyEmail = new Before2HoursEmailNotification(new HttpServerUtilityWrapper(this.Server));
                 notifyEmail.Send();
+                WeatherUtils.ParseWeather();
             }
         }
     }
