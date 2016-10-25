@@ -30,6 +30,8 @@ namespace Cure.WebSite.Controllers
         public ActionResult Price()
         {
             ViewBag.CurrencyRateCNY = GetRate("CNY");
+            ViewBag.CurrencyRateUSD = GetRate("USD");
+            ViewBag.CurrencyRateKZT = GetRate("KZT");
             return View();
         }
 

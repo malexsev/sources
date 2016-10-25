@@ -13,21 +13,29 @@ namespace Cure.WebSite.Controllers
         public ActionResult Sevastopol()
         {
             ViewBag.CurrencyRateCNY = GetRate("CNY");
+            ViewBag.CurrencyRateUSD = GetRate("USD");
+            ViewBag.CurrencyRateKZT = GetRate("KZT");
             return View();
         }
         public ActionResult Yancheng1()
         {
             ViewBag.CurrencyRateCNY = GetRate("CNY");
+            ViewBag.CurrencyRateUSD = GetRate("USD");
+            ViewBag.CurrencyRateKZT = GetRate("KZT");
             return View();
         }
         public ActionResult Yancheng2()
         {
             ViewBag.CurrencyRateCNY = GetRate("CNY");
+            ViewBag.CurrencyRateUSD = GetRate("USD");
+            ViewBag.CurrencyRateKZT = GetRate("KZT");
             return View();
         }
         public ActionResult Almaata()
         {
             ViewBag.CurrencyRateCNY = GetRate("CNY");
+            ViewBag.CurrencyRateUSD = GetRate("USD");
+            ViewBag.CurrencyRateKZT = GetRate("KZT");
             return View();
         }
 

@@ -841,5 +841,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Weathers">
+      <EntityTypeMapping TypeName="DataModel.Weather">
+        <MappingFragment StoreEntitySet="Weather">
+          <ScalarProperty Name="Details" ColumnName="Details" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Temp" ColumnName="Temp" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="GetDate" ColumnName="GetDate" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>
