@@ -8,9 +8,27 @@ namespace Cure.DataAccess.DAL
 {
     internal partial class DataRepository
     {
-        public IEnumerable<Message> GetMyMessages(string username)
+        public IEnumerable<ViewRecipient> GetContacts(string username, string newContact)
         {
-            return context.Messages.Where(x => x.FromUserName == username || x.ToUserName == username).OrderByDescending(x => x.SendTime);
+            return context.sp_GetMyContacts(username, newContact);
+        }
+
+        public int GetUnreadCount(string username)
+        {
+            int count = context.Messages.Count(x => x.ToUserName == username && x.Unread == true);
+            return count;
+        }
+
+        public IEnumerable<Message> GetMyMessages(string username, string contact)
+        {
+            var messages = context.Messages.Where(x => (x.FromUserName == username && x.ToUserName == contact) || (x.ToUserName == username && x.FromUserName == contact)).OrderBy(x => x.SendTime);
+            for (int i = messages.Count(x => x.Unread == true && x.ToUserName == username) - 1; i > -1; i--)
+            {
+                var msg = messages.Where(x => x.Unread == true && x.ToUserName == username).ToList()[i];
+                msg.Unread = false;
+                UpdateMessage(msg);
+            }
+            return messages;
         }
 
         public IEnumerable<Message> GetMessages()
@@ -29,7 +47,8 @@ namespace Cure.DataAccess.DAL
             {
                 context.Messages.AddObject(message);
                 context.SaveChanges();
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -42,7 +61,8 @@ namespace Cure.DataAccess.DAL
                 context.Messages.Attach(message);
                 context.Messages.DeleteObject(message);
                 SaveChanges();
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -58,10 +78,12 @@ namespace Cure.DataAccess.DAL
                 origMessage.SendTime = message.SendTime;
                 origMessage.Subject = message.Subject;
                 origMessage.Text = message.Text;
+                origMessage.Unread = message.Unread;
                 origMessage.ToDisplay = message.ToDisplay;
                 origMessage.ToUserName = message.ToUserName;
                 SaveChanges();
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }

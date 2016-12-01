@@ -8,6 +8,22 @@ namespace Cure.DataAccess.DAL
 {
     internal interface IDataRepository : IDisposable
     {
+        IEnumerable<ViewRecipient> GetContacts(string username, string newContact);
+        IEnumerable<Message> GetMyMessages(string username, string contact);
+        IEnumerable<Message> GetMessages();
+        Message GetMessage(int messageId);
+        void InsertMessage(Message message);
+        void DeleteMessage(Message message);
+        void UpdateMessage(Message message);
+        int GetUnreadCount(string username);
+
+        IEnumerable<OnlineUser> GetOnlineUsers();
+        void InsertOnlineUser(OnlineUser onlineUser);
+        void DeleteOnlineUser(OnlineUser onlineUser);
+        void UpdateOnlineUser(OnlineUser onlineUser);
+        void BringOnlineUser(string username);
+        void ClearOnlineUsers();
+
         Weather GetWeatherByCity(int cityId);
         IEnumerable<Weather> GetWeathers();
         void InsertWeather(Weather weather);
@@ -56,13 +72,6 @@ namespace Cure.DataAccess.DAL
         void InsertPost(Post post);
         void DeletePost(Post post);
         void UpdatePost(Post post);
-
-        IEnumerable<Message> GetMyMessages(string username);
-        IEnumerable<Message> GetMessages();
-        Message GetMessage(int messageId);
-        void InsertMessage(Message message);
-        void DeleteMessage(Message message);
-        void UpdateMessage(Message message);
 
         IEnumerable<Vipiska> GetMyVipiskas(string username);
         Vipiska GetVipiska(int visitId);

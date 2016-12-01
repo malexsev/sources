@@ -194,6 +194,7 @@
           <Property Name="FromDisplay" Type="nvarchar" MaxLength="50" />
           <Property Name="ToUserName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ToDisplay" Type="nvarchar" MaxLength="50" />
+          <Property Name="Unread" Type="bit" />
           <Property Name="SendTime" Type="datetime" Nullable="false" />
           <Property Name="Subject" Type="nvarchar" MaxLength="250" />
           <Property Name="Text" Type="text" />
@@ -223,6 +224,15 @@
           <Property Name="Details" Type="nvarchar" MaxLength="250" />
           <Property Name="ClientName" Type="nvarchar" MaxLength="250" />
           <Property Name="Contacts" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="OnlineUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastDate" Type="datetime" Nullable="false" />
+          <Property Name="Details" Type="nvarchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="Order">
           <Key>
@@ -650,6 +660,34 @@ warning 6002: The table/view 'Cure.dbo.ViewMension' does not have a primary key 
           <Property Name="ContactPhone" Type="nvarchar" MaxLength="50" />
           <Property Name="GuidId" Type="uniqueidentifier" />
           <Property Name="ChildId" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Cure.dbo.ViewRecipient' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ViewRecipient">
+          <Key>
+            <PropertyRef Name="UserName" />
+            
+            
+            
+            
+          </Key>
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="IsApproved" Type="bit" Nullable="false" />
+          <Property Name="IsLockedOut" Type="bit" Nullable="false" />
+          <Property Name="ChildId" Type="int" />
+          <Property Name="GuidId" Type="uniqueidentifier" />
+          <Property Name="ChildName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ContactName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Birthday" Type="datetime" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="250" />
+          <Property Name="OwnerUserPic" Type="nvarchar" MaxLength="250" />
+          <Property Name="OwnerAvaFile" Type="nvarchar" MaxLength="250" />
+          <Property Name="IsOnline" Type="int" />
+          <Property Name="IsAdmin" Type="int" />
+          <Property Name="LastMessageText" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="LastMessageDate" Type="datetime" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Cure.dbo.ViewScheduler' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1316,6 +1354,11 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="sp_ClearOnlineUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_GetMyContacts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Contact" Type="nvarchar" Mode="In" />
+        </Function>
         <EntityContainer Name="DataModelStoreContainer">
           <EntitySet Name="aspnet_Membership" EntityType="Self.aspnet_Membership" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="aspnet_Users" EntityType="Self.aspnet_Users" Schema="dbo" store:Type="Tables" />
@@ -1330,6 +1373,7 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
           <EntitySet Name="Message" EntityType="Self.Message" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Newsletter" EntityType="Self.Newsletter" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NotificationLog" EntityType="Self.NotificationLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OnlineUser" EntityType="Self.OnlineUser" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Pacient" EntityType="Self.Pacient" Schema="dbo" store:Type="Tables" />
@@ -1450,6 +1494,27 @@ FROM [dbo].[ViewChild] AS [ViewChild]</DefiningQuery>
 [ViewMension].[GuidId] AS [GuidId], 
 [ViewMension].[ChildId] AS [ChildId]
 FROM [dbo].[ViewMension] AS [ViewMension]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ViewRecipient" EntityType="Self.ViewRecipient" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[ViewRecipient].[UserName] AS [UserName], 
+[ViewRecipient].[Email] AS [Email], 
+[ViewRecipient].[IsApproved] AS [IsApproved], 
+[ViewRecipient].[IsLockedOut] AS [IsLockedOut], 
+[ViewRecipient].[ChildId] AS [ChildId], 
+[ViewRecipient].[GuidId] AS [GuidId], 
+[ViewRecipient].[ChildName] AS [ChildName], 
+[ViewRecipient].[ContactName] AS [ContactName], 
+[ViewRecipient].[Birthday] AS [Birthday], 
+[ViewRecipient].[IsActive] AS [IsActive], 
+[ViewRecipient].[FileName] AS [FileName], 
+[ViewRecipient].[OwnerUserPic] AS [OwnerUserPic], 
+[ViewRecipient].[OwnerAvaFile] AS [OwnerAvaFile], 
+[ViewRecipient].[IsOnline] AS [IsOnline], 
+[ViewRecipient].[IsAdmin] AS [IsAdmin], 
+[ViewRecipient].[LastMessageText] AS [LastMessageText], 
+[ViewRecipient].[LastMessageDate] AS [LastMessageDate]
+FROM [dbo].[ViewRecipient] AS [ViewRecipient]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="ViewScheduler" EntityType="Self.ViewScheduler" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -1880,7 +1945,6 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
           </AssociationSet>
           <EntitySet Name="ViewChilds" EntityType="DataModel.ViewChild" />
           <EntitySet Name="DepartmentStops" EntityType="DataModel.DepartmentStop" />
-          <EntitySet Name="Messages" EntityType="DataModel.Message" />
           <AssociationSet Name="FK_DepartmentStop_Department" Association="DataModel.FK_DepartmentStop_Department">
             <End Role="Department" EntitySet="Departments" />
             <End Role="DepartmentStop" EntitySet="DepartmentStops" />
@@ -1957,6 +2021,14 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
             <End Role="CurrencyRate" EntitySet="CurrencyRates" />
           </AssociationSet>
           <EntitySet Name="Weathers" EntityType="DataModel.Weather" />
+          <EntitySet Name="Messages" EntityType="DataModel.Message" />
+          <EntitySet Name="OnlineUsers" EntityType="DataModel.OnlineUser" />
+          <FunctionImport Name="sp_ClearOnlineUsers" />
+          <EntitySet Name="ViewRecipients" EntityType="DataModel.ViewRecipient" />
+          <FunctionImport Name="sp_GetMyContacts" EntitySet="ViewRecipients" ReturnType="Collection(DataModel.ViewRecipient)">
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="Contact" Mode="In" Type="String" />
+          </FunctionImport>
           </EntityContainer>
         <EntityType Name="OrderStatu">
           <Key>
@@ -2890,19 +2962,6 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
           <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Department" Relationship="DataModel.FK_DepartmentStop_Department" FromRole="DepartmentStop" ToRole="Department" />
         </EntityType>
-        <EntityType Name="Message">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FromUserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FromDisplay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ToUserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ToDisplay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="SendTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Subject" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-        </EntityType>
         <Association Name="FK_DepartmentStop_Department">
           <End Type="DataModel.Department" Role="Department" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -3289,6 +3348,51 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
           <Property Name="Temp" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Details" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FromUserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FromDisplay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ToUserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ToDisplay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Unread" Type="Boolean" />
+          <Property Name="SendTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Subject" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="OnlineUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Details" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ViewRecipient">
+          <Key>
+            <PropertyRef Name="UserName" />
+          </Key>
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="IsApproved" Type="Boolean" Nullable="false" />
+          <Property Name="IsLockedOut" Type="Boolean" Nullable="false" />
+          <Property Name="ChildId" Type="Int32" />
+          <Property Name="GuidId" Type="Guid" />
+          <Property Name="ChildName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Birthday" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="FileName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="OwnerUserPic" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="OwnerAvaFile" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="IsOnline" Type="Int32" />
+          <Property Name="IsAdmin" Type="Int32" />
+          <Property Name="LastMessageText" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="LastMessageDate" Type="DateTime" Precision="3" Nullable="false" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -3974,20 +4078,6 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Messages">
-            <EntityTypeMapping TypeName="DataModel.Message">
-              <MappingFragment StoreEntitySet="Message">
-                <ScalarProperty Name="Text" ColumnName="Text" />
-                <ScalarProperty Name="Subject" ColumnName="Subject" />
-                <ScalarProperty Name="SendTime" ColumnName="SendTime" />
-                <ScalarProperty Name="ToDisplay" ColumnName="ToDisplay" />
-                <ScalarProperty Name="ToUserName" ColumnName="ToUserName" />
-                <ScalarProperty Name="FromDisplay" ColumnName="FromDisplay" />
-                <ScalarProperty Name="FromUserName" ColumnName="FromUserName" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="ViewSoonVisits">
             <EntityTypeMapping TypeName="DataModel.ViewSoonVisit">
               <MappingFragment StoreEntitySet="ViewSoonVisit">
@@ -4148,6 +4238,57 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Messages">
+            <EntityTypeMapping TypeName="DataModel.Message">
+              <MappingFragment StoreEntitySet="Message">
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="SendTime" ColumnName="SendTime" />
+                <ScalarProperty Name="Unread" ColumnName="Unread" />
+                <ScalarProperty Name="ToDisplay" ColumnName="ToDisplay" />
+                <ScalarProperty Name="ToUserName" ColumnName="ToUserName" />
+                <ScalarProperty Name="FromDisplay" ColumnName="FromDisplay" />
+                <ScalarProperty Name="FromUserName" ColumnName="FromUserName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OnlineUsers">
+            <EntityTypeMapping TypeName="DataModel.OnlineUser">
+              <MappingFragment StoreEntitySet="OnlineUser">
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="LastDate" ColumnName="LastDate" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_ClearOnlineUsers" FunctionName="DataModel.Store.sp_ClearOnlineUsers" />
+          <EntitySetMapping Name="ViewRecipients">
+            <EntityTypeMapping TypeName="DataModel.ViewRecipient">
+              <MappingFragment StoreEntitySet="ViewRecipient">
+                <ScalarProperty Name="LastMessageDate" ColumnName="LastMessageDate" />
+                <ScalarProperty Name="LastMessageText" ColumnName="LastMessageText" />
+                <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+                <ScalarProperty Name="IsOnline" ColumnName="IsOnline" />
+                <ScalarProperty Name="OwnerAvaFile" ColumnName="OwnerAvaFile" />
+                <ScalarProperty Name="OwnerUserPic" ColumnName="OwnerUserPic" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                <ScalarProperty Name="ChildName" ColumnName="ChildName" />
+                <ScalarProperty Name="GuidId" ColumnName="GuidId" />
+                <ScalarProperty Name="ChildId" ColumnName="ChildId" />
+                <ScalarProperty Name="IsLockedOut" ColumnName="IsLockedOut" />
+                <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_GetMyContacts" FunctionName="DataModel.Store.sp_GetMyContacts">
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

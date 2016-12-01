@@ -1,0 +1,84 @@
+﻿@using Cure.DataAccess
+@using Cure.WebSite.Models
+@model IEnumerable<Cure.DataAccess.Message>
+
+@{ DateTime lastDate = DateTime.Now.AddYears(-100); }
+@foreach (Message message in Model)
+{
+    if (message.SendTime.Date > lastDate.Date)
+    {
+        @Html.Raw(string.Format(@"<div class=""chat-log-date"">{0}</div>", message.SendTime.ToString("dd-MM-yyyy")));
+        lastDate = message.SendTime;
+    }
+
+    <div class="chat-message @Html.Raw(message.FromUserName == User.Identity.Name ? "is-outgoing" : "is-incoming")">
+        <div class="chat-message-img">
+            <img class="@Html.Raw(message.FromUserName == User.Identity.Name ? "my-userpic" : "incoming-userpic")" alt="@message.FromDisplay">
+        </div>
+        <div class="chat-message-txt">@message.Text</div>
+    </div>
+}
+
+@*<div class="chat-log-date">20 июня 2016</div>
+
+<div class="chat-message is-incoming">
+    <div class="chat-message-img">
+        <img src="~/Content/images/users/header_user_1_32x32.jpg" alt="Елена Матвеева">
+    </div>
+    <div class="chat-message-txt">Спасибо за контакты!!!</div>
+</div>
+
+<div class="chat-message is-outgoing">
+    <div class="chat-message-img">
+        <img src="~/Content/images/users/header_user_2_32x32.jpg" alt="Елена Матвеева">
+    </div>
+    <div class="chat-message-txt">Довольно эффективно, так что не бросайте процедуры</div>
+</div>
+
+<div class="chat-log-date">20 июня 2016</div>
+
+<div class="chat-message is-incoming">
+    <div class="chat-message-img">
+        <img src="~/Content/images/users/header_user_1_32x32.jpg" alt="Елена Матвеева">
+    </div>
+    <div class="chat-message-txt">
+        Новый законопроект, который отменит зависимость инвесторов от чиновного
+        произвола, предложил представитель одной из рабочих групп Агентства
+        стратегических инициатив (АСИ) Алексей Чалый. Главная задача проекта закона
+        «О регулировании земельных отношений на территории  ожидаемых эффектов
+        законопроекта Чалый.
+    </div>
+</div>
+
+<div class="chat-message is-incoming">
+    <div class="chat-message-img">
+        <img src="~/Content/images/users/header_user_1_32x32.jpg" alt="Елена Матвеева">
+    </div>
+    <div class="chat-message-txt">Спасибо за контакты!!!</div>
+</div>
+
+<div class="chat-message is-outgoing">
+    <div class="chat-message-img">
+        <img src="~/Content/images/users/header_user_2_32x32.jpg" alt="Елена Матвеева">
+    </div>
+    <div class="chat-message-txt">
+        История личных вещей, которые люди берут с собой в дальний путь, уходит корнями в те
+        древние времена, когда питекантропы из Африки собрали манатки и двинулись через
+        Чукотку в Южную Америку. Когда путешествия стали более организованными - появились
+        поезда и корабли - начал стандартизовываться и размер чемодана. Чемоданы таскали
+        носильщики, вскоре изобрели тележки.
+    </div>
+</div>
+
+<div class="chat-message is-incoming">
+    <div class="chat-message-img">
+        <img src="~/Content/images/users/header_user_1_32x32.jpg" alt="Елена Матвеева">
+    </div>
+    <div class="chat-message-txt">
+        Новый законопроект, который отменит зависимость инвесторов от чиновного
+        произвола, предложил представитель одной из рабочих групп Агентства
+        стратегических инициатив (АСИ) Алексей Чалый. Главная задача проекта закона
+        «О регулировании земельных отношений на территории  ожидаемых эффектов
+        законопроекта Чалый.
+    </div>
+</div>*@

@@ -6,9 +6,19 @@
 
     public partial class DataAccessBL
     {
-        public IEnumerable<Message> GetMyMessages(string username)
+        public IEnumerable<ViewRecipient> GetContacts(string username, string newContact)
         {
-            return dataRepository.GetMyMessages(username);
+            return dataRepository.GetContacts(username, newContact);
+        }
+
+        public int GetUnreadCount(string username)
+        {
+            return dataRepository.GetUnreadCount(username);
+        }
+
+        public IEnumerable<Message> GetMyMessages(string username, string contact)
+        {
+            return dataRepository.GetMyMessages(username, contact);
         }
 
         public IEnumerable<Message> GetMessages()

@@ -679,20 +679,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Messages">
-      <EntityTypeMapping TypeName="DataModel.Message">
-        <MappingFragment StoreEntitySet="Message">
-          <ScalarProperty Name="Text" ColumnName="Text" />
-          <ScalarProperty Name="Subject" ColumnName="Subject" />
-          <ScalarProperty Name="SendTime" ColumnName="SendTime" />
-          <ScalarProperty Name="ToDisplay" ColumnName="ToDisplay" />
-          <ScalarProperty Name="ToUserName" ColumnName="ToUserName" />
-          <ScalarProperty Name="FromDisplay" ColumnName="FromDisplay" />
-          <ScalarProperty Name="FromUserName" ColumnName="FromUserName" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="ViewSoonVisits">
       <EntityTypeMapping TypeName="DataModel.ViewSoonVisit">
         <MappingFragment StoreEntitySet="ViewSoonVisit">
@@ -853,5 +839,55 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Messages">
+      <EntityTypeMapping TypeName="DataModel.Message">
+        <MappingFragment StoreEntitySet="Message">
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="SendTime" ColumnName="SendTime" />
+          <ScalarProperty Name="Unread" ColumnName="Unread" />
+          <ScalarProperty Name="ToDisplay" ColumnName="ToDisplay" />
+          <ScalarProperty Name="ToUserName" ColumnName="ToUserName" />
+          <ScalarProperty Name="FromDisplay" ColumnName="FromDisplay" />
+          <ScalarProperty Name="FromUserName" ColumnName="FromUserName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OnlineUsers">
+      <EntityTypeMapping TypeName="DataModel.OnlineUser">
+        <MappingFragment StoreEntitySet="OnlineUser">
+          <ScalarProperty Name="Details" ColumnName="Details" />
+          <ScalarProperty Name="LastDate" ColumnName="LastDate" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_ClearOnlineUsers" FunctionName="DataModel.Store.sp_ClearOnlineUsers" />
+    <EntitySetMapping Name="ViewRecipients">
+      <EntityTypeMapping TypeName="DataModel.ViewRecipient">
+        <MappingFragment StoreEntitySet="ViewRecipient">
+          <ScalarProperty Name="LastMessageDate" ColumnName="LastMessageDate" />
+          <ScalarProperty Name="LastMessageText" ColumnName="LastMessageText" />
+          <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+          <ScalarProperty Name="IsOnline" ColumnName="IsOnline" />
+          <ScalarProperty Name="OwnerAvaFile" ColumnName="OwnerAvaFile" />
+          <ScalarProperty Name="OwnerUserPic" ColumnName="OwnerUserPic" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+          <ScalarProperty Name="ChildName" ColumnName="ChildName" />
+          <ScalarProperty Name="GuidId" ColumnName="GuidId" />
+          <ScalarProperty Name="ChildId" ColumnName="ChildId" />
+          <ScalarProperty Name="IsLockedOut" ColumnName="IsLockedOut" />
+          <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetMyContacts" FunctionName="DataModel.Store.sp_GetMyContacts" />
   </EntityContainerMapping>
 </Mapping>

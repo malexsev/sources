@@ -118,6 +118,7 @@
     <Content Include="Content\images\about-us\fact_1.jpg" />
     <Content Include="Content\images\about-us\fact_2.jpg" />
     <Content Include="Content\images\about-us\fact_3.jpg" />
+    <Content Include="Content\images\banner-video.png" />
     <Content Include="Content\images\children\children_1.jpg" />
     <Content Include="Content\images\children\children_2.jpg" />
     <Content Include="Content\images\children\children_3.jpg" />
@@ -143,6 +144,7 @@
     <Content Include="Content\images\doctors\doctor_sev_2_170x170.jpg" />
     <Content Include="Content\images\doctors\doctor_sev_3_170x170.jpg" />
     <Content Include="Content\images\doctors\doctor_sev_4_170x170.jpg" />
+    <Content Include="Content\images\help-img.jpg" />
     <Content Include="Content\images\hospital\aside_1.png" />
     <Content Include="Content\images\hospital\aside_2.png" />
     <Content Include="Content\images\hospital\boss_1.png" />
@@ -194,7 +196,11 @@
     <Content Include="Content\images\procedures\procedure_ot_occupational.jpg" />
     <Content Include="Content\images\procedures\procedure_page.jpg" />
     <Content Include="Content\images\procedures\procedure_pt_physical.jpg" />
+    <Content Include="Content\images\procedures\procedure_sensory.jpg" />
+    <Content Include="Content\images\procedures\procedure_st_speech.jpg" />
     <Content Include="Content\images\procedures\procedure_s_e_t.jpg" />
+    <Content Include="Content\images\procedures\procedure_therasuit.jpg" />
+    <Content Include="Content\images\procedures\procedure_universal.jpg" />
     <Content Include="Content\images\sec-steps\main-page_step_1.jpg" />
     <Content Include="Content\images\sec-steps\main-page_step_2.jpg" />
     <Content Include="Content\images\sec-steps\main-page_step_3.jpg" />
@@ -210,6 +216,10 @@
     <Content Include="Content\images\temp\counter_2.png" />
     <Content Include="Content\images\temp\counter_3.png" />
     <Content Include="Content\images\temp\counter_4.png" />
+    <Content Include="Content\images\temp\panorama_1.jpg" />
+    <Content Include="Content\images\temp\slide_1.jpg" />
+    <Content Include="Content\images\temp\slide_2.jpg" />
+    <Content Include="Content\images\temp\slide_3.jpg" />
     <Content Include="Content\images\temp\visa.jpg" />
     <Content Include="Content\images\temp\visa_1.jpg" />
     <Content Include="Content\images\temp\visa_2.jpg" />
@@ -221,6 +231,8 @@
     <Content Include="Content\images\users\contact_user_4_48x48.jpg" />
     <Content Include="Content\images\users\contact_user_5_48x48.jpg" />
     <Content Include="Content\images\users\contact_user_6_48x48.jpg" />
+    <Content Include="Content\images\users\contact_user_7_48x48.jpg" />
+    <Content Include="Content\images\users\contact_user_8_48x48.jpg" />
     <Content Include="Content\images\users\contact_user_default_48x48.jpg" />
     <Content Include="Content\images\users\header_user_1_32x32.jpg" />
     <Content Include="Content\images\users\header_user_2_32x32.jpg" />
@@ -231,6 +243,8 @@
     <Content Include="Content\images\viewer\thumb_2.jpg" />
     <Content Include="Content\images\viewer\thumb_3.jpg" />
     <Content Include="Content\img\apple-touch-icon-152x152.png" />
+    <Content Include="Content\img\backgrounds\bg_assist-drop.jpg" />
+    <Content Include="Content\img\backgrounds\bg_branches.jpg" />
     <Content Include="Content\img\backgrounds\bg_flower.jpg" />
     <Content Include="Content\img\backgrounds\bg_hosp-gallery.jpg" />
     <Content Include="Content\img\backgrounds\bg_main.jpg" />
@@ -299,6 +313,9 @@
     <Content Include="Content\img\in-base-64\icon_form-redact_gray.png" />
     <Content Include="Content\img\in-base-64\icon_map-pointer_light.png" />
     <Content Include="Content\img\in-base-64\icon_map-pointer_orange.png" />
+    <Content Include="Content\img\in-base-64\icon_message-file_white.png" />
+    <Content Include="Content\img\in-base-64\icon_message-send_white.png" />
+    <Content Include="Content\img\in-base-64\icon_message-smile_white.png" />
     <Content Include="Content\img\in-base-64\icon_minus_gray.png" />
     <Content Include="Content\img\in-base-64\icon_minus_white.png" />
     <Content Include="Content\img\in-base-64\icon_money_in.png" />
@@ -320,8 +337,12 @@
     <Content Include="Content\img\logo_big.png" />
     <Content Include="Content\img\logo_long.png" />
     <Content Include="Content\img\money-icons\beeline.png" />
+    <Content Include="Content\img\money-icons\kivi.png" />
+    <Content Include="Content\img\money-icons\megafon.png" />
+    <Content Include="Content\img\money-icons\mts.png" />
     <Content Include="Content\img\money-icons\sberbank.png" />
     <Content Include="Content\img\money-icons\webmoney.png" />
+    <Content Include="Content\img\money-icons\yad.png" />
     <Content Include="Content\img\operators\azerfon-nar.png" />
     <Content Include="Content\img\operators\bakucell.png" />
     <Content Include="Content\img\operators\beline.png" />
@@ -339,6 +360,18 @@
     <Content Include="Content\img\orders-icon.png" />
     <Content Include="Content\img\preloader.gif" />
     <Content Include="Content\img\preorder_yes.png" />
+    <Content Include="Content\img\smiles\smile_01.png" />
+    <Content Include="Content\img\smiles\smile_02.png" />
+    <Content Include="Content\img\smiles\smile_03.png" />
+    <Content Include="Content\img\smiles\smile_04.png" />
+    <Content Include="Content\img\smiles\smile_05.png" />
+    <Content Include="Content\img\smiles\smile_06.png" />
+    <Content Include="Content\img\smiles\smile_07.png" />
+    <Content Include="Content\img\smiles\smile_08.png" />
+    <Content Include="Content\img\smiles\smile_09.png" />
+    <Content Include="Content\img\smiles\smile_10.png" />
+    <Content Include="Content\img\smiles\smile_11.png" />
+    <Content Include="Content\img\smiles\smile_12.png" />
     <Content Include="Content\img\userpics\no_photo_1.jpg" />
     <Content Include="Content\img\userpics\no_photo_2.jpg" />
     <Content Include="Content\img\userpics\no_photo_3.jpg" />
@@ -365,6 +398,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Scripts\jquery.ndeti.js" />
+    <Content Include="Scripts\jquery.chat.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -379,6 +413,7 @@
     <Content Include="Scripts\plugins\jquery.jscrollpane.min.js" />
     <Content Include="Scripts\plugins\jquery.maskedinput.min.js" />
     <Content Include="Scripts\plugins\jquery.mousewheel.js" />
+    <Content Include="Scripts\plugins\jquery.nanoscroller.min.js" />
     <Content Include="Scripts\plugins\jquery.parallax.js" />
     <Content Include="Scripts\plugins\jquery.scroolly.min.js" />
     <Content Include="Scripts\plugins\jquery.swipebox.min.js" />
@@ -423,6 +458,7 @@
     <Compile Include="Models\DocItem.cs" />
     <Compile Include="Models\PacientDataSoruce.cs" />
     <Compile Include="Models\PhotoItem.cs" />
+    <Compile Include="Models\MessagesUserModel.cs" />
     <Compile Include="Models\PostModel.cs" />
     <Compile Include="Models\SocialLinksModel.cs" />
     <Compile Include="Models\SputnikDataSoruce.cs" />
@@ -524,6 +560,8 @@
     <Content Include="Views\Procedure\Electric.cshtml" />
     <Content Include="Views\Procedure\Massage.cshtml" />
     <Content Include="Views\Procedure\PtPhysical.cshtml" />
+    <Content Include="Views\Cabinet\_MessagesUsers.cshtml" />
+    <Content Include="Views\Cabinet\_Messages.cshtml" />
     <None Include="Views\Medicine\Human.cshtml" />
     <Content Include="Views\Procedure\OtOccupational.cshtml" />
     <Content Include="Views\Procedure\StSpeech.cshtml" />

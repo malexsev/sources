@@ -41,11 +41,98 @@ namespace Cure.WebSite.Controllers
             return View(ViewBag.Profile);
         }
 
+        // Сообщения
         public ActionResult Messages()
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View();
         }
 
+        [HttpPost]
+        public JsonResult GetUnreadCount()
+        {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Json("0", JsonRequestBehavior.AllowGet);
+            }
+
+            string username = User.Identity.Name;
+            var dal = new DataAccessBL();
+            dal.BringOnlineUser(username);
+            int count = dal.GetUnreadCount(username);
+            return Json(count.ToString(CultureInfo.InvariantCulture), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public PartialViewResult GetContacts(string contact)
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                var dal = new DataAccessBL();
+                if (contact == "undefined")
+                {
+                    contact = string.Empty;
+                }
+
+                var contactViews = dal.GetContacts(User.Identity.Name, contact).Select(x => new MessagesUserModel(x, SiteUtils.ParseBool(x.IsOnline, false), SiteUtils.ParseBool(x.IsAdmin, false), x.LastMessageText, SiteUtils.ParseDate(x.LastMessageDate, DateTime.Now, "ru-RU")));
+
+                return PartialView("_MessagesUsers", contactViews);
+            }
+
+            return PartialView("_MessagesUsers");
+        }
+
+        [HttpPost]
+        public PartialViewResult GetMessages(string contact)
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                var dal = new DataAccessBL();
+                if (contact == "undefined")
+                {
+                    contact = string.Empty;
+                }
+
+                var messages = dal.GetMyMessages(User.Identity.Name, contact);
+
+                return PartialView("_Messages", messages);
+            }
+
+            return PartialView("_Messages");
+        }
+
+        [HttpPost]
+        public void SendMessage(string text, string contact)
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                var dal = new DataAccessBL();
+
+                var contactView = dal.ViewChild(contact);
+                var myView = dal.ViewChild(User.Identity.Name);
+                if (contactView != null && myView != null)
+                {
+                    var msg = new Message()
+                    {
+                        FromDisplay = myView.ContactName,
+                        FromUserName = User.Identity.Name,
+                        SendTime = DateTime.Now,
+                        Subject = "Чат",
+                        Text = text,
+                        ToDisplay = contactView.ContactName,
+                        ToUserName = contact,
+                        Unread = true
+                    };
+                    dal.InsertMessage(msg);
+                }
+            }
+        }
+
+
+        // Остальное
         [HttpPost]
         public JsonResult ChangeEmail(string email)
         {

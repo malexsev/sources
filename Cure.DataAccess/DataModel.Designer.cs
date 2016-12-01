@@ -540,22 +540,6 @@ namespace Cure.DataAccess
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Message> Messages
-        {
-            get
-            {
-                if ((_Messages == null))
-                {
-                    _Messages = base.CreateObjectSet<Message>("Messages");
-                }
-                return _Messages;
-            }
-        }
-        private ObjectSet<Message> _Messages;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<ViewSoonVisit> ViewSoonVisits
         {
             get
@@ -680,6 +664,54 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<Weather> _Weathers;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Message> Messages
+        {
+            get
+            {
+                if ((_Messages == null))
+                {
+                    _Messages = base.CreateObjectSet<Message>("Messages");
+                }
+                return _Messages;
+            }
+        }
+        private ObjectSet<Message> _Messages;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<OnlineUser> OnlineUsers
+        {
+            get
+            {
+                if ((_OnlineUsers == null))
+                {
+                    _OnlineUsers = base.CreateObjectSet<OnlineUser>("OnlineUsers");
+                }
+                return _OnlineUsers;
+            }
+        }
+        private ObjectSet<OnlineUser> _OnlineUsers;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<ViewRecipient> ViewRecipients
+        {
+            get
+            {
+                if ((_ViewRecipients == null))
+                {
+                    _ViewRecipients = base.CreateObjectSet<ViewRecipient>("ViewRecipients");
+                }
+                return _ViewRecipients;
+            }
+        }
+        private ObjectSet<ViewRecipient> _ViewRecipients;
 
         #endregion
 
@@ -902,14 +934,6 @@ namespace Cure.DataAccess
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Messages EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToMessages(Message message)
-        {
-            base.AddObject("Messages", message);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the ViewSoonVisits EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToViewSoonVisits(ViewSoonVisit viewSoonVisit)
@@ -971,6 +995,102 @@ namespace Cure.DataAccess
         public void AddToWeathers(Weather weather)
         {
             base.AddObject("Weathers", weather);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Messages EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToMessages(Message message)
+        {
+            base.AddObject("Messages", message);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the OnlineUsers EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToOnlineUsers(OnlineUser onlineUser)
+        {
+            base.AddObject("OnlineUsers", onlineUser);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the ViewRecipients EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToViewRecipients(ViewRecipient viewRecipient)
+        {
+            base.AddObject("ViewRecipients", viewRecipient);
+        }
+
+        #endregion
+
+        #region Function Imports
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public int sp_ClearOnlineUsers()
+        {
+            return base.ExecuteFunction("sp_ClearOnlineUsers");
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="userName">No Metadata Documentation available.</param>
+        /// <param name="contact">No Metadata Documentation available.</param>
+        public ObjectResult<ViewRecipient> sp_GetMyContacts(global::System.String userName, global::System.String contact)
+        {
+            ObjectParameter userNameParameter;
+            if (userName != null)
+            {
+                userNameParameter = new ObjectParameter("UserName", userName);
+            }
+            else
+            {
+                userNameParameter = new ObjectParameter("UserName", typeof(global::System.String));
+            }
+    
+            ObjectParameter contactParameter;
+            if (contact != null)
+            {
+                contactParameter = new ObjectParameter("Contact", contact);
+            }
+            else
+            {
+                contactParameter = new ObjectParameter("Contact", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction<ViewRecipient>("sp_GetMyContacts", userNameParameter, contactParameter);
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="mergeOption"></param>
+        /// <param name="userName">No Metadata Documentation available.</param>
+        /// <param name="contact">No Metadata Documentation available.</param>
+        public ObjectResult<ViewRecipient> sp_GetMyContacts(global::System.String userName, global::System.String contact, MergeOption mergeOption)
+        {
+            ObjectParameter userNameParameter;
+            if (userName != null)
+            {
+                userNameParameter = new ObjectParameter("UserName", userName);
+            }
+            else
+            {
+                userNameParameter = new ObjectParameter("UserName", typeof(global::System.String));
+            }
+    
+            ObjectParameter contactParameter;
+            if (contact != null)
+            {
+                contactParameter = new ObjectParameter("Contact", contact);
+            }
+            else
+            {
+                contactParameter = new ObjectParameter("Contact", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction<ViewRecipient>("sp_GetMyContacts", mergeOption, userNameParameter, contactParameter);
         }
 
         #endregion
@@ -5836,6 +5956,30 @@ namespace Cure.DataAccess
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> Unread
+        {
+            get
+            {
+                return _Unread;
+            }
+            set
+            {
+                OnUnreadChanging(value);
+                ReportPropertyChanging("Unread");
+                _Unread = StructuralObject.SetValidValue(value, "Unread");
+                ReportPropertyChanged("Unread");
+                OnUnreadChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _Unread;
+        partial void OnUnreadChanging(Nullable<global::System.Boolean> value);
+        partial void OnUnreadChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime SendTime
@@ -6362,6 +6506,138 @@ namespace Cure.DataAccess
         private global::System.String _Contacts;
         partial void OnContactsChanging(global::System.String value);
         partial void OnContactsChanged();
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="OnlineUser")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class OnlineUser : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new OnlineUser object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="username">Initial value of the Username property.</param>
+        /// <param name="lastDate">Initial value of the LastDate property.</param>
+        public static OnlineUser CreateOnlineUser(global::System.Int32 id, global::System.String username, global::System.DateTime lastDate)
+        {
+            OnlineUser onlineUser = new OnlineUser();
+            onlineUser.Id = id;
+            onlineUser.Username = username;
+            onlineUser.LastDate = lastDate;
+            return onlineUser;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value, "Id");
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Username
+        {
+            get
+            {
+                return _Username;
+            }
+            set
+            {
+                OnUsernameChanging(value);
+                ReportPropertyChanging("Username");
+                _Username = StructuralObject.SetValidValue(value, false, "Username");
+                ReportPropertyChanged("Username");
+                OnUsernameChanged();
+            }
+        }
+        private global::System.String _Username;
+        partial void OnUsernameChanging(global::System.String value);
+        partial void OnUsernameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime LastDate
+        {
+            get
+            {
+                return _LastDate;
+            }
+            set
+            {
+                OnLastDateChanging(value);
+                ReportPropertyChanging("LastDate");
+                _LastDate = StructuralObject.SetValidValue(value, "LastDate");
+                ReportPropertyChanged("LastDate");
+                OnLastDateChanged();
+            }
+        }
+        private global::System.DateTime _LastDate;
+        partial void OnLastDateChanging(global::System.DateTime value);
+        partial void OnLastDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Details
+        {
+            get
+            {
+                return _Details;
+            }
+            set
+            {
+                OnDetailsChanging(value);
+                ReportPropertyChanging("Details");
+                _Details = StructuralObject.SetValidValue(value, true, "Details");
+                ReportPropertyChanged("Details");
+                OnDetailsChanged();
+            }
+        }
+        private global::System.String _Details;
+        partial void OnDetailsChanging(global::System.String value);
+        partial void OnDetailsChanged();
 
         #endregion
 
@@ -13654,6 +13930,454 @@ namespace Cure.DataAccess
         private Nullable<global::System.Int32> _ChildId;
         partial void OnChildIdChanging(Nullable<global::System.Int32> value);
         partial void OnChildIdChanged();
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="ViewRecipient")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class ViewRecipient : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new ViewRecipient object.
+        /// </summary>
+        /// <param name="userName">Initial value of the UserName property.</param>
+        /// <param name="isApproved">Initial value of the IsApproved property.</param>
+        /// <param name="isLockedOut">Initial value of the IsLockedOut property.</param>
+        /// <param name="lastMessageText">Initial value of the LastMessageText property.</param>
+        /// <param name="lastMessageDate">Initial value of the LastMessageDate property.</param>
+        public static ViewRecipient CreateViewRecipient(global::System.String userName, global::System.Boolean isApproved, global::System.Boolean isLockedOut, global::System.String lastMessageText, global::System.DateTime lastMessageDate)
+        {
+            ViewRecipient viewRecipient = new ViewRecipient();
+            viewRecipient.UserName = userName;
+            viewRecipient.IsApproved = isApproved;
+            viewRecipient.IsLockedOut = isLockedOut;
+            viewRecipient.LastMessageText = lastMessageText;
+            viewRecipient.LastMessageDate = lastMessageDate;
+            return viewRecipient;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String UserName
+        {
+            get
+            {
+                return _UserName;
+            }
+            set
+            {
+                if (_UserName != value)
+                {
+                    OnUserNameChanging(value);
+                    ReportPropertyChanging("UserName");
+                    _UserName = StructuralObject.SetValidValue(value, false, "UserName");
+                    ReportPropertyChanged("UserName");
+                    OnUserNameChanged();
+                }
+            }
+        }
+        private global::System.String _UserName;
+        partial void OnUserNameChanging(global::System.String value);
+        partial void OnUserNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Email
+        {
+            get
+            {
+                return _Email;
+            }
+            set
+            {
+                OnEmailChanging(value);
+                ReportPropertyChanging("Email");
+                _Email = StructuralObject.SetValidValue(value, true, "Email");
+                ReportPropertyChanged("Email");
+                OnEmailChanged();
+            }
+        }
+        private global::System.String _Email;
+        partial void OnEmailChanging(global::System.String value);
+        partial void OnEmailChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsApproved
+        {
+            get
+            {
+                return _IsApproved;
+            }
+            set
+            {
+                OnIsApprovedChanging(value);
+                ReportPropertyChanging("IsApproved");
+                _IsApproved = StructuralObject.SetValidValue(value, "IsApproved");
+                ReportPropertyChanged("IsApproved");
+                OnIsApprovedChanged();
+            }
+        }
+        private global::System.Boolean _IsApproved;
+        partial void OnIsApprovedChanging(global::System.Boolean value);
+        partial void OnIsApprovedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsLockedOut
+        {
+            get
+            {
+                return _IsLockedOut;
+            }
+            set
+            {
+                OnIsLockedOutChanging(value);
+                ReportPropertyChanging("IsLockedOut");
+                _IsLockedOut = StructuralObject.SetValidValue(value, "IsLockedOut");
+                ReportPropertyChanged("IsLockedOut");
+                OnIsLockedOutChanged();
+            }
+        }
+        private global::System.Boolean _IsLockedOut;
+        partial void OnIsLockedOutChanging(global::System.Boolean value);
+        partial void OnIsLockedOutChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> ChildId
+        {
+            get
+            {
+                return _ChildId;
+            }
+            set
+            {
+                OnChildIdChanging(value);
+                ReportPropertyChanging("ChildId");
+                _ChildId = StructuralObject.SetValidValue(value, "ChildId");
+                ReportPropertyChanged("ChildId");
+                OnChildIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _ChildId;
+        partial void OnChildIdChanging(Nullable<global::System.Int32> value);
+        partial void OnChildIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Guid> GuidId
+        {
+            get
+            {
+                return _GuidId;
+            }
+            set
+            {
+                OnGuidIdChanging(value);
+                ReportPropertyChanging("GuidId");
+                _GuidId = StructuralObject.SetValidValue(value, "GuidId");
+                ReportPropertyChanged("GuidId");
+                OnGuidIdChanged();
+            }
+        }
+        private Nullable<global::System.Guid> _GuidId;
+        partial void OnGuidIdChanging(Nullable<global::System.Guid> value);
+        partial void OnGuidIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ChildName
+        {
+            get
+            {
+                return _ChildName;
+            }
+            set
+            {
+                OnChildNameChanging(value);
+                ReportPropertyChanging("ChildName");
+                _ChildName = StructuralObject.SetValidValue(value, true, "ChildName");
+                ReportPropertyChanged("ChildName");
+                OnChildNameChanged();
+            }
+        }
+        private global::System.String _ChildName;
+        partial void OnChildNameChanging(global::System.String value);
+        partial void OnChildNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ContactName
+        {
+            get
+            {
+                return _ContactName;
+            }
+            set
+            {
+                OnContactNameChanging(value);
+                ReportPropertyChanging("ContactName");
+                _ContactName = StructuralObject.SetValidValue(value, true, "ContactName");
+                ReportPropertyChanged("ContactName");
+                OnContactNameChanged();
+            }
+        }
+        private global::System.String _ContactName;
+        partial void OnContactNameChanging(global::System.String value);
+        partial void OnContactNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> Birthday
+        {
+            get
+            {
+                return _Birthday;
+            }
+            set
+            {
+                OnBirthdayChanging(value);
+                ReportPropertyChanging("Birthday");
+                _Birthday = StructuralObject.SetValidValue(value, "Birthday");
+                ReportPropertyChanged("Birthday");
+                OnBirthdayChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _Birthday;
+        partial void OnBirthdayChanging(Nullable<global::System.DateTime> value);
+        partial void OnBirthdayChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> IsActive
+        {
+            get
+            {
+                return _IsActive;
+            }
+            set
+            {
+                OnIsActiveChanging(value);
+                ReportPropertyChanging("IsActive");
+                _IsActive = StructuralObject.SetValidValue(value, "IsActive");
+                ReportPropertyChanged("IsActive");
+                OnIsActiveChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _IsActive;
+        partial void OnIsActiveChanging(Nullable<global::System.Boolean> value);
+        partial void OnIsActiveChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String FileName
+        {
+            get
+            {
+                return _FileName;
+            }
+            set
+            {
+                OnFileNameChanging(value);
+                ReportPropertyChanging("FileName");
+                _FileName = StructuralObject.SetValidValue(value, true, "FileName");
+                ReportPropertyChanged("FileName");
+                OnFileNameChanged();
+            }
+        }
+        private global::System.String _FileName;
+        partial void OnFileNameChanging(global::System.String value);
+        partial void OnFileNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String OwnerUserPic
+        {
+            get
+            {
+                return _OwnerUserPic;
+            }
+            set
+            {
+                OnOwnerUserPicChanging(value);
+                ReportPropertyChanging("OwnerUserPic");
+                _OwnerUserPic = StructuralObject.SetValidValue(value, true, "OwnerUserPic");
+                ReportPropertyChanged("OwnerUserPic");
+                OnOwnerUserPicChanged();
+            }
+        }
+        private global::System.String _OwnerUserPic;
+        partial void OnOwnerUserPicChanging(global::System.String value);
+        partial void OnOwnerUserPicChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String OwnerAvaFile
+        {
+            get
+            {
+                return _OwnerAvaFile;
+            }
+            set
+            {
+                OnOwnerAvaFileChanging(value);
+                ReportPropertyChanging("OwnerAvaFile");
+                _OwnerAvaFile = StructuralObject.SetValidValue(value, true, "OwnerAvaFile");
+                ReportPropertyChanged("OwnerAvaFile");
+                OnOwnerAvaFileChanged();
+            }
+        }
+        private global::System.String _OwnerAvaFile;
+        partial void OnOwnerAvaFileChanging(global::System.String value);
+        partial void OnOwnerAvaFileChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IsOnline
+        {
+            get
+            {
+                return _IsOnline;
+            }
+            set
+            {
+                OnIsOnlineChanging(value);
+                ReportPropertyChanging("IsOnline");
+                _IsOnline = StructuralObject.SetValidValue(value, "IsOnline");
+                ReportPropertyChanged("IsOnline");
+                OnIsOnlineChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IsOnline;
+        partial void OnIsOnlineChanging(Nullable<global::System.Int32> value);
+        partial void OnIsOnlineChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> IsAdmin
+        {
+            get
+            {
+                return _IsAdmin;
+            }
+            set
+            {
+                OnIsAdminChanging(value);
+                ReportPropertyChanging("IsAdmin");
+                _IsAdmin = StructuralObject.SetValidValue(value, "IsAdmin");
+                ReportPropertyChanged("IsAdmin");
+                OnIsAdminChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _IsAdmin;
+        partial void OnIsAdminChanging(Nullable<global::System.Int32> value);
+        partial void OnIsAdminChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String LastMessageText
+        {
+            get
+            {
+                return _LastMessageText;
+            }
+            set
+            {
+                OnLastMessageTextChanging(value);
+                ReportPropertyChanging("LastMessageText");
+                _LastMessageText = StructuralObject.SetValidValue(value, false, "LastMessageText");
+                ReportPropertyChanged("LastMessageText");
+                OnLastMessageTextChanged();
+            }
+        }
+        private global::System.String _LastMessageText;
+        partial void OnLastMessageTextChanging(global::System.String value);
+        partial void OnLastMessageTextChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime LastMessageDate
+        {
+            get
+            {
+                return _LastMessageDate;
+            }
+            set
+            {
+                OnLastMessageDateChanging(value);
+                ReportPropertyChanging("LastMessageDate");
+                _LastMessageDate = StructuralObject.SetValidValue(value, "LastMessageDate");
+                ReportPropertyChanged("LastMessageDate");
+                OnLastMessageDateChanged();
+            }
+        }
+        private global::System.DateTime _LastMessageDate;
+        partial void OnLastMessageDateChanging(global::System.DateTime value);
+        partial void OnLastMessageDateChanged();
 
         #endregion
 

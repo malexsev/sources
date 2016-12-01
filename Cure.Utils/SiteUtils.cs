@@ -169,7 +169,18 @@
             bool result;
             if (!Boolean.TryParse(originValue.ToString(), out result))
             {
-                result = defaultValue;
+                if (originValue.ToString() == "0")
+                {
+                    result = false;
+                }
+                else if (originValue.ToString() == "1")
+                {
+                    result = true;
+                }
+                else
+                {
+                    result = defaultValue;
+                }
             }
             return result;
         }

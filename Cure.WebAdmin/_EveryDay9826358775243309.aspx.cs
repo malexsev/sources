@@ -24,6 +24,7 @@
                 notifyUsers.Send();
                 DataTable data = CurrencyUtils.GetRates(dataAccess.GetCurrencies().Select(o => o.Name).ToList());
                 dataAccess.UpdateCurrencyRates(data, SiteUtils.GetCurrentUserName());
+                WeatherUtils.ParseWeather();
             }
         }
     }

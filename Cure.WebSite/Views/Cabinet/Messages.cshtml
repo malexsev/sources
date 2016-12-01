@@ -3,4 +3,70 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h3>Мои сообщения. В разработке.</h3>
+<div class="main has-gray-bg chat-page" role="main">
+    <div class="container">
+        <div class="chat-wrap">
+            <div class="chat-head">
+                <a class="chat-toggle js-chat-toggle" role="button"></a>
+                <div class="chat-left">
+                    <div class="chat-head-search">
+                        <input class="_search-input" type="text">
+                        <input class="_search-clean" type="button">
+                        <input class="_search-start" type="button">
+                    </div>
+                </div>
+                <div class="chat-right">
+                    <div class="chat-head-name">Елена Матвеева (Татьяна)</div>
+                    <div class="chat-head-stat">в сети</div>
+                </div>
+            </div>
+            <div class="chat-body">
+                <input id="active-contact-id" type="hidden"/>
+                <input id="active-contact-userpic" type="hidden" />
+                <div class="chat-left nano js-chat-scroller">
+                    <div id="chat-contacts-list" class="chat-users nano-content">
+                        @*@Html.Partial("_MessagesUsers")*@
+                    </div>
+                </div><!-- END chat-left -->
+
+                <div class="chat-right">
+                    <div class="chat-log nano js-chat-scroller">
+                        <div id="chat-messages" class="chat-log-scroll nano-content">
+                            @*@Html.Partial("_Messages")*@
+                        </div>
+                    </div>
+                    <div class="chat-form">
+                        <div class="chat-form-send">
+                            <input class="chat-form-send-btn" type="button">
+                        </div>
+                        <div class="chat-form-wrap">
+                            <div class="chat-form-btns">
+                                <a class="chat-form-btn btn-smiles js-form-smiles-toggle" role="button"></a>
+                                <div class="chat-form-btn btn-files">
+                                    <input class="js-chat-file" type="file">
+                                </div>
+                                <ul class="chat-form-smiles" id="form-smiles">
+                                    <li data-type="smile_01"><img src="~/Content/img/smiles/smile_01.png" alt="__"></li>
+                                    <li data-type="smile_02"><img src="~/Content/img/smiles/smile_02.png" alt="__"></li>
+                                    <li data-type="smile_03"><img src="~/Content/img/smiles/smile_03.png" alt="__"></li>
+                                    <li data-type="smile_04"><img src="~/Content/img/smiles/smile_04.png" alt="__"></li>
+                                    <li data-type="smile_05"><img src="~/Content/img/smiles/smile_05.png" alt="__"></li>
+                                    <li data-type="smile_06"><img src="~/Content/img/smiles/smile_06.png" alt="__"></li>
+                                    <li data-type="smile_07"><img src="~/Content/img/smiles/smile_07.png" alt="__"></li>
+                                    <li data-type="smile_08"><img src="~/Content/img/smiles/smile_08.png" alt="__"></li>
+                                    <li data-type="smile_09"><img src="~/Content/img/smiles/smile_09.png" alt="__"></li>
+                                    <li data-type="smile_10"><img src="~/Content/img/smiles/smile_10.png" alt="__"></li>
+                                    <li data-type="smile_11"><img src="~/Content/img/smiles/smile_11.png" alt="__"></li>
+                                    <li data-type="smile_12"><img src="~/Content/img/smiles/smile_12.png" alt="__"></li>
+                                </ul>
+                            </div>
+                            <div class="chat-form-input-wrap">
+                                <textarea class="chat-form-input"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- END chat-right -->
+            </div>
+        </div>
+    </div><!-- END container -->
+</div>

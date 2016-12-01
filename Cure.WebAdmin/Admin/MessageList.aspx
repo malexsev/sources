@@ -50,6 +50,8 @@
                     </PropertiesMemoEdit>
                     <EditFormSettings ColumnSpan="2" Visible="True" />
                 </dx:GridViewDataMemoColumn>
+                <dx:GridViewDataCheckColumn Caption="Непрочитано" FieldName="Unread" VisibleIndex="11" Width="80px">
+                </dx:GridViewDataCheckColumn>
             </Columns>
         </dx:ASPxGridView>
 

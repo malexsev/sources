@@ -2,6 +2,7 @@
 {
     using System;
     using System.Web;
+    using DataAccess.BLL;
     using Notification;
     using Utils;
 
@@ -15,7 +16,8 @@
                 notify.Send();
                 var notifyEmail = new Before2HoursEmailNotification(new HttpServerUtilityWrapper(this.Server));
                 notifyEmail.Send();
-                WeatherUtils.ParseWeather();
+                var dataAccess = new DataAccessBL();
+                dataAccess.ClearOnlineUsers();
             }
         }
     }

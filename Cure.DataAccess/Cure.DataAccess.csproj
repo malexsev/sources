@@ -51,6 +51,7 @@
     <Compile Include="BLL\CurrencyBL.cs" />
     <Compile Include="BLL\CurrencyRateBL.cs" />
     <Compile Include="BLL\MensionBL.cs" />
+    <Compile Include="BLL\OnlineUserBL.cs" />
     <Compile Include="BLL\WeatherBL.cs" />
     <Compile Include="BLL\PostBL.cs" />
     <Compile Include="BLL\MessageBL.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="DAL\ChildAvaFileAccess.cs" />
     <Compile Include="DAL\ChildHideFileAccess.cs" />
     <Compile Include="DAL\MensionAccess.cs" />
+    <Compile Include="DAL\OnlineUserAccess.cs" />
     <Compile Include="DAL\WeatherAccess.cs" />
     <Compile Include="DAL\PostAccess.cs" />
     <Compile Include="DAL\MessageAccess.cs" />

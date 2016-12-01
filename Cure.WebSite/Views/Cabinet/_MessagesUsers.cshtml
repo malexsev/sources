@@ -1,0 +1,26 @@
+﻿@using Cure.WebSite.Models
+@model IEnumerable<Cure.WebSite.Models.MessagesUserModel>
+
+@foreach (MessagesUserModel user in Model)
+{
+    <div class="chat-user">
+        <div class="chat-user-info">
+            <div class="chat-user-imgs">
+                <div class="chat-user-img @user.OnlineModifier">
+                    <img src="@user.UserpicUrl" alt="@user.ContactName">
+                </div>
+                <div class="chat-user-img">
+                    <img src="@user.ChildAvaUrl" alt="@user.ChildName">
+                </div>
+            </div>
+            <div class="chat-user-txt">
+                <div class="chat-user-name">@user.ContactName</div>
+                <div class="chat-user-post">@Html.Raw(user.IsAdmin ? "Администратор" : (string.IsNullOrEmpty(user.ChildName) ? "" : string.Format("({0})", user.ChildName))) </div>
+                <div class="chat-user-date">@Html.Raw(user.LastMessageDate.ToString("dd-MM-yyyy H:mm"))</div>
+            </div>
+        </div>
+        <div class="chat-user-note">@Html.Raw(user.LastMessageText)</div>
+        <a class="chat-user-show js-chat-user-show" role="button" data-username="@user.Username" data-userpic="@user.UserpicUrl"></a>
+        <a class="chat-user-close js-chat-user-close" role="button" data-username="@user.Username" data-userpic="@user.UserpicUrl"></a>
+    </div>
+}
