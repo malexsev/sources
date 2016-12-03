@@ -31,14 +31,7 @@ namespace Cure.WebSite.Models
             this.ContactName = view.ContactName;
             this.OnlineModifier = isOnline ? "is-online" : string.Empty;
             this.IsAdmin = isAdmin;
-            if (lastMessageText.Length > 26)
-            {
-                this.LastMessageText = lastMessageText.Substring(0, 25) + "...";
-            }
-            else
-            {
-                this.LastMessageText = string.IsNullOrEmpty(lastMessageText) ? "Пока нет сообщений" : lastMessageText;
-            }
+            this.LastMessageText = string.IsNullOrEmpty(lastMessageText) ? "Пока нет сообщений" : lastMessageText;
             this.LastMessageDate = lastMessageDate.Year < 2016 ? DateTime.Now : lastMessageDate;
             this.ChildName = view.ChildName;
             this.UserpicUrl =

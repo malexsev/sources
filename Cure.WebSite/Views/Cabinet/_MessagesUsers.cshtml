@@ -16,11 +16,15 @@
             <div class="chat-user-txt">
                 <div class="chat-user-name">@user.ContactName</div>
                 <div class="chat-user-post">@Html.Raw(user.IsAdmin ? "Администратор" : (string.IsNullOrEmpty(user.ChildName) ? "" : string.Format("({0})", user.ChildName))) </div>
-                <div class="chat-user-date">@Html.Raw(user.LastMessageDate.ToString("dd-MM-yyyy H:mm"))</div>
+                <div class="chat-user-date">@Html.Raw(user.LastMessageDate.ToString("dd-MM-yyyy"))</div>
             </div>
         </div>
         <div class="chat-user-note">@Html.Raw(user.LastMessageText)</div>
-        <a class="chat-user-show js-chat-user-show" role="button" data-username="@user.Username" data-userpic="@user.UserpicUrl"></a>
-        <a class="chat-user-close js-chat-user-close" role="button" data-username="@user.Username" data-userpic="@user.UserpicUrl"></a>
+        <a class="chat-user-show js-chat-user-show" role="button"
+           data-username="@user.Username"
+           data-userpic="@user.UserpicUrl"
+           data-userdisplay="@Html.Raw(user.IsAdmin ? "Администратор" : (string.IsNullOrEmpty(user.ChildName) ? "" : string.Format("{0} ({1})", user.ContactName, user.ChildName)))"
+           data-useronline="@Html.Raw(user.OnlineModifier.Replace("is-online", "в сети"))"></a>
+        <a class="chat-user-close js-chat-user-close" role="button" data-username="@user.Username"></a>
     </div>
 }

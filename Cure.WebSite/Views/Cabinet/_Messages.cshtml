@@ -1,4 +1,5 @@
 ﻿@using Cure.DataAccess
+@using Cure.Utils
 @using Cure.WebSite.Models
 @model IEnumerable<Cure.DataAccess.Message>
 
@@ -15,7 +16,7 @@
         <div class="chat-message-img">
             <img class="@Html.Raw(message.FromUserName == User.Identity.Name ? "my-userpic" : "incoming-userpic")" alt="@message.FromDisplay">
         </div>
-        <div class="chat-message-txt">@message.Text</div>
+        <div class="chat-message-txt">@Html.Raw(SiteUtils.ReplaceSmiles(message.Text))</div>
     </div>
 }
 

@@ -17,6 +17,23 @@
 
     public class SiteUtils
     {
+        public static string ReplaceSmiles(string text)
+        {
+            return text.Replace(":)", "<img src='/Content/img/smiles/smile_01.png' alt='__'>")
+                .Replace(":D", "<img src='/Content/img/smiles/smile_02.png' alt='__'>")
+                .Replace(";)", "<img src='/Content/img/smiles/smile_03.png' alt='__'>")
+                .Replace(":angel:", "<img src='/Content/img/smiles/smile_04.png' alt='__'>")
+                .Replace(":*", "<img src='/Content/img/smiles/smile_05.png' alt='__'>")
+                .Replace(":(", "<img src='/Content/img/smiles/smile_06.png' alt='__'>")
+                .Replace(":tears:", "<img src='/Content/img/smiles/smile_07.png' alt='__'>")
+                .Replace(":devil:", "<img src='/Content/img/smiles/smile_08.png' alt='__'>")
+                .Replace(":hate:", "<img src='/Content/img/smiles/smile_09.png' alt='__'>")
+                .Replace(":like:", "<img src='/Content/img/smiles/smile_10.png' alt='__'>")
+                .Replace(":dislike:", "<img src='/Content/img/smiles/smile_11.png' alt='__'>")
+                .Replace(":love:", "<img src='/Content/img/smiles/smile_12.png' alt='__'>");
+
+        }
+
         public static string GetUserUserpic(string userpicUrl,
             Guid? guid,
             string filename)

@@ -10,13 +10,16 @@
     <div class="container">
         <div class="all-pages-head">
             <div class="row">
-                <div class="col-lg-7">
+                <div class="col-lg-10">
                     <h1 class="all-pages-H1">@Model.Name <span class="subtitle">@Model.Age,<br /> @Model.CountryName@Html.Raw(string.IsNullOrEmpty(Model.Region) ? "" : ", ") @Model.Region</span></h1>
                 </div>
-                <div class="col-lg-5">
+                <div class="col-lg-2">
                     @*<div class="head-btns mob-md-mw-313">*@
                     @*<a class="btn btn-white has-shadow ico-seti btn-two-lines">Поделиться<br>в соцсетях</a>*@
-                    <a href="@Url.Action("Messages", "Cabinet", new {contact = Model.OwnerUser})" class="btn btn-white has-shadow ico-mail btn-two-lines">Написать<br>сообщение</a>
+                    @if (User.Identity.IsAuthenticated && User.Identity.Name != Model.OwnerUser)
+                    {
+                        <a href="@Url.Action("Messages", "Cabinet", new {contact = Model.OwnerUser})" class="btn btn-white has-shadow ico-mail btn-two-lines">Написать<br>сообщение</a>
+                    }
                     @*<a class="btn btn-orang has-shadow ico-help">Оказать помощь</a>*@
                     @*</div>*@
                 </div>
