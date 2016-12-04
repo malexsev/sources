@@ -63,7 +63,12 @@ namespace Cure.WebSite.Controllers
             bool res = user != null;
             if (res)
             {
-                var notification = new RecoveryToUserEmailNotification(user.UserName, user.ResetPassword());
+                var tempPassword = user.ResetPassword();
+                var newPassword = Membership.GeneratePassword(
+                           Membership.MinRequiredPasswordLength,
+                           Membership.MinRequiredNonAlphanumericCharacters);
+                user.ChangePassword(tempPassword, newPassword);
+                var notification = new RecoveryToUserEmailNotification(user.UserName, newPassword);
                 notification.Send();
             }
             return Json(res ? "1" : "0", JsonRequestBehavior.AllowGet);

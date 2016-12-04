@@ -65,6 +65,7 @@ namespace Cure.WebSite.Models
         {
             if (child != null)
             {
+                this.UserId = child.UserId;
                 this.BankBik = child.BankBik;
                 this.BankCountryName = child.BankCountryName;
                 this.BankDescription = child.BankDescription;

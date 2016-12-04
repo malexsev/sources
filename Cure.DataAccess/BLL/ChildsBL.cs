@@ -5,6 +5,11 @@
 
     public partial class DataAccessBL
     {
+        public Child GetChildByUid(Guid childUid)
+        {
+            return dataRepository.GetChildByUid(childUid);
+        }
+
         public ViewChild ViewChild(string ownerUser)
         {
             var view = dataRepository.ViewChild(ownerUser);

@@ -21,10 +21,11 @@
         </div>
         <div class="chat-user-note">@Html.Raw(user.LastMessageText)</div>
         <a class="chat-user-show js-chat-user-show" role="button"
-           data-username="@user.Username"
+           data-username="@user.Username" s
            data-userpic="@user.UserpicUrl"
-           data-userdisplay="@Html.Raw(user.IsAdmin ? "Администратор" : (string.IsNullOrEmpty(user.ChildName) ? "" : string.Format("{0} ({1})", user.ContactName, user.ChildName)))"
-           data-useronline="@Html.Raw(user.OnlineModifier.Replace("is-online", "в сети"))"></a>
+           data-userdisplay="@user.UserDisplay"
+           data-useronline="@user.OnlineModifierRu"
+           data-userid="@user.UserId.ToString()"></a>
         <a class="chat-user-close js-chat-user-close" role="button" data-username="@user.Username"></a>
     </div>
 }

@@ -18,7 +18,7 @@
                     @*<a class="btn btn-white has-shadow ico-seti btn-two-lines">Поделиться<br>в соцсетях</a>*@
                     @if (User.Identity.IsAuthenticated && User.Identity.Name != Model.OwnerUser)
                     {
-                        <a href="@Url.Action("Messages", "Cabinet", new {contact = Model.OwnerUser})" class="btn btn-white has-shadow ico-mail btn-two-lines">Написать<br>сообщение</a>
+                        <a href="@Url.Action("Messages", "Cabinet", new {contact = Model.UserId.ToString()})" class="btn btn-white has-shadow ico-mail btn-two-lines">Написать<br>сообщение</a>
                     }
                     @*<a class="btn btn-orang has-shadow ico-help">Оказать помощь</a>*@
                     @*</div>*@
@@ -208,7 +208,7 @@
                                             {
                                                 if (Model.HiddenPhotoList.All(x => x.FileName != System.IO.Path.GetFileName(photoItem.UrlOriginal)))
                                                 {
-                                                    <div class="slide"><img src="@photoItem.UrlBig" alt="__"></div>
+                                                    <div class="slide"><img src="@photoItem.UrlOriginal" alt="__"></div>
                                                 }
                                             }
                                         </div>
@@ -223,7 +223,7 @@
                                             {
                                                 if (Model.HiddenPhotoList.All(x => x.FileName != System.IO.Path.GetFileName(photoItem.UrlOriginal)))
                                                 {
-                                                    <div class="thumb"><img src="@photoItem.UrlBig" alt="__"></div>
+                                                    <div class="thumb"><img src="@photoItem.UrlMin" alt="__"></div>
                                                 }
                                             }
                                         </div>

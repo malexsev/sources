@@ -596,6 +596,7 @@
     <Content Include="Views\Medicine\Ocular.cshtml" />
     <Content Include="Views\Medicine\Anisodine.cshtml" />
     <Content Include="Views\Medicine\Sodium.cshtml" />
+    <Content Include="Views\Procedure\Acupoint.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -605,9 +606,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Feedback\" />
-    <Folder Include="Views\Login\" />
-    <Folder Include="Views\Post\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Cure.DataAccess\Cure.DataAccess.csproj">

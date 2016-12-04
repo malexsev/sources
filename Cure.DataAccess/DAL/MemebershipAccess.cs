@@ -8,6 +8,11 @@ namespace Cure.DataAccess.DAL
 {
     internal partial class DataRepository
     {
+        public ViewUserMembership GetUserMembership(Guid userId)
+        {
+            return context.ViewUserMemberships.FirstOrDefault(x => x.Expr1 == userId);
+        }
+
         public ViewUserMembership GetUserMembership(string username)
         {
             return context.ViewUserMemberships.FirstOrDefault(x => x.UserName.ToLower() == username.ToLower());

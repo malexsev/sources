@@ -29,6 +29,8 @@
 /*----------- ФУНКЦИИ ПОСЛЕ ГОТОВНОСТИ ---------------------------------------*/
 
 $(document).ready(function () {
+
+
     /* --- Кастомный скролл в чате -------------------------------------------*/
     function chatScrollerInit() {
         $(".js-chat-scroller").nanoScroller({
@@ -105,18 +107,18 @@ $(document).ready(function () {
 
 $(window).load(function () {
     UpdateContacts();
-
-    setTimeout(function () {
-        SetDefaults();
-    }, 600);
-
+    
+    //setTimeout(function () {
+    //    SetDefaults();
+    //}, 600);
+    
     //setInterval(function () {
     //	UpdateContacts();
     //}, 30000);
 });
 
 function SwitchUser(link) {
-    $('#active-contact-id').val($(link).data("username"));
+    $('#active-contact-id').val($(link).data("userid"));
     $('#active-contact-userpic').val($(link).data("userpic"));
     $('.chat-user').removeClass("active");
     $(link).closest('.chat-user').addClass('active');
@@ -131,9 +133,9 @@ function SetDefaults() {
     var contact = getUrlVars()["contact"];
     var elem;
     if (contact != null) {
-        elem = $('[data-userdisplay][data-username=' + decodeURIComponent(contact) + ']');
+        elem = $('[data-userid=' + contact + ']');
     } else {
-        elem = $('[data-userdisplay]')[0];
+        elem = $('[data-userid]')[0];
     }
     if (elem) {
         SwitchUser($(elem));
@@ -180,7 +182,7 @@ function UpdateContacts() {
     if (control != null) {
         var contact = getUrlVars()["contact"];
         var data = new FormData();
-        data.append("contact", decodeURIComponent(contact));
+        data.append("contact", contact);
 
         $.ajax({
             url: "/Cabinet/GetContacts",
@@ -193,6 +195,7 @@ function UpdateContacts() {
             },
             success: function (result) {
                 $(control).html(result);
+                SetDefaults();
             },
             error: function (result) {
                 $(control).html("");

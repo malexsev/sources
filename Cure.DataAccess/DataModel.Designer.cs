@@ -60,51 +60,54 @@ using System.Xml.Serialization;
 namespace Cure.DataAccess
 {
     #region Contexts
-    
+
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
     public partial class DataEntities : ObjectContext
     {
         #region Constructors
-    
+
         /// <summary>
         /// Initializes a new DataEntities object using the connection string found in the 'DataEntities' section of the application configuration file.
         /// </summary>
-        public DataEntities() : base("name=DataEntities", "DataEntities")
+        public DataEntities()
+            : base("name=DataEntities", "DataEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
-    
+
         /// <summary>
         /// Initialize a new DataEntities object.
         /// </summary>
-        public DataEntities(string connectionString) : base(connectionString, "DataEntities")
+        public DataEntities(string connectionString)
+            : base(connectionString, "DataEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
-    
+
         /// <summary>
         /// Initialize a new DataEntities object.
         /// </summary>
-        public DataEntities(EntityConnection connection) : base(connection, "DataEntities")
+        public DataEntities(EntityConnection connection)
+            : base(connection, "DataEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = true;
             OnContextCreated();
         }
-    
+
         #endregion
-    
+
         #region Partial Methods
-    
+
         partial void OnContextCreated();
-    
+
         #endregion
-    
+
         #region ObjectSet Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -120,7 +123,7 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<OrderStatu> _OrderStatus;
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -136,7 +139,7 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<Pacient> _Pacients;
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -152,7 +155,7 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<RefCountry> _RefCountries;
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -168,7 +171,7 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<RefRodstvo> _RefRodstvoes;
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -184,7 +187,7 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<Department> _Departments;
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -200,7 +203,7 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<Sputnik> _Sputniks;
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -216,7 +219,7 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<TransferUser> _TransferUsers;
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -232,7 +235,7 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<ViewScheduler> _ViewSchedulers;
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -248,7 +251,7 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<SmsLog> _SmsLogs;
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -264,7 +267,7 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<NotificationLog> _NotificationLogs;
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -280,7 +283,7 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<Setting> _Settings;
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -296,7 +299,7 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<aspnet_Membership> _aspnet_Membership;
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -312,7 +315,7 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<aspnet_Users> _aspnet_Users;
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -328,7 +331,7 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<RefBank> _RefBanks;
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -344,7 +347,7 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<RefDiagnoz> _RefDiagnozs;
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -360,7 +363,7 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<RefStopVisitType> _RefStopVisitTypes;
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -376,7 +379,7 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<StopVisit> _StopVisits;
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -392,7 +395,7 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<ChildHideFile> _ChildHideFiles;
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -408,7 +411,7 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<ChildAvaFile> _ChildAvaFiles;
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -424,7 +427,7 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<Visit> _Visits;
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -440,7 +443,7 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<Order> _Orders;
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -456,7 +459,7 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<ViewUserMembership> _ViewUserMemberships;
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -472,7 +475,7 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<Vipiska> _Vipiskas;
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -488,7 +491,7 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<RefOperator> _RefOperators;
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -504,23 +507,7 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<Mension> _Mensions;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<ViewChild> ViewChilds
-        {
-            get
-            {
-                if ((_ViewChilds == null))
-                {
-                    _ViewChilds = base.CreateObjectSet<ViewChild>("ViewChilds");
-                }
-                return _ViewChilds;
-            }
-        }
-        private ObjectSet<ViewChild> _ViewChilds;
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -536,7 +523,7 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<DepartmentStop> _DepartmentStops;
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -552,7 +539,7 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<ViewSoonVisit> _ViewSoonVisits;
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -568,7 +555,7 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<Child> _Children;
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -584,7 +571,7 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<Post> _Posts;
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -600,7 +587,7 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<ViewMension> _ViewMensions;
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -616,7 +603,7 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<Newsletter> _Newsletters;
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -632,7 +619,7 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<Currency> _Currencies;
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -648,7 +635,7 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<CurrencyRate> _CurrencyRates;
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -664,7 +651,7 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<Weather> _Weathers;
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -680,7 +667,7 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<Message> _Messages;
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -696,7 +683,7 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<OnlineUser> _OnlineUsers;
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -713,10 +700,26 @@ namespace Cure.DataAccess
         }
         private ObjectSet<ViewRecipient> _ViewRecipients;
 
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<ViewChild> ViewChilds
+        {
+            get
+            {
+                if ((_ViewChilds == null))
+                {
+                    _ViewChilds = base.CreateObjectSet<ViewChild>("ViewChilds");
+                }
+                return _ViewChilds;
+            }
+        }
+        private ObjectSet<ViewChild> _ViewChilds;
+
         #endregion
 
         #region AddTo Methods
-    
+
         /// <summary>
         /// Deprecated Method for adding a new object to the OrderStatus EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -724,7 +727,7 @@ namespace Cure.DataAccess
         {
             base.AddObject("OrderStatus", orderStatu);
         }
-    
+
         /// <summary>
         /// Deprecated Method for adding a new object to the Pacients EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -732,7 +735,7 @@ namespace Cure.DataAccess
         {
             base.AddObject("Pacients", pacient);
         }
-    
+
         /// <summary>
         /// Deprecated Method for adding a new object to the RefCountries EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -740,7 +743,7 @@ namespace Cure.DataAccess
         {
             base.AddObject("RefCountries", refCountry);
         }
-    
+
         /// <summary>
         /// Deprecated Method for adding a new object to the RefRodstvoes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -748,7 +751,7 @@ namespace Cure.DataAccess
         {
             base.AddObject("RefRodstvoes", refRodstvo);
         }
-    
+
         /// <summary>
         /// Deprecated Method for adding a new object to the Departments EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -756,7 +759,7 @@ namespace Cure.DataAccess
         {
             base.AddObject("Departments", department);
         }
-    
+
         /// <summary>
         /// Deprecated Method for adding a new object to the Sputniks EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -764,7 +767,7 @@ namespace Cure.DataAccess
         {
             base.AddObject("Sputniks", sputnik);
         }
-    
+
         /// <summary>
         /// Deprecated Method for adding a new object to the TransferUsers EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -772,7 +775,7 @@ namespace Cure.DataAccess
         {
             base.AddObject("TransferUsers", transferUser);
         }
-    
+
         /// <summary>
         /// Deprecated Method for adding a new object to the ViewSchedulers EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -780,7 +783,7 @@ namespace Cure.DataAccess
         {
             base.AddObject("ViewSchedulers", viewScheduler);
         }
-    
+
         /// <summary>
         /// Deprecated Method for adding a new object to the SmsLogs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -788,7 +791,7 @@ namespace Cure.DataAccess
         {
             base.AddObject("SmsLogs", smsLog);
         }
-    
+
         /// <summary>
         /// Deprecated Method for adding a new object to the NotificationLogs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -796,7 +799,7 @@ namespace Cure.DataAccess
         {
             base.AddObject("NotificationLogs", notificationLog);
         }
-    
+
         /// <summary>
         /// Deprecated Method for adding a new object to the Settings EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -804,7 +807,7 @@ namespace Cure.DataAccess
         {
             base.AddObject("Settings", setting);
         }
-    
+
         /// <summary>
         /// Deprecated Method for adding a new object to the aspnet_Membership EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -812,7 +815,7 @@ namespace Cure.DataAccess
         {
             base.AddObject("aspnet_Membership", aspnet_Membership);
         }
-    
+
         /// <summary>
         /// Deprecated Method for adding a new object to the aspnet_Users EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -820,7 +823,7 @@ namespace Cure.DataAccess
         {
             base.AddObject("aspnet_Users", aspnet_Users);
         }
-    
+
         /// <summary>
         /// Deprecated Method for adding a new object to the RefBanks EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -828,7 +831,7 @@ namespace Cure.DataAccess
         {
             base.AddObject("RefBanks", refBank);
         }
-    
+
         /// <summary>
         /// Deprecated Method for adding a new object to the RefDiagnozs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -836,7 +839,7 @@ namespace Cure.DataAccess
         {
             base.AddObject("RefDiagnozs", refDiagnoz);
         }
-    
+
         /// <summary>
         /// Deprecated Method for adding a new object to the RefStopVisitTypes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -844,7 +847,7 @@ namespace Cure.DataAccess
         {
             base.AddObject("RefStopVisitTypes", refStopVisitType);
         }
-    
+
         /// <summary>
         /// Deprecated Method for adding a new object to the StopVisits EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -852,7 +855,7 @@ namespace Cure.DataAccess
         {
             base.AddObject("StopVisits", stopVisit);
         }
-    
+
         /// <summary>
         /// Deprecated Method for adding a new object to the ChildHideFiles EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -860,7 +863,7 @@ namespace Cure.DataAccess
         {
             base.AddObject("ChildHideFiles", childHideFile);
         }
-    
+
         /// <summary>
         /// Deprecated Method for adding a new object to the ChildAvaFiles EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -868,7 +871,7 @@ namespace Cure.DataAccess
         {
             base.AddObject("ChildAvaFiles", childAvaFile);
         }
-    
+
         /// <summary>
         /// Deprecated Method for adding a new object to the Visits EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -876,7 +879,7 @@ namespace Cure.DataAccess
         {
             base.AddObject("Visits", visit);
         }
-    
+
         /// <summary>
         /// Deprecated Method for adding a new object to the Orders EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -884,7 +887,7 @@ namespace Cure.DataAccess
         {
             base.AddObject("Orders", order);
         }
-    
+
         /// <summary>
         /// Deprecated Method for adding a new object to the ViewUserMemberships EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -892,7 +895,7 @@ namespace Cure.DataAccess
         {
             base.AddObject("ViewUserMemberships", viewUserMembership);
         }
-    
+
         /// <summary>
         /// Deprecated Method for adding a new object to the Vipiskas EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -900,7 +903,7 @@ namespace Cure.DataAccess
         {
             base.AddObject("Vipiskas", vipiska);
         }
-    
+
         /// <summary>
         /// Deprecated Method for adding a new object to the RefOperators EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -908,7 +911,7 @@ namespace Cure.DataAccess
         {
             base.AddObject("RefOperators", refOperator);
         }
-    
+
         /// <summary>
         /// Deprecated Method for adding a new object to the Mensions EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -916,15 +919,7 @@ namespace Cure.DataAccess
         {
             base.AddObject("Mensions", mension);
         }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the ViewChilds EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToViewChilds(ViewChild viewChild)
-        {
-            base.AddObject("ViewChilds", viewChild);
-        }
-    
+
         /// <summary>
         /// Deprecated Method for adding a new object to the DepartmentStops EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -932,7 +927,7 @@ namespace Cure.DataAccess
         {
             base.AddObject("DepartmentStops", departmentStop);
         }
-    
+
         /// <summary>
         /// Deprecated Method for adding a new object to the ViewSoonVisits EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -940,7 +935,7 @@ namespace Cure.DataAccess
         {
             base.AddObject("ViewSoonVisits", viewSoonVisit);
         }
-    
+
         /// <summary>
         /// Deprecated Method for adding a new object to the Children EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -948,7 +943,7 @@ namespace Cure.DataAccess
         {
             base.AddObject("Children", child);
         }
-    
+
         /// <summary>
         /// Deprecated Method for adding a new object to the Posts EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -956,7 +951,7 @@ namespace Cure.DataAccess
         {
             base.AddObject("Posts", post);
         }
-    
+
         /// <summary>
         /// Deprecated Method for adding a new object to the ViewMensions EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -964,7 +959,7 @@ namespace Cure.DataAccess
         {
             base.AddObject("ViewMensions", viewMension);
         }
-    
+
         /// <summary>
         /// Deprecated Method for adding a new object to the Newsletters EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -972,7 +967,7 @@ namespace Cure.DataAccess
         {
             base.AddObject("Newsletters", newsletter);
         }
-    
+
         /// <summary>
         /// Deprecated Method for adding a new object to the Currencies EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -980,7 +975,7 @@ namespace Cure.DataAccess
         {
             base.AddObject("Currencies", currency);
         }
-    
+
         /// <summary>
         /// Deprecated Method for adding a new object to the CurrencyRates EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -988,7 +983,7 @@ namespace Cure.DataAccess
         {
             base.AddObject("CurrencyRates", currencyRate);
         }
-    
+
         /// <summary>
         /// Deprecated Method for adding a new object to the Weathers EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -996,7 +991,7 @@ namespace Cure.DataAccess
         {
             base.AddObject("Weathers", weather);
         }
-    
+
         /// <summary>
         /// Deprecated Method for adding a new object to the Messages EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -1004,7 +999,7 @@ namespace Cure.DataAccess
         {
             base.AddObject("Messages", message);
         }
-    
+
         /// <summary>
         /// Deprecated Method for adding a new object to the OnlineUsers EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -1012,7 +1007,7 @@ namespace Cure.DataAccess
         {
             base.AddObject("OnlineUsers", onlineUser);
         }
-    
+
         /// <summary>
         /// Deprecated Method for adding a new object to the ViewRecipients EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -1021,10 +1016,18 @@ namespace Cure.DataAccess
             base.AddObject("ViewRecipients", viewRecipient);
         }
 
+        /// <summary>
+        /// Deprecated Method for adding a new object to the ViewChilds EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToViewChilds(ViewChild viewChild)
+        {
+            base.AddObject("ViewChilds", viewChild);
+        }
+
         #endregion
 
         #region Function Imports
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1032,7 +1035,7 @@ namespace Cure.DataAccess
         {
             return base.ExecuteFunction("sp_ClearOnlineUsers");
         }
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1049,7 +1052,7 @@ namespace Cure.DataAccess
             {
                 userNameParameter = new ObjectParameter("UserName", typeof(global::System.String));
             }
-    
+
             ObjectParameter contactParameter;
             if (contact != null)
             {
@@ -1059,7 +1062,7 @@ namespace Cure.DataAccess
             {
                 contactParameter = new ObjectParameter("Contact", typeof(global::System.String));
             }
-    
+
             return base.ExecuteFunction<ViewRecipient>("sp_GetMyContacts", userNameParameter, contactParameter);
         }
         /// <summary>
@@ -1079,7 +1082,7 @@ namespace Cure.DataAccess
             {
                 userNameParameter = new ObjectParameter("UserName", typeof(global::System.String));
             }
-    
+
             ObjectParameter contactParameter;
             if (contact != null)
             {
@@ -1089,7 +1092,7 @@ namespace Cure.DataAccess
             {
                 contactParameter = new ObjectParameter("Contact", typeof(global::System.String));
             }
-    
+
             return base.ExecuteFunction<ViewRecipient>("sp_GetMyContacts", mergeOption, userNameParameter, contactParameter);
         }
 
@@ -1100,17 +1103,17 @@ namespace Cure.DataAccess
     #endregion
 
     #region Entities
-    
+
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="aspnet_Membership")]
+    [EdmEntityTypeAttribute(NamespaceName = "DataModel", Name = "aspnet_Membership")]
     [Serializable()]
-    [DataContractAttribute(IsReference=true)]
+    [DataContractAttribute(IsReference = true)]
     public partial class aspnet_Membership : EntityObject
     {
         #region Factory Method
-    
+
         /// <summary>
         /// Create a new aspnet_Membership object.
         /// </summary>
@@ -1153,11 +1156,11 @@ namespace Cure.DataAccess
         #endregion
 
         #region Simple Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Guid ApplicationId
         {
@@ -1177,11 +1180,11 @@ namespace Cure.DataAccess
         private global::System.Guid _ApplicationId;
         partial void OnApplicationIdChanging(global::System.Guid value);
         partial void OnApplicationIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Guid UserId
         {
@@ -1204,11 +1207,11 @@ namespace Cure.DataAccess
         private global::System.Guid _UserId;
         partial void OnUserIdChanging(global::System.Guid value);
         partial void OnUserIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String Password
         {
@@ -1228,11 +1231,11 @@ namespace Cure.DataAccess
         private global::System.String _Password;
         partial void OnPasswordChanging(global::System.String value);
         partial void OnPasswordChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 PasswordFormat
         {
@@ -1252,11 +1255,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _PasswordFormat;
         partial void OnPasswordFormatChanging(global::System.Int32 value);
         partial void OnPasswordFormatChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String PasswordSalt
         {
@@ -1276,11 +1279,11 @@ namespace Cure.DataAccess
         private global::System.String _PasswordSalt;
         partial void OnPasswordSaltChanging(global::System.String value);
         partial void OnPasswordSaltChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String MobilePIN
         {
@@ -1300,11 +1303,11 @@ namespace Cure.DataAccess
         private global::System.String _MobilePIN;
         partial void OnMobilePINChanging(global::System.String value);
         partial void OnMobilePINChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Email
         {
@@ -1324,11 +1327,11 @@ namespace Cure.DataAccess
         private global::System.String _Email;
         partial void OnEmailChanging(global::System.String value);
         partial void OnEmailChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String LoweredEmail
         {
@@ -1348,11 +1351,11 @@ namespace Cure.DataAccess
         private global::System.String _LoweredEmail;
         partial void OnLoweredEmailChanging(global::System.String value);
         partial void OnLoweredEmailChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String PasswordQuestion
         {
@@ -1372,11 +1375,11 @@ namespace Cure.DataAccess
         private global::System.String _PasswordQuestion;
         partial void OnPasswordQuestionChanging(global::System.String value);
         partial void OnPasswordQuestionChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String PasswordAnswer
         {
@@ -1396,11 +1399,11 @@ namespace Cure.DataAccess
         private global::System.String _PasswordAnswer;
         partial void OnPasswordAnswerChanging(global::System.String value);
         partial void OnPasswordAnswerChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsApproved
         {
@@ -1420,11 +1423,11 @@ namespace Cure.DataAccess
         private global::System.Boolean _IsApproved;
         partial void OnIsApprovedChanging(global::System.Boolean value);
         partial void OnIsApprovedChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsLockedOut
         {
@@ -1444,11 +1447,11 @@ namespace Cure.DataAccess
         private global::System.Boolean _IsLockedOut;
         partial void OnIsLockedOutChanging(global::System.Boolean value);
         partial void OnIsLockedOutChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.DateTime CreateDate
         {
@@ -1468,11 +1471,11 @@ namespace Cure.DataAccess
         private global::System.DateTime _CreateDate;
         partial void OnCreateDateChanging(global::System.DateTime value);
         partial void OnCreateDateChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.DateTime LastLoginDate
         {
@@ -1492,11 +1495,11 @@ namespace Cure.DataAccess
         private global::System.DateTime _LastLoginDate;
         partial void OnLastLoginDateChanging(global::System.DateTime value);
         partial void OnLastLoginDateChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.DateTime LastPasswordChangedDate
         {
@@ -1516,11 +1519,11 @@ namespace Cure.DataAccess
         private global::System.DateTime _LastPasswordChangedDate;
         partial void OnLastPasswordChangedDateChanging(global::System.DateTime value);
         partial void OnLastPasswordChangedDateChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.DateTime LastLockoutDate
         {
@@ -1540,11 +1543,11 @@ namespace Cure.DataAccess
         private global::System.DateTime _LastLockoutDate;
         partial void OnLastLockoutDateChanging(global::System.DateTime value);
         partial void OnLastLockoutDateChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 FailedPasswordAttemptCount
         {
@@ -1564,11 +1567,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _FailedPasswordAttemptCount;
         partial void OnFailedPasswordAttemptCountChanging(global::System.Int32 value);
         partial void OnFailedPasswordAttemptCountChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.DateTime FailedPasswordAttemptWindowStart
         {
@@ -1588,11 +1591,11 @@ namespace Cure.DataAccess
         private global::System.DateTime _FailedPasswordAttemptWindowStart;
         partial void OnFailedPasswordAttemptWindowStartChanging(global::System.DateTime value);
         partial void OnFailedPasswordAttemptWindowStartChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 FailedPasswordAnswerAttemptCount
         {
@@ -1612,11 +1615,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _FailedPasswordAnswerAttemptCount;
         partial void OnFailedPasswordAnswerAttemptCountChanging(global::System.Int32 value);
         partial void OnFailedPasswordAnswerAttemptCountChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.DateTime FailedPasswordAnswerAttemptWindowStart
         {
@@ -1636,11 +1639,11 @@ namespace Cure.DataAccess
         private global::System.DateTime _FailedPasswordAnswerAttemptWindowStart;
         partial void OnFailedPasswordAnswerAttemptWindowStartChanging(global::System.DateTime value);
         partial void OnFailedPasswordAnswerAttemptWindowStartChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Comment
         {
@@ -1664,7 +1667,7 @@ namespace Cure.DataAccess
         #endregion
 
         #region Navigation Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1702,7 +1705,7 @@ namespace Cure.DataAccess
                 }
             }
         }
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1744,17 +1747,17 @@ namespace Cure.DataAccess
         #endregion
 
     }
-    
+
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="aspnet_Users")]
+    [EdmEntityTypeAttribute(NamespaceName = "DataModel", Name = "aspnet_Users")]
     [Serializable()]
-    [DataContractAttribute(IsReference=true)]
+    [DataContractAttribute(IsReference = true)]
     public partial class aspnet_Users : EntityObject
     {
         #region Factory Method
-    
+
         /// <summary>
         /// Create a new aspnet_Users object.
         /// </summary>
@@ -1779,11 +1782,11 @@ namespace Cure.DataAccess
         #endregion
 
         #region Simple Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Guid ApplicationId
         {
@@ -1803,11 +1806,11 @@ namespace Cure.DataAccess
         private global::System.Guid _ApplicationId;
         partial void OnApplicationIdChanging(global::System.Guid value);
         partial void OnApplicationIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Guid UserId
         {
@@ -1830,11 +1833,11 @@ namespace Cure.DataAccess
         private global::System.Guid _UserId;
         partial void OnUserIdChanging(global::System.Guid value);
         partial void OnUserIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String UserName
         {
@@ -1854,11 +1857,11 @@ namespace Cure.DataAccess
         private global::System.String _UserName;
         partial void OnUserNameChanging(global::System.String value);
         partial void OnUserNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String LoweredUserName
         {
@@ -1878,11 +1881,11 @@ namespace Cure.DataAccess
         private global::System.String _LoweredUserName;
         partial void OnLoweredUserNameChanging(global::System.String value);
         partial void OnLoweredUserNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String MobileAlias
         {
@@ -1902,11 +1905,11 @@ namespace Cure.DataAccess
         private global::System.String _MobileAlias;
         partial void OnMobileAliasChanging(global::System.String value);
         partial void OnMobileAliasChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsAnonymous
         {
@@ -1926,11 +1929,11 @@ namespace Cure.DataAccess
         private global::System.Boolean _IsAnonymous;
         partial void OnIsAnonymousChanging(global::System.Boolean value);
         partial void OnIsAnonymousChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.DateTime LastActivityDate
         {
@@ -1954,7 +1957,7 @@ namespace Cure.DataAccess
         #endregion
 
         #region Navigation Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1992,7 +1995,7 @@ namespace Cure.DataAccess
                 }
             }
         }
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -2034,17 +2037,17 @@ namespace Cure.DataAccess
         #endregion
 
     }
-    
+
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="Child")]
+    [EdmEntityTypeAttribute(NamespaceName = "DataModel", Name = "Child")]
     [Serializable()]
-    [DataContractAttribute(IsReference=true)]
+    [DataContractAttribute(IsReference = true)]
     public partial class Child : EntityObject
     {
         #region Factory Method
-    
+
         /// <summary>
         /// Create a new Child object.
         /// </summary>
@@ -2079,11 +2082,11 @@ namespace Cure.DataAccess
         #endregion
 
         #region Simple Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 Id
         {
@@ -2106,11 +2109,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _Id;
         partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Guid GuidId
         {
@@ -2130,11 +2133,11 @@ namespace Cure.DataAccess
         private global::System.Guid _GuidId;
         partial void OnGuidIdChanging(global::System.Guid value);
         partial void OnGuidIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 CountryId
         {
@@ -2154,11 +2157,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _CountryId;
         partial void OnCountryIdChanging(global::System.Int32 value);
         partial void OnCountryIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String OwnerUser
         {
@@ -2178,11 +2181,11 @@ namespace Cure.DataAccess
         private global::System.String _OwnerUser;
         partial void OnOwnerUserChanging(global::System.String value);
         partial void OnOwnerUserChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String OwnerUserPic
         {
@@ -2202,11 +2205,11 @@ namespace Cure.DataAccess
         private global::System.String _OwnerUserPic;
         partial void OnOwnerUserPicChanging(global::System.String value);
         partial void OnOwnerUserPicChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String OwnerAvaFile
         {
@@ -2226,11 +2229,11 @@ namespace Cure.DataAccess
         private global::System.String _OwnerAvaFile;
         partial void OnOwnerAvaFileChanging(global::System.String value);
         partial void OnOwnerAvaFileChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsActive
         {
@@ -2250,11 +2253,11 @@ namespace Cure.DataAccess
         private global::System.Boolean _IsActive;
         partial void OnIsActiveChanging(global::System.Boolean value);
         partial void OnIsActiveChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -2274,11 +2277,11 @@ namespace Cure.DataAccess
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.DateTime Birthday
         {
@@ -2298,11 +2301,11 @@ namespace Cure.DataAccess
         private global::System.DateTime _Birthday;
         partial void OnBirthdayChanging(global::System.DateTime value);
         partial void OnBirthdayChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Region
         {
@@ -2322,11 +2325,11 @@ namespace Cure.DataAccess
         private global::System.String _Region;
         partial void OnRegionChanging(global::System.String value);
         partial void OnRegionChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 DiagnozId
         {
@@ -2346,11 +2349,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _DiagnozId;
         partial void OnDiagnozIdChanging(global::System.Int32 value);
         partial void OnDiagnozIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Diagnoz
         {
@@ -2370,11 +2373,11 @@ namespace Cure.DataAccess
         private global::System.String _Diagnoz;
         partial void OnDiagnozChanging(global::System.String value);
         partial void OnDiagnozChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 ContactRodstvoId
         {
@@ -2394,11 +2397,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _ContactRodstvoId;
         partial void OnContactRodstvoIdChanging(global::System.Int32 value);
         partial void OnContactRodstvoIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String ContactName
         {
@@ -2418,11 +2421,11 @@ namespace Cure.DataAccess
         private global::System.String _ContactName;
         partial void OnContactNameChanging(global::System.String value);
         partial void OnContactNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String ContactEmail
         {
@@ -2442,11 +2445,11 @@ namespace Cure.DataAccess
         private global::System.String _ContactEmail;
         partial void OnContactEmailChanging(global::System.String value);
         partial void OnContactEmailChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String ContactPhone
         {
@@ -2466,11 +2469,11 @@ namespace Cure.DataAccess
         private global::System.String _ContactPhone;
         partial void OnContactPhoneChanging(global::System.String value);
         partial void OnContactPhoneChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String SocialOk
         {
@@ -2490,11 +2493,11 @@ namespace Cure.DataAccess
         private global::System.String _SocialOk;
         partial void OnSocialOkChanging(global::System.String value);
         partial void OnSocialOkChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String SocialVk
         {
@@ -2514,11 +2517,11 @@ namespace Cure.DataAccess
         private global::System.String _SocialVk;
         partial void OnSocialVkChanging(global::System.String value);
         partial void OnSocialVkChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String SocialMm
         {
@@ -2538,11 +2541,11 @@ namespace Cure.DataAccess
         private global::System.String _SocialMm;
         partial void OnSocialMmChanging(global::System.String value);
         partial void OnSocialMmChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String SocialFb
         {
@@ -2562,11 +2565,11 @@ namespace Cure.DataAccess
         private global::System.String _SocialFb;
         partial void OnSocialFbChanging(global::System.String value);
         partial void OnSocialFbChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String SocialYoutube
         {
@@ -2586,11 +2589,11 @@ namespace Cure.DataAccess
         private global::System.String _SocialYoutube;
         partial void OnSocialYoutubeChanging(global::System.String value);
         partial void OnSocialYoutubeChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String FinWebmoney
         {
@@ -2610,11 +2613,11 @@ namespace Cure.DataAccess
         private global::System.String _FinWebmoney;
         partial void OnFinWebmoneyChanging(global::System.String value);
         partial void OnFinWebmoneyChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String FinWebmoney2
         {
@@ -2634,11 +2637,11 @@ namespace Cure.DataAccess
         private global::System.String _FinWebmoney2;
         partial void OnFinWebmoney2Changing(global::System.String value);
         partial void OnFinWebmoney2Changed();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String FinWebmoney3
         {
@@ -2658,11 +2661,11 @@ namespace Cure.DataAccess
         private global::System.String _FinWebmoney3;
         partial void OnFinWebmoney3Changing(global::System.String value);
         partial void OnFinWebmoney3Changed();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String FinWebmoney4
         {
@@ -2682,11 +2685,11 @@ namespace Cure.DataAccess
         private global::System.String _FinWebmoney4;
         partial void OnFinWebmoney4Changing(global::System.String value);
         partial void OnFinWebmoney4Changed();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String FinYandexMoney
         {
@@ -2706,11 +2709,11 @@ namespace Cure.DataAccess
         private global::System.String _FinYandexMoney;
         partial void OnFinYandexMoneyChanging(global::System.String value);
         partial void OnFinYandexMoneyChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String FinKiwi
         {
@@ -2730,11 +2733,11 @@ namespace Cure.DataAccess
         private global::System.String _FinKiwi;
         partial void OnFinKiwiChanging(global::System.String value);
         partial void OnFinKiwiChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> FinCountryId
         {
@@ -2754,11 +2757,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Int32> _FinCountryId;
         partial void OnFinCountryIdChanging(Nullable<global::System.Int32> value);
         partial void OnFinCountryIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> FinBankId
         {
@@ -2778,11 +2781,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Int32> _FinBankId;
         partial void OnFinBankIdChanging(Nullable<global::System.Int32> value);
         partial void OnFinBankIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> FinOperatorId
         {
@@ -2802,11 +2805,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Int32> _FinOperatorId;
         partial void OnFinOperatorIdChanging(Nullable<global::System.Int32> value);
         partial void OnFinOperatorIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String FinPhoneNumber
         {
@@ -2826,11 +2829,11 @@ namespace Cure.DataAccess
         private global::System.String _FinPhoneNumber;
         partial void OnFinPhoneNumberChanging(global::System.String value);
         partial void OnFinPhoneNumberChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> FinOperator2Id
         {
@@ -2850,11 +2853,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Int32> _FinOperator2Id;
         partial void OnFinOperator2IdChanging(Nullable<global::System.Int32> value);
         partial void OnFinOperator2IdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String FinPhoneNumber2
         {
@@ -2874,11 +2877,11 @@ namespace Cure.DataAccess
         private global::System.String _FinPhoneNumber2;
         partial void OnFinPhoneNumber2Changing(global::System.String value);
         partial void OnFinPhoneNumber2Changed();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> FinOperator3Id
         {
@@ -2898,11 +2901,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Int32> _FinOperator3Id;
         partial void OnFinOperator3IdChanging(Nullable<global::System.Int32> value);
         partial void OnFinOperator3IdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String FinPhoneNumber3
         {
@@ -2922,11 +2925,11 @@ namespace Cure.DataAccess
         private global::System.String _FinPhoneNumber3;
         partial void OnFinPhoneNumber3Changing(global::System.String value);
         partial void OnFinPhoneNumber3Changed();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> FinOperator4Id
         {
@@ -2946,11 +2949,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Int32> _FinOperator4Id;
         partial void OnFinOperator4IdChanging(Nullable<global::System.Int32> value);
         partial void OnFinOperator4IdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String FinPhoneNumber4
         {
@@ -2970,11 +2973,11 @@ namespace Cure.DataAccess
         private global::System.String _FinPhoneNumber4;
         partial void OnFinPhoneNumber4Changing(global::System.String value);
         partial void OnFinPhoneNumber4Changed();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String FinBankOther
         {
@@ -2994,11 +2997,11 @@ namespace Cure.DataAccess
         private global::System.String _FinBankOther;
         partial void OnFinBankOtherChanging(global::System.String value);
         partial void OnFinBankOtherChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String FinCardNumber
         {
@@ -3018,11 +3021,11 @@ namespace Cure.DataAccess
         private global::System.String _FinCardNumber;
         partial void OnFinCardNumberChanging(global::System.String value);
         partial void OnFinCardNumberChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String FinCardName
         {
@@ -3046,7 +3049,7 @@ namespace Cure.DataAccess
         #endregion
 
         #region Navigation Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -3084,7 +3087,7 @@ namespace Cure.DataAccess
                 }
             }
         }
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -3122,7 +3125,7 @@ namespace Cure.DataAccess
                 }
             }
         }
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -3160,7 +3163,7 @@ namespace Cure.DataAccess
                 }
             }
         }
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -3198,7 +3201,7 @@ namespace Cure.DataAccess
                 }
             }
         }
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -3236,7 +3239,7 @@ namespace Cure.DataAccess
                 }
             }
         }
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -3274,7 +3277,7 @@ namespace Cure.DataAccess
                 }
             }
         }
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -3312,7 +3315,7 @@ namespace Cure.DataAccess
                 }
             }
         }
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -3350,7 +3353,7 @@ namespace Cure.DataAccess
                 }
             }
         }
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -3388,7 +3391,7 @@ namespace Cure.DataAccess
                 }
             }
         }
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -3426,7 +3429,7 @@ namespace Cure.DataAccess
                 }
             }
         }
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -3464,7 +3467,7 @@ namespace Cure.DataAccess
                 }
             }
         }
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -3486,7 +3489,7 @@ namespace Cure.DataAccess
                 }
             }
         }
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -3508,7 +3511,7 @@ namespace Cure.DataAccess
                 }
             }
         }
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -3534,17 +3537,17 @@ namespace Cure.DataAccess
         #endregion
 
     }
-    
+
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="ChildAvaFile")]
+    [EdmEntityTypeAttribute(NamespaceName = "DataModel", Name = "ChildAvaFile")]
     [Serializable()]
-    [DataContractAttribute(IsReference=true)]
+    [DataContractAttribute(IsReference = true)]
     public partial class ChildAvaFile : EntityObject
     {
         #region Factory Method
-    
+
         /// <summary>
         /// Create a new ChildAvaFile object.
         /// </summary>
@@ -3565,11 +3568,11 @@ namespace Cure.DataAccess
         #endregion
 
         #region Simple Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 Id
         {
@@ -3592,11 +3595,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _Id;
         partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 ChildId
         {
@@ -3616,11 +3619,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _ChildId;
         partial void OnChildIdChanging(global::System.Int32 value);
         partial void OnChildIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String FileName
         {
@@ -3640,11 +3643,11 @@ namespace Cure.DataAccess
         private global::System.String _FileName;
         partial void OnFileNameChanging(global::System.String value);
         partial void OnFileNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.DateTime ChangeDate
         {
@@ -3668,7 +3671,7 @@ namespace Cure.DataAccess
         #endregion
 
         #region Navigation Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -3710,17 +3713,17 @@ namespace Cure.DataAccess
         #endregion
 
     }
-    
+
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="ChildHideFile")]
+    [EdmEntityTypeAttribute(NamespaceName = "DataModel", Name = "ChildHideFile")]
     [Serializable()]
-    [DataContractAttribute(IsReference=true)]
+    [DataContractAttribute(IsReference = true)]
     public partial class ChildHideFile : EntityObject
     {
         #region Factory Method
-    
+
         /// <summary>
         /// Create a new ChildHideFile object.
         /// </summary>
@@ -3741,11 +3744,11 @@ namespace Cure.DataAccess
         #endregion
 
         #region Simple Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 Id
         {
@@ -3768,11 +3771,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _Id;
         partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 ChildId
         {
@@ -3792,11 +3795,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _ChildId;
         partial void OnChildIdChanging(global::System.Int32 value);
         partial void OnChildIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String FileName
         {
@@ -3816,11 +3819,11 @@ namespace Cure.DataAccess
         private global::System.String _FileName;
         partial void OnFileNameChanging(global::System.String value);
         partial void OnFileNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.DateTime HideDate
         {
@@ -3844,7 +3847,7 @@ namespace Cure.DataAccess
         #endregion
 
         #region Navigation Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -3886,17 +3889,17 @@ namespace Cure.DataAccess
         #endregion
 
     }
-    
+
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="Currency")]
+    [EdmEntityTypeAttribute(NamespaceName = "DataModel", Name = "Currency")]
     [Serializable()]
-    [DataContractAttribute(IsReference=true)]
+    [DataContractAttribute(IsReference = true)]
     public partial class Currency : EntityObject
     {
         #region Factory Method
-    
+
         /// <summary>
         /// Create a new Currency object.
         /// </summary>
@@ -3911,11 +3914,11 @@ namespace Cure.DataAccess
         #endregion
 
         #region Simple Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -3938,11 +3941,11 @@ namespace Cure.DataAccess
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Description
         {
@@ -3966,7 +3969,7 @@ namespace Cure.DataAccess
         #endregion
 
         #region Navigation Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -3988,7 +3991,7 @@ namespace Cure.DataAccess
                 }
             }
         }
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -4014,17 +4017,17 @@ namespace Cure.DataAccess
         #endregion
 
     }
-    
+
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="CurrencyRate")]
+    [EdmEntityTypeAttribute(NamespaceName = "DataModel", Name = "CurrencyRate")]
     [Serializable()]
-    [DataContractAttribute(IsReference=true)]
+    [DataContractAttribute(IsReference = true)]
     public partial class CurrencyRate : EntityObject
     {
         #region Factory Method
-    
+
         /// <summary>
         /// Create a new CurrencyRate object.
         /// </summary>
@@ -4049,11 +4052,11 @@ namespace Cure.DataAccess
         #endregion
 
         #region Simple Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 Id
         {
@@ -4076,11 +4079,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _Id;
         partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String CurrencyFrom
         {
@@ -4100,11 +4103,11 @@ namespace Cure.DataAccess
         private global::System.String _CurrencyFrom;
         partial void OnCurrencyFromChanging(global::System.String value);
         partial void OnCurrencyFromChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String CurrencyTo
         {
@@ -4124,11 +4127,11 @@ namespace Cure.DataAccess
         private global::System.String _CurrencyTo;
         partial void OnCurrencyToChanging(global::System.String value);
         partial void OnCurrencyToChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Decimal Rate
         {
@@ -4148,11 +4151,11 @@ namespace Cure.DataAccess
         private global::System.Decimal _Rate;
         partial void OnRateChanging(global::System.Decimal value);
         partial void OnRateChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.DateTime Date
         {
@@ -4172,11 +4175,11 @@ namespace Cure.DataAccess
         private global::System.DateTime _Date;
         partial void OnDateChanging(global::System.DateTime value);
         partial void OnDateChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.DateTime GetDate
         {
@@ -4200,7 +4203,7 @@ namespace Cure.DataAccess
         #endregion
 
         #region Navigation Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -4238,7 +4241,7 @@ namespace Cure.DataAccess
                 }
             }
         }
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -4280,17 +4283,17 @@ namespace Cure.DataAccess
         #endregion
 
     }
-    
+
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="Department")]
+    [EdmEntityTypeAttribute(NamespaceName = "DataModel", Name = "Department")]
     [Serializable()]
-    [DataContractAttribute(IsReference=true)]
+    [DataContractAttribute(IsReference = true)]
     public partial class Department : EntityObject
     {
         #region Factory Method
-    
+
         /// <summary>
         /// Create a new Department object.
         /// </summary>
@@ -4309,11 +4312,11 @@ namespace Cure.DataAccess
         #endregion
 
         #region Simple Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 Id
         {
@@ -4336,11 +4339,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _Id;
         partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> ParentId
         {
@@ -4360,11 +4363,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Int32> _ParentId;
         partial void OnParentIdChanging(Nullable<global::System.Int32> value);
         partial void OnParentIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 CountryId
         {
@@ -4384,11 +4387,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _CountryId;
         partial void OnCountryIdChanging(global::System.Int32 value);
         partial void OnCountryIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Branch
         {
@@ -4408,11 +4411,11 @@ namespace Cure.DataAccess
         private global::System.String _Branch;
         partial void OnBranchChanging(global::System.String value);
         partial void OnBranchChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -4432,11 +4435,11 @@ namespace Cure.DataAccess
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String NameChina
         {
@@ -4456,11 +4459,11 @@ namespace Cure.DataAccess
         private global::System.String _NameChina;
         partial void OnNameChinaChanging(global::System.String value);
         partial void OnNameChinaChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String NameEnglish
         {
@@ -4480,11 +4483,11 @@ namespace Cure.DataAccess
         private global::System.String _NameEnglish;
         partial void OnNameEnglishChanging(global::System.String value);
         partial void OnNameEnglishChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Address
         {
@@ -4504,11 +4507,11 @@ namespace Cure.DataAccess
         private global::System.String _Address;
         partial void OnAddressChanging(global::System.String value);
         partial void OnAddressChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String AddressChina
         {
@@ -4528,11 +4531,11 @@ namespace Cure.DataAccess
         private global::System.String _AddressChina;
         partial void OnAddressChinaChanging(global::System.String value);
         partial void OnAddressChinaChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String AddressEnglish
         {
@@ -4552,11 +4555,11 @@ namespace Cure.DataAccess
         private global::System.String _AddressEnglish;
         partial void OnAddressEnglishChanging(global::System.String value);
         partial void OnAddressEnglishChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String BossName
         {
@@ -4576,11 +4579,11 @@ namespace Cure.DataAccess
         private global::System.String _BossName;
         partial void OnBossNameChanging(global::System.String value);
         partial void OnBossNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Requisits
         {
@@ -4600,11 +4603,11 @@ namespace Cure.DataAccess
         private global::System.String _Requisits;
         partial void OnRequisitsChanging(global::System.String value);
         partial void OnRequisitsChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Contacts
         {
@@ -4624,11 +4627,11 @@ namespace Cure.DataAccess
         private global::System.String _Contacts;
         partial void OnContactsChanging(global::System.String value);
         partial void OnContactsChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String PechatFileName
         {
@@ -4648,11 +4651,11 @@ namespace Cure.DataAccess
         private global::System.String _PechatFileName;
         partial void OnPechatFileNameChanging(global::System.String value);
         partial void OnPechatFileNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String PodpisFileName
         {
@@ -4672,11 +4675,11 @@ namespace Cure.DataAccess
         private global::System.String _PodpisFileName;
         partial void OnPodpisFileNameChanging(global::System.String value);
         partial void OnPodpisFileNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String LastUser
         {
@@ -4696,11 +4699,11 @@ namespace Cure.DataAccess
         private global::System.String _LastUser;
         partial void OnLastUserChanging(global::System.String value);
         partial void OnLastUserChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> LastDate
         {
@@ -4720,11 +4723,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.DateTime> _LastDate;
         partial void OnLastDateChanging(Nullable<global::System.DateTime> value);
         partial void OnLastDateChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String CreateUser
         {
@@ -4744,11 +4747,11 @@ namespace Cure.DataAccess
         private global::System.String _CreateUser;
         partial void OnCreateUserChanging(global::System.String value);
         partial void OnCreateUserChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> CreateDate
         {
@@ -4768,11 +4771,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.DateTime> _CreateDate;
         partial void OnCreateDateChanging(Nullable<global::System.DateTime> value);
         partial void OnCreateDateChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String DescriptionRu
         {
@@ -4792,11 +4795,11 @@ namespace Cure.DataAccess
         private global::System.String _DescriptionRu;
         partial void OnDescriptionRuChanging(global::System.String value);
         partial void OnDescriptionRuChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String DescriptionCh
         {
@@ -4816,11 +4819,11 @@ namespace Cure.DataAccess
         private global::System.String _DescriptionCh;
         partial void OnDescriptionChChanging(global::System.String value);
         partial void OnDescriptionChChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String PriglashenieRu
         {
@@ -4840,11 +4843,11 @@ namespace Cure.DataAccess
         private global::System.String _PriglashenieRu;
         partial void OnPriglashenieRuChanging(global::System.String value);
         partial void OnPriglashenieRuChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String PriglashenieCh
         {
@@ -4864,11 +4867,11 @@ namespace Cure.DataAccess
         private global::System.String _PriglashenieCh;
         partial void OnPriglashenieChChanging(global::System.String value);
         partial void OnPriglashenieChChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String AdditionalRu
         {
@@ -4888,11 +4891,11 @@ namespace Cure.DataAccess
         private global::System.String _AdditionalRu;
         partial void OnAdditionalRuChanging(global::System.String value);
         partial void OnAdditionalRuChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String AdditionalCh
         {
@@ -4912,11 +4915,11 @@ namespace Cure.DataAccess
         private global::System.String _AdditionalCh;
         partial void OnAdditionalChChanging(global::System.String value);
         partial void OnAdditionalChChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String ShortName
         {
@@ -4940,7 +4943,7 @@ namespace Cure.DataAccess
         #endregion
 
         #region Navigation Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -4962,7 +4965,7 @@ namespace Cure.DataAccess
                 }
             }
         }
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -5000,7 +5003,7 @@ namespace Cure.DataAccess
                 }
             }
         }
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -5038,7 +5041,7 @@ namespace Cure.DataAccess
                 }
             }
         }
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -5060,7 +5063,7 @@ namespace Cure.DataAccess
                 }
             }
         }
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -5082,7 +5085,7 @@ namespace Cure.DataAccess
                 }
             }
         }
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -5104,7 +5107,7 @@ namespace Cure.DataAccess
                 }
             }
         }
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -5126,7 +5129,7 @@ namespace Cure.DataAccess
                 }
             }
         }
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -5152,17 +5155,17 @@ namespace Cure.DataAccess
         #endregion
 
     }
-    
+
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="DepartmentStop")]
+    [EdmEntityTypeAttribute(NamespaceName = "DataModel", Name = "DepartmentStop")]
     [Serializable()]
-    [DataContractAttribute(IsReference=true)]
+    [DataContractAttribute(IsReference = true)]
     public partial class DepartmentStop : EntityObject
     {
         #region Factory Method
-    
+
         /// <summary>
         /// Create a new DepartmentStop object.
         /// </summary>
@@ -5191,11 +5194,11 @@ namespace Cure.DataAccess
         #endregion
 
         #region Simple Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 Id
         {
@@ -5218,11 +5221,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _Id;
         partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 DepartmentId
         {
@@ -5242,11 +5245,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _DepartmentId;
         partial void OnDepartmentIdChanging(global::System.Int32 value);
         partial void OnDepartmentIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.DateTime FromDate
         {
@@ -5266,11 +5269,11 @@ namespace Cure.DataAccess
         private global::System.DateTime _FromDate;
         partial void OnFromDateChanging(global::System.DateTime value);
         partial void OnFromDateChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.DateTime ToDate
         {
@@ -5290,11 +5293,11 @@ namespace Cure.DataAccess
         private global::System.DateTime _ToDate;
         partial void OnToDateChanging(global::System.DateTime value);
         partial void OnToDateChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -5314,11 +5317,11 @@ namespace Cure.DataAccess
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Description
         {
@@ -5338,11 +5341,11 @@ namespace Cure.DataAccess
         private global::System.String _Description;
         partial void OnDescriptionChanging(global::System.String value);
         partial void OnDescriptionChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String LastUser
         {
@@ -5362,11 +5365,11 @@ namespace Cure.DataAccess
         private global::System.String _LastUser;
         partial void OnLastUserChanging(global::System.String value);
         partial void OnLastUserChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.DateTime LastDate
         {
@@ -5386,11 +5389,11 @@ namespace Cure.DataAccess
         private global::System.DateTime _LastDate;
         partial void OnLastDateChanging(global::System.DateTime value);
         partial void OnLastDateChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String CreateUser
         {
@@ -5410,11 +5413,11 @@ namespace Cure.DataAccess
         private global::System.String _CreateUser;
         partial void OnCreateUserChanging(global::System.String value);
         partial void OnCreateUserChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.DateTime CreateDate
         {
@@ -5438,7 +5441,7 @@ namespace Cure.DataAccess
         #endregion
 
         #region Navigation Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -5480,17 +5483,17 @@ namespace Cure.DataAccess
         #endregion
 
     }
-    
+
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="Mension")]
+    [EdmEntityTypeAttribute(NamespaceName = "DataModel", Name = "Mension")]
     [Serializable()]
-    [DataContractAttribute(IsReference=true)]
+    [DataContractAttribute(IsReference = true)]
     public partial class Mension : EntityObject
     {
         #region Factory Method
-    
+
         /// <summary>
         /// Create a new Mension object.
         /// </summary>
@@ -5509,11 +5512,11 @@ namespace Cure.DataAccess
         #endregion
 
         #region Simple Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 Id
         {
@@ -5536,11 +5539,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _Id;
         partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> DepartmentId
         {
@@ -5560,11 +5563,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Int32> _DepartmentId;
         partial void OnDepartmentIdChanging(Nullable<global::System.Int32> value);
         partial void OnDepartmentIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String OwnerUser
         {
@@ -5584,11 +5587,11 @@ namespace Cure.DataAccess
         private global::System.String _OwnerUser;
         partial void OnOwnerUserChanging(global::System.String value);
         partial void OnOwnerUserChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.DateTime CreatedDate
         {
@@ -5608,11 +5611,11 @@ namespace Cure.DataAccess
         private global::System.DateTime _CreatedDate;
         partial void OnCreatedDateChanging(global::System.DateTime value);
         partial void OnCreatedDateChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Text
         {
@@ -5632,11 +5635,11 @@ namespace Cure.DataAccess
         private global::System.String _Text;
         partial void OnTextChanging(global::System.String value);
         partial void OnTextChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String CopySubject
         {
@@ -5656,11 +5659,11 @@ namespace Cure.DataAccess
         private global::System.String _CopySubject;
         partial void OnCopySubjectChanging(global::System.String value);
         partial void OnCopySubjectChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String CopyUserName
         {
@@ -5680,11 +5683,11 @@ namespace Cure.DataAccess
         private global::System.String _CopyUserName;
         partial void OnCopyUserNameChanging(global::System.String value);
         partial void OnCopyUserNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String CopyUserLocation
         {
@@ -5704,11 +5707,11 @@ namespace Cure.DataAccess
         private global::System.String _CopyUserLocation;
         partial void OnCopyUserLocationChanging(global::System.String value);
         partial void OnCopyUserLocationChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> SortOrder
         {
@@ -5728,11 +5731,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Int32> _SortOrder;
         partial void OnSortOrderChanging(Nullable<global::System.Int32> value);
         partial void OnSortOrderChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Boolean> IsActive
         {
@@ -5756,7 +5759,7 @@ namespace Cure.DataAccess
         #endregion
 
         #region Navigation Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -5798,17 +5801,17 @@ namespace Cure.DataAccess
         #endregion
 
     }
-    
+
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="Message")]
+    [EdmEntityTypeAttribute(NamespaceName = "DataModel", Name = "Message")]
     [Serializable()]
-    [DataContractAttribute(IsReference=true)]
+    [DataContractAttribute(IsReference = true)]
     public partial class Message : EntityObject
     {
         #region Factory Method
-    
+
         /// <summary>
         /// Create a new Message object.
         /// </summary>
@@ -5829,11 +5832,11 @@ namespace Cure.DataAccess
         #endregion
 
         #region Simple Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 Id
         {
@@ -5856,11 +5859,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _Id;
         partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String FromUserName
         {
@@ -5880,11 +5883,11 @@ namespace Cure.DataAccess
         private global::System.String _FromUserName;
         partial void OnFromUserNameChanging(global::System.String value);
         partial void OnFromUserNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String FromDisplay
         {
@@ -5904,11 +5907,11 @@ namespace Cure.DataAccess
         private global::System.String _FromDisplay;
         partial void OnFromDisplayChanging(global::System.String value);
         partial void OnFromDisplayChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String ToUserName
         {
@@ -5928,11 +5931,11 @@ namespace Cure.DataAccess
         private global::System.String _ToUserName;
         partial void OnToUserNameChanging(global::System.String value);
         partial void OnToUserNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String ToDisplay
         {
@@ -5952,11 +5955,11 @@ namespace Cure.DataAccess
         private global::System.String _ToDisplay;
         partial void OnToDisplayChanging(global::System.String value);
         partial void OnToDisplayChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Boolean> Unread
         {
@@ -5976,11 +5979,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Boolean> _Unread;
         partial void OnUnreadChanging(Nullable<global::System.Boolean> value);
         partial void OnUnreadChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.DateTime SendTime
         {
@@ -6000,11 +6003,11 @@ namespace Cure.DataAccess
         private global::System.DateTime _SendTime;
         partial void OnSendTimeChanging(global::System.DateTime value);
         partial void OnSendTimeChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Subject
         {
@@ -6024,11 +6027,11 @@ namespace Cure.DataAccess
         private global::System.String _Subject;
         partial void OnSubjectChanging(global::System.String value);
         partial void OnSubjectChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Text
         {
@@ -6052,17 +6055,17 @@ namespace Cure.DataAccess
         #endregion
 
     }
-    
+
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="Newsletter")]
+    [EdmEntityTypeAttribute(NamespaceName = "DataModel", Name = "Newsletter")]
     [Serializable()]
-    [DataContractAttribute(IsReference=true)]
+    [DataContractAttribute(IsReference = true)]
     public partial class Newsletter : EntityObject
     {
         #region Factory Method
-    
+
         /// <summary>
         /// Create a new Newsletter object.
         /// </summary>
@@ -6083,11 +6086,11 @@ namespace Cure.DataAccess
         #endregion
 
         #region Simple Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 Id
         {
@@ -6110,11 +6113,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _Id;
         partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String Email
         {
@@ -6134,11 +6137,11 @@ namespace Cure.DataAccess
         private global::System.String _Email;
         partial void OnEmailChanging(global::System.String value);
         partial void OnEmailChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.DateTime EntryDate
         {
@@ -6158,11 +6161,11 @@ namespace Cure.DataAccess
         private global::System.DateTime _EntryDate;
         partial void OnEntryDateChanging(global::System.DateTime value);
         partial void OnEntryDateChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String EntryType
         {
@@ -6182,11 +6185,11 @@ namespace Cure.DataAccess
         private global::System.String _EntryType;
         partial void OnEntryTypeChanging(global::System.String value);
         partial void OnEntryTypeChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Settings
         {
@@ -6206,11 +6209,11 @@ namespace Cure.DataAccess
         private global::System.String _Settings;
         partial void OnSettingsChanging(global::System.String value);
         partial void OnSettingsChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> SuccessCount
         {
@@ -6230,11 +6233,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Int32> _SuccessCount;
         partial void OnSuccessCountChanging(Nullable<global::System.Int32> value);
         partial void OnSuccessCountChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> ErrorsCount
         {
@@ -6258,17 +6261,17 @@ namespace Cure.DataAccess
         #endregion
 
     }
-    
+
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="NotificationLog")]
+    [EdmEntityTypeAttribute(NamespaceName = "DataModel", Name = "NotificationLog")]
     [Serializable()]
-    [DataContractAttribute(IsReference=true)]
+    [DataContractAttribute(IsReference = true)]
     public partial class NotificationLog : EntityObject
     {
         #region Factory Method
-    
+
         /// <summary>
         /// Create a new NotificationLog object.
         /// </summary>
@@ -6287,11 +6290,11 @@ namespace Cure.DataAccess
         #endregion
 
         #region Simple Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 Id
         {
@@ -6314,11 +6317,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _Id;
         partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String Type
         {
@@ -6338,11 +6341,11 @@ namespace Cure.DataAccess
         private global::System.String _Type;
         partial void OnTypeChanging(global::System.String value);
         partial void OnTypeChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Result
         {
@@ -6362,11 +6365,11 @@ namespace Cure.DataAccess
         private global::System.String _Result;
         partial void OnResultChanging(global::System.String value);
         partial void OnResultChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -6386,11 +6389,11 @@ namespace Cure.DataAccess
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Description
         {
@@ -6410,11 +6413,11 @@ namespace Cure.DataAccess
         private global::System.String _Description;
         partial void OnDescriptionChanging(global::System.String value);
         partial void OnDescriptionChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.DateTime ExecutionDate
         {
@@ -6434,11 +6437,11 @@ namespace Cure.DataAccess
         private global::System.DateTime _ExecutionDate;
         partial void OnExecutionDateChanging(global::System.DateTime value);
         partial void OnExecutionDateChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Details
         {
@@ -6458,11 +6461,11 @@ namespace Cure.DataAccess
         private global::System.String _Details;
         partial void OnDetailsChanging(global::System.String value);
         partial void OnDetailsChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String ClientName
         {
@@ -6482,11 +6485,11 @@ namespace Cure.DataAccess
         private global::System.String _ClientName;
         partial void OnClientNameChanging(global::System.String value);
         partial void OnClientNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Contacts
         {
@@ -6510,17 +6513,17 @@ namespace Cure.DataAccess
         #endregion
 
     }
-    
+
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="OnlineUser")]
+    [EdmEntityTypeAttribute(NamespaceName = "DataModel", Name = "OnlineUser")]
     [Serializable()]
-    [DataContractAttribute(IsReference=true)]
+    [DataContractAttribute(IsReference = true)]
     public partial class OnlineUser : EntityObject
     {
         #region Factory Method
-    
+
         /// <summary>
         /// Create a new OnlineUser object.
         /// </summary>
@@ -6539,11 +6542,11 @@ namespace Cure.DataAccess
         #endregion
 
         #region Simple Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 Id
         {
@@ -6566,11 +6569,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _Id;
         partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String Username
         {
@@ -6590,11 +6593,11 @@ namespace Cure.DataAccess
         private global::System.String _Username;
         partial void OnUsernameChanging(global::System.String value);
         partial void OnUsernameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.DateTime LastDate
         {
@@ -6614,11 +6617,11 @@ namespace Cure.DataAccess
         private global::System.DateTime _LastDate;
         partial void OnLastDateChanging(global::System.DateTime value);
         partial void OnLastDateChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Details
         {
@@ -6642,17 +6645,17 @@ namespace Cure.DataAccess
         #endregion
 
     }
-    
+
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="Order")]
+    [EdmEntityTypeAttribute(NamespaceName = "DataModel", Name = "Order")]
     [Serializable()]
-    [DataContractAttribute(IsReference=true)]
+    [DataContractAttribute(IsReference = true)]
     public partial class Order : EntityObject
     {
         #region Factory Method
-    
+
         /// <summary>
         /// Create a new Order object.
         /// </summary>
@@ -6677,11 +6680,11 @@ namespace Cure.DataAccess
         #endregion
 
         #region Simple Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 Id
         {
@@ -6704,11 +6707,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _Id;
         partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Guid GuidId
         {
@@ -6728,11 +6731,11 @@ namespace Cure.DataAccess
         private global::System.Guid _GuidId;
         partial void OnGuidIdChanging(global::System.Guid value);
         partial void OnGuidIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -6752,11 +6755,11 @@ namespace Cure.DataAccess
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> DepartmentId
         {
@@ -6776,11 +6779,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Int32> _DepartmentId;
         partial void OnDepartmentIdChanging(Nullable<global::System.Int32> value);
         partial void OnDepartmentIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 StatusId
         {
@@ -6800,11 +6803,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _StatusId;
         partial void OnStatusIdChanging(global::System.Int32 value);
         partial void OnStatusIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String OwnerUser
         {
@@ -6824,11 +6827,11 @@ namespace Cure.DataAccess
         private global::System.String _OwnerUser;
         partial void OnOwnerUserChanging(global::System.String value);
         partial void OnOwnerUserChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.DateTime DateFrom
         {
@@ -6848,11 +6851,11 @@ namespace Cure.DataAccess
         private global::System.DateTime _DateFrom;
         partial void OnDateFromChanging(global::System.DateTime value);
         partial void OnDateFromChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.DateTime DateTo
         {
@@ -6872,11 +6875,11 @@ namespace Cure.DataAccess
         private global::System.DateTime _DateTo;
         partial void OnDateToChanging(global::System.DateTime value);
         partial void OnDateToChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> Dney
         {
@@ -6896,11 +6899,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Int32> _Dney;
         partial void OnDneyChanging(Nullable<global::System.Int32> value);
         partial void OnDneyChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Decimal> Price
         {
@@ -6920,11 +6923,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Decimal> _Price;
         partial void OnPriceChanging(Nullable<global::System.Decimal> value);
         partial void OnPriceChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> TicketPribitieTime
         {
@@ -6944,11 +6947,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.DateTime> _TicketPribitieTime;
         partial void OnTicketPribitieTimeChanging(Nullable<global::System.DateTime> value);
         partial void OnTicketPribitieTimeChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> TicketUbitieTime
         {
@@ -6968,11 +6971,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.DateTime> _TicketUbitieTime;
         partial void OnTicketUbitieTimeChanging(Nullable<global::System.DateTime> value);
         partial void OnTicketUbitieTimeChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String TicketInfo
         {
@@ -6992,11 +6995,11 @@ namespace Cure.DataAccess
         private global::System.String _TicketInfo;
         partial void OnTicketInfoChanging(global::System.String value);
         partial void OnTicketInfoChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> VizaDney
         {
@@ -7016,11 +7019,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Int32> _VizaDney;
         partial void OnVizaDneyChanging(Nullable<global::System.Int32> value);
         partial void OnVizaDneyChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Notes
         {
@@ -7040,11 +7043,11 @@ namespace Cure.DataAccess
         private global::System.String _Notes;
         partial void OnNotesChanging(global::System.String value);
         partial void OnNotesChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Description
         {
@@ -7064,11 +7067,11 @@ namespace Cure.DataAccess
         private global::System.String _Description;
         partial void OnDescriptionChanging(global::System.String value);
         partial void OnDescriptionChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String StatusDecription
         {
@@ -7088,11 +7091,11 @@ namespace Cure.DataAccess
         private global::System.String _StatusDecription;
         partial void OnStatusDecriptionChanging(global::System.String value);
         partial void OnStatusDecriptionChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Boolean> ServicePekinIsPerevod
         {
@@ -7112,11 +7115,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Boolean> _ServicePekinIsPerevod;
         partial void OnServicePekinIsPerevodChanging(Nullable<global::System.Boolean> value);
         partial void OnServicePekinIsPerevodChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Boolean> ServicePekinIsHotel
         {
@@ -7136,11 +7139,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Boolean> _ServicePekinIsHotel;
         partial void OnServicePekinIsHotelChanging(Nullable<global::System.Boolean> value);
         partial void OnServicePekinIsHotelChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String ServicePekinOther
         {
@@ -7160,11 +7163,11 @@ namespace Cure.DataAccess
         private global::System.String _ServicePekinOther;
         partial void OnServicePekinOtherChanging(global::System.String value);
         partial void OnServicePekinOtherChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Boolean> ServiceUnchenIsVstrecha
         {
@@ -7184,11 +7187,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Boolean> _ServiceUnchenIsVstrecha;
         partial void OnServiceUnchenIsVstrechaChanging(Nullable<global::System.Boolean> value);
         partial void OnServiceUnchenIsVstrechaChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String ServiceUnchenOther
         {
@@ -7208,11 +7211,11 @@ namespace Cure.DataAccess
         private global::System.String _ServiceUnchenOther;
         partial void OnServiceUnchenOtherChanging(global::System.String value);
         partial void OnServiceUnchenOtherChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Boolean> ServiceRoomIsPaper
         {
@@ -7232,11 +7235,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Boolean> _ServiceRoomIsPaper;
         partial void OnServiceRoomIsPaperChanging(Nullable<global::System.Boolean> value);
         partial void OnServiceRoomIsPaperChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Boolean> ServiceRoomIsStiral
         {
@@ -7256,11 +7259,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Boolean> _ServiceRoomIsStiral;
         partial void OnServiceRoomIsStiralChanging(Nullable<global::System.Boolean> value);
         partial void OnServiceRoomIsStiralChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Boolean> ServiceRoomIsOpolask
         {
@@ -7280,11 +7283,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Boolean> _ServiceRoomIsOpolask;
         partial void OnServiceRoomIsOpolaskChanging(Nullable<global::System.Boolean> value);
         partial void OnServiceRoomIsOpolaskChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Boolean> ServiceRoomIsMilo
         {
@@ -7304,11 +7307,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Boolean> _ServiceRoomIsMilo;
         partial void OnServiceRoomIsMiloChanging(Nullable<global::System.Boolean> value);
         partial void OnServiceRoomIsMiloChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Boolean> ServiceRoomIsVoda
         {
@@ -7328,11 +7331,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Boolean> _ServiceRoomIsVoda;
         partial void OnServiceRoomIsVodaChanging(Nullable<global::System.Boolean> value);
         partial void OnServiceRoomIsVodaChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Boolean> ServiceRoomIsPosuda
         {
@@ -7352,11 +7355,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Boolean> _ServiceRoomIsPosuda;
         partial void OnServiceRoomIsPosudaChanging(Nullable<global::System.Boolean> value);
         partial void OnServiceRoomIsPosudaChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String LastUser
         {
@@ -7376,11 +7379,11 @@ namespace Cure.DataAccess
         private global::System.String _LastUser;
         partial void OnLastUserChanging(global::System.String value);
         partial void OnLastUserChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> LastDate
         {
@@ -7400,11 +7403,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.DateTime> _LastDate;
         partial void OnLastDateChanging(Nullable<global::System.DateTime> value);
         partial void OnLastDateChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String CreateUser
         {
@@ -7424,11 +7427,11 @@ namespace Cure.DataAccess
         private global::System.String _CreateUser;
         partial void OnCreateUserChanging(global::System.String value);
         partial void OnCreateUserChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> CreateDate
         {
@@ -7452,7 +7455,7 @@ namespace Cure.DataAccess
         #endregion
 
         #region Navigation Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -7490,7 +7493,7 @@ namespace Cure.DataAccess
                 }
             }
         }
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -7528,7 +7531,7 @@ namespace Cure.DataAccess
                 }
             }
         }
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -7550,7 +7553,7 @@ namespace Cure.DataAccess
                 }
             }
         }
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -7576,17 +7579,17 @@ namespace Cure.DataAccess
         #endregion
 
     }
-    
+
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="OrderStatu")]
+    [EdmEntityTypeAttribute(NamespaceName = "DataModel", Name = "OrderStatu")]
     [Serializable()]
-    [DataContractAttribute(IsReference=true)]
+    [DataContractAttribute(IsReference = true)]
     public partial class OrderStatu : EntityObject
     {
         #region Factory Method
-    
+
         /// <summary>
         /// Create a new OrderStatu object.
         /// </summary>
@@ -7603,11 +7606,11 @@ namespace Cure.DataAccess
         #endregion
 
         #region Simple Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 Id
         {
@@ -7630,11 +7633,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _Id;
         partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -7654,11 +7657,11 @@ namespace Cure.DataAccess
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Description
         {
@@ -7678,11 +7681,11 @@ namespace Cure.DataAccess
         private global::System.String _Description;
         partial void OnDescriptionChanging(global::System.String value);
         partial void OnDescriptionChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Byte> SortOrder
         {
@@ -7706,7 +7709,7 @@ namespace Cure.DataAccess
         #endregion
 
         #region Navigation Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -7732,17 +7735,17 @@ namespace Cure.DataAccess
         #endregion
 
     }
-    
+
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="Pacient")]
+    [EdmEntityTypeAttribute(NamespaceName = "DataModel", Name = "Pacient")]
     [Serializable()]
-    [DataContractAttribute(IsReference=true)]
+    [DataContractAttribute(IsReference = true)]
     public partial class Pacient : EntityObject
     {
         #region Factory Method
-    
+
         /// <summary>
         /// Create a new Pacient object.
         /// </summary>
@@ -7761,11 +7764,11 @@ namespace Cure.DataAccess
         #endregion
 
         #region Simple Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 Id
         {
@@ -7788,11 +7791,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _Id;
         partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 CountryId
         {
@@ -7812,11 +7815,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _CountryId;
         partial void OnCountryIdChanging(global::System.Int32 value);
         partial void OnCountryIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -7836,11 +7839,11 @@ namespace Cure.DataAccess
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String NameEng
         {
@@ -7860,11 +7863,11 @@ namespace Cure.DataAccess
         private global::System.String _NameEng;
         partial void OnNameEngChanging(global::System.String value);
         partial void OnNameEngChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Familiya
         {
@@ -7884,11 +7887,11 @@ namespace Cure.DataAccess
         private global::System.String _Familiya;
         partial void OnFamiliyaChanging(global::System.String value);
         partial void OnFamiliyaChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String FamiliyaEn
         {
@@ -7908,11 +7911,11 @@ namespace Cure.DataAccess
         private global::System.String _FamiliyaEn;
         partial void OnFamiliyaEnChanging(global::System.String value);
         partial void OnFamiliyaEnChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Otchestvo
         {
@@ -7932,11 +7935,11 @@ namespace Cure.DataAccess
         private global::System.String _Otchestvo;
         partial void OnOtchestvoChanging(global::System.String value);
         partial void OnOtchestvoChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String OtchestvoEn
         {
@@ -7956,11 +7959,11 @@ namespace Cure.DataAccess
         private global::System.String _OtchestvoEn;
         partial void OnOtchestvoEnChanging(global::System.String value);
         partial void OnOtchestvoEnChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String CityName
         {
@@ -7980,11 +7983,11 @@ namespace Cure.DataAccess
         private global::System.String _CityName;
         partial void OnCityNameChanging(global::System.String value);
         partial void OnCityNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Address
         {
@@ -8004,11 +8007,11 @@ namespace Cure.DataAccess
         private global::System.String _Address;
         partial void OnAddressChanging(global::System.String value);
         partial void OnAddressChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> BirthDate
         {
@@ -8028,11 +8031,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.DateTime> _BirthDate;
         partial void OnBirthDateChanging(Nullable<global::System.DateTime> value);
         partial void OnBirthDateChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String SerialNumber
         {
@@ -8052,11 +8055,11 @@ namespace Cure.DataAccess
         private global::System.String _SerialNumber;
         partial void OnSerialNumberChanging(global::System.String value);
         partial void OnSerialNumberChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Diagnoz
         {
@@ -8076,11 +8079,11 @@ namespace Cure.DataAccess
         private global::System.String _Diagnoz;
         partial void OnDiagnozChanging(global::System.String value);
         partial void OnDiagnozChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Anamnez
         {
@@ -8100,11 +8103,11 @@ namespace Cure.DataAccess
         private global::System.String _Anamnez;
         partial void OnAnamnezChanging(global::System.String value);
         partial void OnAnamnezChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String OwnerUser
         {
@@ -8124,11 +8127,11 @@ namespace Cure.DataAccess
         private global::System.String _OwnerUser;
         partial void OnOwnerUserChanging(global::System.String value);
         partial void OnOwnerUserChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String LastUser
         {
@@ -8148,11 +8151,11 @@ namespace Cure.DataAccess
         private global::System.String _LastUser;
         partial void OnLastUserChanging(global::System.String value);
         partial void OnLastUserChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> LastDate
         {
@@ -8172,11 +8175,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.DateTime> _LastDate;
         partial void OnLastDateChanging(Nullable<global::System.DateTime> value);
         partial void OnLastDateChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String CreateUser
         {
@@ -8196,11 +8199,11 @@ namespace Cure.DataAccess
         private global::System.String _CreateUser;
         partial void OnCreateUserChanging(global::System.String value);
         partial void OnCreateUserChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> CreateDate
         {
@@ -8224,7 +8227,7 @@ namespace Cure.DataAccess
         #endregion
 
         #region Navigation Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -8262,7 +8265,7 @@ namespace Cure.DataAccess
                 }
             }
         }
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -8288,17 +8291,17 @@ namespace Cure.DataAccess
         #endregion
 
     }
-    
+
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="Post")]
+    [EdmEntityTypeAttribute(NamespaceName = "DataModel", Name = "Post")]
     [Serializable()]
-    [DataContractAttribute(IsReference=true)]
+    [DataContractAttribute(IsReference = true)]
     public partial class Post : EntityObject
     {
         #region Factory Method
-    
+
         /// <summary>
         /// Create a new Post object.
         /// </summary>
@@ -8323,11 +8326,11 @@ namespace Cure.DataAccess
         #endregion
 
         #region Simple Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 Id
         {
@@ -8350,11 +8353,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _Id;
         partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> ParentPostId
         {
@@ -8374,11 +8377,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Int32> _ParentPostId;
         partial void OnParentPostIdChanging(Nullable<global::System.Int32> value);
         partial void OnParentPostIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 ChildId
         {
@@ -8398,11 +8401,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _ChildId;
         partial void OnChildIdChanging(global::System.Int32 value);
         partial void OnChildIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Guid GuidId
         {
@@ -8422,11 +8425,11 @@ namespace Cure.DataAccess
         private global::System.Guid _GuidId;
         partial void OnGuidIdChanging(global::System.Guid value);
         partial void OnGuidIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String OwnerUser
         {
@@ -8446,11 +8449,11 @@ namespace Cure.DataAccess
         private global::System.String _OwnerUser;
         partial void OnOwnerUserChanging(global::System.String value);
         partial void OnOwnerUserChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String AnserToUser
         {
@@ -8470,11 +8473,11 @@ namespace Cure.DataAccess
         private global::System.String _AnserToUser;
         partial void OnAnserToUserChanging(global::System.String value);
         partial void OnAnserToUserChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String CopyOwnerName
         {
@@ -8494,11 +8497,11 @@ namespace Cure.DataAccess
         private global::System.String _CopyOwnerName;
         partial void OnCopyOwnerNameChanging(global::System.String value);
         partial void OnCopyOwnerNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String CopyOwnerLocation
         {
@@ -8518,11 +8521,11 @@ namespace Cure.DataAccess
         private global::System.String _CopyOwnerLocation;
         partial void OnCopyOwnerLocationChanging(global::System.String value);
         partial void OnCopyOwnerLocationChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Subject
         {
@@ -8542,11 +8545,11 @@ namespace Cure.DataAccess
         private global::System.String _Subject;
         partial void OnSubjectChanging(global::System.String value);
         partial void OnSubjectChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Text
         {
@@ -8566,11 +8569,11 @@ namespace Cure.DataAccess
         private global::System.String _Text;
         partial void OnTextChanging(global::System.String value);
         partial void OnTextChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.DateTime CreateDate
         {
@@ -8590,11 +8593,11 @@ namespace Cure.DataAccess
         private global::System.DateTime _CreateDate;
         partial void OnCreateDateChanging(global::System.DateTime value);
         partial void OnCreateDateChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.DateTime LastEdit
         {
@@ -8618,7 +8621,7 @@ namespace Cure.DataAccess
         #endregion
 
         #region Navigation Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -8656,7 +8659,7 @@ namespace Cure.DataAccess
                 }
             }
         }
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -8678,7 +8681,7 @@ namespace Cure.DataAccess
                 }
             }
         }
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -8720,17 +8723,17 @@ namespace Cure.DataAccess
         #endregion
 
     }
-    
+
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="RefBank")]
+    [EdmEntityTypeAttribute(NamespaceName = "DataModel", Name = "RefBank")]
     [Serializable()]
-    [DataContractAttribute(IsReference=true)]
+    [DataContractAttribute(IsReference = true)]
     public partial class RefBank : EntityObject
     {
         #region Factory Method
-    
+
         /// <summary>
         /// Create a new RefBank object.
         /// </summary>
@@ -8749,11 +8752,11 @@ namespace Cure.DataAccess
         #endregion
 
         #region Simple Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 Id
         {
@@ -8776,11 +8779,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _Id;
         partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 CountryId
         {
@@ -8800,11 +8803,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _CountryId;
         partial void OnCountryIdChanging(global::System.Int32 value);
         partial void OnCountryIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -8824,11 +8827,11 @@ namespace Cure.DataAccess
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Description
         {
@@ -8848,11 +8851,11 @@ namespace Cure.DataAccess
         private global::System.String _Description;
         partial void OnDescriptionChanging(global::System.String value);
         partial void OnDescriptionChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Inn
         {
@@ -8872,11 +8875,11 @@ namespace Cure.DataAccess
         private global::System.String _Inn;
         partial void OnInnChanging(global::System.String value);
         partial void OnInnChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Kpp
         {
@@ -8896,11 +8899,11 @@ namespace Cure.DataAccess
         private global::System.String _Kpp;
         partial void OnKppChanging(global::System.String value);
         partial void OnKppChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Oktmo
         {
@@ -8920,11 +8923,11 @@ namespace Cure.DataAccess
         private global::System.String _Oktmo;
         partial void OnOktmoChanging(global::System.String value);
         partial void OnOktmoChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Okved
         {
@@ -8944,11 +8947,11 @@ namespace Cure.DataAccess
         private global::System.String _Okved;
         partial void OnOkvedChanging(global::System.String value);
         partial void OnOkvedChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Bik
         {
@@ -8968,11 +8971,11 @@ namespace Cure.DataAccess
         private global::System.String _Bik;
         partial void OnBikChanging(global::System.String value);
         partial void OnBikChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String KorrAccount
         {
@@ -8996,7 +8999,7 @@ namespace Cure.DataAccess
         #endregion
 
         #region Navigation Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -9034,7 +9037,7 @@ namespace Cure.DataAccess
                 }
             }
         }
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -9060,17 +9063,17 @@ namespace Cure.DataAccess
         #endregion
 
     }
-    
+
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="RefCountry")]
+    [EdmEntityTypeAttribute(NamespaceName = "DataModel", Name = "RefCountry")]
     [Serializable()]
-    [DataContractAttribute(IsReference=true)]
+    [DataContractAttribute(IsReference = true)]
     public partial class RefCountry : EntityObject
     {
         #region Factory Method
-    
+
         /// <summary>
         /// Create a new RefCountry object.
         /// </summary>
@@ -9085,11 +9088,11 @@ namespace Cure.DataAccess
         #endregion
 
         #region Simple Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 Id
         {
@@ -9112,11 +9115,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _Id;
         partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -9136,11 +9139,11 @@ namespace Cure.DataAccess
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String NameCh
         {
@@ -9160,11 +9163,11 @@ namespace Cure.DataAccess
         private global::System.String _NameCh;
         partial void OnNameChChanging(global::System.String value);
         partial void OnNameChChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String NameEn
         {
@@ -9184,11 +9187,11 @@ namespace Cure.DataAccess
         private global::System.String _NameEn;
         partial void OnNameEnChanging(global::System.String value);
         partial void OnNameEnChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Description
         {
@@ -9208,11 +9211,11 @@ namespace Cure.DataAccess
         private global::System.String _Description;
         partial void OnDescriptionChanging(global::System.String value);
         partial void OnDescriptionChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String PosolstvoChLabel
         {
@@ -9232,11 +9235,11 @@ namespace Cure.DataAccess
         private global::System.String _PosolstvoChLabel;
         partial void OnPosolstvoChLabelChanging(global::System.String value);
         partial void OnPosolstvoChLabelChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String PosolstvoRusLabel
         {
@@ -9256,11 +9259,11 @@ namespace Cure.DataAccess
         private global::System.String _PosolstvoRusLabel;
         partial void OnPosolstvoRusLabelChanging(global::System.String value);
         partial void OnPosolstvoRusLabelChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String NacionalnostChLabel
         {
@@ -9284,7 +9287,7 @@ namespace Cure.DataAccess
         #endregion
 
         #region Navigation Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -9306,7 +9309,7 @@ namespace Cure.DataAccess
                 }
             }
         }
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -9328,7 +9331,7 @@ namespace Cure.DataAccess
                 }
             }
         }
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -9350,7 +9353,7 @@ namespace Cure.DataAccess
                 }
             }
         }
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -9372,7 +9375,7 @@ namespace Cure.DataAccess
                 }
             }
         }
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -9394,7 +9397,7 @@ namespace Cure.DataAccess
                 }
             }
         }
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -9420,17 +9423,17 @@ namespace Cure.DataAccess
         #endregion
 
     }
-    
+
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="RefDiagnoz")]
+    [EdmEntityTypeAttribute(NamespaceName = "DataModel", Name = "RefDiagnoz")]
     [Serializable()]
-    [DataContractAttribute(IsReference=true)]
+    [DataContractAttribute(IsReference = true)]
     public partial class RefDiagnoz : EntityObject
     {
         #region Factory Method
-    
+
         /// <summary>
         /// Create a new RefDiagnoz object.
         /// </summary>
@@ -9447,11 +9450,11 @@ namespace Cure.DataAccess
         #endregion
 
         #region Simple Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 Id
         {
@@ -9474,11 +9477,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _Id;
         partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -9498,11 +9501,11 @@ namespace Cure.DataAccess
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Description
         {
@@ -9526,7 +9529,7 @@ namespace Cure.DataAccess
         #endregion
 
         #region Navigation Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -9552,17 +9555,17 @@ namespace Cure.DataAccess
         #endregion
 
     }
-    
+
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="RefOperator")]
+    [EdmEntityTypeAttribute(NamespaceName = "DataModel", Name = "RefOperator")]
     [Serializable()]
-    [DataContractAttribute(IsReference=true)]
+    [DataContractAttribute(IsReference = true)]
     public partial class RefOperator : EntityObject
     {
         #region Factory Method
-    
+
         /// <summary>
         /// Create a new RefOperator object.
         /// </summary>
@@ -9579,11 +9582,11 @@ namespace Cure.DataAccess
         #endregion
 
         #region Simple Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 Id
         {
@@ -9606,11 +9609,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _Id;
         partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -9630,11 +9633,11 @@ namespace Cure.DataAccess
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Description
         {
@@ -9654,11 +9657,11 @@ namespace Cure.DataAccess
         private global::System.String _Description;
         partial void OnDescriptionChanging(global::System.String value);
         partial void OnDescriptionChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Params
         {
@@ -9682,7 +9685,7 @@ namespace Cure.DataAccess
         #endregion
 
         #region Navigation Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -9704,7 +9707,7 @@ namespace Cure.DataAccess
                 }
             }
         }
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -9726,7 +9729,7 @@ namespace Cure.DataAccess
                 }
             }
         }
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -9748,7 +9751,7 @@ namespace Cure.DataAccess
                 }
             }
         }
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -9774,17 +9777,17 @@ namespace Cure.DataAccess
         #endregion
 
     }
-    
+
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="RefRodstvo")]
+    [EdmEntityTypeAttribute(NamespaceName = "DataModel", Name = "RefRodstvo")]
     [Serializable()]
-    [DataContractAttribute(IsReference=true)]
+    [DataContractAttribute(IsReference = true)]
     public partial class RefRodstvo : EntityObject
     {
         #region Factory Method
-    
+
         /// <summary>
         /// Create a new RefRodstvo object.
         /// </summary>
@@ -9801,11 +9804,11 @@ namespace Cure.DataAccess
         #endregion
 
         #region Simple Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 Id
         {
@@ -9828,11 +9831,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _Id;
         partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -9852,11 +9855,11 @@ namespace Cure.DataAccess
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Description
         {
@@ -9876,11 +9879,11 @@ namespace Cure.DataAccess
         private global::System.String _Description;
         partial void OnDescriptionChanging(global::System.String value);
         partial void OnDescriptionChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> Sort
         {
@@ -9900,11 +9903,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Int32> _Sort;
         partial void OnSortChanging(Nullable<global::System.Int32> value);
         partial void OnSortChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String SoprovodRuLabel
         {
@@ -9924,11 +9927,11 @@ namespace Cure.DataAccess
         private global::System.String _SoprovodRuLabel;
         partial void OnSoprovodRuLabelChanging(global::System.String value);
         partial void OnSoprovodRuLabelChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String SoprovodChLabel
         {
@@ -9952,7 +9955,7 @@ namespace Cure.DataAccess
         #endregion
 
         #region Navigation Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -9974,7 +9977,7 @@ namespace Cure.DataAccess
                 }
             }
         }
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -10000,17 +10003,17 @@ namespace Cure.DataAccess
         #endregion
 
     }
-    
+
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="RefStopVisitType")]
+    [EdmEntityTypeAttribute(NamespaceName = "DataModel", Name = "RefStopVisitType")]
     [Serializable()]
-    [DataContractAttribute(IsReference=true)]
+    [DataContractAttribute(IsReference = true)]
     public partial class RefStopVisitType : EntityObject
     {
         #region Factory Method
-    
+
         /// <summary>
         /// Create a new RefStopVisitType object.
         /// </summary>
@@ -10027,11 +10030,11 @@ namespace Cure.DataAccess
         #endregion
 
         #region Simple Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 Id
         {
@@ -10054,11 +10057,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _Id;
         partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -10078,11 +10081,11 @@ namespace Cure.DataAccess
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Description
         {
@@ -10106,7 +10109,7 @@ namespace Cure.DataAccess
         #endregion
 
         #region Navigation Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -10132,17 +10135,17 @@ namespace Cure.DataAccess
         #endregion
 
     }
-    
+
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="Setting")]
+    [EdmEntityTypeAttribute(NamespaceName = "DataModel", Name = "Setting")]
     [Serializable()]
-    [DataContractAttribute(IsReference=true)]
+    [DataContractAttribute(IsReference = true)]
     public partial class Setting : EntityObject
     {
         #region Factory Method
-    
+
         /// <summary>
         /// Create a new Setting object.
         /// </summary>
@@ -10159,11 +10162,11 @@ namespace Cure.DataAccess
         #endregion
 
         #region Simple Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 Id
         {
@@ -10186,11 +10189,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _Id;
         partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Code
         {
@@ -10210,11 +10213,11 @@ namespace Cure.DataAccess
         private global::System.String _Code;
         partial void OnCodeChanging(global::System.String value);
         partial void OnCodeChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -10234,11 +10237,11 @@ namespace Cure.DataAccess
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Description
         {
@@ -10258,11 +10261,11 @@ namespace Cure.DataAccess
         private global::System.String _Description;
         partial void OnDescriptionChanging(global::System.String value);
         partial void OnDescriptionChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Type
         {
@@ -10282,11 +10285,11 @@ namespace Cure.DataAccess
         private global::System.String _Type;
         partial void OnTypeChanging(global::System.String value);
         partial void OnTypeChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Boolean> ValueBool
         {
@@ -10306,11 +10309,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Boolean> _ValueBool;
         partial void OnValueBoolChanging(Nullable<global::System.Boolean> value);
         partial void OnValueBoolChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Value
         {
@@ -10334,17 +10337,17 @@ namespace Cure.DataAccess
         #endregion
 
     }
-    
+
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="SmsLog")]
+    [EdmEntityTypeAttribute(NamespaceName = "DataModel", Name = "SmsLog")]
     [Serializable()]
-    [DataContractAttribute(IsReference=true)]
+    [DataContractAttribute(IsReference = true)]
     public partial class SmsLog : EntityObject
     {
         #region Factory Method
-    
+
         /// <summary>
         /// Create a new SmsLog object.
         /// </summary>
@@ -10363,11 +10366,11 @@ namespace Cure.DataAccess
         #endregion
 
         #region Simple Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Guid Id
         {
@@ -10390,11 +10393,11 @@ namespace Cure.DataAccess
         private global::System.Guid _Id;
         partial void OnIdChanging(global::System.Guid value);
         partial void OnIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String PhoneNumber
         {
@@ -10414,11 +10417,11 @@ namespace Cure.DataAccess
         private global::System.String _PhoneNumber;
         partial void OnPhoneNumberChanging(global::System.String value);
         partial void OnPhoneNumberChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Text
         {
@@ -10438,11 +10441,11 @@ namespace Cure.DataAccess
         private global::System.String _Text;
         partial void OnTextChanging(global::System.String value);
         partial void OnTextChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.DateTime Date
         {
@@ -10462,11 +10465,11 @@ namespace Cure.DataAccess
         private global::System.DateTime _Date;
         partial void OnDateChanging(global::System.DateTime value);
         partial void OnDateChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Reason
         {
@@ -10486,11 +10489,11 @@ namespace Cure.DataAccess
         private global::System.String _Reason;
         partial void OnReasonChanging(global::System.String value);
         partial void OnReasonChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Description
         {
@@ -10510,11 +10513,11 @@ namespace Cure.DataAccess
         private global::System.String _Description;
         partial void OnDescriptionChanging(global::System.String value);
         partial void OnDescriptionChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Addition
         {
@@ -10538,17 +10541,17 @@ namespace Cure.DataAccess
         #endregion
 
     }
-    
+
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="Sputnik")]
+    [EdmEntityTypeAttribute(NamespaceName = "DataModel", Name = "Sputnik")]
     [Serializable()]
-    [DataContractAttribute(IsReference=true)]
+    [DataContractAttribute(IsReference = true)]
     public partial class Sputnik : EntityObject
     {
         #region Factory Method
-    
+
         /// <summary>
         /// Create a new Sputnik object.
         /// </summary>
@@ -10569,11 +10572,11 @@ namespace Cure.DataAccess
         #endregion
 
         #region Simple Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 Id
         {
@@ -10596,11 +10599,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _Id;
         partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> OrderId
         {
@@ -10620,11 +10623,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Int32> _OrderId;
         partial void OnOrderIdChanging(Nullable<global::System.Int32> value);
         partial void OnOrderIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsPrimary
         {
@@ -10644,11 +10647,11 @@ namespace Cure.DataAccess
         private global::System.Boolean _IsPrimary;
         partial void OnIsPrimaryChanging(global::System.Boolean value);
         partial void OnIsPrimaryChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -10668,11 +10671,11 @@ namespace Cure.DataAccess
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String NameEn
         {
@@ -10692,11 +10695,11 @@ namespace Cure.DataAccess
         private global::System.String _NameEn;
         partial void OnNameEnChanging(global::System.String value);
         partial void OnNameEnChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Familiya
         {
@@ -10716,11 +10719,11 @@ namespace Cure.DataAccess
         private global::System.String _Familiya;
         partial void OnFamiliyaChanging(global::System.String value);
         partial void OnFamiliyaChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String FamiliyaEn
         {
@@ -10740,11 +10743,11 @@ namespace Cure.DataAccess
         private global::System.String _FamiliyaEn;
         partial void OnFamiliyaEnChanging(global::System.String value);
         partial void OnFamiliyaEnChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Otchestvo
         {
@@ -10764,11 +10767,11 @@ namespace Cure.DataAccess
         private global::System.String _Otchestvo;
         partial void OnOtchestvoChanging(global::System.String value);
         partial void OnOtchestvoChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Email
         {
@@ -10788,11 +10791,11 @@ namespace Cure.DataAccess
         private global::System.String _Email;
         partial void OnEmailChanging(global::System.String value);
         partial void OnEmailChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> CountryId
         {
@@ -10812,11 +10815,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Int32> _CountryId;
         partial void OnCountryIdChanging(Nullable<global::System.Int32> value);
         partial void OnCountryIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Contacts
         {
@@ -10836,11 +10839,11 @@ namespace Cure.DataAccess
         private global::System.String _Contacts;
         partial void OnContactsChanging(global::System.String value);
         partial void OnContactsChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> BirthDate
         {
@@ -10860,11 +10863,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.DateTime> _BirthDate;
         partial void OnBirthDateChanging(Nullable<global::System.DateTime> value);
         partial void OnBirthDateChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String SeriaNumber
         {
@@ -10884,11 +10887,11 @@ namespace Cure.DataAccess
         private global::System.String _SeriaNumber;
         partial void OnSeriaNumberChanging(global::System.String value);
         partial void OnSeriaNumberChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 RodstvoId
         {
@@ -10908,11 +10911,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _RodstvoId;
         partial void OnRodstvoIdChanging(global::System.Int32 value);
         partial void OnRodstvoIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String OwnerUser
         {
@@ -10932,11 +10935,11 @@ namespace Cure.DataAccess
         private global::System.String _OwnerUser;
         partial void OnOwnerUserChanging(global::System.String value);
         partial void OnOwnerUserChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String LastUser
         {
@@ -10956,11 +10959,11 @@ namespace Cure.DataAccess
         private global::System.String _LastUser;
         partial void OnLastUserChanging(global::System.String value);
         partial void OnLastUserChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> LastDate
         {
@@ -10980,11 +10983,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.DateTime> _LastDate;
         partial void OnLastDateChanging(Nullable<global::System.DateTime> value);
         partial void OnLastDateChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String CreateUser
         {
@@ -11004,11 +11007,11 @@ namespace Cure.DataAccess
         private global::System.String _CreateUser;
         partial void OnCreateUserChanging(global::System.String value);
         partial void OnCreateUserChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> CreateDate
         {
@@ -11032,7 +11035,7 @@ namespace Cure.DataAccess
         #endregion
 
         #region Navigation Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -11070,7 +11073,7 @@ namespace Cure.DataAccess
                 }
             }
         }
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -11108,7 +11111,7 @@ namespace Cure.DataAccess
                 }
             }
         }
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -11150,17 +11153,17 @@ namespace Cure.DataAccess
         #endregion
 
     }
-    
+
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="StopVisit")]
+    [EdmEntityTypeAttribute(NamespaceName = "DataModel", Name = "StopVisit")]
     [Serializable()]
-    [DataContractAttribute(IsReference=true)]
+    [DataContractAttribute(IsReference = true)]
     public partial class StopVisit : EntityObject
     {
         #region Factory Method
-    
+
         /// <summary>
         /// Create a new StopVisit object.
         /// </summary>
@@ -11183,11 +11186,11 @@ namespace Cure.DataAccess
         #endregion
 
         #region Simple Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 Id
         {
@@ -11210,11 +11213,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _Id;
         partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 StopTypeId
         {
@@ -11234,11 +11237,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _StopTypeId;
         partial void OnStopTypeIdChanging(global::System.Int32 value);
         partial void OnStopTypeIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 DepartmentId
         {
@@ -11258,11 +11261,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _DepartmentId;
         partial void OnDepartmentIdChanging(global::System.Int32 value);
         partial void OnDepartmentIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.DateTime DateFrom
         {
@@ -11282,11 +11285,11 @@ namespace Cure.DataAccess
         private global::System.DateTime _DateFrom;
         partial void OnDateFromChanging(global::System.DateTime value);
         partial void OnDateFromChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.DateTime DateTo
         {
@@ -11306,11 +11309,11 @@ namespace Cure.DataAccess
         private global::System.DateTime _DateTo;
         partial void OnDateToChanging(global::System.DateTime value);
         partial void OnDateToChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Description
         {
@@ -11334,7 +11337,7 @@ namespace Cure.DataAccess
         #endregion
 
         #region Navigation Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -11372,7 +11375,7 @@ namespace Cure.DataAccess
                 }
             }
         }
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -11414,17 +11417,17 @@ namespace Cure.DataAccess
         #endregion
 
     }
-    
+
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="TransferUser")]
+    [EdmEntityTypeAttribute(NamespaceName = "DataModel", Name = "TransferUser")]
     [Serializable()]
-    [DataContractAttribute(IsReference=true)]
+    [DataContractAttribute(IsReference = true)]
     public partial class TransferUser : EntityObject
     {
         #region Factory Method
-    
+
         /// <summary>
         /// Create a new TransferUser object.
         /// </summary>
@@ -11443,11 +11446,11 @@ namespace Cure.DataAccess
         #endregion
 
         #region Simple Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 Id
         {
@@ -11470,11 +11473,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _Id;
         partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String Username
         {
@@ -11494,11 +11497,11 @@ namespace Cure.DataAccess
         private global::System.String _Username;
         partial void OnUsernameChanging(global::System.String value);
         partial void OnUsernameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 DepartmentId
         {
@@ -11522,7 +11525,7 @@ namespace Cure.DataAccess
         #endregion
 
         #region Navigation Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -11564,17 +11567,17 @@ namespace Cure.DataAccess
         #endregion
 
     }
-    
+
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="ViewChild")]
+    [EdmEntityTypeAttribute(NamespaceName = "DataModel", Name = "ViewChild")]
     [Serializable()]
-    [DataContractAttribute(IsReference=true)]
+    [DataContractAttribute(IsReference = true)]
     public partial class ViewChild : EntityObject
     {
         #region Factory Method
-    
+
         /// <summary>
         /// Create a new ViewChild object.
         /// </summary>
@@ -11611,11 +11614,11 @@ namespace Cure.DataAccess
         #endregion
 
         #region Simple Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 Id
         {
@@ -11625,24 +11628,21 @@ namespace Cure.DataAccess
             }
             set
             {
-                if (_Id != value)
-                {
-                    OnIdChanging(value);
-                    ReportPropertyChanging("Id");
-                    _Id = StructuralObject.SetValidValue(value, "Id");
-                    ReportPropertyChanged("Id");
-                    OnIdChanged();
-                }
+                OnIdChanging(value);
+                ReportPropertyChanging("Id");
+                _Id = StructuralObject.SetValidValue(value, "Id");
+                ReportPropertyChanged("Id");
+                OnIdChanged();
             }
         }
         private global::System.Int32 _Id;
         partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Guid GuidId
         {
@@ -11652,21 +11652,24 @@ namespace Cure.DataAccess
             }
             set
             {
-                OnGuidIdChanging(value);
-                ReportPropertyChanging("GuidId");
-                _GuidId = StructuralObject.SetValidValue(value, "GuidId");
-                ReportPropertyChanged("GuidId");
-                OnGuidIdChanged();
+                if (_GuidId != value)
+                {
+                    OnGuidIdChanging(value);
+                    ReportPropertyChanging("GuidId");
+                    _GuidId = StructuralObject.SetValidValue(value, "GuidId");
+                    ReportPropertyChanged("GuidId");
+                    OnGuidIdChanged();
+                }
             }
         }
         private global::System.Guid _GuidId;
         partial void OnGuidIdChanging(global::System.Guid value);
         partial void OnGuidIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String OwnerUser
         {
@@ -11686,11 +11689,11 @@ namespace Cure.DataAccess
         private global::System.String _OwnerUser;
         partial void OnOwnerUserChanging(global::System.String value);
         partial void OnOwnerUserChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsActive
         {
@@ -11710,11 +11713,11 @@ namespace Cure.DataAccess
         private global::System.Boolean _IsActive;
         partial void OnIsActiveChanging(global::System.Boolean value);
         partial void OnIsActiveChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -11734,11 +11737,11 @@ namespace Cure.DataAccess
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.DateTime Birthday
         {
@@ -11758,11 +11761,11 @@ namespace Cure.DataAccess
         private global::System.DateTime _Birthday;
         partial void OnBirthdayChanging(global::System.DateTime value);
         partial void OnBirthdayChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 CountryId
         {
@@ -11782,11 +11785,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _CountryId;
         partial void OnCountryIdChanging(global::System.Int32 value);
         partial void OnCountryIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Region
         {
@@ -11806,11 +11809,11 @@ namespace Cure.DataAccess
         private global::System.String _Region;
         partial void OnRegionChanging(global::System.String value);
         partial void OnRegionChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Diagnoz
         {
@@ -11830,11 +11833,11 @@ namespace Cure.DataAccess
         private global::System.String _Diagnoz;
         partial void OnDiagnozChanging(global::System.String value);
         partial void OnDiagnozChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String ContactName
         {
@@ -11854,11 +11857,11 @@ namespace Cure.DataAccess
         private global::System.String _ContactName;
         partial void OnContactNameChanging(global::System.String value);
         partial void OnContactNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 ContactRodstvoId
         {
@@ -11878,11 +11881,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _ContactRodstvoId;
         partial void OnContactRodstvoIdChanging(global::System.Int32 value);
         partial void OnContactRodstvoIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String ContactEmail
         {
@@ -11902,11 +11905,11 @@ namespace Cure.DataAccess
         private global::System.String _ContactEmail;
         partial void OnContactEmailChanging(global::System.String value);
         partial void OnContactEmailChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String ContactPhone
         {
@@ -11926,11 +11929,11 @@ namespace Cure.DataAccess
         private global::System.String _ContactPhone;
         partial void OnContactPhoneChanging(global::System.String value);
         partial void OnContactPhoneChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String SocialOk
         {
@@ -11950,11 +11953,11 @@ namespace Cure.DataAccess
         private global::System.String _SocialOk;
         partial void OnSocialOkChanging(global::System.String value);
         partial void OnSocialOkChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String SocialVk
         {
@@ -11974,11 +11977,11 @@ namespace Cure.DataAccess
         private global::System.String _SocialVk;
         partial void OnSocialVkChanging(global::System.String value);
         partial void OnSocialVkChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String SocialMm
         {
@@ -11998,11 +12001,11 @@ namespace Cure.DataAccess
         private global::System.String _SocialMm;
         partial void OnSocialMmChanging(global::System.String value);
         partial void OnSocialMmChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String SocialFb
         {
@@ -12022,11 +12025,11 @@ namespace Cure.DataAccess
         private global::System.String _SocialFb;
         partial void OnSocialFbChanging(global::System.String value);
         partial void OnSocialFbChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String FinWebmoney
         {
@@ -12046,11 +12049,11 @@ namespace Cure.DataAccess
         private global::System.String _FinWebmoney;
         partial void OnFinWebmoneyChanging(global::System.String value);
         partial void OnFinWebmoneyChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String FinYandexMoney
         {
@@ -12070,11 +12073,11 @@ namespace Cure.DataAccess
         private global::System.String _FinYandexMoney;
         partial void OnFinYandexMoneyChanging(global::System.String value);
         partial void OnFinYandexMoneyChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String FinKiwi
         {
@@ -12094,11 +12097,11 @@ namespace Cure.DataAccess
         private global::System.String _FinKiwi;
         partial void OnFinKiwiChanging(global::System.String value);
         partial void OnFinKiwiChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> FinOperatorId
         {
@@ -12118,11 +12121,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Int32> _FinOperatorId;
         partial void OnFinOperatorIdChanging(Nullable<global::System.Int32> value);
         partial void OnFinOperatorIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String FinPhoneNumber
         {
@@ -12142,11 +12145,11 @@ namespace Cure.DataAccess
         private global::System.String _FinPhoneNumber;
         partial void OnFinPhoneNumberChanging(global::System.String value);
         partial void OnFinPhoneNumberChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> FinCountryId
         {
@@ -12166,11 +12169,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Int32> _FinCountryId;
         partial void OnFinCountryIdChanging(Nullable<global::System.Int32> value);
         partial void OnFinCountryIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> FinBankId
         {
@@ -12190,11 +12193,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Int32> _FinBankId;
         partial void OnFinBankIdChanging(Nullable<global::System.Int32> value);
         partial void OnFinBankIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String FinBankOther
         {
@@ -12214,11 +12217,11 @@ namespace Cure.DataAccess
         private global::System.String _FinBankOther;
         partial void OnFinBankOtherChanging(global::System.String value);
         partial void OnFinBankOtherChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String FinCardNumber
         {
@@ -12238,11 +12241,11 @@ namespace Cure.DataAccess
         private global::System.String _FinCardNumber;
         partial void OnFinCardNumberChanging(global::System.String value);
         partial void OnFinCardNumberChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String CountryName
         {
@@ -12262,11 +12265,11 @@ namespace Cure.DataAccess
         private global::System.String _CountryName;
         partial void OnCountryNameChanging(global::System.String value);
         partial void OnCountryNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String UserLoweredUserName
         {
@@ -12286,11 +12289,11 @@ namespace Cure.DataAccess
         private global::System.String _UserLoweredUserName;
         partial void OnUserLoweredUserNameChanging(global::System.String value);
         partial void OnUserLoweredUserNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Boolean> UserIsAnonymous
         {
@@ -12310,11 +12313,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Boolean> _UserIsAnonymous;
         partial void OnUserIsAnonymousChanging(Nullable<global::System.Boolean> value);
         partial void OnUserIsAnonymousChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> UserLastActivityDate
         {
@@ -12334,11 +12337,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.DateTime> _UserLastActivityDate;
         partial void OnUserLastActivityDateChanging(Nullable<global::System.DateTime> value);
         partial void OnUserLastActivityDateChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String UserEmail
         {
@@ -12358,11 +12361,11 @@ namespace Cure.DataAccess
         private global::System.String _UserEmail;
         partial void OnUserEmailChanging(global::System.String value);
         partial void OnUserEmailChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String UserLoweredEmail
         {
@@ -12382,11 +12385,11 @@ namespace Cure.DataAccess
         private global::System.String _UserLoweredEmail;
         partial void OnUserLoweredEmailChanging(global::System.String value);
         partial void OnUserLoweredEmailChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Boolean> UserIsApproved
         {
@@ -12406,11 +12409,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Boolean> _UserIsApproved;
         partial void OnUserIsApprovedChanging(Nullable<global::System.Boolean> value);
         partial void OnUserIsApprovedChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Boolean> UserIsLockedOut
         {
@@ -12430,11 +12433,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Boolean> _UserIsLockedOut;
         partial void OnUserIsLockedOutChanging(Nullable<global::System.Boolean> value);
         partial void OnUserIsLockedOutChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> UserLastLoginDate
         {
@@ -12454,11 +12457,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.DateTime> _UserLastLoginDate;
         partial void OnUserLastLoginDateChanging(Nullable<global::System.DateTime> value);
         partial void OnUserLastLoginDateChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String UserComment
         {
@@ -12478,11 +12481,11 @@ namespace Cure.DataAccess
         private global::System.String _UserComment;
         partial void OnUserCommentChanging(global::System.String value);
         partial void OnUserCommentChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String BankName
         {
@@ -12502,11 +12505,11 @@ namespace Cure.DataAccess
         private global::System.String _BankName;
         partial void OnBankNameChanging(global::System.String value);
         partial void OnBankNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String BankDescription
         {
@@ -12526,11 +12529,11 @@ namespace Cure.DataAccess
         private global::System.String _BankDescription;
         partial void OnBankDescriptionChanging(global::System.String value);
         partial void OnBankDescriptionChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String BankInn
         {
@@ -12550,11 +12553,11 @@ namespace Cure.DataAccess
         private global::System.String _BankInn;
         partial void OnBankInnChanging(global::System.String value);
         partial void OnBankInnChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String BankKpp
         {
@@ -12574,11 +12577,11 @@ namespace Cure.DataAccess
         private global::System.String _BankKpp;
         partial void OnBankKppChanging(global::System.String value);
         partial void OnBankKppChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String BankOktmo
         {
@@ -12598,11 +12601,11 @@ namespace Cure.DataAccess
         private global::System.String _BankOktmo;
         partial void OnBankOktmoChanging(global::System.String value);
         partial void OnBankOktmoChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String BankOkved
         {
@@ -12622,11 +12625,11 @@ namespace Cure.DataAccess
         private global::System.String _BankOkved;
         partial void OnBankOkvedChanging(global::System.String value);
         partial void OnBankOkvedChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String BankBik
         {
@@ -12646,11 +12649,11 @@ namespace Cure.DataAccess
         private global::System.String _BankBik;
         partial void OnBankBikChanging(global::System.String value);
         partial void OnBankBikChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String BankKorrAccount
         {
@@ -12670,11 +12673,11 @@ namespace Cure.DataAccess
         private global::System.String _BankKorrAccount;
         partial void OnBankKorrAccountChanging(global::System.String value);
         partial void OnBankKorrAccountChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String RodstvoName
         {
@@ -12694,11 +12697,11 @@ namespace Cure.DataAccess
         private global::System.String _RodstvoName;
         partial void OnRodstvoNameChanging(global::System.String value);
         partial void OnRodstvoNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String RodstvoDescription
         {
@@ -12718,11 +12721,11 @@ namespace Cure.DataAccess
         private global::System.String _RodstvoDescription;
         partial void OnRodstvoDescriptionChanging(global::System.String value);
         partial void OnRodstvoDescriptionChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> RodstvoSort
         {
@@ -12742,11 +12745,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Int32> _RodstvoSort;
         partial void OnRodstvoSortChanging(Nullable<global::System.Int32> value);
         partial void OnRodstvoSortChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String RodstvoSoprovodRuLabel
         {
@@ -12766,11 +12769,11 @@ namespace Cure.DataAccess
         private global::System.String _RodstvoSoprovodRuLabel;
         partial void OnRodstvoSoprovodRuLabelChanging(global::System.String value);
         partial void OnRodstvoSoprovodRuLabelChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String RodstvoSoprovodChLabel
         {
@@ -12790,11 +12793,11 @@ namespace Cure.DataAccess
         private global::System.String _RodstvoSoprovodChLabel;
         partial void OnRodstvoSoprovodChLabelChanging(global::System.String value);
         partial void OnRodstvoSoprovodChLabelChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String OperatorName
         {
@@ -12814,11 +12817,11 @@ namespace Cure.DataAccess
         private global::System.String _OperatorName;
         partial void OnOperatorNameChanging(global::System.String value);
         partial void OnOperatorNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String OperatorDescription
         {
@@ -12838,11 +12841,11 @@ namespace Cure.DataAccess
         private global::System.String _OperatorDescription;
         partial void OnOperatorDescriptionChanging(global::System.String value);
         partial void OnOperatorDescriptionChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String OperatorParams
         {
@@ -12862,11 +12865,11 @@ namespace Cure.DataAccess
         private global::System.String _OperatorParams;
         partial void OnOperatorParamsChanging(global::System.String value);
         partial void OnOperatorParamsChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String BankCountryName
         {
@@ -12886,11 +12889,11 @@ namespace Cure.DataAccess
         private global::System.String _BankCountryName;
         partial void OnBankCountryNameChanging(global::System.String value);
         partial void OnBankCountryNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String FinCountryName
         {
@@ -12910,11 +12913,11 @@ namespace Cure.DataAccess
         private global::System.String _FinCountryName;
         partial void OnFinCountryNameChanging(global::System.String value);
         partial void OnFinCountryNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 DiagnozId
         {
@@ -12934,11 +12937,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _DiagnozId;
         partial void OnDiagnozIdChanging(global::System.Int32 value);
         partial void OnDiagnozIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String DiagnozName
         {
@@ -12958,11 +12961,11 @@ namespace Cure.DataAccess
         private global::System.String _DiagnozName;
         partial void OnDiagnozNameChanging(global::System.String value);
         partial void OnDiagnozNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String DiagnozDescription
         {
@@ -12982,11 +12985,11 @@ namespace Cure.DataAccess
         private global::System.String _DiagnozDescription;
         partial void OnDiagnozDescriptionChanging(global::System.String value);
         partial void OnDiagnozDescriptionChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String SocialYoutube
         {
@@ -13006,11 +13009,11 @@ namespace Cure.DataAccess
         private global::System.String _SocialYoutube;
         partial void OnSocialYoutubeChanging(global::System.String value);
         partial void OnSocialYoutubeChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String FinWebmoney2
         {
@@ -13030,11 +13033,11 @@ namespace Cure.DataAccess
         private global::System.String _FinWebmoney2;
         partial void OnFinWebmoney2Changing(global::System.String value);
         partial void OnFinWebmoney2Changed();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String FinWebmoney3
         {
@@ -13054,11 +13057,11 @@ namespace Cure.DataAccess
         private global::System.String _FinWebmoney3;
         partial void OnFinWebmoney3Changing(global::System.String value);
         partial void OnFinWebmoney3Changed();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String FinCardName
         {
@@ -13078,11 +13081,11 @@ namespace Cure.DataAccess
         private global::System.String _FinCardName;
         partial void OnFinCardNameChanging(global::System.String value);
         partial void OnFinCardNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String FinWebmoney4
         {
@@ -13102,11 +13105,11 @@ namespace Cure.DataAccess
         private global::System.String _FinWebmoney4;
         partial void OnFinWebmoney4Changing(global::System.String value);
         partial void OnFinWebmoney4Changed();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> FinOperator2Id
         {
@@ -13126,11 +13129,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Int32> _FinOperator2Id;
         partial void OnFinOperator2IdChanging(Nullable<global::System.Int32> value);
         partial void OnFinOperator2IdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String FinPhoneNumber2
         {
@@ -13150,11 +13153,11 @@ namespace Cure.DataAccess
         private global::System.String _FinPhoneNumber2;
         partial void OnFinPhoneNumber2Changing(global::System.String value);
         partial void OnFinPhoneNumber2Changed();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> FinOperator3Id
         {
@@ -13174,11 +13177,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Int32> _FinOperator3Id;
         partial void OnFinOperator3IdChanging(Nullable<global::System.Int32> value);
         partial void OnFinOperator3IdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String FinPhoneNumber3
         {
@@ -13198,11 +13201,11 @@ namespace Cure.DataAccess
         private global::System.String _FinPhoneNumber3;
         partial void OnFinPhoneNumber3Changing(global::System.String value);
         partial void OnFinPhoneNumber3Changed();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> FinOperator4Id
         {
@@ -13222,11 +13225,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Int32> _FinOperator4Id;
         partial void OnFinOperator4IdChanging(Nullable<global::System.Int32> value);
         partial void OnFinOperator4IdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String FinPhoneNumber4
         {
@@ -13246,11 +13249,11 @@ namespace Cure.DataAccess
         private global::System.String _FinPhoneNumber4;
         partial void OnFinPhoneNumber4Changing(global::System.String value);
         partial void OnFinPhoneNumber4Changed();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Operator2Name
         {
@@ -13270,11 +13273,11 @@ namespace Cure.DataAccess
         private global::System.String _Operator2Name;
         partial void OnOperator2NameChanging(global::System.String value);
         partial void OnOperator2NameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Operator2Description
         {
@@ -13294,11 +13297,11 @@ namespace Cure.DataAccess
         private global::System.String _Operator2Description;
         partial void OnOperator2DescriptionChanging(global::System.String value);
         partial void OnOperator2DescriptionChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Operator2Params
         {
@@ -13318,11 +13321,11 @@ namespace Cure.DataAccess
         private global::System.String _Operator2Params;
         partial void OnOperator2ParamsChanging(global::System.String value);
         partial void OnOperator2ParamsChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Operator3Name
         {
@@ -13342,11 +13345,11 @@ namespace Cure.DataAccess
         private global::System.String _Operator3Name;
         partial void OnOperator3NameChanging(global::System.String value);
         partial void OnOperator3NameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Operator3Description
         {
@@ -13366,11 +13369,11 @@ namespace Cure.DataAccess
         private global::System.String _Operator3Description;
         partial void OnOperator3DescriptionChanging(global::System.String value);
         partial void OnOperator3DescriptionChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Operator3Params
         {
@@ -13390,11 +13393,11 @@ namespace Cure.DataAccess
         private global::System.String _Operator3Params;
         partial void OnOperator3ParamsChanging(global::System.String value);
         partial void OnOperator3ParamsChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Operator4Name
         {
@@ -13414,11 +13417,11 @@ namespace Cure.DataAccess
         private global::System.String _Operator4Name;
         partial void OnOperator4NameChanging(global::System.String value);
         partial void OnOperator4NameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Operator4Description
         {
@@ -13438,11 +13441,11 @@ namespace Cure.DataAccess
         private global::System.String _Operator4Description;
         partial void OnOperator4DescriptionChanging(global::System.String value);
         partial void OnOperator4DescriptionChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Operator4Params
         {
@@ -13462,11 +13465,11 @@ namespace Cure.DataAccess
         private global::System.String _Operator4Params;
         partial void OnOperator4ParamsChanging(global::System.String value);
         partial void OnOperator4ParamsChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String OwnerUserPic
         {
@@ -13486,11 +13489,11 @@ namespace Cure.DataAccess
         private global::System.String _OwnerUserPic;
         partial void OnOwnerUserPicChanging(global::System.String value);
         partial void OnOwnerUserPicChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String OwnerAvaFile
         {
@@ -13511,20 +13514,44 @@ namespace Cure.DataAccess
         partial void OnOwnerAvaFileChanging(global::System.String value);
         partial void OnOwnerAvaFileChanged();
 
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Guid> UserId
+        {
+            get
+            {
+                return _UserId;
+            }
+            set
+            {
+                OnUserIdChanging(value);
+                ReportPropertyChanging("UserId");
+                _UserId = StructuralObject.SetValidValue(value, "UserId");
+                ReportPropertyChanged("UserId");
+                OnUserIdChanged();
+            }
+        }
+        private Nullable<global::System.Guid> _UserId;
+        partial void OnUserIdChanging(Nullable<global::System.Guid> value);
+        partial void OnUserIdChanged();
+
         #endregion
 
     }
-    
+
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="ViewMension")]
+    [EdmEntityTypeAttribute(NamespaceName = "DataModel", Name = "ViewMension")]
     [Serializable()]
-    [DataContractAttribute(IsReference=true)]
+    [DataContractAttribute(IsReference = true)]
     public partial class ViewMension : EntityObject
     {
         #region Factory Method
-    
+
         /// <summary>
         /// Create a new ViewMension object.
         /// </summary>
@@ -13543,11 +13570,11 @@ namespace Cure.DataAccess
         #endregion
 
         #region Simple Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 Id
         {
@@ -13570,11 +13597,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _Id;
         partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> DepartmentId
         {
@@ -13594,11 +13621,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Int32> _DepartmentId;
         partial void OnDepartmentIdChanging(Nullable<global::System.Int32> value);
         partial void OnDepartmentIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String OwnerUser
         {
@@ -13618,11 +13645,11 @@ namespace Cure.DataAccess
         private global::System.String _OwnerUser;
         partial void OnOwnerUserChanging(global::System.String value);
         partial void OnOwnerUserChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.DateTime CreatedDate
         {
@@ -13642,11 +13669,11 @@ namespace Cure.DataAccess
         private global::System.DateTime _CreatedDate;
         partial void OnCreatedDateChanging(global::System.DateTime value);
         partial void OnCreatedDateChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Text
         {
@@ -13666,11 +13693,11 @@ namespace Cure.DataAccess
         private global::System.String _Text;
         partial void OnTextChanging(global::System.String value);
         partial void OnTextChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String CopySubject
         {
@@ -13690,11 +13717,11 @@ namespace Cure.DataAccess
         private global::System.String _CopySubject;
         partial void OnCopySubjectChanging(global::System.String value);
         partial void OnCopySubjectChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String CopyUserName
         {
@@ -13714,11 +13741,11 @@ namespace Cure.DataAccess
         private global::System.String _CopyUserName;
         partial void OnCopyUserNameChanging(global::System.String value);
         partial void OnCopyUserNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String CopyUserLocation
         {
@@ -13738,11 +13765,11 @@ namespace Cure.DataAccess
         private global::System.String _CopyUserLocation;
         partial void OnCopyUserLocationChanging(global::System.String value);
         partial void OnCopyUserLocationChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> SortOrder
         {
@@ -13762,11 +13789,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Int32> _SortOrder;
         partial void OnSortOrderChanging(Nullable<global::System.Int32> value);
         partial void OnSortOrderChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Boolean> IsActive
         {
@@ -13786,11 +13813,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Boolean> _IsActive;
         partial void OnIsActiveChanging(Nullable<global::System.Boolean> value);
         partial void OnIsActiveChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String OwnerUserPic
         {
@@ -13810,11 +13837,11 @@ namespace Cure.DataAccess
         private global::System.String _OwnerUserPic;
         partial void OnOwnerUserPicChanging(global::System.String value);
         partial void OnOwnerUserPicChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String ContactName
         {
@@ -13834,11 +13861,11 @@ namespace Cure.DataAccess
         private global::System.String _ContactName;
         partial void OnContactNameChanging(global::System.String value);
         partial void OnContactNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String ContactEmail
         {
@@ -13858,11 +13885,11 @@ namespace Cure.DataAccess
         private global::System.String _ContactEmail;
         partial void OnContactEmailChanging(global::System.String value);
         partial void OnContactEmailChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String ContactPhone
         {
@@ -13882,11 +13909,11 @@ namespace Cure.DataAccess
         private global::System.String _ContactPhone;
         partial void OnContactPhoneChanging(global::System.String value);
         partial void OnContactPhoneChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> GuidId
         {
@@ -13906,11 +13933,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Guid> _GuidId;
         partial void OnGuidIdChanging(Nullable<global::System.Guid> value);
         partial void OnGuidIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> ChildId
         {
@@ -13934,17 +13961,17 @@ namespace Cure.DataAccess
         #endregion
 
     }
-    
+
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="ViewRecipient")]
+    [EdmEntityTypeAttribute(NamespaceName = "DataModel", Name = "ViewRecipient")]
     [Serializable()]
-    [DataContractAttribute(IsReference=true)]
+    [DataContractAttribute(IsReference = true)]
     public partial class ViewRecipient : EntityObject
     {
         #region Factory Method
-    
+
         /// <summary>
         /// Create a new ViewRecipient object.
         /// </summary>
@@ -13953,7 +13980,8 @@ namespace Cure.DataAccess
         /// <param name="isLockedOut">Initial value of the IsLockedOut property.</param>
         /// <param name="lastMessageText">Initial value of the LastMessageText property.</param>
         /// <param name="lastMessageDate">Initial value of the LastMessageDate property.</param>
-        public static ViewRecipient CreateViewRecipient(global::System.String userName, global::System.Boolean isApproved, global::System.Boolean isLockedOut, global::System.String lastMessageText, global::System.DateTime lastMessageDate)
+        /// <param name="userId">Initial value of the UserId property.</param>
+        public static ViewRecipient CreateViewRecipient(global::System.String userName, global::System.Boolean isApproved, global::System.Boolean isLockedOut, global::System.String lastMessageText, global::System.DateTime lastMessageDate, global::System.Guid userId)
         {
             ViewRecipient viewRecipient = new ViewRecipient();
             viewRecipient.UserName = userName;
@@ -13961,17 +13989,18 @@ namespace Cure.DataAccess
             viewRecipient.IsLockedOut = isLockedOut;
             viewRecipient.LastMessageText = lastMessageText;
             viewRecipient.LastMessageDate = lastMessageDate;
+            viewRecipient.UserId = userId;
             return viewRecipient;
         }
 
         #endregion
 
         #region Simple Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String UserName
         {
@@ -13981,24 +14010,21 @@ namespace Cure.DataAccess
             }
             set
             {
-                if (_UserName != value)
-                {
-                    OnUserNameChanging(value);
-                    ReportPropertyChanging("UserName");
-                    _UserName = StructuralObject.SetValidValue(value, false, "UserName");
-                    ReportPropertyChanged("UserName");
-                    OnUserNameChanged();
-                }
+                OnUserNameChanging(value);
+                ReportPropertyChanging("UserName");
+                _UserName = StructuralObject.SetValidValue(value, false, "UserName");
+                ReportPropertyChanged("UserName");
+                OnUserNameChanged();
             }
         }
         private global::System.String _UserName;
         partial void OnUserNameChanging(global::System.String value);
         partial void OnUserNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Email
         {
@@ -14018,11 +14044,11 @@ namespace Cure.DataAccess
         private global::System.String _Email;
         partial void OnEmailChanging(global::System.String value);
         partial void OnEmailChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsApproved
         {
@@ -14042,11 +14068,11 @@ namespace Cure.DataAccess
         private global::System.Boolean _IsApproved;
         partial void OnIsApprovedChanging(global::System.Boolean value);
         partial void OnIsApprovedChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsLockedOut
         {
@@ -14066,11 +14092,11 @@ namespace Cure.DataAccess
         private global::System.Boolean _IsLockedOut;
         partial void OnIsLockedOutChanging(global::System.Boolean value);
         partial void OnIsLockedOutChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> ChildId
         {
@@ -14090,11 +14116,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Int32> _ChildId;
         partial void OnChildIdChanging(Nullable<global::System.Int32> value);
         partial void OnChildIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> GuidId
         {
@@ -14114,11 +14140,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Guid> _GuidId;
         partial void OnGuidIdChanging(Nullable<global::System.Guid> value);
         partial void OnGuidIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String ChildName
         {
@@ -14138,11 +14164,11 @@ namespace Cure.DataAccess
         private global::System.String _ChildName;
         partial void OnChildNameChanging(global::System.String value);
         partial void OnChildNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String ContactName
         {
@@ -14162,11 +14188,11 @@ namespace Cure.DataAccess
         private global::System.String _ContactName;
         partial void OnContactNameChanging(global::System.String value);
         partial void OnContactNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> Birthday
         {
@@ -14186,11 +14212,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.DateTime> _Birthday;
         partial void OnBirthdayChanging(Nullable<global::System.DateTime> value);
         partial void OnBirthdayChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Boolean> IsActive
         {
@@ -14210,11 +14236,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Boolean> _IsActive;
         partial void OnIsActiveChanging(Nullable<global::System.Boolean> value);
         partial void OnIsActiveChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String FileName
         {
@@ -14234,11 +14260,11 @@ namespace Cure.DataAccess
         private global::System.String _FileName;
         partial void OnFileNameChanging(global::System.String value);
         partial void OnFileNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String OwnerUserPic
         {
@@ -14258,11 +14284,11 @@ namespace Cure.DataAccess
         private global::System.String _OwnerUserPic;
         partial void OnOwnerUserPicChanging(global::System.String value);
         partial void OnOwnerUserPicChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String OwnerAvaFile
         {
@@ -14282,11 +14308,11 @@ namespace Cure.DataAccess
         private global::System.String _OwnerAvaFile;
         partial void OnOwnerAvaFileChanging(global::System.String value);
         partial void OnOwnerAvaFileChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> IsOnline
         {
@@ -14306,11 +14332,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Int32> _IsOnline;
         partial void OnIsOnlineChanging(Nullable<global::System.Int32> value);
         partial void OnIsOnlineChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> IsAdmin
         {
@@ -14330,11 +14356,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Int32> _IsAdmin;
         partial void OnIsAdminChanging(Nullable<global::System.Int32> value);
         partial void OnIsAdminChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String LastMessageText
         {
@@ -14354,11 +14380,11 @@ namespace Cure.DataAccess
         private global::System.String _LastMessageText;
         partial void OnLastMessageTextChanging(global::System.String value);
         partial void OnLastMessageTextChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.DateTime LastMessageDate
         {
@@ -14379,20 +14405,47 @@ namespace Cure.DataAccess
         partial void OnLastMessageDateChanging(global::System.DateTime value);
         partial void OnLastMessageDateChanged();
 
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [DataMemberAttribute()]
+        public global::System.Guid UserId
+        {
+            get
+            {
+                return _UserId;
+            }
+            set
+            {
+                if (_UserId != value)
+                {
+                    OnUserIdChanging(value);
+                    ReportPropertyChanging("UserId");
+                    _UserId = StructuralObject.SetValidValue(value, "UserId");
+                    ReportPropertyChanged("UserId");
+                    OnUserIdChanged();
+                }
+            }
+        }
+        private global::System.Guid _UserId;
+        partial void OnUserIdChanging(global::System.Guid value);
+        partial void OnUserIdChanged();
+
         #endregion
 
     }
-    
+
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="ViewScheduler")]
+    [EdmEntityTypeAttribute(NamespaceName = "DataModel", Name = "ViewScheduler")]
     [Serializable()]
-    [DataContractAttribute(IsReference=true)]
+    [DataContractAttribute(IsReference = true)]
     public partial class ViewScheduler : EntityObject
     {
         #region Factory Method
-    
+
         /// <summary>
         /// Create a new ViewScheduler object.
         /// </summary>
@@ -14411,11 +14464,11 @@ namespace Cure.DataAccess
         #endregion
 
         #region Simple Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String Id
         {
@@ -14438,11 +14491,11 @@ namespace Cure.DataAccess
         private global::System.String _Id;
         partial void OnIdChanging(global::System.String value);
         partial void OnIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> oGuidId
         {
@@ -14462,11 +14515,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Guid> _oGuidId;
         partial void OnoGuidIdChanging(Nullable<global::System.Guid> value);
         partial void OnoGuidIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String oName
         {
@@ -14486,11 +14539,11 @@ namespace Cure.DataAccess
         private global::System.String _oName;
         partial void OnoNameChanging(global::System.String value);
         partial void OnoNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> oDepartmentId
         {
@@ -14510,11 +14563,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Int32> _oDepartmentId;
         partial void OnoDepartmentIdChanging(Nullable<global::System.Int32> value);
         partial void OnoDepartmentIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> oStatusId
         {
@@ -14534,11 +14587,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Int32> _oStatusId;
         partial void OnoStatusIdChanging(Nullable<global::System.Int32> value);
         partial void OnoStatusIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String oOwnerUser
         {
@@ -14558,11 +14611,11 @@ namespace Cure.DataAccess
         private global::System.String _oOwnerUser;
         partial void OnoOwnerUserChanging(global::System.String value);
         partial void OnoOwnerUserChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> oDateFrom
         {
@@ -14582,11 +14635,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.DateTime> _oDateFrom;
         partial void OnoDateFromChanging(Nullable<global::System.DateTime> value);
         partial void OnoDateFromChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> oDateTo
         {
@@ -14606,11 +14659,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.DateTime> _oDateTo;
         partial void OnoDateToChanging(Nullable<global::System.DateTime> value);
         partial void OnoDateToChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> oDney
         {
@@ -14630,11 +14683,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Int32> _oDney;
         partial void OnoDneyChanging(Nullable<global::System.Int32> value);
         partial void OnoDneyChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Decimal> oPrice
         {
@@ -14654,11 +14707,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Decimal> _oPrice;
         partial void OnoPriceChanging(Nullable<global::System.Decimal> value);
         partial void OnoPriceChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> oTicketPribitieTime
         {
@@ -14678,11 +14731,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.DateTime> _oTicketPribitieTime;
         partial void OnoTicketPribitieTimeChanging(Nullable<global::System.DateTime> value);
         partial void OnoTicketPribitieTimeChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> oTicketUbitieTime
         {
@@ -14702,11 +14755,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.DateTime> _oTicketUbitieTime;
         partial void OnoTicketUbitieTimeChanging(Nullable<global::System.DateTime> value);
         partial void OnoTicketUbitieTimeChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String oTicketInfo
         {
@@ -14726,11 +14779,11 @@ namespace Cure.DataAccess
         private global::System.String _oTicketInfo;
         partial void OnoTicketInfoChanging(global::System.String value);
         partial void OnoTicketInfoChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> oVizaDney
         {
@@ -14750,11 +14803,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Int32> _oVizaDney;
         partial void OnoVizaDneyChanging(Nullable<global::System.Int32> value);
         partial void OnoVizaDneyChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String oNotes
         {
@@ -14774,11 +14827,11 @@ namespace Cure.DataAccess
         private global::System.String _oNotes;
         partial void OnoNotesChanging(global::System.String value);
         partial void OnoNotesChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String oDescription
         {
@@ -14798,11 +14851,11 @@ namespace Cure.DataAccess
         private global::System.String _oDescription;
         partial void OnoDescriptionChanging(global::System.String value);
         partial void OnoDescriptionChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String oStatusDecription
         {
@@ -14822,11 +14875,11 @@ namespace Cure.DataAccess
         private global::System.String _oStatusDecription;
         partial void OnoStatusDecriptionChanging(global::System.String value);
         partial void OnoStatusDecriptionChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Boolean> oServicePekinIsPerevod
         {
@@ -14846,11 +14899,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Boolean> _oServicePekinIsPerevod;
         partial void OnoServicePekinIsPerevodChanging(Nullable<global::System.Boolean> value);
         partial void OnoServicePekinIsPerevodChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Boolean> oServicePekinIsHotel
         {
@@ -14870,11 +14923,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Boolean> _oServicePekinIsHotel;
         partial void OnoServicePekinIsHotelChanging(Nullable<global::System.Boolean> value);
         partial void OnoServicePekinIsHotelChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String oServicePekinOther
         {
@@ -14894,11 +14947,11 @@ namespace Cure.DataAccess
         private global::System.String _oServicePekinOther;
         partial void OnoServicePekinOtherChanging(global::System.String value);
         partial void OnoServicePekinOtherChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Boolean> oServiceUnchenIsVstrecha
         {
@@ -14918,11 +14971,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Boolean> _oServiceUnchenIsVstrecha;
         partial void OnoServiceUnchenIsVstrechaChanging(Nullable<global::System.Boolean> value);
         partial void OnoServiceUnchenIsVstrechaChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String oServiceUnchenOther
         {
@@ -14942,11 +14995,11 @@ namespace Cure.DataAccess
         private global::System.String _oServiceUnchenOther;
         partial void OnoServiceUnchenOtherChanging(global::System.String value);
         partial void OnoServiceUnchenOtherChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Boolean> oServiceRoomIsPaper
         {
@@ -14966,11 +15019,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Boolean> _oServiceRoomIsPaper;
         partial void OnoServiceRoomIsPaperChanging(Nullable<global::System.Boolean> value);
         partial void OnoServiceRoomIsPaperChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Boolean> oServiceRoomIsStiral
         {
@@ -14990,11 +15043,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Boolean> _oServiceRoomIsStiral;
         partial void OnoServiceRoomIsStiralChanging(Nullable<global::System.Boolean> value);
         partial void OnoServiceRoomIsStiralChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Boolean> oServiceRoomIsOpolask
         {
@@ -15014,11 +15067,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Boolean> _oServiceRoomIsOpolask;
         partial void OnoServiceRoomIsOpolaskChanging(Nullable<global::System.Boolean> value);
         partial void OnoServiceRoomIsOpolaskChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Boolean> oServiceRoomIsMilo
         {
@@ -15038,11 +15091,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Boolean> _oServiceRoomIsMilo;
         partial void OnoServiceRoomIsMiloChanging(Nullable<global::System.Boolean> value);
         partial void OnoServiceRoomIsMiloChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Boolean> oServiceRoomIsVoda
         {
@@ -15062,11 +15115,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Boolean> _oServiceRoomIsVoda;
         partial void OnoServiceRoomIsVodaChanging(Nullable<global::System.Boolean> value);
         partial void OnoServiceRoomIsVodaChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Boolean> oServiceRoomIsPosuda
         {
@@ -15086,11 +15139,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Boolean> _oServiceRoomIsPosuda;
         partial void OnoServiceRoomIsPosudaChanging(Nullable<global::System.Boolean> value);
         partial void OnoServiceRoomIsPosudaChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 vPacientId
         {
@@ -15110,11 +15163,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _vPacientId;
         partial void OnvPacientIdChanging(global::System.Int32 value);
         partial void OnvPacientIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 vOrderId
         {
@@ -15134,11 +15187,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _vOrderId;
         partial void OnvOrderIdChanging(global::System.Int32 value);
         partial void OnvOrderIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String vVipiska
         {
@@ -15158,11 +15211,11 @@ namespace Cure.DataAccess
         private global::System.String _vVipiska;
         partial void OnvVipiskaChanging(global::System.String value);
         partial void OnvVipiskaChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Decimal> vPrice
         {
@@ -15182,11 +15235,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Decimal> _vPrice;
         partial void OnvPriceChanging(Nullable<global::System.Decimal> value);
         partial void OnvPriceChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String vFond
         {
@@ -15206,11 +15259,11 @@ namespace Cure.DataAccess
         private global::System.String _vFond;
         partial void OnvFondChanging(global::System.String value);
         partial void OnvFondChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> vDateDogovor
         {
@@ -15230,11 +15283,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.DateTime> _vDateDogovor;
         partial void OnvDateDogovorChanging(Nullable<global::System.DateTime> value);
         partial void OnvDateDogovorChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String vAmbNumber
         {
@@ -15254,11 +15307,11 @@ namespace Cure.DataAccess
         private global::System.String _vAmbNumber;
         partial void OnvAmbNumberChanging(global::System.String value);
         partial void OnvAmbNumberChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Boolean> vIsInvite
         {
@@ -15278,11 +15331,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Boolean> _vIsInvite;
         partial void OnvIsInviteChanging(Nullable<global::System.Boolean> value);
         partial void OnvIsInviteChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Boolean> vIsInvicePrint
         {
@@ -15302,11 +15355,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Boolean> _vIsInvicePrint;
         partial void OnvIsInvicePrintChanging(Nullable<global::System.Boolean> value);
         partial void OnvIsInvicePrintChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String vAdditional
         {
@@ -15326,11 +15379,11 @@ namespace Cure.DataAccess
         private global::System.String _vAdditional;
         partial void OnvAdditionalChanging(global::System.String value);
         partial void OnvAdditionalChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String vTodaysDiagnoz
         {
@@ -15350,11 +15403,11 @@ namespace Cure.DataAccess
         private global::System.String _vTodaysDiagnoz;
         partial void OnvTodaysDiagnozChanging(global::System.String value);
         partial void OnvTodaysDiagnozChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String vHystoryA
         {
@@ -15374,11 +15427,11 @@ namespace Cure.DataAccess
         private global::System.String _vHystoryA;
         partial void OnvHystoryAChanging(global::System.String value);
         partial void OnvHystoryAChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String vHystoryb
         {
@@ -15398,11 +15451,11 @@ namespace Cure.DataAccess
         private global::System.String _vHystoryb;
         partial void OnvHystorybChanging(global::System.String value);
         partial void OnvHystorybChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String vRazvitie
         {
@@ -15422,11 +15475,11 @@ namespace Cure.DataAccess
         private global::System.String _vRazvitie;
         partial void OnvRazvitieChanging(global::System.String value);
         partial void OnvRazvitieChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String vDispanser
         {
@@ -15446,11 +15499,11 @@ namespace Cure.DataAccess
         private global::System.String _vDispanser;
         partial void OnvDispanserChanging(global::System.String value);
         partial void OnvDispanserChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String vDispanser2
         {
@@ -15470,11 +15523,11 @@ namespace Cure.DataAccess
         private global::System.String _vDispanser2;
         partial void OnvDispanser2Changing(global::System.String value);
         partial void OnvDispanser2Changed();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String vDangerousDiseases
         {
@@ -15494,11 +15547,11 @@ namespace Cure.DataAccess
         private global::System.String _vDangerousDiseases;
         partial void OnvDangerousDiseasesChanging(global::System.String value);
         partial void OnvDangerousDiseasesChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String vSerdce
         {
@@ -15518,11 +15571,11 @@ namespace Cure.DataAccess
         private global::System.String _vSerdce;
         partial void OnvSerdceChanging(global::System.String value);
         partial void OnvSerdceChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String vDihalka
         {
@@ -15542,11 +15595,11 @@ namespace Cure.DataAccess
         private global::System.String _vDihalka;
         partial void OnvDihalkaChanging(global::System.String value);
         partial void OnvDihalkaChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String vInfections
         {
@@ -15566,11 +15619,11 @@ namespace Cure.DataAccess
         private global::System.String _vInfections;
         partial void OnvInfectionsChanging(global::System.String value);
         partial void OnvInfectionsChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String vOtherDiseases
         {
@@ -15590,11 +15643,11 @@ namespace Cure.DataAccess
         private global::System.String _vOtherDiseases;
         partial void OnvOtherDiseasesChanging(global::System.String value);
         partial void OnvOtherDiseasesChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String vEpilispiya
         {
@@ -15614,11 +15667,11 @@ namespace Cure.DataAccess
         private global::System.String _vEpilispiya;
         partial void OnvEpilispiyaChanging(global::System.String value);
         partial void OnvEpilispiyaChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String vSudorogiType
         {
@@ -15638,11 +15691,11 @@ namespace Cure.DataAccess
         private global::System.String _vSudorogiType;
         partial void OnvSudorogiTypeChanging(global::System.String value);
         partial void OnvSudorogiTypeChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String vSudorogiCount
         {
@@ -15662,11 +15715,11 @@ namespace Cure.DataAccess
         private global::System.String _vSudorogiCount;
         partial void OnvSudorogiCountChanging(global::System.String value);
         partial void OnvSudorogiCountChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String vSudorogiMedcine
         {
@@ -15686,11 +15739,11 @@ namespace Cure.DataAccess
         private global::System.String _vSudorogiMedcine;
         partial void OnvSudorogiMedcineChanging(global::System.String value);
         partial void OnvSudorogiMedcineChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String vRemission
         {
@@ -15710,11 +15763,11 @@ namespace Cure.DataAccess
         private global::System.String _vRemission;
         partial void OnvRemissionChanging(global::System.String value);
         partial void OnvRemissionChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String vEncefalogram
         {
@@ -15734,11 +15787,11 @@ namespace Cure.DataAccess
         private global::System.String _vEncefalogram;
         partial void OnvEncefalogramChanging(global::System.String value);
         partial void OnvEncefalogramChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String vMainGoal
         {
@@ -15758,11 +15811,11 @@ namespace Cure.DataAccess
         private global::System.String _vMainGoal;
         partial void OnvMainGoalChanging(global::System.String value);
         partial void OnvMainGoalChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String vRazgovor
         {
@@ -15782,11 +15835,11 @@ namespace Cure.DataAccess
         private global::System.String _vRazgovor;
         partial void OnvRazgovorChanging(global::System.String value);
         partial void OnvRazgovorChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String vInstructcii
         {
@@ -15806,11 +15859,11 @@ namespace Cure.DataAccess
         private global::System.String _vInstructcii;
         partial void OnvInstructciiChanging(global::System.String value);
         partial void OnvInstructciiChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String vFisical
         {
@@ -15830,11 +15883,11 @@ namespace Cure.DataAccess
         private global::System.String _vFisical;
         partial void OnvFisicalChanging(global::System.String value);
         partial void OnvFisicalChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String vDiet
         {
@@ -15854,11 +15907,11 @@ namespace Cure.DataAccess
         private global::System.String _vDiet;
         partial void OnvDietChanging(global::System.String value);
         partial void OnvDietChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String vEating
         {
@@ -15878,11 +15931,11 @@ namespace Cure.DataAccess
         private global::System.String _vEating;
         partial void OnvEatingChanging(global::System.String value);
         partial void OnvEatingChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String vEatingProblems
         {
@@ -15902,11 +15955,11 @@ namespace Cure.DataAccess
         private global::System.String _vEatingProblems;
         partial void OnvEatingProblemsChanging(global::System.String value);
         partial void OnvEatingProblemsChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String vAppetit
         {
@@ -15926,11 +15979,11 @@ namespace Cure.DataAccess
         private global::System.String _vAppetit;
         partial void OnvAppetitChanging(global::System.String value);
         partial void OnvAppetitChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String vStul
         {
@@ -15950,11 +16003,11 @@ namespace Cure.DataAccess
         private global::System.String _vStul;
         partial void OnvStulChanging(global::System.String value);
         partial void OnvStulChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String vAlergiya
         {
@@ -15974,11 +16027,11 @@ namespace Cure.DataAccess
         private global::System.String _vAlergiya;
         partial void OnvAlergiyaChanging(global::System.String value);
         partial void OnvAlergiyaChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String vImunitet
         {
@@ -15998,11 +16051,11 @@ namespace Cure.DataAccess
         private global::System.String _vImunitet;
         partial void OnvImunitetChanging(global::System.String value);
         partial void OnvImunitetChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String vFiznagruzki
         {
@@ -16022,11 +16075,11 @@ namespace Cure.DataAccess
         private global::System.String _vFiznagruzki;
         partial void OnvFiznagruzkiChanging(global::System.String value);
         partial void OnvFiznagruzkiChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String vSon
         {
@@ -16046,11 +16099,11 @@ namespace Cure.DataAccess
         private global::System.String _vSon;
         partial void OnvSonChanging(global::System.String value);
         partial void OnvSonChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String vProstupUp
         {
@@ -16070,11 +16123,11 @@ namespace Cure.DataAccess
         private global::System.String _vProstupUp;
         partial void OnvProstupUpChanging(global::System.String value);
         partial void OnvProstupUpChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String vZakativaetsa
         {
@@ -16094,11 +16147,11 @@ namespace Cure.DataAccess
         private global::System.String _vZakativaetsa;
         partial void OnvZakativaetsaChanging(global::System.String value);
         partial void OnvZakativaetsaChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String vKursesRanee
         {
@@ -16118,11 +16171,11 @@ namespace Cure.DataAccess
         private global::System.String _vKursesRanee;
         partial void OnvKursesRaneeChanging(global::System.String value);
         partial void OnvKursesRaneeChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String vKursesChinaRanee
         {
@@ -16142,11 +16195,11 @@ namespace Cure.DataAccess
         private global::System.String _vKursesChinaRanee;
         partial void OnvKursesChinaRaneeChanging(global::System.String value);
         partial void OnvKursesChinaRaneeChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String vNonTradicial
         {
@@ -16166,11 +16219,11 @@ namespace Cure.DataAccess
         private global::System.String _vNonTradicial;
         partial void OnvNonTradicialChanging(global::System.String value);
         partial void OnvNonTradicialChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String vHirurg
         {
@@ -16190,11 +16243,11 @@ namespace Cure.DataAccess
         private global::System.String _vHirurg;
         partial void OnvHirurgChanging(global::System.String value);
         partial void OnvHirurgChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String vTravmi
         {
@@ -16214,11 +16267,11 @@ namespace Cure.DataAccess
         private global::System.String _vTravmi;
         partial void OnvTravmiChanging(global::System.String value);
         partial void OnvTravmiChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String vRequirements
         {
@@ -16238,11 +16291,11 @@ namespace Cure.DataAccess
         private global::System.String _vRequirements;
         partial void OnvRequirementsChanging(global::System.String value);
         partial void OnvRequirementsChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String vRequiredDocs
         {
@@ -16262,11 +16315,11 @@ namespace Cure.DataAccess
         private global::System.String _vRequiredDocs;
         partial void OnvRequiredDocsChanging(global::System.String value);
         partial void OnvRequiredDocsChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String vPostuplenie
         {
@@ -16286,11 +16339,11 @@ namespace Cure.DataAccess
         private global::System.String _vPostuplenie;
         partial void OnvPostuplenieChanging(global::System.String value);
         partial void OnvPostuplenieChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String vResultat
         {
@@ -16310,11 +16363,11 @@ namespace Cure.DataAccess
         private global::System.String _vResultat;
         partial void OnvResultatChanging(global::System.String value);
         partial void OnvResultatChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String vRecomend
         {
@@ -16334,11 +16387,11 @@ namespace Cure.DataAccess
         private global::System.String _vRecomend;
         partial void OnvRecomendChanging(global::System.String value);
         partial void OnvRecomendChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String dcName
         {
@@ -16358,11 +16411,11 @@ namespace Cure.DataAccess
         private global::System.String _dcName;
         partial void OndcNameChanging(global::System.String value);
         partial void OndcNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String dcNameCh
         {
@@ -16382,11 +16435,11 @@ namespace Cure.DataAccess
         private global::System.String _dcNameCh;
         partial void OndcNameChChanging(global::System.String value);
         partial void OndcNameChChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String dcNameEn
         {
@@ -16406,11 +16459,11 @@ namespace Cure.DataAccess
         private global::System.String _dcNameEn;
         partial void OndcNameEnChanging(global::System.String value);
         partial void OndcNameEnChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String dcDescription
         {
@@ -16430,11 +16483,11 @@ namespace Cure.DataAccess
         private global::System.String _dcDescription;
         partial void OndcDescriptionChanging(global::System.String value);
         partial void OndcDescriptionChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String dcPosolstvoChLabel
         {
@@ -16454,11 +16507,11 @@ namespace Cure.DataAccess
         private global::System.String _dcPosolstvoChLabel;
         partial void OndcPosolstvoChLabelChanging(global::System.String value);
         partial void OndcPosolstvoChLabelChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String dcPosolstvoRusLabel
         {
@@ -16478,11 +16531,11 @@ namespace Cure.DataAccess
         private global::System.String _dcPosolstvoRusLabel;
         partial void OndcPosolstvoRusLabelChanging(global::System.String value);
         partial void OndcPosolstvoRusLabelChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String dcNacionalnostChLabel
         {
@@ -16502,11 +16555,11 @@ namespace Cure.DataAccess
         private global::System.String _dcNacionalnostChLabel;
         partial void OndcNacionalnostChLabelChanging(global::System.String value);
         partial void OndcNacionalnostChLabelChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String pcName
         {
@@ -16526,11 +16579,11 @@ namespace Cure.DataAccess
         private global::System.String _pcName;
         partial void OnpcNameChanging(global::System.String value);
         partial void OnpcNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String pcNameCh
         {
@@ -16550,11 +16603,11 @@ namespace Cure.DataAccess
         private global::System.String _pcNameCh;
         partial void OnpcNameChChanging(global::System.String value);
         partial void OnpcNameChChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String pcNameEn
         {
@@ -16574,11 +16627,11 @@ namespace Cure.DataAccess
         private global::System.String _pcNameEn;
         partial void OnpcNameEnChanging(global::System.String value);
         partial void OnpcNameEnChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String pcDescription
         {
@@ -16598,11 +16651,11 @@ namespace Cure.DataAccess
         private global::System.String _pcDescription;
         partial void OnpcDescriptionChanging(global::System.String value);
         partial void OnpcDescriptionChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String pcPosolstvoChLabel
         {
@@ -16622,11 +16675,11 @@ namespace Cure.DataAccess
         private global::System.String _pcPosolstvoChLabel;
         partial void OnpcPosolstvoChLabelChanging(global::System.String value);
         partial void OnpcPosolstvoChLabelChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String pcPosolstvoRusLabel
         {
@@ -16646,11 +16699,11 @@ namespace Cure.DataAccess
         private global::System.String _pcPosolstvoRusLabel;
         partial void OnpcPosolstvoRusLabelChanging(global::System.String value);
         partial void OnpcPosolstvoRusLabelChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String pcNacionalnostChLabel
         {
@@ -16670,11 +16723,11 @@ namespace Cure.DataAccess
         private global::System.String _pcNacionalnostChLabel;
         partial void OnpcNacionalnostChLabelChanging(global::System.String value);
         partial void OnpcNacionalnostChLabelChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> dParentId
         {
@@ -16694,11 +16747,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Int32> _dParentId;
         partial void OndParentIdChanging(Nullable<global::System.Int32> value);
         partial void OndParentIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> dCountryId
         {
@@ -16718,11 +16771,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Int32> _dCountryId;
         partial void OndCountryIdChanging(Nullable<global::System.Int32> value);
         partial void OndCountryIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String dBranch
         {
@@ -16742,11 +16795,11 @@ namespace Cure.DataAccess
         private global::System.String _dBranch;
         partial void OndBranchChanging(global::System.String value);
         partial void OndBranchChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String dShortName
         {
@@ -16766,11 +16819,11 @@ namespace Cure.DataAccess
         private global::System.String _dShortName;
         partial void OndShortNameChanging(global::System.String value);
         partial void OndShortNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String dName
         {
@@ -16790,11 +16843,11 @@ namespace Cure.DataAccess
         private global::System.String _dName;
         partial void OndNameChanging(global::System.String value);
         partial void OndNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String dNameChina
         {
@@ -16814,11 +16867,11 @@ namespace Cure.DataAccess
         private global::System.String _dNameChina;
         partial void OndNameChinaChanging(global::System.String value);
         partial void OndNameChinaChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String dNameEnglish
         {
@@ -16838,11 +16891,11 @@ namespace Cure.DataAccess
         private global::System.String _dNameEnglish;
         partial void OndNameEnglishChanging(global::System.String value);
         partial void OndNameEnglishChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String dAddress
         {
@@ -16862,11 +16915,11 @@ namespace Cure.DataAccess
         private global::System.String _dAddress;
         partial void OndAddressChanging(global::System.String value);
         partial void OndAddressChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String dAddressChina
         {
@@ -16886,11 +16939,11 @@ namespace Cure.DataAccess
         private global::System.String _dAddressChina;
         partial void OndAddressChinaChanging(global::System.String value);
         partial void OndAddressChinaChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String dAddressEnglish
         {
@@ -16910,11 +16963,11 @@ namespace Cure.DataAccess
         private global::System.String _dAddressEnglish;
         partial void OndAddressEnglishChanging(global::System.String value);
         partial void OndAddressEnglishChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String dBossName
         {
@@ -16934,11 +16987,11 @@ namespace Cure.DataAccess
         private global::System.String _dBossName;
         partial void OndBossNameChanging(global::System.String value);
         partial void OndBossNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String dRequisits
         {
@@ -16958,11 +17011,11 @@ namespace Cure.DataAccess
         private global::System.String _dRequisits;
         partial void OndRequisitsChanging(global::System.String value);
         partial void OndRequisitsChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> pCountryId
         {
@@ -16982,11 +17035,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Int32> _pCountryId;
         partial void OnpCountryIdChanging(Nullable<global::System.Int32> value);
         partial void OnpCountryIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String pName
         {
@@ -17006,11 +17059,11 @@ namespace Cure.DataAccess
         private global::System.String _pName;
         partial void OnpNameChanging(global::System.String value);
         partial void OnpNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String pNameEng
         {
@@ -17030,11 +17083,11 @@ namespace Cure.DataAccess
         private global::System.String _pNameEng;
         partial void OnpNameEngChanging(global::System.String value);
         partial void OnpNameEngChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String pFamiliya
         {
@@ -17054,11 +17107,11 @@ namespace Cure.DataAccess
         private global::System.String _pFamiliya;
         partial void OnpFamiliyaChanging(global::System.String value);
         partial void OnpFamiliyaChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String pFamiliyaEn
         {
@@ -17078,11 +17131,11 @@ namespace Cure.DataAccess
         private global::System.String _pFamiliyaEn;
         partial void OnpFamiliyaEnChanging(global::System.String value);
         partial void OnpFamiliyaEnChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String pOtchestvo
         {
@@ -17102,11 +17155,11 @@ namespace Cure.DataAccess
         private global::System.String _pOtchestvo;
         partial void OnpOtchestvoChanging(global::System.String value);
         partial void OnpOtchestvoChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String pOtchestvoEn
         {
@@ -17126,11 +17179,11 @@ namespace Cure.DataAccess
         private global::System.String _pOtchestvoEn;
         partial void OnpOtchestvoEnChanging(global::System.String value);
         partial void OnpOtchestvoEnChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String pCityName
         {
@@ -17150,11 +17203,11 @@ namespace Cure.DataAccess
         private global::System.String _pCityName;
         partial void OnpCityNameChanging(global::System.String value);
         partial void OnpCityNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String pAddress
         {
@@ -17174,11 +17227,11 @@ namespace Cure.DataAccess
         private global::System.String _pAddress;
         partial void OnpAddressChanging(global::System.String value);
         partial void OnpAddressChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> pBirthDate
         {
@@ -17198,11 +17251,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.DateTime> _pBirthDate;
         partial void OnpBirthDateChanging(Nullable<global::System.DateTime> value);
         partial void OnpBirthDateChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String pSerialNumber
         {
@@ -17222,11 +17275,11 @@ namespace Cure.DataAccess
         private global::System.String _pSerialNumber;
         partial void OnpSerialNumberChanging(global::System.String value);
         partial void OnpSerialNumberChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String pDiagnoz
         {
@@ -17246,11 +17299,11 @@ namespace Cure.DataAccess
         private global::System.String _pDiagnoz;
         partial void OnpDiagnozChanging(global::System.String value);
         partial void OnpDiagnozChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String pAnamnez
         {
@@ -17270,11 +17323,11 @@ namespace Cure.DataAccess
         private global::System.String _pAnamnez;
         partial void OnpAnamnezChanging(global::System.String value);
         partial void OnpAnamnezChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String pOwnerUser
         {
@@ -17294,11 +17347,11 @@ namespace Cure.DataAccess
         private global::System.String _pOwnerUser;
         partial void OnpOwnerUserChanging(global::System.String value);
         partial void OnpOwnerUserChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String sName
         {
@@ -17318,11 +17371,11 @@ namespace Cure.DataAccess
         private global::System.String _sName;
         partial void OnsNameChanging(global::System.String value);
         partial void OnsNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String sDescription
         {
@@ -17342,11 +17395,11 @@ namespace Cure.DataAccess
         private global::System.String _sDescription;
         partial void OnsDescriptionChanging(global::System.String value);
         partial void OnsDescriptionChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Byte> sSortOrder
         {
@@ -17366,11 +17419,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Byte> _sSortOrder;
         partial void OnsSortOrderChanging(Nullable<global::System.Byte> value);
         partial void OnsSortOrderChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Total
         {
@@ -17394,17 +17447,17 @@ namespace Cure.DataAccess
         #endregion
 
     }
-    
+
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="ViewSoonVisit")]
+    [EdmEntityTypeAttribute(NamespaceName = "DataModel", Name = "ViewSoonVisit")]
     [Serializable()]
-    [DataContractAttribute(IsReference=true)]
+    [DataContractAttribute(IsReference = true)]
     public partial class ViewSoonVisit : EntityObject
     {
         #region Factory Method
-    
+
         /// <summary>
         /// Create a new ViewSoonVisit object.
         /// </summary>
@@ -17433,11 +17486,11 @@ namespace Cure.DataAccess
         #endregion
 
         #region Simple Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Guid Id
         {
@@ -17460,11 +17513,11 @@ namespace Cure.DataAccess
         private global::System.Guid _Id;
         partial void OnIdChanging(global::System.Guid value);
         partial void OnIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 VisitId
         {
@@ -17484,11 +17537,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _VisitId;
         partial void OnVisitIdChanging(global::System.Int32 value);
         partial void OnVisitIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 PacientId
         {
@@ -17508,11 +17561,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _PacientId;
         partial void OnPacientIdChanging(global::System.Int32 value);
         partial void OnPacientIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 CountryId
         {
@@ -17532,11 +17585,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _CountryId;
         partial void OnCountryIdChanging(global::System.Int32 value);
         partial void OnCountryIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -17556,11 +17609,11 @@ namespace Cure.DataAccess
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String NameEng
         {
@@ -17580,11 +17633,11 @@ namespace Cure.DataAccess
         private global::System.String _NameEng;
         partial void OnNameEngChanging(global::System.String value);
         partial void OnNameEngChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Familiya
         {
@@ -17604,11 +17657,11 @@ namespace Cure.DataAccess
         private global::System.String _Familiya;
         partial void OnFamiliyaChanging(global::System.String value);
         partial void OnFamiliyaChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String FamiliyaEn
         {
@@ -17628,11 +17681,11 @@ namespace Cure.DataAccess
         private global::System.String _FamiliyaEn;
         partial void OnFamiliyaEnChanging(global::System.String value);
         partial void OnFamiliyaEnChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Otchestvo
         {
@@ -17652,11 +17705,11 @@ namespace Cure.DataAccess
         private global::System.String _Otchestvo;
         partial void OnOtchestvoChanging(global::System.String value);
         partial void OnOtchestvoChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String OtchestvoEn
         {
@@ -17676,11 +17729,11 @@ namespace Cure.DataAccess
         private global::System.String _OtchestvoEn;
         partial void OnOtchestvoEnChanging(global::System.String value);
         partial void OnOtchestvoEnChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String CityName
         {
@@ -17700,11 +17753,11 @@ namespace Cure.DataAccess
         private global::System.String _CityName;
         partial void OnCityNameChanging(global::System.String value);
         partial void OnCityNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> DepartmentId
         {
@@ -17724,11 +17777,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Int32> _DepartmentId;
         partial void OnDepartmentIdChanging(Nullable<global::System.Int32> value);
         partial void OnDepartmentIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 StatusId
         {
@@ -17748,11 +17801,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _StatusId;
         partial void OnStatusIdChanging(global::System.Int32 value);
         partial void OnStatusIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.DateTime DateFrom
         {
@@ -17772,11 +17825,11 @@ namespace Cure.DataAccess
         private global::System.DateTime _DateFrom;
         partial void OnDateFromChanging(global::System.DateTime value);
         partial void OnDateFromChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.DateTime DateTo
         {
@@ -17796,11 +17849,11 @@ namespace Cure.DataAccess
         private global::System.DateTime _DateTo;
         partial void OnDateToChanging(global::System.DateTime value);
         partial void OnDateToChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> Dney
         {
@@ -17820,11 +17873,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Int32> _Dney;
         partial void OnDneyChanging(Nullable<global::System.Int32> value);
         partial void OnDneyChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> TicketPribitieTime
         {
@@ -17844,11 +17897,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.DateTime> _TicketPribitieTime;
         partial void OnTicketPribitieTimeChanging(Nullable<global::System.DateTime> value);
         partial void OnTicketPribitieTimeChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> TicketUbitieTime
         {
@@ -17868,11 +17921,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.DateTime> _TicketUbitieTime;
         partial void OnTicketUbitieTimeChanging(Nullable<global::System.DateTime> value);
         partial void OnTicketUbitieTimeChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String TicketInfo
         {
@@ -17892,11 +17945,11 @@ namespace Cure.DataAccess
         private global::System.String _TicketInfo;
         partial void OnTicketInfoChanging(global::System.String value);
         partial void OnTicketInfoChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Notes
         {
@@ -17916,11 +17969,11 @@ namespace Cure.DataAccess
         private global::System.String _Notes;
         partial void OnNotesChanging(global::System.String value);
         partial void OnNotesChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Description
         {
@@ -17940,11 +17993,11 @@ namespace Cure.DataAccess
         private global::System.String _Description;
         partial void OnDescriptionChanging(global::System.String value);
         partial void OnDescriptionChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Email
         {
@@ -17964,11 +18017,11 @@ namespace Cure.DataAccess
         private global::System.String _Email;
         partial void OnEmailChanging(global::System.String value);
         partial void OnEmailChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> BirthDate
         {
@@ -17992,17 +18045,17 @@ namespace Cure.DataAccess
         #endregion
 
     }
-    
+
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="ViewUserMembership")]
+    [EdmEntityTypeAttribute(NamespaceName = "DataModel", Name = "ViewUserMembership")]
     [Serializable()]
-    [DataContractAttribute(IsReference=true)]
+    [DataContractAttribute(IsReference = true)]
     public partial class ViewUserMembership : EntityObject
     {
         #region Factory Method
-    
+
         /// <summary>
         /// Create a new ViewUserMembership object.
         /// </summary>
@@ -18051,11 +18104,11 @@ namespace Cure.DataAccess
         #endregion
 
         #region Simple Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Guid Expr1
         {
@@ -18078,11 +18131,11 @@ namespace Cure.DataAccess
         private global::System.Guid _Expr1;
         partial void OnExpr1Changing(global::System.Guid value);
         partial void OnExpr1Changed();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String UserName
         {
@@ -18102,11 +18155,11 @@ namespace Cure.DataAccess
         private global::System.String _UserName;
         partial void OnUserNameChanging(global::System.String value);
         partial void OnUserNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String LoweredUserName
         {
@@ -18126,11 +18179,11 @@ namespace Cure.DataAccess
         private global::System.String _LoweredUserName;
         partial void OnLoweredUserNameChanging(global::System.String value);
         partial void OnLoweredUserNameChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String MobileAlias
         {
@@ -18150,11 +18203,11 @@ namespace Cure.DataAccess
         private global::System.String _MobileAlias;
         partial void OnMobileAliasChanging(global::System.String value);
         partial void OnMobileAliasChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsAnonymous
         {
@@ -18174,11 +18227,11 @@ namespace Cure.DataAccess
         private global::System.Boolean _IsAnonymous;
         partial void OnIsAnonymousChanging(global::System.Boolean value);
         partial void OnIsAnonymousChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.DateTime LastActivityDate
         {
@@ -18198,11 +18251,11 @@ namespace Cure.DataAccess
         private global::System.DateTime _LastActivityDate;
         partial void OnLastActivityDateChanging(global::System.DateTime value);
         partial void OnLastActivityDateChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Email
         {
@@ -18222,11 +18275,11 @@ namespace Cure.DataAccess
         private global::System.String _Email;
         partial void OnEmailChanging(global::System.String value);
         partial void OnEmailChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String LoweredEmail
         {
@@ -18246,11 +18299,11 @@ namespace Cure.DataAccess
         private global::System.String _LoweredEmail;
         partial void OnLoweredEmailChanging(global::System.String value);
         partial void OnLoweredEmailChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String Password
         {
@@ -18270,11 +18323,11 @@ namespace Cure.DataAccess
         private global::System.String _Password;
         partial void OnPasswordChanging(global::System.String value);
         partial void OnPasswordChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 PasswordFormat
         {
@@ -18294,11 +18347,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _PasswordFormat;
         partial void OnPasswordFormatChanging(global::System.Int32 value);
         partial void OnPasswordFormatChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.String PasswordSalt
         {
@@ -18318,11 +18371,11 @@ namespace Cure.DataAccess
         private global::System.String _PasswordSalt;
         partial void OnPasswordSaltChanging(global::System.String value);
         partial void OnPasswordSaltChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String MobilePIN
         {
@@ -18342,11 +18395,11 @@ namespace Cure.DataAccess
         private global::System.String _MobilePIN;
         partial void OnMobilePINChanging(global::System.String value);
         partial void OnMobilePINChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String PasswordQuestion
         {
@@ -18366,11 +18419,11 @@ namespace Cure.DataAccess
         private global::System.String _PasswordQuestion;
         partial void OnPasswordQuestionChanging(global::System.String value);
         partial void OnPasswordQuestionChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String PasswordAnswer
         {
@@ -18390,11 +18443,11 @@ namespace Cure.DataAccess
         private global::System.String _PasswordAnswer;
         partial void OnPasswordAnswerChanging(global::System.String value);
         partial void OnPasswordAnswerChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsApproved
         {
@@ -18414,11 +18467,11 @@ namespace Cure.DataAccess
         private global::System.Boolean _IsApproved;
         partial void OnIsApprovedChanging(global::System.Boolean value);
         partial void OnIsApprovedChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsLockedOut
         {
@@ -18438,11 +18491,11 @@ namespace Cure.DataAccess
         private global::System.Boolean _IsLockedOut;
         partial void OnIsLockedOutChanging(global::System.Boolean value);
         partial void OnIsLockedOutChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.DateTime CreateDate
         {
@@ -18462,11 +18515,11 @@ namespace Cure.DataAccess
         private global::System.DateTime _CreateDate;
         partial void OnCreateDateChanging(global::System.DateTime value);
         partial void OnCreateDateChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.DateTime LastLoginDate
         {
@@ -18486,11 +18539,11 @@ namespace Cure.DataAccess
         private global::System.DateTime _LastLoginDate;
         partial void OnLastLoginDateChanging(global::System.DateTime value);
         partial void OnLastLoginDateChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.DateTime LastPasswordChangedDate
         {
@@ -18510,11 +18563,11 @@ namespace Cure.DataAccess
         private global::System.DateTime _LastPasswordChangedDate;
         partial void OnLastPasswordChangedDateChanging(global::System.DateTime value);
         partial void OnLastPasswordChangedDateChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.DateTime LastLockoutDate
         {
@@ -18534,11 +18587,11 @@ namespace Cure.DataAccess
         private global::System.DateTime _LastLockoutDate;
         partial void OnLastLockoutDateChanging(global::System.DateTime value);
         partial void OnLastLockoutDateChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 FailedPasswordAttemptCount
         {
@@ -18558,11 +18611,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _FailedPasswordAttemptCount;
         partial void OnFailedPasswordAttemptCountChanging(global::System.Int32 value);
         partial void OnFailedPasswordAttemptCountChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.DateTime FailedPasswordAttemptWindowStart
         {
@@ -18582,11 +18635,11 @@ namespace Cure.DataAccess
         private global::System.DateTime _FailedPasswordAttemptWindowStart;
         partial void OnFailedPasswordAttemptWindowStartChanging(global::System.DateTime value);
         partial void OnFailedPasswordAttemptWindowStartChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 FailedPasswordAnswerAttemptCount
         {
@@ -18606,11 +18659,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _FailedPasswordAnswerAttemptCount;
         partial void OnFailedPasswordAnswerAttemptCountChanging(global::System.Int32 value);
         partial void OnFailedPasswordAnswerAttemptCountChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.DateTime FailedPasswordAnswerAttemptWindowStart
         {
@@ -18630,11 +18683,11 @@ namespace Cure.DataAccess
         private global::System.DateTime _FailedPasswordAnswerAttemptWindowStart;
         partial void OnFailedPasswordAnswerAttemptWindowStartChanging(global::System.DateTime value);
         partial void OnFailedPasswordAnswerAttemptWindowStartChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Comment
         {
@@ -18658,17 +18711,17 @@ namespace Cure.DataAccess
         #endregion
 
     }
-    
+
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="Vipiska")]
+    [EdmEntityTypeAttribute(NamespaceName = "DataModel", Name = "Vipiska")]
     [Serializable()]
-    [DataContractAttribute(IsReference=true)]
+    [DataContractAttribute(IsReference = true)]
     public partial class Vipiska : EntityObject
     {
         #region Factory Method
-    
+
         /// <summary>
         /// Create a new Vipiska object.
         /// </summary>
@@ -18685,11 +18738,11 @@ namespace Cure.DataAccess
         #endregion
 
         #region Simple Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 Id
         {
@@ -18712,11 +18765,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _Id;
         partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 VisitId
         {
@@ -18736,11 +18789,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _VisitId;
         partial void OnVisitIdChanging(global::System.Int32 value);
         partial void OnVisitIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Description
         {
@@ -18760,11 +18813,11 @@ namespace Cure.DataAccess
         private global::System.String _Description;
         partial void OnDescriptionChanging(global::System.String value);
         partial void OnDescriptionChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Result
         {
@@ -18784,11 +18837,11 @@ namespace Cure.DataAccess
         private global::System.String _Result;
         partial void OnResultChanging(global::System.String value);
         partial void OnResultChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String LastUser
         {
@@ -18808,11 +18861,11 @@ namespace Cure.DataAccess
         private global::System.String _LastUser;
         partial void OnLastUserChanging(global::System.String value);
         partial void OnLastUserChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> LastDate
         {
@@ -18832,11 +18885,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.DateTime> _LastDate;
         partial void OnLastDateChanging(Nullable<global::System.DateTime> value);
         partial void OnLastDateChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String CreateUser
         {
@@ -18856,11 +18909,11 @@ namespace Cure.DataAccess
         private global::System.String _CreateUser;
         partial void OnCreateUserChanging(global::System.String value);
         partial void OnCreateUserChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> CreateDate
         {
@@ -18884,7 +18937,7 @@ namespace Cure.DataAccess
         #endregion
 
         #region Navigation Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -18926,17 +18979,17 @@ namespace Cure.DataAccess
         #endregion
 
     }
-    
+
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="Visit")]
+    [EdmEntityTypeAttribute(NamespaceName = "DataModel", Name = "Visit")]
     [Serializable()]
-    [DataContractAttribute(IsReference=true)]
+    [DataContractAttribute(IsReference = true)]
     public partial class Visit : EntityObject
     {
         #region Factory Method
-    
+
         /// <summary>
         /// Create a new Visit object.
         /// </summary>
@@ -18955,11 +19008,11 @@ namespace Cure.DataAccess
         #endregion
 
         #region Simple Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 Id
         {
@@ -18982,11 +19035,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _Id;
         partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 PacientId
         {
@@ -19006,11 +19059,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _PacientId;
         partial void OnPacientIdChanging(global::System.Int32 value);
         partial void OnPacientIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 OrderId
         {
@@ -19030,11 +19083,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _OrderId;
         partial void OnOrderIdChanging(global::System.Int32 value);
         partial void OnOrderIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Vipiska
         {
@@ -19054,11 +19107,11 @@ namespace Cure.DataAccess
         private global::System.String _Vipiska;
         partial void OnVipiskaChanging(global::System.String value);
         partial void OnVipiskaChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Decimal> Price
         {
@@ -19078,11 +19131,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Decimal> _Price;
         partial void OnPriceChanging(Nullable<global::System.Decimal> value);
         partial void OnPriceChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Fond
         {
@@ -19102,11 +19155,11 @@ namespace Cure.DataAccess
         private global::System.String _Fond;
         partial void OnFondChanging(global::System.String value);
         partial void OnFondChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> DateDogovor
         {
@@ -19126,11 +19179,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.DateTime> _DateDogovor;
         partial void OnDateDogovorChanging(Nullable<global::System.DateTime> value);
         partial void OnDateDogovorChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String AmbNumber
         {
@@ -19150,11 +19203,11 @@ namespace Cure.DataAccess
         private global::System.String _AmbNumber;
         partial void OnAmbNumberChanging(global::System.String value);
         partial void OnAmbNumberChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Boolean> IsInvite
         {
@@ -19174,11 +19227,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Boolean> _IsInvite;
         partial void OnIsInviteChanging(Nullable<global::System.Boolean> value);
         partial void OnIsInviteChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Boolean> IsInvicePrint
         {
@@ -19198,11 +19251,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.Boolean> _IsInvicePrint;
         partial void OnIsInvicePrintChanging(Nullable<global::System.Boolean> value);
         partial void OnIsInvicePrintChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Additional
         {
@@ -19222,11 +19275,11 @@ namespace Cure.DataAccess
         private global::System.String _Additional;
         partial void OnAdditionalChanging(global::System.String value);
         partial void OnAdditionalChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String TodaysDiagnoz
         {
@@ -19246,11 +19299,11 @@ namespace Cure.DataAccess
         private global::System.String _TodaysDiagnoz;
         partial void OnTodaysDiagnozChanging(global::System.String value);
         partial void OnTodaysDiagnozChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String HystoryA
         {
@@ -19270,11 +19323,11 @@ namespace Cure.DataAccess
         private global::System.String _HystoryA;
         partial void OnHystoryAChanging(global::System.String value);
         partial void OnHystoryAChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Hystoryb
         {
@@ -19294,11 +19347,11 @@ namespace Cure.DataAccess
         private global::System.String _Hystoryb;
         partial void OnHystorybChanging(global::System.String value);
         partial void OnHystorybChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Razvitie
         {
@@ -19318,11 +19371,11 @@ namespace Cure.DataAccess
         private global::System.String _Razvitie;
         partial void OnRazvitieChanging(global::System.String value);
         partial void OnRazvitieChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Dispanser
         {
@@ -19342,11 +19395,11 @@ namespace Cure.DataAccess
         private global::System.String _Dispanser;
         partial void OnDispanserChanging(global::System.String value);
         partial void OnDispanserChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String DispanserNarko
         {
@@ -19366,11 +19419,11 @@ namespace Cure.DataAccess
         private global::System.String _DispanserNarko;
         partial void OnDispanserNarkoChanging(global::System.String value);
         partial void OnDispanserNarkoChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Dispanser2
         {
@@ -19390,11 +19443,11 @@ namespace Cure.DataAccess
         private global::System.String _Dispanser2;
         partial void OnDispanser2Changing(global::System.String value);
         partial void OnDispanser2Changed();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String DangerousDiseases
         {
@@ -19414,11 +19467,11 @@ namespace Cure.DataAccess
         private global::System.String _DangerousDiseases;
         partial void OnDangerousDiseasesChanging(global::System.String value);
         partial void OnDangerousDiseasesChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Serdce
         {
@@ -19438,11 +19491,11 @@ namespace Cure.DataAccess
         private global::System.String _Serdce;
         partial void OnSerdceChanging(global::System.String value);
         partial void OnSerdceChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Dihalka
         {
@@ -19462,11 +19515,11 @@ namespace Cure.DataAccess
         private global::System.String _Dihalka;
         partial void OnDihalkaChanging(global::System.String value);
         partial void OnDihalkaChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Infections
         {
@@ -19486,11 +19539,11 @@ namespace Cure.DataAccess
         private global::System.String _Infections;
         partial void OnInfectionsChanging(global::System.String value);
         partial void OnInfectionsChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String OtherDiseases
         {
@@ -19510,11 +19563,11 @@ namespace Cure.DataAccess
         private global::System.String _OtherDiseases;
         partial void OnOtherDiseasesChanging(global::System.String value);
         partial void OnOtherDiseasesChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Epilispiya
         {
@@ -19534,11 +19587,11 @@ namespace Cure.DataAccess
         private global::System.String _Epilispiya;
         partial void OnEpilispiyaChanging(global::System.String value);
         partial void OnEpilispiyaChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String SudorogiType
         {
@@ -19558,11 +19611,11 @@ namespace Cure.DataAccess
         private global::System.String _SudorogiType;
         partial void OnSudorogiTypeChanging(global::System.String value);
         partial void OnSudorogiTypeChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String SudorogiCount
         {
@@ -19582,11 +19635,11 @@ namespace Cure.DataAccess
         private global::System.String _SudorogiCount;
         partial void OnSudorogiCountChanging(global::System.String value);
         partial void OnSudorogiCountChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String SudorogiMedcine
         {
@@ -19606,11 +19659,11 @@ namespace Cure.DataAccess
         private global::System.String _SudorogiMedcine;
         partial void OnSudorogiMedcineChanging(global::System.String value);
         partial void OnSudorogiMedcineChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Remission
         {
@@ -19630,11 +19683,11 @@ namespace Cure.DataAccess
         private global::System.String _Remission;
         partial void OnRemissionChanging(global::System.String value);
         partial void OnRemissionChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Encefalogram
         {
@@ -19654,11 +19707,11 @@ namespace Cure.DataAccess
         private global::System.String _Encefalogram;
         partial void OnEncefalogramChanging(global::System.String value);
         partial void OnEncefalogramChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String MainGoal
         {
@@ -19678,11 +19731,11 @@ namespace Cure.DataAccess
         private global::System.String _MainGoal;
         partial void OnMainGoalChanging(global::System.String value);
         partial void OnMainGoalChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Razgovor
         {
@@ -19702,11 +19755,11 @@ namespace Cure.DataAccess
         private global::System.String _Razgovor;
         partial void OnRazgovorChanging(global::System.String value);
         partial void OnRazgovorChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Instructcii
         {
@@ -19726,11 +19779,11 @@ namespace Cure.DataAccess
         private global::System.String _Instructcii;
         partial void OnInstructciiChanging(global::System.String value);
         partial void OnInstructciiChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Fisical
         {
@@ -19750,11 +19803,11 @@ namespace Cure.DataAccess
         private global::System.String _Fisical;
         partial void OnFisicalChanging(global::System.String value);
         partial void OnFisicalChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Diet
         {
@@ -19774,11 +19827,11 @@ namespace Cure.DataAccess
         private global::System.String _Diet;
         partial void OnDietChanging(global::System.String value);
         partial void OnDietChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Eating
         {
@@ -19798,11 +19851,11 @@ namespace Cure.DataAccess
         private global::System.String _Eating;
         partial void OnEatingChanging(global::System.String value);
         partial void OnEatingChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String EatingProblems
         {
@@ -19822,11 +19875,11 @@ namespace Cure.DataAccess
         private global::System.String _EatingProblems;
         partial void OnEatingProblemsChanging(global::System.String value);
         partial void OnEatingProblemsChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Appetit
         {
@@ -19846,11 +19899,11 @@ namespace Cure.DataAccess
         private global::System.String _Appetit;
         partial void OnAppetitChanging(global::System.String value);
         partial void OnAppetitChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Stul
         {
@@ -19870,11 +19923,11 @@ namespace Cure.DataAccess
         private global::System.String _Stul;
         partial void OnStulChanging(global::System.String value);
         partial void OnStulChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Alergiya
         {
@@ -19894,11 +19947,11 @@ namespace Cure.DataAccess
         private global::System.String _Alergiya;
         partial void OnAlergiyaChanging(global::System.String value);
         partial void OnAlergiyaChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Imunitet
         {
@@ -19918,11 +19971,11 @@ namespace Cure.DataAccess
         private global::System.String _Imunitet;
         partial void OnImunitetChanging(global::System.String value);
         partial void OnImunitetChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Fiznagruzki
         {
@@ -19942,11 +19995,11 @@ namespace Cure.DataAccess
         private global::System.String _Fiznagruzki;
         partial void OnFiznagruzkiChanging(global::System.String value);
         partial void OnFiznagruzkiChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Son
         {
@@ -19966,11 +20019,11 @@ namespace Cure.DataAccess
         private global::System.String _Son;
         partial void OnSonChanging(global::System.String value);
         partial void OnSonChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String ProstupUp
         {
@@ -19990,11 +20043,11 @@ namespace Cure.DataAccess
         private global::System.String _ProstupUp;
         partial void OnProstupUpChanging(global::System.String value);
         partial void OnProstupUpChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Zakativaetsa
         {
@@ -20014,11 +20067,11 @@ namespace Cure.DataAccess
         private global::System.String _Zakativaetsa;
         partial void OnZakativaetsaChanging(global::System.String value);
         partial void OnZakativaetsaChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String KursesRanee
         {
@@ -20038,11 +20091,11 @@ namespace Cure.DataAccess
         private global::System.String _KursesRanee;
         partial void OnKursesRaneeChanging(global::System.String value);
         partial void OnKursesRaneeChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String KursesChinaRanee
         {
@@ -20062,11 +20115,11 @@ namespace Cure.DataAccess
         private global::System.String _KursesChinaRanee;
         partial void OnKursesChinaRaneeChanging(global::System.String value);
         partial void OnKursesChinaRaneeChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String NonTradicial
         {
@@ -20086,11 +20139,11 @@ namespace Cure.DataAccess
         private global::System.String _NonTradicial;
         partial void OnNonTradicialChanging(global::System.String value);
         partial void OnNonTradicialChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Hirurg
         {
@@ -20110,11 +20163,11 @@ namespace Cure.DataAccess
         private global::System.String _Hirurg;
         partial void OnHirurgChanging(global::System.String value);
         partial void OnHirurgChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Travmi
         {
@@ -20134,11 +20187,11 @@ namespace Cure.DataAccess
         private global::System.String _Travmi;
         partial void OnTravmiChanging(global::System.String value);
         partial void OnTravmiChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Requirements
         {
@@ -20158,11 +20211,11 @@ namespace Cure.DataAccess
         private global::System.String _Requirements;
         partial void OnRequirementsChanging(global::System.String value);
         partial void OnRequirementsChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String RequiredDocs
         {
@@ -20182,11 +20235,11 @@ namespace Cure.DataAccess
         private global::System.String _RequiredDocs;
         partial void OnRequiredDocsChanging(global::System.String value);
         partial void OnRequiredDocsChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Postuplenie
         {
@@ -20206,11 +20259,11 @@ namespace Cure.DataAccess
         private global::System.String _Postuplenie;
         partial void OnPostuplenieChanging(global::System.String value);
         partial void OnPostuplenieChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Resultat
         {
@@ -20230,11 +20283,11 @@ namespace Cure.DataAccess
         private global::System.String _Resultat;
         partial void OnResultatChanging(global::System.String value);
         partial void OnResultatChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Recomend
         {
@@ -20254,11 +20307,11 @@ namespace Cure.DataAccess
         private global::System.String _Recomend;
         partial void OnRecomendChanging(global::System.String value);
         partial void OnRecomendChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String LastUser
         {
@@ -20278,11 +20331,11 @@ namespace Cure.DataAccess
         private global::System.String _LastUser;
         partial void OnLastUserChanging(global::System.String value);
         partial void OnLastUserChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> LastDate
         {
@@ -20302,11 +20355,11 @@ namespace Cure.DataAccess
         private Nullable<global::System.DateTime> _LastDate;
         partial void OnLastDateChanging(Nullable<global::System.DateTime> value);
         partial void OnLastDateChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String CreateUser
         {
@@ -20326,11 +20379,11 @@ namespace Cure.DataAccess
         private global::System.String _CreateUser;
         partial void OnCreateUserChanging(global::System.String value);
         partial void OnCreateUserChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> CreateDate
         {
@@ -20354,7 +20407,7 @@ namespace Cure.DataAccess
         #endregion
 
         #region Navigation Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -20392,7 +20445,7 @@ namespace Cure.DataAccess
                 }
             }
         }
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -20430,7 +20483,7 @@ namespace Cure.DataAccess
                 }
             }
         }
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -20456,17 +20509,17 @@ namespace Cure.DataAccess
         #endregion
 
     }
-    
+
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="Weather")]
+    [EdmEntityTypeAttribute(NamespaceName = "DataModel", Name = "Weather")]
     [Serializable()]
-    [DataContractAttribute(IsReference=true)]
+    [DataContractAttribute(IsReference = true)]
     public partial class Weather : EntityObject
     {
         #region Factory Method
-    
+
         /// <summary>
         /// Create a new Weather object.
         /// </summary>
@@ -20487,11 +20540,11 @@ namespace Cure.DataAccess
         #endregion
 
         #region Simple Properties
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 Id
         {
@@ -20514,11 +20567,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _Id;
         partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.DateTime GetDate
         {
@@ -20538,11 +20591,11 @@ namespace Cure.DataAccess
         private global::System.DateTime _GetDate;
         partial void OnGetDateChanging(global::System.DateTime value);
         partial void OnGetDateChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Int32 CityId
         {
@@ -20562,11 +20615,11 @@ namespace Cure.DataAccess
         private global::System.Int32 _CityId;
         partial void OnCityIdChanging(global::System.Int32 value);
         partial void OnCityIdChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
         [DataMemberAttribute()]
         public global::System.Decimal Temp
         {
@@ -20586,11 +20639,11 @@ namespace Cure.DataAccess
         private global::System.Decimal _Temp;
         partial void OnTempChanging(global::System.Decimal value);
         partial void OnTempChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Description
         {
@@ -20610,11 +20663,11 @@ namespace Cure.DataAccess
         private global::System.String _Description;
         partial void OnDescriptionChanging(global::System.String value);
         partial void OnDescriptionChanged();
-    
+
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
         [DataMemberAttribute()]
         public global::System.String Details
         {

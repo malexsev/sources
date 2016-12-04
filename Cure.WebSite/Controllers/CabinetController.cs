@@ -77,7 +77,7 @@ namespace Cure.WebSite.Controllers
                     contact = string.Empty;
                 }
 
-                var contactViews = dal.GetContacts(User.Identity.Name, contact).Select(x => new MessagesUserModel(x, SiteUtils.ParseBool(x.IsOnline, false), SiteUtils.ParseBool(x.IsAdmin, false), x.LastMessageText, SiteUtils.ParseDate(x.LastMessageDate, DateTime.Now, "ru-RU")));
+                var contactViews = dal.GetContacts(User.Identity.Name, SiteUtils.ParseGuid(contact)).Select(x => new MessagesUserModel(x, SiteUtils.ParseBool(x.IsOnline, false), SiteUtils.ParseBool(x.IsAdmin, false), x.LastMessageText, SiteUtils.ParseDate(x.LastMessageDate, DateTime.Now, "ru-RU")));
 
                 return PartialView("_MessagesUsers", contactViews);
             }
@@ -91,12 +91,8 @@ namespace Cure.WebSite.Controllers
             if (User.Identity.IsAuthenticated)
             {
                 var dal = new DataAccessBL();
-                if (contact == "undefined")
-                {
-                    contact = string.Empty;
-                }
 
-                var messages = dal.GetMyMessages(User.Identity.Name, contact);
+                var messages = dal.GetMyMessages(User.Identity.Name, SiteUtils.ParseGuid(contact));
 
                 return PartialView("_Messages", messages);
             }
@@ -111,7 +107,8 @@ namespace Cure.WebSite.Controllers
             {
                 var dal = new DataAccessBL();
 
-                var contactView = dal.ViewChild(contact);
+                var member = dal.GetUserMembership(SiteUtils.ParseGuid(contact));
+                var contactView = dal.ViewChild(member.UserName);
                 var myView = dal.ViewChild(User.Identity.Name);
                 if (contactView != null && myView != null)
                 {
@@ -123,7 +120,7 @@ namespace Cure.WebSite.Controllers
                         Subject = "Чат",
                         Text = text,
                         ToDisplay = contactView.ContactName,
-                        ToUserName = contact,
+                        ToUserName = member.UserName,
                         Unread = true
                     };
                     dal.InsertMessage(msg);
@@ -1295,7 +1292,6 @@ namespace Cure.WebSite.Controllers
 
                     const string OriginalDirectory = @"{0}{1}\";
                     const string ThumbDirectory = @"{0}{1}\Thumb\";
-                    const string BigDirectory = @"{0}{1}\Big\";
 
                     var stream = fileContent.InputStream;
                     var fileName = Path.GetFileName(file); // + ".jpg";
@@ -1304,7 +1300,6 @@ namespace Cure.WebSite.Controllers
                     string photoUrl = Path.Combine(ConfigurationManager.AppSettings["PhotoUrl"], view.GuidId.ToString());
                     string folder = string.Format(OriginalDirectory, photoLocation, view.GuidId);
                     string folderThumb = string.Format(ThumbDirectory, photoLocation, view.GuidId);
-                    string folderBig = string.Format(BigDirectory, photoLocation, view.GuidId);
 
                     if (!Directory.Exists(folder))
                     {
@@ -1314,21 +1309,19 @@ namespace Cure.WebSite.Controllers
                     {
                         Directory.CreateDirectory(folderThumb);
                     }
-                    if (!Directory.Exists(folderBig))
-                    {
-                        Directory.CreateDirectory(folderBig);
-                    }
 
-                    var path = Path.Combine(folder, fileName);
-                    string fileThumbName = Path.Combine(folderThumb, fileName);
-                    string fileBigName = Path.Combine(folderBig, fileName);
-                    using (Image original = Image.FromStream(stream))
-                    using (Image thumb = PhotoUtils.Inscribe(original, 313, 313))
-                    using (Image big = PhotoUtils.Inscribe(original, 919, 538))
+                    if (!string.IsNullOrEmpty(fileName))
                     {
-                        PhotoUtils.SaveToJpeg(original, path);
-                        PhotoUtils.SaveToJpeg(thumb, fileThumbName);
-                        PhotoUtils.SaveToJpeg(big, fileBigName);
+                        var path = Path.Combine(folder, fileName);
+                        string fileThumbName = Path.Combine(folderThumb, fileName);
+                        using (Image original = Image.FromStream(stream))
+                        using (Image thumb = PhotoUtils.Inscribe(original, 313, 313))
+                        using (Image big = PhotoUtils.resizeImage(original, (int)(((double)original.Height) / (1.0 * (double)original.Width / 919)), 919, true, true))
+                        {
+                            //PhotoUtils.SaveToJpeg(original, path);
+                            PhotoUtils.SaveToJpeg(thumb, fileThumbName);
+                            PhotoUtils.SaveToJpeg(big, path);
+                        }
                     }
 
                     if (isAva)

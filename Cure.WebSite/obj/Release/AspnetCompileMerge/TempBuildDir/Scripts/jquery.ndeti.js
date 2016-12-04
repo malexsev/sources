@@ -1688,7 +1688,7 @@ $(document).ready(function () {
             }
         });
     });
-
+    
     /*----------- Галлерея картинок  -----------------------------------------*/
     $('#big-slider-img').slick({
         slidesToShow: 1,
@@ -2031,6 +2031,42 @@ $(document).ready(function () {
             }
         }
     ], $('.hosp-page'));
+    
+
+
+    /* --- Аккордеон ---------------------------------------------------------*/
+    $(".js-accordion-toggle").click(function () {
+        $(this).closest(".accordion-section").toggleClass("active");
+        $(this).siblings(".accordion-body").slideToggle(300);
+    });
+
+
+    /*--- Слайдер внутри страницы контента  ---------------------------------*/
+    if ($(".js-content-slider").length > 0) {
+        $(".js-content-slider").each(function (index) {
+            var totalSlides = $(this).children().length;
+            $(this).siblings(".js-slide-count").find("._slide-all").text(totalSlides);
+            $(this).slick({
+                arrows: true,
+                dots: false,
+                autoplay: false,
+                infinite: false,
+                slidesToShow: 1
+            });
+        });
+    };
+    $(".js-content-slider").on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+        $(this).siblings(".js-slide-count").find("._slide-now").text(nextSlide + 1);
+    });
+
+
+    /* --- Оказать помощь ----------------------------------------------------*/
+    $(".js-assist-show").click(function () {
+        $(this).siblings(".assist-drop").toggleClass("active");
+    });
+    $(".js-assist-close").click(function () {
+        $(this).closest(".assist-drop").toggleClass("active");
+    });
 });
 
 
@@ -2042,18 +2078,43 @@ $(window).load(function () {
         $(".preloader").addClass("off");
     }, 300);
 
+    setTimeout(function () {
+        UpdateUnreadMessages();
+    }, 6000);
 
-
+    setInterval(function () {
+        UpdateUnreadMessages();
+    }, 30000);
 });
 
 /*--- Подключим maps api ----*/
 if ($("#map-wrap").length > 0) {
     $.getScript(
-        "http://maps.google.com/maps/api/js?sensor=false&callback=mapStart",
+        "http://maps.google.com/maps/api/js?key=AIzaSyAKBqR85f1-xQBsBP54b5X5yEXDRJM1etQ&sensor=false&callback=mapStart",
         function () {
             console.log("Кaрта загружена");
         }
     );
+}
+
+/*--- Сообщения. Обновление количества непрочитанных сообщений ---*/
+function UpdateUnreadMessages() {
+    var control = $("#unread-messages-count");
+    if (control != null) {
+        $.ajax({
+            url: "/Cabinet/GetUnreadCount",
+            type: "POST",
+            contentType: false,
+            processData: false,
+            success: function (result) {
+                if (result == 0) {
+                    control.hide();
+                } else {
+                    control.text(result);
+                }
+            }
+        });
+    }
 }
 
 function DeletePicture(id, fileName) {

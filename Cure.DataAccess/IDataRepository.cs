@@ -8,8 +8,8 @@ namespace Cure.DataAccess.DAL
 {
     internal interface IDataRepository : IDisposable
     {
-        IEnumerable<ViewRecipient> GetContacts(string username, string newContact);
-        IEnumerable<Message> GetMyMessages(string username, string contact);
+        IEnumerable<ViewRecipient> GetContacts(string username, Guid contact);
+        IEnumerable<Message> GetMyMessages(string username, Guid contact);
         IEnumerable<Message> GetMessages();
         Message GetMessage(int messageId);
         void InsertMessage(Message message);
@@ -42,6 +42,7 @@ namespace Cure.DataAccess.DAL
         void UpdateCurrency(Currency currency);
 
         ViewUserMembership GetUserMembership(string username);
+        ViewUserMembership GetUserMembership(Guid userId);
         IEnumerable<ViewUserMembership> ViewUserMembership();
         void UpdateUserMembership(ViewUserMembership userMembership);
 
@@ -112,6 +113,7 @@ namespace Cure.DataAccess.DAL
         ViewChild ViewChild(string ownerUser);
         IEnumerable<Child> GetChilds();
         IEnumerable<Child> GetChilds(int countryId);
+        Child GetChildByUid(Guid guid);
         Child GetChild(int Id);
         void InsertChild(Child child);
         void DeleteChild(Child child);

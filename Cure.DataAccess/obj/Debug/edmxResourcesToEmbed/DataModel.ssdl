@@ -538,7 +538,7 @@
 warning 6002: The table/view 'Cure.dbo.ViewChild' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="ViewChild">
     <Key>
-      <PropertyRef Name="Id" />
+      <PropertyRef Name="GuidId" />
     </Key>
     <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="GuidId" Type="uniqueidentifier" Nullable="false" />
@@ -619,6 +619,7 @@ warning 6002: The table/view 'Cure.dbo.ViewChild' does not have a primary key de
     <Property Name="Operator4Params" Type="nvarchar" MaxLength="250" />
     <Property Name="OwnerUserPic" Type="nvarchar" MaxLength="250" />
     <Property Name="OwnerAvaFile" Type="nvarchar" MaxLength="250" />
+    <Property Name="UserId" Type="uniqueidentifier" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'Cure.dbo.ViewMension' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -647,7 +648,7 @@ warning 6002: The table/view 'Cure.dbo.ViewMension' does not have a primary key 
 warning 6002: The table/view 'Cure.dbo.ViewRecipient' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="ViewRecipient">
     <Key>
-      <PropertyRef Name="UserName" />
+      <PropertyRef Name="UserId" />
     </Key>
     <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
     <Property Name="Email" Type="nvarchar" MaxLength="256" />
@@ -666,6 +667,7 @@ warning 6002: The table/view 'Cure.dbo.ViewRecipient' does not have a primary ke
     <Property Name="IsAdmin" Type="int" />
     <Property Name="LastMessageText" Type="nvarchar" MaxLength="256" Nullable="false" />
     <Property Name="LastMessageDate" Type="datetime" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'Cure.dbo.ViewScheduler' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1424,7 +1426,8 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
 [ViewChild].[Operator4Description] AS [Operator4Description], 
 [ViewChild].[Operator4Params] AS [Operator4Params], 
 [ViewChild].[OwnerUserPic] AS [OwnerUserPic], 
-[ViewChild].[OwnerAvaFile] AS [OwnerAvaFile]
+[ViewChild].[OwnerAvaFile] AS [OwnerAvaFile], 
+[ViewChild].[UserId] AS [UserId]
 FROM [dbo].[ViewChild] AS [ViewChild]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="ViewMension" EntityType="Self.ViewMension" store:Type="Views" store:Schema="dbo">
@@ -1465,7 +1468,8 @@ FROM [dbo].[ViewMension] AS [ViewMension]</DefiningQuery>
 [ViewRecipient].[IsOnline] AS [IsOnline], 
 [ViewRecipient].[IsAdmin] AS [IsAdmin], 
 [ViewRecipient].[LastMessageText] AS [LastMessageText], 
-[ViewRecipient].[LastMessageDate] AS [LastMessageDate]
+[ViewRecipient].[LastMessageDate] AS [LastMessageDate], 
+[ViewRecipient].[UserId] AS [UserId]
 FROM [dbo].[ViewRecipient] AS [ViewRecipient]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="ViewScheduler" EntityType="Self.ViewScheduler" store:Type="Views" store:Schema="dbo">

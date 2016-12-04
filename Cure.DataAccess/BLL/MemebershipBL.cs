@@ -1,9 +1,15 @@
 ﻿namespace Cure.DataAccess.BLL
 {
+    using System;
     using System.Collections.Generic;
 
     public partial class DataAccessBL
     {
+        public ViewUserMembership GetUserMembership(Guid userId)
+        {
+            return dataRepository.GetUserMembership(userId);
+        }
+
         public ViewUserMembership GetUserMembership(string username)
         {
             return dataRepository.GetUserMembership(username);

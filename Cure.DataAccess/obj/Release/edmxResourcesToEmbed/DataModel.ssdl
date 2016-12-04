@@ -189,6 +189,7 @@
     <Property Name="FromDisplay" Type="nvarchar" MaxLength="50" />
     <Property Name="ToUserName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="ToDisplay" Type="nvarchar" MaxLength="50" />
+    <Property Name="Unread" Type="bit" />
     <Property Name="SendTime" Type="datetime" Nullable="false" />
     <Property Name="Subject" Type="nvarchar" MaxLength="250" />
     <Property Name="Text" Type="text" />
@@ -218,6 +219,15 @@
     <Property Name="Details" Type="nvarchar" MaxLength="250" />
     <Property Name="ClientName" Type="nvarchar" MaxLength="250" />
     <Property Name="Contacts" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="OnlineUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastDate" Type="datetime" Nullable="false" />
+    <Property Name="Details" Type="nvarchar" MaxLength="250" />
   </EntityType>
   <EntityType Name="Order">
     <Key>
@@ -528,7 +538,7 @@
 warning 6002: The table/view 'Cure.dbo.ViewChild' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="ViewChild">
     <Key>
-      <PropertyRef Name="Id" />
+      <PropertyRef Name="GuidId" />
     </Key>
     <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="GuidId" Type="uniqueidentifier" Nullable="false" />
@@ -609,6 +619,7 @@ warning 6002: The table/view 'Cure.dbo.ViewChild' does not have a primary key de
     <Property Name="Operator4Params" Type="nvarchar" MaxLength="250" />
     <Property Name="OwnerUserPic" Type="nvarchar" MaxLength="250" />
     <Property Name="OwnerAvaFile" Type="nvarchar" MaxLength="250" />
+    <Property Name="UserId" Type="uniqueidentifier" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'Cure.dbo.ViewMension' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -632,6 +643,31 @@ warning 6002: The table/view 'Cure.dbo.ViewMension' does not have a primary key 
     <Property Name="ContactPhone" Type="nvarchar" MaxLength="50" />
     <Property Name="GuidId" Type="uniqueidentifier" />
     <Property Name="ChildId" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Cure.dbo.ViewRecipient' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ViewRecipient">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="IsApproved" Type="bit" Nullable="false" />
+    <Property Name="IsLockedOut" Type="bit" Nullable="false" />
+    <Property Name="ChildId" Type="int" />
+    <Property Name="GuidId" Type="uniqueidentifier" />
+    <Property Name="ChildName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContactName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Birthday" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="FileName" Type="nvarchar" MaxLength="250" />
+    <Property Name="OwnerUserPic" Type="nvarchar" MaxLength="250" />
+    <Property Name="OwnerAvaFile" Type="nvarchar" MaxLength="250" />
+    <Property Name="IsOnline" Type="int" />
+    <Property Name="IsAdmin" Type="int" />
+    <Property Name="LastMessageText" Type="nvarchar" MaxLength="256" Nullable="false" />
+    <Property Name="LastMessageDate" Type="datetime" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'Cure.dbo.ViewScheduler' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1272,6 +1308,11 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="sp_ClearOnlineUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_GetMyContacts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+    <Parameter Name="Contact" Type="nvarchar" Mode="In" />
+  </Function>
   <EntityContainer Name="DataModelStoreContainer">
     <EntitySet Name="aspnet_Membership" EntityType="Self.aspnet_Membership" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="aspnet_Users" EntityType="Self.aspnet_Users" Schema="dbo" store:Type="Tables" />
@@ -1286,6 +1327,7 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
     <EntitySet Name="Message" EntityType="Self.Message" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Newsletter" EntityType="Self.Newsletter" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NotificationLog" EntityType="Self.NotificationLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OnlineUser" EntityType="Self.OnlineUser" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Pacient" EntityType="Self.Pacient" Schema="dbo" store:Type="Tables" />
@@ -1384,7 +1426,8 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
 [ViewChild].[Operator4Description] AS [Operator4Description], 
 [ViewChild].[Operator4Params] AS [Operator4Params], 
 [ViewChild].[OwnerUserPic] AS [OwnerUserPic], 
-[ViewChild].[OwnerAvaFile] AS [OwnerAvaFile]
+[ViewChild].[OwnerAvaFile] AS [OwnerAvaFile], 
+[ViewChild].[UserId] AS [UserId]
 FROM [dbo].[ViewChild] AS [ViewChild]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="ViewMension" EntityType="Self.ViewMension" store:Type="Views" store:Schema="dbo">
@@ -1406,6 +1449,28 @@ FROM [dbo].[ViewChild] AS [ViewChild]</DefiningQuery>
 [ViewMension].[GuidId] AS [GuidId], 
 [ViewMension].[ChildId] AS [ChildId]
 FROM [dbo].[ViewMension] AS [ViewMension]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ViewRecipient" EntityType="Self.ViewRecipient" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[ViewRecipient].[UserName] AS [UserName], 
+[ViewRecipient].[Email] AS [Email], 
+[ViewRecipient].[IsApproved] AS [IsApproved], 
+[ViewRecipient].[IsLockedOut] AS [IsLockedOut], 
+[ViewRecipient].[ChildId] AS [ChildId], 
+[ViewRecipient].[GuidId] AS [GuidId], 
+[ViewRecipient].[ChildName] AS [ChildName], 
+[ViewRecipient].[ContactName] AS [ContactName], 
+[ViewRecipient].[Birthday] AS [Birthday], 
+[ViewRecipient].[IsActive] AS [IsActive], 
+[ViewRecipient].[FileName] AS [FileName], 
+[ViewRecipient].[OwnerUserPic] AS [OwnerUserPic], 
+[ViewRecipient].[OwnerAvaFile] AS [OwnerAvaFile], 
+[ViewRecipient].[IsOnline] AS [IsOnline], 
+[ViewRecipient].[IsAdmin] AS [IsAdmin], 
+[ViewRecipient].[LastMessageText] AS [LastMessageText], 
+[ViewRecipient].[LastMessageDate] AS [LastMessageDate], 
+[ViewRecipient].[UserId] AS [UserId]
+FROM [dbo].[ViewRecipient] AS [ViewRecipient]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="ViewScheduler" EntityType="Self.ViewScheduler" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 

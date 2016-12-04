@@ -116,6 +116,11 @@ namespace Cure.DataAccess.DAL
         {
             return context.Children.FirstOrDefault(o => o.Id == id);
         }
+        
+        public Child GetChildByUid(Guid guid)
+        {
+            return context.Children.FirstOrDefault(o => o.GuidId == guid);
+        }
 
         public void InsertChild(Child child)
         {

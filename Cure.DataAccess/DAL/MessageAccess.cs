@@ -8,9 +8,15 @@ namespace Cure.DataAccess.DAL
 {
     internal partial class DataRepository
     {
-        public IEnumerable<ViewRecipient> GetContacts(string username, string newContact)
+        public IEnumerable<ViewRecipient> GetContacts(string username, Guid contact)
         {
-            return context.sp_GetMyContacts(username, newContact);
+            string name = string.Empty;
+            var view = context.ViewUserMemberships.FirstOrDefault(x => x.Expr1 == contact);
+            if (view != null)
+            {
+                name = view.UserName;
+            }
+            return context.sp_GetMyContacts(username, name);
         }
 
         public int GetUnreadCount(string username)
@@ -19,9 +25,16 @@ namespace Cure.DataAccess.DAL
             return count;
         }
 
-        public IEnumerable<Message> GetMyMessages(string username, string contact)
+        public IEnumerable<Message> GetMyMessages(string username, Guid contact)
         {
-            var messages = context.Messages.Where(x => (x.FromUserName == username && x.ToUserName == contact) || (x.ToUserName == username && x.FromUserName == contact)).OrderBy(x => x.SendTime);
+            string name = string.Empty;
+            var view = context.ViewUserMemberships.FirstOrDefault(x => x.Expr1 == contact);
+            if (view != null)
+            {
+                name = view.UserName;
+            }
+
+            var messages = context.Messages.Where(x => (x.FromUserName == username && x.ToUserName == name) || (x.ToUserName == username && x.FromUserName == name)).OrderBy(x => x.SendTime);
             for (int i = messages.Count(x => x.Unread == true && x.ToUserName == username) - 1; i > -1; i--)
             {
                 var msg = messages.Where(x => x.Unread == true && x.ToUserName == username).ToList()[i];
