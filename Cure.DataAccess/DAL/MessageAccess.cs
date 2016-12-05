@@ -8,7 +8,18 @@ namespace Cure.DataAccess.DAL
 {
     internal partial class DataRepository
     {
-        public IEnumerable<ViewRecipient> GetContacts(string username, Guid contact)
+        public void RemoveMessages(string username, Guid contact)
+        {
+            var messages = GetMyMessages(username, contact);
+            var removeMessages = messages as IList<Message> ?? messages.ToList();
+            for (int i = removeMessages.Count() - 1; i > -1; i--)
+            {
+                var msg = removeMessages.ToList()[i];
+                DeleteMessage(msg);
+            }
+        }
+
+        public IEnumerable<ViewRecipient> GetContacts(string username, Guid contact, string filter)
         {
             string name = string.Empty;
             var view = context.ViewUserMemberships.FirstOrDefault(x => x.Expr1 == contact);
@@ -16,7 +27,7 @@ namespace Cure.DataAccess.DAL
             {
                 name = view.UserName;
             }
-            return context.sp_GetMyContacts(username, name);
+            return context.sp_GetMyContacts(username, name, filter);
         }
 
         public int GetUnreadCount(string username)

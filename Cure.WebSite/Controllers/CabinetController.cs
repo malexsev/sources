@@ -67,7 +67,7 @@ namespace Cure.WebSite.Controllers
         }
 
         [HttpPost]
-        public PartialViewResult GetContacts(string contact)
+        public PartialViewResult GetContacts(string contact, string filter)
         {
             if (User.Identity.IsAuthenticated)
             {
@@ -77,7 +77,11 @@ namespace Cure.WebSite.Controllers
                     contact = string.Empty;
                 }
 
-                var contactViews = dal.GetContacts(User.Identity.Name, SiteUtils.ParseGuid(contact)).Select(x => new MessagesUserModel(x, SiteUtils.ParseBool(x.IsOnline, false), SiteUtils.ParseBool(x.IsAdmin, false), x.LastMessageText, SiteUtils.ParseDate(x.LastMessageDate, DateTime.Now, "ru-RU")));
+                var contactViews = dal.GetContacts(User.Identity.Name, SiteUtils.ParseGuid(contact), filter)
+                    .Select(x => new MessagesUserModel(x, SiteUtils.ParseBool(x.IsOnline, false), 
+                        SiteUtils.ParseBool(x.IsAdmin, false), 
+                        x.LastMessageText, 
+                        SiteUtils.ParseDate(x.LastMessageDate, DateTime.Now, "ru-RU")));
 
                 return PartialView("_MessagesUsers", contactViews);
             }
@@ -126,6 +130,18 @@ namespace Cure.WebSite.Controllers
                     dal.InsertMessage(msg);
                 }
             }
+        }
+
+        [HttpPost]
+        public JsonResult RemoveMessages(string contact)
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                var dal = new DataAccessBL();
+                dal.RemoveMessages(User.Identity.Name, SiteUtils.ParseGuid(contact));
+                return Json("1", JsonRequestBehavior.AllowGet);
+            }
+            return Json("0", JsonRequestBehavior.AllowGet);
         }
 
 

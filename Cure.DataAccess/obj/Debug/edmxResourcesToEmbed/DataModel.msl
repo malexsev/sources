@@ -804,7 +804,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <FunctionImportMapping FunctionImportName="sp_GetMyContacts" FunctionName="DataModel.Store.sp_GetMyContacts" />
     <EntitySetMapping Name="ViewChilds">
       <EntityTypeMapping TypeName="DataModel.ViewChild">
         <MappingFragment StoreEntitySet="ViewChild">
@@ -891,5 +890,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_GetMyContacts" FunctionName="DataModel.Store.sp_GetMyContacts" />
   </EntityContainerMapping>
 </Mapping>

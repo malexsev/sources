@@ -179,11 +179,12 @@
     <EntitySet Name="OnlineUsers" EntityType="DataModel.OnlineUser" />
     <FunctionImport Name="sp_ClearOnlineUsers" />
     <EntitySet Name="ViewRecipients" EntityType="DataModel.ViewRecipient" />
+    <EntitySet Name="ViewChilds" EntityType="DataModel.ViewChild" />
     <FunctionImport Name="sp_GetMyContacts" EntitySet="ViewRecipients" ReturnType="Collection(DataModel.ViewRecipient)">
       <Parameter Name="UserName" Mode="In" Type="String" />
       <Parameter Name="Contact" Mode="In" Type="String" />
+      <Parameter Name="Filter" Mode="In" Type="String" />
     </FunctionImport>
-    <EntitySet Name="ViewChilds" EntityType="DataModel.ViewChild" />
   </EntityContainer>
   <EntityType Name="OrderStatu">
     <Key>

@@ -6,9 +6,14 @@
 
     public partial class DataAccessBL
     {
-        public IEnumerable<ViewRecipient> GetContacts(string username, Guid newContact)
+        public void RemoveMessages(string username, Guid contact)
         {
-            return dataRepository.GetContacts(username, newContact);
+            dataRepository.RemoveMessages(username, contact);
+        }
+
+        public IEnumerable<ViewRecipient> GetContacts(string username, Guid newContact, string filter)
+        {
+            return dataRepository.GetContacts(username, newContact, filter);
         }
 
         public int GetUnreadCount(string username)

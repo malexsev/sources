@@ -1,14 +1,13 @@
 ﻿jQuery.fn.extend({
     insertAtCaret: function (myValue) {
-        return this.each(function (i) {
+        return this.each(function(i) {
             if (document.selection) {
                 // Для браузеров типа Internet Explorer
                 this.focus();
                 var sel = document.selection.createRange();
                 sel.text = myValue;
                 this.focus();
-            }
-            else if (this.selectionStart || this.selectionStart == '0') {
+            } else if (this.selectionStart || this.selectionStart == '0') {
                 // Для браузеров типа Firefox и других Webkit-ов
                 var startPos = this.selectionStart;
                 var endPos = this.selectionEnd;
@@ -22,15 +21,13 @@
                 this.value += myValue;
                 this.focus();
             }
-        })
+        });
     }
 });
 
 /*----------- ФУНКЦИИ ПОСЛЕ ГОТОВНОСТИ ---------------------------------------*/
 
 $(document).ready(function () {
-
-
     /* --- Кастомный скролл в чате -------------------------------------------*/
     function chatScrollerInit() {
         $(".js-chat-scroller").nanoScroller({
@@ -98,8 +95,21 @@ $(document).ready(function () {
     });
 
     $(document).on('click', ".js-chat-user-close", function () {
-        alert("Видимо нужно что-то удалить или закрыть");
-        SetDefaults();
+        RemoveConversation($(this));
+    });
+    
+    $(document).on('click', ".js-chat-filter-clear", function () {
+        $("._search-input").val("");
+        UpdateContacts();
+    });
+
+    $(document).on('click', ".js-chat-filter-start", function () {
+        UpdateContacts();
+    });
+
+    $(document).on('input', "._search-input", function () {
+        UpdateContacts();
+        $("._search-input").focus();
     });
 });
 
@@ -107,14 +117,6 @@ $(document).ready(function () {
 
 $(window).load(function () {
     UpdateContacts();
-    
-    //setTimeout(function () {
-    //    SetDefaults();
-    //}, 600);
-    
-    //setInterval(function () {
-    //	UpdateContacts();
-    //}, 30000);
 });
 
 function SwitchUser(link) {
@@ -129,6 +131,14 @@ function SwitchUser(link) {
 }
 
 /*--- Устанавливает значение выбранного пользователя по умолчанию ---*/
+function Reset() {
+    $('#active-contact-id').val("");
+    $('#active-contact-userpic').val("");
+    $('#chat-messages').html("");
+    $('.chat-head-name').text("");
+    $('.chat-head-stat').text("");
+}
+
 function SetDefaults() {
     var contact = getUrlVars()["contact"];
     var elem;
@@ -142,13 +152,37 @@ function SetDefaults() {
     }
 }
 
+function RemoveConversation(link) {
+    var userId = $(link).data("userid");
+
+    var data = new FormData();
+    data.append("contact", userId);
+
+    $.ajax({
+        url: "/Cabinet/RemoveMessages",
+        type: "POST",
+        data: data,
+        contentType: false,
+        processData: false,
+        success: function (result) {
+            if (result) {
+                UpdateContacts();
+            }
+        },
+        error: function (result) {
+            alert(result.responseText);
+        }
+    });
+
+    UpdateMessages();
+}
+
 /*--- Обновить сообщения ---*/
 function UpdateMessages() {
     var username = $('#active-contact-id').val();
     var incoming_userpic = $('#active-contact-userpic').val();
     var my_userpic = $('#my-userpic').attr('src');
-
-
+    
     var control = $('#chat-messages');
     if (control != null && username != null) {
         var data = new FormData();
@@ -167,6 +201,7 @@ function UpdateMessages() {
                 $(control).html(result);
                 $(".incoming-userpic").attr('src', incoming_userpic);
                 $(".my-userpic").attr('src', my_userpic);
+                chatScrollerInit();
             },
             error: function (result) {
                 $(control).html("");
@@ -178,11 +213,14 @@ function UpdateMessages() {
 
 /*--- Обновление списка контактов ---*/
 function UpdateContacts() {
+    Reset();
     var control = $('#chat-contacts-list');
+    var filter = $("._search-input").val();
     if (control != null) {
         var contact = getUrlVars()["contact"];
         var data = new FormData();
         data.append("contact", contact);
+        data.append("filter", filter);
 
         $.ajax({
             url: "/Cabinet/GetContacts",

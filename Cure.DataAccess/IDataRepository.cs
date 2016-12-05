@@ -8,7 +8,8 @@ namespace Cure.DataAccess.DAL
 {
     internal interface IDataRepository : IDisposable
     {
-        IEnumerable<ViewRecipient> GetContacts(string username, Guid contact);
+        void RemoveMessages(string username, Guid contact);
+        IEnumerable<ViewRecipient> GetContacts(string username, Guid contact, string filter);
         IEnumerable<Message> GetMyMessages(string username, Guid contact);
         IEnumerable<Message> GetMessages();
         Message GetMessage(int messageId);

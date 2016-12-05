@@ -543,7 +543,18 @@
 warning 6002: The table/view 'Cure.dbo.ViewChild' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="ViewChild">
           <Key>
+            
             <PropertyRef Name="GuidId" />
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="GuidId" Type="uniqueidentifier" Nullable="false" />
@@ -1350,6 +1361,7 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
         <Function Name="sp_GetMyContacts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="UserName" Type="nvarchar" Mode="In" />
           <Parameter Name="Contact" Type="nvarchar" Mode="In" />
+          <Parameter Name="Filter" Type="nvarchar" Mode="In" />
         </Function>
         <EntityContainer Name="DataModelStoreContainer">
           <EntitySet Name="aspnet_Membership" EntityType="Self.aspnet_Membership" Schema="dbo" store:Type="Tables" />
@@ -2018,11 +2030,12 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
           <EntitySet Name="OnlineUsers" EntityType="DataModel.OnlineUser" />
           <FunctionImport Name="sp_ClearOnlineUsers" />
           <EntitySet Name="ViewRecipients" EntityType="DataModel.ViewRecipient" />
+          <EntitySet Name="ViewChilds" EntityType="DataModel.ViewChild" />
           <FunctionImport Name="sp_GetMyContacts" EntitySet="ViewRecipients" ReturnType="Collection(DataModel.ViewRecipient)">
             <Parameter Name="UserName" Mode="In" Type="String" />
             <Parameter Name="Contact" Mode="In" Type="String" />
+            <Parameter Name="Filter" Mode="In" Type="String" />
           </FunctionImport>
-          <EntitySet Name="ViewChilds" EntityType="DataModel.ViewChild" />
           </EntityContainer>
         <EntityType Name="OrderStatu">
           <Key>
@@ -4199,8 +4212,6 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="sp_GetMyContacts" FunctionName="DataModel.Store.sp_GetMyContacts">
-          </FunctionImportMapping>
           <EntitySetMapping Name="ViewChilds">
             <EntityTypeMapping TypeName="DataModel.ViewChild">
               <MappingFragment StoreEntitySet="ViewChild">
@@ -4287,6 +4298,8 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_GetMyContacts" FunctionName="DataModel.Store.sp_GetMyContacts">
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

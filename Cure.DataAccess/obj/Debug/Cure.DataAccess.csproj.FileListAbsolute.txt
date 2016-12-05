@@ -5,3 +5,4 @@ D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.DataAccess\bin\Debug\EntityFramew
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.DataAccess\bin\Debug\EntityFramework.xml
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.DataAccess\obj\Debug\Cure.DataAccess.dll
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.DataAccess\obj\Debug\Cure.DataAccess.pdb
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.DataAccess\obj\Debug\Cure.DataAccess.csprojResolveAssemblyReference.cache

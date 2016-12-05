@@ -1041,7 +1041,8 @@ namespace Cure.DataAccess
         /// </summary>
         /// <param name="userName">No Metadata Documentation available.</param>
         /// <param name="contact">No Metadata Documentation available.</param>
-        public ObjectResult<ViewRecipient> sp_GetMyContacts(global::System.String userName, global::System.String contact)
+        /// <param name="filter">No Metadata Documentation available.</param>
+        public ObjectResult<ViewRecipient> sp_GetMyContacts(global::System.String userName, global::System.String contact, global::System.String filter)
         {
             ObjectParameter userNameParameter;
             if (userName != null)
@@ -1063,7 +1064,17 @@ namespace Cure.DataAccess
                 contactParameter = new ObjectParameter("Contact", typeof(global::System.String));
             }
 
-            return base.ExecuteFunction<ViewRecipient>("sp_GetMyContacts", userNameParameter, contactParameter);
+            ObjectParameter filterParameter;
+            if (filter != null)
+            {
+                filterParameter = new ObjectParameter("Filter", filter);
+            }
+            else
+            {
+                filterParameter = new ObjectParameter("Filter", typeof(global::System.String));
+            }
+
+            return base.ExecuteFunction<ViewRecipient>("sp_GetMyContacts", userNameParameter, contactParameter, filterParameter);
         }
         /// <summary>
         /// No Metadata Documentation available.
@@ -1071,7 +1082,8 @@ namespace Cure.DataAccess
         /// <param name="mergeOption"></param>
         /// <param name="userName">No Metadata Documentation available.</param>
         /// <param name="contact">No Metadata Documentation available.</param>
-        public ObjectResult<ViewRecipient> sp_GetMyContacts(global::System.String userName, global::System.String contact, MergeOption mergeOption)
+        /// <param name="filter">No Metadata Documentation available.</param>
+        public ObjectResult<ViewRecipient> sp_GetMyContacts(global::System.String userName, global::System.String contact, global::System.String filter, MergeOption mergeOption)
         {
             ObjectParameter userNameParameter;
             if (userName != null)
@@ -1093,7 +1105,17 @@ namespace Cure.DataAccess
                 contactParameter = new ObjectParameter("Contact", typeof(global::System.String));
             }
 
-            return base.ExecuteFunction<ViewRecipient>("sp_GetMyContacts", mergeOption, userNameParameter, contactParameter);
+            ObjectParameter filterParameter;
+            if (filter != null)
+            {
+                filterParameter = new ObjectParameter("Filter", filter);
+            }
+            else
+            {
+                filterParameter = new ObjectParameter("Filter", typeof(global::System.String));
+            }
+
+            return base.ExecuteFunction<ViewRecipient>("sp_GetMyContacts", mergeOption, userNameParameter, contactParameter, filterParameter);
         }
 
         #endregion
