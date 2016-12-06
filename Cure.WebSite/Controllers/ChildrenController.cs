@@ -4,6 +4,8 @@ using System.Web.Mvc;
 
 namespace Cure.WebSite.Controllers
 {
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
     using DataAccess;
 
@@ -14,7 +16,35 @@ namespace Cure.WebSite.Controllers
             var dal = new DataAccessBL();
             int childId = int.Parse(id);
             ViewChild view = dal.ViewChild(childId);
-            ViewBag.Vipiskas = dal.GetMyVipiskas(view.OwnerUser).Select(x => new VisitResultViewModel(x));
+
+            var vipiskas = dal.GetMyVipiskas(view.OwnerUser).ToList();
+            ViewBag.Vipiskas = vipiskas.Select(x => new VisitResultViewModel(x));
+            ViewBag.TestLevel1Val = "-";
+            ViewBag.TestLevel2Val = "-";
+            ViewBag.TestLevel3Val = "-";
+            ViewBag.TestLevel1Desc = "";
+            ViewBag.TestLevel2Desc = "";
+            ViewBag.TestLevel3Desc = "";
+
+            if (vipiskas.Any())
+            {
+                var vipiska = vipiskas[0];
+                if (vipiska.RefGmfcsLevel != null)
+                {
+                    ViewBag.TestLevel1Val = vipiska.RefGmfcsLevel.Name;
+                    ViewBag.TestLevel1Desc = vipiska.RefGmfcsLevel.Description;
+                }
+                if (vipiska.RefMacsLevel != null)
+                {
+                    ViewBag.TestLevel2Val = vipiska.RefMacsLevel.Name;
+                    ViewBag.TestLevel2Desc = vipiska.RefMacsLevel.Description;
+                }
+                if (vipiska.RefCfcsLevel != null)
+                {
+                    ViewBag.TestLevel3Val = vipiska.RefCfcsLevel.Name;
+                    ViewBag.TestLevel3Desc = vipiska.RefCfcsLevel.Description;
+                }
+            }
 
             return View(new ChildVisualDetailed(view, dal.GetChildHideFiles(childId), dal.GetChildAvaFile(childId), dal.GetMyPosts(childId)));
         }

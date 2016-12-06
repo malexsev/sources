@@ -35,7 +35,35 @@ namespace Cure.WebSite.Controllers
             ViewBag.Rodstvos = dal.GetRefRodstvo();
             ViewBag.Operators = dal.GetRefOperators();
             ViewBag.CountryBanks = dal.GetRefBanks(child.FinCountryId ?? child.CountryId);
-            ViewBag.Vipiskas = dal.GetMyVipiskas(User.Identity.Name).Select(x => new VisitResultViewModel(x));
+
+            var vipiskas = dal.GetMyVipiskas(User.Identity.Name).ToList();
+            ViewBag.Vipiskas = vipiskas.Select(x => new VisitResultViewModel(x));
+            ViewBag.TestLevel1Val = "-";
+            ViewBag.TestLevel2Val = "-";
+            ViewBag.TestLevel3Val = "-";
+            ViewBag.TestLevel1Desc = "";
+            ViewBag.TestLevel2Desc = "";
+            ViewBag.TestLevel3Desc = "";
+
+            if (vipiskas.Any())
+            {
+                var vipiska = vipiskas[0];
+                if (vipiska.RefGmfcsLevel != null)
+                {
+                    ViewBag.TestLevel1Val = vipiska.RefGmfcsLevel.Name;
+                    ViewBag.TestLevel1Desc = vipiska.RefGmfcsLevel.Description;
+                }
+                if (vipiska.RefMacsLevel != null)
+                {
+                    ViewBag.TestLevel2Val = vipiska.RefMacsLevel.Name;
+                    ViewBag.TestLevel2Desc = vipiska.RefMacsLevel.Description;
+                }
+                if (vipiska.RefCfcsLevel != null)
+                {
+                    ViewBag.TestLevel3Val = vipiska.RefCfcsLevel.Name;
+                    ViewBag.TestLevel3Desc = vipiska.RefCfcsLevel.Description;
+                }
+            }
 
             ViewBag.Profile = new ChildVisualDetailed(child, dal.GetChildHideFiles(child.Id), dal.GetChildAvaFile(child.Id), dal.GetMyPosts(child.Id));
             return View(ViewBag.Profile);
@@ -782,7 +810,35 @@ namespace Cure.WebSite.Controllers
             ViewBag.Rodstvos = dal.GetRefRodstvo();
             ViewBag.Operators = dal.GetRefOperators();
             ViewBag.CountryBanks = dal.GetRefBanks(child.FinCountryId ?? child.CountryId);
-            ViewBag.Vipiskas = dal.GetMyVipiskas(User.Identity.Name).Select(x => new VisitResultViewModel(x));
+
+            var vipiskas = dal.GetMyVipiskas(User.Identity.Name).ToList();
+            ViewBag.Vipiskas = vipiskas.Select(x => new VisitResultViewModel(x));
+            ViewBag.TestLevel1Val = "-";
+            ViewBag.TestLevel2Val = "-";
+            ViewBag.TestLevel3Val = "-";
+            ViewBag.TestLevel1Desc = "";
+            ViewBag.TestLevel2Desc = "";
+            ViewBag.TestLevel3Desc = "";
+
+            if (vipiskas.Any())
+            {
+                var vipiska = vipiskas[0];
+                if (vipiska.RefGmfcsLevel != null)
+                {
+                    ViewBag.TestLevel1Val = vipiska.RefGmfcsLevel.Name;
+                    ViewBag.TestLevel1Desc = vipiska.RefGmfcsLevel.Description;
+                }
+                if (vipiska.RefMacsLevel != null)
+                {
+                    ViewBag.TestLevel2Val = vipiska.RefMacsLevel.Name;
+                    ViewBag.TestLevel2Desc = vipiska.RefMacsLevel.Description;
+                }
+                if (vipiska.RefCfcsLevel != null)
+                {
+                    ViewBag.TestLevel3Val = vipiska.RefCfcsLevel.Name;
+                    ViewBag.TestLevel3Desc = vipiska.RefCfcsLevel.Description;
+                }
+            }
 
             ViewBag.Profile = new ChildVisualDetailed(child, dal.GetChildHideFiles(child.Id), dal.GetChildAvaFile(child.Id), dal.GetMyPosts(child.Id));
             return View(ViewBag.Profile);

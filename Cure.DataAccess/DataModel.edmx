@@ -336,6 +336,16 @@
           <Property Name="Bik" Type="nvarchar" MaxLength="50" />
           <Property Name="KorrAccount" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="RefCfcsLevel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="250" />
+          <Property Name="DescriptionEn" Type="nvarchar" MaxLength="250" />
+          <Property Name="DescriptionCh" Type="nvarchar" MaxLength="250" />
+        </EntityType>
         <EntityType Name="RefCountry">
           <Key>
             <PropertyRef Name="Id" />
@@ -356,6 +366,26 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="RefGmfcsLevel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="250" />
+          <Property Name="DescriptionEn" Type="nvarchar" MaxLength="250" />
+          <Property Name="DescriptionCh" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="RefMacsLevel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="250" />
+          <Property Name="DescriptionEn" Type="nvarchar" MaxLength="250" />
+          <Property Name="DescriptionCh" Type="nvarchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="RefOperator">
           <Key>
@@ -458,6 +488,9 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="VisitId" Type="int" Nullable="false" />
+          <Property Name="GmfcsLevelId" Type="int" />
+          <Property Name="MacsLevelId" Type="int" />
+          <Property Name="CfcsLevelId" Type="int" />
           <Property Name="Description" Type="nvarchar" MaxLength="250" />
           <Property Name="Result" Type="text" />
           <Property Name="LastUser" Type="nvarchar" MaxLength="50" />
@@ -1315,6 +1348,48 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Vipiska_RefCfcsLevel">
+          <End Role="RefCfcsLevel" Type="Self.RefCfcsLevel" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Vipiska" Type="Self.Vipiska" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefCfcsLevel">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Vipiska">
+              <PropertyRef Name="CfcsLevelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vipiska_RefGmfcsLevel">
+          <End Role="RefGmfcsLevel" Type="Self.RefGmfcsLevel" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Vipiska" Type="Self.Vipiska" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefGmfcsLevel">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Vipiska">
+              <PropertyRef Name="GmfcsLevelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vipiska_RefMacsLevel">
+          <End Role="RefMacsLevel" Type="Self.RefMacsLevel" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Vipiska" Type="Self.Vipiska" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefMacsLevel">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Vipiska">
+              <PropertyRef Name="MacsLevelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Vipiska_Visit">
           <End Role="Visit" Type="Self.Visit" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -1383,8 +1458,11 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
           <EntitySet Name="Pacient" EntityType="Self.Pacient" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RefBank" EntityType="Self.RefBank" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RefCfcsLevel" EntityType="Self.RefCfcsLevel" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RefCountry" EntityType="Self.RefCountry" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RefDiagnoz" EntityType="Self.RefDiagnoz" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RefGmfcsLevel" EntityType="Self.RefGmfcsLevel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RefMacsLevel" EntityType="Self.RefMacsLevel" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RefOperator" EntityType="Self.RefOperator" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RefRodstvo" EntityType="Self.RefRodstvo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RefStopVisitType" EntityType="Self.RefStopVisitType" Schema="dbo" store:Type="Tables" />
@@ -1834,6 +1912,18 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
             <End Role="Department" EntitySet="Department" />
             <End Role="TransferUser" EntitySet="TransferUser" />
           </AssociationSet>
+          <AssociationSet Name="FK_Vipiska_RefCfcsLevel" Association="Self.FK_Vipiska_RefCfcsLevel">
+            <End Role="RefCfcsLevel" EntitySet="RefCfcsLevel" />
+            <End Role="Vipiska" EntitySet="Vipiska" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vipiska_RefGmfcsLevel" Association="Self.FK_Vipiska_RefGmfcsLevel">
+            <End Role="RefGmfcsLevel" EntitySet="RefGmfcsLevel" />
+            <End Role="Vipiska" EntitySet="Vipiska" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vipiska_RefMacsLevel" Association="Self.FK_Vipiska_RefMacsLevel">
+            <End Role="RefMacsLevel" EntitySet="RefMacsLevel" />
+            <End Role="Vipiska" EntitySet="Vipiska" />
+          </AssociationSet>
           <AssociationSet Name="FK_Vipiska_Visit" Association="Self.FK_Vipiska_Visit">
             <End Role="Visit" EntitySet="Visit" />
             <End Role="Vipiska" EntitySet="Vipiska" />
@@ -1938,11 +2028,6 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
             <End Role="Visit" EntitySet="Visits" />
           </AssociationSet>
           <EntitySet Name="ViewUserMemberships" EntityType="DataModel.ViewUserMembership" />
-          <EntitySet Name="Vipiskas" EntityType="DataModel.Vipiska" />
-          <AssociationSet Name="FK_Vipiska_Visit" Association="DataModel.FK_Vipiska_Visit">
-            <End Role="Visit" EntitySet="Visits" />
-            <End Role="Vipiska" EntitySet="Vipiskas" />
-          </AssociationSet>
           <EntitySet Name="RefOperators" EntityType="DataModel.RefOperator" />
           <EntitySet Name="Mensions" EntityType="DataModel.Mension" />
           <AssociationSet Name="FK_Mension_Department" Association="DataModel.FK_Mension_Department">
@@ -2036,6 +2121,26 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
             <Parameter Name="Contact" Mode="In" Type="String" />
             <Parameter Name="Filter" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="RefCfcsLevels" EntityType="DataModel.RefCfcsLevel" />
+          <EntitySet Name="RefGmfcsLevels" EntityType="DataModel.RefGmfcsLevel" />
+          <EntitySet Name="RefMacsLevels" EntityType="DataModel.RefMacsLevel" />
+          <EntitySet Name="Vipiskas" EntityType="DataModel.Vipiska" />
+          <AssociationSet Name="FK_Vipiska_RefCfcsLevel" Association="DataModel.FK_Vipiska_RefCfcsLevel">
+            <End Role="RefCfcsLevel" EntitySet="RefCfcsLevels" />
+            <End Role="Vipiska" EntitySet="Vipiskas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vipiska_RefGmfcsLevel" Association="DataModel.FK_Vipiska_RefGmfcsLevel">
+            <End Role="RefGmfcsLevel" EntitySet="RefGmfcsLevels" />
+            <End Role="Vipiska" EntitySet="Vipiskas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vipiska_RefMacsLevel" Association="DataModel.FK_Vipiska_RefMacsLevel">
+            <End Role="RefMacsLevel" EntitySet="RefMacsLevels" />
+            <End Role="Vipiska" EntitySet="Vipiskas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vipiska_Visit" Association="DataModel.FK_Vipiska_Visit">
+            <End Role="Visit" EntitySet="Visits" />
+            <End Role="Vipiska" EntitySet="Vipiskas" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="OrderStatu">
           <Key>
@@ -2800,34 +2905,6 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
           <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="Vipiska">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="VisitId" Type="Int32" Nullable="false" />
-          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="Result" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="LastUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="LastDate" Type="DateTime" Precision="3" />
-          <Property Name="CreateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CreateDate" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Visit" Relationship="DataModel.FK_Vipiska_Visit" FromRole="Vipiska" ToRole="Visit" />
-        </EntityType>
-        <Association Name="FK_Vipiska_Visit">
-          <End Type="DataModel.Visit" Role="Visit" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="DataModel.Vipiska" Role="Vipiska" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Visit">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Vipiska">
-              <PropertyRef Name="VisitId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="RefOperator">
           <Key>
             <PropertyRef Name="Id" />
@@ -3403,6 +3480,115 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
           <Property Name="OwnerAvaFile" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="UserId" Type="Guid" />
         </EntityType>
+        <EntityType Name="RefCfcsLevel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DescriptionEn" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DescriptionCh" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Vipiskas" Relationship="DataModel.FK_Vipiska_RefCfcsLevel" FromRole="RefCfcsLevel" ToRole="Vipiska" />
+        </EntityType>
+        <EntityType Name="RefGmfcsLevel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DescriptionEn" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DescriptionCh" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Vipiskas" Relationship="DataModel.FK_Vipiska_RefGmfcsLevel" FromRole="RefGmfcsLevel" ToRole="Vipiska" />
+        </EntityType>
+        <EntityType Name="RefMacsLevel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DescriptionEn" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="DescriptionCh" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Vipiskas" Relationship="DataModel.FK_Vipiska_RefMacsLevel" FromRole="RefMacsLevel" ToRole="Vipiska" />
+        </EntityType>
+        <EntityType Name="Vipiska">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VisitId" Type="Int32" Nullable="false" />
+          <Property Name="GmfcsLevelId" Type="Int32" />
+          <Property Name="MacsLevelId" Type="Int32" />
+          <Property Name="CfcsLevelId" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Result" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="LastUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastDate" Type="DateTime" Precision="3" />
+          <Property Name="CreateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="RefCfcsLevel" Relationship="DataModel.FK_Vipiska_RefCfcsLevel" FromRole="Vipiska" ToRole="RefCfcsLevel" />
+          <NavigationProperty Name="RefGmfcsLevel" Relationship="DataModel.FK_Vipiska_RefGmfcsLevel" FromRole="Vipiska" ToRole="RefGmfcsLevel" />
+          <NavigationProperty Name="RefMacsLevel" Relationship="DataModel.FK_Vipiska_RefMacsLevel" FromRole="Vipiska" ToRole="RefMacsLevel" />
+          <NavigationProperty Name="Visit" Relationship="DataModel.FK_Vipiska_Visit" FromRole="Vipiska" ToRole="Visit" />
+        </EntityType>
+        <Association Name="FK_Vipiska_RefCfcsLevel">
+          <End Type="DataModel.RefCfcsLevel" Role="RefCfcsLevel" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="DataModel.Vipiska" Role="Vipiska" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefCfcsLevel">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Vipiska">
+              <PropertyRef Name="CfcsLevelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vipiska_RefGmfcsLevel">
+          <End Type="DataModel.RefGmfcsLevel" Role="RefGmfcsLevel" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="DataModel.Vipiska" Role="Vipiska" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefGmfcsLevel">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Vipiska">
+              <PropertyRef Name="GmfcsLevelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vipiska_RefMacsLevel">
+          <End Type="DataModel.RefMacsLevel" Role="RefMacsLevel" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="DataModel.Vipiska" Role="Vipiska" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefMacsLevel">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Vipiska">
+              <PropertyRef Name="MacsLevelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vipiska_Visit">
+          <End Type="DataModel.Visit" Role="Visit" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="DataModel.Vipiska" Role="Vipiska" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Visit">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Vipiska">
+              <PropertyRef Name="VisitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3946,20 +4132,6 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Vipiskas">
-            <EntityTypeMapping TypeName="DataModel.Vipiska">
-              <MappingFragment StoreEntitySet="Vipiska">
-                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
-                <ScalarProperty Name="LastDate" ColumnName="LastDate" />
-                <ScalarProperty Name="LastUser" ColumnName="LastUser" />
-                <ScalarProperty Name="Result" ColumnName="Result" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="VisitId" ColumnName="VisitId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="RefOperators">
             <EntityTypeMapping TypeName="DataModel.RefOperator">
               <MappingFragment StoreEntitySet="RefOperator">
@@ -4300,6 +4472,56 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="sp_GetMyContacts" FunctionName="DataModel.Store.sp_GetMyContacts">
           </FunctionImportMapping>
+          <EntitySetMapping Name="RefCfcsLevels">
+            <EntityTypeMapping TypeName="DataModel.RefCfcsLevel">
+              <MappingFragment StoreEntitySet="RefCfcsLevel">
+                <ScalarProperty Name="DescriptionCh" ColumnName="DescriptionCh" />
+                <ScalarProperty Name="DescriptionEn" ColumnName="DescriptionEn" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RefGmfcsLevels">
+            <EntityTypeMapping TypeName="DataModel.RefGmfcsLevel">
+              <MappingFragment StoreEntitySet="RefGmfcsLevel">
+                <ScalarProperty Name="DescriptionCh" ColumnName="DescriptionCh" />
+                <ScalarProperty Name="DescriptionEn" ColumnName="DescriptionEn" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RefMacsLevels">
+            <EntityTypeMapping TypeName="DataModel.RefMacsLevel">
+              <MappingFragment StoreEntitySet="RefMacsLevel">
+                <ScalarProperty Name="DescriptionCh" ColumnName="DescriptionCh" />
+                <ScalarProperty Name="DescriptionEn" ColumnName="DescriptionEn" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vipiskas">
+            <EntityTypeMapping TypeName="DataModel.Vipiska">
+              <MappingFragment StoreEntitySet="Vipiska">
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="LastDate" ColumnName="LastDate" />
+                <ScalarProperty Name="LastUser" ColumnName="LastUser" />
+                <ScalarProperty Name="Result" ColumnName="Result" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CfcsLevelId" ColumnName="CfcsLevelId" />
+                <ScalarProperty Name="MacsLevelId" ColumnName="MacsLevelId" />
+                <ScalarProperty Name="GmfcsLevelId" ColumnName="GmfcsLevelId" />
+                <ScalarProperty Name="VisitId" ColumnName="VisitId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

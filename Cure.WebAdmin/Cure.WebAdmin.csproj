@@ -208,6 +208,9 @@
     <Content Include="Admin\Controls\SoonVisitsList.ascx" />
     <Content Include="Admin\CurrencyList.aspx" />
     <Content Include="Admin\CurrencyRateList.aspx" />
+    <Content Include="Admin\RefCfcsList.aspx" />
+    <Content Include="Admin\RefMacsList.aspx" />
+    <Content Include="Admin\RefGmfcsList.aspx" />
     <Content Include="Admin\WeatherList.aspx" />
     <Content Include="Admin\PostList.aspx" />
     <Content Include="Admin\NotificationLogList.aspx" />
@@ -528,6 +531,27 @@
     </Compile>
     <Compile Include="Admin\CurrencyRateList.aspx.designer.cs">
       <DependentUpon>CurrencyRateList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\RefCfcsList.aspx.cs">
+      <DependentUpon>RefCfcsList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\RefCfcsList.aspx.designer.cs">
+      <DependentUpon>RefCfcsList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\RefMacsList.aspx.cs">
+      <DependentUpon>RefMacsList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\RefMacsList.aspx.designer.cs">
+      <DependentUpon>RefMacsList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\RefGmfcsList.aspx.cs">
+      <DependentUpon>RefGmfcsList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\RefGmfcsList.aspx.designer.cs">
+      <DependentUpon>RefGmfcsList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\WeatherList.aspx.cs">
       <DependentUpon>WeatherList.aspx</DependentUpon>

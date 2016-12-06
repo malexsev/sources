@@ -54,6 +54,9 @@ namespace Cure.DataAccess.DAL
                 origVipiska.LastDate = vipiska.LastDate;
                 origVipiska.LastUser = vipiska.LastUser;
                 origVipiska.Result = vipiska.Result;
+                origVipiska.GmfcsLevelId = vipiska.GmfcsLevelId;
+                origVipiska.MacsLevelId = vipiska.MacsLevelId;
+                origVipiska.CfcsLevelId = vipiska.CfcsLevelId;
                 SaveChanges();
             } catch (Exception ex)
             {

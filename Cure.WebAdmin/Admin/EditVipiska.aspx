@@ -14,9 +14,37 @@
         <div class="panelsdelimiter"></div>
 
         <asp:Panel ID="FormPanel" runat="server">
-
+            
             <div>
-                Результаты лечения:</div>
+                GMFCS:
+            </div>
+            <dx:ASPxSpinEdit ID="uxGmfcsLevel" runat="server" Number="1" NumberType="Integer"
+                Increment="1" HorizontalAlign="Right" MinValue="1" MaxValue="5">
+                <Paddings PaddingRight="5px" />
+                <SpinButtons Position="Left" ShowLargeIncrementButtons="True" />
+            </dx:ASPxSpinEdit>
+            <div class="panelsdelimiter"></div>
+            <div>
+                MACS:
+            </div>
+            <dx:ASPxSpinEdit ID="uxMacsLevel" runat="server" Number="1" NumberType="Integer"
+                Increment="1" HorizontalAlign="Right" MinValue="1" MaxValue="5">
+                <Paddings PaddingRight="5px" />
+                <SpinButtons Position="Left" ShowLargeIncrementButtons="True" />
+            </dx:ASPxSpinEdit>
+            <div class="panelsdelimiter"></div>
+            <div>
+                CFCS:
+            </div>
+            <dx:ASPxSpinEdit ID="uxCfcsLevel" runat="server" Number="1" NumberType="Integer"
+                Increment="1" HorizontalAlign="Right" MinValue="1" MaxValue="5">
+                <Paddings PaddingRight="5px" />
+                <SpinButtons Position="Left" ShowLargeIncrementButtons="True" />
+            </dx:ASPxSpinEdit>
+            <div class="panelsdelimiter"></div>
+            <div>
+                Результаты лечения:
+            </div>
             <div class="panelsdelimiter"></div>
             <asp:TextBox ID="ResultText" Width="100%" TextMode="MultiLine" Rows="10" runat="server"></asp:TextBox>
             <div class="panelsdelimiter"></div>

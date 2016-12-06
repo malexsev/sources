@@ -87,11 +87,6 @@
       <End Role="Visit" EntitySet="Visits" />
     </AssociationSet>
     <EntitySet Name="ViewUserMemberships" EntityType="DataModel.ViewUserMembership" />
-    <EntitySet Name="Vipiskas" EntityType="DataModel.Vipiska" />
-    <AssociationSet Name="FK_Vipiska_Visit" Association="DataModel.FK_Vipiska_Visit">
-      <End Role="Visit" EntitySet="Visits" />
-      <End Role="Vipiska" EntitySet="Vipiskas" />
-    </AssociationSet>
     <EntitySet Name="RefOperators" EntityType="DataModel.RefOperator" />
     <EntitySet Name="Mensions" EntityType="DataModel.Mension" />
     <AssociationSet Name="FK_Mension_Department" Association="DataModel.FK_Mension_Department">
@@ -185,6 +180,26 @@
       <Parameter Name="Contact" Mode="In" Type="String" />
       <Parameter Name="Filter" Mode="In" Type="String" />
     </FunctionImport>
+    <EntitySet Name="RefCfcsLevels" EntityType="DataModel.RefCfcsLevel" />
+    <EntitySet Name="RefGmfcsLevels" EntityType="DataModel.RefGmfcsLevel" />
+    <EntitySet Name="RefMacsLevels" EntityType="DataModel.RefMacsLevel" />
+    <EntitySet Name="Vipiskas" EntityType="DataModel.Vipiska" />
+    <AssociationSet Name="FK_Vipiska_RefCfcsLevel" Association="DataModel.FK_Vipiska_RefCfcsLevel">
+      <End Role="RefCfcsLevel" EntitySet="RefCfcsLevels" />
+      <End Role="Vipiska" EntitySet="Vipiskas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vipiska_RefGmfcsLevel" Association="DataModel.FK_Vipiska_RefGmfcsLevel">
+      <End Role="RefGmfcsLevel" EntitySet="RefGmfcsLevels" />
+      <End Role="Vipiska" EntitySet="Vipiskas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vipiska_RefMacsLevel" Association="DataModel.FK_Vipiska_RefMacsLevel">
+      <End Role="RefMacsLevel" EntitySet="RefMacsLevels" />
+      <End Role="Vipiska" EntitySet="Vipiskas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vipiska_Visit" Association="DataModel.FK_Vipiska_Visit">
+      <End Role="Visit" EntitySet="Visits" />
+      <End Role="Vipiska" EntitySet="Vipiskas" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="OrderStatu">
     <Key>
@@ -949,34 +964,6 @@
     <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
-  <EntityType Name="Vipiska">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="VisitId" Type="Int32" Nullable="false" />
-    <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="Result" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <Property Name="LastUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="LastDate" Type="DateTime" Precision="3" />
-    <Property Name="CreateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CreateDate" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="Visit" Relationship="DataModel.FK_Vipiska_Visit" FromRole="Vipiska" ToRole="Visit" />
-  </EntityType>
-  <Association Name="FK_Vipiska_Visit">
-    <End Type="DataModel.Visit" Role="Visit" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Type="DataModel.Vipiska" Role="Vipiska" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Visit">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Vipiska">
-        <PropertyRef Name="VisitId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityType Name="RefOperator">
     <Key>
       <PropertyRef Name="Id" />
@@ -1552,4 +1539,113 @@
     <Property Name="OwnerAvaFile" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="UserId" Type="Guid" />
   </EntityType>
+  <EntityType Name="RefCfcsLevel">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="DescriptionEn" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="DescriptionCh" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Vipiskas" Relationship="DataModel.FK_Vipiska_RefCfcsLevel" FromRole="RefCfcsLevel" ToRole="Vipiska" />
+  </EntityType>
+  <EntityType Name="RefGmfcsLevel">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="DescriptionEn" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="DescriptionCh" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Vipiskas" Relationship="DataModel.FK_Vipiska_RefGmfcsLevel" FromRole="RefGmfcsLevel" ToRole="Vipiska" />
+  </EntityType>
+  <EntityType Name="RefMacsLevel">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="DescriptionEn" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="DescriptionCh" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Vipiskas" Relationship="DataModel.FK_Vipiska_RefMacsLevel" FromRole="RefMacsLevel" ToRole="Vipiska" />
+  </EntityType>
+  <EntityType Name="Vipiska">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VisitId" Type="Int32" Nullable="false" />
+    <Property Name="GmfcsLevelId" Type="Int32" />
+    <Property Name="MacsLevelId" Type="Int32" />
+    <Property Name="CfcsLevelId" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Result" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="LastUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="RefCfcsLevel" Relationship="DataModel.FK_Vipiska_RefCfcsLevel" FromRole="Vipiska" ToRole="RefCfcsLevel" />
+    <NavigationProperty Name="RefGmfcsLevel" Relationship="DataModel.FK_Vipiska_RefGmfcsLevel" FromRole="Vipiska" ToRole="RefGmfcsLevel" />
+    <NavigationProperty Name="RefMacsLevel" Relationship="DataModel.FK_Vipiska_RefMacsLevel" FromRole="Vipiska" ToRole="RefMacsLevel" />
+    <NavigationProperty Name="Visit" Relationship="DataModel.FK_Vipiska_Visit" FromRole="Vipiska" ToRole="Visit" />
+  </EntityType>
+  <Association Name="FK_Vipiska_RefCfcsLevel">
+    <End Type="DataModel.RefCfcsLevel" Role="RefCfcsLevel" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="DataModel.Vipiska" Role="Vipiska" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RefCfcsLevel">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vipiska">
+        <PropertyRef Name="CfcsLevelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vipiska_RefGmfcsLevel">
+    <End Type="DataModel.RefGmfcsLevel" Role="RefGmfcsLevel" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="DataModel.Vipiska" Role="Vipiska" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RefGmfcsLevel">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vipiska">
+        <PropertyRef Name="GmfcsLevelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vipiska_RefMacsLevel">
+    <End Type="DataModel.RefMacsLevel" Role="RefMacsLevel" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="DataModel.Vipiska" Role="Vipiska" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RefMacsLevel">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vipiska">
+        <PropertyRef Name="MacsLevelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vipiska_Visit">
+    <End Type="DataModel.Visit" Role="Visit" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="DataModel.Vipiska" Role="Vipiska" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Visit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vipiska">
+        <PropertyRef Name="VisitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

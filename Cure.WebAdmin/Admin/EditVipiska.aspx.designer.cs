@@ -31,6 +31,33 @@ namespace Cure.WebAdmin.Admin {
         protected global::System.Web.UI.WebControls.Panel FormPanel;
         
         /// <summary>
+        /// uxGmfcsLevel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxEditors.ASPxSpinEdit uxGmfcsLevel;
+        
+        /// <summary>
+        /// uxMacsLevel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxEditors.ASPxSpinEdit uxMacsLevel;
+        
+        /// <summary>
+        /// uxCfcsLevel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxEditors.ASPxSpinEdit uxCfcsLevel;
+        
+        /// <summary>
         /// ResultText control.
         /// </summary>
         /// <remarks>

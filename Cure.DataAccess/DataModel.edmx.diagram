@@ -8,7 +8,7 @@
         <EntityTypeShape EntityType="DataModel.OrderStatu" Width="1.5" PointX="10.875" PointY="1.875" />
         <EntityTypeShape EntityType="DataModel.Pacient" Width="1.5" PointX="5.25" PointY="15.125" />
         <EntityTypeShape EntityType="DataModel.RefCountry" Width="1.5" PointX="7.75" PointY="19.25" />
-        <EntityTypeShape EntityType="DataModel.RefRodstvo" Width="1.5" PointX="4.625" PointY="3.25" />
+        <EntityTypeShape EntityType="DataModel.RefRodstvo" Width="1.5" PointX="4.5" PointY="1.5" />
         <AssociationConnector Association="DataModel.FK_Pacient_RefCountry" />
         <EntityTypeShape EntityType="DataModel.Department" Width="1.5" PointX="11.375" PointY="13.25" />
         <AssociationConnector Association="DataModel.FK_Department_Department" />
@@ -43,8 +43,6 @@
         <AssociationConnector Association="DataModel.FK_Sputnik_Order" />
         <AssociationConnector Association="DataModel.FK_Visit_Order" />
         <EntityTypeShape EntityType="DataModel.ViewUserMembership" Width="2.875" PointX="28.75" PointY="2" />
-        <EntityTypeShape EntityType="DataModel.Vipiska" Width="1.5" PointX="5.625" PointY="7.5" />
-        <AssociationConnector Association="DataModel.FK_Vipiska_Visit" />
         <EntityTypeShape EntityType="DataModel.RefOperator" Width="1.5" PointX="7.875" PointY="26.625" />
         <EntityTypeShape EntityType="DataModel.Mension" Width="1.5" PointX="13.625" PointY="21.125" />
         <AssociationConnector Association="DataModel.FK_Mension_Department" />
@@ -78,6 +76,14 @@
         <EntityTypeShape EntityType="DataModel.OnlineUser" Width="1.5" PointX="20.5" PointY="8.75" />
         <EntityTypeShape EntityType="DataModel.ViewRecipient" Width="1.5" PointX="35.75" PointY="6.5" />
         <EntityTypeShape EntityType="DataModel.ViewChild" Width="1.875" PointX="32.75" PointY="2" />
+        <EntityTypeShape EntityType="DataModel.RefCfcsLevel" Width="1.5" PointX="3.125" PointY="12.25" />
+        <EntityTypeShape EntityType="DataModel.RefGmfcsLevel" Width="1.5" PointX="0.875" PointY="6.375" />
+        <EntityTypeShape EntityType="DataModel.RefMacsLevel" Width="1.5" PointX="0.875" PointY="9.375" />
+        <EntityTypeShape EntityType="DataModel.Vipiska" Width="1.5" PointX="3.25" PointY="7.125" />
+        <AssociationConnector Association="DataModel.FK_Vipiska_RefCfcsLevel" />
+        <AssociationConnector Association="DataModel.FK_Vipiska_RefGmfcsLevel" />
+        <AssociationConnector Association="DataModel.FK_Vipiska_RefMacsLevel" />
+        <AssociationConnector Association="DataModel.FK_Vipiska_Visit" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

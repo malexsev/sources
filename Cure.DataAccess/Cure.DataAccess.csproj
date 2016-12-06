@@ -50,8 +50,11 @@
     <Compile Include="BLL\ChildHideFileBL.cs" />
     <Compile Include="BLL\CurrencyBL.cs" />
     <Compile Include="BLL\CurrencyRateBL.cs" />
+    <Compile Include="BLL\CfcsLevelBL.cs" />
+    <Compile Include="BLL\MacsLevelBL.cs" />
     <Compile Include="BLL\MensionBL.cs" />
     <Compile Include="BLL\OnlineUserBL.cs" />
+    <Compile Include="BLL\GmfcsLevelBL.cs" />
     <Compile Include="BLL\WeatherBL.cs" />
     <Compile Include="BLL\PostBL.cs" />
     <Compile Include="BLL\MessageBL.cs" />
@@ -79,8 +82,11 @@
     <Compile Include="DAL\CurrencyRateAccess.cs" />
     <Compile Include="DAL\ChildAvaFileAccess.cs" />
     <Compile Include="DAL\ChildHideFileAccess.cs" />
+    <Compile Include="DAL\CfcsLevelAccess.cs" />
+    <Compile Include="DAL\MacsLevelAccess.cs" />
     <Compile Include="DAL\MensionAccess.cs" />
     <Compile Include="DAL\OnlineUserAccess.cs" />
+    <Compile Include="DAL\GmfcsLevelAccess.cs" />
     <Compile Include="DAL\WeatherAccess.cs" />
     <Compile Include="DAL\PostAccess.cs" />
     <Compile Include="DAL\MessageAccess.cs" />
@@ -105,7 +111,7 @@
     <Compile Include="DAL\DepartmentAccess.cs" />
     <Compile Include="DataAccessBL.cs" />
     <Compile Include="DAL\CountryAccess.cs" />
-    <Compile Include="DataModel.Designer.cs">
+    <Compile Include="DataModel1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataModel.edmx</DependentUpon>

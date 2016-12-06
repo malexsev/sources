@@ -29,12 +29,19 @@
                             CreateUser = SiteUtils.GetCurrentUserName(),
                             LastDate = DateTime.Now,
                             VisitId = visitId,
-                            LastUser = SiteUtils.GetCurrentUserName()
+                            LastUser = SiteUtils.GetCurrentUserName(),
+                            GmfcsLevelId = null,
+                            MacsLevelId = null,
+                            CfcsLevelId = null
                         };
                         dataAccess.InsertVipiska(vipiska);
                         vipiska = dataAccess.GetVipiska(visitId);
                     }
                     ResultText.Text = vipiska.Result;
+
+                    uxGmfcsLevel.Value = vipiska.GmfcsLevelId ?? null;
+                    uxMacsLevel.Value = vipiska.MacsLevelId ?? null;
+                    uxCfcsLevel.Value = vipiska.CfcsLevelId ?? null;
                     uxResult.TextGreen =
                         String.Format(
                             "Выписка по заезду №{0} от {1}, даты с {2} по {3}, пациент {4} {5}",
@@ -97,6 +104,9 @@
                 else
                 {
                     vipiska.Result = ResultText.Text;
+                    vipiska.GmfcsLevelId = GetLevel(uxGmfcsLevel.Value);
+                    vipiska.MacsLevelId = GetLevel(uxMacsLevel.Value);
+                    vipiska.CfcsLevelId = GetLevel(uxCfcsLevel.Value);
                     vipiska.LastDate = DateTime.Now;
                     vipiska.LastUser = SiteUtils.GetCurrentUserName();
                     dataAccess.UpdateVipiska(vipiska);
@@ -104,6 +114,17 @@
                     uxResultSave.Visible = true;
                 }
             }
+        }
+
+        private int? GetLevel(object value)
+        {
+            int? res = null;
+            int val = SiteUtils.ParseInt(value, 0);
+            if (val > 0)
+            {
+                res = val;
+            }
+            return res;
         }
     }
 }

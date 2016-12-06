@@ -2067,6 +2067,11 @@ $(document).ready(function () {
     $(".js-assist-close").click(function () {
         $(this).closest(".assist-drop").toggleClass("active");
     });
+    
+    /*--- Детали Наши Дети - показатели тестов ------------------*/
+    $(".js-testlevels-start").click(function (e) {
+        alert("gg");
+    });
 });
 
 

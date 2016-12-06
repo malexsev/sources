@@ -8,6 +8,21 @@ namespace Cure.DataAccess.DAL
 {
     internal interface IDataRepository : IDisposable
     {
+        IEnumerable<RefGmfcsLevel> GetRefGmfcsLevels();
+        void InsertRefGmfcsLevel(RefGmfcsLevel refGmfcsLevel);
+        void DeleteRefGmfcsLevel(RefGmfcsLevel refGmfcsLevel);
+        void UpdateRefGmfcsLevel(RefGmfcsLevel refGmfcsLevel);
+
+        IEnumerable<RefMacsLevel> GetRefMacsLevels();
+        void InsertRefMacsLevel(RefMacsLevel refMacsLevel);
+        void DeleteRefMacsLevel(RefMacsLevel refMacsLevel);
+        void UpdateRefMacsLevel(RefMacsLevel refMacsLevel);
+
+        IEnumerable<RefCfcsLevel> GetRefCfcsLevels();
+        void InsertRefCfcsLevel(RefCfcsLevel refCfcsLevel);
+        void DeleteRefCfcsLevel(RefCfcsLevel refCfcsLevel);
+        void UpdateRefCfcsLevel(RefCfcsLevel refCfcsLevel);
+
         void RemoveMessages(string username, Guid contact);
         IEnumerable<ViewRecipient> GetContacts(string username, Guid contact, string filter);
         IEnumerable<Message> GetMyMessages(string username, Guid contact);

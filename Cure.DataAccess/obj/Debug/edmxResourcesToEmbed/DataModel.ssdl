@@ -331,6 +331,16 @@
     <Property Name="Bik" Type="nvarchar" MaxLength="50" />
     <Property Name="KorrAccount" Type="nvarchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="RefCfcsLevel">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="DescriptionEn" Type="nvarchar" MaxLength="250" />
+    <Property Name="DescriptionCh" Type="nvarchar" MaxLength="250" />
+  </EntityType>
   <EntityType Name="RefCountry">
     <Key>
       <PropertyRef Name="Id" />
@@ -351,6 +361,26 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="Description" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="RefGmfcsLevel">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="DescriptionEn" Type="nvarchar" MaxLength="250" />
+    <Property Name="DescriptionCh" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="RefMacsLevel">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="DescriptionEn" Type="nvarchar" MaxLength="250" />
+    <Property Name="DescriptionCh" Type="nvarchar" MaxLength="250" />
   </EntityType>
   <EntityType Name="RefOperator">
     <Key>
@@ -453,6 +483,9 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="VisitId" Type="int" Nullable="false" />
+    <Property Name="GmfcsLevelId" Type="int" />
+    <Property Name="MacsLevelId" Type="int" />
+    <Property Name="CfcsLevelId" Type="int" />
     <Property Name="Description" Type="nvarchar" MaxLength="250" />
     <Property Name="Result" Type="text" />
     <Property Name="LastUser" Type="nvarchar" MaxLength="50" />
@@ -1266,6 +1299,48 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Vipiska_RefCfcsLevel">
+    <End Role="RefCfcsLevel" Type="Self.RefCfcsLevel" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Vipiska" Type="Self.Vipiska" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RefCfcsLevel">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vipiska">
+        <PropertyRef Name="CfcsLevelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vipiska_RefGmfcsLevel">
+    <End Role="RefGmfcsLevel" Type="Self.RefGmfcsLevel" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Vipiska" Type="Self.Vipiska" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RefGmfcsLevel">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vipiska">
+        <PropertyRef Name="GmfcsLevelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vipiska_RefMacsLevel">
+    <End Role="RefMacsLevel" Type="Self.RefMacsLevel" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Vipiska" Type="Self.Vipiska" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RefMacsLevel">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vipiska">
+        <PropertyRef Name="MacsLevelId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Vipiska_Visit">
     <End Role="Visit" Type="Self.Visit" Multiplicity="1">
       <OnDelete Action="Cascade" />
@@ -1334,8 +1409,11 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
     <EntitySet Name="Pacient" EntityType="Self.Pacient" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RefBank" EntityType="Self.RefBank" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RefCfcsLevel" EntityType="Self.RefCfcsLevel" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RefCountry" EntityType="Self.RefCountry" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RefDiagnoz" EntityType="Self.RefDiagnoz" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RefGmfcsLevel" EntityType="Self.RefGmfcsLevel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RefMacsLevel" EntityType="Self.RefMacsLevel" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RefOperator" EntityType="Self.RefOperator" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RefRodstvo" EntityType="Self.RefRodstvo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RefStopVisitType" EntityType="Self.RefStopVisitType" Schema="dbo" store:Type="Tables" />
@@ -1784,6 +1862,18 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
     <AssociationSet Name="FK_TransferUser_Department" Association="Self.FK_TransferUser_Department">
       <End Role="Department" EntitySet="Department" />
       <End Role="TransferUser" EntitySet="TransferUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vipiska_RefCfcsLevel" Association="Self.FK_Vipiska_RefCfcsLevel">
+      <End Role="RefCfcsLevel" EntitySet="RefCfcsLevel" />
+      <End Role="Vipiska" EntitySet="Vipiska" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vipiska_RefGmfcsLevel" Association="Self.FK_Vipiska_RefGmfcsLevel">
+      <End Role="RefGmfcsLevel" EntitySet="RefGmfcsLevel" />
+      <End Role="Vipiska" EntitySet="Vipiska" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vipiska_RefMacsLevel" Association="Self.FK_Vipiska_RefMacsLevel">
+      <End Role="RefMacsLevel" EntitySet="RefMacsLevel" />
+      <End Role="Vipiska" EntitySet="Vipiska" />
     </AssociationSet>
     <AssociationSet Name="FK_Vipiska_Visit" Association="Self.FK_Vipiska_Visit">
       <End Role="Visit" EntitySet="Visit" />
