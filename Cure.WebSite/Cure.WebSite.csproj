@@ -562,7 +562,7 @@
     <Content Include="Views\Procedure\PtPhysical.cshtml" />
     <Content Include="Views\Cabinet\_MessagesUsers.cshtml" />
     <Content Include="Views\Cabinet\_Messages.cshtml" />
-    <Content Include="Views\Children\_TestLevels.cshtml" />
+    <Content Include="Views\Shared\_TestLevels.cshtml" />
     <None Include="Views\Medicine\Human.cshtml" />
     <Content Include="Views\Procedure\OtOccupational.cshtml" />
     <Content Include="Views\Procedure\StSpeech.cshtml" />

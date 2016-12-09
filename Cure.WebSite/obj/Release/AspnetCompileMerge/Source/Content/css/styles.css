@@ -3812,6 +3812,10 @@ html.swipebox-html.swipebox-touch {
 .comments-addform-head .head-name {
   font-size: 14px;
 }
+  .test-levels {
+      width: 220px;
+      margin-top: 15px;
+  }
 /*--------------------- ACCOUNT PAGE STYLES ----------------------------------*/
 .account-header {
   background: #dcdac6;

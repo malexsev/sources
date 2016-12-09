@@ -20,6 +20,9 @@
       <siteMapNode url="~/Admin/RefOperatorList.aspx" title="Операторы связи" description="Операторы связи применяются для профиля Финансовой помощи" />
       <siteMapNode url="~/Admin/RefDiagnozList.aspx" title="Группы диагнозов" description="Устанавливаются админом для профилей НД по описанному пользователем в свободной форме диагнозу" />
       <siteMapNode url="~/Admin/RefStopVisitTypeList.aspx" title="Типы блокировок" description="Типы блокировок заездов отделений" />
+      <siteMapNode url="~/Admin/RefGmfcsList.aspx" title="Уровни GMFCS" description="Уровни GMFCS" />
+      <siteMapNode url="~/Admin/RefMacsList.aspx" title="Уровни MACS" description="Страны в MACS" />
+      <siteMapNode url="~/Admin/RefCfcsList.aspx" title="Уровни CFCS" description="Страны в CFCS" />
     </siteMapNode>
     <siteMapNode url="" title="Система">
       <siteMapNode url="~/Admin/WeatherList.aspx" title="Погода" description="Результаты запросов погоды с сервиса" />

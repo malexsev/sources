@@ -538,20 +538,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Vipiskas">
-      <EntityTypeMapping TypeName="DataModel.Vipiska">
-        <MappingFragment StoreEntitySet="Vipiska">
-          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
-          <ScalarProperty Name="LastDate" ColumnName="LastDate" />
-          <ScalarProperty Name="LastUser" ColumnName="LastUser" />
-          <ScalarProperty Name="Result" ColumnName="Result" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="VisitId" ColumnName="VisitId" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="RefOperators">
       <EntityTypeMapping TypeName="DataModel.RefOperator">
         <MappingFragment StoreEntitySet="RefOperator">
@@ -891,5 +877,55 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="sp_GetMyContacts" FunctionName="DataModel.Store.sp_GetMyContacts" />
+    <EntitySetMapping Name="RefCfcsLevels">
+      <EntityTypeMapping TypeName="DataModel.RefCfcsLevel">
+        <MappingFragment StoreEntitySet="RefCfcsLevel">
+          <ScalarProperty Name="DescriptionCh" ColumnName="DescriptionCh" />
+          <ScalarProperty Name="DescriptionEn" ColumnName="DescriptionEn" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RefGmfcsLevels">
+      <EntityTypeMapping TypeName="DataModel.RefGmfcsLevel">
+        <MappingFragment StoreEntitySet="RefGmfcsLevel">
+          <ScalarProperty Name="DescriptionCh" ColumnName="DescriptionCh" />
+          <ScalarProperty Name="DescriptionEn" ColumnName="DescriptionEn" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RefMacsLevels">
+      <EntityTypeMapping TypeName="DataModel.RefMacsLevel">
+        <MappingFragment StoreEntitySet="RefMacsLevel">
+          <ScalarProperty Name="DescriptionCh" ColumnName="DescriptionCh" />
+          <ScalarProperty Name="DescriptionEn" ColumnName="DescriptionEn" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vipiskas">
+      <EntityTypeMapping TypeName="DataModel.Vipiska">
+        <MappingFragment StoreEntitySet="Vipiska">
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+          <ScalarProperty Name="LastDate" ColumnName="LastDate" />
+          <ScalarProperty Name="LastUser" ColumnName="LastUser" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CfcsLevelId" ColumnName="CfcsLevelId" />
+          <ScalarProperty Name="MacsLevelId" ColumnName="MacsLevelId" />
+          <ScalarProperty Name="GmfcsLevelId" ColumnName="GmfcsLevelId" />
+          <ScalarProperty Name="VisitId" ColumnName="VisitId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

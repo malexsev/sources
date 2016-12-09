@@ -14,7 +14,7 @@
                     <h1 class="all-pages-H1">@Model.Name <span class="subtitle">@Model.Age,<br /> @Model.CountryName@Html.Raw(string.IsNullOrEmpty(Model.Region) ? "" : ", ") @Model.Region</span></h1>
                 </div>
                 <div class="col-lg-2">
-                        @Html.Partial("_TestLevels")
+                    @Html.Partial("_TestLevels")
                 </div>
                 <div class="col-lg-5">
                     <div class="head-btns mob-md-mw-313">
@@ -23,7 +23,118 @@
                         {
                             <a href="@Url.Action("Messages", "Cabinet", new {contact = Model.UserId.ToString()})" class="btn btn-white has-shadow ico-mail btn-two-lines">Написать<br>сообщение</a>
                         }
-                        <a class="btn btn-orang has-shadow ico-help">Оказать помощь</a>
+                        <div class="assist">
+                            @if (!string.IsNullOrEmpty(Model.FinYandexMoney) || !string.IsNullOrEmpty(Model.FinKiwi) || !string.IsNullOrEmpty(Model.FinWebMoneyString) || !string.IsNullOrEmpty(Model.OperatorName) || !string.IsNullOrEmpty(Model.Operator2Name) || !string.IsNullOrEmpty(Model.Operator3Name) || !string.IsNullOrEmpty(Model.Operator4Name) || !string.IsNullOrEmpty(Model.FinBankOther))
+                            {
+                                <a class="btn btn-orang has-shadow ico-help assist-btn js-assist-show" role="button">Оказать помощь</a>
+                                <div class="assist-drop">
+                                    <div class="container">
+                                        <div class="assist-title">Оказать помощь</div>
+                                        <a class="assist-close js-assist-close"></a>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="assist-subtitle">На телефон</div>
+                                                <div class="child-info-money">
+                                                    @if (!string.IsNullOrEmpty(Model.OperatorName))
+                                                    {
+                                                        <div class="money-account">
+                                                            <i class="money-acc-icon">
+                                                                <img src="~/content/img/operators/@Html.Raw(string.IsNullOrEmpty(Model.OperatorParams) ? "nooperator.png" : Model.OperatorParams)" alt="@Model.OperatorName">
+                                                            </i>
+                                                            <div class="money-acc-note">@Model.OperatorName</div>
+                                                            <div class="money-acc-numb">@Model.FinPhoneNumber</div>
+                                                        </div>
+                                                    }
+                                                    @if (!string.IsNullOrEmpty(Model.Operator2Name))
+                                                    {
+                                                        <div class="money-account">
+                                                            <i class="money-acc-icon">
+                                                                <img src="~/content/img/operators/@Html.Raw(string.IsNullOrEmpty(Model.Operator2Params) ? "nooperator.png" : Model.Operator2Params)" alt="@Model.OperatorName">
+                                                            </i>
+                                                            <div class="money-acc-note">@Model.Operator2Name</div>
+                                                            <div class="money-acc-numb">@Model.FinPhoneNumber2</div>
+                                                        </div>
+                                                    }
+                                                    @if (!string.IsNullOrEmpty(Model.Operator3Name))
+                                                    {
+                                                        <div class="money-account">
+                                                            <i class="money-acc-icon">
+                                                                <img src="~/content/img/operators/@Html.Raw(string.IsNullOrEmpty(Model.Operator3Params) ? "nooperator.png" : Model.Operator3Params)" alt="@Model.OperatorName">
+                                                            </i>
+                                                            <div class="money-acc-note">@Model.Operator3Name</div>
+                                                            <div class="money-acc-numb">@Model.FinPhoneNumber3</div>
+                                                        </div>
+                                                    }
+                                                    @if (!string.IsNullOrEmpty(Model.Operator4Name))
+                                                    {
+                                                        <div class="money-account">
+                                                            <i class="money-acc-icon">
+                                                                <img src="~/content/img/operators/@Html.Raw(string.IsNullOrEmpty(Model.Operator4Params) ? "nooperator.png" : Model.Operator4Params)" alt="@Model.OperatorName">
+                                                            </i>
+                                                            <div class="money-acc-note">@Model.Operator4Name</div>
+                                                            <div class="money-acc-numb">@Model.FinPhoneNumber4</div>
+                                                        </div>
+                                                    }
+                                                </div>
+                                                <div class="assist-subtitle">Через платежные системы</div>
+                                                <div class="child-info-money">
+                                                    @if (!string.IsNullOrEmpty(Model.FinWebMoneyString))
+                                                    {
+                                                        <div class="money-account">
+                                                            <i class="money-acc-icon">
+                                                                <img src="~/content/img/money-icons/webmoney.png" alt="Вэбмани">
+                                                            </i>
+                                                            <div class="money-acc-note">Вэбмани</div>
+                                                            <div class="money-acc-numb">@Html.Raw(Model.FinWebMoneyString)</div>
+                                                        </div>
+                                                    }
+                                                    @if (!string.IsNullOrEmpty(Model.FinYandexMoney))
+                                                    {
+                                                        <div class="money-account">
+                                                            <i class="money-acc-icon">
+                                                                <img src="~/content/img/money-icons/yad.png" alt="Яндекс-деньги">
+                                                            </i>
+                                                            <div class="money-acc-note">Яндекс-деньги</div>
+                                                            <div class="money-acc-numb">@Html.Raw(Model.FinYandexMoney)</div>
+                                                        </div>
+                                                    }
+                                                    @if (!string.IsNullOrEmpty(Model.FinKiwi))
+                                                    {
+                                                        <div class="money-account">
+                                                            <i class="money-acc-icon">
+                                                                <img src="~/content/img/money-icons/kivi.png" alt="Киви">
+                                                            </i>
+                                                            <div class="money-acc-note">Киви</div>
+                                                            <div class="money-acc-numb">@Html.Raw(Model.FinKiwi)</div>
+                                                        </div>
+                                                    }
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="assist-subtitle">На банковскую карту / счет</div>
+                                                <div class="assist-rekv">
+                                                    @if (!string.IsNullOrEmpty(Model.FinBankOther))
+                                                    {
+                                                        @Html.Raw(Model.FinBankOther.Replace("\n", "<br/>"))
+                                                    }
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="assist-subtitle">Информация</div>
+                                                <div class="assist-text">
+                                                    Пожертвования поступают напрямую родителям и вы можете узнать как именно
+                                                    расходуются средства.<br><br>
+                                                    Чем еще можно помочь ребенку вы можете спросить у родителей письмом или
+                                                    личным сообщением (понадобится регистрация).<br><br>
+                                                    Ребенку поможет максимально возможное распространение информации, в том
+                                                    числе ссылка на личную страницу.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
                     </div>
                 </div>
             </div>
@@ -79,82 +190,6 @@
                             </section>
                         }
 
-                        <section class="child-aside-info mob-accordion js-mob-accordion">
-                            <h3 class="info-head js-mob-accordion-btn">Финансовая помощь</h3>
-                            @if (!string.IsNullOrEmpty(Model.FinWebMoneyString) || !string.IsNullOrEmpty(Model.OperatorName) || !string.IsNullOrEmpty(Model.Operator2Name) || !string.IsNullOrEmpty(Model.Operator3Name) || !string.IsNullOrEmpty(Model.Operator4Name) || !string.IsNullOrEmpty(Model.FinBankOther))
-                            {
-                                <div class="info-body js-mob-accordion-body">
-                                    <div class="child-info-money">
-                                        @if (!string.IsNullOrEmpty(Model.FinWebMoneyString))
-                                        {
-                                            <div class="money-account">
-                                                <i class="money-acc-icon">
-                                                    <img src="~/content/img/money-icons/webmoney.png" alt="Вэбмани">
-                                                </i>
-                                                <div class="money-acc-note">Вэбмани</div>
-                                                <div class="money-acc-numb">@Html.Raw(Model.FinWebMoneyString)</div>
-                                            </div>
-                                        }
-                                        @if (!string.IsNullOrEmpty(Model.OperatorName))
-                                        {
-                                            <div class="money-account">
-                                                <i class="money-acc-icon">
-                                                    <img src="~/content/img/operators/@Html.Raw(string.IsNullOrEmpty(Model.OperatorParams) ? "nooperator.png" : Model.OperatorParams)" alt="@Model.OperatorName">
-                                                </i>
-                                                <div class="money-acc-note">@Model.OperatorName</div>
-                                                <div class="money-acc-numb">@Model.FinPhoneNumber</div>
-                                            </div>
-                                        }
-                                        @if (!string.IsNullOrEmpty(Model.Operator2Name))
-                                        {
-                                            <div class="money-account">
-                                                <i class="money-acc-icon">
-                                                    <img src="~/content/img/operators/@Html.Raw(string.IsNullOrEmpty(Model.Operator2Params) ? "nooperator.png" : Model.Operator2Params)" alt="@Model.OperatorName">
-                                                </i>
-                                                <div class="money-acc-note">@Model.Operator2Name</div>
-                                                <div class="money-acc-numb">@Model.FinPhoneNumber2</div>
-                                            </div>
-                                        }
-                                        @if (!string.IsNullOrEmpty(Model.Operator3Name))
-                                        {
-                                            <div class="money-account">
-                                                <i class="money-acc-icon">
-                                                    <img src="~/content/img/operators/@Html.Raw(string.IsNullOrEmpty(Model.Operator3Params) ? "nooperator.png" : Model.Operator3Params)" alt="@Model.OperatorName">
-                                                </i>
-                                                <div class="money-acc-note">@Model.Operator3Name</div>
-                                                <div class="money-acc-numb">@Model.FinPhoneNumber3</div>
-                                            </div>
-                                        }
-                                        @if (!string.IsNullOrEmpty(Model.Operator4Name))
-                                        {
-                                            <div class="money-account">
-                                                <i class="money-acc-icon">
-                                                    <img src="~/content/img/operators/@Html.Raw(string.IsNullOrEmpty(Model.Operator4Params) ? "nooperator.png" : Model.Operator4Params)" alt="@Model.OperatorName">
-                                                </i>
-                                                <div class="money-acc-note">@Model.Operator4Name</div>
-                                                <div class="money-acc-numb">@Model.FinPhoneNumber4</div>
-                                            </div>
-                                        }
-                                        @if (!string.IsNullOrEmpty(Model.FinBankOther))
-                                        {
-                                            <div class="money-account">
-                                                @Html.Raw(Model.FinBankOther.Replace("\n", "<br/>"))
-                                            </div>
-                                            @*<div class="money-card">
-                                                    <div class="money-card-title">Карта @Model.BankName</div>
-                                                    <div class="money-card-numb">@Model.FinCardNumber</div>
-                                                    <div class="money-card-name">@Model.FinCardName</div>
-                                                </div>*@
-                                        }
-
-                                    </div>
-                                </div>
-                            }
-                            else
-                            {
-                                <div class="info-contact-txt">Информации для финансовой помощи пока отсутствует.</div>
-                            }
-                        </section>
                     </div>
                 </div>
                 <div class="col-lg-9 col-md-8">
@@ -191,12 +226,6 @@
                                 {
                                     <div class="content-tab-empty">Данный раздел заполняется администрацией больницы из  истории болезни</div>
                                 }
-                                @*
-                                    <div class="all-pages-more child-tab-more">
-                                        <div class="more-btn">
-                                            <a class="btn btn-light has-loading js-load-more-history">Показать еще</a>
-                                        </div>
-                                    </div>*@
                             </div>
 
                             <div class="child-tabs-tab js-tabs-item" id="child-tab-2">
