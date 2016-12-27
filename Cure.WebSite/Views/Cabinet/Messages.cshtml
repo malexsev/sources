@@ -23,14 +23,14 @@
             <div class="chat-body">
                 <input id="active-contact-id" type="hidden"/>
                 <input id="active-contact-userpic" type="hidden" />
-                <div class="chat-left nano js-chat-scroller">
+                <div class="chat-left nano js-chat-scroller-users">
                     <div id="chat-contacts-list" class="chat-users nano-content">
                         @*@Html.Partial("_MessagesUsers")*@
                     </div>
                 </div><!-- END chat-left -->
 
                 <div class="chat-right">
-                    <div class="chat-log nano js-chat-scroller">
+                    <div class="chat-log nano js-chat-scroller-log">
                         <div id="chat-messages" class="chat-log-scroll nano-content">
                             @*@Html.Partial("_Messages")*@
                         </div>

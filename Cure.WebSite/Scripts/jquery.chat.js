@@ -25,24 +25,33 @@
     }
 });
 
+/* --- Кастомный скролл в чате -------------------------------------------*/
+function chatScrollerInitUsers() {
+    $(".js-chat-scroller-users").nanoScroller({
+        paneClass: 'nano-pane',
+        sliderClass: 'nano-slider',
+        contentClass: 'nano-content'
+    });
+}
+function chatScrollerInitLog() {
+    $(".js-chat-scroller-log").nanoScroller({
+        paneClass: 'nano-pane',
+        sliderClass: 'nano-slider',
+        contentClass: 'nano-content',
+        scrollTo: $('#chat-bottom')
+    });
+}
+
 /*----------- ФУНКЦИИ ПОСЛЕ ГОТОВНОСТИ ---------------------------------------*/
 
 $(document).ready(function () {
-    /* --- Кастомный скролл в чате -------------------------------------------*/
-    function chatScrollerInit() {
-        $(".js-chat-scroller").nanoScroller({
-            paneClass: 'nano-pane',
-            sliderClass: 'nano-slider',
-            contentClass: 'nano-content'
-        });
-    }
-    chatScrollerInit();
 
     /* --- Увеличение чата на весь экран -------------------------------------*/
     $(".js-chat-toggle").click(function () {
         $(this).closest(".chat-wrap").toggleClass("is-full-screen");
         $("body").toggleClass("cutted");
-        chatScrollerInit();
+        chatScrollerInitUsers();
+        chatScrollerInitLog();
     });
 
 
@@ -201,7 +210,7 @@ function UpdateMessages() {
                 $(control).html(result);
                 $(".incoming-userpic").attr('src', incoming_userpic);
                 $(".my-userpic").attr('src', my_userpic);
-                chatScrollerInit();
+                chatScrollerInitLog();
             },
             error: function (result) {
                 $(control).html("");
@@ -230,6 +239,7 @@ function UpdateContacts() {
             processData: false,
             beforeSend: function () {
                 $(control).html("<img src='/content/img/preloader.gif' />");
+                chatScrollerInitUsers();
             },
             success: function (result) {
                 $(control).html(result);

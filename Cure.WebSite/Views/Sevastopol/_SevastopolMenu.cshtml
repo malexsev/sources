@@ -2,12 +2,12 @@
     <div class="all-pages-head price-head">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="all-pages-H1 has-underline">Лечение в Севастополе</h1>
+                <h1 class="all-pages-H1 has-underline">Информация</h1>
                 <ul class="all-pages-nav">
-                    <li @Html.Raw(Request.Url.AbsolutePath.Contains("Priglashenie") ? @"class=""active""" : @"")><a href="@Url.Action("Priglashenie", "Sevastopol")">Вас пригласили на лечение</a></li>
-                    <li @Html.Raw(Request.Url.AbsolutePath.Contains("Dobratsa") ? @"class=""active""" : @"")><a href="@Url.Action("Dobratsa", "Sevastopol")">Как добраться до Севастополя</a></li>
-                    <li @Html.Raw(Request.Url.AbsolutePath.Contains("Support") ? @"class=""active""" : @"")><a href="@Url.Action("Support", "Sevastopol")">Медицинское сопровождение</a></li>
-                    <li @Html.Raw(Request.Url.AbsolutePath.Contains("Mobile") ? @"class=""active""" : @"")><a href="@Url.Action("Mobile", "Sevastopol")">Мобильная связь</a></li>
+                    <li @Html.Raw(Request.Url.AbsolutePath.Contains("Priglashenie") ? @"class=""active""" : @"")><a href="@Url.Action("Priglashenie", "Sevastopol")">Расходы на лечение в Китае </a></li>
+                    <li @Html.Raw(Request.Url.AbsolutePath.Contains("Dobratsa") ? @"class=""active""" : @"")><a href="@Url.Action("Dobratsa", "Sevastopol")">Погода в Юньчэн</a></li>
+                   <!-- <li @Html.Raw(Request.Url.AbsolutePath.Contains("Support") ? @"class=""active""" : @"")><a href="@Url.Action("Support", "Sevastopol")">Медицинское сопровождение</a></li>
+                    <li @Html.Raw(Request.Url.AbsolutePath.Contains("Mobile") ? @"class=""active""" : @"")><a href="@Url.Action("Mobile", "Sevastopol")">Мобильная связь</a></li> -->
                     <li @Html.Raw(Request.Url.AbsolutePath.Contains("Faq") ? @"class=""active""" : @"")><a href="@Url.Action("Faq", "Sevastopol")">Часто задаваемые вопросы</a></li>
                 </ul>
             </div>

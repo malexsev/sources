@@ -5,8 +5,9 @@
                 <h1 class="all-pages-H1 has-underline">Материальная помощь</h1>
                 <ul class="all-pages-nav">
                     <li @Html.Raw(Request.Url.AbsolutePath.Contains("Find") ? @"class=""active""" : @"")><a href="@Url.Action("Find", "Finance")">Где и как искать помощь</a></li>
-                    <li @Html.Raw(Request.Url.AbsolutePath.Contains("Fonds") ? @"class=""active""" : @"")><a href="@Url.Action("Fonds", "Finance")">Список фондов по странам</a></li>
-                    <li @Html.Raw(Request.Url.AbsolutePath.Contains("Partners") ? @"class=""active""" : @"")><a href="@Url.Action("Partners", "Finance")">Наши партнеры</a></li>
+                    <li @Html.Raw(Request.Url.AbsolutePath.Contains("Fonds") ? @"class=""active""" : @"")><a href="@Url.Action("Fonds", "Finance")">Список фондов</a></li>
+                   <!-- <li @Html.Raw(Request.Url.AbsolutePath.Contains("Partners") ? @"class=""active""" : @"")><a href="@Url.Action("Partners", "Finance")">Наши партнеры</a></li> -->
+								
                 </ul>
             </div>
         </div>

@@ -11,10 +11,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>12/06/2016 20:49:29</publishTime>
+      <publishTime>12/13/2016 01:26:36</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>12/06/2016 20:49:29</publishTime>
+      <publishTime>12/13/2016 01:26:36</publishTime>
     </File>
     <File Include="bin/Cure.DataAccess.dll">
       <publishTime>12/06/2016 20:49:13</publishTime>
@@ -29,7 +29,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/06/2016 20:49:15</publishTime>
     </File>
     <File Include="bin/Cure.WebSite.dll">
-      <publishTime>12/06/2016 20:49:22</publishTime>
+      <publishTime>12/13/2016 00:13:17</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>09/19/2015 00:46:36</publishTime>
@@ -68,7 +68,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/12/2016 23:32:40</publishTime>
     </File>
     <File Include="Content/css/styles.css">
-      <publishTime>12/06/2016 19:22:04</publishTime>
+      <publishTime>12/09/2016 20:36:28</publishTime>
     </File>
     <File Include="Content/css/styles.less">
       <publishTime>11/02/2016 19:59:25</publishTime>
@@ -131,175 +131,340 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/02/2016 19:59:25</publishTime>
     </File>
     <File Include="Content/images/about-us/fact_1.jpg">
-      <publishTime>11/02/2016 19:59:25</publishTime>
+      <publishTime>12/04/2016 15:35:00</publishTime>
     </File>
     <File Include="Content/images/about-us/fact_2.jpg">
-      <publishTime>11/02/2016 19:59:25</publishTime>
+      <publishTime>12/04/2016 15:35:00</publishTime>
     </File>
     <File Include="Content/images/about-us/fact_3.jpg">
-      <publishTime>11/02/2016 19:59:25</publishTime>
+      <publishTime>12/04/2016 15:35:00</publishTime>
     </File>
     <File Include="Content/images/banner-video.png">
-      <publishTime>11/02/2016 19:59:25</publishTime>
+      <publishTime>12/04/2016 15:35:00</publishTime>
     </File>
     <File Include="Content/images/children/children_1.jpg">
-      <publishTime>11/02/2016 19:59:25</publishTime>
+      <publishTime>12/04/2016 15:35:00</publishTime>
     </File>
     <File Include="Content/images/children/children_2.jpg">
-      <publishTime>11/02/2016 19:59:25</publishTime>
+      <publishTime>12/04/2016 15:35:00</publishTime>
     </File>
     <File Include="Content/images/children/children_3.jpg">
-      <publishTime>11/02/2016 19:59:25</publishTime>
+      <publishTime>12/04/2016 15:35:00</publishTime>
     </File>
     <File Include="Content/images/children/children_4.jpg">
-      <publishTime>11/02/2016 19:59:25</publishTime>
+      <publishTime>12/04/2016 15:35:00</publishTime>
     </File>
     <File Include="Content/images/children/children_5.jpg">
-      <publishTime>11/02/2016 19:59:25</publishTime>
+      <publishTime>12/04/2016 15:35:00</publishTime>
     </File>
     <File Include="Content/images/children/children_6.jpg">
-      <publishTime>11/02/2016 19:59:25</publishTime>
+      <publishTime>12/04/2016 15:35:00</publishTime>
     </File>
     <File Include="Content/images/children/children_7.jpg">
-      <publishTime>11/02/2016 19:59:25</publishTime>
+      <publishTime>12/04/2016 15:35:00</publishTime>
     </File>
     <File Include="Content/images/children/children_account_1_96x96.jpg">
-      <publishTime>11/02/2016 19:59:25</publishTime>
+      <publishTime>12/04/2016 15:35:00</publishTime>
     </File>
     <File Include="Content/images/clinic/clinic_1.jpg">
-      <publishTime>11/02/2016 19:59:25</publishTime>
+      <publishTime>12/04/2016 15:35:00</publishTime>
     </File>
     <File Include="Content/images/clinic/clinic_2.jpg">
-      <publishTime>11/02/2016 19:59:25</publishTime>
+      <publishTime>12/04/2016 15:35:00</publishTime>
     </File>
     <File Include="Content/images/clinic/clinic_3.jpg">
-      <publishTime>11/02/2016 19:59:25</publishTime>
+      <publishTime>12/04/2016 15:35:00</publishTime>
     </File>
     <File Include="Content/images/clinic/clinic_4.jpg">
-      <publishTime>11/02/2016 19:59:25</publishTime>
+      <publishTime>12/04/2016 15:35:00</publishTime>
     </File>
     <File Include="Content/images/docs/doc_1.jpg">
-      <publishTime>11/02/2016 19:59:25</publishTime>
+      <publishTime>12/04/2016 15:36:00</publishTime>
     </File>
     <File Include="Content/images/docs/doc_2.jpg">
-      <publishTime>11/02/2016 19:59:25</publishTime>
+      <publishTime>12/04/2016 15:36:00</publishTime>
     </File>
     <File Include="Content/images/docs/doc_3.jpg">
-      <publishTime>11/02/2016 19:59:25</publishTime>
+      <publishTime>12/04/2016 15:36:00</publishTime>
     </File>
     <File Include="Content/images/docs/doc_4.jpg">
-      <publishTime>11/02/2016 19:59:25</publishTime>
+      <publishTime>12/04/2016 15:36:00</publishTime>
+    </File>
+    <File Include="Content/images/doctors/300_00.jpg">
+      <publishTime>12/09/2016 05:38:00</publishTime>
+    </File>
+    <File Include="Content/images/doctors/300_0028_fon.jpg">
+      <publishTime>12/09/2016 05:40:00</publishTime>
+    </File>
+    <File Include="Content/images/doctors/300_0028_Фон.jpg">
+      <publishTime>12/09/2016 05:38:00</publishTime>
+    </File>
+    <File Include="Content/images/doctors/300_01.jpg">
+      <publishTime>12/09/2016 05:38:00</publishTime>
+    </File>
+    <File Include="Content/images/doctors/300_010.jpg">
+      <publishTime>12/09/2016 05:38:00</publishTime>
+    </File>
+    <File Include="Content/images/doctors/300_011.jpg">
+      <publishTime>12/09/2016 05:38:00</publishTime>
+    </File>
+    <File Include="Content/images/doctors/300_012.jpg">
+      <publishTime>12/09/2016 05:38:00</publishTime>
+    </File>
+    <File Include="Content/images/doctors/300_013.jpg">
+      <publishTime>12/09/2016 05:38:00</publishTime>
+    </File>
+    <File Include="Content/images/doctors/300_014.jpg">
+      <publishTime>12/09/2016 05:38:00</publishTime>
+    </File>
+    <File Include="Content/images/doctors/300_015.jpg">
+      <publishTime>12/09/2016 05:38:00</publishTime>
+    </File>
+    <File Include="Content/images/doctors/300_016.jpg">
+      <publishTime>12/09/2016 05:38:00</publishTime>
+    </File>
+    <File Include="Content/images/doctors/300_017.jpg">
+      <publishTime>12/09/2016 05:38:00</publishTime>
+    </File>
+    <File Include="Content/images/doctors/300_018.jpg">
+      <publishTime>12/09/2016 05:38:00</publishTime>
+    </File>
+    <File Include="Content/images/doctors/300_019.jpg">
+      <publishTime>12/09/2016 05:38:00</publishTime>
+    </File>
+    <File Include="Content/images/doctors/300_02.jpg">
+      <publishTime>12/09/2016 05:39:00</publishTime>
+    </File>
+    <File Include="Content/images/doctors/300_020.jpg">
+      <publishTime>12/09/2016 05:39:00</publishTime>
+    </File>
+    <File Include="Content/images/doctors/300_021.jpg">
+      <publishTime>12/09/2016 05:39:00</publishTime>
+    </File>
+    <File Include="Content/images/doctors/300_022.jpg">
+      <publishTime>12/09/2016 05:39:00</publishTime>
+    </File>
+    <File Include="Content/images/doctors/300_023.jpg">
+      <publishTime>12/09/2016 05:39:00</publishTime>
+    </File>
+    <File Include="Content/images/doctors/300_024.jpg">
+      <publishTime>12/09/2016 05:39:00</publishTime>
+    </File>
+    <File Include="Content/images/doctors/300_025.jpg">
+      <publishTime>12/09/2016 05:39:00</publishTime>
+    </File>
+    <File Include="Content/images/doctors/300_03.jpg">
+      <publishTime>12/09/2016 05:39:00</publishTime>
+    </File>
+    <File Include="Content/images/doctors/300_04.jpg">
+      <publishTime>12/09/2016 05:39:00</publishTime>
+    </File>
+    <File Include="Content/images/doctors/300_05.jpg">
+      <publishTime>12/09/2016 05:39:00</publishTime>
+    </File>
+    <File Include="Content/images/doctors/300_06.jpg">
+      <publishTime>12/09/2016 05:39:00</publishTime>
+    </File>
+    <File Include="Content/images/doctors/300_07.jpg">
+      <publishTime>12/09/2016 05:40:00</publishTime>
+    </File>
+    <File Include="Content/images/doctors/300_08.jpg">
+      <publishTime>12/09/2016 05:40:00</publishTime>
+    </File>
+    <File Include="Content/images/doctors/300_09.jpg">
+      <publishTime>12/09/2016 05:40:00</publishTime>
+    </File>
+    <File Include="Content/images/doctors/300_200.jpg">
+      <publishTime>12/09/2016 10:13:00</publishTime>
+    </File>
+    <File Include="Content/images/doctors/300_201.jpg">
+      <publishTime>12/09/2016 10:13:00</publishTime>
+    </File>
+    <File Include="Content/images/doctors/300_202.jpg">
+      <publishTime>12/09/2016 10:48:00</publishTime>
+    </File>
+    <File Include="Content/images/doctors/300_203.jpg">
+      <publishTime>12/09/2016 10:48:00</publishTime>
+    </File>
+    <File Include="Content/images/doctors/300_204.jpg">
+      <publishTime>12/09/2016 10:13:00</publishTime>
+    </File>
+    <File Include="Content/images/doctors/300_205.jpg">
+      <publishTime>12/09/2016 10:14:00</publishTime>
+    </File>
+    <File Include="Content/images/doctors/300_206.jpg">
+      <publishTime>12/09/2016 10:14:00</publishTime>
+    </File>
+    <File Include="Content/images/doctors/300_207.jpg">
+      <publishTime>12/09/2016 10:14:00</publishTime>
+    </File>
+    <File Include="Content/images/doctors/300_208.jpg">
+      <publishTime>12/09/2016 10:14:00</publishTime>
+    </File>
+    <File Include="Content/images/doctors/300_209.jpg">
+      <publishTime>12/09/2016 10:14:00</publishTime>
+    </File>
+    <File Include="Content/images/doctors/300_210.jpg">
+      <publishTime>12/09/2016 10:14:00</publishTime>
+    </File>
+    <File Include="Content/images/doctors/300_211.jpg">
+      <publishTime>12/09/2016 10:14:00</publishTime>
+    </File>
+    <File Include="Content/images/doctors/300_212.jpg">
+      <publishTime>12/09/2016 10:14:00</publishTime>
+    </File>
+    <File Include="Content/images/doctors/300_213.jpg">
+      <publishTime>12/09/2016 10:14:00</publishTime>
+    </File>
+    <File Include="Content/images/doctors/300_214.jpg">
+      <publishTime>12/09/2016 10:14:00</publishTime>
+    </File>
+    <File Include="Content/images/doctors/300_215.jpg">
+      <publishTime>12/09/2016 10:14:00</publishTime>
+    </File>
+    <File Include="Content/images/doctors/300_sue.jpg">
+      <publishTime>12/09/2016 05:40:00</publishTime>
+    </File>
+    <File Include="Content/images/doctors/300_sue1.jpg">
+      <publishTime>12/09/2016 05:40:00</publishTime>
     </File>
     <File Include="Content/images/doctors/doctor_1_120x120.jpg">
-      <publishTime>11/02/2016 19:59:25</publishTime>
+      <publishTime>12/04/2016 15:36:00</publishTime>
     </File>
     <File Include="Content/images/doctors/doctor_2_120x120.jpg">
-      <publishTime>11/02/2016 19:59:25</publishTime>
+      <publishTime>12/04/2016 15:36:00</publishTime>
     </File>
     <File Include="Content/images/doctors/doctor_3_120x120.jpg">
-      <publishTime>11/02/2016 19:59:25</publishTime>
+      <publishTime>12/04/2016 15:36:00</publishTime>
     </File>
     <File Include="Content/images/doctors/doctor_boss_170x170.jpg">
-      <publishTime>11/02/2016 19:59:25</publishTime>
+      <publishTime>12/04/2016 15:36:00</publishTime>
     </File>
     <File Include="Content/images/doctors/doctor_boss_2_170x170.jpg">
-      <publishTime>11/02/2016 19:59:25</publishTime>
+      <publishTime>12/04/2016 15:36:00</publishTime>
     </File>
     <File Include="Content/images/doctors/doctor_sev_1_170x170.jpg">
-      <publishTime>11/02/2016 19:59:25</publishTime>
+      <publishTime>12/04/2016 15:36:00</publishTime>
     </File>
     <File Include="Content/images/doctors/doctor_sev_2_170x170.jpg">
-      <publishTime>11/02/2016 19:59:25</publishTime>
+      <publishTime>12/04/2016 15:36:00</publishTime>
     </File>
     <File Include="Content/images/doctors/doctor_sev_3_170x170.jpg">
-      <publishTime>11/02/2016 19:59:25</publishTime>
+      <publishTime>12/04/2016 15:36:00</publishTime>
     </File>
     <File Include="Content/images/doctors/doctor_sev_4_170x170.jpg">
-      <publishTime>11/02/2016 19:59:25</publishTime>
+      <publishTime>12/04/2016 15:36:00</publishTime>
     </File>
     <File Include="Content/images/help-img.jpg">
-      <publishTime>11/02/2016 19:59:25</publishTime>
+      <publishTime>12/04/2016 15:35:00</publishTime>
     </File>
     <File Include="Content/images/hospital/aside_1.png">
-      <publishTime>11/02/2016 19:59:25</publishTime>
+      <publishTime>12/04/2016 15:36:00</publishTime>
     </File>
     <File Include="Content/images/hospital/aside_2.png">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:36:00</publishTime>
     </File>
     <File Include="Content/images/hospital/boss_1.png">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/09/2016 12:56:00</publishTime>
     </File>
     <File Include="Content/images/hospital/clinic_1.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:36:00</publishTime>
     </File>
     <File Include="Content/images/hospital/clinic_2.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:36:00</publishTime>
     </File>
     <File Include="Content/images/hospital/clinic_room_1.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:36:00</publishTime>
     </File>
     <File Include="Content/images/hospital/document_1.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:36:00</publishTime>
     </File>
     <File Include="Content/images/hospital/document_2.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:36:00</publishTime>
     </File>
     <File Include="Content/images/hospital/gallery_1.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:36:00</publishTime>
     </File>
     <File Include="Content/images/hospital/gallery_2.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:36:00</publishTime>
     </File>
     <File Include="Content/images/hospital/gallery_3.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:36:00</publishTime>
     </File>
     <File Include="Content/images/hospital/gallery_equipment.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:36:00</publishTime>
     </File>
     <File Include="Content/images/hospital/gallery_procedure.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:36:00</publishTime>
     </File>
     <File Include="Content/images/hospital/gallery_room.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:36:00</publishTime>
     </File>
     <File Include="Content/images/hospital/gallery_yunchen.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:36:00</publishTime>
     </File>
     <File Include="Content/images/hospital/housing_room_1.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:36:00</publishTime>
     </File>
     <File Include="Content/images/img_wallet.png">
-      <publishTime>11/02/2016 19:59:25</publishTime>
+      <publishTime>12/04/2016 15:35:00</publishTime>
     </File>
     <File Include="Content/images/main-slider/slide_main-page_1.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:36:00</publishTime>
     </File>
     <File Include="Content/images/main-slider/slide_main-page_2.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:36:00</publishTime>
     </File>
     <File Include="Content/images/main-slider/slide_main-page_3.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:36:00</publishTime>
+    </File>
+    <File Include="Content/images/medicine/m1.png">
+      <publishTime>12/08/2016 15:10:00</publishTime>
+    </File>
+    <File Include="Content/images/medicine/m2.png">
+      <publishTime>12/08/2016 15:10:00</publishTime>
+    </File>
+    <File Include="Content/images/medicine/m3.png">
+      <publishTime>12/08/2016 15:10:00</publishTime>
+    </File>
+    <File Include="Content/images/medicine/m4.png">
+      <publishTime>12/08/2016 15:10:00</publishTime>
+    </File>
+    <File Include="Content/images/medicine/m5.png">
+      <publishTime>12/08/2016 15:10:00</publishTime>
+    </File>
+    <File Include="Content/images/medicine/m6.png">
+      <publishTime>12/08/2016 15:10:00</publishTime>
+    </File>
+    <File Include="Content/images/medicine/m7.png">
+      <publishTime>12/08/2016 15:10:00</publishTime>
+    </File>
+    <File Include="Content/images/medicine/m8.png">
+      <publishTime>12/08/2016 15:11:00</publishTime>
+    </File>
+    <File Include="Content/images/medicine/m9.png">
+      <publishTime>12/08/2016 15:10:00</publishTime>
     </File>
     <File Include="Content/images/medicine/medicament_1.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:36:00</publishTime>
     </File>
     <File Include="Content/images/medicine/medicament_2.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:36:00</publishTime>
     </File>
     <File Include="Content/images/medicine/medicament_3.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:36:00</publishTime>
     </File>
     <File Include="Content/images/medicine/medicament_4.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:36:00</publishTime>
     </File>
     <File Include="Content/images/medicine/medicament_5.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:36:00</publishTime>
     </File>
     <File Include="Content/images/medicine/medicament_6.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:37:00</publishTime>
     </File>
     <File Include="Content/images/medicine/medicament_descr.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:37:00</publishTime>
     </File>
     <File Include="Content/images/medicine/medicament_human.jpg">
       <publishTime>10/21/2016 21:24:00</publishTime>
@@ -308,40 +473,40 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/21/2016 22:08:00</publishTime>
     </File>
     <File Include="Content/images/medicine/prop-icon_1.png">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:37:00</publishTime>
     </File>
     <File Include="Content/images/medicine/prop-icon_2.png">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:37:00</publishTime>
     </File>
     <File Include="Content/images/medicine/prop-icon_3.png">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:37:00</publishTime>
     </File>
     <File Include="Content/images/medicine/prop-icon_4.png">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:37:00</publishTime>
     </File>
     <File Include="Content/images/procedures/procedures_1.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:37:00</publishTime>
     </File>
     <File Include="Content/images/procedures/procedures_2.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:37:00</publishTime>
     </File>
     <File Include="Content/images/procedures/procedures_3.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:37:00</publishTime>
     </File>
     <File Include="Content/images/procedures/procedures_4.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:37:00</publishTime>
     </File>
     <File Include="Content/images/procedures/procedures_5.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:37:00</publishTime>
     </File>
     <File Include="Content/images/procedures/procedures_6.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:37:00</publishTime>
     </File>
     <File Include="Content/images/procedures/procedures_7.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:37:00</publishTime>
     </File>
     <File Include="Content/images/procedures/procedures_8.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:37:00</publishTime>
     </File>
     <File Include="Content/images/procedures/procedure_acupoint.jpg">
       <publishTime>10/21/2016 17:17:00</publishTime>
@@ -350,7 +515,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/21/2016 00:26:00</publishTime>
     </File>
     <File Include="Content/images/procedures/procedure_explanation.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:37:00</publishTime>
     </File>
     <File Include="Content/images/procedures/procedure_implantation.jpg">
       <publishTime>10/21/2016 18:40:00</publishTime>
@@ -368,7 +533,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/21/2016 17:17:00</publishTime>
     </File>
     <File Include="Content/images/procedures/procedure_page.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:37:00</publishTime>
     </File>
     <File Include="Content/images/procedures/procedure_pt_physical.jpg">
       <publishTime>10/21/2016 17:17:00</publishTime>
@@ -389,529 +554,571 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/21/2016 19:08:00</publishTime>
     </File>
     <File Include="Content/images/sec-steps/main-page_step_1.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:37:00</publishTime>
     </File>
     <File Include="Content/images/sec-steps/main-page_step_2.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:37:00</publishTime>
     </File>
     <File Include="Content/images/sec-steps/main-page_step_3.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:37:00</publishTime>
     </File>
     <File Include="Content/images/sec-steps/main-page_step_4.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:37:00</publishTime>
     </File>
     <File Include="Content/images/side-banner.jpg">
-      <publishTime>11/02/2016 19:59:25</publishTime>
+      <publishTime>12/04/2016 15:35:00</publishTime>
     </File>
     <File Include="Content/images/team/member_1.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:37:00</publishTime>
     </File>
     <File Include="Content/images/team/member_1_face.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:37:00</publishTime>
     </File>
     <File Include="Content/images/team/member_2.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:37:00</publishTime>
     </File>
     <File Include="Content/images/team/member_2_face.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:37:00</publishTime>
     </File>
     <File Include="Content/images/team/member_3.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:37:00</publishTime>
     </File>
     <File Include="Content/images/team/member_3_face.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:37:00</publishTime>
     </File>
     <File Include="Content/images/temp/counter_1.png">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:37:00</publishTime>
     </File>
     <File Include="Content/images/temp/counter_2.png">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:37:00</publishTime>
     </File>
     <File Include="Content/images/temp/counter_3.png">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:37:00</publishTime>
     </File>
     <File Include="Content/images/temp/counter_4.png">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:37:00</publishTime>
+    </File>
+    <File Include="Content/images/temp/dcpchina_logo.png">
+      <publishTime>12/02/2016 09:15:00</publishTime>
+    </File>
+    <File Include="Content/images/temp/email-logo.gif">
+      <publishTime>12/02/2016 03:25:00</publishTime>
+    </File>
+    <File Include="Content/images/temp/email-logo.png">
+      <publishTime>12/01/2016 16:20:00</publishTime>
+    </File>
+    <File Include="Content/images/temp/fb.png">
+      <publishTime>12/01/2016 16:04:00</publishTime>
+    </File>
+    <File Include="Content/images/temp/icon_fb.png">
+      <publishTime>12/01/2016 12:48:00</publishTime>
+    </File>
+    <File Include="Content/images/temp/icon_ok.png">
+      <publishTime>12/01/2016 12:48:00</publishTime>
+    </File>
+    <File Include="Content/images/temp/icon_vk.png">
+      <publishTime>12/01/2016 12:48:00</publishTime>
+    </File>
+    <File Include="Content/images/temp/icon_yt.png">
+      <publishTime>12/01/2016 12:48:00</publishTime>
+    </File>
+    <File Include="Content/images/temp/maz_al_48_48.jpg">
+      <publishTime>12/01/2016 13:17:00</publishTime>
+    </File>
+    <File Include="Content/images/temp/ok.png">
+      <publishTime>12/01/2016 16:04:00</publishTime>
     </File>
     <File Include="Content/images/temp/panorama_1.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:37:00</publishTime>
     </File>
     <File Include="Content/images/temp/slide_1.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:37:00</publishTime>
     </File>
     <File Include="Content/images/temp/slide_2.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:37:00</publishTime>
     </File>
     <File Include="Content/images/temp/slide_3.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:38:00</publishTime>
+    </File>
+    <File Include="Content/images/temp/smallwhats.png">
+      <publishTime>12/01/2016 11:29:00</publishTime>
+    </File>
+    <File Include="Content/images/temp/telegram_40x40.png">
+      <publishTime>12/01/2016 15:38:00</publishTime>
     </File>
     <File Include="Content/images/temp/visa.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:38:00</publishTime>
     </File>
     <File Include="Content/images/temp/visa_1.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:38:00</publishTime>
     </File>
     <File Include="Content/images/temp/visa_2.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:38:00</publishTime>
     </File>
     <File Include="Content/images/temp/visa_3.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:38:00</publishTime>
+    </File>
+    <File Include="Content/images/temp/vk.png">
+      <publishTime>12/01/2016 16:04:00</publishTime>
+    </File>
+    <File Include="Content/images/temp/yt.png">
+      <publishTime>12/01/2016 16:04:00</publishTime>
     </File>
     <File Include="Content/images/trips/trip_1.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:38:00</publishTime>
     </File>
     <File Include="Content/images/users/contact_user_1_48x48.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:38:00</publishTime>
     </File>
     <File Include="Content/images/users/contact_user_2_48x48.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:38:00</publishTime>
     </File>
     <File Include="Content/images/users/contact_user_3_48x48.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:38:00</publishTime>
     </File>
     <File Include="Content/images/users/contact_user_4_48x48.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:38:00</publishTime>
     </File>
     <File Include="Content/images/users/contact_user_5_48x48.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:38:00</publishTime>
     </File>
     <File Include="Content/images/users/contact_user_6_48x48.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:38:00</publishTime>
     </File>
     <File Include="Content/images/users/contact_user_7_48x48.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:38:00</publishTime>
     </File>
     <File Include="Content/images/users/contact_user_8_48x48.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:38:00</publishTime>
     </File>
     <File Include="Content/images/users/contact_user_default_48x48.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:38:00</publishTime>
     </File>
     <File Include="Content/images/users/header_user_1_32x32.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:38:00</publishTime>
     </File>
     <File Include="Content/images/users/header_user_2_32x32.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:38:00</publishTime>
     </File>
     <File Include="Content/images/viewer/slide_1.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:38:00</publishTime>
     </File>
     <File Include="Content/images/viewer/slide_2.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:38:00</publishTime>
     </File>
     <File Include="Content/images/viewer/slide_3.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:38:00</publishTime>
     </File>
     <File Include="Content/images/viewer/thumb_1.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:38:00</publishTime>
     </File>
     <File Include="Content/images/viewer/thumb_2.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:38:00</publishTime>
     </File>
     <File Include="Content/images/viewer/thumb_3.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:38:00</publishTime>
     </File>
     <File Include="Content/img/apple-touch-icon-152x152.png">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:38:00</publishTime>
     </File>
     <File Include="Content/img/backgrounds/bg_assist-drop.jpg">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:39:00</publishTime>
     </File>
     <File Include="Content/img/backgrounds/bg_branches.jpg">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:39:00</publishTime>
     </File>
     <File Include="Content/img/backgrounds/bg_flower.jpg">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:39:00</publishTime>
     </File>
     <File Include="Content/img/backgrounds/bg_hosp-gallery.jpg">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:39:00</publishTime>
     </File>
     <File Include="Content/img/backgrounds/bg_main.jpg">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:39:00</publishTime>
     </File>
     <File Include="Content/img/backgrounds/bg_personal-boss.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:39:00</publishTime>
     </File>
     <File Include="Content/img/backgrounds/bg_personal-team.jpg">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:39:00</publishTime>
     </File>
     <File Include="Content/img/backgrounds/bg_sec-hosp-docs.jpg">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:39:00</publishTime>
     </File>
     <File Include="Content/img/backgrounds/bg_sec-hosp-photos.jpg">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:39:00</publishTime>
     </File>
     <File Include="Content/img/backgrounds/bg_sec-hosp-procedure.jpg">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:39:00</publishTime>
     </File>
     <File Include="Content/img/backgrounds/bg_sec-method.jpg">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:39:00</publishTime>
     </File>
     <File Include="Content/img/backgrounds/bg_sec-patients.jpg">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:39:00</publishTime>
     </File>
     <File Include="Content/img/backgrounds/bg_sec-procedure.jpg">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:39:00</publishTime>
     </File>
     <File Include="Content/img/backgrounds/bg_sec-since.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:39:00</publishTime>
     </File>
     <File Include="Content/img/backgrounds/bg_sec-steps.jpg">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:39:00</publishTime>
     </File>
     <File Include="Content/img/bg_main.jpg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:38:00</publishTime>
     </File>
     <File Include="Content/img/bg_review.png">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:38:00</publishTime>
     </File>
     <File Include="Content/img/clinics/clinic_1.jpg">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:39:00</publishTime>
     </File>
     <File Include="Content/img/clinics/clinic_2.jpg">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:39:00</publishTime>
     </File>
     <File Include="Content/img/clinics/clinic_3.jpg">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:39:00</publishTime>
     </File>
     <File Include="Content/img/clinics/clinic_4.jpg">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:39:00</publishTime>
     </File>
     <File Include="Content/img/donations-icon.png">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:38:00</publishTime>
     </File>
     <File Include="Content/img/favicon-16x16.png">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:38:00</publishTime>
     </File>
     <File Include="Content/img/favicon-32x32.png">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:38:00</publishTime>
     </File>
     <File Include="Content/img/friends-icon.png">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:38:00</publishTime>
     </File>
     <File Include="Content/img/icons.png">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:38:00</publishTime>
     </File>
     <File Include="Content/img/icons.svg">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:38:00</publishTime>
     </File>
     <File Include="Content/img/icons_carret.png">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:38:00</publishTime>
     </File>
     <File Include="Content/img/icon_carret.png">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:38:00</publishTime>
     </File>
     <File Include="Content/img/icon_carret_green.png">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:38:00</publishTime>
     </File>
     <File Include="Content/img/icon_login.png">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:38:00</publishTime>
     </File>
     <File Include="Content/img/icon_map.png">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:39:00</publishTime>
     </File>
     <File Include="Content/img/icon_messfge.png">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:39:00</publishTime>
     </File>
     <File Include="Content/img/icon_mob-menu.png">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:39:00</publishTime>
     </File>
     <File Include="Content/img/icon_quotes.png">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:39:00</publishTime>
     </File>
     <File Include="Content/img/icon_quotes_gray.png">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:39:00</publishTime>
     </File>
     <File Include="Content/img/icon_quotes_white.png">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:39:00</publishTime>
     </File>
     <File Include="Content/img/icon_search.png">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:39:00</publishTime>
     </File>
     <File Include="Content/img/icon_slider.png">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:39:00</publishTime>
     </File>
     <File Include="Content/img/icos_hospital.png">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:39:00</publishTime>
     </File>
     <File Include="Content/img/ico_scrolltop.png">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:39:00</publishTime>
     </File>
     <File Include="Content/img/img_map.png">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:39:00</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icons_check-box.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:39:00</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icons_radio-button.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:40:00</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icon_account-cart_gray.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:40:00</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icon_account-mail_gray.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:40:00</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icon_account-money_gray.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:40:00</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icon_account-order_gray.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:40:00</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icon_account-page_gray.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:40:00</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icon_account-settings_gray.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:40:00</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icon_account-user_gray.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:40:00</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icon_btn-eye-close_gray.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:40:00</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icon_btn-eye-open_gray.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:40:00</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icon_btn-file-clip_gray.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:40:00</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icon_btn-file_gray.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:40:00</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icon_btn-help_white.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:40:00</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icon_btn-mail_gray.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:40:00</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icon_btn-redact_gray.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:40:00</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icon_btn-seti_gray.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:40:00</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icon_calendar.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:40:00</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icon_carret-right_green.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:40:00</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icon_carret-right_orange.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:40:00</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icon_carret.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:40:00</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icon_comment-count_gray.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:40:00</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icon_doc_pdf.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:40:00</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icon_file_gray.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:40:00</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icon_form-close_gray.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:40:00</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icon_form-redact_gray.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:40:00</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icon_map-pointer_light.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:40:00</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icon_map-pointer_orange.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:40:00</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icon_message-file_white.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:40:00</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icon_message-send_white.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:40:00</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icon_message-smile_white.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:40:00</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icon_minus_gray.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:40:00</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icon_minus_white.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:40:00</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icon_money_in.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:40:00</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icon_money_out.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:40:00</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icon_next.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:40:00</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icon_plus_gray.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:40:00</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icon_plus_white.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:40:00</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icon_popup-close_gray.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:40:00</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icon_prev.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:41:00</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icon_quote_btm.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:41:00</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icon_quote_top.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:41:00</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icon_see-more.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:41:00</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icon_step-checked_orange.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:41:00</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icon_topline-help_gray.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:41:00</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icon_topline-search_gray.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:41:00</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icon_topline-user_gray.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:41:00</publishTime>
     </File>
     <File Include="Content/img/in-base-64/icon_zoom-more.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:41:00</publishTime>
     </File>
     <File Include="Content/img/loader.gif">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:39:00</publishTime>
     </File>
     <File Include="Content/img/logo_big.png">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:39:00</publishTime>
     </File>
     <File Include="Content/img/logo_long.png">
-      <publishTime>11/02/2016 19:59:26</publishTime>
+      <publishTime>12/04/2016 15:39:00</publishTime>
     </File>
     <File Include="Content/img/money-icons/beeline.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:41:00</publishTime>
     </File>
     <File Include="Content/img/money-icons/kivi.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:41:00</publishTime>
     </File>
     <File Include="Content/img/money-icons/megafon.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:41:00</publishTime>
     </File>
     <File Include="Content/img/money-icons/mts.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:41:00</publishTime>
     </File>
     <File Include="Content/img/money-icons/sberbank.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:41:00</publishTime>
     </File>
     <File Include="Content/img/money-icons/webmoney.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:41:00</publishTime>
     </File>
     <File Include="Content/img/money-icons/yad.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:41:00</publishTime>
     </File>
     <File Include="Content/img/operators/azerfon-nar.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:41:00</publishTime>
     </File>
     <File Include="Content/img/operators/bakucell.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:41:00</publishTime>
     </File>
     <File Include="Content/img/operators/beline.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:41:00</publishTime>
     </File>
     <File Include="Content/img/operators/kievstar.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:41:00</publishTime>
     </File>
     <File Include="Content/img/operators/life-bel.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:41:00</publishTime>
     </File>
     <File Include="Content/img/operators/life-ukr.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:41:00</publishTime>
     </File>
     <File Include="Content/img/operators/mailru.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:41:00</publishTime>
     </File>
     <File Include="Content/img/operators/megafon.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:41:00</publishTime>
     </File>
     <File Include="Content/img/operators/mts.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:41:00</publishTime>
     </File>
     <File Include="Content/img/operators/nooperator.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:41:00</publishTime>
     </File>
     <File Include="Content/img/operators/qiwi.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:41:00</publishTime>
     </File>
     <File Include="Content/img/operators/tele2.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:41:00</publishTime>
     </File>
     <File Include="Content/img/operators/uz-k-az-cell.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:41:00</publishTime>
     </File>
     <File Include="Content/img/operators/ym.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:41:00</publishTime>
     </File>
     <File Include="Content/img/orders-icon.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:39:00</publishTime>
     </File>
     <File Include="Content/img/preloader.gif">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:39:00</publishTime>
     </File>
     <File Include="Content/img/preorder_yes.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:39:00</publishTime>
     </File>
     <File Include="Content/img/smiles/smile_01.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:41:00</publishTime>
     </File>
     <File Include="Content/img/smiles/smile_02.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:41:00</publishTime>
     </File>
     <File Include="Content/img/smiles/smile_03.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:41:00</publishTime>
     </File>
     <File Include="Content/img/smiles/smile_04.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:41:00</publishTime>
     </File>
     <File Include="Content/img/smiles/smile_05.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:41:00</publishTime>
     </File>
     <File Include="Content/img/smiles/smile_06.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:41:00</publishTime>
     </File>
     <File Include="Content/img/smiles/smile_07.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:41:00</publishTime>
     </File>
     <File Include="Content/img/smiles/smile_08.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:41:00</publishTime>
     </File>
     <File Include="Content/img/smiles/smile_09.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:41:00</publishTime>
     </File>
     <File Include="Content/img/smiles/smile_10.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:42:00</publishTime>
     </File>
     <File Include="Content/img/smiles/smile_11.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:42:00</publishTime>
     </File>
     <File Include="Content/img/smiles/smile_12.png">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:42:00</publishTime>
     </File>
     <File Include="Content/img/userpics/no_photo_1.jpg">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:42:00</publishTime>
     </File>
     <File Include="Content/img/userpics/no_photo_2.jpg">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:42:00</publishTime>
     </File>
     <File Include="Content/img/userpics/no_photo_3.jpg">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:42:00</publishTime>
     </File>
     <File Include="Content/img/userpics/no_photo_min.jpg">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:42:00</publishTime>
     </File>
     <File Include="Content/pdf/price-1.pdf">
       <publishTime>10/03/2016 11:39:07</publishTime>
@@ -938,7 +1145,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/24/2016 03:40:02</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>12/06/2016 20:49:26</publishTime>
+      <publishTime>12/13/2016 01:26:34</publishTime>
     </File>
     <File Include="Scripts/jquery-1.10.2.js">
       <publishTime>07/24/2016 03:40:00</publishTime>
@@ -950,7 +1157,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/24/2016 03:40:00</publishTime>
     </File>
     <File Include="Scripts/jquery.chat.js">
-      <publishTime>12/05/2016 16:39:31</publishTime>
+      <publishTime>12/09/2016 21:22:50</publishTime>
     </File>
     <File Include="Scripts/jquery.ndeti.js">
       <publishTime>12/06/2016 18:30:38</publishTime>
@@ -1034,52 +1241,52 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/30/2015 20:55:04</publishTime>
     </File>
     <File Include="Views/Biblioteka/Metod.cshtml">
-      <publishTime>10/12/2016 02:27:03</publishTime>
+      <publishTime>10/12/2016 22:01:00</publishTime>
     </File>
     <File Include="Views/Biblioteka/Procedures.cshtml">
-      <publishTime>10/12/2016 02:27:03</publishTime>
+      <publishTime>10/12/2016 22:01:00</publishTime>
     </File>
     <File Include="Views/Biblioteka/Tests.cshtml">
       <publishTime>10/12/2016 02:27:00</publishTime>
     </File>
     <File Include="Views/Biblioteka/_BibliotekaMenu.cshtml">
-      <publishTime>10/12/2016 02:28:33</publishTime>
+      <publishTime>10/12/2016 22:02:00</publishTime>
     </File>
     <File Include="Views/Cabinet/Balance.cshtml">
-      <publishTime>07/08/2016 13:18:07</publishTime>
+      <publishTime>10/12/2016 22:02:00</publishTime>
     </File>
     <File Include="Views/Cabinet/Index.cshtml">
-      <publishTime>09/20/2016 10:51:29</publishTime>
+      <publishTime>10/12/2016 22:03:00</publishTime>
     </File>
     <File Include="Views/Cabinet/Messages.cshtml">
-      <publishTime>12/05/2016 16:02:02</publishTime>
+      <publishTime>12/09/2016 20:34:38</publishTime>
     </File>
     <File Include="Views/Cabinet/MyPage.cshtml">
-      <publishTime>10/15/2016 11:31:24</publishTime>
+      <publishTime>10/20/2016 11:14:00</publishTime>
     </File>
     <File Include="Views/Cabinet/Orders.cshtml">
-      <publishTime>09/14/2016 23:36:22</publishTime>
+      <publishTime>10/12/2016 22:03:00</publishTime>
     </File>
     <File Include="Views/Cabinet/_Messages.cshtml">
-      <publishTime>12/03/2016 20:04:59</publishTime>
+      <publishTime>12/09/2016 21:24:01</publishTime>
     </File>
     <File Include="Views/Cabinet/_MessagesUsers.cshtml">
-      <publishTime>12/05/2016 14:32:17</publishTime>
+      <publishTime>12/05/2016 14:55:00</publishTime>
     </File>
     <File Include="Views/Children/Detail.cshtml">
-      <publishTime>12/06/2016 20:48:19</publishTime>
+      <publishTime>12/06/2016 20:50:00</publishTime>
     </File>
     <File Include="Views/Children/Index.cshtml">
-      <publishTime>06/06/2016 10:16:29</publishTime>
+      <publishTime>10/12/2016 22:04:00</publishTime>
     </File>
     <File Include="Views/China/Details.cshtml">
-      <publishTime>10/12/2016 01:57:01</publishTime>
+      <publishTime>12/07/2016 10:19:00</publishTime>
     </File>
     <File Include="Views/China/Dobratsa.cshtml">
-      <publishTime>10/12/2016 01:54:49</publishTime>
+      <publishTime>12/07/2016 17:33:00</publishTime>
     </File>
     <File Include="Views/China/Faq.cshtml">
-      <publishTime>10/12/2016 01:57:33</publishTime>
+      <publishTime>10/12/2016 22:04:00</publishTime>
     </File>
     <File Include="Views/China/Priglashenie.cshtml">
       <publishTime>10/12/2016 01:54:00</publishTime>
@@ -1088,49 +1295,52 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/22/2016 08:16:00</publishTime>
     </File>
     <File Include="Views/China/Visa.cshtml">
-      <publishTime>10/06/2016 11:05:42</publishTime>
+      <publishTime>12/07/2016 11:35:00</publishTime>
     </File>
     <File Include="Views/China/_ChinaMenu.cshtml">
-      <publishTime>10/12/2016 01:59:44</publishTime>
+      <publishTime>12/08/2016 09:00:00</publishTime>
     </File>
     <File Include="Views/Department/Almaata.cshtml">
-      <publishTime>10/21/2016 11:31:35</publishTime>
+      <publishTime>10/21/2016 11:56:00</publishTime>
     </File>
     <File Include="Views/Department/Sevastopol.cshtml">
-      <publishTime>10/21/2016 11:47:44</publishTime>
+      <publishTime>10/21/2016 23:07:00</publishTime>
     </File>
     <File Include="Views/Department/Yancheng1.cshtml">
-      <publishTime>10/21/2016 11:46:47</publishTime>
+      <publishTime>12/12/2016 23:48:31</publishTime>
     </File>
     <File Include="Views/Department/Yancheng2.cshtml">
-      <publishTime>10/21/2016 11:47:39</publishTime>
+      <publishTime>12/09/2016 21:35:43</publishTime>
     </File>
     <File Include="Views/Department/_AlmaataPops.cshtml">
-      <publishTime>10/20/2016 10:54:27</publishTime>
+      <publishTime>10/20/2016 11:27:00</publishTime>
     </File>
     <File Include="Views/Department/_SevastopolPops.cshtml">
-      <publishTime>10/20/2016 10:54:27</publishTime>
+      <publishTime>10/20/2016 11:27:00</publishTime>
     </File>
     <File Include="Views/Department/_Yancheng1Pops.cshtml">
-      <publishTime>10/20/2016 10:54:27</publishTime>
+      <publishTime>10/20/2016 11:27:00</publishTime>
     </File>
     <File Include="Views/Department/_Yancheng2Pops.cshtml">
-      <publishTime>10/20/2016 10:54:27</publishTime>
+      <publishTime>12/09/2016 21:34:40</publishTime>
     </File>
     <File Include="Views/Finance/Find.cshtml">
       <publishTime>10/12/2016 02:20:00</publishTime>
     </File>
     <File Include="Views/Finance/Fonds.cshtml">
-      <publishTime>10/12/2016 02:22:10</publishTime>
+      <publishTime>12/08/2016 07:31:00</publishTime>
     </File>
     <File Include="Views/Finance/Partners.cshtml">
-      <publishTime>10/12/2016 02:20:05</publishTime>
+      <publishTime>10/12/2016 22:04:00</publishTime>
     </File>
     <File Include="Views/Finance/_FinanceMenu.cshtml">
-      <publishTime>10/12/2016 02:28:19</publishTime>
+      <publishTime>12/08/2016 08:17:00</publishTime>
     </File>
     <File Include="Views/Home/AboutUs.cshtml">
       <publishTime>11/22/2016 04:20:00</publishTime>
+    </File>
+    <File Include="Views/Home/Help.cshtml">
+      <publishTime>12/13/2016 00:01:34</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
       <publishTime>11/22/2016 05:55:00</publishTime>
@@ -1139,13 +1349,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/03/2016 11:46:24</publishTime>
     </File>
     <File Include="Views/Home/Price.cshtml">
-      <publishTime>10/21/2016 11:30:51</publishTime>
+      <publishTime>10/21/2016 11:56:00</publishTime>
     </File>
     <File Include="Views/Home/Procedure.cshtml">
       <publishTime>10/03/2016 11:42:32</publishTime>
     </File>
     <File Include="Views/Home/_WeatherHome.cshtml">
-      <publishTime>10/26/2016 00:16:09</publishTime>
+      <publishTime>10/26/2016 00:40:00</publishTime>
     </File>
     <File Include="Views/Medicine/Aceglutamide.cshtml">
       <publishTime>10/24/2016 00:36:00</publishTime>
@@ -1190,13 +1400,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/24/2016 00:37:00</publishTime>
     </File>
     <File Include="Views/Mension/Index.cshtml">
-      <publishTime>09/28/2016 12:37:44</publishTime>
+      <publishTime>10/12/2016 22:04:00</publishTime>
     </File>
     <File Include="Views/Preorder/Index.cshtml">
-      <publishTime>10/06/2016 11:05:41</publishTime>
+      <publishTime>10/12/2016 22:04:00</publishTime>
     </File>
     <File Include="Views/Preorder/Registration.cshtml">
-      <publishTime>08/27/2016 12:17:35</publishTime>
+      <publishTime>10/12/2016 22:04:00</publishTime>
     </File>
     <File Include="Views/Procedure/Acupoint.cshtml">
       <publishTime>10/20/2016 19:09:00</publishTime>
@@ -1247,172 +1457,172 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/12/2016 23:55:54</publishTime>
     </File>
     <File Include="Views/Sevastopol/Dobratsa.cshtml">
-      <publishTime>10/12/2016 02:14:54</publishTime>
+      <publishTime>12/08/2016 08:25:00</publishTime>
     </File>
     <File Include="Views/Sevastopol/Faq.cshtml">
-      <publishTime>10/12/2016 02:15:59</publishTime>
+      <publishTime>10/12/2016 22:04:00</publishTime>
     </File>
     <File Include="Views/Sevastopol/Mobile.cshtml">
-      <publishTime>10/12/2016 02:15:38</publishTime>
+      <publishTime>10/12/2016 22:04:00</publishTime>
     </File>
     <File Include="Views/Sevastopol/Priglashenie.cshtml">
-      <publishTime>10/12/2016 02:14:33</publishTime>
+      <publishTime>12/08/2016 08:56:00</publishTime>
     </File>
     <File Include="Views/Sevastopol/Support.cshtml">
-      <publishTime>10/12/2016 02:15:16</publishTime>
+      <publishTime>10/12/2016 22:05:00</publishTime>
     </File>
     <File Include="Views/Sevastopol/_SevastopolMenu.cshtml">
-      <publishTime>10/12/2016 02:13:30</publishTime>
+      <publishTime>12/08/2016 09:00:00</publishTime>
     </File>
     <File Include="Views/Shared/_Account.cshtml">
-      <publishTime>09/08/2016 22:14:46</publishTime>
+      <publishTime>10/12/2016 22:05:00</publishTime>
     </File>
     <File Include="Views/Shared/_AccountChangeEmail.cshtml">
-      <publishTime>09/08/2016 22:36:06</publishTime>
+      <publishTime>10/12/2016 22:05:00</publishTime>
     </File>
     <File Include="Views/Shared/_AccountChangePass.cshtml">
-      <publishTime>09/08/2016 19:12:41</publishTime>
+      <publishTime>10/12/2016 22:05:00</publishTime>
     </File>
     <File Include="Views/Shared/_AccountChangePhone.cshtml">
-      <publishTime>09/08/2016 22:36:27</publishTime>
+      <publishTime>10/12/2016 22:05:00</publishTime>
     </File>
     <File Include="Views/Shared/_AccountHeader.cshtml">
       <publishTime>06/25/2016 15:07:49</publishTime>
     </File>
     <File Include="Views/Shared/_AccountLogin.cshtml">
-      <publishTime>09/15/2016 00:37:43</publishTime>
+      <publishTime>10/12/2016 22:05:00</publishTime>
     </File>
     <File Include="Views/Shared/_AccountMenu.cshtml">
-      <publishTime>12/01/2016 22:52:07</publishTime>
+      <publishTime>12/04/2016 15:43:00</publishTime>
     </File>
     <File Include="Views/Shared/_AccountRegister.cshtml">
-      <publishTime>09/15/2016 00:38:40</publishTime>
+      <publishTime>10/12/2016 22:05:00</publishTime>
     </File>
     <File Include="Views/Shared/_AccountReсovery.cshtml">
-      <publishTime>07/08/2016 13:55:56</publishTime>
+      <publishTime>10/12/2016 22:05:00</publishTime>
     </File>
     <File Include="Views/Shared/_CabinetChildEdit.cshtml">
-      <publishTime>09/16/2016 21:39:24</publishTime>
+      <publishTime>10/12/2016 22:05:00</publishTime>
     </File>
     <File Include="Views/Shared/_CabinetChildEditTab1.cshtml">
-      <publishTime>09/20/2016 10:52:16</publishTime>
+      <publishTime>10/12/2016 22:05:00</publishTime>
     </File>
     <File Include="Views/Shared/_CabinetChildEditTab2.cshtml">
-      <publishTime>09/19/2016 22:58:24</publishTime>
+      <publishTime>10/12/2016 22:05:00</publishTime>
     </File>
     <File Include="Views/Shared/_CabinetChildEditTab3.cshtml">
-      <publishTime>09/16/2016 21:32:11</publishTime>
+      <publishTime>10/12/2016 22:05:00</publishTime>
     </File>
     <File Include="Views/Shared/_CabinetChildEditTab4.cshtml">
-      <publishTime>09/16/2016 21:55:30</publishTime>
+      <publishTime>10/12/2016 22:05:00</publishTime>
     </File>
     <File Include="Views/Shared/_CabinetDocuments.cshtml">
-      <publishTime>09/20/2016 10:56:36</publishTime>
+      <publishTime>10/12/2016 22:05:00</publishTime>
     </File>
     <File Include="Views/Shared/_CabinetDocumentsTales.cshtml">
-      <publishTime>12/03/2016 19:30:33</publishTime>
+      <publishTime>12/04/2016 15:43:00</publishTime>
     </File>
     <File Include="Views/Shared/_CabinetGalery.cshtml">
-      <publishTime>09/28/2016 22:06:38</publishTime>
+      <publishTime>10/12/2016 22:05:00</publishTime>
     </File>
     <File Include="Views/Shared/_CabinetGaleryTales.cshtml">
-      <publishTime>10/11/2016 20:37:23</publishTime>
+      <publishTime>10/12/2016 22:05:00</publishTime>
     </File>
     <File Include="Views/Shared/_CabinetInfoLine.cshtml">
-      <publishTime>07/19/2016 12:44:55</publishTime>
+      <publishTime>10/12/2016 22:05:00</publishTime>
     </File>
     <File Include="Views/Shared/_ChildFilter.cshtml">
-      <publishTime>07/09/2016 01:06:53</publishTime>
+      <publishTime>10/12/2016 22:05:00</publishTime>
     </File>
     <File Include="Views/Shared/_Children.cshtml">
-      <publishTime>08/27/2016 12:44:02</publishTime>
+      <publishTime>10/12/2016 22:05:00</publishTime>
     </File>
     <File Include="Views/Shared/_ChildTales.cshtml">
-      <publishTime>09/28/2016 12:00:24</publishTime>
+      <publishTime>10/12/2016 22:05:00</publishTime>
     </File>
     <File Include="Views/Shared/_ChildTalesHome.cshtml">
-      <publishTime>09/21/2016 00:36:48</publishTime>
+      <publishTime>10/12/2016 22:05:00</publishTime>
     </File>
     <File Include="Views/Shared/_CurrencyRate.cshtml">
-      <publishTime>10/26/2016 00:50:47</publishTime>
+      <publishTime>10/26/2016 00:53:00</publishTime>
     </File>
     <File Include="Views/Shared/_Footer.cshtml">
       <publishTime>11/22/2016 04:06:00</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>11/30/2016 21:39:15</publishTime>
+      <publishTime>12/13/2016 00:00:17</publishTime>
     </File>
     <File Include="Views/Shared/_MainMenu.cshtml">
-      <publishTime>10/20/2016 09:49:31</publishTime>
+      <publishTime>12/09/2016 05:07:00</publishTime>
     </File>
     <File Include="Views/Shared/_MainMenuExt.cshtml">
-      <publishTime>10/20/2016 09:54:17</publishTime>
+      <publishTime>12/09/2016 13:22:00</publishTime>
     </File>
     <File Include="Views/Shared/_Mension.cshtml">
-      <publishTime>10/26/2016 00:43:21</publishTime>
+      <publishTime>10/26/2016 00:53:00</publishTime>
     </File>
     <File Include="Views/Shared/_MensionAddPopup.cshtml">
-      <publishTime>09/28/2016 11:36:52</publishTime>
+      <publishTime>10/12/2016 22:05:00</publishTime>
     </File>
     <File Include="Views/Shared/_Mensions.cshtml">
-      <publishTime>10/12/2016 01:45:17</publishTime>
+      <publishTime>10/12/2016 22:05:00</publishTime>
     </File>
     <File Include="Views/Shared/_OrderArchive.cshtml">
-      <publishTime>07/19/2016 12:25:27</publishTime>
+      <publishTime>10/12/2016 22:05:00</publishTime>
     </File>
     <File Include="Views/Shared/_OrderCurrent.cshtml">
-      <publishTime>07/19/2016 12:23:26</publishTime>
+      <publishTime>10/12/2016 22:05:00</publishTime>
     </File>
     <File Include="Views/Shared/_OrderDrafts.cshtml">
-      <publishTime>07/19/2016 12:26:19</publishTime>
+      <publishTime>10/12/2016 22:05:00</publishTime>
     </File>
     <File Include="Views/Shared/_OrderWizard.cshtml">
-      <publishTime>09/14/2016 21:10:20</publishTime>
+      <publishTime>10/12/2016 22:05:00</publishTime>
     </File>
     <File Include="Views/Shared/_OrderWizardStep1.cshtml">
-      <publishTime>08/24/2016 20:33:08</publishTime>
+      <publishTime>10/12/2016 22:05:00</publishTime>
     </File>
     <File Include="Views/Shared/_OrderWizardStep2.cshtml">
-      <publishTime>09/14/2016 20:59:16</publishTime>
+      <publishTime>10/12/2016 22:05:00</publishTime>
     </File>
     <File Include="Views/Shared/_OrderWizardStep3.cshtml">
-      <publishTime>09/20/2016 10:52:09</publishTime>
+      <publishTime>10/12/2016 22:05:00</publishTime>
     </File>
     <File Include="Views/Shared/_OrderWizardStep3Files.cshtml">
-      <publishTime>07/26/2016 23:03:34</publishTime>
+      <publishTime>10/12/2016 22:05:00</publishTime>
     </File>
     <File Include="Views/Shared/_OrderWizardStep4.cshtml">
-      <publishTime>09/14/2016 20:59:07</publishTime>
+      <publishTime>10/12/2016 22:05:00</publishTime>
     </File>
     <File Include="Views/Shared/_OrderWizardStep5.cshtml">
-      <publishTime>09/14/2016 20:59:12</publishTime>
+      <publishTime>10/12/2016 22:06:00</publishTime>
     </File>
     <File Include="Views/Shared/_PostAdd - Copy.cshtml">
       <publishTime>10/15/2016 17:29:01</publishTime>
     </File>
     <File Include="Views/Shared/_PostAdd.cshtml">
-      <publishTime>10/15/2016 18:28:46</publishTime>
+      <publishTime>10/20/2016 11:15:00</publishTime>
     </File>
     <File Include="Views/Shared/_PostBoard.cshtml">
-      <publishTime>10/15/2016 17:33:23</publishTime>
+      <publishTime>10/20/2016 11:15:00</publishTime>
     </File>
     <File Include="Views/Shared/_PostCommentAdd.cshtml">
       <publishTime>10/12/2016 00:44:44</publishTime>
     </File>
     <File Include="Views/Shared/_PostCommentItem.cshtml">
-      <publishTime>10/15/2016 19:25:16</publishTime>
+      <publishTime>10/20/2016 11:15:00</publishTime>
     </File>
     <File Include="Views/Shared/_PostItem.cshtml">
-      <publishTime>10/15/2016 19:25:06</publishTime>
+      <publishTime>10/20/2016 11:15:00</publishTime>
     </File>
     <File Include="Views/Shared/_PostItems.cshtml">
-      <publishTime>10/15/2016 19:14:33</publishTime>
+      <publishTime>10/20/2016 11:15:00</publishTime>
     </File>
     <File Include="Views/Shared/_Preorder.cshtml">
-      <publishTime>08/24/2016 20:35:20</publishTime>
+      <publishTime>10/12/2016 22:06:00</publishTime>
     </File>
     <File Include="Views/Shared/_TestLevels.cshtml">
-      <publishTime>12/06/2016 19:40:19</publishTime>
+      <publishTime>12/06/2016 20:50:00</publishTime>
     </File>
     <File Include="Views/web.config">
       <publishTime>05/22/2016 12:19:48</publishTime>

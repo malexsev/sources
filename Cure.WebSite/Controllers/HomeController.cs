@@ -10,6 +10,11 @@ namespace Cure.WebSite.Controllers
 
     public class HomeController : Controller
     {
+        public ActionResult Help()
+        {
+            return View();
+        }
+
         public ActionResult Index()
         {
             var dal = new DataAccessBL();

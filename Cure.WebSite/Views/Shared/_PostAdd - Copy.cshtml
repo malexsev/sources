@@ -1,0 +1,39 @@
+﻿@using System.Configuration
+@using Cure.WebSite.Models
+@model int
+
+<div class="comments-title">Новые впечатления:</div>
+<div class="comments-addform">
+    <!-- Запостить новое впечатление -->
+    @using (Html.BeginForm("NewPost", "Post", FormMethod.Post, new
+    {
+        @id = "formPostAdd",
+        @class = "registr-form"
+    }))
+    {
+        <div class="comments-addform-head">
+            <div class="head-imgs">
+                <img class="head-img" src="@Html.Raw(Cure.Utils.SiteUtils.GetMyUserpic(Server,
+                                                           Session,
+                                                           User.Identity.Name,
+                                                           ConfigurationManager.AppSettings["PhotoLocation"],
+                                                           ConfigurationManager.AppSettings["PhotoUrl"]))" alt="@Session["UserContactName"]" title="@Session["UserContactName"]">
+        </div>
+        <div class="head-txt">
+            <div class="head-name">@Session["UserContactName"]</div>
+            </div>
+        </div>
+        <div class="comments-addform-body">
+            @Html.Hidden("answerForPost", (Model))
+            @Html.TextArea("text", "", new { @id = "text", @placeholder = "Ваше сообщение", @class = "forms-text" })
+            <input class="btn btn-orang post-add" type="button" value="ДОБАВИТЬ">
+            <div id="addpostprogress">
+            </div>
+            <div id="error-postadd" class="form-errors"></div>
+            @*<div class="forms-file">
+                <div class="forms-file-msg">Добавить фото</div>
+                <input type="file">
+            </div>*@
+        </div>
+    }
+</div>
