@@ -879,11 +879,11 @@ img {
   margin-bottom: 0;
 }
 .accordion-body .docs-list {
-  /* Вложенный список документов */
+  /* пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ */
   margin: 0;
 }
 .accordion-body .accordion {
-  /* Вложенный аккордеон */
+  /* пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ */
   margin: 20px 0 0;
 }
 .accordion-body .accordion .accordion__section {
@@ -1941,8 +1941,8 @@ html.swipebox-html.swipebox-touch {
   display: none;
   position: relative;
   float: right;
-  height: 60px;
-  width: 60px;
+  height: 70px;
+  width: 50px;
   z-index: 91;
 }
 .header-mobbtn .lines {
@@ -6586,7 +6586,18 @@ html.swipebox-html.swipebox-touch {
   .hosp-page-menu.is-sticked .hosp-page-nav a {
     font-size: 10px;
   }
+  .fastorder-label {
+    font-size: 12px;
+    line-height: 30px;
+  }
+  .fastorder-counter .counter-btn{
+    margin: 0;
+  }
+  .fastorder-btn {
+    margin-top: 30px;
+  }
 }
+
 @media (max-width: 992px) {
   .mob-md-mw-313 {
     max-width: 313px;
@@ -6611,13 +6622,18 @@ html.swipebox-html.swipebox-touch {
   .header-mobbtn {
     display: block;
   }
+  .header-mobbtn.active {
+    position: fixed;
+    top: 35px;
+    right: 10px;
+  }
   .header-menu {
     position: fixed;
     top: 0;
     right: -100%;
     bottom: 0;
     width: 300px;
-    padding-top: 60px;
+    padding-top: 80px;
     text-align: center;
     background: #fff;
     overflow-x: hidden;
@@ -6632,6 +6648,10 @@ html.swipebox-html.swipebox-touch {
   }
   .header-menu > li {
     display: block;
+    margin: 0;
+  }
+  .header-menu > li:hover {
+    background: #fafafa;
   }
   .header-menu > li:last-child {
     margin-bottom: 30px;
@@ -6639,6 +6659,22 @@ html.swipebox-html.swipebox-touch {
   .header-menu > li > a {
     font-family: 'Open Sans', sans-serif;
     border-radius: 0;
+    border: none;
+  }
+  .header-submenu-wrap{
+    display: block;
+    position: static;
+    width: auto;
+    visibility: visible;
+    opacity: 1;
+    box-shadow: none;
+  }
+  .account-menu > li > a {
+    font-size: 0;
+    padding: 10px;
+  }
+  .account-menu > li > a i{
+    margin: 0;
   }
   .header-login,
   .header-search {
@@ -6740,6 +6776,19 @@ html.swipebox-html.swipebox-touch {
   .hosp-page-nav-btn {
     padding: 5px 0;
   }
+  .fastorder-clinic {
+    padding-right: 0;
+    width: 100%;
+  }
+  .fastorder-dates {
+    width: 38%;
+  }
+  .fastorder-count {
+    width: 19%;
+  }
+  .fastorder-btn {
+    width: 24%;
+  }
 }
 @media (max-width: 767px) {
   .footer {
@@ -6801,5 +6850,13 @@ html.swipebox-html.swipebox-touch {
   }
   .all-pages-slider .slick-next {
     right: -20px;
+  }
+
+  .header-btns{
+    display: none;
+  }
+  .account-menu > li > a {
+    font-size: 0;
+    padding: 10px 4px;
   }
 }

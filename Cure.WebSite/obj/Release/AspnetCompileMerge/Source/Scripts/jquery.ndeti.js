@@ -1731,7 +1731,7 @@ $(document).ready(function () {
 
     $(".js-toggle-menu").click(function () {
         $(this).toggleClass("active");
-        $(".header-top-menu").toggleClass("active");
+        $(".header-menu").toggleClass("active");
     });
 
     $(".js-mob-accordion-btn").click(function () {

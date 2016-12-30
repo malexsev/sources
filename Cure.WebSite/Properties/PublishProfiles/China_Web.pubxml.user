@@ -68,67 +68,67 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/12/2016 23:32:40</publishTime>
     </File>
     <File Include="Content/css/styles.css">
-      <publishTime>12/09/2016 20:36:28</publishTime>
+      <publishTime>12/29/2016 22:57:57</publishTime>
     </File>
     <File Include="Content/css/styles.less">
-      <publishTime>11/02/2016 19:59:25</publishTime>
+      <publishTime>12/04/2016 15:35:00</publishTime>
     </File>
     <File Include="Content/css/_animate.css">
-      <publishTime>02/25/2016 14:07:46</publishTime>
+      <publishTime>10/12/2016 21:54:00</publishTime>
     </File>
     <File Include="Content/css/_bootstrap-datepicker3.standalone.min.css">
-      <publishTime>06/13/2016 02:51:44</publishTime>
+      <publishTime>10/12/2016 21:54:00</publishTime>
     </File>
     <File Include="Content/css/_bootstrap.css">
-      <publishTime>02/22/2016 19:34:26</publishTime>
+      <publishTime>10/12/2016 21:54:00</publishTime>
     </File>
     <File Include="Content/css/_font-awesome.min.css">
-      <publishTime>01/19/2016 20:09:30</publishTime>
+      <publishTime>10/12/2016 21:54:00</publishTime>
     </File>
     <File Include="Content/css/_fonts.css">
-      <publishTime>05/31/2016 20:08:10</publishTime>
+      <publishTime>10/12/2016 21:54:00</publishTime>
     </File>
     <File Include="Content/css/_normalize.css">
-      <publishTime>03/30/2015 17:26:52</publishTime>
+      <publishTime>10/12/2016 21:54:00</publishTime>
     </File>
     <File Include="Content/css/__styles.less">
       <publishTime>10/15/2016 17:18:57</publishTime>
     </File>
     <File Include="Content/css/___bootstrap.css">
-      <publishTime>11/24/2015 19:34:20</publishTime>
+      <publishTime>10/12/2016 21:54:00</publishTime>
     </File>
     <File Include="Content/fonts/alsrubl-webfont.eot">
-      <publishTime>11/02/2016 19:59:25</publishTime>
+      <publishTime>12/04/2016 15:35:00</publishTime>
     </File>
     <File Include="Content/fonts/alsrubl-webfont.svg">
-      <publishTime>11/02/2016 19:59:25</publishTime>
+      <publishTime>12/04/2016 15:35:00</publishTime>
     </File>
     <File Include="Content/fonts/alsrubl-webfont.ttf">
-      <publishTime>11/02/2016 19:59:25</publishTime>
+      <publishTime>12/04/2016 15:35:00</publishTime>
     </File>
     <File Include="Content/fonts/alsrubl-webfont.woff">
-      <publishTime>11/02/2016 19:59:25</publishTime>
+      <publishTime>12/04/2016 15:35:00</publishTime>
     </File>
     <File Include="Content/fonts/alsrubl-webfont.woff2">
-      <publishTime>11/02/2016 19:59:25</publishTime>
+      <publishTime>12/04/2016 15:35:00</publishTime>
     </File>
     <File Include="Content/fonts/fontawesome-webfont.eot">
-      <publishTime>11/02/2016 19:59:25</publishTime>
+      <publishTime>12/04/2016 15:35:00</publishTime>
     </File>
     <File Include="Content/fonts/fontawesome-webfont.svg">
-      <publishTime>11/02/2016 19:59:25</publishTime>
+      <publishTime>12/04/2016 15:35:00</publishTime>
     </File>
     <File Include="Content/fonts/fontawesome-webfont.ttf">
-      <publishTime>11/02/2016 19:59:25</publishTime>
+      <publishTime>12/04/2016 15:35:00</publishTime>
     </File>
     <File Include="Content/fonts/fontawesome-webfont.woff">
-      <publishTime>11/02/2016 19:59:25</publishTime>
+      <publishTime>12/04/2016 15:35:00</publishTime>
     </File>
     <File Include="Content/fonts/fontawesome-webfont.woff2">
-      <publishTime>11/02/2016 19:59:25</publishTime>
+      <publishTime>12/04/2016 15:35:00</publishTime>
     </File>
     <File Include="Content/fonts/FontAwesome.otf">
-      <publishTime>11/02/2016 19:59:25</publishTime>
+      <publishTime>12/04/2016 15:35:00</publishTime>
     </File>
     <File Include="Content/images/about-us/fact_1.jpg">
       <publishTime>12/04/2016 15:35:00</publishTime>
@@ -1121,31 +1121,31 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/04/2016 15:42:00</publishTime>
     </File>
     <File Include="Content/pdf/price-1.pdf">
-      <publishTime>10/03/2016 11:39:07</publishTime>
+      <publishTime>10/12/2016 22:00:00</publishTime>
     </File>
     <File Include="Content/pdf/price-2.pdf">
-      <publishTime>10/03/2016 11:39:07</publishTime>
+      <publishTime>10/12/2016 22:00:00</publishTime>
     </File>
     <File Include="Content/pdf/price-3.pdf">
-      <publishTime>10/03/2016 11:39:07</publishTime>
+      <publishTime>10/12/2016 22:00:00</publishTime>
     </File>
     <File Include="Content/Site.css">
-      <publishTime>11/02/2016 19:59:25</publishTime>
+      <publishTime>12/04/2016 15:35:00</publishTime>
     </File>
     <File Include="Content/video/main-page-video.mp4">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:42:00</publishTime>
     </File>
     <File Include="Content/video/main-page-video.ogv">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:42:00</publishTime>
     </File>
     <File Include="Content/video/main-page-video.webm">
-      <publishTime>11/02/2016 19:59:27</publishTime>
+      <publishTime>12/04/2016 15:42:00</publishTime>
     </File>
     <File Include="packages.config">
       <publishTime>07/24/2016 03:40:02</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>12/13/2016 01:26:34</publishTime>
+      <publishTime>12/30/2016 11:09:35</publishTime>
     </File>
     <File Include="Scripts/jquery-1.10.2.js">
       <publishTime>07/24/2016 03:40:00</publishTime>
@@ -1160,7 +1160,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/09/2016 21:22:50</publishTime>
     </File>
     <File Include="Scripts/jquery.ndeti.js">
-      <publishTime>12/06/2016 18:30:38</publishTime>
+      <publishTime>12/29/2016 22:57:57</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.js">
       <publishTime>07/24/2016 03:40:01</publishTime>
@@ -1259,7 +1259,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/12/2016 22:03:00</publishTime>
     </File>
     <File Include="Views/Cabinet/Messages.cshtml">
-      <publishTime>12/09/2016 20:34:38</publishTime>
+      <publishTime>12/09/2016 20:47:00</publishTime>
     </File>
     <File Include="Views/Cabinet/MyPage.cshtml">
       <publishTime>10/20/2016 11:14:00</publishTime>
@@ -1268,7 +1268,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/12/2016 22:03:00</publishTime>
     </File>
     <File Include="Views/Cabinet/_Messages.cshtml">
-      <publishTime>12/09/2016 21:24:01</publishTime>
+      <publishTime>12/09/2016 21:25:00</publishTime>
     </File>
     <File Include="Views/Cabinet/_MessagesUsers.cshtml">
       <publishTime>12/05/2016 14:55:00</publishTime>
@@ -1307,10 +1307,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/21/2016 23:07:00</publishTime>
     </File>
     <File Include="Views/Department/Yancheng1.cshtml">
-      <publishTime>12/12/2016 23:48:31</publishTime>
+      <publishTime>12/28/2016 09:28:00</publishTime>
     </File>
     <File Include="Views/Department/Yancheng2.cshtml">
-      <publishTime>12/09/2016 21:35:43</publishTime>
+      <publishTime>12/16/2016 19:01:00</publishTime>
     </File>
     <File Include="Views/Department/_AlmaataPops.cshtml">
       <publishTime>10/20/2016 11:27:00</publishTime>
@@ -1322,7 +1322,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/20/2016 11:27:00</publishTime>
     </File>
     <File Include="Views/Department/_Yancheng2Pops.cshtml">
-      <publishTime>12/09/2016 21:34:40</publishTime>
+      <publishTime>12/12/2016 23:49:00</publishTime>
     </File>
     <File Include="Views/Finance/Find.cshtml">
       <publishTime>10/12/2016 02:20:00</publishTime>
@@ -1340,7 +1340,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/22/2016 04:20:00</publishTime>
     </File>
     <File Include="Views/Home/Help.cshtml">
-      <publishTime>12/13/2016 00:01:34</publishTime>
+      <publishTime>12/13/2016 00:19:00</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
       <publishTime>11/22/2016 05:55:00</publishTime>
@@ -1550,7 +1550,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/22/2016 04:06:00</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>12/13/2016 00:00:17</publishTime>
+      <publishTime>12/13/2016 00:19:00</publishTime>
     </File>
     <File Include="Views/Shared/_MainMenu.cshtml">
       <publishTime>12/09/2016 05:07:00</publishTime>
@@ -1625,10 +1625,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/06/2016 20:50:00</publishTime>
     </File>
     <File Include="Views/web.config">
-      <publishTime>05/22/2016 12:19:48</publishTime>
+      <publishTime>10/12/2016 22:01:00</publishTime>
     </File>
     <File Include="Views/_ViewStart.cshtml">
-      <publishTime>05/15/2016 23:23:40</publishTime>
+      <publishTime>10/12/2016 22:01:00</publishTime>
     </File>
     <File Include="Web.config">
       <publishTime>12/04/2016 15:28:49</publishTime>
