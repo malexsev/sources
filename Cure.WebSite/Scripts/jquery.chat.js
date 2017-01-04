@@ -126,6 +126,10 @@ $(document).ready(function () {
 
 $(window).load(function () {
     UpdateContacts();
+    setTimeout(function() {
+        chatScrollerInitUsers();
+        chatScrollerInitLog();
+    }, 1000);
 });
 
 function SwitchUser(link) {
@@ -136,6 +140,7 @@ function SwitchUser(link) {
 
     $('.chat-head-name').text($(link).data("userdisplay"));
     $('.chat-head-stat').text($(link).data("useronline"));
+    $('#chat-userlink-page').attr('href', $(link).data("userlink"));
     UpdateMessages();
 }
 
@@ -146,6 +151,7 @@ function Reset() {
     $('#chat-messages').html("");
     $('.chat-head-name').text("");
     $('.chat-head-stat').text("");
+    $('#chat-userlink-page').attr('href', "");
 }
 
 function SetDefaults() {

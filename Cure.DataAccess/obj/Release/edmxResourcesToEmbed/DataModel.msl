@@ -62,38 +62,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Departments">
-      <EntityTypeMapping TypeName="DataModel.Department">
-        <MappingFragment StoreEntitySet="Department">
-          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
-          <ScalarProperty Name="AdditionalCh" ColumnName="AdditionalCh" />
-          <ScalarProperty Name="AdditionalRu" ColumnName="AdditionalRu" />
-          <ScalarProperty Name="PriglashenieCh" ColumnName="PriglashenieCh" />
-          <ScalarProperty Name="PriglashenieRu" ColumnName="PriglashenieRu" />
-          <ScalarProperty Name="DescriptionCh" ColumnName="DescriptionCh" />
-          <ScalarProperty Name="DescriptionRu" ColumnName="DescriptionRu" />
-          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
-          <ScalarProperty Name="LastDate" ColumnName="LastDate" />
-          <ScalarProperty Name="LastUser" ColumnName="LastUser" />
-          <ScalarProperty Name="PodpisFileName" ColumnName="PodpisFileName" />
-          <ScalarProperty Name="PechatFileName" ColumnName="PechatFileName" />
-          <ScalarProperty Name="Contacts" ColumnName="Contacts" />
-          <ScalarProperty Name="Requisits" ColumnName="Requisits" />
-          <ScalarProperty Name="BossName" ColumnName="BossName" />
-          <ScalarProperty Name="AddressEnglish" ColumnName="AddressEnglish" />
-          <ScalarProperty Name="AddressChina" ColumnName="AddressChina" />
-          <ScalarProperty Name="Address" ColumnName="Address" />
-          <ScalarProperty Name="NameEnglish" ColumnName="NameEnglish" />
-          <ScalarProperty Name="NameChina" ColumnName="NameChina" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Branch" ColumnName="Branch" />
-          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
-          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Sputniks">
       <EntityTypeMapping TypeName="DataModel.Sputnik">
         <MappingFragment StoreEntitySet="Sputnik">
@@ -923,6 +891,40 @@
           <ScalarProperty Name="MacsLevelId" ColumnName="MacsLevelId" />
           <ScalarProperty Name="GmfcsLevelId" ColumnName="GmfcsLevelId" />
           <ScalarProperty Name="VisitId" ColumnName="VisitId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departments">
+      <EntityTypeMapping TypeName="DataModel.Department">
+        <MappingFragment StoreEntitySet="Department">
+          <ScalarProperty Name="PageLink" ColumnName="PageLink" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="AdditionalCh" ColumnName="AdditionalCh" />
+          <ScalarProperty Name="AdditionalRu" ColumnName="AdditionalRu" />
+          <ScalarProperty Name="PriglashenieCh" ColumnName="PriglashenieCh" />
+          <ScalarProperty Name="PriglashenieRu" ColumnName="PriglashenieRu" />
+          <ScalarProperty Name="DescriptionCh" ColumnName="DescriptionCh" />
+          <ScalarProperty Name="DescriptionRu" ColumnName="DescriptionRu" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+          <ScalarProperty Name="LastDate" ColumnName="LastDate" />
+          <ScalarProperty Name="LastUser" ColumnName="LastUser" />
+          <ScalarProperty Name="PodpisFileName" ColumnName="PodpisFileName" />
+          <ScalarProperty Name="PechatFileName" ColumnName="PechatFileName" />
+          <ScalarProperty Name="Contacts" ColumnName="Contacts" />
+          <ScalarProperty Name="Requisits" ColumnName="Requisits" />
+          <ScalarProperty Name="BossName" ColumnName="BossName" />
+          <ScalarProperty Name="AddressEnglish" ColumnName="AddressEnglish" />
+          <ScalarProperty Name="AddressChina" ColumnName="AddressChina" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="NameEnglish" ColumnName="NameEnglish" />
+          <ScalarProperty Name="NameChina" ColumnName="NameChina" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="Branch" ColumnName="Branch" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

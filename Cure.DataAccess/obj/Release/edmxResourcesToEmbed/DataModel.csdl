@@ -9,15 +9,6 @@
       <End Role="RefCountry" EntitySet="RefCountries" />
       <End Role="Pacient" EntitySet="Pacients" />
     </AssociationSet>
-    <EntitySet Name="Departments" EntityType="DataModel.Department" />
-    <AssociationSet Name="FK_Department_Department" Association="DataModel.FK_Department_Department">
-      <End Role="Department" EntitySet="Departments" />
-      <End Role="Department1" EntitySet="Departments" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Department_RefCountry" Association="DataModel.FK_Department_RefCountry">
-      <End Role="RefCountry" EntitySet="RefCountries" />
-      <End Role="Department" EntitySet="Departments" />
-    </AssociationSet>
     <EntitySet Name="Sputniks" EntityType="DataModel.Sputnik" />
     <AssociationSet Name="FK_Sputnik_RefCountry" Association="DataModel.FK_Sputnik_RefCountry">
       <End Role="RefCountry" EntitySet="RefCountries" />
@@ -28,10 +19,6 @@
       <End Role="Sputnik" EntitySet="Sputniks" />
     </AssociationSet>
     <EntitySet Name="TransferUsers" EntityType="DataModel.TransferUser" />
-    <AssociationSet Name="FK_TransferUser_Department" Association="DataModel.FK_TransferUser_Department">
-      <End Role="Department" EntitySet="Departments" />
-      <End Role="TransferUser" EntitySet="TransferUsers" />
-    </AssociationSet>
     <EntitySet Name="ViewSchedulers" EntityType="DataModel.ViewScheduler" />
     <EntitySet Name="SmsLogs" EntityType="DataModel.SmsLog" />
     <EntitySet Name="NotificationLogs" EntityType="DataModel.NotificationLog" />
@@ -54,10 +41,6 @@
     <EntitySet Name="RefDiagnozs" EntityType="DataModel.RefDiagnoz" />
     <EntitySet Name="RefStopVisitTypes" EntityType="DataModel.RefStopVisitType" />
     <EntitySet Name="StopVisits" EntityType="DataModel.StopVisit" />
-    <AssociationSet Name="FK_StopVisit_Department" Association="DataModel.FK_StopVisit_Department">
-      <End Role="Department" EntitySet="Departments" />
-      <End Role="StopVisit" EntitySet="StopVisits" />
-    </AssociationSet>
     <AssociationSet Name="FK_StopVisit_RefStopVisitType" Association="DataModel.FK_StopVisit_RefStopVisitType">
       <End Role="RefStopVisitType" EntitySet="RefStopVisitTypes" />
       <End Role="StopVisit" EntitySet="StopVisits" />
@@ -70,10 +53,6 @@
       <End Role="Visit" EntitySet="Visits" />
     </AssociationSet>
     <EntitySet Name="Orders" EntityType="DataModel.Order" />
-    <AssociationSet Name="FK_Order_Department" Association="DataModel.FK_Order_Department">
-      <End Role="Department" EntitySet="Departments" />
-      <End Role="Order" EntitySet="Orders" />
-    </AssociationSet>
     <AssociationSet Name="FK_Order_OrderStatus" Association="DataModel.FK_Order_OrderStatus">
       <End Role="OrderStatu" EntitySet="OrderStatus" />
       <End Role="Order" EntitySet="Orders" />
@@ -89,15 +68,7 @@
     <EntitySet Name="ViewUserMemberships" EntityType="DataModel.ViewUserMembership" />
     <EntitySet Name="RefOperators" EntityType="DataModel.RefOperator" />
     <EntitySet Name="Mensions" EntityType="DataModel.Mension" />
-    <AssociationSet Name="FK_Mension_Department" Association="DataModel.FK_Mension_Department">
-      <End Role="Department" EntitySet="Departments" />
-      <End Role="Mension" EntitySet="Mensions" />
-    </AssociationSet>
     <EntitySet Name="DepartmentStops" EntityType="DataModel.DepartmentStop" />
-    <AssociationSet Name="FK_DepartmentStop_Department" Association="DataModel.FK_DepartmentStop_Department">
-      <End Role="Department" EntitySet="Departments" />
-      <End Role="DepartmentStop" EntitySet="DepartmentStops" />
-    </AssociationSet>
     <EntitySet Name="ViewSoonVisits" EntityType="DataModel.ViewSoonVisit" />
     <EntitySet Name="Children" EntityType="DataModel.Child" />
     <AssociationSet Name="FK_Child_Child" Association="DataModel.FK_Child_Child">
@@ -200,6 +171,35 @@
       <End Role="Visit" EntitySet="Visits" />
       <End Role="Vipiska" EntitySet="Vipiskas" />
     </AssociationSet>
+    <EntitySet Name="Departments" EntityType="DataModel.Department" />
+    <AssociationSet Name="FK_Department_Department" Association="DataModel.FK_Department_Department">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="Department1" EntitySet="Departments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Department_RefCountry" Association="DataModel.FK_Department_RefCountry">
+      <End Role="RefCountry" EntitySet="RefCountries" />
+      <End Role="Department" EntitySet="Departments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DepartmentStop_Department" Association="DataModel.FK_DepartmentStop_Department">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="DepartmentStop" EntitySet="DepartmentStops" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Mension_Department" Association="DataModel.FK_Mension_Department">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="Mension" EntitySet="Mensions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Department" Association="DataModel.FK_Order_Department">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StopVisit_Department" Association="DataModel.FK_StopVisit_Department">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="StopVisit" EntitySet="StopVisits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TransferUser_Department" Association="DataModel.FK_TransferUser_Department">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="TransferUser" EntitySet="TransferUsers" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="OrderStatu">
     <Key>
@@ -250,11 +250,11 @@
     <Property Type="String" Name="PosolstvoRusLabel" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Type="String" Name="NacionalnostChLabel" MaxLength="150" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Pacients" Relationship="DataModel.FK_Pacient_RefCountry" FromRole="RefCountry" ToRole="Pacient" />
-    <NavigationProperty Name="Departments" Relationship="DataModel.FK_Department_RefCountry" FromRole="RefCountry" ToRole="Department" />
     <NavigationProperty Name="Sputniks" Relationship="DataModel.FK_Sputnik_RefCountry" FromRole="RefCountry" ToRole="Sputnik" />
     <NavigationProperty Name="RefBanks" Relationship="DataModel.FK_RefBank_RefCountry" FromRole="RefCountry" ToRole="RefBank" />
     <NavigationProperty Name="Children" Relationship="DataModel.FK_Child_RefCountry" FromRole="RefCountry" ToRole="Child" />
     <NavigationProperty Name="Children1" Relationship="DataModel.FK_Child_RefCountryFin" FromRole="RefCountry" ToRole="Child" />
+    <NavigationProperty Name="Departments" Relationship="DataModel.FK_Department_RefCountry" FromRole="RefCountry" ToRole="Department" />
   </EntityType>
   <EntityType Name="RefRodstvo">
     <Key>
@@ -277,69 +277,6 @@
         <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Pacient">
-        <PropertyRef Name="CountryId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityType Name="Department">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="Int32" Name="ParentId" />
-    <Property Type="Int32" Name="CountryId" Nullable="false" />
-    <Property Type="String" Name="Branch" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="Name" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="NameChina" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="NameEnglish" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="Address" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="AddressChina" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="AddressEnglish" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="BossName" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="Requisits" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="Contacts" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="PechatFileName" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="PodpisFileName" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="LastUser" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Type="DateTime" Name="LastDate" Precision="3" />
-    <Property Type="String" Name="CreateUser" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Type="DateTime" Name="CreateDate" Precision="3" />
-    <Property Type="String" Name="DescriptionRu" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="DescriptionCh" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="PriglashenieRu" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="PriglashenieCh" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="AdditionalRu" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="AdditionalCh" MaxLength="500" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Department1" Relationship="DataModel.FK_Department_Department" FromRole="Department" ToRole="Department1" />
-    <NavigationProperty Name="Department2" Relationship="DataModel.FK_Department_Department" FromRole="Department1" ToRole="Department" />
-    <NavigationProperty Name="RefCountry" Relationship="DataModel.FK_Department_RefCountry" FromRole="Department" ToRole="RefCountry" />
-    <NavigationProperty Name="TransferUsers" Relationship="DataModel.FK_TransferUser_Department" FromRole="Department" ToRole="TransferUser" />
-    <Property Type="String" Name="ShortName" MaxLength="10" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="StopVisits" Relationship="DataModel.FK_StopVisit_Department" FromRole="Department" ToRole="StopVisit" />
-    <NavigationProperty Name="Orders" Relationship="DataModel.FK_Order_Department" FromRole="Department" ToRole="Order" />
-    <NavigationProperty Name="Mensions" Relationship="DataModel.FK_Mension_Department" FromRole="Department" ToRole="Mension" />
-    <NavigationProperty Name="DepartmentStops" Relationship="DataModel.FK_DepartmentStop_Department" FromRole="Department" ToRole="DepartmentStop" />
-  </EntityType>
-  <Association Name="FK_Department_Department">
-    <End Type="DataModel.Department" Role="Department" Multiplicity="0..1" />
-    <End Type="DataModel.Department" Role="Department1" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Department">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Department1">
-        <PropertyRef Name="ParentId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Department_RefCountry">
-    <End Type="DataModel.RefCountry" Role="RefCountry" Multiplicity="1" />
-    <End Type="DataModel.Department" Role="Department" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="RefCountry">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Department">
         <PropertyRef Name="CountryId" />
       </Dependent>
     </ReferentialConstraint>
@@ -406,18 +343,6 @@
     <Property Type="Int32" Name="DepartmentId" Nullable="false" />
     <NavigationProperty Name="Department" Relationship="DataModel.FK_TransferUser_Department" FromRole="TransferUser" ToRole="Department" />
   </EntityType>
-  <Association Name="FK_TransferUser_Department">
-    <End Type="DataModel.Department" Role="Department" Multiplicity="1" />
-    <End Type="DataModel.TransferUser" Role="TransferUser" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Department">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="TransferUser">
-        <PropertyRef Name="DepartmentId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityType Name="ViewScheduler">
     <Key>
       <PropertyRef Name="Id" />
@@ -710,23 +635,9 @@
     <Property Name="DateFrom" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="DateTo" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="Description" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-    <NavigationProperty Name="Department" Relationship="DataModel.FK_StopVisit_Department" FromRole="StopVisit" ToRole="Department" />
     <NavigationProperty Name="RefStopVisitType" Relationship="DataModel.FK_StopVisit_RefStopVisitType" FromRole="StopVisit" ToRole="RefStopVisitType" />
+    <NavigationProperty Name="Department" Relationship="DataModel.FK_StopVisit_Department" FromRole="StopVisit" ToRole="Department" />
   </EntityType>
-  <Association Name="FK_StopVisit_Department">
-    <End Type="DataModel.Department" Role="Department" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Type="DataModel.StopVisit" Role="StopVisit" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Department">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="StopVisit">
-        <PropertyRef Name="DepartmentId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_StopVisit_RefStopVisitType">
     <End Type="DataModel.RefStopVisitType" Role="RefStopVisitType" Multiplicity="1">
       <OnDelete Action="Cascade" />
@@ -877,23 +788,11 @@
     <Property Name="LastDate" Type="DateTime" Precision="3" />
     <Property Name="CreateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="CreateDate" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="Department" Relationship="DataModel.FK_Order_Department" FromRole="Order" ToRole="Department" />
     <NavigationProperty Name="OrderStatu" Relationship="DataModel.FK_Order_OrderStatus" FromRole="Order" ToRole="OrderStatu" />
     <NavigationProperty Name="Sputniks" Relationship="DataModel.FK_Sputnik_Order" FromRole="Order" ToRole="Sputnik" />
     <NavigationProperty Name="Visits" Relationship="DataModel.FK_Visit_Order" FromRole="Order" ToRole="Visit" />
+    <NavigationProperty Name="Department" Relationship="DataModel.FK_Order_Department" FromRole="Order" ToRole="Department" />
   </EntityType>
-  <Association Name="FK_Order_Department">
-    <End Type="DataModel.Department" Role="Department" Multiplicity="0..1" />
-    <End Type="DataModel.Order" Role="Order" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Department">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Order">
-        <PropertyRef Name="DepartmentId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Order_OrderStatus">
     <End Type="DataModel.OrderStatu" Role="OrderStatu" Multiplicity="1" />
     <End Type="DataModel.Order" Role="Order" Multiplicity="*" />
@@ -993,18 +892,6 @@
     <Property Name="IsActive" Type="Boolean" />
     <NavigationProperty Name="Department" Relationship="DataModel.FK_Mension_Department" FromRole="Mension" ToRole="Department" />
   </EntityType>
-  <Association Name="FK_Mension_Department">
-    <End Type="DataModel.Department" Role="Department" Multiplicity="0..1" />
-    <End Type="DataModel.Mension" Role="Mension" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Department">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Mension">
-        <PropertyRef Name="DepartmentId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityType Name="DepartmentStop">
     <Key>
       <PropertyRef Name="Id" />
@@ -1021,20 +908,6 @@
     <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
     <NavigationProperty Name="Department" Relationship="DataModel.FK_DepartmentStop_Department" FromRole="DepartmentStop" ToRole="Department" />
   </EntityType>
-  <Association Name="FK_DepartmentStop_Department">
-    <End Type="DataModel.Department" Role="Department" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Type="DataModel.DepartmentStop" Role="DepartmentStop" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Department">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="DepartmentStop">
-        <PropertyRef Name="DepartmentId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityType Name="ViewSoonVisit">
     <Key>
       <PropertyRef Name="Id" />
@@ -1645,6 +1518,135 @@
       </Principal>
       <Dependent Role="Vipiska">
         <PropertyRef Name="VisitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ParentId" Type="Int32" />
+    <Property Name="CountryId" Type="Int32" Nullable="false" />
+    <Property Name="Branch" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ShortName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="NameChina" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="NameEnglish" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="AddressChina" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="AddressEnglish" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="BossName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Requisits" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Contacts" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="PechatFileName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="PodpisFileName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="LastUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastDate" Type="DateTime" Precision="3" />
+    <Property Name="CreateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="DescriptionRu" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="DescriptionCh" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="PriglashenieRu" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="PriglashenieCh" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="AdditionalRu" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="AdditionalCh" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="PageLink" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Department1" Relationship="DataModel.FK_Department_Department" FromRole="Department" ToRole="Department1" />
+    <NavigationProperty Name="Department2" Relationship="DataModel.FK_Department_Department" FromRole="Department1" ToRole="Department" />
+    <NavigationProperty Name="RefCountry" Relationship="DataModel.FK_Department_RefCountry" FromRole="Department" ToRole="RefCountry" />
+    <NavigationProperty Name="DepartmentStops" Relationship="DataModel.FK_DepartmentStop_Department" FromRole="Department" ToRole="DepartmentStop" />
+    <NavigationProperty Name="Mensions" Relationship="DataModel.FK_Mension_Department" FromRole="Department" ToRole="Mension" />
+    <NavigationProperty Name="Orders" Relationship="DataModel.FK_Order_Department" FromRole="Department" ToRole="Order" />
+    <NavigationProperty Name="StopVisits" Relationship="DataModel.FK_StopVisit_Department" FromRole="Department" ToRole="StopVisit" />
+    <NavigationProperty Name="TransferUsers" Relationship="DataModel.FK_TransferUser_Department" FromRole="Department" ToRole="TransferUser" />
+  </EntityType>
+  <Association Name="FK_Department_Department">
+    <End Type="DataModel.Department" Role="Department" Multiplicity="0..1" />
+    <End Type="DataModel.Department" Role="Department1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Department1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Department_RefCountry">
+    <End Type="DataModel.RefCountry" Role="RefCountry" Multiplicity="1" />
+    <End Type="DataModel.Department" Role="Department" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RefCountry">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Department">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DepartmentStop_Department">
+    <End Type="DataModel.Department" Role="Department" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="DataModel.DepartmentStop" Role="DepartmentStop" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DepartmentStop">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Mension_Department">
+    <End Type="DataModel.Department" Role="Department" Multiplicity="0..1" />
+    <End Type="DataModel.Mension" Role="Mension" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Mension">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Department">
+    <End Type="DataModel.Department" Role="Department" Multiplicity="0..1" />
+    <End Type="DataModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StopVisit_Department">
+    <End Type="DataModel.Department" Role="Department" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="DataModel.StopVisit" Role="StopVisit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StopVisit">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TransferUser_Department">
+    <End Type="DataModel.Department" Role="Department" Multiplicity="1" />
+    <End Type="DataModel.TransferUser" Role="TransferUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TransferUser">
+        <PropertyRef Name="DepartmentId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

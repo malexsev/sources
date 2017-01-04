@@ -7,7 +7,7 @@
 }))
 {
     <h4 class="forms-heading">
-        Выберите больницы и планируемые даты лечения.<br>
+        Выберите больницу и планируемые даты лечения.<br>
         В дальнейшем даты лечения можно откорректировать.
     </h4>
     <div class="forms-line">
@@ -15,7 +15,7 @@
         {
             <label class="forms-radio">
                 @Html.RadioButton("department", dep.Id, ((Model.NewOrder.DepartmentId == dep.Id) || (Session["OrderDepartmentId"] == null ? 0 : (int)Session["OrderDepartmentId"]) == dep.Id))
-                <span>@dep.Name</span>
+                <span>@dep.Name<label class="forms-label"><a href="@dep.PageLink" target="_blank">Подробнее</a></label></span>
             </label>
         }
     </div>
@@ -79,6 +79,6 @@
         <div class="order-inline-label"> - Завяка будет сохранена</div>
     </div>
     <div class="forms-line top-40">
-        <label class="forms-label">Нажимая кнопку “Продолжить”, даю согласие на <a href="@Url.Action("Index", "Home")" target="_blank">обработку персональных данных</a></label>
+        <label class="forms-label">Нажимая кнопку “Продолжить”, даю согласие на <a href="@Url.Action("Privacy", "Home")" target="_blank">обработку персональных данных</a></label>
     </div>
 }

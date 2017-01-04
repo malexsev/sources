@@ -212,7 +212,7 @@ namespace Cure.WebSite.Controllers
             }
             var dal = new DataAccessBL();
 
-            ViewBag.Departments = dal.GetDepartments();
+            ViewBag.Departments = dal.GetActiveDepartments();
             ViewBag.Countries = dal.GetRefCountries();
             ViewBag.Rodstvos = dal.GetRefRodstvo();
             ViewBag.DocFiles = GetDocumentFiles();
@@ -228,7 +228,7 @@ namespace Cure.WebSite.Controllers
             }
             var dal = new DataAccessBL();
 
-            ViewBag.Departments = dal.GetDepartments();
+            ViewBag.Departments = dal.GetActiveDepartments();
             ViewBag.Countries = dal.GetRefCountries();
             ViewBag.Rodstvos = dal.GetRefRodstvo();
             ViewBag.DocFiles = GetDocumentFiles();
@@ -244,7 +244,7 @@ namespace Cure.WebSite.Controllers
             }
             var dal = new DataAccessBL();
 
-            ViewBag.Departments = dal.GetDepartments();
+            ViewBag.Departments = dal.GetActiveDepartments();
             ViewBag.Countries = dal.GetRefCountries();
             ViewBag.Rodstvos = dal.GetRefRodstvo();
             ViewBag.DocFiles = GetDocumentFiles();
@@ -260,7 +260,7 @@ namespace Cure.WebSite.Controllers
             }
             var dal = new DataAccessBL();
 
-            ViewBag.Departments = dal.GetDepartments();
+            ViewBag.Departments = dal.GetActiveDepartments();
             ViewBag.Countries = dal.GetRefCountries();
             ViewBag.Rodstvos = dal.GetRefRodstvo();
             ViewBag.DocFiles = GetDocumentFiles();

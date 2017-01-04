@@ -21,6 +21,11 @@ namespace Cure.DataAccess.BLL
             return dataRepository.GetDepartments();
         }
 
+        public IEnumerable<Department> GetActiveDepartments()
+        {
+            return dataRepository.GetActiveDepartments();
+        }
+
         public void InsertDepartment(Department department)
         {
             try

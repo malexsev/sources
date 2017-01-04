@@ -18,7 +18,7 @@ namespace Cure.WebSite.Controllers
         public ActionResult Index()
         {
             var dal = new DataAccessBL();
-            ViewBag.Departments = dal.GetDepartments();
+            ViewBag.Departments = dal.GetActiveDepartments();
             ViewBag.PlacesAvailable = true;
             return View();
         }
@@ -57,7 +57,7 @@ namespace Cure.WebSite.Controllers
             }
 
             var dal = new DataAccessBL();
-            ViewBag.Departments = dal.GetDepartments();
+            ViewBag.Departments = dal.GetActiveDepartments();
             ViewBag.PlacesAvailable = !((departmentId != 0 && dateFrom != DateTime.Today && dateTo != DateTime.Today) && dal.CheckStopVisit(departmentId, dateFrom, dateTo));
             
             return View();

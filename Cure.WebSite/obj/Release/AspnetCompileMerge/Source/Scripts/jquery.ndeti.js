@@ -533,7 +533,6 @@ $(document).ready(function () {
                     $('#loginprogress').html("<img src='/content/img/preloader.gif' />");
                 },
                 success: function (result) {
-                    $('#loginprogress').html("");
                     if (result == "1") {
                         $("#loginname").parent().removeClass("has-error");
                         $("#password").parent().removeClass("has-error");
@@ -545,6 +544,7 @@ $(document).ready(function () {
                         $("#loginname").parent().addClass("has-error");
                         $("#password").parent().addClass("has-error");
                         $("#error-login").show().text("Неверное имя пользователя или пароль");
+                        $('#loginprogress').html("");
                     }
                 },
                 error: function (result) {

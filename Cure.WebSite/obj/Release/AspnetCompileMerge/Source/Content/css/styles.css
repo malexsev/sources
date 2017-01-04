@@ -56,9 +56,9 @@ body {
 }
 .footer {
   position: relative;
-  min-height: 260px;
-  margin-top: -260px;
-  padding: 10px 0;
+  min-height: 280px;
+  margin-top: -280px;
+  padding: 10px 0 30px;
   min-width: 360px;
   border-top: 2px solid #fff;
 }
@@ -279,7 +279,7 @@ img {
   display: none;
   position: fixed;
   left: 10px;
-  bottom: 10px;
+  bottom: 50px;
   width: 60px;
   height: 70px;
   background: #aaaaaa url(../img/ico_scrolltop.png) no-repeat center;
@@ -1992,7 +1992,7 @@ html.swipebox-html.swipebox-touch {
   background: #f4f3ea;
 }
 .footer-col {
-  margin: 20px 0;
+  margin: 20px 0 0;
 }
 .footer-title {
   margin-bottom: 20px;
@@ -4123,7 +4123,7 @@ html.swipebox-html.swipebox-touch {
 }
 .order-steps-nav li {
   display: inline-block;
-  margin-right: 18px;
+  margin: 5px 18px 5px 0;
 }
 .order-steps-nav li:last-child {
   margin-right: 0;
@@ -4184,7 +4184,7 @@ html.swipebox-html.swipebox-touch {
   background: no-repeat center url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAANCAMAAACae25RAAAAFVBMVEXgeCjsrHvvu5PwvJT//v3//v7///9z4z3rAAAASElEQVR42mXOQQ7AMAgDQUhC///kIge0avEB4bmAPb+E75w21GwPPqnmIZ4qXh5fFa+7ouKogoq7ouJ2VNyOistROO+icD1PXts/BM0hnCFoAAAAAElFTkSuQmCC);
 }
 .order-steps-body {
-  margin-top: 30px;
+  margin-top: 20px;
 }
 .order-steps-tab {
   display: none;
@@ -5576,7 +5576,7 @@ html.swipebox-html.swipebox-touch {
 }
 .chat-page {
   height: calc(100vh - 155px);
-  padding: 50px 0;
+  padding: 20px 0;
 }
 .chat-page .container {
   height: 100%;
@@ -6556,7 +6556,7 @@ html.swipebox-html.swipebox-touch {
 /*--------------------- MEDIA QUERIES ----------------------------------------*/
 @media (max-width: 1399px) {
   .header-menu > li > a {
-    padding: 7px 5px 8px;
+    padding: 10px 5px;
     font-size: 13px;
   }
   .children-page-review {
@@ -6595,6 +6595,9 @@ html.swipebox-html.swipebox-touch {
   }
   .fastorder-btn {
     margin-top: 30px;
+  }
+  .child-tabs-head a {
+    font-size: 13px;
   }
 }
 
@@ -6777,7 +6780,7 @@ html.swipebox-html.swipebox-touch {
     padding: 5px 0;
   }
   .fastorder-clinic {
-    padding-right: 0;
+    padding: 0 5px;
     width: 100%;
   }
   .fastorder-dates {
@@ -6788,8 +6791,58 @@ html.swipebox-html.swipebox-touch {
   }
   .fastorder-btn {
     width: 24%;
+    padding-right: 5px;
+  }
+  .main-page .sec-personal-tabshead a {
+    min-height: 85px;
+  }
+  .popup-wrap,
+  .testimonials-popup .popup-wrap{
+    top: 5%;
+    bottom: 5%;
+    width: 600px;
+    padding: 35px 10px 20px;
+  }
+  .userdata-nav {
+    width: 120px;
+  }
+  .userdata-tabs {
+    margin-left: 119px;
+    padding-left: 10px;
+  }
+  .userdata-form {
+    margin-right: 0;
+  }
+  .price-list li{
+    display: block;
+    width: auto;
+  }
+  .testimonials-head {
+    float: none;
+    padding: 35px 0;
+    width: auto;
+  }
+  .testimonials-body{
+    margin-right: 0;
+  }
+  .medicament:first-child {
+    border-right: medium;
+    border-bottom: 1px solid #dfddca;
+  }
+  .medicament-row:last-child {
+    border-bottom: none;
+  }
+  .sec-message-phones{
+    text-align: center;
+  }
+  .side-nav-title{
+    text-align: center;
+  }
+  .side-phones{
+    text-align: center;
   }
 }
+
 @media (max-width: 767px) {
   .footer {
     text-align: center;
@@ -6825,7 +6878,124 @@ html.swipebox-html.swipebox-touch {
     max-width: 450px;
     margin: 10px auto;
   }
+  .main-page .sec-personal-tabshead li {
+    width: 50%;
+    max-width: 250px;
+  }
+  .popup-registr .popup-wrap{
+    width: 600px;
+  }
+  .procedure-img {
+    float: none;
+    margin: 0 auto;
+  }
+  .procedure-txt{
+    margin: 0;
+  }
+  .procedure-title{
+    text-align: center;
+  }
+  .procedure-btm{
+    text-align: right;
+  }
+  .medicament-params li{
+    display: block;
+    width: 100%;
+  }
+  .slimpage-head-img{
+    float: none;
+    margin: 0 auto;
+  }
+  .slimpage-head-txt {
+    margin: 20px 0 0;
+    text-align: center;
+  }
+  .slimpage-head-note::after {
+    left: 50%;
+    margin-left: -22px;
+  }
 }
+
+@media (max-width: 650px) {
+  .sec-intro-front .all-middle-inn{
+    vertical-align: top;
+  }
+  .fastorder-dates {
+    width: 100%;
+  }
+  .fastorder-count {
+    width: 30%;
+  }
+  .fastorder-btn {
+    width: 40%;
+  }
+  .all-pages-head .head-btns{
+    text-align: center;
+  }
+  .all-pages-H1 .subtitle {
+    display: block;
+    font-size: 20px;
+  }
+  .popup-wrap,
+  .testimonials-popup .popup-wrap{
+    width: 95%;
+  }
+  .userdata-nav{
+    width: auto;
+    float: none;
+    border: none;
+  }
+  .userdata-nav li {
+    margin-right: 0;
+  }
+  .userdata-tabs {
+    border: medium none;
+    margin-left: 0;
+    margin-top: 20px;
+    padding-left: 0;
+  }
+  .popup-registr .popup-wrap{
+    width: 95%;
+  }
+  .popup-registr .forms-label {
+    float: none;
+    padding: 5px;
+    width: auto;
+  }
+  .popup-registr .note-label {
+    font-size: 12px;
+    width: 40%;
+  }
+  .popup-registr .forms-input {
+    width: 60%;
+  }
+  .testimonials-body {
+    background-size: 50px auto;
+    padding: 30px 10px 30px 65px;
+  }
+  .medicament-img{
+    float: none;
+    margin: 0 auto;
+  }
+  .medicament-txt{
+    margin: 0;
+  }
+  .medicament-title{
+    text-align: center;
+  }
+  .medicament-china{
+    text-align: center;
+  }
+  .user-content .explanation-img{
+    float: none;
+    margin: 0 auto;
+  }
+  .user-content .explanation-txt{
+    margin: 0;
+    text-align: center;
+  }
+}
+
 @media (max-width: 519px) {
   .children-page-review {
     padding: 0;
@@ -6858,5 +7028,29 @@ html.swipebox-html.swipebox-touch {
   .account-menu > li > a {
     font-size: 0;
     padding: 10px 4px;
+  }
+
+  .fastorder-count {
+    width: 50%;
+  }
+  .fastorder-btn {
+    width: 100%;
+    text-align: center;
+  }
+  .main-page .sec-intro-title{
+    font-size: 40px;
+    line-height: 45px;
+  }
+  .popup-registr .note-label {
+    float: none;
+    width: auto;
+  }
+  .popup-registr .forms-input {
+    display: block;
+    float: none;
+    width: 100%;
+  }
+  .popup-registr .registr-submit {
+    width: 200px;
   }
 }

@@ -93,7 +93,9 @@
                     OwnerUser = _userName,
                     LastUser = _userName,
                     DepartmentId = null,
-                    Name = "1"
+                    Name = "1",
+                    DateFrom = DateTime.Today,
+                    DateTo = DateTime.Today.AddMonths(2)
                 };
                 dataAccess.InsertOrder(this.NewOrder);
             }

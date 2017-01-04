@@ -149,6 +149,8 @@
     <Property Name="PriglashenieCh" Type="nvarchar" MaxLength="500" />
     <Property Name="AdditionalRu" Type="nvarchar" MaxLength="500" />
     <Property Name="AdditionalCh" Type="nvarchar" MaxLength="500" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="PageLink" Type="nvarchar" MaxLength="250" />
   </EntityType>
   <EntityType Name="DepartmentStop">
     <Key>
@@ -916,18 +918,6 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
       </Principal>
       <Dependent Role="aspnet_Membership">
         <PropertyRef Name="UserId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Child_Child">
-    <End Role="Child" Type="Self.Child" Multiplicity="1" />
-    <End Role="Child1" Type="Self.Child" Multiplicity="0..1" />
-    <ReferentialConstraint>
-      <Principal Role="Child">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Child1">
-        <PropertyRef Name="Id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1742,10 +1732,6 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
     <AssociationSet Name="FK__aspnet_Me__UserI__61316BF4" Association="Self.FK__aspnet_Me__UserI__61316BF4">
       <End Role="aspnet_Users" EntitySet="aspnet_Users" />
       <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Child_Child" Association="Self.FK_Child_Child">
-      <End Role="Child" EntitySet="Child" />
-      <End Role="Child1" EntitySet="Child" />
     </AssociationSet>
     <AssociationSet Name="FK_Child_RefBank" Association="Self.FK_Child_RefBank">
       <End Role="RefBank" EntitySet="RefBank" />

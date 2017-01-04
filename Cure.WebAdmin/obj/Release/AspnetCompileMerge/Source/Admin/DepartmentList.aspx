@@ -112,6 +112,13 @@
                     <PropertiesTextEdit MaxLength="10">
                     </PropertiesTextEdit>
                 </dx:GridViewDataTextColumn>
+                <dx:GridViewDataCheckColumn Caption="Активен" FieldName="IsActive" ToolTip="Отображать в списке клиник для подачи заявки" VisibleIndex="34" Width="60px">
+                </dx:GridViewDataCheckColumn>
+                <dx:GridViewDataTextColumn Caption="Персонаяльная страница" FieldName="PageLink" ToolTip="Полная ссылка на персональную страницу" Visible="False" VisibleIndex="35">
+                    <PropertiesTextEdit MaxLength="250">
+                    </PropertiesTextEdit>
+                    <EditFormSettings Visible="True" />
+                </dx:GridViewDataTextColumn>
             </Columns>
             <SettingsEditing Mode="PopupEditForm" EditFormColumnCount="1">
             </SettingsEditing>

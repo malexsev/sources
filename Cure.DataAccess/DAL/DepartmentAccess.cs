@@ -13,6 +13,11 @@ namespace Cure.DataAccess.DAL
             return context.Departments.OrderBy(o => o.Name).ToList();
         }
 
+        public IEnumerable<Department> GetActiveDepartments()
+        {
+            return context.Departments.Where(x => x.IsActive == true).OrderBy(o => o.Name).ToList();
+        }
+
         public Department GetDepartment(int id)
         {
             return context.Departments.FirstOrDefault(o => o.Id == id);
@@ -71,6 +76,8 @@ namespace Cure.DataAccess.DAL
                 origDepartment.PriglashenieRu = department.PriglashenieRu;
                 origDepartment.DescriptionCh = department.DescriptionCh;
                 origDepartment.DescriptionRu = department.DescriptionRu;
+                origDepartment.IsActive = department.IsActive;
+                origDepartment.PageLink = department.PageLink;
                 SaveChanges();
             } catch (Exception ex)
             {

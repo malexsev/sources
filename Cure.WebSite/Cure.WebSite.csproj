@@ -463,6 +463,7 @@
     <Content Include="Content\pdf\price-3.pdf" />
     <Content Include="Content\css\__styles.less" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="robots.txt" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
@@ -633,6 +634,11 @@
     <Content Include="Views\Cabinet\_Messages.cshtml" />
     <Content Include="Views\Shared\_TestLevels.cshtml" />
     <Content Include="Views\Home\Help.cshtml" />
+    <Content Include="Views\Home\Privacy.cshtml" />
+    <Content Include="Views\Home\Partnership.cshtml" />
+    <Content Include="Views\Home\Careers.cshtml" />
+    <Content Include="Views\Home\Pravo.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
     <None Include="Views\Medicine\Human.cshtml" />
     <Content Include="Views\Procedure\OtOccupational.cshtml" />
     <Content Include="Views\Procedure\StSpeech.cshtml" />

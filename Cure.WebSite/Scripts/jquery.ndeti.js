@@ -533,7 +533,6 @@ $(document).ready(function () {
                     $('#loginprogress').html("<img src='/content/img/preloader.gif' />");
                 },
                 success: function (result) {
-                    $('#loginprogress').html("");
                     if (result == "1") {
                         $("#loginname").parent().removeClass("has-error");
                         $("#password").parent().removeClass("has-error");
@@ -545,6 +544,7 @@ $(document).ready(function () {
                         $("#loginname").parent().addClass("has-error");
                         $("#password").parent().addClass("has-error");
                         $("#error-login").show().text("Неверное имя пользователя или пароль");
+                        $('#loginprogress').html("");
                     }
                 },
                 error: function (result) {
@@ -1267,6 +1267,9 @@ $(document).ready(function () {
     /*------------ Сохранение Заявки Шаг5 ----------------------------*/
     $("#orderstep5next").click(function (e) {
         $("#error-step5").hide();
+        $("#orderstep5next").hide();
+        $("#orderstep5back").hide();
+        $("#orderstep5save").hide();
         $.ajax({
             url: "/Cabinet/SaveStep5",
             type: "POST",
@@ -1274,9 +1277,6 @@ $(document).ready(function () {
                 if (result == "1") {
                     $("#error-step5").removeClass("form-errors");
                     $("#error-step5").show().text("Заявка успешно отправлена.");
-                    $("#orderstep5next").hide();
-                    $("#orderstep5back").hide();
-                    $("#orderstep5save").hide();
                     setTimeout(function () { setOrderTab('order-current'); }, 3000);
                 } else if (result == "0") {
                     window.location.href = '/Home/Index/';

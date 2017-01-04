@@ -24,6 +24,7 @@
            data-username="@user.Username"
            data-userpic="@user.UserpicUrl"
            data-userdisplay="@user.UserDisplay"
+           data-userlink="@Url.Action("Detail", "Children", new { id = user.ChildId })"
            data-useronline="@user.OnlineModifierRu"
            data-userid="@user.UserId.ToString()"></a>
         <a class="chat-user-close js-chat-user-close" role="button"

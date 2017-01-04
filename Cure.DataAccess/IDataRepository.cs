@@ -173,6 +173,7 @@ namespace Cure.DataAccess.DAL
         void UpdateRefRodstvo(RefRodstvo rodstvo);
 
         IEnumerable<Department> GetDepartments();
+        IEnumerable<Department> GetActiveDepartments();
         void InsertDepartment(Department department);
         void DeleteDepartment(Department department);
         void UpdateDepartment(Department department);

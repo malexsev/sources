@@ -21,9 +21,34 @@ namespace Cure.WebSite.Controllers
 
             ViewBag.ChildrenHome = dal.FilterChilds(0, "0", 0, 0, 0, 8);
             ViewBag.MensionsHome = dal.GetTopMensions();
-            ViewBag.Departments = dal.GetDepartments();
+            ViewBag.Departments = dal.GetActiveDepartments();
             var weathers = new List<Weather> { dal.GetWeatherByCity(33991), dal.GetWeatherByCity(36870), dal.GetWeatherByCity(50207) };
             ViewBag.Weathers = weathers;
+            return View();
+        }
+
+        public ActionResult Search()
+        {
+            return View();
+        }
+
+        public ActionResult Partnership()
+        {
+            return View();
+        }
+
+        public ActionResult Careers()
+        {
+            return View();
+        }
+
+        public ActionResult Pravo()
+        {
+            return View();
+        }
+
+        public ActionResult Privacy()
+        {
             return View();
         }
 

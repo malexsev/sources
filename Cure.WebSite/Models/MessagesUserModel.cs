@@ -14,7 +14,8 @@ namespace Cure.WebSite.Models
     public class MessagesUserModel
     {
         public Guid UserId { get; set; }
-        public Guid ChildId { get; set; }
+        public Guid GuidId { get; set; }
+        public int? ChildId { get; set; }
         public string Username { get; set; }
         public string ContactName { get; set; }
         public string UserDisplay { get; set; }
@@ -30,7 +31,8 @@ namespace Cure.WebSite.Models
         public MessagesUserModel(ViewRecipient view, bool isOnline, bool isAdmin, string lastMessageText, DateTime lastMessageDate)
         {
             this.UserId = view.UserId;
-            this.ChildId = view.GuidId ?? Guid.NewGuid();
+            this.GuidId = view.GuidId ?? Guid.NewGuid();
+            this.ChildId = view.ChildId;
             this.Username = view.UserName;
             this.ContactName = view.ContactName;
             this.OnlineModifier = isOnline ? "is-online" : string.Empty;

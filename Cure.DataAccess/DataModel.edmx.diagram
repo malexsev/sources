@@ -10,14 +10,10 @@
         <EntityTypeShape EntityType="DataModel.RefCountry" Width="1.5" PointX="7.75" PointY="19.25" />
         <EntityTypeShape EntityType="DataModel.RefRodstvo" Width="1.5" PointX="4.5" PointY="1.5" />
         <AssociationConnector Association="DataModel.FK_Pacient_RefCountry" />
-        <EntityTypeShape EntityType="DataModel.Department" Width="1.5" PointX="11.375" PointY="13.25" />
-        <AssociationConnector Association="DataModel.FK_Department_Department" />
-        <AssociationConnector Association="DataModel.FK_Department_RefCountry" />
         <EntityTypeShape EntityType="DataModel.Sputnik" Width="1.5" PointX="7.75" PointY="1.125" />
         <AssociationConnector Association="DataModel.FK_Sputnik_RefCountry" />
         <AssociationConnector Association="DataModel.FK_Sputnik_RefRodstvo" />
         <EntityTypeShape EntityType="DataModel.TransferUser" Width="1.5" PointX="14.375" PointY="13.25" />
-        <AssociationConnector Association="DataModel.FK_TransferUser_Department" />
         <EntityTypeShape EntityType="DataModel.ViewScheduler" Width="1.875" PointX="25.75" PointY="2" />
         <EntityTypeShape EntityType="DataModel.SmsLog" Width="1.5" PointX="14.375" PointY="9.375" />
         <EntityTypeShape EntityType="DataModel.NotificationLog" Width="1.75" PointX="14.375" PointY="6.625" />
@@ -31,23 +27,19 @@
         <EntityTypeShape EntityType="DataModel.RefDiagnoz" Width="1.5" PointX="1.5" PointY="25" />
         <EntityTypeShape EntityType="DataModel.RefStopVisitType" Width="1.75" PointX="20.125" PointY="16.125" />
         <EntityTypeShape EntityType="DataModel.StopVisit" Width="1.5" PointX="17.5" PointY="15.625" />
-        <AssociationConnector Association="DataModel.FK_StopVisit_Department" />
         <AssociationConnector Association="DataModel.FK_StopVisit_RefStopVisitType" />
         <EntityTypeShape EntityType="DataModel.ChildHideFile" Width="1.5" PointX="1.5" PointY="21" />
         <EntityTypeShape EntityType="DataModel.ChildAvaFile" Width="1.5" PointX="1.375" PointY="28.375" />
         <EntityTypeShape EntityType="DataModel.Visit" Width="1.5" PointX="8.5" PointY="6.75" />
         <AssociationConnector Association="DataModel.FK_Visit_Pacient" />
         <EntityTypeShape EntityType="DataModel.Order" Width="1.5" PointX="11.25" PointY="5.125" />
-        <AssociationConnector Association="DataModel.FK_Order_Department" />
         <AssociationConnector Association="DataModel.FK_Order_OrderStatus" />
         <AssociationConnector Association="DataModel.FK_Sputnik_Order" />
         <AssociationConnector Association="DataModel.FK_Visit_Order" />
         <EntityTypeShape EntityType="DataModel.ViewUserMembership" Width="2.875" PointX="28.75" PointY="2" />
         <EntityTypeShape EntityType="DataModel.RefOperator" Width="1.5" PointX="7.875" PointY="26.625" />
         <EntityTypeShape EntityType="DataModel.Mension" Width="1.5" PointX="13.625" PointY="21.125" />
-        <AssociationConnector Association="DataModel.FK_Mension_Department" />
         <EntityTypeShape EntityType="DataModel.DepartmentStop" Width="1.625" PointX="14" PointY="16.125" />
-        <AssociationConnector Association="DataModel.FK_DepartmentStop_Department" />
         <EntityTypeShape EntityType="DataModel.ViewSoonVisit" Width="1.5" PointX="23.125" PointY="2" />
         <EntityTypeShape EntityType="DataModel.Child" Width="1.5" PointX="4.875" PointY="20.875" />
         <AssociationConnector Association="DataModel.FK_Child_Child" />
@@ -84,6 +76,14 @@
         <AssociationConnector Association="DataModel.FK_Vipiska_RefGmfcsLevel" />
         <AssociationConnector Association="DataModel.FK_Vipiska_RefMacsLevel" />
         <AssociationConnector Association="DataModel.FK_Vipiska_Visit" />
+        <EntityTypeShape EntityType="DataModel.Department" Width="1.5" PointX="11.25" PointY="13.625" />
+        <AssociationConnector Association="DataModel.FK_Department_Department" />
+        <AssociationConnector Association="DataModel.FK_Department_RefCountry" />
+        <AssociationConnector Association="DataModel.FK_DepartmentStop_Department" />
+        <AssociationConnector Association="DataModel.FK_Mension_Department" />
+        <AssociationConnector Association="DataModel.FK_Order_Department" />
+        <AssociationConnector Association="DataModel.FK_StopVisit_Department" />
+        <AssociationConnector Association="DataModel.FK_TransferUser_Department" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
