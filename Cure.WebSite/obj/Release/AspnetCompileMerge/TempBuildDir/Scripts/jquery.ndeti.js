@@ -1149,6 +1149,15 @@ $(document).ready(function () {
                         $(".forms-radiotwix > .forms-radio").click(function () {
                             $(this).addClass("active").siblings(".forms-radio").removeClass("active");
                         });
+                        setTimeout(function() {
+                            // Если один инпут:
+                            $('.js-datepicker').datepicker({
+                                dateFormat: 'dd.mm.yyyy',
+                                language: 'ru',
+                                autoclose: true,
+                                multidate: false
+                            });
+                        }, 2000);
                     } else if (result == "0") {
                         window.location.href = '/Home/Index/';
                     } else {
@@ -1267,6 +1276,9 @@ $(document).ready(function () {
     /*------------ Сохранение Заявки Шаг5 ----------------------------*/
     $("#orderstep5next").click(function (e) {
         $("#error-step5").hide();
+        $("#orderstep5next").hide();
+        $("#orderstep5back").hide();
+        $("#orderstep5save").hide();
         $.ajax({
             url: "/Cabinet/SaveStep5",
             type: "POST",
@@ -1274,9 +1286,6 @@ $(document).ready(function () {
                 if (result == "1") {
                     $("#error-step5").removeClass("form-errors");
                     $("#error-step5").show().text("Заявка успешно отправлена.");
-                    $("#orderstep5next").hide();
-                    $("#orderstep5back").hide();
-                    $("#orderstep5save").hide();
                     setTimeout(function () { setOrderTab('order-current'); }, 3000);
                 } else if (result == "0") {
                     window.location.href = '/Home/Index/';
@@ -1817,7 +1826,7 @@ $(document).ready(function () {
     $(".js-counter .btn-dwn").click(function () {
         var $input = $(this).siblings(".counter-rez"),
             count = parseInt($input.val()) - 1;
-        count = count < 0 ? 0 : count;
+        count = count < 1 ? 1 : count;
         $input.val(count).change();
     });
     $(".js-counter .btn-upp").click(function () {
@@ -1921,6 +1930,7 @@ $(document).ready(function () {
         dateFormat: 'dd.mm.yyyy',
         startDate: '+5d',
         language: 'ru',
+        autoclose: true,
         inputs: $('.js-input-daterange .ico-calendar')
     });
     // Если один инпут:

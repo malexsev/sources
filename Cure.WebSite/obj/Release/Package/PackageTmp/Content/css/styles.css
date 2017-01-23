@@ -5204,7 +5204,8 @@ html.swipebox-html.swipebox-touch {
 .sec-hosp-procedure .procedure-room-img img {
   display: block;
   min-width: 100%;
-  min-height: 100%;
+  max-width: none;
+  height: 100%;
 }
 .sec-hosp-procedure .procedure-room-txt {
   padding: 40px 30px;
@@ -5309,7 +5310,8 @@ html.swipebox-html.swipebox-touch {
 .sec-hosp-housing .housing-room-img img {
   display: block;
   min-width: 100%;
-  min-height: 100%;
+  max-width: none;
+  height: 100%;
 }
 .sec-hosp-housing .housing-room-txt {
   padding: 40px 30px;
@@ -5576,7 +5578,7 @@ html.swipebox-html.swipebox-touch {
 }
 .chat-page {
   height: calc(100vh - 155px);
-  padding: 20px 0;
+  padding: 50px 0;
 }
 .chat-page .container {
   height: 100%;
@@ -6841,6 +6843,15 @@ html.swipebox-html.swipebox-touch {
   .side-phones{
     text-align: center;
   }
+  .side-card{
+    text-align: center;
+  }
+  .side-card-img img{
+    margin: 0 auto;
+  }
+  .price-exchnge{
+    min-height: 0;
+  }
 }
 
 @media (max-width: 767px) {
@@ -6913,6 +6924,26 @@ html.swipebox-html.swipebox-touch {
   .slimpage-head-note::after {
     left: 50%;
     margin-left: -22px;
+  }
+  .megamenu-col{
+    display: block;
+    width: auto;
+    padding: 0 5px;
+  }
+  .megamenu-clinic{
+    display: block;
+    width: auto;
+  }
+  .sec-hosp-procedure .procedure-room-img,
+  .sec-hosp-housing .housing-room-img{
+    position: static;
+  }
+  .sec-hosp-intro .intro-img{
+    position: static;
+  }
+  .sec-hosp-intro .intro-info,
+  .sec-hosp-intro{
+    height: auto;
   }
 }
 
@@ -6993,6 +7024,21 @@ html.swipebox-html.swipebox-touch {
   .user-content .explanation-txt{
     margin: 0;
     text-align: center;
+  }
+  .hosp-page-nav{
+    height: 46px;
+  }
+  .hosp-page-nav span {
+    display: none;
+  }
+  .hosp-page-nav i {
+    margin: 7px auto;
+  }
+  .hosp-page-menu.is-sticked .hosp-page-nav-btn{
+    display: none;
+  }
+  .hosp-page-menu.is-sticked .hosp-page-nav{
+    margin-right: 0;
   }
 }
 

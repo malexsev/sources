@@ -35,6 +35,9 @@ namespace Cure.WebSite.Controllers
             ViewBag.Rodstvos = dal.GetRefRodstvo();
             ViewBag.Operators = dal.GetRefOperators();
             ViewBag.CountryBanks = dal.GetRefBanks(child.FinCountryId ?? child.CountryId);
+            ViewBag.CurrencyRateCNY = GetRate("CNY");
+            var weathers = new List<Weather> { dal.GetWeatherByCity(33991), dal.GetWeatherByCity(36870), dal.GetWeatherByCity(50207) };
+            ViewBag.Weathers = weathers;       
 
             var vipiskas = dal.GetMyVipiskas(User.Identity.Name).ToList();
             ViewBag.Vipiskas = vipiskas.Select(x => new VisitResultViewModel(x));
@@ -216,6 +219,9 @@ namespace Cure.WebSite.Controllers
             ViewBag.Countries = dal.GetRefCountries();
             ViewBag.Rodstvos = dal.GetRefRodstvo();
             ViewBag.DocFiles = GetDocumentFiles();
+            ViewBag.CurrencyRateCNY = GetRate("CNY");
+            var weathers = new List<Weather> { dal.GetWeatherByCity(33991), dal.GetWeatherByCity(36870), dal.GetWeatherByCity(50207) };
+            ViewBag.Weathers = weathers;
 
             return View(clientContainer);
         }
@@ -810,6 +816,9 @@ namespace Cure.WebSite.Controllers
             ViewBag.Rodstvos = dal.GetRefRodstvo();
             ViewBag.Operators = dal.GetRefOperators();
             ViewBag.CountryBanks = dal.GetRefBanks(child.FinCountryId ?? child.CountryId);
+            ViewBag.CurrencyRateCNY = GetRate("CNY");
+            var weathers = new List<Weather> { dal.GetWeatherByCity(33991), dal.GetWeatherByCity(36870), dal.GetWeatherByCity(50207) };
+            ViewBag.Weathers = weathers;
 
             var vipiskas = dal.GetMyVipiskas(User.Identity.Name).ToList();
             ViewBag.Vipiskas = vipiskas.Select(x => new VisitResultViewModel(x));
@@ -1575,6 +1584,20 @@ namespace Cure.WebSite.Controllers
             set
             {
                 Session["ClientContainer"] = value;
+            }
+        }
+
+        private decimal GetRate(string currency)
+        {
+            var dal = new DataAccessBL();
+            var rate = dal.GetCurrencyRates().FirstOrDefault(x => x.CurrencyFrom == currency);
+            if (rate != null)
+            {
+                return Math.Round(rate.Rate, 2);
+            }
+            else
+            {
+                return 0;
             }
         }
     }
