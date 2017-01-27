@@ -121,7 +121,7 @@ namespace Cure.DataAccess.DAL
 
         public IEnumerable<Order> GetMyOrders(string username)
         {
-            return context.Orders.Where(x => x.StatusId != (int)Enums.OrderStatus.Черновик && x.OwnerUser == username).OrderByDescending(o => o.StatusId).ToList();
+            return context.Orders.Where(x => x.StatusId != (int)Enums.OrderStatus.Черновик && x.OwnerUser == username).OrderByDescending(o => o.DateFrom).ToList();
         }
 
         public IEnumerable<Order> GetOrders()

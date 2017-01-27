@@ -526,6 +526,7 @@
     <Compile Include="Models\ChildVisual.cs" />
     <Compile Include="Models\ClientContainer.cs" />
     <Compile Include="Models\DocItem.cs" />
+    <Compile Include="Models\OrderViewModel.cs" />
     <Compile Include="Models\PacientDataSoruce.cs" />
     <Compile Include="Models\PhotoItem.cs" />
     <Compile Include="Models\MessagesUserModel.cs" />
@@ -639,6 +640,7 @@
     <Content Include="Views\Home\Careers.cshtml" />
     <Content Include="Views\Home\Pravo.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\Home\SimpleStyles.cshtml" />
     <None Include="Views\Medicine\Human.cshtml" />
     <Content Include="Views\Procedure\OtOccupational.cshtml" />
     <Content Include="Views\Procedure\StSpeech.cshtml" />

@@ -1149,7 +1149,7 @@ $(document).ready(function () {
                         $(".forms-radiotwix > .forms-radio").click(function () {
                             $(this).addClass("active").siblings(".forms-radio").removeClass("active");
                         });
-                        setTimeout(function() {
+                        setTimeout(function () {
                             // Если один инпут:
                             $('.js-datepicker').datepicker({
                                 dateFormat: 'dd.mm.yyyy',
@@ -1284,9 +1284,12 @@ $(document).ready(function () {
             type: "POST",
             success: function (result) {
                 if (result == "1") {
+                    $("#order-current-tab").load('/Cabinet/OrdersPartial');
                     $("#error-step5").removeClass("form-errors");
                     $("#error-step5").show().text("Заявка успешно отправлена.");
-                    setTimeout(function () { setOrderTab('order-current'); }, 3000);
+                    setTimeout(function () {
+                        setOrderTab('order-current');
+                    }, 3000);
                 } else if (result == "0") {
                     window.location.href = '/Home/Index/';
                 } else {
@@ -1499,8 +1502,6 @@ $(document).ready(function () {
 
     /*------------ Фильтрация отзывов ----------------------------*/
     $(document).on('change', "#mensionfilter", function () {
-        var filter = $(this);
-
         $("#skiprecords").val(0);
 
         var form = $('#mensionform');
@@ -1516,6 +1517,19 @@ $(document).ready(function () {
                 alert(result.responseText);
             }
         });
+    });
+
+    /*------------ Фильтрация FAQ ----------------------------*/
+    $(document).on('change', "#faqsubject", function () {
+        var filter = $(this).val();
+
+        $('.accordion-section').hide();
+        if (filter == 0) {
+            $('.accordion-section').show();
+        } else {
+            var answers = $('.accordion-section[data-val="' + filter + '"]');
+            answers.show();
+        }
     });
 
     /*------------ Добавление обратной связи ----------------------------*/
@@ -1697,7 +1711,7 @@ $(document).ready(function () {
             }
         });
     });
-    
+
     /*----------- Галлерея картинок  -----------------------------------------*/
     $('#big-slider-img').slick({
         slidesToShow: 1,
@@ -2041,7 +2055,7 @@ $(document).ready(function () {
             }
         }
     ], $('.hosp-page'));
-    
+
 
 
     /* --- Аккордеон ---------------------------------------------------------*/
@@ -2077,7 +2091,7 @@ $(document).ready(function () {
     $(".js-assist-close").click(function () {
         $(this).closest(".assist-drop").toggleClass("active");
     });
-    
+
     /*--- Детали Наши Дети - показатели тестов ------------------*/
     $(".js-testlevels-start").click(function (e) {
         alert("gg");
@@ -2099,7 +2113,7 @@ $(window).load(function () {
 
     setInterval(function () {
         UpdateUnreadMessages();
-    }, 30000);
+    }, 50000);
 });
 
 /*--- Подключим maps api ----*/

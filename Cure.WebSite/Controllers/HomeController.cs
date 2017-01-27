@@ -10,6 +10,11 @@ namespace Cure.WebSite.Controllers
 
     public class HomeController : Controller
     {
+        public ActionResult SimpleStyles()
+        {
+            return View();
+        }
+
         public ActionResult Help()
         {
             return View();

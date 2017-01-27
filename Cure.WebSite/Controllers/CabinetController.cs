@@ -184,7 +184,7 @@ namespace Cure.WebSite.Controllers
             var view = dal.ViewChild(User.Identity.Name);
             if (view != null)
             {
-                var child = dal.GetChild(view.Id);
+                var child = dal.GetChild(view.Id);SiteUtils.GetCurrentUserName();
                 child.ContactEmail = email;
                 dal.UpdateChild(child);
                 return Json("1", JsonRequestBehavior.AllowGet);
@@ -219,11 +219,23 @@ namespace Cure.WebSite.Controllers
             ViewBag.Countries = dal.GetRefCountries();
             ViewBag.Rodstvos = dal.GetRefRodstvo();
             ViewBag.DocFiles = GetDocumentFiles();
+            ViewBag.Orders = dal.GetMyOrders(SiteUtils.GetCurrentUserName()).Select(x => new OrderViewModel(x));
             ViewBag.CurrencyRateCNY = GetRate("CNY");
             var weathers = new List<Weather> { dal.GetWeatherByCity(33991), dal.GetWeatherByCity(36870), dal.GetWeatherByCity(50207) };
             ViewBag.Weathers = weathers;
 
             return View(clientContainer);
+        }
+
+        public PartialViewResult OrdersPartial()
+        {
+            if (!User.Identity.IsAuthenticated)
+            {
+                RedirectToAction("Index", "Home");
+            }
+
+            var dal = new DataAccessBL();
+            return PartialView("_OrderCurrent", dal.GetMyOrders(User.Identity.Name).Select(x => new OrderViewModel(x)));
         }
 
         public PartialViewResult OrderStep2Partial()
