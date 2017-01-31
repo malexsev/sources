@@ -105,11 +105,6 @@
         @Html.Partial("_MensionAddPopup")    ;
     }
 
-    @if (Request.Url.AbsolutePath.ToLower().Contains("department") && Request.Url.AbsolutePath.ToLower().Contains("sevastopol"))
-    {
-        @Html.Partial("_SevastopolPops")    ;
-    }
-
     @if (Request.Url.AbsolutePath.ToLower().Contains("department") && Request.Url.AbsolutePath.ToLower().Contains("almaata"))
     {
         @Html.Partial("_AlmaataPops")    ;

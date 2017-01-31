@@ -1971,7 +1971,8 @@ $(document).ready(function () {
         var $btn = $(this);
         menuId = "#" + $btn.data("menu");
         e.stopPropagation();
-        $(".megamenu").removeClass("active");
+        $(".megamenu, .js-toggle-menu, .header-menu").removeClass("active");
+
         $(menuId).addClass("active").children(".megamenu-back").height($(document).height());
     });
     // Закрыть

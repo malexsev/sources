@@ -10,13 +10,6 @@ namespace Cure.WebSite.Controllers
 
     public class DepartmentController : Controller
     {
-        public ActionResult Sevastopol()
-        {
-            ViewBag.CurrencyRateCNY = GetRate("CNY");
-            ViewBag.CurrencyRateUSD = GetRate("USD");
-            ViewBag.CurrencyRateKZT = GetRate("KZT");
-            return View();
-        }
         public ActionResult Yancheng1()
         {
             ViewBag.CurrencyRateCNY = GetRate("CNY");

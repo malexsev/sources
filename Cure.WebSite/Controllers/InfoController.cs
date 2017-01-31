@@ -6,15 +6,15 @@ using System.Web.Mvc;
 
 namespace Cure.WebSite.Controllers
 {
-    public class BibliotekaController : Controller
+    public class InfoController : Controller
     {
         // GET: China
-        public ActionResult Lekarstvassoboy()
+        public ActionResult Rashodi()
         {
             return View();
         }
 
-        public ActionResult Lekarstvakitay()
+        public ActionResult Pogoda()
         {
             return View();
         }
