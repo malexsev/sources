@@ -11,7 +11,7 @@ namespace Cure.DataAccess.BLL
 
         public IEnumerable<Department> GetDepSubject()
         {
-            var deps = dataRepository.GetDepartments().ToList();
+            var deps = dataRepository.GetActiveDepartments().ToList();
             deps.Add(new Department() { Name = "Работа сервиса, организация лечения", Id = -1 });
             return deps;
         }

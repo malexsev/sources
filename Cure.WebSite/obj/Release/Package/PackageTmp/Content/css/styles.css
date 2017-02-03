@@ -6656,7 +6656,8 @@ html.swipebox-html.swipebox-touch {
     margin: 0;
   }
   .header-menu > li:hover {
-    background: #fafafa;
+    color: #e17f20;
+    background: #f4f3ea;
   }
   .header-menu > li:last-child {
     margin-bottom: 30px;
@@ -6665,6 +6666,10 @@ html.swipebox-html.swipebox-touch {
     font-family: 'Open Sans', sans-serif;
     border-radius: 0;
     border: none;
+  }
+  .header-menu > li.active a{
+    font-weight: 700;
+    background: #f4f3ea;
   }
   .header-submenu-wrap{
     display: block;
@@ -6852,6 +6857,13 @@ html.swipebox-html.swipebox-touch {
   .price-exchnge{
     min-height: 0;
   }
+  .contact-card{
+    width: auto;
+    padding: 10px;
+  }
+  .contact-card-title{
+    font-size: 36px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -6938,12 +6950,31 @@ html.swipebox-html.swipebox-touch {
   .sec-hosp-housing .housing-room-img{
     position: static;
   }
+  .sec-hosp-housing .housing-room-img img{
+    max-width: 100%;
+  }
   .sec-hosp-intro .intro-img{
     position: static;
   }
   .sec-hosp-intro .intro-info,
   .sec-hosp-intro{
     height: auto;
+  }
+  .sec-message-form .forms-input,
+  .sec-message-form .forms-text{
+    width: 100%;
+  }
+  .assist-drop{
+    width: 400px;
+  }
+  .assist-drop .container {
+    padding: 30px 20px;
+  }
+  .assist-subtitle{
+    margin: 10px 0;
+  }
+  .child-info-money .money-account{
+    margin: 3px 0;
   }
 }
 
@@ -7040,6 +7071,59 @@ html.swipebox-html.swipebox-touch {
   .hosp-page-menu.is-sticked .hosp-page-nav{
     margin-right: 0;
   }
+  .slimpage {
+    padding: 45px 0 0;
+  }
+  .slimpage-prev, .slimpage-next {
+    position: fixed;
+    top: 50%;
+    border: 1px solid #e7e7e7;
+    height: 40px;
+    width: 40px;
+    z-index: 10;
+  }
+  .slimpage-prev{
+    left: 5px;
+  }
+  .slimpage-next{
+    right: 5px;
+  }
+  .slimpage-head-title{
+    font-size: 32px;
+  }
+  .boss-card-img{
+    float: none;
+    margin: 0 auto;
+  }
+  .boss-card-txt{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: rgba(255,255,255,0.7);
+    overflow: hidden;
+  }
+  .sec-message-form {
+    padding: 20px;
+  }
+  .content-wrap{
+    padding: 20px 10px;
+  }
+  .order-steps-nav li{
+    width: 80%;
+  }
+  .order-steps-nav a{
+    padding: 5px 10px;
+  }
+  .order-item {
+    display: block;
+    padding: 40px 20px;
+    width: auto;
+  }
+  .forms-half-line {
+    float: none;
+    padding-right: 0;
+    width: auto;
+  }
 }
 
 @media (max-width: 519px) {
@@ -7099,4 +7183,29 @@ html.swipebox-html.swipebox-touch {
   .popup-registr .registr-submit {
     width: 200px;
   }
+  .doctor-img{
+    float: none;
+    margin: 0 auto;
+  }
+  .doctor-txt{
+    margin: 0;
+    text-align: center;
+  }
+  .sec-team-member .member-face{
+    float: none;
+    margin: 20px auto 10px;
+  }
+  .sec-team-member .member-name,
+  .sec-team-member .member-post,
+  .sec-team-member .member-work{
+    margin: 10px 0;
+    text-align: center;
+  }
+  .assist-drop{
+    width: 340px;
+    right: 50%;
+    margin-right: -170px;
+  }
+
+
 }
