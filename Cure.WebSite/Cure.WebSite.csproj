@@ -757,6 +757,8 @@
     <Content Include="Views\Home\Search.cshtml" />
     <Content Include="Views\Home\SimpleStyles.cshtml" />
     <Content Include="Views\Biblioteka\Lekarstvakitay.cshtml" />
+    <Content Include="Views\Info\Soft.cshtml" />
+    <Content Include="Views\Info\Internet.cshtml" />
     <None Include="Views\Medicine\Human.cshtml" />
     <Content Include="Views\Procedure\OtOccupational.cshtml" />
     <Content Include="Views\Procedure\StSpeech.cshtml" />

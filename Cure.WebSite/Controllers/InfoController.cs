@@ -18,5 +18,15 @@ namespace Cure.WebSite.Controllers
         {
             return View();
         }
+
+        public ActionResult Soft()
+        {
+            return View();
+        }
+
+        public ActionResult Internet()
+        {
+            return View();
+        }
     }
 }
