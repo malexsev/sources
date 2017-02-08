@@ -681,10 +681,10 @@ $(document).ready(function () {
                     }
                     else if (result == "0") {
                         $("#loginname").parent().addClass("has-error");
-                        $("#error-register").show().text("Данный email уже используется в системе, воспульзуйтесь подсказкой пароля при входе");
+                        $("#error-register").show().text("Данный email уже используется в системе, воспульзуйтесь восстановлением пароля.");
                     } else {
                         $("#loginname").parent().addClass("has-error");
-                        $("#error-register").show().text("Данный логин уже зарегистрирован, воспульзуйтесь подсказкой пароля при входе");
+                        $("#error-register").show().text("Данный логин уже зарегистрирован, воспульзуйтесь восстановлением пароля");
                     }
                 },
                 error: function (result) {

@@ -5,6 +5,11 @@
 
     public partial class DataAccessBL
     {
+        public int CheckDeleteMembership(string username)
+        {
+            return dataRepository.CheckDeleteMembership(username);
+        }
+
         public ViewUserMembership GetUserMembership(Guid userId)
         {
             return dataRepository.GetUserMembership(userId);

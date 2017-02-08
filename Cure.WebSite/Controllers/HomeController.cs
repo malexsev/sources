@@ -20,6 +20,7 @@ namespace Cure.WebSite.Controllers
             return View();
         }
 
+        [OutputCache (Duration = 60)]
         public ActionResult Index()
         {
             var dal = new DataAccessBL();

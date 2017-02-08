@@ -11,25 +11,25 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>02/03/2017 14:29:03</publishTime>
+      <publishTime>02/06/2017 18:17:10</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>02/03/2017 14:29:03</publishTime>
+      <publishTime>02/06/2017 18:17:09</publishTime>
     </File>
     <File Include="bin/Cure.DataAccess.dll">
-      <publishTime>02/03/2017 14:28:57</publishTime>
+      <publishTime>02/06/2017 18:12:07</publishTime>
     </File>
     <File Include="bin/Cure.Notification.dll">
-      <publishTime>02/03/2017 14:28:58</publishTime>
+      <publishTime>02/06/2017 18:12:10</publishTime>
     </File>
     <File Include="bin/Cure.Reports.dll">
-      <publishTime>02/02/2017 17:24:55</publishTime>
+      <publishTime>02/06/2017 18:01:35</publishTime>
     </File>
     <File Include="bin/Cure.Utils.dll">
-      <publishTime>02/03/2017 14:28:58</publishTime>
+      <publishTime>02/06/2017 18:12:09</publishTime>
     </File>
     <File Include="bin/Cure.WebSite.dll">
-      <publishTime>02/03/2017 14:28:59</publishTime>
+      <publishTime>02/06/2017 18:17:04</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>09/19/2015 00:46:36</publishTime>
@@ -1505,7 +1505,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/24/2016 03:40:02</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>02/03/2017 14:29:01</publishTime>
+      <publishTime>02/06/2017 18:17:07</publishTime>
     </File>
     <File Include="robots.txt">
       <publishTime>01/04/2017 16:21:22</publishTime>
@@ -1523,7 +1523,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/04/2017 15:03:05</publishTime>
     </File>
     <File Include="Scripts/jquery.ndeti.js">
-      <publishTime>01/31/2017 11:17:04</publishTime>
+      <publishTime>02/06/2017 18:08:28</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.js">
       <publishTime>07/24/2016 03:40:01</publishTime>
@@ -1745,19 +1745,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/18/2017 15:37:00</publishTime>
     </File>
     <File Include="Views/Info/Internet.cshtml">
-      <publishTime>02/03/2017 14:26:39</publishTime>
+      <publishTime>02/04/2017 10:08:00</publishTime>
     </File>
     <File Include="Views/Info/Pogoda.cshtml">
-      <publishTime>02/03/2017 14:26:21</publishTime>
+      <publishTime>02/03/2017 14:29:00</publishTime>
     </File>
     <File Include="Views/Info/Rashodi.cshtml">
-      <publishTime>02/03/2017 14:26:32</publishTime>
+      <publishTime>02/03/2017 14:29:00</publishTime>
     </File>
     <File Include="Views/Info/Soft.cshtml">
-      <publishTime>02/03/2017 14:26:38</publishTime>
+      <publishTime>02/03/2017 20:21:00</publishTime>
     </File>
     <File Include="Views/Info/_InfoMenu.cshtml">
-      <publishTime>02/03/2017 14:24:52</publishTime>
+      <publishTime>02/03/2017 14:29:00</publishTime>
     </File>
     <File Include="Views/Medicine/Aceglutamide.cshtml">
       <publishTime>12/08/2016 22:40:00</publishTime>
@@ -1892,7 +1892,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/25/2016 15:07:49</publishTime>
     </File>
     <File Include="Views/Shared/_AccountLogin.cshtml">
-      <publishTime>12/09/2016 20:48:00</publishTime>
+      <publishTime>02/06/2017 18:10:56</publishTime>
     </File>
     <File Include="Views/Shared/_AccountMenu.cshtml">
       <publishTime>12/09/2016 20:48:00</publishTime>
@@ -1958,7 +1958,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/30/2017 13:06:00</publishTime>
     </File>
     <File Include="Views/Shared/_MainMenuExt.cshtml">
-      <publishTime>02/03/2017 14:25:58</publishTime>
+      <publishTime>02/03/2017 14:30:00</publishTime>
     </File>
     <File Include="Views/Shared/_Mension.cshtml">
       <publishTime>12/09/2016 20:48:00</publishTime>

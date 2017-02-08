@@ -1189,6 +1189,25 @@ namespace Cure.DataAccess
     
             return base.ExecuteFunction<ViewRecipient>("sp_GetMyContacts", mergeOption, userNameParameter, contactParameter, filterParameter);
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="userName">No Metadata Documentation available.</param>
+        public ObjectResult<Nullable<global::System.Int32>> spUserDeleteCheck(global::System.String userName)
+        {
+            ObjectParameter userNameParameter;
+            if (userName != null)
+            {
+                userNameParameter = new ObjectParameter("UserName", userName);
+            }
+            else
+            {
+                userNameParameter = new ObjectParameter("UserName", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction<Nullable<global::System.Int32>>("spUserDeleteCheck", userNameParameter);
+        }
 
         #endregion
 

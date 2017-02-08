@@ -929,5 +929,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="spUserDeleteCheck" FunctionName="DataModel.Store.sp_UserDeleteCheck" />
   </EntityContainerMapping>
 </Mapping>

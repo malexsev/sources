@@ -5,6 +5,8 @@ using Cure.Utils;
 
 namespace Cure.WebAdmin.Admin
 {
+    using System.Linq;
+    using System.Web.Security;
 
     public partial class UserList : Page
     {
@@ -13,21 +15,56 @@ namespace Cure.WebAdmin.Admin
 
         }
 
-        //protected void uxFilterButton_Click(object sender, EventArgs e)
-        //{
-        //    uxMainGrid.DataBind();
-        //}
-
-        protected void uxMainGrid_RowUpdating(object sender, DevExpress.Web.Data.ASPxDataUpdatingEventArgs e)
+        protected void uxMainGrid_RowDeleting(object sender, DevExpress.Web.Data.ASPxDataDeletingEventArgs e)
         {
-            //e.NewValues["LastUser"] = SiteUtils.GetCurrentUserName();
-            //e.NewValues["LastDate"] = DateTime.Now;
-        }
+            var username = e.Keys[0].ToString();
 
-        protected void uxMainGrid_RowInserting(object sender, DevExpress.Web.Data.ASPxDataInsertingEventArgs e)
-        {
-            //e.NewValues["CreateUser"] = e.NewValues["LastUser"] = SiteUtils.GetCurrentUserName();
-            //e.NewValues["CreateDate"] = e.NewValues["LastDate"] = DateTime.Now;
+            var dal = new DataAccessBL();
+
+            try
+            {
+                switch (dal.CheckDeleteMembership(username))
+                {
+                    case 1:
+                    {
+                        throw new Exception("Пользователь имеет ссылки на страницу Наши Дети, удаление невозможно при наличии ссылки.");
+                        break;
+                    }
+                    case 2:
+                    {
+                        throw new Exception("Пользователь имеет ссылки на записи в лентах впечатлений, удаление невозможно при наличии ссылок.");
+                        break;
+                    }
+                    case 3:
+                    {
+                        throw new Exception("Пользователь имеет ссылки на сообщения, удаление невозможно при наличии ссылок.");
+                        break;
+                    }
+                    case 4:
+                    {
+                        throw new Exception("Пользователь имеет ссылки на заявки, удаление невозможно при наличии заявок.");
+                        break;
+                    }
+                    case 5:
+                    {
+                        throw new Exception("Пользователь имеет посты в лентах впечатлений, удаление невозможно при наличии постов.");
+                        break;
+                    }
+                    default:
+                    {
+                        Membership.DeleteUser(username);
+                        break;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

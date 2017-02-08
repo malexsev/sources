@@ -19,9 +19,9 @@
             </tr>
         </table>--%>
 
-        <dx:ASPxGridView ID="uxMainGrid" ClientInstanceName="grid" runat="server" AutoGenerateColumns="False" KeyFieldName="UserName" OnRowUpdating="uxMainGrid_RowUpdating" OnRowInserting="uxMainGrid_RowInserting" DataSourceID="uxMainDataSource">
+        <dx:ASPxGridView ID="uxMainGrid" ClientInstanceName="grid" runat="server" AutoGenerateColumns="False" KeyFieldName="UserName" DataSourceID="uxMainDataSource" OnRowDeleting="uxMainGrid_RowDeleting">
             <Columns>
-                <dx:GridViewCommandColumn ShowEditButton="True" VisibleIndex="0" Width="36px">
+                <dx:GridViewCommandColumn ShowEditButton="True" ShowDeleteButton="True" VisibleIndex="0" Width="36px">
                 </dx:GridViewCommandColumn>
                 <dx:GridViewDataTextColumn FieldName="UserName" VisibleIndex="1" Caption="Логин">
                     <EditFormSettings Visible="False" />
@@ -61,7 +61,7 @@
                 </DetailRow>
             </Templates>--%>
             <Settings ShowFilterRow="True" ShowGroupPanel="True" />
-            <SettingsDataSecurity AllowDelete="False" AllowInsert="False" />
+            <SettingsDataSecurity AllowInsert="False" />
         </dx:ASPxGridView>
 
         <asp:ObjectDataSource ID="uxMainDataSource" runat="server" DataObjectTypeName="Cure.DataAccess.ViewUserMembership" SelectMethod="ViewUserMembership" TypeName="Cure.DataAccess.BLL.DataAccessBL" UpdateMethod="UpdateUserMembership" OldValuesParameterFormatString="original_{0}">

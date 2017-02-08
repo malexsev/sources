@@ -200,6 +200,9 @@
       <End Role="Department" EntitySet="Departments" />
       <End Role="TransferUser" EntitySet="TransferUsers" />
     </AssociationSet>
+    <FunctionImport Name="spUserDeleteCheck" ReturnType="Collection(Int32)">
+      <Parameter Name="UserName" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="OrderStatu">
     <Key>

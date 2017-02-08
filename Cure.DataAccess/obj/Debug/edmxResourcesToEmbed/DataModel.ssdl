@@ -1379,6 +1379,9 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
     <Parameter Name="Contact" Type="nvarchar" Mode="In" />
     <Parameter Name="Filter" Type="nvarchar" Mode="In" />
   </Function>
+  <Function Name="sp_UserDeleteCheck" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+  </Function>
   <EntityContainer Name="DataModelStoreContainer">
     <EntitySet Name="aspnet_Membership" EntityType="Self.aspnet_Membership" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="aspnet_Users" EntityType="Self.aspnet_Users" Schema="dbo" store:Type="Tables" />

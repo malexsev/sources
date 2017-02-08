@@ -57,6 +57,7 @@ namespace Cure.DataAccess.DAL
         void DeleteCurrency(Currency currency);
         void UpdateCurrency(Currency currency);
 
+        int CheckDeleteMembership(string username);
         ViewUserMembership GetUserMembership(string username);
         ViewUserMembership GetUserMembership(Guid userId);
         IEnumerable<ViewUserMembership> ViewUserMembership();

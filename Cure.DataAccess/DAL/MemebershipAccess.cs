@@ -8,6 +8,17 @@ namespace Cure.DataAccess.DAL
 {
     internal partial class DataRepository
     {
+        public int CheckDeleteMembership(string username)
+        {
+            var disallow = context.spUserDeleteCheck(username).FirstOrDefault();
+
+            if (disallow == null)
+            {
+                return 0;
+            }
+            return disallow.Value;
+        }
+
         public ViewUserMembership GetUserMembership(Guid userId)
         {
             return context.ViewUserMemberships.FirstOrDefault(x => x.Expr1 == userId);
