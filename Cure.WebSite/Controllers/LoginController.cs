@@ -48,7 +48,7 @@ namespace Cure.WebSite.Controllers
             {
                 Session.Abandon();
                 ActivateUser(loginname);
-                FormsAuthentication.SetAuthCookie(loginname, false);
+                FormsAuthentication.SetAuthCookie(loginname, true);
                 return Json("1", JsonRequestBehavior.AllowGet);
             }
             return Json("0", JsonRequestBehavior.AllowGet);

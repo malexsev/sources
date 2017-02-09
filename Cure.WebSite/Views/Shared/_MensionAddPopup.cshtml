@@ -28,21 +28,22 @@
                     </div>
                 </div>
                 <div class="forms-line">
-                    @Html.TextArea("text", new { @id = "text", @class = "forms-text" })
+                    @Html.TextArea("text", new { @id = "text", @class = "forms-text js-symbols-couneter" })
                 </div>
                 <div class="forms-line txt-center">
                     <input class="btn btn-orang" type="submit" title="ОТПРАВИТЬ">
                     <div id="addmensionprogress">
                     </div>
-                    <div id="error-mensionadd" class="form-errors"></div>
                 </div>
+                <div id="error-mensionadd" class="form-errors"></div>
+                <p>Введено <span id="rest-symbols"></span> символа из 2000 доступных</p>
             }
             <div class="forms-on-submit js-submit-ok">
                 <div class="registr-text txt-center top-50 btm-50">
                     Отзыв отправлен. После того, как его проверит модератор, отзыв будет опубликован.
                 </div>
                 <div class="forms-line txt-center">
-                    <a class="btn btn-small js-close-popup" role="button">Закрыть</a>
+                    <a class="btn btn-small js-close-mension js-close-popup" role="button">Закрыть</a>
                 </div>
             </div>
         </div>

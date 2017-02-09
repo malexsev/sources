@@ -198,27 +198,7 @@ $(document).ready(function () {
         $("#skiprecords").val(0);
         $('form#childrenform').submit();
     });
-    //$(document).on('click', "#fincountries li", function () {
-    //    var serializedForm = $('#formChildTab4').serialize();
-    //    $.ajax({
-    //        url: "/Cabinet/RefreshBanks",
-    //        type: "POST",
-    //        data: serializedForm,
-    //        success: function (data) {
-    //            refreshBanks(data);
-    //        },
-    //        error: function (result) {
-    //            alert(result.responseText);
-    //        }
-    //    });
-    //});
-    //function refreshBanks(banks) {
-    //    $("#finbanks").html("");
-    //    $("#finbanktext").text("");
-    //    $.each(banks, function (i) {
-    //        $("#finbanks").append("<li data-val='" + this.Id + "'>" + this.Name + "</li>");
-    //    });
-    //}
+
     //Закрытие списка селектора при клике мимо
     $(document).mouseup(function (e) {
         var selectorList = $('.selector.show-list');
@@ -471,17 +451,39 @@ $(document).ready(function () {
         });
     });
 
+    $.validator.addMethod(
+    "regex",
+    function (value, element, regexp) {
+        var check = false;
+        var re = new RegExp(regexp);
+        return this.optional(element) || re.test(value);
+    },
+    "Запрещённые символы"
+    );
+
     /* --- Валидация добавления отзыва ---------------------------------------------*/
     $(".js-mension-add").each(function () {
         $(this).validate({
             focusInvalid: false,
+            onkeyup: true,
+            onclick: true,
             rules: {
                 subject: { number: true, range: [-1, 100] },
-                text: { required: true, maxlength: 10000, minlength: 10 }
+                text: {
+                    required: true,
+                    minlength: 5,
+                    maxlength: 2000,
+                    regex: /^[^<>]+$/
+                }
             },
             messages: {
                 subject: "Выберите тему отзыва",
-                text: "Слишком короткий отзыв"
+                text: {
+                    required: "Отсутствует текст отзыва",
+                    minlength: "Текст должен превышать 5 символов",
+                    maxlength: "Текст не должен превышать 2000 символов",
+                    regex: "Текст содержит запрещённые символы \"<\" или \">\""
+                }
             },
             errorClass: "has-error",
             highlight: function (element, errorClass) {
@@ -1486,6 +1488,11 @@ $(document).ready(function () {
                     if (result == "1") {
                         $("#error-mensionadd").hide();
                         $(form).hide().siblings(".js-submit-ok").show();
+                        setTimeout(function () {
+                            $("#text").val("");
+                            $("#rest-symbols").text("0");
+                            $(form).show().siblings(".js-submit-ok").hide();
+                        }, 3000);
                     } else {
                         $("#error-mensionadd").show().text("Ошибка сохранения отзыва.");
                     }
@@ -1512,6 +1519,7 @@ $(document).ready(function () {
             data: serializedForm,
             success: function (result) {
                 $("#js-for-load-testimonials").html(result);
+                $(".js-spoiler-testimonials").spoilerInit(72);
             },
             error: function (result) {
                 alert(result.responseText);
@@ -2096,6 +2104,15 @@ $(document).ready(function () {
     /*--- Детали Наши Дети - показатели тестов ------------------*/
     $(".js-testlevels-start").click(function (e) {
         alert("gg");
+    });
+
+    /*------------ Счётчик оставшихся символов ввода отзыва--------------*/
+    $(".js-symbols-couneter").keyup(function () {
+        var input = $(this).val();
+        var entered = $("#rest-symbols");
+
+        entered.text(input.length);
+
     });
 });
 

@@ -29,3 +29,11 @@
         </div>
     </div>
 }
+@if (IsPost)
+{
+    <script>
+        $("#more-count").text("@Html.Raw((ViewBag.MensionsCount <= 12 ? ViewBag.MensionsCount : 12))");
+        $("#more-all").text("@ViewBag.MensionsCount");
+    </script>
+}
+
