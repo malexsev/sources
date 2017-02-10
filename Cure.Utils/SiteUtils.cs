@@ -17,6 +17,27 @@
 
     public class SiteUtils
     {
+        /// <summary>
+        /// По указанной ширине обрезает текст и ставит три точки в конце. Если текст меньше, выводит в оригинале.
+        /// </summary>
+        public static string CutText(string text, int length)
+        {
+            if (text.Length < length)
+            {
+                return text;
+            }
+            return string.Format("{0}...", text.Substring(0, length));
+        }
+        
+        public static string ConcatLocation(object country, object location)
+        {
+            if (string.IsNullOrEmpty(location.ToString()))
+            {
+                return country.ToString();
+            }
+            return string.Format("{0}, {1}", country, location);
+        }
+
         public static string ReplaceSmiles(string text)
         {
             return text.Replace(":)", "<img src='/Content/img/smiles/smile_01.png' alt='__'>")

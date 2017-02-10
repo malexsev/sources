@@ -8,6 +8,7 @@ namespace Cure.WebSite.Controllers
 {
     using DataAccess;
     using DataAccess.BLL;
+    using Notification;
     using Utils;
 
     public class MensionController : Controller
@@ -66,6 +67,8 @@ namespace Cure.WebSite.Controllers
                 };
 
                 dal.InsertMension(mension);
+                var notify = new MensionAddedEmailNotification(mension, view);
+                notify.Send();
 
                 return Json("1", JsonRequestBehavior.AllowGet);
             }

@@ -15,6 +15,7 @@
             if (!IsPostBack)
             {
                 var dataAccess = new DataAccessBL();
+                dataAccess.MixEntities();
                 dataAccess.SwitchOrderStatusTask();
                 var notify = new Before24HoursNotification();
                 notify.Send();

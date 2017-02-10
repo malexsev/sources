@@ -271,6 +271,9 @@
     <Content Include="Content\images\hospital\gallery_yunchen.jpg" />
     <Content Include="Content\images\hospital\housing_room_1.jpg" />
     <Content Include="Content\images\hospital\housing_room_1111.jpg" />
+    <Content Include="Content\images\hospital\Licenziyabzgm.jpg" />
+    <Content Include="Content\images\hospital\svidetelstvokodebzgm.jpg" />
+    <Content Include="Content\images\hospital\svidregurlicabzgm.jpg" />
     <Content Include="Content\images\hospital\vn_gallery_procedure_00.jpg" />
     <Content Include="Content\images\hospital\vn_gallery_procedure_1.jpg" />
     <Content Include="Content\images\hospital\vn_gallery_procedure_10.jpg" />

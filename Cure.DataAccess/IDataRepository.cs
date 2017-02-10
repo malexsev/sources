@@ -68,8 +68,11 @@ namespace Cure.DataAccess.DAL
         void DeleteNewsletter(Newsletter newsletter);
         void UpdateNewsletter(Newsletter newsletter);
 
+        void MixEntities();
         IEnumerable<ViewMension> ViewMensions(int filterId, int skipRecords, int takeRecords = 12);
         int CountMensions(int filterId);
+        Mension GetMension(int id);
+        IEnumerable<Mension> GetMensionsByUser(string ownerUser);
         IEnumerable<Mension> GetMensions();
         IEnumerable<Mension> GetTopMensions();
         IEnumerable<Mension> GetMensionsByDepartment(int? department);
@@ -86,6 +89,7 @@ namespace Cure.DataAccess.DAL
 
         IEnumerable<Post> GetMyPosts(int childId);
         IEnumerable<Post> GetPosts();
+        IEnumerable<Post> GetPostsByOwner(string ownerUser);
         Post GetPost(int postId);
         void InsertPost(Post post);
         void DeletePost(Post post);

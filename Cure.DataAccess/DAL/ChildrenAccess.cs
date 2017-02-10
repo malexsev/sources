@@ -55,7 +55,7 @@ namespace Cure.DataAccess.DAL
                 && (countryId == 0 || x.CountryId == countryId)
                 && (regionName == "0" || x.Region == regionName)
                 && (ageOption == 0 || (x.Birthday > startDate && x.Birthday < endDate))
-                && (diagnozeId == 0 || x.DiagnozId == diagnozeId)).OrderByDescending(x => x.Id).Count();
+                && (diagnozeId == 0 || x.DiagnozId == diagnozeId)).OrderByDescending(x => x.SortOrder).Count();
         }
 
         public IEnumerable<ViewChild> FilterChilds(int countryId, string regionName, int ageOption, int diagnozeId, int skipRecords, int takeRecords = 12)
@@ -94,17 +94,17 @@ namespace Cure.DataAccess.DAL
                 && (countryId == 0 || x.CountryId == countryId)
                 && (regionName == "0" || x.Region == regionName)
                 && (ageOption == 0 || (x.Birthday > startDate && x.Birthday < endDate))
-                && (diagnozeId == 0 || x.DiagnozId == diagnozeId)).OrderByDescending(x => x.Id).Skip(skipRecords).Take(takeRecords).ToList();
+                && (diagnozeId == 0 || x.DiagnozId == diagnozeId)).OrderByDescending(x => x.SortOrder).Skip(skipRecords).Take(takeRecords).ToList();
         }
 
         public IEnumerable<ViewChild> ViewChilds()
         {
-            return context.ViewChilds.OrderByDescending(o => o.Id).ToList();
+            return context.ViewChilds.OrderByDescending(o => o.SortOrder).ToList();
         }
 
         public IEnumerable<Child> GetChilds()
         {
-            return context.Children.OrderByDescending(o => o.Id).ToList();
+            return context.Children.OrderByDescending(o => o.SortOrder).ToList();
         }
 
         public IEnumerable<Child> GetChilds(int countryId)

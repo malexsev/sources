@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ad57fe02ed604b0a903ad8a8a051004e" Name="Diagram1" ZoomLevel="50">
+      <Diagram DiagramId="ad57fe02ed604b0a903ad8a8a051004e" Name="Diagram1" ZoomLevel="40">
         <EntityTypeShape EntityType="DataModel.OrderStatu" Width="1.5" PointX="10.875" PointY="1.875" />
         <EntityTypeShape EntityType="DataModel.Pacient" Width="1.5" PointX="5.25" PointY="15.125" />
         <EntityTypeShape EntityType="DataModel.RefCountry" Width="1.5" PointX="7.75" PointY="19.25" />
@@ -41,21 +41,7 @@
         <EntityTypeShape EntityType="DataModel.Mension" Width="1.5" PointX="13.625" PointY="21.125" />
         <EntityTypeShape EntityType="DataModel.DepartmentStop" Width="1.625" PointX="14" PointY="16.125" />
         <EntityTypeShape EntityType="DataModel.ViewSoonVisit" Width="1.5" PointX="23.125" PointY="2" />
-        <EntityTypeShape EntityType="DataModel.Child" Width="1.5" PointX="4.875" PointY="20.875" />
-        <AssociationConnector Association="DataModel.FK_Child_Child" />
-        <AssociationConnector Association="DataModel.FK_Child_RefBank" />
-        <AssociationConnector Association="DataModel.FK_Child_RefCountry" />
-        <AssociationConnector Association="DataModel.FK_Child_RefCountryFin" />
-        <AssociationConnector Association="DataModel.FK_Child_RefDiagnoz" />
-        <AssociationConnector Association="DataModel.FK_Child_RefOperator" />
-        <AssociationConnector Association="DataModel.FK_Child_RefOperator2" />
-        <AssociationConnector Association="DataModel.FK_Child_RefOperator3" />
-        <AssociationConnector Association="DataModel.FK_Child_RefOperator4" />
-        <AssociationConnector Association="DataModel.FK_Child_RefRodstvo" />
-        <AssociationConnector Association="DataModel.FK_ChildAvaFile_Child" />
-        <AssociationConnector Association="DataModel.FK_ChildHideFile_Child" />
         <EntityTypeShape EntityType="DataModel.Post" Width="1.5" PointX="10.375" PointY="29.75" />
-        <AssociationConnector Association="DataModel.FK_Post_Child" />
         <AssociationConnector Association="DataModel.FK_Post_Post" />
         <EntityTypeShape EntityType="DataModel.ViewMension" Width="1.5" PointX="35.75" PointY="2" />
         <EntityTypeShape EntityType="DataModel.Newsletter" Width="1.5" PointX="18.25" PointY="6" />
@@ -67,7 +53,6 @@
         <EntityTypeShape EntityType="DataModel.Message" Width="1.5" PointX="18.25" PointY="8.75" />
         <EntityTypeShape EntityType="DataModel.OnlineUser" Width="1.5" PointX="20.5" PointY="8.75" />
         <EntityTypeShape EntityType="DataModel.ViewRecipient" Width="1.5" PointX="35.75" PointY="6.5" />
-        <EntityTypeShape EntityType="DataModel.ViewChild" Width="1.875" PointX="32.75" PointY="2" />
         <EntityTypeShape EntityType="DataModel.RefCfcsLevel" Width="1.5" PointX="3.125" PointY="12.25" />
         <EntityTypeShape EntityType="DataModel.RefGmfcsLevel" Width="1.5" PointX="0.875" PointY="6.375" />
         <EntityTypeShape EntityType="DataModel.RefMacsLevel" Width="1.5" PointX="0.875" PointY="9.375" />
@@ -84,6 +69,20 @@
         <AssociationConnector Association="DataModel.FK_Order_Department" />
         <AssociationConnector Association="DataModel.FK_StopVisit_Department" />
         <AssociationConnector Association="DataModel.FK_TransferUser_Department" />
+        <EntityTypeShape EntityType="DataModel.Child" Width="1.5" PointX="4.75" PointY="21.625" />
+        <EntityTypeShape EntityType="DataModel.ViewChild" Width="1.5" PointX="32.875" PointY="2" />
+        <AssociationConnector Association="DataModel.FK_Child_RefBank" />
+        <AssociationConnector Association="DataModel.FK_Child_RefCountry" />
+        <AssociationConnector Association="DataModel.FK_Child_RefCountryFin" />
+        <AssociationConnector Association="DataModel.FK_Child_RefDiagnoz" />
+        <AssociationConnector Association="DataModel.FK_Child_RefOperator" />
+        <AssociationConnector Association="DataModel.FK_Child_RefOperator2" />
+        <AssociationConnector Association="DataModel.FK_Child_RefOperator3" />
+        <AssociationConnector Association="DataModel.FK_Child_RefOperator4" />
+        <AssociationConnector Association="DataModel.FK_Child_RefRodstvo" />
+        <AssociationConnector Association="DataModel.FK_ChildAvaFile_Child" />
+        <AssociationConnector Association="DataModel.FK_ChildHideFile_Child" />
+        <AssociationConnector Association="DataModel.FK_Post_Child" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

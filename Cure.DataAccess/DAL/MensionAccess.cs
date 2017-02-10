@@ -11,13 +11,23 @@ namespace Cure.DataAccess.DAL
         public IEnumerable<ViewMension> ViewMensions(int filterId, int skipRecords, int takeRecords = 12)
         {
             return context.ViewMensions.Where(o => o.IsActive == true && (filterId == o.DepartmentId || filterId == 0 || (filterId == -1 && o.DepartmentId == null)))
-                .OrderByDescending(x => x.CreatedDate)
+                .OrderByDescending(o => o.SortOrder).ThenByDescending(x => x.CreatedDate)
                 .Skip(skipRecords).Take(takeRecords).ToList();
+        }
+
+        public void MixEntities()
+        {
+            context.spMixEntities();
         }
 
         public int CountMensions(int filterId)
         {
             return context.ViewMensions.Where(o => o.IsActive == true).Count(o => filterId == o.DepartmentId || filterId == 0 || (filterId == -1 && o.DepartmentId == null));
+        }
+
+        public IEnumerable<Mension> GetMensionsByUser(string ownerUser)
+        {
+            return context.Mensions.Where(o => o.OwnerUser == ownerUser);
         }
 
         public IEnumerable<Mension> GetTopMensions()
@@ -27,7 +37,7 @@ namespace Cure.DataAccess.DAL
 
         public IEnumerable<Mension> GetMensions()
         {
-            return context.Mensions.OrderByDescending(o => o.CreatedDate).ToList();
+            return context.Mensions.OrderByDescending(o => o.SortOrder).ThenByDescending(x => x.CreatedDate).ToList();
         }
 
         public IEnumerable<Mension> GetMensionsByDepartment(int? department)

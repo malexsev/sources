@@ -143,29 +143,31 @@ $(document).ready(function () {
 
     /*----------- ФУНКЦИИ: Работа спойлера -----------------------------------*/
     $.fn.spoilerInit = function (startHeight) {
+        var $spoilerBtns = $(this),
+            startHeight = startHeight || 0;
+
+      $spoilerBtns.each(function(index, elem) {
         var $spoilerBtn = $(this),
             $spoilerBody = $spoilerBtn.siblings(".js-spoiler-body"),
-            startHeight = startHeight || 0,
             autoHeight = $spoilerBody.css('height', 'auto').height();
 
-        $spoilerBody.height(startHeight);
+        if ( autoHeight > startHeight ) {
+          $spoilerBody.height(startHeight);
+        } else {
+          $spoilerBtn.hide();
+        }
 
-        $spoilerBtn.click(function () {
-            var $spoilerBtn = $(this),
-                $spoilerBody = $spoilerBtn.siblings(".js-spoiler-body"),
-                thisStartHeight = $spoilerBody.height();
-            autoHeight = $spoilerBody.css('height', 'auto').height();
-
-            $spoilerBody.height(thisStartHeight);
-
-            if ($spoilerBtn.hasClass("active")) {
-                $spoilerBody.animate({ height: startHeight }, 600);
-                $spoilerBtn.removeClass("active").text("Читать дальше");
-            } else {
-                $spoilerBody.animate({ height: autoHeight }, 600);
-                $spoilerBtn.addClass("active").text("Скрыть");
-            };
+        $spoilerBtn.click(function(){
+          if ($spoilerBtn.hasClass("active")) {
+            $spoilerBody.animate({ height: startHeight }, 600);
+            $spoilerBtn.removeClass("active").text("Читать дальше");
+          } else {
+            $spoilerBody.animate({ height: autoHeight }, 600);
+            $spoilerBtn.addClass("active").text("Скрыть");
+          }
         });
+
+      });
         return this;
     };
     //  Инициализация работы спойлеров (с начальной высотой)
@@ -1728,7 +1730,7 @@ $(document).ready(function () {
         fade: true,
         asNavFor: '#big-slider-nav',
         infinite: true,
-        speed: 500,
+        speed: 100,
         autoplay: true,
         autoplaySpeed: 5000
     });
@@ -1755,7 +1757,7 @@ $(document).ready(function () {
         infinite: true,
         speed: 500,
         autoplay: true,
-        autoplaySpeed: 5000
+        autoplaySpeed: 5000,
     });
 
 

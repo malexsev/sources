@@ -16,6 +16,11 @@
             return dataRepository.GetPosts();
         }
 
+        public IEnumerable<Post> GetPostsByOwner(string ownerUser)
+        {
+            return dataRepository.GetPostsByOwner(ownerUser);
+        }
+
         public Post GetPost(int postId)
         {
             return dataRepository.GetPost(postId);

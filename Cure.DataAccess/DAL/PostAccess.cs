@@ -18,6 +18,11 @@ namespace Cure.DataAccess.DAL
             return context.Posts.OrderByDescending(x => x.CreateDate);
         }
 
+        public IEnumerable<Post> GetPostsByOwner(string ownerUser)
+        {
+            return context.Posts.Where(x => x.OwnerUser == ownerUser);
+        }
+
         public Post GetPost(int postId)
         {
             return context.Posts.FirstOrDefault(o => o.Id == postId);

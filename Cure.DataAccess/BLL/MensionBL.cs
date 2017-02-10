@@ -13,6 +13,11 @@ namespace Cure.DataAccess.BLL
             return dataRepository.CountMensions(filterId);
         }
 
+        public void MixEntities()
+        {
+            dataRepository.MixEntities();
+        }
+
         public IEnumerable<ViewMension> ViewMensions(int filterId, int skipRecords, int takeRecords = 12)
         {
             return dataRepository.ViewMensions(filterId, skipRecords, takeRecords);
@@ -28,9 +33,19 @@ namespace Cure.DataAccess.BLL
             return dataRepository.GetTopMensions();
         }
 
+        public IEnumerable<Mension> GetMensionsByUser(string ownerUser)
+        {
+            return dataRepository.GetMensionsByUser(ownerUser);
+        }
+
         public IEnumerable<Mension> GetMensions()
         {
             return dataRepository.GetMensions();
+        }
+
+        public Mension GetMension(int id)
+        {
+            return dataRepository.GetMension(id);
         }
 
         public void InsertMension(Mension mension)

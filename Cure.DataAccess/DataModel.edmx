@@ -87,6 +87,7 @@
           <Property Name="FinBankOther" Type="nvarchar" MaxLength="500" />
           <Property Name="FinCardNumber" Type="nvarchar" MaxLength="50" />
           <Property Name="FinCardName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SortOrder" Type="int" />
         </EntityType>
         <EntityType Name="ChildAvaFile">
           <Key>
@@ -578,18 +579,18 @@
 warning 6002: The table/view 'Cure.dbo.ViewChild' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="ViewChild">
           <Key>
-            
+            <PropertyRef Name="Id" />
             <PropertyRef Name="GuidId" />
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+            <PropertyRef Name="OwnerUser" />
+            <PropertyRef Name="IsActive" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Birthday" />
+            <PropertyRef Name="CountryId" />
+            <PropertyRef Name="ContactName" />
+            <PropertyRef Name="ContactRodstvoId" />
+            <PropertyRef Name="ContactEmail" />
+            <PropertyRef Name="DiagnozId" />
+            <PropertyRef Name="DiagnozName" />
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="GuidId" Type="uniqueidentifier" Nullable="false" />
@@ -671,6 +672,7 @@ warning 6002: The table/view 'Cure.dbo.ViewChild' does not have a primary key de
           <Property Name="OwnerUserPic" Type="nvarchar" MaxLength="250" />
           <Property Name="OwnerAvaFile" Type="nvarchar" MaxLength="250" />
           <Property Name="UserId" Type="uniqueidentifier" />
+          <Property Name="SortOrder" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Cure.dbo.ViewMension' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1428,6 +1430,7 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
           <Parameter Name="Contact" Type="nvarchar" Mode="In" />
           <Parameter Name="Filter" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="sp_MixEntities" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="sp_UserDeleteCheck" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="UserName" Type="nvarchar" Mode="In" />
         </Function>
@@ -1548,7 +1551,8 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
 [ViewChild].[Operator4Params] AS [Operator4Params], 
 [ViewChild].[OwnerUserPic] AS [OwnerUserPic], 
 [ViewChild].[OwnerAvaFile] AS [OwnerAvaFile], 
-[ViewChild].[UserId] AS [UserId]
+[ViewChild].[UserId] AS [UserId], 
+[ViewChild].[SortOrder] AS [SortOrder]
 FROM [dbo].[ViewChild] AS [ViewChild]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="ViewMension" EntityType="Self.ViewMension" store:Type="Views" store:Schema="dbo">
@@ -2000,60 +2004,7 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
           <EntitySet Name="Mensions" EntityType="DataModel.Mension" />
           <EntitySet Name="DepartmentStops" EntityType="DataModel.DepartmentStop" />
           <EntitySet Name="ViewSoonVisits" EntityType="DataModel.ViewSoonVisit" />
-          <EntitySet Name="Children" EntityType="DataModel.Child" />
-          <AssociationSet Name="FK_Child_Child" Association="DataModel.FK_Child_Child">
-            <End Role="Child" EntitySet="Children" />
-            <End Role="Child1" EntitySet="Children" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Child_RefBank" Association="DataModel.FK_Child_RefBank">
-            <End Role="RefBank" EntitySet="RefBanks" />
-            <End Role="Child" EntitySet="Children" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Child_RefCountry" Association="DataModel.FK_Child_RefCountry">
-            <End Role="RefCountry" EntitySet="RefCountries" />
-            <End Role="Child" EntitySet="Children" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Child_RefCountryFin" Association="DataModel.FK_Child_RefCountryFin">
-            <End Role="RefCountry" EntitySet="RefCountries" />
-            <End Role="Child" EntitySet="Children" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Child_RefDiagnoz" Association="DataModel.FK_Child_RefDiagnoz">
-            <End Role="RefDiagnoz" EntitySet="RefDiagnozs" />
-            <End Role="Child" EntitySet="Children" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Child_RefOperator" Association="DataModel.FK_Child_RefOperator">
-            <End Role="RefOperator" EntitySet="RefOperators" />
-            <End Role="Child" EntitySet="Children" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Child_RefOperator2" Association="DataModel.FK_Child_RefOperator2">
-            <End Role="RefOperator" EntitySet="RefOperators" />
-            <End Role="Child" EntitySet="Children" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Child_RefOperator3" Association="DataModel.FK_Child_RefOperator3">
-            <End Role="RefOperator" EntitySet="RefOperators" />
-            <End Role="Child" EntitySet="Children" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Child_RefOperator4" Association="DataModel.FK_Child_RefOperator4">
-            <End Role="RefOperator" EntitySet="RefOperators" />
-            <End Role="Child" EntitySet="Children" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Child_RefRodstvo" Association="DataModel.FK_Child_RefRodstvo">
-            <End Role="RefRodstvo" EntitySet="RefRodstvoes" />
-            <End Role="Child" EntitySet="Children" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ChildAvaFile_Child" Association="DataModel.FK_ChildAvaFile_Child">
-            <End Role="Child" EntitySet="Children" />
-            <End Role="ChildAvaFile" EntitySet="ChildAvaFiles" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ChildHideFile_Child" Association="DataModel.FK_ChildHideFile_Child">
-            <End Role="Child" EntitySet="Children" />
-            <End Role="ChildHideFile" EntitySet="ChildHideFiles" />
-          </AssociationSet>
           <EntitySet Name="Posts" EntityType="DataModel.Post" />
-          <AssociationSet Name="FK_Post_Child" Association="DataModel.FK_Post_Child">
-            <End Role="Child" EntitySet="Children" />
-            <End Role="Post" EntitySet="Posts" />
-          </AssociationSet>
           <AssociationSet Name="FK_Post_Post" Association="DataModel.FK_Post_Post">
             <End Role="Post" EntitySet="Posts" />
             <End Role="Post1" EntitySet="Posts" />
@@ -2075,7 +2026,6 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
           <EntitySet Name="OnlineUsers" EntityType="DataModel.OnlineUser" />
           <FunctionImport Name="sp_ClearOnlineUsers" />
           <EntitySet Name="ViewRecipients" EntityType="DataModel.ViewRecipient" />
-          <EntitySet Name="ViewChilds" EntityType="DataModel.ViewChild" />
           <FunctionImport Name="sp_GetMyContacts" EntitySet="ViewRecipients" ReturnType="Collection(DataModel.ViewRecipient)">
             <Parameter Name="UserName" Mode="In" Type="String" />
             <Parameter Name="Contact" Mode="In" Type="String" />
@@ -2131,8 +2081,59 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
             <End Role="TransferUser" EntitySet="TransferUsers" />
           </AssociationSet>
           <FunctionImport Name="spUserDeleteCheck" ReturnType="Collection(Int32)">
-            <Parameter Name="UserName" Mode="In" Type="String" />
+          <Parameter Name="UserName" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="Children" EntityType="DataModel.Child" />
+          <EntitySet Name="ViewChilds" EntityType="DataModel.ViewChild" />
+          <AssociationSet Name="FK_Child_RefBank" Association="DataModel.FK_Child_RefBank">
+            <End Role="RefBank" EntitySet="RefBanks" />
+            <End Role="Child" EntitySet="Children" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Child_RefCountry" Association="DataModel.FK_Child_RefCountry">
+            <End Role="RefCountry" EntitySet="RefCountries" />
+            <End Role="Child" EntitySet="Children" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Child_RefCountryFin" Association="DataModel.FK_Child_RefCountryFin">
+            <End Role="RefCountry" EntitySet="RefCountries" />
+            <End Role="Child" EntitySet="Children" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Child_RefDiagnoz" Association="DataModel.FK_Child_RefDiagnoz">
+            <End Role="RefDiagnoz" EntitySet="RefDiagnozs" />
+            <End Role="Child" EntitySet="Children" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Child_RefOperator" Association="DataModel.FK_Child_RefOperator">
+            <End Role="RefOperator" EntitySet="RefOperators" />
+            <End Role="Child" EntitySet="Children" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Child_RefOperator2" Association="DataModel.FK_Child_RefOperator2">
+            <End Role="RefOperator" EntitySet="RefOperators" />
+            <End Role="Child" EntitySet="Children" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Child_RefOperator3" Association="DataModel.FK_Child_RefOperator3">
+            <End Role="RefOperator" EntitySet="RefOperators" />
+            <End Role="Child" EntitySet="Children" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Child_RefOperator4" Association="DataModel.FK_Child_RefOperator4">
+            <End Role="RefOperator" EntitySet="RefOperators" />
+            <End Role="Child" EntitySet="Children" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Child_RefRodstvo" Association="DataModel.FK_Child_RefRodstvo">
+            <End Role="RefRodstvo" EntitySet="RefRodstvoes" />
+            <End Role="Child" EntitySet="Children" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChildAvaFile_Child" Association="DataModel.FK_ChildAvaFile_Child">
+            <End Role="Child" EntitySet="Children" />
+            <End Role="ChildAvaFile" EntitySet="ChildAvaFiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChildHideFile_Child" Association="DataModel.FK_ChildHideFile_Child">
+            <End Role="Child" EntitySet="Children" />
+            <End Role="ChildHideFile" EntitySet="ChildHideFiles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Post_Child" Association="DataModel.FK_Post_Child">
+            <End Role="Child" EntitySet="Children" />
+            <End Role="Post" EntitySet="Posts" />
+          </AssociationSet>
+          <FunctionImport Name="spMixEntities" />
           </EntityContainer>
         <EntityType Name="OrderStatu">
           <Key>
@@ -2185,9 +2186,9 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
           <NavigationProperty Name="Pacients" Relationship="DataModel.FK_Pacient_RefCountry" FromRole="RefCountry" ToRole="Pacient" />
           <NavigationProperty Name="Sputniks" Relationship="DataModel.FK_Sputnik_RefCountry" FromRole="RefCountry" ToRole="Sputnik" />
           <NavigationProperty Name="RefBanks" Relationship="DataModel.FK_RefBank_RefCountry" FromRole="RefCountry" ToRole="RefBank" />
+          <NavigationProperty Name="Departments" Relationship="DataModel.FK_Department_RefCountry" FromRole="RefCountry" ToRole="Department" />
           <NavigationProperty Name="Children" Relationship="DataModel.FK_Child_RefCountry" FromRole="RefCountry" ToRole="Child" />
           <NavigationProperty Name="Children1" Relationship="DataModel.FK_Child_RefCountryFin" FromRole="RefCountry" ToRole="Child" />
-          <NavigationProperty Name="Departments" Relationship="DataModel.FK_Department_RefCountry" FromRole="RefCountry" ToRole="Department" />
           </EntityType>
         <EntityType Name="RefRodstvo">
           <Key>
@@ -2869,215 +2870,6 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
           <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="BirthDate" Type="DateTime" Precision="0" />
         </EntityType>
-        <EntityType Name="Child">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="GuidId" Type="Guid" Nullable="false" />
-          <Property Name="CountryId" Type="Int32" Nullable="false" />
-          <Property Name="OwnerUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="OwnerUserPic" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="OwnerAvaFile" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Region" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="DiagnozId" Type="Int32" Nullable="false" />
-          <Property Name="Diagnoz" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="ContactRodstvoId" Type="Int32" Nullable="false" />
-          <Property Name="ContactName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ContactEmail" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="ContactPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="SocialOk" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="SocialVk" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="SocialMm" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="SocialFb" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="SocialYoutube" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="FinWebmoney" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FinWebmoney2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FinWebmoney3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FinWebmoney4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FinYandexMoney" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FinKiwi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FinCountryId" Type="Int32" />
-          <Property Name="FinBankId" Type="Int32" />
-          <Property Name="FinOperatorId" Type="Int32" />
-          <Property Name="FinPhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FinOperator2Id" Type="Int32" />
-          <Property Name="FinPhoneNumber2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FinOperator3Id" Type="Int32" />
-          <Property Name="FinPhoneNumber3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FinOperator4Id" Type="Int32" />
-          <Property Name="FinPhoneNumber4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FinBankOther" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="FinCardNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FinCardName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Child1" Relationship="DataModel.FK_Child_Child" FromRole="Child" ToRole="Child1" />
-          <NavigationProperty Name="Child2" Relationship="DataModel.FK_Child_Child" FromRole="Child1" ToRole="Child" />
-          <NavigationProperty Name="RefBank" Relationship="DataModel.FK_Child_RefBank" FromRole="Child" ToRole="RefBank" />
-          <NavigationProperty Name="RefCountry" Relationship="DataModel.FK_Child_RefCountry" FromRole="Child" ToRole="RefCountry" />
-          <NavigationProperty Name="RefCountry1" Relationship="DataModel.FK_Child_RefCountryFin" FromRole="Child" ToRole="RefCountry" />
-          <NavigationProperty Name="RefDiagnoz" Relationship="DataModel.FK_Child_RefDiagnoz" FromRole="Child" ToRole="RefDiagnoz" />
-          <NavigationProperty Name="RefOperator" Relationship="DataModel.FK_Child_RefOperator" FromRole="Child" ToRole="RefOperator" />
-          <NavigationProperty Name="RefOperator1" Relationship="DataModel.FK_Child_RefOperator2" FromRole="Child" ToRole="RefOperator" />
-          <NavigationProperty Name="RefOperator2" Relationship="DataModel.FK_Child_RefOperator3" FromRole="Child" ToRole="RefOperator" />
-          <NavigationProperty Name="RefOperator3" Relationship="DataModel.FK_Child_RefOperator4" FromRole="Child" ToRole="RefOperator" />
-          <NavigationProperty Name="RefRodstvo" Relationship="DataModel.FK_Child_RefRodstvo" FromRole="Child" ToRole="RefRodstvo" />
-          <NavigationProperty Name="ChildAvaFiles" Relationship="DataModel.FK_ChildAvaFile_Child" FromRole="Child" ToRole="ChildAvaFile" />
-          <NavigationProperty Name="ChildHideFiles" Relationship="DataModel.FK_ChildHideFile_Child" FromRole="Child" ToRole="ChildHideFile" />
-          <NavigationProperty Name="Posts" Relationship="DataModel.FK_Post_Child" FromRole="Child" ToRole="Post" />
-        </EntityType>
-        <Association Name="FK_Child_Child">
-          <End Type="DataModel.Child" Role="Child" Multiplicity="1" />
-          <End Type="DataModel.Child" Role="Child1" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Child">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Child1">
-              <PropertyRef Name="Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Child_RefBank">
-          <End Type="DataModel.RefBank" Role="RefBank" Multiplicity="0..1" />
-          <End Type="DataModel.Child" Role="Child" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="RefBank">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Child">
-              <PropertyRef Name="FinBankId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Child_RefCountry">
-          <End Type="DataModel.RefCountry" Role="RefCountry" Multiplicity="1" />
-          <End Type="DataModel.Child" Role="Child" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="RefCountry">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Child">
-              <PropertyRef Name="CountryId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Child_RefCountryFin">
-          <End Type="DataModel.RefCountry" Role="RefCountry" Multiplicity="0..1" />
-          <End Type="DataModel.Child" Role="Child" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="RefCountry">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Child">
-              <PropertyRef Name="FinCountryId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Child_RefDiagnoz">
-          <End Type="DataModel.RefDiagnoz" Role="RefDiagnoz" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="DataModel.Child" Role="Child" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="RefDiagnoz">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Child">
-              <PropertyRef Name="DiagnozId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Child_RefOperator">
-          <End Type="DataModel.RefOperator" Role="RefOperator" Multiplicity="0..1" />
-          <End Type="DataModel.Child" Role="Child" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="RefOperator">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Child">
-              <PropertyRef Name="FinOperatorId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Child_RefOperator2">
-          <End Type="DataModel.RefOperator" Role="RefOperator" Multiplicity="0..1" />
-          <End Type="DataModel.Child" Role="Child" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="RefOperator">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Child">
-              <PropertyRef Name="FinOperator2Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Child_RefOperator3">
-          <End Type="DataModel.RefOperator" Role="RefOperator" Multiplicity="0..1" />
-          <End Type="DataModel.Child" Role="Child" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="RefOperator">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Child">
-              <PropertyRef Name="FinOperator3Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Child_RefOperator4">
-          <End Type="DataModel.RefOperator" Role="RefOperator" Multiplicity="0..1" />
-          <End Type="DataModel.Child" Role="Child" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="RefOperator">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Child">
-              <PropertyRef Name="FinOperator4Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Child_RefRodstvo">
-          <End Type="DataModel.RefRodstvo" Role="RefRodstvo" Multiplicity="1" />
-          <End Type="DataModel.Child" Role="Child" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="RefRodstvo">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Child">
-              <PropertyRef Name="ContactRodstvoId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ChildAvaFile_Child">
-          <End Type="DataModel.Child" Role="Child" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="DataModel.ChildAvaFile" Role="ChildAvaFile" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Child">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ChildAvaFile">
-              <PropertyRef Name="ChildId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ChildHideFile_Child">
-          <End Type="DataModel.Child" Role="Child" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="DataModel.ChildHideFile" Role="ChildHideFile" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Child">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="ChildHideFile">
-              <PropertyRef Name="ChildId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="Post">
           <Key>
             <PropertyRef Name="Id" />
@@ -3094,24 +2886,10 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
           <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="LastEdit" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Child" Relationship="DataModel.FK_Post_Child" FromRole="Post" ToRole="Child" />
           <NavigationProperty Name="Post1" Relationship="DataModel.FK_Post_Post" FromRole="Post" ToRole="Post1" />
           <NavigationProperty Name="Post2" Relationship="DataModel.FK_Post_Post" FromRole="Post1" ToRole="Post" />
+          <NavigationProperty Name="Child" Relationship="DataModel.FK_Post_Child" FromRole="Post" ToRole="Child" />
         </EntityType>
-        <Association Name="FK_Post_Child">
-          <End Type="DataModel.Child" Role="Child" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="DataModel.Post" Role="Post" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Child">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Post">
-              <PropertyRef Name="ChildId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Post_Post">
           <End Type="DataModel.Post" Role="Post" Multiplicity="0..1" />
           <End Type="DataModel.Post" Role="Post1" Multiplicity="*" />
@@ -3259,91 +3037,6 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
           <Property Name="LastMessageText" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="LastMessageDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="UserId" Type="Guid" Nullable="false" />
-        </EntityType>
-        <EntityType Name="ViewChild">
-          <Key>
-            <PropertyRef Name="GuidId" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="GuidId" Type="Guid" Nullable="false" />
-          <Property Name="OwnerUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="CountryId" Type="Int32" Nullable="false" />
-          <Property Name="Region" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="Diagnoz" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="ContactName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ContactRodstvoId" Type="Int32" Nullable="false" />
-          <Property Name="ContactEmail" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="ContactPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="SocialOk" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="SocialVk" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="SocialMm" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="SocialFb" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="FinWebmoney" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FinYandexMoney" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FinKiwi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FinOperatorId" Type="Int32" />
-          <Property Name="FinPhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FinCountryId" Type="Int32" />
-          <Property Name="FinBankId" Type="Int32" />
-          <Property Name="FinBankOther" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="FinCardNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CountryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="UserLoweredUserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="UserIsAnonymous" Type="Boolean" />
-          <Property Name="UserLastActivityDate" Type="DateTime" Precision="3" />
-          <Property Name="UserEmail" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="UserLoweredEmail" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="UserIsApproved" Type="Boolean" />
-          <Property Name="UserIsLockedOut" Type="Boolean" />
-          <Property Name="UserLastLoginDate" Type="DateTime" Precision="3" />
-          <Property Name="UserComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="BankName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="BankDescription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="BankInn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="BankKpp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="BankOktmo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="BankOkved" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="BankBik" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="BankKorrAccount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="RodstvoName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="RodstvoDescription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="RodstvoSort" Type="Int32" />
-          <Property Name="RodstvoSoprovodRuLabel" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="RodstvoSoprovodChLabel" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="OperatorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="OperatorDescription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="OperatorParams" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="BankCountryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FinCountryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="DiagnozId" Type="Int32" Nullable="false" />
-          <Property Name="DiagnozName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="DiagnozDescription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="SocialYoutube" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="FinWebmoney2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FinWebmoney3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FinCardName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FinWebmoney4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FinOperator2Id" Type="Int32" />
-          <Property Name="FinPhoneNumber2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FinOperator3Id" Type="Int32" />
-          <Property Name="FinPhoneNumber3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FinOperator4Id" Type="Int32" />
-          <Property Name="FinPhoneNumber4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Operator2Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Operator2Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="Operator2Params" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="Operator3Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Operator3Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="Operator3Params" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="Operator4Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Operator4Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="Operator4Params" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="OwnerUserPic" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="OwnerAvaFile" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="UserId" Type="Guid" />
         </EntityType>
         <EntityType Name="RefCfcsLevel">
           <Key>
@@ -3580,6 +3273,313 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
             </Principal>
             <Dependent Role="TransferUser">
               <PropertyRef Name="DepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Child">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GuidId" Type="Guid" Nullable="false" />
+          <Property Name="CountryId" Type="Int32" Nullable="false" />
+          <Property Name="OwnerUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OwnerUserPic" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="OwnerAvaFile" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Region" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="DiagnozId" Type="Int32" Nullable="false" />
+          <Property Name="Diagnoz" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ContactRodstvoId" Type="Int32" Nullable="false" />
+          <Property Name="ContactName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactEmail" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ContactPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SocialOk" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="SocialVk" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="SocialMm" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="SocialFb" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="SocialYoutube" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="FinWebmoney" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FinWebmoney2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FinWebmoney3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FinWebmoney4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FinYandexMoney" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FinKiwi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FinCountryId" Type="Int32" />
+          <Property Name="FinBankId" Type="Int32" />
+          <Property Name="FinOperatorId" Type="Int32" />
+          <Property Name="FinPhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FinOperator2Id" Type="Int32" />
+          <Property Name="FinPhoneNumber2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FinOperator3Id" Type="Int32" />
+          <Property Name="FinPhoneNumber3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FinOperator4Id" Type="Int32" />
+          <Property Name="FinPhoneNumber4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FinBankOther" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="FinCardNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FinCardName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SortOrder" Type="Int32" />
+          <NavigationProperty Name="RefBank" Relationship="DataModel.FK_Child_RefBank" FromRole="Child" ToRole="RefBank" />
+          <NavigationProperty Name="RefCountry" Relationship="DataModel.FK_Child_RefCountry" FromRole="Child" ToRole="RefCountry" />
+          <NavigationProperty Name="RefCountry1" Relationship="DataModel.FK_Child_RefCountryFin" FromRole="Child" ToRole="RefCountry" />
+          <NavigationProperty Name="RefDiagnoz" Relationship="DataModel.FK_Child_RefDiagnoz" FromRole="Child" ToRole="RefDiagnoz" />
+          <NavigationProperty Name="RefOperator" Relationship="DataModel.FK_Child_RefOperator" FromRole="Child" ToRole="RefOperator" />
+          <NavigationProperty Name="RefOperator1" Relationship="DataModel.FK_Child_RefOperator2" FromRole="Child" ToRole="RefOperator" />
+          <NavigationProperty Name="RefOperator2" Relationship="DataModel.FK_Child_RefOperator3" FromRole="Child" ToRole="RefOperator" />
+          <NavigationProperty Name="RefOperator3" Relationship="DataModel.FK_Child_RefOperator4" FromRole="Child" ToRole="RefOperator" />
+          <NavigationProperty Name="RefRodstvo" Relationship="DataModel.FK_Child_RefRodstvo" FromRole="Child" ToRole="RefRodstvo" />
+          <NavigationProperty Name="ChildAvaFiles" Relationship="DataModel.FK_ChildAvaFile_Child" FromRole="Child" ToRole="ChildAvaFile" />
+          <NavigationProperty Name="ChildHideFiles" Relationship="DataModel.FK_ChildHideFile_Child" FromRole="Child" ToRole="ChildHideFile" />
+          <NavigationProperty Name="Posts" Relationship="DataModel.FK_Post_Child" FromRole="Child" ToRole="Post" />
+        </EntityType>
+        <EntityType Name="ViewChild">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="GuidId" />
+            <PropertyRef Name="OwnerUser" />
+            <PropertyRef Name="IsActive" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Birthday" />
+            <PropertyRef Name="CountryId" />
+            <PropertyRef Name="ContactName" />
+            <PropertyRef Name="ContactRodstvoId" />
+            <PropertyRef Name="ContactEmail" />
+            <PropertyRef Name="DiagnozId" />
+            <PropertyRef Name="DiagnozName" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="GuidId" Type="Guid" Nullable="false" />
+          <Property Name="OwnerUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Birthday" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CountryId" Type="Int32" Nullable="false" />
+          <Property Name="Region" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Diagnoz" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ContactName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ContactRodstvoId" Type="Int32" Nullable="false" />
+          <Property Name="ContactEmail" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ContactPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SocialOk" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="SocialVk" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="SocialMm" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="SocialFb" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="FinWebmoney" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FinYandexMoney" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FinKiwi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FinOperatorId" Type="Int32" />
+          <Property Name="FinPhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FinCountryId" Type="Int32" />
+          <Property Name="FinBankId" Type="Int32" />
+          <Property Name="FinBankOther" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="FinCardNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CountryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserLoweredUserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="UserIsAnonymous" Type="Boolean" />
+          <Property Name="UserLastActivityDate" Type="DateTime" Precision="3" />
+          <Property Name="UserEmail" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="UserLoweredEmail" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="UserIsApproved" Type="Boolean" />
+          <Property Name="UserIsLockedOut" Type="Boolean" />
+          <Property Name="UserLastLoginDate" Type="DateTime" Precision="3" />
+          <Property Name="UserComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BankName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BankDescription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="BankInn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BankKpp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BankOktmo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BankOkved" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BankBik" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BankKorrAccount" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RodstvoName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RodstvoDescription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="RodstvoSort" Type="Int32" />
+          <Property Name="RodstvoSoprovodRuLabel" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="RodstvoSoprovodChLabel" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="OperatorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OperatorDescription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="OperatorParams" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="BankCountryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FinCountryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DiagnozId" Type="Int32" Nullable="false" />
+          <Property Name="DiagnozName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DiagnozDescription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="SocialYoutube" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="FinWebmoney2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FinWebmoney3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FinCardName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FinWebmoney4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FinOperator2Id" Type="Int32" />
+          <Property Name="FinPhoneNumber2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FinOperator3Id" Type="Int32" />
+          <Property Name="FinPhoneNumber3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FinOperator4Id" Type="Int32" />
+          <Property Name="FinPhoneNumber4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Operator2Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Operator2Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Operator2Params" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Operator3Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Operator3Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Operator3Params" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Operator4Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Operator4Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Operator4Params" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="OwnerUserPic" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="OwnerAvaFile" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="Guid" />
+          <Property Name="SortOrder" Type="Int32" />
+        </EntityType>
+        <Association Name="FK_Child_RefBank">
+          <End Type="DataModel.RefBank" Role="RefBank" Multiplicity="0..1" />
+          <End Type="DataModel.Child" Role="Child" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefBank">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Child">
+              <PropertyRef Name="FinBankId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Child_RefCountry">
+          <End Type="DataModel.RefCountry" Role="RefCountry" Multiplicity="1" />
+          <End Type="DataModel.Child" Role="Child" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefCountry">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Child">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Child_RefCountryFin">
+          <End Type="DataModel.RefCountry" Role="RefCountry" Multiplicity="0..1" />
+          <End Type="DataModel.Child" Role="Child" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefCountry">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Child">
+              <PropertyRef Name="FinCountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Child_RefDiagnoz">
+          <End Type="DataModel.RefDiagnoz" Role="RefDiagnoz" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="DataModel.Child" Role="Child" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefDiagnoz">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Child">
+              <PropertyRef Name="DiagnozId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Child_RefOperator">
+          <End Type="DataModel.RefOperator" Role="RefOperator" Multiplicity="0..1" />
+          <End Type="DataModel.Child" Role="Child" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefOperator">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Child">
+              <PropertyRef Name="FinOperatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Child_RefOperator2">
+          <End Type="DataModel.RefOperator" Role="RefOperator" Multiplicity="0..1" />
+          <End Type="DataModel.Child" Role="Child" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefOperator">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Child">
+              <PropertyRef Name="FinOperator2Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Child_RefOperator3">
+          <End Type="DataModel.RefOperator" Role="RefOperator" Multiplicity="0..1" />
+          <End Type="DataModel.Child" Role="Child" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefOperator">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Child">
+              <PropertyRef Name="FinOperator3Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Child_RefOperator4">
+          <End Type="DataModel.RefOperator" Role="RefOperator" Multiplicity="0..1" />
+          <End Type="DataModel.Child" Role="Child" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefOperator">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Child">
+              <PropertyRef Name="FinOperator4Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Child_RefRodstvo">
+          <End Type="DataModel.RefRodstvo" Role="RefRodstvo" Multiplicity="1" />
+          <End Type="DataModel.Child" Role="Child" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RefRodstvo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Child">
+              <PropertyRef Name="ContactRodstvoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChildAvaFile_Child">
+          <End Type="DataModel.Child" Role="Child" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="DataModel.ChildAvaFile" Role="ChildAvaFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Child">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ChildAvaFile">
+              <PropertyRef Name="ChildId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChildHideFile_Child">
+          <End Type="DataModel.Child" Role="Child" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="DataModel.ChildHideFile" Role="ChildHideFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Child">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ChildHideFile">
+              <PropertyRef Name="ChildId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Post_Child">
+          <End Type="DataModel.Child" Role="Child" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="DataModel.Post" Role="Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Child">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="ChildId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -4165,52 +4165,6 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Children">
-            <EntityTypeMapping TypeName="DataModel.Child">
-              <MappingFragment StoreEntitySet="Child">
-                <ScalarProperty Name="FinCardName" ColumnName="FinCardName" />
-                <ScalarProperty Name="FinCardNumber" ColumnName="FinCardNumber" />
-                <ScalarProperty Name="FinBankOther" ColumnName="FinBankOther" />
-                <ScalarProperty Name="FinPhoneNumber4" ColumnName="FinPhoneNumber4" />
-                <ScalarProperty Name="FinOperator4Id" ColumnName="FinOperator4Id" />
-                <ScalarProperty Name="FinPhoneNumber3" ColumnName="FinPhoneNumber3" />
-                <ScalarProperty Name="FinOperator3Id" ColumnName="FinOperator3Id" />
-                <ScalarProperty Name="FinPhoneNumber2" ColumnName="FinPhoneNumber2" />
-                <ScalarProperty Name="FinOperator2Id" ColumnName="FinOperator2Id" />
-                <ScalarProperty Name="FinPhoneNumber" ColumnName="FinPhoneNumber" />
-                <ScalarProperty Name="FinOperatorId" ColumnName="FinOperatorId" />
-                <ScalarProperty Name="FinBankId" ColumnName="FinBankId" />
-                <ScalarProperty Name="FinCountryId" ColumnName="FinCountryId" />
-                <ScalarProperty Name="FinKiwi" ColumnName="FinKiwi" />
-                <ScalarProperty Name="FinYandexMoney" ColumnName="FinYandexMoney" />
-                <ScalarProperty Name="FinWebmoney4" ColumnName="FinWebmoney4" />
-                <ScalarProperty Name="FinWebmoney3" ColumnName="FinWebmoney3" />
-                <ScalarProperty Name="FinWebmoney2" ColumnName="FinWebmoney2" />
-                <ScalarProperty Name="FinWebmoney" ColumnName="FinWebmoney" />
-                <ScalarProperty Name="SocialYoutube" ColumnName="SocialYoutube" />
-                <ScalarProperty Name="SocialFb" ColumnName="SocialFb" />
-                <ScalarProperty Name="SocialMm" ColumnName="SocialMm" />
-                <ScalarProperty Name="SocialVk" ColumnName="SocialVk" />
-                <ScalarProperty Name="SocialOk" ColumnName="SocialOk" />
-                <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
-                <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
-                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
-                <ScalarProperty Name="ContactRodstvoId" ColumnName="ContactRodstvoId" />
-                <ScalarProperty Name="Diagnoz" ColumnName="Diagnoz" />
-                <ScalarProperty Name="DiagnozId" ColumnName="DiagnozId" />
-                <ScalarProperty Name="Region" ColumnName="Region" />
-                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="OwnerAvaFile" ColumnName="OwnerAvaFile" />
-                <ScalarProperty Name="OwnerUserPic" ColumnName="OwnerUserPic" />
-                <ScalarProperty Name="OwnerUser" ColumnName="OwnerUser" />
-                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
-                <ScalarProperty Name="GuidId" ColumnName="GuidId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Posts">
             <EntityTypeMapping TypeName="DataModel.Post">
               <MappingFragment StoreEntitySet="Post">
@@ -4346,92 +4300,6 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ViewChilds">
-            <EntityTypeMapping TypeName="DataModel.ViewChild">
-              <MappingFragment StoreEntitySet="ViewChild">
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="OwnerAvaFile" ColumnName="OwnerAvaFile" />
-                <ScalarProperty Name="OwnerUserPic" ColumnName="OwnerUserPic" />
-                <ScalarProperty Name="Operator4Params" ColumnName="Operator4Params" />
-                <ScalarProperty Name="Operator4Description" ColumnName="Operator4Description" />
-                <ScalarProperty Name="Operator4Name" ColumnName="Operator4Name" />
-                <ScalarProperty Name="Operator3Params" ColumnName="Operator3Params" />
-                <ScalarProperty Name="Operator3Description" ColumnName="Operator3Description" />
-                <ScalarProperty Name="Operator3Name" ColumnName="Operator3Name" />
-                <ScalarProperty Name="Operator2Params" ColumnName="Operator2Params" />
-                <ScalarProperty Name="Operator2Description" ColumnName="Operator2Description" />
-                <ScalarProperty Name="Operator2Name" ColumnName="Operator2Name" />
-                <ScalarProperty Name="FinPhoneNumber4" ColumnName="FinPhoneNumber4" />
-                <ScalarProperty Name="FinOperator4Id" ColumnName="FinOperator4Id" />
-                <ScalarProperty Name="FinPhoneNumber3" ColumnName="FinPhoneNumber3" />
-                <ScalarProperty Name="FinOperator3Id" ColumnName="FinOperator3Id" />
-                <ScalarProperty Name="FinPhoneNumber2" ColumnName="FinPhoneNumber2" />
-                <ScalarProperty Name="FinOperator2Id" ColumnName="FinOperator2Id" />
-                <ScalarProperty Name="FinWebmoney4" ColumnName="FinWebmoney4" />
-                <ScalarProperty Name="FinCardName" ColumnName="FinCardName" />
-                <ScalarProperty Name="FinWebmoney3" ColumnName="FinWebmoney3" />
-                <ScalarProperty Name="FinWebmoney2" ColumnName="FinWebmoney2" />
-                <ScalarProperty Name="SocialYoutube" ColumnName="SocialYoutube" />
-                <ScalarProperty Name="DiagnozDescription" ColumnName="DiagnozDescription" />
-                <ScalarProperty Name="DiagnozName" ColumnName="DiagnozName" />
-                <ScalarProperty Name="DiagnozId" ColumnName="DiagnozId" />
-                <ScalarProperty Name="FinCountryName" ColumnName="FinCountryName" />
-                <ScalarProperty Name="BankCountryName" ColumnName="BankCountryName" />
-                <ScalarProperty Name="OperatorParams" ColumnName="OperatorParams" />
-                <ScalarProperty Name="OperatorDescription" ColumnName="OperatorDescription" />
-                <ScalarProperty Name="OperatorName" ColumnName="OperatorName" />
-                <ScalarProperty Name="RodstvoSoprovodChLabel" ColumnName="RodstvoSoprovodChLabel" />
-                <ScalarProperty Name="RodstvoSoprovodRuLabel" ColumnName="RodstvoSoprovodRuLabel" />
-                <ScalarProperty Name="RodstvoSort" ColumnName="RodstvoSort" />
-                <ScalarProperty Name="RodstvoDescription" ColumnName="RodstvoDescription" />
-                <ScalarProperty Name="RodstvoName" ColumnName="RodstvoName" />
-                <ScalarProperty Name="BankKorrAccount" ColumnName="BankKorrAccount" />
-                <ScalarProperty Name="BankBik" ColumnName="BankBik" />
-                <ScalarProperty Name="BankOkved" ColumnName="BankOkved" />
-                <ScalarProperty Name="BankOktmo" ColumnName="BankOktmo" />
-                <ScalarProperty Name="BankKpp" ColumnName="BankKpp" />
-                <ScalarProperty Name="BankInn" ColumnName="BankInn" />
-                <ScalarProperty Name="BankDescription" ColumnName="BankDescription" />
-                <ScalarProperty Name="BankName" ColumnName="BankName" />
-                <ScalarProperty Name="UserComment" ColumnName="UserComment" />
-                <ScalarProperty Name="UserLastLoginDate" ColumnName="UserLastLoginDate" />
-                <ScalarProperty Name="UserIsLockedOut" ColumnName="UserIsLockedOut" />
-                <ScalarProperty Name="UserIsApproved" ColumnName="UserIsApproved" />
-                <ScalarProperty Name="UserLoweredEmail" ColumnName="UserLoweredEmail" />
-                <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
-                <ScalarProperty Name="UserLastActivityDate" ColumnName="UserLastActivityDate" />
-                <ScalarProperty Name="UserIsAnonymous" ColumnName="UserIsAnonymous" />
-                <ScalarProperty Name="UserLoweredUserName" ColumnName="UserLoweredUserName" />
-                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
-                <ScalarProperty Name="FinCardNumber" ColumnName="FinCardNumber" />
-                <ScalarProperty Name="FinBankOther" ColumnName="FinBankOther" />
-                <ScalarProperty Name="FinBankId" ColumnName="FinBankId" />
-                <ScalarProperty Name="FinCountryId" ColumnName="FinCountryId" />
-                <ScalarProperty Name="FinPhoneNumber" ColumnName="FinPhoneNumber" />
-                <ScalarProperty Name="FinOperatorId" ColumnName="FinOperatorId" />
-                <ScalarProperty Name="FinKiwi" ColumnName="FinKiwi" />
-                <ScalarProperty Name="FinYandexMoney" ColumnName="FinYandexMoney" />
-                <ScalarProperty Name="FinWebmoney" ColumnName="FinWebmoney" />
-                <ScalarProperty Name="SocialFb" ColumnName="SocialFb" />
-                <ScalarProperty Name="SocialMm" ColumnName="SocialMm" />
-                <ScalarProperty Name="SocialVk" ColumnName="SocialVk" />
-                <ScalarProperty Name="SocialOk" ColumnName="SocialOk" />
-                <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
-                <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
-                <ScalarProperty Name="ContactRodstvoId" ColumnName="ContactRodstvoId" />
-                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
-                <ScalarProperty Name="Diagnoz" ColumnName="Diagnoz" />
-                <ScalarProperty Name="Region" ColumnName="Region" />
-                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
-                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="OwnerUser" ColumnName="OwnerUser" />
-                <ScalarProperty Name="GuidId" ColumnName="GuidId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="sp_GetMyContacts" FunctionName="DataModel.Store.sp_GetMyContacts">
           </FunctionImportMapping>
           <EntitySetMapping Name="RefCfcsLevels">
@@ -4519,6 +4387,141 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="spUserDeleteCheck" FunctionName="DataModel.Store.sp_UserDeleteCheck" />
+          <EntitySetMapping Name="Children">
+            <EntityTypeMapping TypeName="DataModel.Child">
+              <MappingFragment StoreEntitySet="Child">
+                <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+                <ScalarProperty Name="FinCardName" ColumnName="FinCardName" />
+                <ScalarProperty Name="FinCardNumber" ColumnName="FinCardNumber" />
+                <ScalarProperty Name="FinBankOther" ColumnName="FinBankOther" />
+                <ScalarProperty Name="FinPhoneNumber4" ColumnName="FinPhoneNumber4" />
+                <ScalarProperty Name="FinOperator4Id" ColumnName="FinOperator4Id" />
+                <ScalarProperty Name="FinPhoneNumber3" ColumnName="FinPhoneNumber3" />
+                <ScalarProperty Name="FinOperator3Id" ColumnName="FinOperator3Id" />
+                <ScalarProperty Name="FinPhoneNumber2" ColumnName="FinPhoneNumber2" />
+                <ScalarProperty Name="FinOperator2Id" ColumnName="FinOperator2Id" />
+                <ScalarProperty Name="FinPhoneNumber" ColumnName="FinPhoneNumber" />
+                <ScalarProperty Name="FinOperatorId" ColumnName="FinOperatorId" />
+                <ScalarProperty Name="FinBankId" ColumnName="FinBankId" />
+                <ScalarProperty Name="FinCountryId" ColumnName="FinCountryId" />
+                <ScalarProperty Name="FinKiwi" ColumnName="FinKiwi" />
+                <ScalarProperty Name="FinYandexMoney" ColumnName="FinYandexMoney" />
+                <ScalarProperty Name="FinWebmoney4" ColumnName="FinWebmoney4" />
+                <ScalarProperty Name="FinWebmoney3" ColumnName="FinWebmoney3" />
+                <ScalarProperty Name="FinWebmoney2" ColumnName="FinWebmoney2" />
+                <ScalarProperty Name="FinWebmoney" ColumnName="FinWebmoney" />
+                <ScalarProperty Name="SocialYoutube" ColumnName="SocialYoutube" />
+                <ScalarProperty Name="SocialFb" ColumnName="SocialFb" />
+                <ScalarProperty Name="SocialMm" ColumnName="SocialMm" />
+                <ScalarProperty Name="SocialVk" ColumnName="SocialVk" />
+                <ScalarProperty Name="SocialOk" ColumnName="SocialOk" />
+                <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+                <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                <ScalarProperty Name="ContactRodstvoId" ColumnName="ContactRodstvoId" />
+                <ScalarProperty Name="Diagnoz" ColumnName="Diagnoz" />
+                <ScalarProperty Name="DiagnozId" ColumnName="DiagnozId" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="OwnerAvaFile" ColumnName="OwnerAvaFile" />
+                <ScalarProperty Name="OwnerUserPic" ColumnName="OwnerUserPic" />
+                <ScalarProperty Name="OwnerUser" ColumnName="OwnerUser" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="GuidId" ColumnName="GuidId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ViewChilds">
+            <EntityTypeMapping TypeName="DataModel.ViewChild">
+              <MappingFragment StoreEntitySet="ViewChild">
+                <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="OwnerAvaFile" ColumnName="OwnerAvaFile" />
+                <ScalarProperty Name="OwnerUserPic" ColumnName="OwnerUserPic" />
+                <ScalarProperty Name="Operator4Params" ColumnName="Operator4Params" />
+                <ScalarProperty Name="Operator4Description" ColumnName="Operator4Description" />
+                <ScalarProperty Name="Operator4Name" ColumnName="Operator4Name" />
+                <ScalarProperty Name="Operator3Params" ColumnName="Operator3Params" />
+                <ScalarProperty Name="Operator3Description" ColumnName="Operator3Description" />
+                <ScalarProperty Name="Operator3Name" ColumnName="Operator3Name" />
+                <ScalarProperty Name="Operator2Params" ColumnName="Operator2Params" />
+                <ScalarProperty Name="Operator2Description" ColumnName="Operator2Description" />
+                <ScalarProperty Name="Operator2Name" ColumnName="Operator2Name" />
+                <ScalarProperty Name="FinPhoneNumber4" ColumnName="FinPhoneNumber4" />
+                <ScalarProperty Name="FinOperator4Id" ColumnName="FinOperator4Id" />
+                <ScalarProperty Name="FinPhoneNumber3" ColumnName="FinPhoneNumber3" />
+                <ScalarProperty Name="FinOperator3Id" ColumnName="FinOperator3Id" />
+                <ScalarProperty Name="FinPhoneNumber2" ColumnName="FinPhoneNumber2" />
+                <ScalarProperty Name="FinOperator2Id" ColumnName="FinOperator2Id" />
+                <ScalarProperty Name="FinWebmoney4" ColumnName="FinWebmoney4" />
+                <ScalarProperty Name="FinCardName" ColumnName="FinCardName" />
+                <ScalarProperty Name="FinWebmoney3" ColumnName="FinWebmoney3" />
+                <ScalarProperty Name="FinWebmoney2" ColumnName="FinWebmoney2" />
+                <ScalarProperty Name="SocialYoutube" ColumnName="SocialYoutube" />
+                <ScalarProperty Name="DiagnozDescription" ColumnName="DiagnozDescription" />
+                <ScalarProperty Name="DiagnozName" ColumnName="DiagnozName" />
+                <ScalarProperty Name="DiagnozId" ColumnName="DiagnozId" />
+                <ScalarProperty Name="FinCountryName" ColumnName="FinCountryName" />
+                <ScalarProperty Name="BankCountryName" ColumnName="BankCountryName" />
+                <ScalarProperty Name="OperatorParams" ColumnName="OperatorParams" />
+                <ScalarProperty Name="OperatorDescription" ColumnName="OperatorDescription" />
+                <ScalarProperty Name="OperatorName" ColumnName="OperatorName" />
+                <ScalarProperty Name="RodstvoSoprovodChLabel" ColumnName="RodstvoSoprovodChLabel" />
+                <ScalarProperty Name="RodstvoSoprovodRuLabel" ColumnName="RodstvoSoprovodRuLabel" />
+                <ScalarProperty Name="RodstvoSort" ColumnName="RodstvoSort" />
+                <ScalarProperty Name="RodstvoDescription" ColumnName="RodstvoDescription" />
+                <ScalarProperty Name="RodstvoName" ColumnName="RodstvoName" />
+                <ScalarProperty Name="BankKorrAccount" ColumnName="BankKorrAccount" />
+                <ScalarProperty Name="BankBik" ColumnName="BankBik" />
+                <ScalarProperty Name="BankOkved" ColumnName="BankOkved" />
+                <ScalarProperty Name="BankOktmo" ColumnName="BankOktmo" />
+                <ScalarProperty Name="BankKpp" ColumnName="BankKpp" />
+                <ScalarProperty Name="BankInn" ColumnName="BankInn" />
+                <ScalarProperty Name="BankDescription" ColumnName="BankDescription" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+                <ScalarProperty Name="UserComment" ColumnName="UserComment" />
+                <ScalarProperty Name="UserLastLoginDate" ColumnName="UserLastLoginDate" />
+                <ScalarProperty Name="UserIsLockedOut" ColumnName="UserIsLockedOut" />
+                <ScalarProperty Name="UserIsApproved" ColumnName="UserIsApproved" />
+                <ScalarProperty Name="UserLoweredEmail" ColumnName="UserLoweredEmail" />
+                <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+                <ScalarProperty Name="UserLastActivityDate" ColumnName="UserLastActivityDate" />
+                <ScalarProperty Name="UserIsAnonymous" ColumnName="UserIsAnonymous" />
+                <ScalarProperty Name="UserLoweredUserName" ColumnName="UserLoweredUserName" />
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+                <ScalarProperty Name="FinCardNumber" ColumnName="FinCardNumber" />
+                <ScalarProperty Name="FinBankOther" ColumnName="FinBankOther" />
+                <ScalarProperty Name="FinBankId" ColumnName="FinBankId" />
+                <ScalarProperty Name="FinCountryId" ColumnName="FinCountryId" />
+                <ScalarProperty Name="FinPhoneNumber" ColumnName="FinPhoneNumber" />
+                <ScalarProperty Name="FinOperatorId" ColumnName="FinOperatorId" />
+                <ScalarProperty Name="FinKiwi" ColumnName="FinKiwi" />
+                <ScalarProperty Name="FinYandexMoney" ColumnName="FinYandexMoney" />
+                <ScalarProperty Name="FinWebmoney" ColumnName="FinWebmoney" />
+                <ScalarProperty Name="SocialFb" ColumnName="SocialFb" />
+                <ScalarProperty Name="SocialMm" ColumnName="SocialMm" />
+                <ScalarProperty Name="SocialVk" ColumnName="SocialVk" />
+                <ScalarProperty Name="SocialOk" ColumnName="SocialOk" />
+                <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+                <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+                <ScalarProperty Name="ContactRodstvoId" ColumnName="ContactRodstvoId" />
+                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                <ScalarProperty Name="Diagnoz" ColumnName="Diagnoz" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="OwnerUser" ColumnName="OwnerUser" />
+                <ScalarProperty Name="GuidId" ColumnName="GuidId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spMixEntities" FunctionName="DataModel.Store.sp_MixEntities" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

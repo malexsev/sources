@@ -1048,6 +1048,7 @@ namespace Cure.WebSite.Controllers
 
                     dal.UpdateChild(child);
                     this.UpdateIsActive(ref child, ref dal);
+                    this.UpdatePostsInfo(ref child, ref dal);
                     return Json("1", JsonRequestBehavior.AllowGet);
                 }
                 catch (Exception)
@@ -1358,6 +1359,30 @@ namespace Cure.WebSite.Controllers
             dal.UpdateChild(child);
         }
 
+        private void UpdatePostsInfo(ref Child child, ref DataAccessBL dal)
+        {
+            var location = SiteUtils.ConcatLocation(child.RefCountry == null ? "" : child.RefCountry.Name, child.Region);
+            var name = child.ContactName;
+
+            var mensions = dal.GetMensionsByUser(child.OwnerUser).ToList();
+            var posts = dal.GetPostsByOwner(child.OwnerUser).ToList();
+            var internalDal = dal;
+
+            mensions.ForEach(x =>
+            {
+                x.CopyUserLocation = location;
+                x.CopyUserName = name;
+                internalDal.UpdateMension(x);
+            });
+
+            posts.ForEach(x =>
+            {
+                x.CopyOwnerLocation = location;
+                x.CopyOwnerName = name;
+                internalDal.UpdatePost(x);
+            });
+        }
+
         private void RemoveOrderFile(string fileName)
         {
             string photoLocation = Path.Combine(ConfigurationManager.AppSettings["PhotoLocation"], clientContainer.NewOrder.GuidId.ToString());
@@ -1409,7 +1434,8 @@ namespace Cure.WebSite.Controllers
                         string fileThumbName = Path.Combine(folderThumb, fileName);
                         using (Image original = Image.FromStream(stream))
                         using (Image thumb = PhotoUtils.Inscribe(original, 313, 313))
-                        using (Image big = PhotoUtils.resizeImage(original, (int)(((double)original.Height) / (1.0 * (double)original.Width / 919)), 919, true, true))
+                        //using (Image big = PhotoUtils.resizeImage(original, (int)(((double)original.Height) / (1.0 * (double)original.Width / 919)), 919, true, true))
+                        using (Image big = PhotoUtils.resizeImage(original, 690, (int)(((double)original.Width) / (1.0 * (double)original.Height / 690)), true, true))
                         {
                             //PhotoUtils.SaveToJpeg(original, path);
                             PhotoUtils.SaveToJpeg(thumb, fileThumbName);
