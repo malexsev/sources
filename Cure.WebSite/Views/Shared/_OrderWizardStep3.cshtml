@@ -46,13 +46,18 @@
                 <div class="forms-radiotwix">
                     <div class="forms-radiotwix-title">Состоит ребенок на психиатрическом диспансерном учете?</div>
                     <label class="forms-radio">
-                        @Html.RadioButtonFor(x => Model.ToList()[i].Dispanser, "Нет")
+                        @Html.RadioButtonFor(x => Model.ToList()[i].IsDispanser, "Нет")
                         @*<input type="radio" name="radio-group-31" checked>*@<span>Нет</span>
                     </label>
                     <label class="forms-radio">
-                        @Html.RadioButtonFor(x => Model.ToList()[i].Dispanser, "Да")
+                        @Html.RadioButtonFor(x => Model.ToList()[i].IsDispanser, "Да")
                         @*<input type="radio" name="radio-group-31">*@<span>Да</span>@*Dispanser*@
                     </label>
+                    <div class="forms-radiotwix-hidden">
+                        <label class="forms-label">Опишите подробнее</label>
+                        @Html.TextBoxFor(x => Model.ToList()[i].Dispanser, new { @class = "forms-input" })
+                        @*<input class="forms-input" type="text">*@
+                    </div>
                 </div>
             </div>
             <div class="forms-line order-forms-line">
@@ -77,78 +82,108 @@
                 <div class="forms-radiotwix">
                     <div class="forms-radiotwix-title">Находится ли ребенок на кожно-венерологическом диспансерном учете?</div>@*Dispanser2*@
                     <label class="forms-radio">
-                        @Html.RadioButtonFor(x => Model.ToList()[i].Dispanser2, "Нет")
+                        @Html.RadioButtonFor(x => Model.ToList()[i].IsDispanser2, "Нет")
                         @*<input type="radio" name="radio-group-33" checked>*@<span>Нет</span>
                     </label>
                     <label class="forms-radio">
-                        @Html.RadioButtonFor(x => Model.ToList()[i].Dispanser2, "Да")
+                        @Html.RadioButtonFor(x => Model.ToList()[i].IsDispanser2, "Да")
                         @*<input type="radio" name="radio-group-33">*@<span>Да</span>
                     </label>
+                    <div class="forms-radiotwix-hidden">
+                        <label class="forms-label">Опишите подробнее</label>
+                        @Html.TextBoxFor(x => Model.ToList()[i].Dispanser2, new { @class = "forms-input" })
+                        @*<input class="forms-input" type="text">*@
+                    </div>
                 </div>
             </div>
             <div class="forms-line order-forms-line">
                 <div class="forms-radiotwix">
                     <div class="forms-radiotwix-title">Имеет ли опасные для здоровья заболевания?</div>@*DangerousDiseases*@
                     <label class="forms-radio">
-                        @Html.RadioButtonFor(x => Model.ToList()[i].DangerousDiseases, "Нет")
+                        @Html.RadioButtonFor(x => Model.ToList()[i].IsDangerousDiseases, "Нет")
                         @*<input type="radio" name="radio-group-34" checked>*@<span>Нет</span>
                     </label>
                     <label class="forms-radio">
-                        @Html.RadioButtonFor(x => Model.ToList()[i].DangerousDiseases, "Да")
+                        @Html.RadioButtonFor(x => Model.ToList()[i].IsDangerousDiseases, "Да")
                         @*<input type="radio" name="radio-group-34">*@<span>Да</span>
                     </label>
+                    <div class="forms-radiotwix-hidden">
+                        <label class="forms-label">Опишите подробнее</label>
+                        @Html.TextBoxFor(x => Model.ToList()[i].DangerousDiseases, new { @class = "forms-input" })
+                        @*<input class="forms-input" type="text">*@
+                    </div>
                 </div>
             </div>
             <div class="forms-line order-forms-line">
                 <div class="forms-radiotwix">
                     <div class="forms-radiotwix-title">Сердечно – сосудистые заболевания?</div>@*Serdce*@
                     <label class="forms-radio">
-                        @Html.RadioButtonFor(x => Model.ToList()[i].Serdce, "Нет")
+                        @Html.RadioButtonFor(x => Model.ToList()[i].IsSerdce, "Нет")
                         @*<input type="radio" name="radio-group-35" checked>*@<span>Нет</span>
                     </label>
                     <label class="forms-radio">
-                        @Html.RadioButtonFor(x => Model.ToList()[i].Serdce, "Да")
+                        @Html.RadioButtonFor(x => Model.ToList()[i].IsSerdce, "Да")
                         @*<input type="radio" name="radio-group-35">*@<span>Да</span>
                     </label>
+                    <div class="forms-radiotwix-hidden">
+                        <label class="forms-label">Опишите подробнее</label>
+                        @Html.TextBoxFor(x => Model.ToList()[i].Serdce, new { @class = "forms-input" })
+                        @*<input class="forms-input" type="text">*@
+                    </div>
                 </div>
             </div>
             <div class="forms-line order-forms-line">
                 <div class="forms-radiotwix">
                     <div class="forms-radiotwix-title">Заболевания дыхательной системы?</div>@*Dihalka*@
                     <label class="forms-radio">
-                        @Html.RadioButtonFor(x => Model.ToList()[i].Dihalka, "Нет")
+                        @Html.RadioButtonFor(x => Model.ToList()[i].IsDihalka, "Нет")
                         @*<input type="radio" name="radio-group-36" checked>*@<span>Нет</span>
                     </label>
                     <label class="forms-radio">
-                        @Html.RadioButtonFor(x => Model.ToList()[i].Dihalka, "Да")
+                        @Html.RadioButtonFor(x => Model.ToList()[i].IsDihalka, "Да")
                         @*<input type="radio" name="radio-group-36">*@<span>Да</span>
                     </label>
+                    <div class="forms-radiotwix-hidden">
+                        <label class="forms-label">Опишите подробнее</label>
+                        @Html.TextBoxFor(x => Model.ToList()[i].Dihalka, new { @class = "forms-input" })
+                        @*<input class="forms-input" type="text">*@
+                    </div>
                 </div>
             </div>
             <div class="forms-line order-forms-line">
                 <div class="forms-radiotwix">
                     <div class="forms-radiotwix-title">Инфекционные заболевания?</div>@*Infections*@
                     <label class="forms-radio">
-                        @Html.RadioButtonFor(x => Model.ToList()[i].Infections, "Нет")
+                        @Html.RadioButtonFor(x => Model.ToList()[i].IsInfections, "Нет")
                         @*<input type="radio" name="radio-group-37" checked>*@<span>Нет</span>
                     </label>
                     <label class="forms-radio">
-                        @Html.RadioButtonFor(x => Model.ToList()[i].Infections, "Да")
+                        @Html.RadioButtonFor(x => Model.ToList()[i].IsInfections, "Да")
                         @*<input type="radio" name="radio-group-37">*@<span>Да</span>
                     </label>
+                    <div class="forms-radiotwix-hidden">
+                        <label class="forms-label">Опишите подробнее</label>
+                        @Html.TextBoxFor(x => Model.ToList()[i].Infections, new { @class = "forms-input" })
+                        @*<input class="forms-input" type="text">*@
+                    </div>
                 </div>
             </div>
             <div class="forms-line order-forms-line">
                 <div class="forms-radiotwix">
                     <div class="forms-radiotwix-title">Другие опасные для здоровья и окружающих заболевания?</div>@*OtherDiseases*@
                     <label class="forms-radio">
-                        @Html.RadioButtonFor(x => Model.ToList()[i].OtherDiseases, "Нет")
+                        @Html.RadioButtonFor(x => Model.ToList()[i].IsOtherDiseases, "Нет")
                         @*<input type="radio" name="radio-group-38" checked>*@<span>Нет</span>
                     </label>
                     <label class="forms-radio">
-                        @Html.RadioButtonFor(x => Model.ToList()[i].OtherDiseases, "Да")
+                        @Html.RadioButtonFor(x => Model.ToList()[i].IsOtherDiseases, "Да")
                         @*<input type="radio" name="radio-group-38">*@<span>Да</span>
                     </label>
+                    <div class="forms-radiotwix-hidden">
+                        <label class="forms-label">Опишите подробнее</label>
+                        @Html.TextBoxFor(x => Model.ToList()[i].OtherDiseases, new { @class = "forms-input" })
+                        @*<input class="forms-input" type="text">*@
+                    </div>
                 </div>
             </div>
 
@@ -272,26 +307,36 @@
                 <div class="forms-radiotwix">
                     <div class="forms-radiotwix-title">Проводились ли хирургические операции по Вашему заболеванию?</div>@*Hirurg*@
                     <label class="forms-radio">
-                        @Html.RadioButtonFor(x => Model.ToList()[i].Hirurg, "Нет")
+                        @Html.RadioButtonFor(x => Model.ToList()[i].IsHirurg, "Нет")
                         @*<input type="radio" name="radio-group-306" checked>*@<span>Нет</span>
                     </label>
                     <label class="forms-radio">
-                        @Html.RadioButtonFor(x => Model.ToList()[i].Hirurg, "Да")
+                        @Html.RadioButtonFor(x => Model.ToList()[i].IsHirurg, "Да")
                         @*<input type="radio" name="radio-group-306">*@<span>Да</span>
                     </label>
+                    <div class="forms-radiotwix-hidden">
+                        <label class="forms-label">Опишите подробнее</label>
+                        @Html.TextBoxFor(x => Model.ToList()[i].Hirurg, new { @class = "forms-input" })
+                        @*<input class="forms-input" type="text">*@
+                    </div>
                 </div>
             </div>
             <div class="forms-line order-forms-line">
                 <div class="forms-radiotwix">
                     <div class="forms-radiotwix-title">Получали ли травмы от внешних факторов? (ДТП, несчастные случаи)</div>@*Travmi*@
                     <label class="forms-radio">
-                        @Html.RadioButtonFor(x => Model.ToList()[i].Travmi, "Нет")
+                        @Html.RadioButtonFor(x => Model.ToList()[i].IsTravmi, "Нет")
                         @*<input type="radio" name="radio-group-307" checked>*@<span>Нет</span>
                     </label>
                     <label class="forms-radio">
-                        @Html.RadioButtonFor(x => Model.ToList()[i].Travmi, "Да")
+                        @Html.RadioButtonFor(x => Model.ToList()[i].IsTravmi, "Да")
                         @*<input type="radio" name="radio-group-307">*@<span>Да</span>
                     </label>
+                    <div class="forms-radiotwix-hidden">
+                        <label class="forms-label">Опишите подробнее</label>
+                        @Html.TextBoxFor(x => Model.ToList()[i].Travmi, new { @class = "forms-input" })
+                        @*<input class="forms-input" type="text">*@
+                    </div>
                 </div>
             </div>
         }

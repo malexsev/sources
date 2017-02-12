@@ -34,7 +34,7 @@
                             <div class="child-aside-data">
                                 <div class="child-name">@Model.Name</div>
                                 <div class="child-age">@Model.Age</div>
-                                <div class="child-city">@Html.Raw(SiteUtils.ConcatLocation(Model.CountryName, Model.Region))</div>
+                                <div class="child-city">@Html.Raw(SiteUtils.ConcatLocation(Model.CountryName ?? "", Model.Region ?? ""))</div>
                             </div>
                         </div>
                         <div class="child-aside-body">

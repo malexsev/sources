@@ -568,14 +568,14 @@ namespace Cure.WebSite.Controllers
                             visit.HystoryA = visitVm.HystoryA;
                             visit.Hystoryb = visitVm.HystoryB;
                             visit.Razvitie = visitVm.Razvitie;
-                            visit.Dispanser = visitVm.Dispanser;
+                            visit.Dispanser = (string.IsNullOrEmpty(visitVm.IsDispanser) || visitVm.IsDispanser == "Нет") ? "Нет" : (string.IsNullOrEmpty(visitVm.Dispanser) ? visitVm.IsDispanser : visitVm.Dispanser);
                             visit.DispanserNarko = (string.IsNullOrEmpty(visitVm.IsDispanserNarko) || visitVm.IsDispanserNarko == "Нет") ? "Нет" : (string.IsNullOrEmpty(visitVm.DispanserNarko) ? visitVm.IsDispanserNarko : visitVm.DispanserNarko);
-                            visit.Dispanser2 = visitVm.Dispanser2;
-                            visit.DangerousDiseases = visitVm.DangerousDiseases;
-                            visit.Serdce = visitVm.Serdce;
-                            visit.Dihalka = visitVm.Dihalka;
-                            visit.Infections = visitVm.Infections;
-                            visit.OtherDiseases = visitVm.OtherDiseases;
+                            visit.Dispanser2 = (string.IsNullOrEmpty(visitVm.IsDispanser2) || visitVm.IsDispanser2 == "Нет") ? "Нет" : (string.IsNullOrEmpty(visitVm.Dispanser2) ? visitVm.IsDispanser2 : visitVm.Dispanser2);
+                            visit.DangerousDiseases = (string.IsNullOrEmpty(visitVm.IsDangerousDiseases) || visitVm.IsDangerousDiseases == "Нет") ? "Нет" : (string.IsNullOrEmpty(visitVm.DangerousDiseases) ? visitVm.IsDangerousDiseases : visitVm.DangerousDiseases);
+                            visit.Serdce = (string.IsNullOrEmpty(visitVm.IsSerdce) || visitVm.IsSerdce == "Нет") ? "Нет" : (string.IsNullOrEmpty(visitVm.Serdce) ? visitVm.IsSerdce : visitVm.Serdce);
+                            visit.Dihalka = (string.IsNullOrEmpty(visitVm.IsDihalka) || visitVm.IsDihalka == "Нет") ? "Нет" : (string.IsNullOrEmpty(visitVm.Dihalka) ? visitVm.IsDihalka : visitVm.Dihalka);
+                            visit.Infections = (string.IsNullOrEmpty(visitVm.IsInfections) || visitVm.IsInfections == "Нет") ? "Нет" : (string.IsNullOrEmpty(visitVm.Infections) ? visitVm.IsInfections : visitVm.Infections);
+                            visit.OtherDiseases = (string.IsNullOrEmpty(visitVm.IsOtherDiseases) || visitVm.IsOtherDiseases == "Нет") ? "Нет" : (string.IsNullOrEmpty(visitVm.OtherDiseases) ? visitVm.IsOtherDiseases : visitVm.OtherDiseases);
                             visit.Epilispiya = visitVm.Epilispiya;
                             visit.SudorogiType = visitVm.SudorogiType;
                             visit.SudorogiCount = visitVm.SudorogiCount;
@@ -585,8 +585,8 @@ namespace Cure.WebSite.Controllers
                             visit.KursesRanee = (string.IsNullOrEmpty(visitVm.IsKursesRanee) || visitVm.IsKursesRanee == "Нет") ? "Нет" : (string.IsNullOrEmpty(visitVm.KursesRanee) ? visitVm.IsKursesRanee : visitVm.KursesRanee);
                             visit.KursesChinaRanee = (string.IsNullOrEmpty(visitVm.IsKursesChinaRanee) || visitVm.IsKursesChinaRanee == "Нет") ? "Нет" : (string.IsNullOrEmpty(visitVm.KursesChinaRanee) ? visitVm.IsKursesChinaRanee : visitVm.KursesChinaRanee);
                             visit.NonTradicial = (string.IsNullOrEmpty(visitVm.IsNonTradicial) || visitVm.IsNonTradicial == "Нет") ? "Нет" : (string.IsNullOrEmpty(visitVm.NonTradicial) ? visitVm.IsNonTradicial : visitVm.NonTradicial);
-                            visit.Hirurg = visitVm.Hirurg;
-                            visit.Travmi = visitVm.Travmi;
+                            visit.Hirurg = (string.IsNullOrEmpty(visitVm.IsHirurg) || visitVm.IsHirurg == "Нет") ? "Нет" : (string.IsNullOrEmpty(visitVm.Hirurg) ? visitVm.IsHirurg : visitVm.Hirurg);
+                            visit.Travmi = (string.IsNullOrEmpty(visitVm.IsTravmi) || visitVm.IsTravmi == "Нет") ? "Нет" : (string.IsNullOrEmpty(visitVm.Travmi) ? visitVm.IsTravmi : visitVm.Travmi);
                         }
 
                         this.clientContainer.NewOrder.Name = "4";
@@ -625,14 +625,14 @@ namespace Cure.WebSite.Controllers
                         visit.HystoryA = visitVm.HystoryA;
                         visit.Hystoryb = visitVm.HystoryB;
                         visit.Razvitie = visitVm.Razvitie;
-                        visit.Dispanser = visitVm.Dispanser;
+                        visit.Dispanser = (string.IsNullOrEmpty(visitVm.IsDispanser) || visitVm.IsDispanser == "Нет") ? "Нет" : (string.IsNullOrEmpty(visitVm.Dispanser) ? visitVm.IsDispanser : visitVm.Dispanser);
                         visit.DispanserNarko = (string.IsNullOrEmpty(visitVm.IsDispanserNarko) || visitVm.IsDispanserNarko == "Нет") ? "Нет" : (string.IsNullOrEmpty(visitVm.DispanserNarko) ? visitVm.IsDispanserNarko : visitVm.DispanserNarko);
-                        visit.Dispanser2 = visitVm.Dispanser2;
-                        visit.DangerousDiseases = visitVm.DangerousDiseases;
-                        visit.Serdce = visitVm.Serdce;
-                        visit.Dihalka = visitVm.Dihalka;
-                        visit.Infections = visitVm.Infections;
-                        visit.OtherDiseases = visitVm.OtherDiseases;
+                        visit.Dispanser2 = (string.IsNullOrEmpty(visitVm.IsDispanser2) || visitVm.IsDispanser2 == "Нет") ? "Нет" : (string.IsNullOrEmpty(visitVm.Dispanser2) ? visitVm.IsDispanser2 : visitVm.Dispanser2);
+                        visit.DangerousDiseases = (string.IsNullOrEmpty(visitVm.IsDangerousDiseases) || visitVm.IsDangerousDiseases == "Нет") ? "Нет" : (string.IsNullOrEmpty(visitVm.DangerousDiseases) ? visitVm.IsDangerousDiseases : visitVm.DangerousDiseases);
+                        visit.Serdce = (string.IsNullOrEmpty(visitVm.IsSerdce) || visitVm.IsSerdce == "Нет") ? "Нет" : (string.IsNullOrEmpty(visitVm.Serdce) ? visitVm.IsSerdce : visitVm.Serdce);
+                        visit.Dihalka = (string.IsNullOrEmpty(visitVm.IsDihalka) || visitVm.IsDihalka == "Нет") ? "Нет" : (string.IsNullOrEmpty(visitVm.Dihalka) ? visitVm.IsDihalka : visitVm.Dihalka);
+                        visit.Infections = (string.IsNullOrEmpty(visitVm.IsInfections) || visitVm.IsInfections == "Нет") ? "Нет" : (string.IsNullOrEmpty(visitVm.Infections) ? visitVm.IsInfections : visitVm.Infections);
+                        visit.OtherDiseases = (string.IsNullOrEmpty(visitVm.IsOtherDiseases) || visitVm.IsOtherDiseases == "Нет") ? "Нет" : (string.IsNullOrEmpty(visitVm.OtherDiseases) ? visitVm.IsOtherDiseases : visitVm.OtherDiseases);
                         visit.Epilispiya = visitVm.Epilispiya;
                         visit.SudorogiType = visitVm.SudorogiType;
                         visit.SudorogiCount = visitVm.SudorogiCount;
@@ -642,8 +642,8 @@ namespace Cure.WebSite.Controllers
                         visit.KursesRanee = (string.IsNullOrEmpty(visitVm.IsKursesRanee) || visitVm.IsKursesRanee == "Нет") ? "Нет" : (string.IsNullOrEmpty(visitVm.KursesRanee) ? visitVm.IsKursesRanee : visitVm.KursesRanee);
                         visit.KursesChinaRanee = (string.IsNullOrEmpty(visitVm.IsKursesChinaRanee) || visitVm.IsKursesChinaRanee == "Нет") ? "Нет" : (string.IsNullOrEmpty(visitVm.KursesChinaRanee) ? visitVm.IsKursesChinaRanee : visitVm.KursesChinaRanee);
                         visit.NonTradicial = (string.IsNullOrEmpty(visitVm.IsNonTradicial) || visitVm.IsNonTradicial == "Нет") ? "Нет" : (string.IsNullOrEmpty(visitVm.NonTradicial) ? visitVm.IsNonTradicial : visitVm.NonTradicial);
-                        visit.Hirurg = visitVm.Hirurg;
-                        visit.Travmi = visitVm.Travmi;
+                        visit.Hirurg = (string.IsNullOrEmpty(visitVm.IsHirurg) || visitVm.IsHirurg == "Нет") ? "Нет" : (string.IsNullOrEmpty(visitVm.Hirurg) ? visitVm.IsHirurg : visitVm.Hirurg);
+                        visit.Travmi = (string.IsNullOrEmpty(visitVm.IsTravmi) || visitVm.IsTravmi == "Нет") ? "Нет" : (string.IsNullOrEmpty(visitVm.Travmi) ? visitVm.IsTravmi : visitVm.Travmi);
                     }
 
                     this.clientContainer.NewOrder.LastUser = SiteUtils.GetCurrentUserName();
@@ -1434,10 +1434,8 @@ namespace Cure.WebSite.Controllers
                         string fileThumbName = Path.Combine(folderThumb, fileName);
                         using (Image original = Image.FromStream(stream))
                         using (Image thumb = PhotoUtils.Inscribe(original, 313, 313))
-                        //using (Image big = PhotoUtils.resizeImage(original, (int)(((double)original.Height) / (1.0 * (double)original.Width / 919)), 919, true, true))
                         using (Image big = PhotoUtils.resizeImage(original, 690, (int)(((double)original.Width) / (1.0 * (double)original.Height / 690)), true, true))
                         {
-                            //PhotoUtils.SaveToJpeg(original, path);
                             PhotoUtils.SaveToJpeg(thumb, fileThumbName);
                             PhotoUtils.SaveToJpeg(big, path);
                         }

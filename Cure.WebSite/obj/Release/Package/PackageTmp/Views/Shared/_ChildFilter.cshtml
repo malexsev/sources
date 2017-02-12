@@ -4,8 +4,7 @@
         <div class="col-md-3 col-ss-6">
             <div class="selector">
                 @Html.Hidden("filtercountry", 0, new { id = "filtercountry" })
-                @*<input type="hidden" value="0">*@
-                <div class="selector-val" data-val="0">Все страны</div>
+                <div class="selector-val" data-val="0">Cтрана</div>
                 <ul class="selector-list">
                     <li data-val="0">Все страны</li>
                     @foreach (RefCountry country in ViewBag.Countries)
@@ -18,8 +17,7 @@
         <div class="col-md-3 col-ss-6">
             <div class="selector">
                 @Html.Hidden("filterregion", 0, new { id = "filterregion" })
-                @*<input type="hidden" value="0">*@
-                <div class="selector-val" data-val="0">Все регионы</div>
+                <div class="selector-val" data-val="0">Регион</div>
                 <ul class="selector-list">
                     <li data-val="0">Все регионы</li>
                     @foreach (string region in ViewBag.Regions)
@@ -32,8 +30,7 @@
         <div class="col-md-3 col-ss-6">
             <div class="selector">
                 @Html.Hidden("filterage", 0, new { id = "filterage" })
-                @*<input type="hidden" value="0">*@
-                <div class="selector-val" data-val="0">Любой возраст</div>
+                <div class="selector-val" data-val="0">Возраст</div>
                 <ul class="selector-list">
                     <li data-val="0">Любой возраст</li>
                     <li data-val="1">0-3 лет</li>
@@ -47,8 +44,7 @@
         <div class="col-md-3 col-ss-6">
             <div class="selector">
                 @Html.Hidden("filterdiagnoze", 0, new { id = "filterdiagnoze" })
-                @*<input type="hidden" value="0">*@
-                <div class="selector-val" data-val="0">Любой диагноз</div>
+                <div class="selector-val" data-val="0">Диагноз</div>
                 <ul class="selector-list">
                     <li data-val="0">Любой диагноз</li>                    
                     @foreach (RefDiagnoz diagnoze in ViewBag.Diagnozes)

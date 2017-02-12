@@ -55,20 +55,16 @@ namespace Cure.WebAdmin.Controls
             {
                 Directory.CreateDirectory(folderThumb);
             }
-            if (!Directory.Exists(folderBig))
-            {
-                Directory.CreateDirectory(folderBig);
-            }
+
             string fileName = Path.Combine(folder, uploadedFile.FileName);
+
             string fileThumbName = Path.Combine(folderThumb, uploadedFile.FileName);
-            string fileBigName = Path.Combine(folderBig, uploadedFile.FileName);
             using (Image original = Image.FromStream(uploadedFile.FileContent))
             using (Image thumb = PhotoUtils.Inscribe(original, 313, 313))
-            using (Image big = PhotoUtils.Inscribe(original, 919, 538))
+            using (Image big = PhotoUtils.resizeImage(original, 690, (int)(((double)original.Width) / (1.0 * (double)original.Height / 690)), true, true))
             {
-                PhotoUtils.SaveToJpeg(original, fileName);
                 PhotoUtils.SaveToJpeg(thumb, fileThumbName);
-                PhotoUtils.SaveToJpeg(big, fileBigName);
+                PhotoUtils.SaveToJpeg(big, fileName);
             }
             return uploadedFile.FileName;
         }

@@ -82,6 +82,7 @@
     <Property Name="FinBankOther" Type="nvarchar" MaxLength="500" />
     <Property Name="FinCardNumber" Type="nvarchar" MaxLength="50" />
     <Property Name="FinCardName" Type="nvarchar" MaxLength="50" />
+    <Property Name="SortOrder" Type="int" />
   </EntityType>
   <EntityType Name="ChildAvaFile">
     <Key>
@@ -573,7 +574,18 @@
 warning 6002: The table/view 'Cure.dbo.ViewChild' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="ViewChild">
     <Key>
+      <PropertyRef Name="Id" />
       <PropertyRef Name="GuidId" />
+      <PropertyRef Name="OwnerUser" />
+      <PropertyRef Name="IsActive" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Birthday" />
+      <PropertyRef Name="CountryId" />
+      <PropertyRef Name="ContactName" />
+      <PropertyRef Name="ContactRodstvoId" />
+      <PropertyRef Name="ContactEmail" />
+      <PropertyRef Name="DiagnozId" />
+      <PropertyRef Name="DiagnozName" />
     </Key>
     <Property Name="Id" Type="int" Nullable="false" />
     <Property Name="GuidId" Type="uniqueidentifier" Nullable="false" />
@@ -655,6 +667,7 @@ warning 6002: The table/view 'Cure.dbo.ViewChild' does not have a primary key de
     <Property Name="OwnerUserPic" Type="nvarchar" MaxLength="250" />
     <Property Name="OwnerAvaFile" Type="nvarchar" MaxLength="250" />
     <Property Name="UserId" Type="uniqueidentifier" />
+    <Property Name="SortOrder" Type="int" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'Cure.dbo.ViewMension' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1379,6 +1392,7 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
     <Parameter Name="Contact" Type="nvarchar" Mode="In" />
     <Parameter Name="Filter" Type="nvarchar" Mode="In" />
   </Function>
+  <Function Name="sp_MixEntities" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="sp_UserDeleteCheck" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="UserName" Type="nvarchar" Mode="In" />
   </Function>
@@ -1499,7 +1513,8 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
 [ViewChild].[Operator4Params] AS [Operator4Params], 
 [ViewChild].[OwnerUserPic] AS [OwnerUserPic], 
 [ViewChild].[OwnerAvaFile] AS [OwnerAvaFile], 
-[ViewChild].[UserId] AS [UserId]
+[ViewChild].[UserId] AS [UserId], 
+[ViewChild].[SortOrder] AS [SortOrder]
 FROM [dbo].[ViewChild] AS [ViewChild]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="ViewMension" EntityType="Self.ViewMension" store:Type="Views" store:Schema="dbo">

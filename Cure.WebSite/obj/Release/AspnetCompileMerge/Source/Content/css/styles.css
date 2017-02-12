@@ -3396,6 +3396,7 @@ html.swipebox-html.swipebox-touch {
   background: url(../img/icon_quotes.png) no-repeat center top;
 }
 .children-page-review .review-text {
+  height: 88px;
   margin-bottom: 36px;
   font-style: italic;
   overflow: hidden;
@@ -4453,7 +4454,8 @@ html.swipebox-html.swipebox-touch {
 }
 .testimonials-popup .popup-wrap {
   width: 720px;
-  max-height: 420px;
+  height: auto;
+  max-height: 500px;
 }
 .testimonials-popup .forms-text {
   height: 180px;
@@ -6170,7 +6172,7 @@ html.swipebox-html.swipebox-touch {
 .page-close {
   display: block;
   position: absolute;
-  top: 125px;
+  top: 155px;
   right: 10px;
   width: 30px;
   height: 30px;
@@ -7096,11 +7098,15 @@ html.swipebox-html.swipebox-touch {
     margin: 0 auto;
   }
   .boss-card-txt{
-    margin: 0;
+    margin: 0 0 10px;
     padding: 0;
     text-align: center;
     background-color: rgba(255,255,255,0.7);
     overflow: hidden;
+  }
+  .sec-hosp-intro .intro-title span{
+  	font-size: 36px;
+  	line-height: 40px;
   }
   .sec-message-form {
     padding: 20px;
