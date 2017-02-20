@@ -22,19 +22,19 @@
     <div class="forms-line js-input-daterange">
         <div class="order-date">
             <label class="forms-label">Заезд</label>
-            @Html.TextBox("datefrom", Model.NewOrder.DateFrom.Year == 1 
-            ? (Session["OrderDateFrom"] == null ? Model.NewOrder.DateFrom.ToString("dd.MM.yyyy") : ((DateTime)Session["OrderDateFrom"]).ToString("dd.MM.yyyy")) 
+            @Html.TextBox("datefrom", Model.NewOrder.DateFrom.Year == 1
+            ? (Session["OrderDateFrom"] == null ? Model.NewOrder.DateFrom.ToString("dd.MM.yyyy") : ((DateTime)Session["OrderDateFrom"]).ToString("dd.MM.yyyy"))
             : Model.NewOrder.DateFrom.ToString("dd.MM.yyyy"), new
-                {
-                    @id = "datefrom",
-                    @placeholder = "Нет даты",
-                    @class = "forms-input has-icon ico-calendar js-datepicker"
-                })
+             {
+                 @id = "datefrom",
+                 @placeholder = "Нет даты",
+                 @class = "forms-input has-icon ico-calendar js-datepicker"
+             })
         </div>
         <div class="order-date">
             <label class="forms-label">Отъезд</label>
             @Html.TextBox("dateto", Model.NewOrder.DateTo.Year == 1
-            ? (Session["OrderDateTo"] == null ? Model.NewOrder.DateTo.ToString("dd.MM.yyyy") : ((DateTime)Session["OrderDateTo"]).ToString("dd.MM.yyyy")) 
+            ? (Session["OrderDateTo"] == null ? Model.NewOrder.DateTo.ToString("dd.MM.yyyy") : ((DateTime)Session["OrderDateTo"]).ToString("dd.MM.yyyy"))
             : Model.NewOrder.DateTo.ToString("dd.MM.yyyy"), new
                 {
                     @id = "dateto",

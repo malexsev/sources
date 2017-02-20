@@ -60,5 +60,15 @@ namespace Cure.DataAccess.DAL
                 throw ex;
             }
         }
+
+        public Newsletter GetNewsletter(string email)
+        {
+            return context.Newsletters.FirstOrDefault(o => o.Email == email);
+        }
+
+        public IEnumerable<ViewSubscriber> ViewSubscribers()
+        {
+            return context.ViewSubscribers;
+        }
     }
 }

@@ -214,6 +214,25 @@
           <Property Name="SuccessCount" Type="int" />
           <Property Name="ErrorsCount" Type="int" />
         </EntityType>
+        <EntityType Name="NewsPage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GuidId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Alias" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="250" />
+          <Property Name="CreatorName" Type="nvarchar" MaxLength="250" />
+          <Property Name="Text" Type="text" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="Sort" Type="int" />
+          <Property Name="Settings" Type="nvarchar" MaxLength="250" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="EditDate" Type="datetime" />
+          <Property Name="LastUser" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="NotificationLog">
           <Key>
             <PropertyRef Name="Id" />
@@ -428,7 +447,7 @@
           <Property Name="Description" Type="nvarchar" MaxLength="500" />
           <Property Name="Type" Type="nvarchar" MaxLength="50" />
           <Property Name="ValueBool" Type="bit" />
-          <Property Name="Value" Type="nvarchar" MaxLength="250" />
+          <Property Name="Value" Type="text" />
         </EntityType>
         <EntityType Name="SmsLog">
           <Key>
@@ -898,6 +917,19 @@ warning 6002: The table/view 'Cure.dbo.ViewSoonVisit' does not have a primary ke
           <Property Name="Description" Type="nvarchar" MaxLength="500" />
           <Property Name="Email" Type="nvarchar" MaxLength="250" />
           <Property Name="BirthDate" Type="date" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Cure.dbo.ViewSubscriber' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ViewSubscriber">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="275" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="Source" Type="varchar" MaxLength="18" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1447,6 +1479,7 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
           <EntitySet Name="Mension" EntityType="Self.Mension" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Message" EntityType="Self.Message" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Newsletter" EntityType="Self.Newsletter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NewsPage" EntityType="Self.NewsPage" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NotificationLog" EntityType="Self.NotificationLog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OnlineUser" EntityType="Self.OnlineUser" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
@@ -1751,6 +1784,16 @@ FROM [dbo].[ViewScheduler] AS [ViewScheduler]</DefiningQuery>
 [ViewSoonVisit].[Email] AS [Email], 
 [ViewSoonVisit].[BirthDate] AS [BirthDate]
 FROM [dbo].[ViewSoonVisit] AS [ViewSoonVisit]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ViewSubscriber" EntityType="Self.ViewSubscriber" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[ViewSubscriber].[Id] AS [Id], 
+[ViewSubscriber].[Name] AS [Name], 
+[ViewSubscriber].[Email] AS [Email], 
+[ViewSubscriber].[Country] AS [Country], 
+[ViewSubscriber].[Date] AS [Date], 
+[ViewSubscriber].[Source] AS [Source]
+FROM [dbo].[ViewSubscriber] AS [ViewSubscriber]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="ViewUserMembership" EntityType="Self.ViewUserMembership" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -2134,6 +2177,8 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
             <End Role="Post" EntitySet="Posts" />
           </AssociationSet>
           <FunctionImport Name="spMixEntities" />
+          <EntitySet Name="NewsPages" EntityType="DataModel.NewsPage" />
+          <EntitySet Name="ViewSubscribers" EntityType="DataModel.ViewSubscriber" />
           </EntityContainer>
         <EntityType Name="OrderStatu">
           <Key>
@@ -2442,7 +2487,7 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
           <Property Type="String" Name="Description" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Type" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="Boolean" Name="ValueBool" />
-          <Property Type="String" Name="Value" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Value" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="aspnet_Membership">
           <Key>
@@ -3583,6 +3628,36 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="NewsPage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GuidId" Type="Guid" Nullable="false" />
+          <Property Name="Alias" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Subject" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="CreatorName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="Sort" Type="Int32" />
+          <Property Name="Settings" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="EditDate" Type="DateTime" Precision="3" />
+          <Property Name="LastUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ViewSubscriber">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="275" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="Source" Type="String" Nullable="false" MaxLength="18" FixedLength="false" Unicode="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -4522,6 +4597,38 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="spMixEntities" FunctionName="DataModel.Store.sp_MixEntities" />
+          <EntitySetMapping Name="NewsPages">
+            <EntityTypeMapping TypeName="DataModel.NewsPage">
+              <MappingFragment StoreEntitySet="NewsPage">
+                <ScalarProperty Name="LastUser" ColumnName="LastUser" />
+                <ScalarProperty Name="EditDate" ColumnName="EditDate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Settings" ColumnName="Settings" />
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="CreatorName" ColumnName="CreatorName" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Alias" ColumnName="Alias" />
+                <ScalarProperty Name="GuidId" ColumnName="GuidId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ViewSubscribers">
+            <EntityTypeMapping TypeName="DataModel.ViewSubscriber">
+              <MappingFragment StoreEntitySet="ViewSubscriber">
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

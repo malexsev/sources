@@ -200,6 +200,8 @@
       <End Role="Post" EntitySet="Posts" />
     </AssociationSet>
     <FunctionImport Name="spMixEntities" />
+    <EntitySet Name="NewsPages" EntityType="DataModel.NewsPage" />
+    <EntitySet Name="ViewSubscribers" EntityType="DataModel.ViewSubscriber" />
   </EntityContainer>
   <EntityType Name="OrderStatu">
     <Key>
@@ -508,7 +510,7 @@
     <Property Type="String" Name="Description" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Type="String" Name="Type" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Type="Boolean" Name="ValueBool" />
-    <Property Type="String" Name="Value" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Value" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="aspnet_Membership">
     <Key>
@@ -1649,4 +1651,34 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="NewsPage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GuidId" Type="Guid" Nullable="false" />
+    <Property Name="Alias" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="Subject" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CreatorName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Sort" Type="Int32" />
+    <Property Name="Settings" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="EditDate" Type="DateTime" Precision="3" />
+    <Property Name="LastUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ViewSubscriber">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="275" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Source" Type="String" Nullable="false" MaxLength="18" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>

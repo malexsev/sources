@@ -208,6 +208,8 @@
     <Content Include="Admin\Controls\SoonVisitsList.ascx" />
     <Content Include="Admin\CurrencyList.aspx" />
     <Content Include="Admin\CurrencyRateList.aspx" />
+    <Content Include="Admin\NewsLetter.aspx" />
+    <Content Include="Admin\NewsList.aspx" />
     <Content Include="Admin\RefCfcsList.aspx" />
     <Content Include="Admin\RefMacsList.aspx" />
     <Content Include="Admin\RefGmfcsList.aspx" />
@@ -252,6 +254,7 @@
     <Content Include="Client\MyOrders.aspx" />
     <Content Include="Client\NewOrderWizard.aspx" />
     <Content Include="Client\NewOrder.aspx" />
+    <Content Include="Content\EmailBodyTemplate.html" />
     <Content Include="Content\Images\AquaHeader.jpg" />
     <Content Include="Content\Images\BlackGlassHeader.jpg" />
     <Content Include="Content\Images\dcp_logo.png" />
@@ -331,6 +334,7 @@
     <Content Include="Controls\PhotoUploader.ascx" />
     <Content Include="Controls\RemoteNavigation.ascx" />
     <Content Include="Controls\ResultBox.ascx" />
+    <Content Include="_Generate54782348572955383.aspx" />
     <Content Include="_EveryDay9826358775243309.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
@@ -531,6 +535,20 @@
     </Compile>
     <Compile Include="Admin\CurrencyRateList.aspx.designer.cs">
       <DependentUpon>CurrencyRateList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\NewsLetter.aspx.cs">
+      <DependentUpon>NewsLetter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\NewsLetter.aspx.designer.cs">
+      <DependentUpon>NewsLetter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\NewsList.aspx.cs">
+      <DependentUpon>NewsList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\NewsList.aspx.designer.cs">
+      <DependentUpon>NewsList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\RefCfcsList.aspx.cs">
       <DependentUpon>RefCfcsList.aspx</DependentUpon>
@@ -870,6 +888,13 @@
     <Compile Include="Controls\ResultBox.ascx.designer.cs">
       <DependentUpon>ResultBox.ascx</DependentUpon>
     </Compile>
+    <Compile Include="_Generate54782348572955383.aspx.cs">
+      <DependentUpon>_Generate54782348572955383.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_Generate54782348572955383.aspx.designer.cs">
+      <DependentUpon>_Generate54782348572955383.aspx</DependentUpon>
+    </Compile>
     <Compile Include="_EveryDay9826358775243309.aspx.cs">
       <DependentUpon>_EveryDay9826358775243309.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -956,13 +981,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Cure.Notification\Cure.Notification.csproj">
-      <Project>{61c42d50-9035-4dd5-a850-d0b292949cdb}</Project>
-      <Name>Cure.Notification</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Cure.DataAccess\Cure.DataAccess.csproj">
       <Project>{23945d42-0232-4000-aa1e-959b6cd74278}</Project>
       <Name>Cure.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cure.Notification\Cure.Notification.csproj">
+      <Project>{61c42d50-9035-4dd5-a850-d0b292949cdb}</Project>
+      <Name>Cure.Notification</Name>
     </ProjectReference>
     <ProjectReference Include="..\Cure.Reports\Cure.Reports.csproj">
       <Project>{83627bd5-adee-4f16-9972-77bbd0072b7c}</Project>

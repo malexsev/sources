@@ -34,6 +34,7 @@
             <li @Html.Raw(Request.Url.AbsolutePath.Contains("Orders") ? @"class=""active""" : @"")><a href="@Url.Action("Orders", "Cabinet")"><i class="ico-order"></i>Заявки</a></li>
             @*<li @Html.Raw(Request.Url.AbsolutePath.Contains("Balance") ? @"class=""active""" : @"")><a href="@Url.Action("Balance", "Cabinet")"><i class="ico-money"></i>Баланс</a></li>*@
             <li @Html.Raw(Request.Url.AbsolutePath.Contains("MyPage") ? @"class=""active""" : @"")><a href="@Url.Action("MyPage", "Cabinet")"><i class="ico-page"></i>Моя страница</a></li>
+            <li @Html.Raw(Request.Url.AbsolutePath.Contains("Files") ? @"class=""active""" : @"")><a href="@Url.Action("Files", "Cabinet")"><i class="ico-files"></i>Мои файлы</a></li>
             @*<li><a><i class="ico-cart"></i>Магазин</a></li>*@
         </ul>
     </div>

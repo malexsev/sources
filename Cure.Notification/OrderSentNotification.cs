@@ -6,7 +6,7 @@
     using DataAccess.BLL;
     using Utils;
 
-    public class OrderSentNotification : INotification
+    public class OrderSentNotification : BaseNotification
     {
         private const string NoPacients = "(без пациента)";
         private Order order;
@@ -14,7 +14,7 @@
         private Setting settingIsNotify;
         private string pacientFullName;
 
-        public OrderSentNotification(int orderId)
+        public OrderSentNotification(int orderId) : base(null)
         {
             var dal = new DataAccessBL();
             this.order = dal.GetOrder(orderId);
@@ -23,7 +23,7 @@
             this.pacientFullName = order.Visits.Any() ? (order.Visits.FirstOrDefault().Pacient.FullName != null ? order.Visits.FirstOrDefault().Pacient.FullName : NoPacients) : NoPacients;
         }
 
-        public bool Send()
+        public override bool Send()
         {
             if (settingIsNotify.ValueBool != null && settingIsNotify.ValueBool == true)
             {
@@ -45,8 +45,6 @@
 
         private void Log(string result, string recipient)
         {
-            var dal = new DataAccessBL();
-
             var notify = new NotificationLog()
             {
                 ClientName = "Администрация",
@@ -59,7 +57,7 @@
                 Type = "SMS"
             };
 
-            dal.InsertNotificationLog(notify);
+            SaveLog(notify);
         }
     }
 }

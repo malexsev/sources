@@ -209,6 +209,25 @@
     <Property Name="SuccessCount" Type="int" />
     <Property Name="ErrorsCount" Type="int" />
   </EntityType>
+  <EntityType Name="NewsPage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GuidId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Alias" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="250" />
+    <Property Name="CreatorName" Type="nvarchar" MaxLength="250" />
+    <Property Name="Text" Type="text" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Sort" Type="int" />
+    <Property Name="Settings" Type="nvarchar" MaxLength="250" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="EditDate" Type="datetime" />
+    <Property Name="LastUser" Type="nvarchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="NotificationLog">
     <Key>
       <PropertyRef Name="Id" />
@@ -423,7 +442,7 @@
     <Property Name="Description" Type="nvarchar" MaxLength="500" />
     <Property Name="Type" Type="nvarchar" MaxLength="50" />
     <Property Name="ValueBool" Type="bit" />
-    <Property Name="Value" Type="nvarchar" MaxLength="250" />
+    <Property Name="Value" Type="text" />
   </EntityType>
   <EntityType Name="SmsLog">
     <Key>
@@ -877,6 +896,19 @@ warning 6002: The table/view 'Cure.dbo.ViewSoonVisit' does not have a primary ke
     <Property Name="Description" Type="nvarchar" MaxLength="500" />
     <Property Name="Email" Type="nvarchar" MaxLength="250" />
     <Property Name="BirthDate" Type="date" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Cure.dbo.ViewSubscriber' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ViewSubscriber">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="275" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="Country" Type="nvarchar" MaxLength="50" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Source" Type="varchar" MaxLength="18" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -1409,6 +1441,7 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
     <EntitySet Name="Mension" EntityType="Self.Mension" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Message" EntityType="Self.Message" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Newsletter" EntityType="Self.Newsletter" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NewsPage" EntityType="Self.NewsPage" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NotificationLog" EntityType="Self.NotificationLog" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="OnlineUser" EntityType="Self.OnlineUser" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
@@ -1713,6 +1746,16 @@ FROM [dbo].[ViewScheduler] AS [ViewScheduler]</DefiningQuery>
 [ViewSoonVisit].[Email] AS [Email], 
 [ViewSoonVisit].[BirthDate] AS [BirthDate]
 FROM [dbo].[ViewSoonVisit] AS [ViewSoonVisit]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ViewSubscriber" EntityType="Self.ViewSubscriber" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[ViewSubscriber].[Id] AS [Id], 
+[ViewSubscriber].[Name] AS [Name], 
+[ViewSubscriber].[Email] AS [Email], 
+[ViewSubscriber].[Country] AS [Country], 
+[ViewSubscriber].[Date] AS [Date], 
+[ViewSubscriber].[Source] AS [Source]
+FROM [dbo].[ViewSubscriber] AS [ViewSubscriber]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="ViewUserMembership" EntityType="Self.ViewUserMembership" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 

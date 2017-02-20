@@ -13,7 +13,7 @@
     using Utils;
     using Page = System.Web.UI.Page;
 
-    public class MensionAddedEmailNotification : INotification
+    public class MensionAddedEmailNotification : BaseNotification
     {
         private Setting settingAdminsEmails;
         private Setting settingAdminsEmailCopy;
@@ -30,7 +30,8 @@
             + "<a href='http://lk.dcp-china.ru/Admin/MensionList.aspx'>Страница модерации отзывов</a>"; //0 - Имя пользователя с профиля, 1 - Имя ребёнка, 2 - Логин пользователя, 3 - Электронный адрес, 4 - Текст отзыва
 
 
-        public MensionAddedEmailNotification(Mension mension, ViewChild view)
+        public MensionAddedEmailNotification(Mension mension, ViewChild view, HttpServerUtilityBase server)
+            : base(server)
         {
             try
             {
@@ -53,13 +54,13 @@
             }
         }
 
-        public bool Send()
+        public override bool Send()
         {
             if (settingIsNotify.ValueBool != null && settingIsNotify.ValueBool == true)
             {
                 bool result = false;
 
-                result = EmailUtils.SendEmail(this.settingAdminsEmails.Value, this.settingAdminsEmailCopy.Value, this.subject, this.body, "Новый отзыв");
+                result = SendEmail(this.settingAdminsEmails.Value, this.settingAdminsEmailCopy.Value, this.subject, this.body, "Новый отзыв");
                 this.Log(result ? "Доставлено" : "Ошибка доставки", settingAdminsEmails.Value);
 
                 return result;
@@ -70,8 +71,6 @@
 
         private void Log(string result, string recipient)
         {
-            var dal = new DataAccessBL();
-
             var notify = new NotificationLog()
             {
                 ClientName = "Администрация",
@@ -84,7 +83,7 @@
                 Type = "EMail"
             };
 
-            dal.InsertNotificationLog(notify);
+            SaveLog(notify);
         }
     }
 }

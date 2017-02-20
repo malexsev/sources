@@ -13,7 +13,7 @@
     using Utils;
     using Page = System.Web.UI.Page;
 
-    public class OrderSentEmailNotification : INotification
+    public class OrderSentEmailNotification : BaseNotification
     {
         private Setting settingAdminsEmails;
         private Setting settingAdminsEmailCopy;
@@ -22,7 +22,7 @@
         private string body;
         private string attachmentPath;
         private string attachmentName;
-        private const string attachmentTemplate = "Заявка, {0}, {1}, {2}.pdf"; //0 - ФИО, 1 - «страна», 2 - «город»
+        private const string attachmentTemplate = "Заявка {0}, {1}, {2}.pdf"; //0 - аббр. больницы,  1 - ФИО,  2 - «страна»
         private const string subjectTemplate = "Заявка в {0}, {1}, {2}, {3}"; //0 - «короткое имя клиники», 1 - ФИО, 2 - «страна», 3 - «город»
         private const string bodyTemplate = "От пользователя {0} поступила Заявка на лечение.<br />"
             + "Заявка в {5},<br />"
@@ -33,6 +33,7 @@
 
 
         public OrderSentEmailNotification(int visitId, HttpServerUtilityBase server)
+            : base(server)
         {
             try
             {
@@ -50,22 +51,22 @@
                         ? "-"
                         : visit.Order.DateTo.ToString("dd-MM-yyyy"))
                     , visit.Order.Department.ShortName);
-                this.attachmentName = string.Format(attachmentTemplate, visit.Pacient.FullName,visit.Pacient.RefCountry.Name, visit.Pacient.CityName);
+                this.attachmentName = string.Format(attachmentTemplate, visit.Order.Department.ShortName, visit.Pacient.FullName, visit.Pacient.RefCountry.Name);
                 this.attachmentPath = SiteUtils.GenerateVisitDetailsPdf(visit, this.attachmentName, server);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 throw;
             }
         }
 
-        public bool Send()
+        public override bool Send()
         {
             if (settingIsNotify.ValueBool != null && settingIsNotify.ValueBool == true)
             {
                 bool result = false;
 
-                result = EmailUtils.SendEmail(this.settingAdminsEmails.Value, this.settingAdminsEmailCopy.Value, this.subject, this.body, "Новая заявка", this.attachmentPath, this.attachmentName);
+                result = SendEmail(this.settingAdminsEmails.Value, this.settingAdminsEmailCopy.Value, this.subject, this.body, "Новая заявка", this.attachmentPath, this.attachmentName);
                 this.Log(result ? "Доставлено" : "Ошибка доставки", settingAdminsEmails.Value);
 
                 return result;
@@ -76,8 +77,6 @@
 
         private void Log(string result, string recipient)
         {
-            var dal = new DataAccessBL();
-
             var notify = new NotificationLog()
             {
                 ClientName = "Администрация",
@@ -90,7 +89,7 @@
                 Type = "EMail"
             };
 
-            dal.InsertNotificationLog(notify);
+            SaveLog(notify);
         }
     }
 }

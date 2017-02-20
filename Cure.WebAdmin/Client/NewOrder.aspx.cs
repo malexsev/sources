@@ -195,7 +195,7 @@ namespace Cure.WebAdmin.Client
                 {
                     var notifyEmail = new OrderSentEmailNotification(visit.Id, new HttpServerUtilityWrapper(this.Server));
                     notifyEmail.Send();
-                    var notifyEmailToUser = new OrderSentToUserEmailNotification(SiteUtils.GetCurrentUserName());
+                    var notifyEmailToUser = new OrderSentToUserEmailNotification(SiteUtils.GetCurrentUserName(), new HttpServerUtilityWrapper(Server));
                     notifyEmailToUser.Send();
                 }
                 Session.Abandon();

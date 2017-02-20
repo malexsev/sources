@@ -8,6 +8,9 @@ namespace Cure.DataAccess
 {
     using System.ComponentModel.DataAnnotations;
 
+    /// <summary>
+    /// ФИО и год рождения.
+    /// </summary>
     [MetadataType(typeof(PacientAnnotation))]
     public partial class Pacient
     {

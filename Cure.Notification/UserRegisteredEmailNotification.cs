@@ -3,12 +3,13 @@
     using System;
     using System.Linq;
     using System.Net.Mail;
+    using System.Web;
     using System.Web.UI;
     using DataAccess;
     using DataAccess.BLL;
     using Utils;
 
-    public class UserRegisteredEmailNotification : INotification
+    public class UserRegisteredEmailNotification : BaseNotification
     {
         private Setting settingAdminsEmails;
         private Setting settingAdminsEmailCopy;
@@ -19,7 +20,8 @@
         private const string bodyTemplate = "Зарегистрирован новый пользователь в Личном кабинете {0}, {1}"; //0 - Логин, 1 - Электронная почта
 
 
-        public UserRegisteredEmailNotification(string username)
+        public UserRegisteredEmailNotification(string username, HttpServerUtilityBase server)
+            : base(server)
         {
             var dal = new DataAccessBL();
             var user = dal.GetUserMembership(username);
@@ -30,13 +32,13 @@
             this.body = string.Format(bodyTemplate, user.UserName, user.LoweredEmail);
         }
 
-        public bool Send()
+        public override bool Send()
         {
             if (settingIsNotify.ValueBool != null && settingIsNotify.ValueBool == true)
             {
                 bool result = false;
 
-                result = EmailUtils.SendEmail(this.settingAdminsEmails.Value, this.settingAdminsEmailCopy.Value, this.subject, this.body, "Новый пользователь");
+                result = SendEmail(this.settingAdminsEmails.Value, this.settingAdminsEmailCopy.Value, this.subject, this.body, "Новый пользователь");
                 this.Log(result ? "Доставлено" : "Ошибка доставки", settingAdminsEmails.Value);
 
                 return result;
@@ -47,8 +49,6 @@
 
         private void Log(string result, string recipient)
         {
-            var dal = new DataAccessBL();
-
             var notify = new NotificationLog()
             {
                 ClientName = "Администрация",
@@ -61,7 +61,7 @@
                 Type = "EMail"
             };
 
-            dal.InsertNotificationLog(notify);
+            SaveLog(notify);
         }
     }
 }

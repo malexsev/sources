@@ -3,12 +3,13 @@
     using System;
     using System.Linq;
     using System.Net.Mail;
+    using System.Web;
     using System.Web.UI;
     using DataAccess;
     using DataAccess.BLL;
     using Utils;
 
-    public class TicketsBoughtToUserEmailNotification : INotification
+    public class TicketsBoughtToUserEmailNotification : BaseNotification
     {
         private string subject;
         private string body;
@@ -21,7 +22,8 @@
             + @"C уважением, Администрация больницы<br />"
             + @"Тех. поддержка: zqcpchina@gmail.com"; //0 - «дата,время», 1 - адрес клиники
 
-        public TicketsBoughtToUserEmailNotification(int orderId)
+        public TicketsBoughtToUserEmailNotification(int orderId, HttpServerUtilityBase server)
+            : base(server)
         {
             var dal = new DataAccessBL();
             this.order = dal.GetOrder(orderId);
@@ -32,11 +34,11 @@
                     , this.order.Department.Address);
         }
 
-        public bool Send()
+        public override bool Send()
         {
             bool result = false;
 
-            result = EmailUtils.SendEmail(this.user.LoweredEmail, string.Empty, this.subject, this.body, "Пользователю Куплены билеты");
+            result = SendEmail(this.user.LoweredEmail, string.Empty, this.subject, this.body, "Пользователю Куплены билеты");
             this.Log(result ? "Доставлено" : "Ошибка доставки", this.user.LoweredEmail);
 
             return result;
@@ -44,8 +46,6 @@
 
         private void Log(string result, string recipient)
         {
-            var dal = new DataAccessBL();
-
             var notify = new NotificationLog()
             {
                 ClientName = "Пользователь",
@@ -58,7 +58,7 @@
                 Type = "EMail"
             };
 
-            dal.InsertNotificationLog(notify);
+            SaveLog(notify);
         }
     }
 }

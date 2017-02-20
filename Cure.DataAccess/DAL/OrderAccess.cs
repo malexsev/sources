@@ -10,6 +10,26 @@ namespace Cure.DataAccess.DAL
 
     internal partial class DataRepository
     {
+        //Возвращает необработанные заявки, которые на рассмотрении 3 дня.
+        public IEnumerable<Order> GetUnprocessedOrders()
+        {
+            var searchDate = DateTime.Today.AddDays(-3);
+            return context.Orders.Where(x => x.DepartmentId.HasValue &&
+                x.LastDate.HasValue &&
+                x.StatusId == (int)Enums.OrderStatus.Новый &&
+                (x.LastDate.Value.Year == searchDate.Year && x.LastDate.Value.Month == searchDate.Month && x.LastDate.Value.Day == searchDate.Day));
+        }
+
+        //Возвращает заявки, которые небыли отправлены вчера.
+        public IEnumerable<Order> GetPendingDrafts()
+        {
+            var searchDate = DateTime.Today.AddDays(-1);
+            return context.Orders.Where(x => x.DepartmentId.HasValue &&
+                x.CreateDate.HasValue &&
+                x.StatusId == (int)Enums.OrderStatus.Черновик &&
+                (x.CreateDate.Value.Year == searchDate.Year && x.CreateDate.Value.Month == searchDate.Month && x.CreateDate.Value.Day == searchDate.Day));
+        }
+
         public IEnumerable<ViewScheduler> GetScheduler()
         {
             return context.ViewSchedulers;
@@ -42,7 +62,7 @@ namespace Cure.DataAccess.DAL
             if (filter < 0)
             {
                 return context.ViewSoonVisits.OrderBy(o => o.TicketPribitieTime).ToList();
-            } 
+            }
             else if (filter == 0)
             {
                 return context.ViewSoonVisits.Where(x => x.StatusId != (int)Enums.OrderStatus.Черновик
@@ -62,7 +82,7 @@ namespace Cure.DataAccess.DAL
         public IEnumerable<ViewSoonVisit> ViewOutdatedStatus()
         {
             DateTime today = DateTime.Today;
-            return context.ViewSoonVisits.Where(x => x.StatusId != (int)Enums.OrderStatus.Черновик 
+            return context.ViewSoonVisits.Where(x => x.StatusId != (int)Enums.OrderStatus.Черновик
                 && x.StatusId < (int)Enums.OrderStatus.Завершён
                 && (x.DateTo < today || (x.TicketUbitieTime != null && x.TicketUbitieTime < today))).OrderBy(o => o.TicketPribitieTime).ThenBy(x => x.DateFrom).ToList();
         }
@@ -75,8 +95,8 @@ namespace Cure.DataAccess.DAL
                 && x.StatusId < (int)Enums.OrderStatus.Завершён
                 && (x.StatusId == (int)Enums.OrderStatus.Выполняется))
                 .OrderByDescending(o => o.TicketPribitieTime).ThenByDescending(x => x.DateFrom).ToList();
-                //(x.DateFrom >= today || (x.TicketPribitieTime != null && x.TicketPribitieTime >= today))
-                //&& (x.DateTo <= today || (x.TicketUbitieTime != null && x.TicketUbitieTime <= today))
+            //(x.DateFrom >= today || (x.TicketPribitieTime != null && x.TicketPribitieTime >= today))
+            //&& (x.DateTo <= today || (x.TicketUbitieTime != null && x.TicketUbitieTime <= today))
         }
 
         public IEnumerable<ViewSoonVisit> ViewSoonTransferOrders(string username)
@@ -88,26 +108,27 @@ namespace Cure.DataAccess.DAL
 
         public IEnumerable<Order> GetOrders(int filter, string email, string familiya)
         {
-            int[] sputnikIDs = {};
-            int[] paciaentIDs = {};
-            string[] userIDs = {};
+            int[] sputnikIDs = { };
+            int[] paciaentIDs = { };
+            string[] userIDs = { };
             if (!string.IsNullOrEmpty(email) || !string.IsNullOrEmpty(familiya))
             {
                 sputnikIDs = context.Sputniks.Where(x => (!string.IsNullOrEmpty(email) && x.Email.ToLower() == email.ToLower())
-                    || (!string.IsNullOrEmpty(familiya) && (x.Familiya.ToLower() == familiya.ToLower() || x.FamiliyaEn  .ToLower() == familiya.ToLower())))
+                    || (!string.IsNullOrEmpty(familiya) && (x.Familiya.ToLower() == familiya.ToLower() || x.FamiliyaEn.ToLower() == familiya.ToLower())))
                     .Select(x => x.Id).ToArray();
                 paciaentIDs = context.Pacients.Where(x => (!string.IsNullOrEmpty(familiya) && (x.Familiya.ToLower() == familiya.ToLower() || x.FamiliyaEn.ToLower() == familiya.ToLower()))).Select(x => x.Id).ToArray();
                 userIDs = context.ViewUserMemberships.Where(x => (!string.IsNullOrEmpty(email) && x.Email.ToLower() == email.ToLower())).Select(x => x.UserName).ToArray();
             }
             if (filter < 0)
             {
-                return context.Orders.Where(x => (string.IsNullOrEmpty(email) && string.IsNullOrEmpty(familiya)) 
-                    || x.Sputniks.Any(s => sputnikIDs.Contains(s.Id)) 
+                return context.Orders.Where(x => (string.IsNullOrEmpty(email) && string.IsNullOrEmpty(familiya))
+                    || x.Sputniks.Any(s => sputnikIDs.Contains(s.Id))
                     || userIDs.Contains(x.OwnerUser)
                     || x.Visits.Any(v => paciaentIDs.Contains(v.PacientId))).OrderByDescending(x => x.CreateDate).ToList();
-            } else if (filter == 0)
+            }
+            else if (filter == 0)
             {
-                return context.Orders.Where(x => ((string.IsNullOrEmpty(email) && string.IsNullOrEmpty(familiya)) 
+                return context.Orders.Where(x => ((string.IsNullOrEmpty(email) && string.IsNullOrEmpty(familiya))
                     || x.Sputniks.Any(s => sputnikIDs.Contains(s.Id))
                     || userIDs.Contains(x.OwnerUser)
                     || x.Visits.Any(v => paciaentIDs.Contains(v.PacientId))) && x.StatusId != (int)Enums.OrderStatus.Черновик && x.DateFrom <= DateTime.Today && x.DateTo >= DateTime.Today).OrderByDescending(x => x.CreateDate).ToList();
@@ -141,7 +162,8 @@ namespace Cure.DataAccess.DAL
                 order.GuidId = Guid.NewGuid();
                 context.Orders.AddObject(order);
                 context.SaveChanges();
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -154,7 +176,8 @@ namespace Cure.DataAccess.DAL
                 context.Orders.Attach(order);
                 context.Orders.DeleteObject(order);
                 SaveChanges();
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -193,7 +216,8 @@ namespace Cure.DataAccess.DAL
                 origOrder.ServiceRoomIsPosuda = order.ServiceRoomIsPosuda;
 
                 SaveChanges();
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }

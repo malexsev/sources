@@ -14,7 +14,7 @@
     using Utils;
     using Page = System.Web.UI.Page;
 
-    public class Before24HoursEmailNotification : INotification
+    public class Before24HoursEmailNotification : BaseNotification
     {
         private IEnumerable<Visit> visits;
         private HttpServerUtilityBase server;
@@ -30,7 +30,7 @@
             + @"{5}<br/>{6},<br/><br/><a href='http://lk.dcp-china.ru/{7}'>Ссылка на заявку (пдф формат)</a>"; //0 - короткое имя клиники, 1 - дата, время, 2 - рейс, 3 -ФИО дата рождения, 4 - страна, 5 - город, 6 - примечение, 7 - ссылка на пдф
 
 
-        public Before24HoursEmailNotification(HttpServerUtilityBase server)
+        public Before24HoursEmailNotification(HttpServerUtilityBase server) : base(server)
         {
             try
             {
@@ -49,7 +49,7 @@
             }
         }
 
-        public bool Send()
+        public override bool Send()
         {
             if (this.settingIsNotify.ValueBool != null && this.settingIsNotify.ValueBool == true && this.visits.Any())
             {
@@ -72,7 +72,7 @@
                         , visit.Order.Notes
                         , attachmentPath.Substring(attachmentPath.IndexOf("Documents", StringComparison.Ordinal)).Replace(@"\", @"/"));
 
-                    result = EmailUtils.SendEmail(this.settingAdminsEmails.Value, this.settingAdminsEmailCopy.Value, subject, body, "Прибытие за сутки", attachmentPath, attachmentName);
+                    result = SendEmail(this.settingAdminsEmails.Value, this.settingAdminsEmailCopy.Value, subject, body, "Прибытие за сутки", attachmentPath, attachmentName);
                     this.Log(result ? "Доставлено" : "Ошибка доставки", settingAdminsEmails.Value, subject);
                 }
 
@@ -85,8 +85,6 @@
 
         private void Log(string result, string recipient, string subject)
         {
-            var dal = new DataAccessBL();
-
             var notify = new NotificationLog()
             {
                 ClientName = "Администрация",
@@ -99,7 +97,7 @@
                 Type = "EMail"
             };
 
-            dal.InsertNotificationLog(notify);
+            SaveLog(notify);
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿namespace Cure.Utils
 {
     using System;
+    using System.Collections.Generic;
+    using System.Linq;
     using System.Net;
     using System.Net.Mail;
     using System.Net.Mime;
@@ -8,7 +10,8 @@
 
     public static class EmailUtils
     {
-        public static bool SendEmail(string toEmails, string copyEmails, string subject, string body, string reason, string attachmentPath = "", string attachmentName = "")
+        public static bool SendEmail(string toEmails, string copyEmails, string subject, string body, string reason, 
+            string attachmentPath = "", string attachmentName = "")
         {
             bool mailSent;
             var cred = new NetworkCredential("u436844", "22231e6b7zx");
@@ -27,7 +30,7 @@
                 BodyEncoding = Encoding.UTF8,
                 SubjectEncoding = Encoding.UTF8,
                 IsBodyHtml = true,
-                Priority = MailPriority.Normal
+                Priority = MailPriority.Normal,
             };
 
             if (!string.IsNullOrEmpty(attachmentPath) && !string.IsNullOrEmpty(attachmentName))
@@ -47,6 +50,14 @@
                     message.CC.Add(new MailAddress(copy));
                 }
             }
+
+            //if (linkedResources != null && linkedResources.Any())
+            //{
+            //var images = new List<System.Net.Mail.LinkedResource>();
+            //var htmlView = AlternateView.CreateAlternateViewFromString(body, Encoding.UTF8, MediaTypeNames.Text.Html);
+            //images.ForEach(htmlView.LinkedResources.Add);
+            //message.AlternateViews.Add(htmlView);
+            //}
 
             try
             {

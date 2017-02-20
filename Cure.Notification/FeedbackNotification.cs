@@ -2,11 +2,12 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Web;
     using DataAccess;
     using DataAccess.BLL;
     using Utils;
 
-    public class FeedbackNotification : INotification
+    public class FeedbackNotification : BaseNotification
     {
         private Setting settingAdminsEmails;
         private Setting settingAdminsEmailCopy;
@@ -22,7 +23,8 @@
         private string text { get; set; }
 
 
-        public FeedbackNotification(string name, string email, string phone, string text)
+        public FeedbackNotification(string name, string email, string phone, string text, HttpServerUtilityBase server)
+            : base(server)
         {
             try
             {
@@ -40,7 +42,7 @@
             }
         }
 
-        public bool Send()
+        public override bool Send()
         {
             bool result = false;
 
@@ -50,7 +52,7 @@
                 , this.phone
                 , this.text);
 
-            result = EmailUtils.SendEmail(this.settingAdminsEmails.Value, this.settingAdminsEmailCopy.Value, subject, body, "Обратная связь");
+            result = SendEmail(this.settingAdminsEmails.Value, this.settingAdminsEmailCopy.Value, subject, body, "Обратная связь");
             this.Log(result ? "Доставлено" : "Ошибка доставки", settingAdminsEmails.Value, subject);
 
             return result;
@@ -58,8 +60,6 @@
 
         private void Log(string result, string recipient, string subject)
         {
-            var dal = new DataAccessBL();
-
             var notify = new NotificationLog()
             {
                 ClientName = "Администрация",
@@ -72,7 +72,7 @@
                 Type = "EMail"
             };
 
-            dal.InsertNotificationLog(notify);
+            SaveLog(notify);
         }
     }
 }

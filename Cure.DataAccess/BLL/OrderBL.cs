@@ -8,6 +8,16 @@ namespace Cure.DataAccess.BLL
 {
     public partial class DataAccessBL
     {
+        public IEnumerable<Order> GetUnprocessedOrders()
+        {
+            return dataRepository.GetUnprocessedOrders();
+        }
+
+        public IEnumerable<Order> GetPendingDrafts()
+        {
+            return dataRepository.GetPendingDrafts();
+        }
+
         public IEnumerable<ViewScheduler> GetScheduler()
         {
             return dataRepository.GetScheduler();

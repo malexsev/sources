@@ -1,0 +1,87 @@
+﻿@using System.Collections
+@using Cure.DataAccess
+@using Cure.WebSite.Models
+@{
+    ViewBag.Title = "Мои файлы";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="main" role="main">
+    <div class="container">
+        @Html.Partial("_CabinetInfoLine", "Мои файлы")
+
+        <div class="all-pages-body">
+            <div class="content-wrap cabinet-my-files">
+                @using (Html.BeginForm("Files", "Cabinet", FormMethod.Post, new
+                {
+                    @id = "formFiles",
+                    enctype = "multipart/form-data"
+                }))
+                {
+                    if (ViewBag.MyOrders == null || ((IEnumerable<dynamic>)ViewBag.MyOrders).Count() == 0)
+                    {
+                        <div class="content-tab-empty">Файлов пока нет</div>
+                    }
+                    else
+                    {
+                        <div class="comments-title">Выберите заявку:</div>
+                        <div class="selector forms-selector ">
+                            @Html.Hidden("filter", ((IEnumerable<Order>)ViewBag.MyOrders).ToList()[0].GuidId, new { id = "orderfilesfilter" })
+                            <div class="selector-val" data-val="@Html.Raw(((IEnumerable<Order>)ViewBag.MyOrders).ToList()[0].GuidId)">
+                                @Html.Raw(string.Format("Заявка от {0} в клинику {1} с {2} по {3}",
+                                    (((IEnumerable<Order>)ViewBag.MyOrders).ToList()[0].CreateDate ?? DateTime.Now).ToShortDateString(),
+                                    ((IEnumerable<Order>)ViewBag.MyOrders).ToList()[0].Department == null ? "" : ((IEnumerable<Order>)ViewBag.MyOrders).ToList()[0].Department.ShortName,
+                                    ((IEnumerable<Order>)ViewBag.MyOrders).ToList()[0].DateFrom.Year < 1990
+                                    ? "(уточняется)"
+                                        : ((IEnumerable<Order>)ViewBag.MyOrders).ToList()[0].DateFrom.ToString("dd-MM-yyyy"),
+                                    ((IEnumerable<Order>)ViewBag.MyOrders).ToList()[0].DateTo.Year < 1990
+                                        ? "(уточняется)"
+                                        : ((IEnumerable<Order>)ViewBag.MyOrders).ToList()[0].DateTo.ToString("dd-MM-yyyy")))
+                            </div>
+                            <ul class="selector-list">
+                                @foreach (var order in (IEnumerable<Order>)ViewBag.MyOrders)
+                                {
+                                    <li data-val="@Html.Raw(order.GuidId)">
+                                        @Html.Raw(string.Format("Заявка от {0} в клинику {1} с {2} по {3}",
+                                                    (order.CreateDate ?? DateTime.Now).ToShortDateString(),
+                                                    order.Department == null ? "" : order.Department.ShortName,
+                                                    order.DateFrom.Year < 1990
+                                                        ? "(уточняется)"
+                                                        : order.DateFrom.ToString("dd-MM-yyyy"),
+                                                    order.DateTo.Year < 1990
+                                                        ? "(уточняется)"
+                                                        : order.DateTo.ToString("dd-MM-yyyy")))
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+
+                        <div class="images-tile-add">
+                            <div class="comments-addform">
+                                <div class="comments-addform-body">
+                                    <div id="filesfileprogress">
+                                    </div>
+                                    <div class="forms-file">
+                                        <div class="forms-file-msg">Загрузить новый файл</div>
+                                        <input class="btn btn-orang" id="fileFilesUpload" name="fileFilesUpload" type="file">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="content-adaptive-sheet" id="user-files-list">
+                            @if (ViewBag.MyFiles != null)
+                            {
+                                @Html.Partial("_FilesList", (IEnumerable<MyFileViewModel>)ViewBag.MyFiles)
+                            }
+                            else
+                            {
+                                <div class="content-tab-empty">Файлов пока нет</div>
+                            }
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+
+</div>

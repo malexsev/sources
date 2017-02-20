@@ -64,9 +64,9 @@ namespace Cure.WebAdmin.Admin
             {
                 e.NewValues["OwnerUser"] = SiteUtils.GetCurrentUserName();
             }
-            if ((int) e.NewValues["StatusId"] == 6 && e.NewValues["StatusId"] != e.OldValues["StatusId"])
+            if ((int)e.NewValues["StatusId"] == 6 && (int)e.NewValues["StatusId"] != (int)e.OldValues["StatusId"])
             {
-                var notify = new OrderApprovedToUserEmailNotification((int)e.Keys[0]);
+                var notify = new OrderApprovedToUserEmailNotification((int)e.Keys[0], new HttpServerUtilityWrapper(Server));
                 notify.Send();
             }
             if ((int) e.NewValues["StatusId"] == 9 && e.NewValues["StatusId"] != e.OldValues["StatusId"])

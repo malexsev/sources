@@ -6,6 +6,51 @@
 
     public partial class DataAccessBL
     {
+        public IEnumerable<ViewSubscriber> ViewSubscribers()
+        {
+            return dataRepository.ViewSubscribers();
+        }
+
+        public bool Subscribe(string email)
+        {
+            if (!ValidateEmail(email))
+                return false;
+
+            var subscription = dataRepository.GetNewsletter(email);
+            if (subscription == null)
+            {
+                subscription = new Newsletter()
+                {
+                    Email = email,
+                    EntryDate = DateTime.Now,
+                    ErrorsCount = 0,
+                    SuccessCount = 0,
+                    Settings = string.Empty,
+                    EntryType = "Управление подпиской"
+                };
+                dataRepository.InsertNewsletter(subscription);
+            }
+            return true;
+        }
+
+        public bool UnSubscribe(string email)
+        {
+            if (!ValidateEmail(email))
+                return false;
+
+            var subscription = dataRepository.GetNewsletter(email);
+            if (subscription == null)
+                return false;
+
+            dataRepository.DeleteNewsletter(subscription);
+            return true;
+        }
+
+        public Newsletter GetNewsletter(string email)
+        {
+            return dataRepository.GetNewsletter(email);
+        }
+
         public IEnumerable<Newsletter> GetNewsletters()
         {
             return dataRepository.GetNewsletters();
@@ -16,7 +61,8 @@
             try
             {
                 dataRepository.InsertNewsletter(newsletter);
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -27,7 +73,8 @@
             try
             {
                 dataRepository.DeleteNewsletter(newsletter);
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -38,11 +85,17 @@
             try
             {
                 dataRepository.UpdateNewsletter(newsletter);
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
 
+        }
+
+        private bool ValidateEmail(string email)
+        {
+            return email.Contains("@") && email.Contains(".");
         }
 
     }

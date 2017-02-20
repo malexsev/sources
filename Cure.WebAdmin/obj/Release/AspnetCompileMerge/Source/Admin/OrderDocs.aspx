@@ -73,10 +73,12 @@
         <div class="panelsdelimiter"></div>
         <dx:ASPxFileManager ID="uxFileManager" ClientInstanceName="fmfilemanager" runat="server" Theme="SoftOrange">
             <SettingsEditing AllowDelete="true" AllowDownload="True" AllowRename="true"></SettingsEditing>
-            <SettingsToolbar ShowDownloadButton="True" />
+            <SettingsToolbar ShowDownloadButton="True"/>
             <SettingsUpload UseAdvancedUploadMode="True">
                 <AdvancedModeSettings EnableMultiSelect="True" />
             </SettingsUpload>
+            <SettingsFileList View="Details"></SettingsFileList>
+            <SettingsFolders Visible="false"></SettingsFolders>
         </dx:ASPxFileManager>
     </div>
 </asp:Content>

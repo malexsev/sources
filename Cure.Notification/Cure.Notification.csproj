@@ -45,6 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseNotification.cs" />
+    <Compile Include="OrderNotCompletedToUserEmailNotification.cs" />
+    <Compile Include="OrdersUnprocessedEmailNotification.cs" />
+    <Compile Include="PacientBirthdayEmailNotification.cs" />
+    <Compile Include="NewsNotification.cs" />
     <Compile Include="FeedbackNotification.cs" />
     <Compile Include="Before2HoursEmailNotification.cs" />
     <Compile Include="Before2HoursNotification.cs" />

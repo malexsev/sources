@@ -67,7 +67,7 @@ namespace Cure.WebSite.Controllers
                 };
 
                 dal.InsertMension(mension);
-                var notify = new MensionAddedEmailNotification(mension, view);
+                var notify = new MensionAddedEmailNotification(mension, view, Server);
                 notify.Send();
 
                 return Json("1", JsonRequestBehavior.AllowGet);

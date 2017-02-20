@@ -6,7 +6,7 @@
     using DataAccess.BLL;
     using Utils;
 
-    public class Before24HoursNotification : INotification
+    public class Before24HoursNotification : BaseNotification
     {
         private const string NoPacients = "(без пациента)";
         private IEnumerable<Visit> visits;
@@ -14,6 +14,7 @@
         private Setting settingIsNotify;
 
         public Before24HoursNotification()
+            : base(null)
         {
             var timeFrom = DateTime.Now.AddDays(2);
             var timeTo = DateTime.Now.AddDays(3);
@@ -23,7 +24,7 @@
             this.settingIsNotify = dal.GetSettingByCode("IsNotifyAdminsBefore24HoursArrival");
         }
 
-        public bool Send()
+        public override bool Send()
         {
             if (settingIsNotify.ValueBool != null && settingIsNotify.ValueBool == true)
             {
@@ -49,8 +50,6 @@
 
         private void Log(string result, string pacientFullName)
         {
-            var dal = new DataAccessBL();
-
             var notify = new NotificationLog()
             {
                 ClientName = "Администрация",
@@ -63,7 +62,7 @@
                 Type = "SMS"
             };
 
-            dal.InsertNotificationLog(notify);
+            SaveLog(notify);
         }
     }
 }

@@ -7,9 +7,36 @@ namespace Cure.WebSite.Controllers
     using System.Linq;
     using DataAccess;
     using DataAccess.BLL;
+    using Models;
+    using Utils;
 
     public class HomeController : Controller
     {
+        public ActionResult Subscription(string subscribe, string unsubscribe)
+        {
+            var model = new SubscriptionViewModel();
+            if (!string.IsNullOrEmpty(subscribe) && string.IsNullOrEmpty(unsubscribe))
+            {
+                var dal = new DataAccessBL();
+                model.Email = subscribe;
+                model.isSubscribe = true;
+                model.isSuccess = dal.Subscribe(subscribe);
+            }
+            else if (!string.IsNullOrEmpty(unsubscribe) && string.IsNullOrEmpty(subscribe))
+            {
+                var dal = new DataAccessBL();
+                model.Email = unsubscribe;
+                model.isSubscribe = false;
+                model.isSuccess = dal.UnSubscribe(unsubscribe);
+            }
+            else
+            {
+                model.isSuccess = false;
+            }
+
+            return View(model);
+        }
+
         public ActionResult SimpleStyles()
         {
             return View();
@@ -20,7 +47,6 @@ namespace Cure.WebSite.Controllers
             return View();
         }
 
-        [OutputCache (Duration = 60)]
         public ActionResult Index()
         {
             var dal = new DataAccessBL();
@@ -28,8 +54,8 @@ namespace Cure.WebSite.Controllers
             ViewBag.ChildrenHome = dal.FilterChilds(0, "0", 0, 0, 0, 8);
             ViewBag.MensionsHome = dal.GetTopMensions();
             ViewBag.Departments = dal.GetActiveDepartments();
-            var weathers = new List<Weather> { dal.GetWeatherByCity(33991), dal.GetWeatherByCity(36870), dal.GetWeatherByCity(50207) };
-            ViewBag.Weathers = weathers;
+            
+            ViewBag.Weathers = WeatherUtils.GetWeathers();
             return View();
         }
 

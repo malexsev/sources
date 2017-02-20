@@ -7,8 +7,10 @@ using System.Web.UI.WebControls;
 
 namespace Cure.WebAdmin.Admin
 {
+    using DataAccess.BLL;
     using DevExpress.Web.ASPxClasses;
     using Microsoft.VisualBasic;
+    using Utils;
 
     public partial class ChildList : Page
     {
@@ -29,6 +31,17 @@ namespace Cure.WebAdmin.Admin
             {
                 int index = Convert.ToInt32(e.Parameter);
                 uxPhotoGallery.RemovePhotoByIndex(index);
+            }
+        }
+
+        protected void uxMainGrid_RowUpdated(object sender, DevExpress.Web.Data.ASPxDataUpdatedEventArgs e)
+        {
+            int childId;
+            if (int.TryParse(e.Keys[0].ToString(), out childId))
+            {
+                var dal = new DataAccessBL();
+                var child = dal.GetChild(childId);
+                SiteUtils.UpdatePostsInfo(ref child, ref dal);
             }
         }
     }

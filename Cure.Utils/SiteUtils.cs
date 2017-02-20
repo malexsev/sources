@@ -5,6 +5,7 @@
     using System.Drawing.Imaging;
     using System.Globalization;
     using System.IO;
+    using System.Linq;
     using System.Web.Security;
     using System.Text.RegularExpressions;
     using System.Web;
@@ -17,6 +18,35 @@
 
     public class SiteUtils
     {
+        /// <summary>
+        /// Обновляет информацию в отзывах и постах, при изменении данных профиля (имя, страна, регион)
+        /// </summary>
+        /// <param name="child"></param>
+        /// <param name="dal"></param>
+        public static void UpdatePostsInfo(ref Child child, ref DataAccessBL dal)
+        {
+            var location = ConcatLocation(child.RefCountry == null ? "" : child.RefCountry.Name, child.Region);
+            var name = child.ContactName;
+
+            var mensions = dal.GetMensionsByUser(child.OwnerUser).ToList();
+            var posts = dal.GetPostsByOwner(child.OwnerUser).ToList();
+            var internalDal = dal;
+
+            mensions.ForEach(x =>
+            {
+                x.CopyUserLocation = location;
+                x.CopyUserName = name;
+                internalDal.UpdateMension(x);
+            });
+
+            posts.ForEach(x =>
+            {
+                x.CopyOwnerLocation = location;
+                x.CopyOwnerName = name;
+                internalDal.UpdatePost(x);
+            });
+        }
+
         /// <summary>
         /// По указанной ширине обрезает текст и ставит три точки в конце. Если текст меньше, выводит в оригинале.
         /// </summary>
@@ -115,7 +145,7 @@
         public static string GenerateVisitDetailsPdf(Visit visit, string attachmentName, HttpServerUtilityBase server)
         {
             var report = new PacientVisitDetails(visit.Id);
-            var folderPath = Path.Combine(@"~\Documents\", visit.Order.GuidId + "\\");
+            var folderPath = Path.Combine(@"~\Documents\", visit.Order.GuidId + @"\UserFiles\");
             var fileName = String.Format("{0}", attachmentName);
             var pdfFullPath = server.MapPath(Path.Combine(folderPath, fileName));
 
@@ -126,7 +156,6 @@
                 File.Delete(pdfFullPath);
             }
 
-            var options = new ImageExportOptions { Resolution = 180, Format = ImageFormat.Png };
             using (var fs = new FileStream(pdfFullPath, FileMode.Append))
             {
                 report.ExportToPdf(fs);

@@ -7,7 +7,7 @@
 <div class="main has-gray-bg is-full-screen" role="main">
     <div class="all-pages-head preorder-head">
         <h1 class="all-pages-H1">Наличие мест</h1>
-        <a class="preorder-head-close js-page-back" role="button"></a>
+        <a class="preorder-head-close" href="@Url.Action("Index", "Home")" role="button"></a>
     </div>
     <div class="container preorder-body">
         @using (Html.BeginForm("Index", "Preorder", FormMethod.Post, new

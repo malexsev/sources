@@ -17,8 +17,8 @@
                 <div class="head-weather">
                     <span class="txt-note">В юнчене</span>
                     <span class="txt-data">@Html.Raw(DateTime.Now.AddHours(5).ToString("HH:mm"))</span>
-                    <span class="txt-data">@Html.Raw(((List<Weather>)ViewBag.Weathers)[2].Temp > 0 ? "+" : "")@Html.Raw(((List<Weather>)ViewBag.Weathers)[2].Temp)&#176;</span>
-                    <span class="txt-note">@Html.Raw(((List<Weather>)ViewBag.Weathers)[2].Description)</span>
+                    <span class="txt-data">@Html.Raw(((List<Weather>)ViewBag.Weathers)[1].Temp > 0 ? "+" : "")@Html.Raw(((List<Weather>)ViewBag.Weathers)[1].Temp)&#176;</span>
+                    <span class="txt-note">@Html.Raw(((List<Weather>)ViewBag.Weathers)[1].Description)</span>
                 </div>
             </div>
         </div>

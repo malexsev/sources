@@ -21,13 +21,13 @@
                     Session["ExpandOrderId"] = orderId;
                     var dataAccess = new DataAccessBL();
                     Order order = dataAccess.GetOrder(orderId);
-                    var folderPath = Path.Combine(@"~\Documents\", order.GuidId + "\\");
+                    var folderPath = Path.Combine(@"~\Documents\", order.GuidId + @"\UserFiles\");
                     FileUtils.CreateFolderIfNotExists(new HttpServerUtilityWrapper(this.Server), folderPath);
                     uxFileManager.Settings.RootFolder = folderPath;
                     uxFileManager.Visible = true;
                     uxResult.TextGreen =
                         String.Format(
-                            "Документы по заезду №{0} от {1}, даты с {2} по {3}",
+                            "Файлы пользователя по заезду №{0} от {1}, даты с {2} по {3}",
                             order.Id,
                             order.CreateDate == null
                                 ? "(не задано)"

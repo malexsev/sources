@@ -2,6 +2,7 @@
 
 namespace Cure.Utils
 {
+    using System.Collections.Generic;
     using System.Xml;
     using DataAccess;
     using DataAccess.BLL;
@@ -14,9 +15,30 @@ namespace Cure.Utils
         public static void ParseWeather()
         {
             var dal = new DataAccessBL();
-            InsertWeather(CityWeather("Севастополь", 33991), ref dal);
             InsertWeather(CityWeather("Алматы", 36870), ref dal);
             InsertWeather(CityWeather("Янчен", 50207), ref dal);
+            InsertWeather(CityWeather("Москва", 27612), ref dal);
+            InsertWeather(CityWeather("Ташкент", 38457), ref dal);
+            InsertWeather(CityWeather("Киев", 33345), ref dal);
+            InsertWeather(CityWeather("Минск", 26850), ref dal);
+            InsertWeather(CityWeather("Красноярск", 29574), ref dal);
+            InsertWeather(CityWeather("Новосибирск", 29634), ref dal);
+            InsertWeather(CityWeather("Владивосток", 31960), ref dal);
+        }
+
+        public static IEnumerable<Weather> GetWeathers()
+        {
+            var dal = new DataAccessBL();
+            var weathers = new List<Weather> { dal.GetWeatherByCity(36870), 
+                dal.GetWeatherByCity(50207), 
+                dal.GetWeatherByCity(27612), 
+                dal.GetWeatherByCity(38457), 
+                dal.GetWeatherByCity(33345), 
+                dal.GetWeatherByCity(26850), 
+                dal.GetWeatherByCity(29574), 
+                dal.GetWeatherByCity(29634), 
+                dal.GetWeatherByCity(31960)  };
+            return weathers;
         }
 
         private static void InsertWeather(WeatherItem item, ref DataAccessBL dal)

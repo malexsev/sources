@@ -146,28 +146,28 @@ $(document).ready(function () {
         var $spoilerBtns = $(this),
             startHeight = startHeight || 0;
 
-      $spoilerBtns.each(function(index, elem) {
-        var $spoilerBtn = $(this),
-            $spoilerBody = $spoilerBtn.siblings(".js-spoiler-body"),
-            autoHeight = $spoilerBody.css('height', 'auto').height();
+        $spoilerBtns.each(function (index, elem) {
+            var $spoilerBtn = $(this),
+                $spoilerBody = $spoilerBtn.siblings(".js-spoiler-body"),
+                autoHeight = $spoilerBody.css('height', 'auto').height();
 
-        if ( autoHeight > startHeight ) {
-          $spoilerBody.height(startHeight);
-        } else {
-          $spoilerBtn.hide();
-        }
+            if (autoHeight > startHeight) {
+                $spoilerBody.height(startHeight);
+            } else {
+                $spoilerBtn.hide();
+            }
 
-        $spoilerBtn.click(function(){
-          if ($spoilerBtn.hasClass("active")) {
-            $spoilerBody.animate({ height: startHeight }, 600);
-            $spoilerBtn.removeClass("active").text("Читать дальше");
-          } else {
-            $spoilerBody.animate({ height: autoHeight }, 600);
-            $spoilerBtn.addClass("active").text("Скрыть");
-          }
+            $spoilerBtn.click(function () {
+                if ($spoilerBtn.hasClass("active")) {
+                    $spoilerBody.animate({ height: startHeight }, 600);
+                    $spoilerBtn.removeClass("active").text("Читать дальше");
+                } else {
+                    $spoilerBody.animate({ height: autoHeight }, 600);
+                    $spoilerBtn.addClass("active").text("Скрыть");
+                }
+            });
+
         });
-
-      });
         return this;
     };
     //  Инициализация работы спойлеров (с начальной высотой)
@@ -474,7 +474,7 @@ $(document).ready(function () {
                 text: {
                     required: true,
                     minlength: 5,
-                    maxlength: 2000,
+                    maxlength: 3000,
                     regex: /^[^<>]+$/
                 }
             },
@@ -483,7 +483,7 @@ $(document).ready(function () {
                 text: {
                     required: "Отсутствует текст отзыва",
                     minlength: "Текст должен превышать 5 символов",
-                    maxlength: "Текст не должен превышать 2000 символов",
+                    maxlength: "Текст не должен превышать 3000 символов",
                     regex: "Текст содержит запрещённые символы \"<\" или \">\""
                 }
             },
@@ -1293,6 +1293,7 @@ $(document).ready(function () {
                     $("#error-step5").show().text("Заявка успешно отправлена.");
                     setTimeout(function () {
                         setOrderTab('order-current');
+                        $(".js-tabs-link").hide();
                     }, 3000);
                 } else if (result == "0") {
                     window.location.href = '/Home/Index/';
@@ -1472,6 +1473,135 @@ $(document).ready(function () {
             setOrderStep(stepId);
         }
     });
+
+
+
+    /*------------ Фильтрация моих файлов по заявке ----------------------------*/
+    $(document).on('change', "#orderfilesfilter", function () {
+        var guidId = $(this).val();
+        RefreshMyFiles(guidId);
+    });
+
+    /*-----------------------Первоначальная загрузка моих файлов----------------------*/
+    $("#formFiles").ready(function () {
+        var guidId = $("#orderfilesfilter").val();
+        RefreshMyFiles(guidId);
+    });
+
+    function RefreshMyFiles(guidid) {
+        var data = new FormData();
+        data.append("guidId", guidid);
+
+        $.ajax({
+            url: "/Cabinet/GetFiles",
+            type: "POST",
+            data: data,
+            contentType: false,
+            processData: false,
+            beforeSend: function () {
+                $('#user-files-list').html("<img src='/content/img/preloader.gif' />");
+            },
+            success: function (result) {
+                $("#user-files-list").html(result);
+            },
+            error: function (result) {
+                $('#user-files-list').html(result.responseText);
+            }
+        });
+    }
+
+    /*-------------------Удаление моего файла---------------*/
+    $(document).on('click', ".js-delete-myfile", function () {
+        var filename = $(this).data("filename");
+        var guidId = $("#orderfilesfilter").val();
+        var data = new FormData();
+        data.append("filename", filename);
+        data.append("guidId", guidId);
+
+        $.ajax({
+            url: "/Cabinet/DeleteMyFile",
+            type: "POST",
+            data: data,
+            contentType: false,
+            processData: false,
+            beforeSend: function () {
+                $('#user-files-list').html("<img src='/content/img/preloader.gif' />");
+            },
+            success: function (result) {
+                $("#user-files-list").html(result);
+            },
+            error: function (result) {
+                $('#user-files-list').html(result.responseText);
+            }
+        });
+    });
+
+    /*-------------------Загрузка моего файла---------------*/
+    $('#fileFilesUpload').on('change', function (e) {
+        var files = e.target.files;
+        if (files.length > 0) {
+            if (window.FormData !== undefined) {
+                var guidId = $("#orderfilesfilter").val();
+
+                var data = new FormData();
+
+                data.append("guidId", guidId);
+                for (var x = 0; x < files.length; x++) {
+                    data.append(files[x].name, files[x]);
+                }
+
+                $.ajax({
+                    type: "POST",
+                    url: '/Cabinet/UploadMyFile',
+                    contentType: false,
+                    processData: false,
+                    data: data,
+                    beforeSend: function () {
+                        $('#filesfileprogress').html("<img src='/content/img/preloader.gif' />");
+                    },
+                    success: function (result) {
+                        console.log("Upload success.");
+                        $('#filesfileprogress').html("Файл загружен.");
+                        RefreshMyFiles(guidId);
+                    },
+                    error: function (xhr, status, p3, p4) {
+                        var err = "Error " + " " + status + " " + p3 + " " + p4;
+                        if (xhr.responseText && xhr.responseText[0] == "{")
+                            err = JSON.parse(xhr.responseText).Message;
+                        console.log(err);
+                        $('#filesfileprogress').html(err);
+                    }
+
+                });
+            } else {
+                alert("This browser doesn't support HTML5 file uploads!");
+            }
+        }
+        e.preventDefault();
+    });
+
+    ///*-------------------Скачивание моего файла---------------*/
+    //$(document).on('click', ".js-download-myfile", function () {
+    //    var fullname = $(this).data("filename");
+    //    var mimetype = $(this).data("filetype");
+    //    var filename = $(this).text();
+    //    var guidId = $("#orderfilesfilter").val();
+    //    var data = new FormData();
+    //    data.append("filename", fullname);
+    //    data.append("guidId", guidId);
+
+    //    $.ajax({
+    //        url: "/Cabinet/DownloadFile",
+    //        type: "POST",
+    //        data: data,
+    //        contentType: false,
+    //        processData: false,
+    //        success: function (result) {
+    //            var file = new File([result], filename, { type: mimetype });
+    //            saveAs(file, filename);
+    //        }
+    //    });
+    //});
 
     /*------------ Добавление нового отзыва ----------------------------*/
     $("#formMensionAdd").submit(function (e) {

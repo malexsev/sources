@@ -11,7 +11,10 @@
       <siteMapNode url="~/Admin/MensionList.aspx" title="Отзывы" />
       <siteMapNode url="~/Admin/MessageList.aspx" title="Сообщения" />
       <siteMapNode url="~/Admin/PostList.aspx" title="Впечатления" />
-      <siteMapNode url="~/Admin/NewsletterList.aspx" title="Новостная рассылка" />
+    </siteMapNode>
+    <siteMapNode url="" title="Новости">
+      <siteMapNode url="~/Admin/NewsletterList.aspx" title="Подписчики рассылки" description="Список подписчиков на новости и акции"/>
+      <siteMapNode url="~/Admin/NewsList.aspx" title="Редактор новостей" description="Список новостей с возможностью редактирования"/>
     </siteMapNode>
     <siteMapNode url="" title="Справочники">
       <siteMapNode url="~/Admin/CurrencyList.aspx" title="Валюты" description="Список валют с которыми работает система" />

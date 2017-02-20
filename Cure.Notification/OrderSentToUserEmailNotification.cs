@@ -3,12 +3,13 @@
     using System;
     using System.Linq;
     using System.Net.Mail;
+    using System.Web;
     using System.Web.UI;
     using DataAccess;
     using DataAccess.BLL;
     using Utils;
 
-    public class OrderSentToUserEmailNotification : INotification
+    public class OrderSentToUserEmailNotification : BaseNotification
     {
         private string subject;
         private string body;
@@ -16,14 +17,15 @@
         private const string subjectTemplate = "Ваша новая заявка на лечение отправлена на рассмотрение";
         private const string bodyTemplate = @"Ваша заполненная Заявка на лечение получена Администрацией больницы.<br/>"
             + @"Ожидайте рассмотрение в течении 3-ех рабочих дней.<br/>"
-            + @"Вы можете просмотреть свою Заявку (пдф формат) в Личном кабинете пройдя по <a href='http://www.lk.dcp-china.ru'>ссылке</a><br/><br/>"
+            + @"Вы можете просмотреть свою Заявку (pdf формат) в Личном кабинете (вкладка Мои файлы), пройдя по <a href='http://www.dcp-china.ru'>ссылке</a><br/><br/>"
             + @"Если Вы считаете, что данное сообщение отправлено Вам ошибочно, просто проигнорируйте его.<br/><br/>"
             + @"Это автоматическое письмо, отвечать на которое не нужно!<br/><br/>"
             + @"Спасибо, что Вы с нами!<br/>"
             + @"C уважением, Администрация больницы<br/>"
             + @"Тех. поддержка: zqcpchina@gmail.com<br/>";
 
-        public OrderSentToUserEmailNotification(string username)
+        public OrderSentToUserEmailNotification(string username, HttpServerUtilityBase server)
+            : base(server)
         {
             var dal = new DataAccessBL();
             this.user = dal.GetUserMembership(username);
@@ -31,11 +33,11 @@
             this.body = bodyTemplate;
         }
 
-        public bool Send()
+        public override bool Send()
         {
             bool result = false;
 
-            result = EmailUtils.SendEmail(this.user.LoweredEmail, string.Empty, this.subject, this.body, "Пользователю о заявке");
+            result = SendEmail(this.user.LoweredEmail, string.Empty, this.subject, this.body, "Пользователю о заявке");
             this.Log(result ? "Доставлено" : "Ошибка доставки", this.user.LoweredEmail);
 
             return result;
@@ -43,8 +45,6 @@
 
         private void Log(string result, string recipient)
         {
-            var dal = new DataAccessBL();
-
             var notify = new NotificationLog()
             {
                 ClientName = "Пользователь",
@@ -57,7 +57,7 @@
                 Type = "EMail"
             };
 
-            dal.InsertNotificationLog(notify);
+            SaveLog(notify);
         }
     }
 }

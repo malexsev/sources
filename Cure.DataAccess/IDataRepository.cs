@@ -8,6 +8,19 @@ namespace Cure.DataAccess.DAL
 {
     internal interface IDataRepository : IDisposable
     {
+        IEnumerable<NewsPage> GetNewsPages();
+        NewsPage GetNewsPage(int id);
+        void InsertNewsPage(NewsPage newsPage);
+        void DeleteNewsPage(NewsPage newsPage);
+        void UpdateNewsPage(NewsPage newsPage);
+
+        IEnumerable<ViewSubscriber> ViewSubscribers();
+        Newsletter GetNewsletter(string email);
+        IEnumerable<Newsletter> GetNewsletters();
+        void InsertNewsletter(Newsletter newsletter);
+        void DeleteNewsletter(Newsletter newsletter);
+        void UpdateNewsletter(Newsletter newsletter);
+
         IEnumerable<RefGmfcsLevel> GetRefGmfcsLevels();
         void InsertRefGmfcsLevel(RefGmfcsLevel refGmfcsLevel);
         void DeleteRefGmfcsLevel(RefGmfcsLevel refGmfcsLevel);
@@ -62,11 +75,6 @@ namespace Cure.DataAccess.DAL
         ViewUserMembership GetUserMembership(Guid userId);
         IEnumerable<ViewUserMembership> ViewUserMembership();
         void UpdateUserMembership(ViewUserMembership userMembership);
-
-        IEnumerable<Newsletter> GetNewsletters();
-        void InsertNewsletter(Newsletter newsletter);
-        void DeleteNewsletter(Newsletter newsletter);
-        void UpdateNewsletter(Newsletter newsletter);
 
         void MixEntities();
         IEnumerable<ViewMension> ViewMensions(int filterId, int skipRecords, int takeRecords = 12);
@@ -184,6 +192,8 @@ namespace Cure.DataAccess.DAL
         void UpdateDepartment(Department department);
 
         void SwitchOrderStatusTask();
+        IEnumerable<Order> GetUnprocessedOrders();
+        IEnumerable<Order> GetPendingDrafts();
         Order GetOrder(int id);
         IEnumerable<Order> GetOrders();
         IEnumerable<Order> GetOrders(int filter, string email, string familiya);

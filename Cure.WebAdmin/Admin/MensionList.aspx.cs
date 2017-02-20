@@ -27,7 +27,7 @@ namespace Cure.WebAdmin.Admin
 
             if (((bool)e.OldValues["IsActive"] != (bool)e.NewValues["IsActive"]) && (bool)e.NewValues["IsActive"])
             {
-                var notify = new MensionApprovedEmailToUserNotification((int)e.Keys[0]);
+                var notify = new MensionApprovedEmailToUserNotification((int)e.Keys[0], new HttpServerUtilityWrapper(Server));
                 notify.Send();
             }
         }

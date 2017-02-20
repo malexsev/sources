@@ -32,7 +32,7 @@ namespace Cure.WebSite.Controllers
                 var user = Membership.GetUser(loginname);
                 if (user != null && user.ChangePassword(currentpass, regpass))
                 {
-                    var notificationToUser = new ChangedPassToUserEmailNotification(loginname, regpass);
+                    var notificationToUser = new ChangedPassToUserEmailNotification(loginname, regpass, Server);
                     notificationToUser.Send();
                     return Json("1", JsonRequestBehavior.AllowGet);
                 }
@@ -68,7 +68,7 @@ namespace Cure.WebSite.Controllers
                            Membership.MinRequiredPasswordLength,
                            Membership.MinRequiredNonAlphanumericCharacters);
                 user.ChangePassword(tempPassword, newPassword);
-                var notification = new RecoveryToUserEmailNotification(user.UserName, newPassword);
+                var notification = new RecoveryToUserEmailNotification(user.UserName, newPassword, Server);
                 notification.Send();
             }
             return Json(res ? "1" : "0", JsonRequestBehavior.AllowGet);
@@ -89,9 +89,9 @@ namespace Cure.WebSite.Controllers
             }
 
             MembershipUser user = Membership.CreateUser(regname, regpass, regmail);
-            var notification = new UserRegisteredEmailNotification(regname);
+            var notification = new UserRegisteredEmailNotification(regname, Server);
             notification.Send();
-            var notificationToUser = new RegistrationToUserEmailNotification(regname, regpass);
+            var notificationToUser = new RegistrationToUserEmailNotification(regname, regpass, Server);
             notificationToUser.Send();
             return Json("1", JsonRequestBehavior.AllowGet);
         }

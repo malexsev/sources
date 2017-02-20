@@ -31,9 +31,9 @@ namespace Cure.WebAdmin.Client.Controls
             clientContainer.CurrentOrder.StatusId = 7;
             clientContainer.UpdateCurrentOrder();
 
-            var notify = new TiketsBoughtEmailNotification(clientContainer.CurrentOrder.Id);
+            var notify = new TiketsBoughtEmailNotification(clientContainer.CurrentOrder.Id, new HttpServerUtilityWrapper(Server));
             notify.Send();
-            var notifyToUser = new TicketsBoughtToUserEmailNotification(clientContainer.CurrentOrder.Id);
+            var notifyToUser = new TicketsBoughtToUserEmailNotification(clientContainer.CurrentOrder.Id, new HttpServerUtilityWrapper(Server));
             notifyToUser.Send();
 
             Response.Redirect("~/Client/CurrentOrder.aspx");

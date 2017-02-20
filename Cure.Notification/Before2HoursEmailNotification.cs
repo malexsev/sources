@@ -14,7 +14,7 @@
     using Utils;
     using Page = System.Web.UI.Page;
 
-    public class Before2HoursEmailNotification : INotification
+    public class Before2HoursEmailNotification : BaseNotification
     {
         private IEnumerable<Visit> visits;
         private HttpServerUtilityBase server;
@@ -31,6 +31,7 @@
 
 
         public Before2HoursEmailNotification(HttpServerUtilityBase server)
+            : base(server)
         {
             try
             {
@@ -49,7 +50,7 @@
             }
         }
 
-        public bool Send()
+        public override bool Send()
         {
             if (this.settingIsNotify.ValueBool != null && this.settingIsNotify.ValueBool == true && this.visits.Any())
             {
@@ -72,7 +73,7 @@
                         , visit.Order.Notes
                         , attachmentPath.Substring(attachmentPath.IndexOf("Documents", StringComparison.Ordinal)).Replace(@"\", @"/"));
 
-                    result = EmailUtils.SendEmail(this.settingAdminsEmails.Value, this.settingAdminsEmailCopy.Value, subject, body, "Прибытие за 2-3 часа", attachmentPath, attachmentName);
+                    result = SendEmail(this.settingAdminsEmails.Value, this.settingAdminsEmailCopy.Value, subject, body, "Прибытие за 2-3 часа", attachmentPath, attachmentName);
                     this.Log(result ? "Доставлено" : "Ошибка доставки", settingAdminsEmails.Value, subject);
                 }
 
@@ -85,8 +86,6 @@
 
         private void Log(string result, string recipient, string subject)
         {
-            var dal = new DataAccessBL();
-
             var notify = new NotificationLog()
             {
                 ClientName = "Администрация",
@@ -99,7 +98,7 @@
                 Type = "EMail"
             };
 
-            dal.InsertNotificationLog(notify);
+            SaveLog(notify);
         }
     }
 }

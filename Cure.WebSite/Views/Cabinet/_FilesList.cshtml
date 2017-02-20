@@ -1,0 +1,35 @@
+﻿@using Cure.WebSite.Models
+@model IEnumerable<MyFileViewModel>
+@if (Model != null && Model.Any())
+{
+    <div class="sheet-head">
+        <div class="sheet-row">
+            <div class="sheet-col">Создан</div>
+            <div class="sheet-col">Изменён</div>
+            <div class="sheet-col">Имя файла</div>
+            <div class="sheet-col"><!-- Кнопки --></div>
+        </div>
+    </div>
+    <div class="sheet-body" data-draft="64">
+        @foreach (MyFileViewModel file in Model)
+        {
+            <div class="sheet-row is-lighting">
+                <div class="sheet-col">@file.Created</div>
+                <div class="sheet-col">@file.Modified</div>
+                <div class="sheet-col file-download">
+                    <a href="@file.VirtualPath" target="_blank" title="Открыть файл">@file.Name</a>
+                </div>
+                <div class="sheet-col" data-txt="button">
+                    <div class="sheet-btns">
+                        <a class="sheet-btn btn-del js-delete-myfile" data-filename="@file.FullName" role="button" title="Удалить файл"></a>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+}
+else
+{
+    <div class="content-tab-empty">Файлов пока нет</div>
+}

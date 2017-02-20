@@ -14,18 +14,24 @@
         {
             if (!IsPostBack)
             {
-                var dataAccess = new DataAccessBL();
-                dataAccess.MixEntities();
-                dataAccess.SwitchOrderStatusTask();
+                var dal = new DataAccessBL();
+                dal.MixEntities();
+                dal.SwitchOrderStatusTask();
+                var pending = new OrderNotCompletedToUserEmailNotification(new HttpServerUtilityWrapper(this.Server));
+                pending.Send();
+                var unprocess = new OrdersUnprocessedEmailNotification(new HttpServerUtilityWrapper(this.Server));
+                unprocess.Send();
                 var notify = new Before24HoursNotification();
                 notify.Send();
                 var notifyEmail = new Before24HoursEmailNotification(new HttpServerUtilityWrapper(this.Server));
                 notifyEmail.Send();
                 var notifyUsers = new BeforeArriveToUserEmailNotification();
                 notifyUsers.Send();
-                DataTable data = CurrencyUtils.GetRates(dataAccess.GetCurrencies().Select(o => o.Name).ToList());
-                dataAccess.UpdateCurrencyRates(data, SiteUtils.GetCurrentUserName());
+                DataTable data = CurrencyUtils.GetRates(dal.GetCurrencies().Select(o => o.Name).ToList());
+                dal.UpdateCurrencyRates(data, SiteUtils.GetCurrentUserName());
                 WeatherUtils.ParseWeather();
+                var birthday = new PacientBirthdayEmailNotification(new HttpServerUtilityWrapper(this.Server));
+                birthday.Send();
             }
         }
     }

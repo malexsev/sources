@@ -113,6 +113,7 @@
     <Content Include="Content\css\_fonts.css" />
     <Content Include="Content\css\_normalize.css" />
     <Content Include="Content\css\___bootstrap.css" />
+    <Content Include="Content\EmailBodyTemplate.html" />
     <Content Include="Content\fonts\alsrubl-webfont.svg" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\images\about-us\fact_1.jpg" />
@@ -649,6 +650,7 @@
     <Compile Include="Models\ChildVisual.cs" />
     <Compile Include="Models\ClientContainer.cs" />
     <Compile Include="Models\DocItem.cs" />
+    <Compile Include="Models\MyFileViewModel.cs" />
     <Compile Include="Models\OrderViewModel.cs" />
     <Compile Include="Models\PacientDataSoruce.cs" />
     <Compile Include="Models\PhotoItem.cs" />
@@ -656,6 +658,7 @@
     <Compile Include="Models\PostModel.cs" />
     <Compile Include="Models\SocialLinksModel.cs" />
     <Compile Include="Models\SputnikDataSoruce.cs" />
+    <Compile Include="Models\SubscriptionViewModel.cs" />
     <Compile Include="Models\VisitDetailViewModel.cs" />
     <Compile Include="Models\VisitInfoViewModel.cs" />
     <Compile Include="Models\MembersViewModel.cs" />
@@ -762,6 +765,9 @@
     <Content Include="Views\Biblioteka\Lekarstvakitay.cshtml" />
     <Content Include="Views\Info\Soft.cshtml" />
     <Content Include="Views\Info\Internet.cshtml" />
+    <Content Include="Views\Cabinet\Files.cshtml" />
+    <Content Include="Views\Cabinet\_FilesList.cshtml" />
+    <Content Include="Views\Home\Subscription.cshtml" />
     <None Include="Views\Medicine\Human.cshtml" />
     <Content Include="Views\Procedure\OtOccupational.cshtml" />
     <Content Include="Views\Procedure\StSpeech.cshtml" />

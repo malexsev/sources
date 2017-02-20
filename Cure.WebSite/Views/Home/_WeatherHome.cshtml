@@ -2,26 +2,68 @@
 <img class="map-picture" src="~/Content/img/img_map.png" alt="Карта Юньчен">
 <div class="map-pointers js-tabs-citymap">
     <a class="map-pointer pointer-alm js-tabs-link" data-tab="alm-point">Алматы</a>
-    @*<a class="map-pointer pointer-sev js-tabs-link" data-tab="sev-point">Севастополь</a>*@
-    <a class="map-pointer pointer-unh js-tabs-link active" data-tab="unh-point">Юньчэн</a>
+    <a class="map-pointer pointer-unh js-tabs-link active" data-tab="unh-point">Юньчэн</a>    
+    <a class="map-pointer pointer-mosc js-tabs-link" data-tab="mosc-point">Москва</a>
+    <a class="map-pointer pointer-tash js-tabs-link" data-tab="tash-point">Ташкент</a>
+    <a class="map-pointer pointer-kiev js-tabs-link" data-tab="kiev-point">Киев</a>
+    <a class="map-pointer pointer-minsk js-tabs-link" data-tab="minsk-point">Минск</a>
+    <a class="map-pointer pointer-krasnsk js-tabs-link" data-tab="krasnsk-point">Красноярск</a>
+    <a class="map-pointer pointer-novosib js-tabs-link" data-tab="novosib-point">Новосибирск</a>
+    <a class="map-pointer pointer-vladik js-tabs-link" data-tab="vladik-point">Владивосток</a>
 </div>
 <div class="map-weather js-tabs-body">
-    @*<div class="head-weather map-weather-tab js-tabs-item" id="sev-point">
-        <span class="txt-note">В Севастополе</span>
-        <span class="txt-data">@Html.Raw(DateTime.Now.ToString("HH:mm"))</span>
-        <span class="txt-data">@Html.Raw(((List<Weather>)ViewBag.Weathers)[0].Temp > 0 ? "+" : "")@Html.Raw(((List<Weather>)ViewBag.Weathers)[0].Temp)&#176;</span>
-        <span class="txt-note">@Html.Raw(((List<Weather>)ViewBag.Weathers)[0].Description)</span>
-    </div>*@
     <div class="head-weather map-weather-tab js-tabs-item" id="alm-point">
         <span class="txt-note">В Алматы</span>
         <span class="txt-data">@Html.Raw(DateTime.Now.AddHours(2).ToString("HH:mm"))</span>
-        <span class="txt-data">@Html.Raw(((List<Weather>)ViewBag.Weathers)[1].Temp > 0 ? "+" : "")@Html.Raw(((List<Weather>)ViewBag.Weathers)[1].Temp)&#176;</span>
-        <span class="txt-note">@Html.Raw(((List<Weather>)ViewBag.Weathers)[1].Description)</span>
+        <span class="txt-data">@Html.Raw(((List<Weather>)ViewBag.Weathers)[0].Temp > 0 ? "+" : "")@Html.Raw(((List<Weather>)ViewBag.Weathers)[0].Temp)&#176;</span>
+        <span class="txt-note">@Html.Raw(((List<Weather>)ViewBag.Weathers)[0].Description)</span>
     </div>
     <div class="head-weather map-weather-tab js-tabs-item active" id="unh-point">
         <span class="txt-note">В Юнчене</span>
         <span class="txt-data">@Html.Raw(DateTime.Now.AddHours(5).ToString("HH:mm"))</span>
+        <span class="txt-data">@Html.Raw(((List<Weather>)ViewBag.Weathers)[1].Temp > 0 ? "+" : "")@Html.Raw(((List<Weather>)ViewBag.Weathers)[1].Temp)&#176;</span>
+        <span class="txt-note">@Html.Raw(((List<Weather>)ViewBag.Weathers)[1].Description)</span>
+    </div>
+    <div class="head-weather map-weather-tab js-tabs-item" id="mosc-point">
+        <span class="txt-note">В Москве</span>
+        <span class="txt-data">@Html.Raw(DateTime.Now.ToString("HH:mm"))</span>
         <span class="txt-data">@Html.Raw(((List<Weather>)ViewBag.Weathers)[2].Temp > 0 ? "+" : "")@Html.Raw(((List<Weather>)ViewBag.Weathers)[2].Temp)&#176;</span>
         <span class="txt-note">@Html.Raw(((List<Weather>)ViewBag.Weathers)[2].Description)</span>
+    </div>
+    <div class="head-weather map-weather-tab js-tabs-item" id="tash-point">
+        <span class="txt-note">В Ташкенте</span>
+        <span class="txt-data">@Html.Raw(DateTime.Now.AddHours(2).ToString("HH:mm"))</span>
+        <span class="txt-data">@Html.Raw(((List<Weather>)ViewBag.Weathers)[3].Temp > 0 ? "+" : "")@Html.Raw(((List<Weather>)ViewBag.Weathers)[3].Temp)&#176;</span>
+        <span class="txt-note">@Html.Raw(((List<Weather>)ViewBag.Weathers)[3].Description)</span>
+    </div>
+    <div class="head-weather map-weather-tab js-tabs-item" id="kiev-point">
+        <span class="txt-note">В Киеве</span>
+        <span class="txt-data">@Html.Raw(DateTime.Now.ToString("HH:mm"))</span>
+        <span class="txt-data">@Html.Raw(((List<Weather>)ViewBag.Weathers)[4].Temp > 0 ? "+" : "")@Html.Raw(((List<Weather>)ViewBag.Weathers)[4].Temp)&#176;</span>
+        <span class="txt-note">@Html.Raw(((List<Weather>)ViewBag.Weathers)[4].Description)</span>
+    </div>
+    <div class="head-weather map-weather-tab js-tabs-item" id="minsk-point">
+        <span class="txt-note">В Минске</span>
+        <span class="txt-data">@Html.Raw(DateTime.Now.ToString("HH:mm"))</span>
+        <span class="txt-data">@Html.Raw(((List<Weather>)ViewBag.Weathers)[5].Temp > 0 ? "+" : "")@Html.Raw(((List<Weather>)ViewBag.Weathers)[5].Temp)&#176;</span>
+        <span class="txt-note">@Html.Raw(((List<Weather>)ViewBag.Weathers)[5].Description)</span>
+    </div>
+    <div class="head-weather map-weather-tab js-tabs-item" id="krasnsk-point">
+        <span class="txt-note">В Красноярске</span>
+        <span class="txt-data">@Html.Raw(DateTime.Now.AddHours(4).ToString("HH:mm"))</span>
+        <span class="txt-data">@Html.Raw(((List<Weather>)ViewBag.Weathers)[6].Temp > 0 ? "+" : "")@Html.Raw(((List<Weather>)ViewBag.Weathers)[6].Temp)&#176;</span>
+        <span class="txt-note">@Html.Raw(((List<Weather>)ViewBag.Weathers)[6].Description)</span>
+    </div>
+    <div class="head-weather map-weather-tab js-tabs-item" id="novosib-point">
+        <span class="txt-note">В Новосибирске</span>
+        <span class="txt-data">@Html.Raw(DateTime.Now.AddHours(4).ToString("HH:mm"))</span>
+        <span class="txt-data">@Html.Raw(((List<Weather>)ViewBag.Weathers)[7].Temp > 0 ? "+" : "")@Html.Raw(((List<Weather>)ViewBag.Weathers)[7].Temp)&#176;</span>
+        <span class="txt-note">@Html.Raw(((List<Weather>)ViewBag.Weathers)[7].Description)</span>
+    </div>
+    <div class="head-weather map-weather-tab js-tabs-item" id="vladik-point">
+        <span class="txt-note">Во Владивостоке</span>
+        <span class="txt-data">@Html.Raw(DateTime.Now.AddHours(7).ToString("HH:mm"))</span>
+        <span class="txt-data">@Html.Raw(((List<Weather>)ViewBag.Weathers)[8].Temp > 0 ? "+" : "")@Html.Raw(((List<Weather>)ViewBag.Weathers)[8].Temp)&#176;</span>
+        <span class="txt-note">@Html.Raw(((List<Weather>)ViewBag.Weathers)[8].Description)</span>
     </div>
 </div>

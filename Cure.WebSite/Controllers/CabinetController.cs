@@ -13,6 +13,7 @@ namespace Cure.WebSite.Controllers
 {
     using System.Collections.Generic;
     using System.Configuration;
+    using System.Text;
     using System.Web;
     using System.Web.UI;
     using DataAccess;
@@ -36,8 +37,7 @@ namespace Cure.WebSite.Controllers
             ViewBag.Operators = dal.GetRefOperators();
             ViewBag.CountryBanks = dal.GetRefBanks(child.FinCountryId ?? child.CountryId);
             ViewBag.CurrencyRateCNY = GetRate("CNY");
-            var weathers = new List<Weather> { dal.GetWeatherByCity(33991), dal.GetWeatherByCity(36870), dal.GetWeatherByCity(50207) };
-            ViewBag.Weathers = weathers;       
+            ViewBag.Weathers = WeatherUtils.GetWeathers();
 
             var vipiskas = dal.GetMyVipiskas(User.Identity.Name).ToList();
             ViewBag.Vipiskas = vipiskas.Select(x => new VisitResultViewModel(x));
@@ -71,6 +71,153 @@ namespace Cure.WebSite.Controllers
             ViewBag.Profile = new ChildVisualDetailed(child, dal.GetChildHideFiles(child.Id), dal.GetChildAvaFile(child.Id), dal.GetMyPosts(child.Id));
             return View(ViewBag.Profile);
         }
+
+        // Мои Файлы
+        public ActionResult Files(string filter)
+        {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            var dal = new DataAccessBL();
+            ViewBag.CurrencyRateCNY = GetRate("CNY");
+            ViewBag.Weathers = WeatherUtils.GetWeathers(); ;
+
+            if (User.Identity.IsAuthenticated)
+            {
+                ViewBag.MyOrders = dal.GetMyOrders(SiteUtils.GetCurrentUserName());
+
+                Guid guidId;
+                if (Guid.TryParse(filter, out guidId))
+                {
+                    ViewBag.MyFiles = GetFilesList(guidId).Select(x => new MyFileViewModel(x, guidId));
+                }
+            }
+
+            return View();
+        }
+
+        [HttpPost]
+        public PartialViewResult GetFiles(string guidid)
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                var dal = new DataAccessBL();
+                if (guidid == "0")
+                {
+                    guidid = ((IEnumerable<Order>)ViewBag.MyOrders).Any()
+                        ? ((IEnumerable<Order>)ViewBag.MyOrders).ToList()[0].GuidId.ToString()
+                        : string.Empty;
+                }
+                var guidId = Guid.Parse(guidid);
+
+                var filesList = ViewBag.MyFiles = GetFilesList(guidId).Select(x => new MyFileViewModel(x, guidId));
+
+                return PartialView("_FilesList", filesList);
+            }
+
+            return PartialView("_FilesList");
+        }
+
+        [HttpPost]
+        public PartialViewResult DeleteMyFile(string filename, string guidid)
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                if (System.IO.File.Exists(filename))
+                {
+                    System.IO.File.Delete(filename);
+                }
+
+                Guid guidId;
+                if (Guid.TryParse(guidid, out guidId))
+                {
+                    var filesList = ViewBag.MyFiles = GetFilesList(guidId).Select(x => new MyFileViewModel(x, guidId));
+                    return PartialView("_FilesList", filesList);
+                }
+
+            }
+
+            return PartialView("_FilesList");
+        }
+
+        [HttpPost]
+        public async Task<JsonResult> UploadMyFile()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                try
+                {
+                    Guid gu = Guid.Empty;
+                    if (Guid.TryParse(Request.Params["guidId"], out gu))
+                    {
+                        UploadMyFileLocal(gu);
+                    }
+
+                }
+                catch (Exception)
+                {
+                    Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                    return Json("Upload failed");
+                }
+
+                return Json("1");
+            }
+            else
+            {
+                Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                return Json("Пользователь не определён");
+            }
+        }
+
+        //[HttpPost]
+        //public FileResult DownloadFile()
+        //{
+        //    if (User.Identity.IsAuthenticated)
+        //    {
+        //        try
+        //        {
+        //            string fullname = Request.Params["filename"];
+        //            Guid gud = Guid.Empty;
+        //            if (Guid.TryParse(Request.Params["guidId"], out gud))
+        //            {
+        //                var dal = new DataAccessBL();
+        //                var orders = dal.GetMyOrders(SiteUtils.GetCurrentUserName());
+        //                if (orders.Any(x => x.GuidId == gud))
+        //                {
+        //                    if (!string.IsNullOrEmpty(fullname))
+        //                    {
+        //                        //string mimeType = MimeMapping.GetMimeMapping(fullname);
+        //                        var fileResult = new FilePathResult(fullname, "application/octet-stream");
+
+        //                        //var encoding = Encoding.Unicode;
+        //                        //Response.Charset = encoding.WebName;
+        //                        //Response.HeaderEncoding = encoding;
+
+        //                        Response.AddHeader("Content-Disposition",
+        //                            string.Format("attachment; filename=\"{0}\"",
+        //                            fileResult.FileDownloadName));
+        //                        return fileResult;
+        //                    }
+        //                }
+        //            }
+
+        //        }
+        //        catch (Exception)
+        //        {
+        //            Response.StatusCode = (int)HttpStatusCode.BadRequest;
+        //            return null;
+        //        }
+
+        //        return null;
+        //    }
+        //    else
+        //    {
+        //        Response.StatusCode = (int)HttpStatusCode.BadRequest;
+        //        return null;
+        //    }
+        //}
 
         // Сообщения
         public ActionResult Messages()
@@ -109,9 +256,9 @@ namespace Cure.WebSite.Controllers
                 }
 
                 var contactViews = dal.GetContacts(User.Identity.Name, SiteUtils.ParseGuid(contact), filter)
-                    .Select(x => new MessagesUserModel(x, SiteUtils.ParseBool(x.IsOnline, false), 
-                        SiteUtils.ParseBool(x.IsAdmin, false), 
-                        x.LastMessageText, 
+                    .Select(x => new MessagesUserModel(x, SiteUtils.ParseBool(x.IsOnline, false),
+                        SiteUtils.ParseBool(x.IsAdmin, false),
+                        x.LastMessageText,
                         SiteUtils.ParseDate(x.LastMessageDate, DateTime.Now, "ru-RU")));
 
                 return PartialView("_MessagesUsers", contactViews);
@@ -184,7 +331,7 @@ namespace Cure.WebSite.Controllers
             var view = dal.ViewChild(User.Identity.Name);
             if (view != null)
             {
-                var child = dal.GetChild(view.Id);SiteUtils.GetCurrentUserName();
+                var child = dal.GetChild(view.Id); SiteUtils.GetCurrentUserName();
                 child.ContactEmail = email;
                 dal.UpdateChild(child);
                 return Json("1", JsonRequestBehavior.AllowGet);
@@ -221,8 +368,7 @@ namespace Cure.WebSite.Controllers
             ViewBag.DocFiles = GetDocumentFiles();
             ViewBag.Orders = dal.GetMyOrders(SiteUtils.GetCurrentUserName()).Select(x => new OrderViewModel(x));
             ViewBag.CurrencyRateCNY = GetRate("CNY");
-            var weathers = new List<Weather> { dal.GetWeatherByCity(33991), dal.GetWeatherByCity(36870), dal.GetWeatherByCity(50207) };
-            ViewBag.Weathers = weathers;
+            ViewBag.Weathers = WeatherUtils.GetWeathers();
 
             return View(clientContainer);
         }
@@ -699,7 +845,7 @@ namespace Cure.WebSite.Controllers
                         return Json("1", JsonRequestBehavior.AllowGet);
                     }
 
-                    return Json("", JsonRequestBehavior.AllowGet);
+                    return Json("Данные на странице введены с ошибками.", JsonRequestBehavior.AllowGet);
                 }
                 catch (Exception ex)
                 {
@@ -763,7 +909,7 @@ namespace Cure.WebSite.Controllers
                 try
                 {
                     clientContainer.NewOrder.StatusId = 2;
-                    clientContainer.NewOrder.Name = String.Empty;
+                    clientContainer.NewOrder.Name = "6";
                     clientContainer.NewOrder.LastUser = SiteUtils.GetCurrentUserName();
                     clientContainer.NewOrder.LastDate = DateTime.Now;
                     clientContainer.Save();
@@ -772,10 +918,9 @@ namespace Cure.WebSite.Controllers
                     notify.Send();
                     foreach (var visit in clientContainer.NewOrder.Visits)
                     {
-                        var notifyEmail = new OrderSentEmailNotification(visit.Id, Server);
-                        notifyEmail.Send();
-                        var notifyEmailToUser = new OrderSentToUserEmailNotification(SiteUtils.GetCurrentUserName());
-                        notifyEmailToUser.Send();
+                        //Вызов методов админки
+                        var client = new WebClient();
+                        client.OpenRead(string.Format("{0}?visitid={1}", ConfigurationManager.AppSettings["GenerateUrl"], visit.Id));
                     }
                     Session.Abandon();
 
@@ -829,8 +974,7 @@ namespace Cure.WebSite.Controllers
             ViewBag.Operators = dal.GetRefOperators();
             ViewBag.CountryBanks = dal.GetRefBanks(child.FinCountryId ?? child.CountryId);
             ViewBag.CurrencyRateCNY = GetRate("CNY");
-            var weathers = new List<Weather> { dal.GetWeatherByCity(33991), dal.GetWeatherByCity(36870), dal.GetWeatherByCity(50207) };
-            ViewBag.Weathers = weathers;
+            ViewBag.Weathers = WeatherUtils.GetWeathers();
 
             var vipiskas = dal.GetMyVipiskas(User.Identity.Name).ToList();
             ViewBag.Vipiskas = vipiskas.Select(x => new VisitResultViewModel(x));
@@ -1048,7 +1192,7 @@ namespace Cure.WebSite.Controllers
 
                     dal.UpdateChild(child);
                     this.UpdateIsActive(ref child, ref dal);
-                    this.UpdatePostsInfo(ref child, ref dal);
+                    SiteUtils.UpdatePostsInfo(ref child, ref dal);
                     return Json("1", JsonRequestBehavior.AllowGet);
                 }
                 catch (Exception)
@@ -1359,30 +1503,6 @@ namespace Cure.WebSite.Controllers
             dal.UpdateChild(child);
         }
 
-        private void UpdatePostsInfo(ref Child child, ref DataAccessBL dal)
-        {
-            var location = SiteUtils.ConcatLocation(child.RefCountry == null ? "" : child.RefCountry.Name, child.Region);
-            var name = child.ContactName;
-
-            var mensions = dal.GetMensionsByUser(child.OwnerUser).ToList();
-            var posts = dal.GetPostsByOwner(child.OwnerUser).ToList();
-            var internalDal = dal;
-
-            mensions.ForEach(x =>
-            {
-                x.CopyUserLocation = location;
-                x.CopyUserName = name;
-                internalDal.UpdateMension(x);
-            });
-
-            posts.ForEach(x =>
-            {
-                x.CopyOwnerLocation = location;
-                x.CopyOwnerName = name;
-                internalDal.UpdatePost(x);
-            });
-        }
-
         private void RemoveOrderFile(string fileName)
         {
             string photoLocation = Path.Combine(ConfigurationManager.AppSettings["PhotoLocation"], clientContainer.NewOrder.GuidId.ToString());
@@ -1605,6 +1725,49 @@ namespace Cure.WebSite.Controllers
 
             return Directory.GetFiles(folder).ToList().Select(Path.GetFileName);
 
+        }
+
+        private IEnumerable<FileInfo> GetFilesList(Guid guid)
+        {
+            const string OriginalDirectory = @"{0}{1}\UserFiles";
+            string photoLocation = ConfigurationManager.AppSettings["PhotoLocation"];
+            string filesLocation = photoLocation.Replace("Upload", "Documents");
+            string folder = string.Format(OriginalDirectory, filesLocation, guid);
+
+            if (!Directory.Exists(folder))
+            {
+                Directory.CreateDirectory(folder);
+            }
+
+            return Directory.GetFiles(folder).Select(x => new FileInfo(x));
+        }
+
+        private void UploadMyFileLocal(Guid guidId)
+        {
+            foreach (string requestFile in Request.Files)
+            {
+                HttpPostedFileBase file = Request.Files[requestFile];
+                if (file != null && file.ContentLength > 0)
+                {
+                    const string OriginalDirectory = @"{0}{1}\UserFiles\";
+                    var fileName = Path.GetFileName(requestFile);
+
+                    string photoLocation = ConfigurationManager.AppSettings["PhotoLocation"];
+                    string docsLocation = photoLocation.Replace("Upload", "Documents");
+                    string folder = string.Format(OriginalDirectory, docsLocation, guidId);
+
+                    if (!Directory.Exists(folder))
+                    {
+                        Directory.CreateDirectory(folder);
+                    }
+
+                    if (fileName != null)
+                    {
+                        var path = Path.Combine(folder, fileName);
+                        file.SaveAs(path);
+                    }
+                }
+            }
         }
 
         private ClientContainer clientContainer

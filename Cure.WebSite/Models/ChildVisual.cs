@@ -146,8 +146,6 @@ namespace Cure.WebSite.Models
                     SiteUtils.GetRandom(this.Id, 3));
 
                 this.PhotoItem = new PhotoItem(this.Id);
-                //PhotoItemList = new List<PhotoItem>();
-                //DocItemList = new List<DocItem>();
                 int age = DateTime.Today.Year - child.Birthday.Year;
                 string let = "лет";
                 if (age > 1 && age < 5)
@@ -161,8 +159,6 @@ namespace Cure.WebSite.Models
                 Age = child.Birthday.Year == 2111 ? "Возраст не указан" : string.Format("{0} {1}", age.ToString(CultureInfo.InvariantCulture), let);
                 string photoLocation = Path.Combine(ConfigurationManager.AppSettings["PhotoLocation"], this.GuidId.ToString());
                 string photoUrl = Path.Combine(ConfigurationManager.AppSettings["PhotoUrl"], this.GuidId.ToString());
-                string docsLocation = photoLocation.Replace("Upload", "Documents");
-                string docsUrl = photoUrl.Replace("Upload", "Documents");
 
                 //Галлерея
                 this.AvaFileName = (childAvaFile == null || childAvaFile.Id == 0)

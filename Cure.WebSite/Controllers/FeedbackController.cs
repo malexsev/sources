@@ -13,7 +13,7 @@ namespace Cure.WebSite.Controllers
         [HttpPost]
         public JsonResult AddFeedback(string name, string mail, string phone, string text)
         {
-            var notifyEmail = new FeedbackNotification(name, mail, phone, text);
+            var notifyEmail = new FeedbackNotification(name, mail, phone, text, Server);
             if (notifyEmail.Send())
             {
                 return Json("1", JsonRequestBehavior.AllowGet);

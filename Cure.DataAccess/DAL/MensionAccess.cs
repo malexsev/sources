@@ -32,7 +32,7 @@ namespace Cure.DataAccess.DAL
 
         public IEnumerable<Mension> GetTopMensions()
         {
-            return context.Mensions.OrderByDescending(o => o.SortOrder).ToList();
+            return context.Mensions.Where(x => x.IsActive == true).OrderByDescending(o => o.SortOrder).ToList();
         }
 
         public IEnumerable<Mension> GetMensions()

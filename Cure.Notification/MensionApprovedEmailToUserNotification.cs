@@ -3,12 +3,13 @@
     using System;
     using System.Linq;
     using System.Net.Mail;
+    using System.Web;
     using System.Web.UI;
     using DataAccess;
     using DataAccess.BLL;
     using Utils;
 
-    public class MensionApprovedEmailToUserNotification : INotification
+    public class MensionApprovedEmailToUserNotification : BaseNotification
     {
         private string subject;
         private string body;
@@ -21,7 +22,8 @@
             + @"C уважением, Администрация больницы<br />"
             + @"Тех. поддержка: zqcpchina@gmail.com"; //0 - тема отзыва
 
-        public MensionApprovedEmailToUserNotification(int mensionId)
+        public MensionApprovedEmailToUserNotification(int mensionId, HttpServerUtilityBase server)
+            : base(server)
         {
             var dal = new DataAccessBL();
             this.mension = dal.GetMension(mensionId);
@@ -30,11 +32,11 @@
             this.body = string.Format(bodyTemplate, mension.CopySubject);
         }
 
-        public bool Send()
+        public override bool Send()
         {
             bool result = false;
 
-            result = EmailUtils.SendEmail(this.user.LoweredEmail, string.Empty, this.subject, this.body, "Пользователю Одобрен отзыв");
+            result = SendEmail(this.user.LoweredEmail, string.Empty, this.subject, this.body, "Пользователю Одобрен отзыв");
             this.Log(result ? "Доставлено" : "Ошибка доставки", this.user.LoweredEmail);
 
             return result;
@@ -42,8 +44,6 @@
 
         private void Log(string result, string recipient)
         {
-            var dal = new DataAccessBL();
-
             var notify = new NotificationLog()
             {
                 ClientName = "Пользователь",
@@ -56,7 +56,7 @@
                 Type = "EMail"
             };
 
-            dal.InsertNotificationLog(notify);
+            SaveLog(notify);
         }
     }
 }

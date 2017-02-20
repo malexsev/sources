@@ -3,12 +3,13 @@
     using System;
     using System.Linq;
     using System.Net.Mail;
+    using System.Web;
     using System.Web.UI;
     using DataAccess;
     using DataAccess.BLL;
     using Utils;
 
-    public class ChangedPassToUserEmailNotification : INotification
+    public class ChangedPassToUserEmailNotification : BaseNotification
     {
         private ViewUserMembership user;
         private string subject;
@@ -39,7 +40,8 @@
             + @"Тех. поддержка: zqcpchina@gmail.com"; //0 - Логин, 1 - Пароль
 
 
-        public ChangedPassToUserEmailNotification(string username, string password)
+        public ChangedPassToUserEmailNotification(string username, string password, HttpServerUtilityBase server)
+            : base(server)
         {
             var dal = new DataAccessBL();
             this.user = dal.GetUserMembership(username);
@@ -47,11 +49,11 @@
             this.body = string.Format(bodyTemplate, user.UserName, password);
         }
 
-        public bool Send()
+        public override bool Send()
         {
             bool result = false;
 
-            result = EmailUtils.SendEmail(this.user.LoweredEmail, string.Empty, this.subject, this.body, "Смена пароля");
+            result = SendEmail(this.user.LoweredEmail, string.Empty, this.subject, this.body, "Смена пароля");
             this.Log(result ? "Доставлено" : "Ошибка доставки", this.user.LoweredEmail);
 
             return result;
@@ -59,8 +61,6 @@
 
         private void Log(string result, string recipient)
         {
-            var dal = new DataAccessBL();
-
             var notify = new NotificationLog()
             {
                 ClientName = "Пользователь",
@@ -73,7 +73,7 @@
                 Type = "EMail"
             };
 
-            dal.InsertNotificationLog(notify);
+            SaveLog(notify);
         }
     }
 }
