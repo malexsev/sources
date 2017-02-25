@@ -440,6 +440,7 @@
     <EntitySetMapping Name="Orders">
       <EntityTypeMapping TypeName="DataModel.Order">
         <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="TransferInfo" ColumnName="TransferInfo" />
           <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
           <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
           <ScalarProperty Name="LastDate" ColumnName="LastDate" />
@@ -961,6 +962,17 @@
           <ScalarProperty Name="Country" ColumnName="Country" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DepartmentTransferInfoes">
+      <EntityTypeMapping TypeName="DataModel.DepartmentTransferInfo">
+        <MappingFragment StoreEntitySet="DepartmentTransferInfo">
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

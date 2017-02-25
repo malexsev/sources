@@ -30,10 +30,11 @@
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataCheckColumn Caption="Чек" FieldName="ValueBool" VisibleIndex="5" Width="30px">
                 </dx:GridViewDataCheckColumn>
-                <dx:GridViewDataTextColumn FieldName="Value" VisibleIndex="6" Caption="Значение">
-                    <PropertiesTextEdit MaxLength="250">
-                    </PropertiesTextEdit>
-                </dx:GridViewDataTextColumn>
+                <dx:GridViewDataMemoColumn Caption="Значение" FieldName="Value" MinWidth="600" Visible="False" VisibleIndex="6">
+                    <PropertiesMemoEdit Rows="20">
+                    </PropertiesMemoEdit>
+                    <EditFormSettings ColumnSpan="2" Visible="True" />
+                </dx:GridViewDataMemoColumn>
             </Columns>
             <SettingsEditing Mode="PopupEditForm" EditFormColumnCount="1">
             </SettingsEditing>

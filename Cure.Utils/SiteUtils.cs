@@ -19,6 +19,14 @@
     public class SiteUtils
     {
         /// <summary>
+        /// Возвращает возраст по дате роджения.
+        /// </summary>
+        public static int GetAge(DateTime birthday)
+        {
+            return new DateTime(((DateTime.Today - birthday)).Ticks).Year - 1;
+        }
+
+        /// <summary>
         /// Обновляет информацию в отзывах и постах, при изменении данных профиля (имя, страна, регион)
         /// </summary>
         /// <param name="child"></param>
@@ -58,7 +66,7 @@
             }
             return string.Format("{0}...", text.Substring(0, length));
         }
-        
+
         public static string ConcatLocation(object country, object location)
         {
             if (string.IsNullOrEmpty(location.ToString()))

@@ -8,6 +8,7 @@ namespace Cure.WebSite.Controllers
     using DataAccess;
     using DataAccess.BLL;
     using Models;
+    using Notification;
     using Utils;
 
     public class HomeController : Controller
@@ -21,6 +22,9 @@ namespace Cure.WebSite.Controllers
                 model.Email = subscribe;
                 model.isSubscribe = true;
                 model.isSuccess = dal.Subscribe(subscribe);
+
+                var notify = new SubscribedToUserEmailNotification(model.Email, Server);
+                notify.Send();
             }
             else if (!string.IsNullOrEmpty(unsubscribe) && string.IsNullOrEmpty(subscribe))
             {

@@ -202,6 +202,15 @@
     <FunctionImport Name="spMixEntities" />
     <EntitySet Name="NewsPages" EntityType="DataModel.NewsPage" />
     <EntitySet Name="ViewSubscribers" EntityType="DataModel.ViewSubscriber" />
+    <EntitySet Name="DepartmentTransferInfoes" EntityType="DataModel.DepartmentTransferInfo" />
+    <AssociationSet Name="FK_DepartmentTransferInfo_Department" Association="DataModel.FK_DepartmentTransferInfo_Department">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="DepartmentTransferInfo" EntitySet="DepartmentTransferInfoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_DepartmentTransferInfo" Association="DataModel.FK_Order_DepartmentTransferInfo">
+      <End Role="DepartmentTransferInfo" EntitySet="DepartmentTransferInfoes" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="OrderStatu">
     <Key>
@@ -794,6 +803,8 @@
     <NavigationProperty Name="Sputniks" Relationship="DataModel.FK_Sputnik_Order" FromRole="Order" ToRole="Sputnik" />
     <NavigationProperty Name="Visits" Relationship="DataModel.FK_Visit_Order" FromRole="Order" ToRole="Visit" />
     <NavigationProperty Name="Department" Relationship="DataModel.FK_Order_Department" FromRole="Order" ToRole="Department" />
+    <Property Name="TransferInfo" Type="Int32" />
+    <NavigationProperty Name="DepartmentTransferInfo" Relationship="DataModel.FK_Order_DepartmentTransferInfo" FromRole="Order" ToRole="DepartmentTransferInfo" />
   </EntityType>
   <Association Name="FK_Order_OrderStatus">
     <End Type="DataModel.OrderStatu" Role="OrderStatu" Multiplicity="1" />
@@ -1255,6 +1266,7 @@
     <NavigationProperty Name="Orders" Relationship="DataModel.FK_Order_Department" FromRole="Department" ToRole="Order" />
     <NavigationProperty Name="StopVisits" Relationship="DataModel.FK_StopVisit_Department" FromRole="Department" ToRole="StopVisit" />
     <NavigationProperty Name="TransferUsers" Relationship="DataModel.FK_TransferUser_Department" FromRole="Department" ToRole="TransferUser" />
+    <NavigationProperty Name="DepartmentTransferInfoes" Relationship="DataModel.FK_DepartmentTransferInfo_Department" FromRole="Department" ToRole="DepartmentTransferInfo" />
   </EntityType>
   <Association Name="FK_Department_Department">
     <End Type="DataModel.Department" Role="Department" Multiplicity="0..1" />
@@ -1681,4 +1693,40 @@
     <Property Name="Date" Type="DateTime" Precision="3" />
     <Property Name="Source" Type="String" Nullable="false" MaxLength="18" FixedLength="false" Unicode="false" />
   </EntityType>
+  <EntityType Name="DepartmentTransferInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DepartmentId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Department" Relationship="DataModel.FK_DepartmentTransferInfo_Department" FromRole="DepartmentTransferInfo" ToRole="Department" />
+    <NavigationProperty Name="Orders" Relationship="DataModel.FK_Order_DepartmentTransferInfo" FromRole="DepartmentTransferInfo" ToRole="Order" />
+  </EntityType>
+  <Association Name="FK_DepartmentTransferInfo_Department">
+    <End Type="DataModel.Department" Role="Department" Multiplicity="1" />
+    <End Type="DataModel.DepartmentTransferInfo" Role="DepartmentTransferInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DepartmentTransferInfo">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_DepartmentTransferInfo">
+    <End Type="DataModel.DepartmentTransferInfo" Role="DepartmentTransferInfo" Multiplicity="0..1" />
+    <End Type="DataModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DepartmentTransferInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="TransferInfo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

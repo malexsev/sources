@@ -8,6 +8,12 @@ namespace Cure.DataAccess.DAL
 {
     internal interface IDataRepository : IDisposable
     {
+        IEnumerable<DepartmentTransferInfo> GetDepartmentTransferInfos();
+        DepartmentTransferInfo GetDepartmentTransferInfo(int id);
+        void InsertDepartmentTransferInfo(DepartmentTransferInfo departmentTransferInfo);
+        void DeleteDepartmentTransferInfo(DepartmentTransferInfo departmentTransferInfo);
+        void UpdateDepartmentTransferInfo(DepartmentTransferInfo departmentTransferInfo);
+
         IEnumerable<NewsPage> GetNewsPages();
         NewsPage GetNewsPage(int id);
         void InsertNewsPage(NewsPage newsPage);

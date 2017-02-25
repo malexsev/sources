@@ -166,6 +166,15 @@ namespace Cure.WebAdmin.Admin {
         protected global::System.Web.UI.WebControls.ObjectDataSource uxOrderStatusDataSource;
         
         /// <summary>
+        /// uxTransferInfoDataSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource uxTransferInfoDataSource;
+        
+        /// <summary>
         /// uxCallbackPanel control.
         /// </summary>
         /// <remarks>

@@ -168,6 +168,16 @@
     <Property Name="CreateUser" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="CreateDate" Type="datetime" Nullable="false" />
   </EntityType>
+  <EntityType Name="DepartmentTransferInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DepartmentId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="Text" Type="text" />
+  </EntityType>
   <EntityType Name="Mension">
     <Key>
       <PropertyRef Name="Id" />
@@ -209,6 +219,25 @@
     <Property Name="SuccessCount" Type="int" />
     <Property Name="ErrorsCount" Type="int" />
   </EntityType>
+  <EntityType Name="NewsPage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GuidId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Alias" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="250" />
+    <Property Name="CreatorName" Type="nvarchar" MaxLength="250" />
+    <Property Name="Text" Type="text" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Sort" Type="int" />
+    <Property Name="Settings" Type="nvarchar" MaxLength="250" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="EditDate" Type="datetime" />
+    <Property Name="LastUser" Type="nvarchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="NotificationLog">
     <Key>
       <PropertyRef Name="Id" />
@@ -241,6 +270,7 @@
     <Property Name="Name" Type="nvarchar" MaxLength="50" />
     <Property Name="DepartmentId" Type="int" />
     <Property Name="StatusId" Type="int" Nullable="false" />
+    <Property Name="TransferInfo" Type="int" />
     <Property Name="OwnerUser" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="DateFrom" Type="date" Nullable="false" />
     <Property Name="DateTo" Type="date" Nullable="false" />
@@ -423,7 +453,7 @@
     <Property Name="Description" Type="nvarchar" MaxLength="500" />
     <Property Name="Type" Type="nvarchar" MaxLength="50" />
     <Property Name="ValueBool" Type="bit" />
-    <Property Name="Value" Type="nvarchar" MaxLength="250" />
+    <Property Name="Value" Type="text" />
   </EntityType>
   <EntityType Name="SmsLog">
     <Key>
@@ -879,6 +909,19 @@ warning 6002: The table/view 'Cure.dbo.ViewSoonVisit' does not have a primary ke
     <Property Name="BirthDate" Type="date" />
   </EntityType>
   <!--Errors Found During Generation:
+warning 6002: The table/view 'Cure.dbo.ViewSubscriber' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ViewSubscriber">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="275" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="Country" Type="nvarchar" MaxLength="50" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Source" Type="varchar" MaxLength="18" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
 warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="ViewUserMembership">
     <Key>
@@ -1134,6 +1177,18 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_DepartmentTransferInfo_Department">
+    <End Role="Department" Type="Self.Department" Multiplicity="1" />
+    <End Role="DepartmentTransferInfo" Type="Self.DepartmentTransferInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DepartmentTransferInfo">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Mension_Department">
     <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
     <End Role="Mension" Type="Self.Mension" Multiplicity="*" />
@@ -1155,6 +1210,18 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
       </Principal>
       <Dependent Role="Order">
         <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_DepartmentTransferInfo">
+    <End Role="DepartmentTransferInfo" Type="Self.DepartmentTransferInfo" Multiplicity="0..1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DepartmentTransferInfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="TransferInfo" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -1406,9 +1473,11 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
     <EntitySet Name="CurrencyRate" EntityType="Self.CurrencyRate" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DepartmentStop" EntityType="Self.DepartmentStop" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DepartmentTransferInfo" EntityType="Self.DepartmentTransferInfo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Mension" EntityType="Self.Mension" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Message" EntityType="Self.Message" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Newsletter" EntityType="Self.Newsletter" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NewsPage" EntityType="Self.NewsPage" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NotificationLog" EntityType="Self.NotificationLog" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="OnlineUser" EntityType="Self.OnlineUser" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
@@ -1714,6 +1783,16 @@ FROM [dbo].[ViewScheduler] AS [ViewScheduler]</DefiningQuery>
 [ViewSoonVisit].[BirthDate] AS [BirthDate]
 FROM [dbo].[ViewSoonVisit] AS [ViewSoonVisit]</DefiningQuery>
     </EntitySet>
+    <EntitySet Name="ViewSubscriber" EntityType="Self.ViewSubscriber" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[ViewSubscriber].[Id] AS [Id], 
+[ViewSubscriber].[Name] AS [Name], 
+[ViewSubscriber].[Email] AS [Email], 
+[ViewSubscriber].[Country] AS [Country], 
+[ViewSubscriber].[Date] AS [Date], 
+[ViewSubscriber].[Source] AS [Source]
+FROM [dbo].[ViewSubscriber] AS [ViewSubscriber]</DefiningQuery>
+    </EntitySet>
     <EntitySet Name="ViewUserMembership" EntityType="Self.ViewUserMembership" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
 [ViewUserMembership].[Expr1] AS [Expr1], 
@@ -1815,12 +1894,20 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
       <End Role="Department" EntitySet="Department" />
       <End Role="DepartmentStop" EntitySet="DepartmentStop" />
     </AssociationSet>
+    <AssociationSet Name="FK_DepartmentTransferInfo_Department" Association="Self.FK_DepartmentTransferInfo_Department">
+      <End Role="Department" EntitySet="Department" />
+      <End Role="DepartmentTransferInfo" EntitySet="DepartmentTransferInfo" />
+    </AssociationSet>
     <AssociationSet Name="FK_Mension_Department" Association="Self.FK_Mension_Department">
       <End Role="Department" EntitySet="Department" />
       <End Role="Mension" EntitySet="Mension" />
     </AssociationSet>
     <AssociationSet Name="FK_Order_Department" Association="Self.FK_Order_Department">
       <End Role="Department" EntitySet="Department" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_DepartmentTransferInfo" Association="Self.FK_Order_DepartmentTransferInfo">
+      <End Role="DepartmentTransferInfo" EntitySet="DepartmentTransferInfo" />
       <End Role="Order" EntitySet="Order" />
     </AssociationSet>
     <AssociationSet Name="FK_Order_OrderStatus" Association="Self.FK_Order_OrderStatus">

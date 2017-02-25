@@ -69,13 +69,33 @@ namespace Cure.WebAdmin.Admin
                 var notify = new OrderApprovedToUserEmailNotification((int)e.Keys[0], new HttpServerUtilityWrapper(Server));
                 notify.Send();
             }
-            if ((int) e.NewValues["StatusId"] == 9 && e.NewValues["StatusId"] != e.OldValues["StatusId"])
+            if ((int)e.NewValues["StatusId"] == 9 && e.NewValues["StatusId"] != e.OldValues["StatusId"])
             {
                 if (!(e.NewValues["TicketUbitieTime"] is DateTime))
                 {
                     throw new Exception("Статус \"Завершён\" не может быть применён, не установлено Время Убытия.");
                 }
             }
+            if ((int)e.NewValues["StatusId"] == 7 && e.NewValues["StatusId"] != e.OldValues["StatusId"])
+            {
+                if (((int?)e.NewValues["TransferInfo"]).HasValue)
+                {
+                    if (!string.IsNullOrEmpty((e.NewValues["TicketInfo"] ?? "").ToString()))
+                    {
+                        var notify = new OrderTicketsToUserEmailNotification((int)e.Keys[0], (int)e.NewValues["TransferInfo"], new HttpServerUtilityWrapper(Server));
+                        notify.Send();
+                    }
+                    else
+                    {
+                        throw new Exception("Статус \"Куплены Билеты\" не может быть применён, нет информации о билетах.");
+                    }
+                }
+                else
+                {
+                    throw new Exception("Статус \"Куплены Билеты\" не может быть применён, не установлен Вариант прибытия.");
+                }
+            }
+
             SetUpdateUserData(ref sender, ref e);
         }
 
@@ -131,7 +151,8 @@ namespace Cure.WebAdmin.Admin
             {
                 uxPhotoGallery.ItemGuid = itemGuid;
                 uxPhotoUploader.ItemGuid = itemGuid;
-            } else if (Information.IsNumeric(e.Parameter))
+            }
+            else if (Information.IsNumeric(e.Parameter))
             {
                 int index = Convert.ToInt32(e.Parameter);
                 uxPhotoGallery.RemovePhotoByIndex(index);

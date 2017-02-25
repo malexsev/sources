@@ -25,9 +25,9 @@ namespace Cure.DataAccess.DAL
         {
             var searchDate = DateTime.Today.AddDays(-1);
             return context.Orders.Where(x => x.DepartmentId.HasValue &&
-                x.CreateDate.HasValue &&
+                x.LastDate.HasValue &&
                 x.StatusId == (int)Enums.OrderStatus.Черновик &&
-                (x.CreateDate.Value.Year == searchDate.Year && x.CreateDate.Value.Month == searchDate.Month && x.CreateDate.Value.Day == searchDate.Day));
+                (x.LastDate.Value.Year == searchDate.Year && x.LastDate.Value.Month == searchDate.Month && x.LastDate.Value.Day == searchDate.Day));
         }
 
         public IEnumerable<ViewScheduler> GetScheduler()
@@ -189,6 +189,7 @@ namespace Cure.DataAccess.DAL
             {
                 var origOrder = GetOrder(order.Id);
                 origOrder.DepartmentId = order.DepartmentId;
+                origOrder.TransferInfo = order.TransferInfo;
                 origOrder.OwnerUser = order.OwnerUser;
                 origOrder.Notes = order.Notes;
                 origOrder.DateFrom = order.DateFrom;
@@ -215,6 +216,7 @@ namespace Cure.DataAccess.DAL
                 origOrder.ServiceRoomIsVoda = order.ServiceRoomIsVoda;
                 origOrder.ServiceRoomIsPosuda = order.ServiceRoomIsPosuda;
 
+                context.Refresh(RefreshMode.StoreWins, context.ViewSoonVisits);
                 SaveChanges();
             }
             catch (Exception ex)

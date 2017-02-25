@@ -29,6 +29,8 @@ namespace Cure.WebSite.Controllers
                 };
 
                 dal.InsertNewsletter(entry);
+                var notify = new SubscribedToUserEmailNotification(email, Server);
+                notify.Send();
 
                 return Json("1", JsonRequestBehavior.AllowGet);
             }

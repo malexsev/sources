@@ -67,8 +67,14 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Admin/MessageList.aspx">
       <publishTime>11/26/2016 13:15:31</publishTime>
     </File>
+    <File Include="Admin/NewsLetter.aspx">
+      <publishTime>02/20/2017 19:33:23</publishTime>
+    </File>
     <File Include="Admin/NewsletterList.aspx">
       <publishTime>10/18/2016 21:45:11</publishTime>
+    </File>
+    <File Include="Admin/NewsList.aspx">
+      <publishTime>02/17/2017 13:13:46</publishTime>
     </File>
     <File Include="Admin/NotificationLogList.aspx">
       <publishTime>03/03/2016 21:00:49</publishTime>
@@ -77,7 +83,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/13/2017 14:03:39</publishTime>
     </File>
     <File Include="Admin/OrderList.aspx">
-      <publishTime>08/31/2016 00:00:58</publishTime>
+      <publishTime>02/22/2017 12:51:05</publishTime>
     </File>
     <File Include="Admin/PacientList.aspx">
       <publishTime>02/10/2016 00:22:28</publishTime>
@@ -113,7 +119,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/09/2016 03:11:07</publishTime>
     </File>
     <File Include="Admin/SettingList.aspx">
-      <publishTime>01/21/2016 20:49:09</publishTime>
+      <publishTime>02/16/2017 06:32:26</publishTime>
     </File>
     <File Include="Admin/SmsLogList.aspx">
       <publishTime>10/26/2016 01:04:23</publishTime>
@@ -123,6 +129,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Admin/StopVisitList.aspx">
       <publishTime>06/29/2016 11:06:15</publishTime>
+    </File>
+    <File Include="Admin/TransferInfoList.aspx">
+      <publishTime>02/22/2017 11:08:27</publishTime>
     </File>
     <File Include="Admin/UserList.aspx">
       <publishTime>02/06/2017 17:02:07</publishTime>
@@ -926,28 +935,28 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/30/2015 22:06:30</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>02/15/2017 16:17:47</publishTime>
+      <publishTime>02/25/2017 18:55:54</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>02/15/2017 16:17:47</publishTime>
+      <publishTime>02/25/2017 18:55:54</publishTime>
     </File>
     <File Include="bin/Cure.Admin.dll">
       <publishTime>10/13/2015 22:39:42</publishTime>
     </File>
     <File Include="bin/Cure.DataAccess.dll">
-      <publishTime>02/15/2017 02:31:29</publishTime>
+      <publishTime>02/23/2017 12:30:56</publishTime>
     </File>
     <File Include="bin/Cure.Notification.dll">
-      <publishTime>02/15/2017 02:31:31</publishTime>
+      <publishTime>02/25/2017 18:55:44</publishTime>
     </File>
     <File Include="bin/Cure.Reports.dll">
-      <publishTime>02/15/2017 02:31:30</publishTime>
+      <publishTime>02/23/2017 12:32:18</publishTime>
     </File>
     <File Include="bin/Cure.Utils.dll">
-      <publishTime>02/15/2017 02:31:30</publishTime>
+      <publishTime>02/25/2017 18:55:44</publishTime>
     </File>
     <File Include="bin/Cure.WebAdmin.dll">
-      <publishTime>02/15/2017 16:17:39</publishTime>
+      <publishTime>02/25/2017 18:55:46</publishTime>
     </File>
     <File Include="bin/de/DevExpress.Data.v14.1.resources.dll">
       <publishTime>06/27/2014 13:41:12</publishTime>
@@ -1337,10 +1346,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/22/2015 22:48:16</publishTime>
     </File>
     <File Include="Content/admin.sitemap">
-      <publishTime>12/06/2016 13:43:12</publishTime>
+      <publishTime>02/22/2017 11:03:07</publishTime>
     </File>
     <File Include="Content/client.sitemap">
       <publishTime>03/05/2016 12:55:05</publishTime>
+    </File>
+    <File Include="Content/EmailBodyTemplate.html">
+      <publishTime>02/20/2017 17:42:11</publishTime>
     </File>
     <File Include="Content/Images/AquaHeader.jpg">
       <publishTime>09/18/2015 22:10:20</publishTime>
@@ -1616,7 +1628,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/18/2015 20:52:41</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>02/15/2017 16:17:42</publishTime>
+      <publishTime>02/25/2017 18:55:50</publishTime>
     </File>
     <File Include="Report.master">
       <publishTime>12/10/2015 23:44:31</publishTime>
@@ -1646,7 +1658,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/13/2015 21:28:44</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>01/04/2017 13:48:50</publishTime>
+      <publishTime>02/22/2017 13:34:53</publishTime>
     </File>
     <File Include="_EveryDay9826358775243309.aspx">
       <publishTime>01/23/2016 14:03:10</publishTime>

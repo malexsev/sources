@@ -46,6 +46,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseNotification.cs" />
+    <Compile Include="Before3DaysToUserEmailNotification.cs" />
+    <Compile Include="Before45DaysToUserEmailNotification.cs" />
+    <Compile Include="Before30DaysToUserEmailNotification.cs" />
+    <Compile Include="Before60DaysToUserEmailNotification.cs" />
+    <Compile Include="MensionAfterFinish30EmailNotification.cs" />
+    <Compile Include="MensionAfterFinish20EmailNotification.cs" />
+    <Compile Include="MensionAfterFinish15EmailNotification.cs" />
+    <Compile Include="MensionBeforeFinish5EmailNotification.cs" />
+    <Compile Include="MensionAfterStart7EmailNotification.cs" />
+    <Compile Include="MensionBeforeOrder7EmailNotification.cs" />
+    <Compile Include="SomeBirthdaysEmailNotification.cs" />
+    <Compile Include="SubscribedToUserEmailNotification.cs" />
+    <Compile Include="OrderTicketsToUserEmailNotification.cs" />
     <Compile Include="OrderNotCompletedToUserEmailNotification.cs" />
     <Compile Include="OrdersUnprocessedEmailNotification.cs" />
     <Compile Include="PacientBirthdayEmailNotification.cs" />

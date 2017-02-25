@@ -387,16 +387,14 @@
                                     <EditFormSettings Visible="False" />
                                     <DataItemTemplate>
                                         <a onclick="javascript:Invite('<%# Container.KeyValue %>');"  class="hyperlink" style="color: #27408b">
-                                            Сгенерировать<%--<img src="../Content/Images/editors_apps.gif" />--%>
-                                        </a>
+                                            Сгенерировать<%--<img src="../Content/Images/editors_apps.gif" />--%></a>
                                     </DataItemTemplate>
                                 </dx:GridViewDataTextColumn>
                                 <dx:GridViewDataTextColumn Caption="Выписка" VisibleIndex="81" Width="80px" ToolTip="Редактирование выписки">
                                     <EditFormSettings Visible="False" />
                                     <DataItemTemplate>
                                         <a onclick="javascript:OpenVipiska('<%# Container.KeyValue %>');" class="hyperlink" style="color: #27408b">
-                                            Редактировать<%--<img src="../Content/Images/editors_upload.gif" />--%>
-                                        </a>
+                                            Редактировать<%--<img src="../Content/Images/editors_upload.gif" />--%></a>
                                     </DataItemTemplate>
                                 </dx:GridViewDataTextColumn>
                             </Columns>
@@ -612,6 +610,11 @@
                 <dx:GridViewDataCheckColumn Caption="Средство для мытья посуды" FieldName="ServiceRoomIsPosuda" Visible="False" VisibleIndex="44">
                     <EditFormSettings Visible="True" />
                 </dx:GridViewDataCheckColumn>
+                <dx:GridViewDataComboBoxColumn Caption="Вариант прибытия" FieldName="TransferInfo" Visible="False" VisibleIndex="45">
+                    <PropertiesComboBox DataSourceID="uxTransferInfoDataSource" NullDisplayText="(уточняется)" NullText="(уточняется)" TextField="Name" ValueField="Id" ValueType="System.Int32">
+                    </PropertiesComboBox>
+                    <EditFormSettings Visible="True" />
+                </dx:GridViewDataComboBoxColumn>
             </Columns>
             <SettingsBehavior ConfirmDelete="True" />
             <SettingsPager AlwaysShowPager="True" NumericButtonCount="20">
@@ -651,6 +654,8 @@
         <asp:ObjectDataSource ID="uxRodstvoDataSource" runat="server" SelectMethod="GetRefRodstvo" TypeName="Cure.DataAccess.BLL.DataAccessBL"></asp:ObjectDataSource>
 
         <asp:ObjectDataSource ID="uxOrderStatusDataSource" runat="server" SelectMethod="GetOrderStatus" TypeName="Cure.DataAccess.BLL.DataAccessBL"></asp:ObjectDataSource>
+
+        <asp:ObjectDataSource ID="uxTransferInfoDataSource" runat="server" SelectMethod="GetDepartmentTransferInfos" TypeName="Cure.DataAccess.BLL.DataAccessBL" OldValuesParameterFormatString="original_{0}"></asp:ObjectDataSource>
 
         <dx:ASPxCallbackPanel ID="uxCallbackPanel" ClientInstanceName="cpGalery" runat="server" Width="100%" OnCallback="uxCallbackPanel_OnCallback">
             <PanelCollection>

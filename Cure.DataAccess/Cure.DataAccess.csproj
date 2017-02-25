@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="BLL\ChildAvaFileBL.cs" />
     <Compile Include="BLL\ChildHideFileBL.cs" />
+    <Compile Include="BLL\TransferInfoBL.cs" />
     <Compile Include="BLL\NewsPageBL.cs" />
     <Compile Include="BLL\CurrencyBL.cs" />
     <Compile Include="BLL\CurrencyRateBL.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="BLL\OrderBL.cs" />
     <Compile Include="BLL\DepartmentBL.cs" />
     <Compile Include="BLL\CountryBL.cs" />
+    <Compile Include="DAL\TransferInfoAccess.cs" />
     <Compile Include="DAL\NewPageAccess.cs" />
     <Compile Include="DAL\CurrencyAccess.cs" />
     <Compile Include="DAL\CurrencyRateAccess.cs" />
