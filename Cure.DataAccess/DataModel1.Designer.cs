@@ -240,22 +240,6 @@ namespace Cure.DataAccess
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<NotificationLog> NotificationLogs
-        {
-            get
-            {
-                if ((_NotificationLogs == null))
-                {
-                    _NotificationLogs = base.CreateObjectSet<NotificationLog>("NotificationLogs");
-                }
-                return _NotificationLogs;
-            }
-        }
-        private ObjectSet<NotificationLog> _NotificationLogs;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<Setting> Settings
         {
             get
@@ -812,6 +796,22 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<DepartmentTransferInfo> _DepartmentTransferInfoes;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<NotificationLog> NotificationLogs
+        {
+            get
+            {
+                if ((_NotificationLogs == null))
+                {
+                    _NotificationLogs = base.CreateObjectSet<NotificationLog>("NotificationLogs");
+                }
+                return _NotificationLogs;
+            }
+        }
+        private ObjectSet<NotificationLog> _NotificationLogs;
 
         #endregion
 
@@ -879,14 +879,6 @@ namespace Cure.DataAccess
         public void AddToSmsLogs(SmsLog smsLog)
         {
             base.AddObject("SmsLogs", smsLog);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the NotificationLogs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToNotificationLogs(NotificationLog notificationLog)
-        {
-            base.AddObject("NotificationLogs", notificationLog);
         }
     
         /// <summary>
@@ -1167,6 +1159,14 @@ namespace Cure.DataAccess
         public void AddToDepartmentTransferInfoes(DepartmentTransferInfo departmentTransferInfo)
         {
             base.AddObject("DepartmentTransferInfoes", departmentTransferInfo);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the NotificationLogs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToNotificationLogs(NotificationLog notificationLog)
+        {
+            base.AddObject("NotificationLogs", notificationLog);
         }
 
         #endregion
@@ -7221,6 +7221,30 @@ namespace Cure.DataAccess
         private global::System.String _Description;
         partial void OnDescriptionChanging(global::System.String value);
         partial void OnDescriptionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Text
+        {
+            get
+            {
+                return _Text;
+            }
+            set
+            {
+                OnTextChanging(value);
+                ReportPropertyChanging("Text");
+                _Text = StructuralObject.SetValidValue(value, true, "Text");
+                ReportPropertyChanged("Text");
+                OnTextChanged();
+            }
+        }
+        private global::System.String _Text;
+        partial void OnTextChanging(global::System.String value);
+        partial void OnTextChanged();
     
         /// <summary>
         /// No Metadata Documentation available.

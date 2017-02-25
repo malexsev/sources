@@ -51,12 +51,12 @@
             bool result = false;
 
             result = SendEmail(this.user.LoweredEmail, string.Empty, this.subject, this.body, "Восстановление пароля");
-            this.Log(result ? "Доставлено" : "Ошибка доставки", this.user.LoweredEmail);
+            this.Log(result ? "Доставлено" : "Ошибка доставки", this.user.LoweredEmail, this.body);
 
             return result;
         }
 
-        private void Log(string result, string recipient)
+        private void Log(string result, string recipient, string text)
         {
             var notify = new NotificationLog()
             {
@@ -67,7 +67,8 @@
                 ExecutionDate = DateTime.Now,
                 Name = "EMail Восстановление пароля",
                 Result = result,
-                Type = "EMail"
+                Type = "EMail",
+                Text = text
             };
 
             SaveLog(notify);

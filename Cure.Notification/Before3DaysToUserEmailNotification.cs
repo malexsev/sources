@@ -34,14 +34,14 @@
             {
                 var user = dal.GetUserMembership(order.OwnerUser);
                 result = SendEmail(user.LoweredEmail, string.Empty, this.subject, this.body, "Опопвещение за 3 днея до заезда");
-                this.Log(result ? "Доставлено" : "Ошибка доставки", user.LoweredEmail);
+                this.Log(result ? "Доставлено" : "Ошибка доставки", user.LoweredEmail, this.body);
             }
 
 
             return result;
         }
 
-        private void Log(string result, string recipient)
+        private void Log(string result, string recipient, string text)
         {
             var notify = new NotificationLog()
             {
@@ -52,7 +52,8 @@
                 ExecutionDate = DateTime.Now,
                 Name = "EMail Опопвещение за 3 дня до заезда",
                 Result = result,
-                Type = "EMail"
+                Type = "EMail",
+                Text = text
             };
 
             SaveLog(notify);

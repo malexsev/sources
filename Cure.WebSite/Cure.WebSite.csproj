@@ -586,6 +586,8 @@
     <Content Include="Content\css\__styles.less" />
     <Content Include="Content\pdf\Lekarstvavkitae.pdf" />
     <Content Include="Content\pdf\PacientVisitDetails.pdf" />
+    <Content Include="Content\pdf\phrases for trip1.pdf" />
+    <Content Include="Content\pdf\usloviyabzgm2017.pdf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="robots.txt" />
     <Content Include="Scripts\jquery-1.10.2.js" />

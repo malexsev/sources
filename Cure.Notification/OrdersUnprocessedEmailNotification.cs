@@ -79,7 +79,7 @@
                     var attachmentPath = SiteUtils.GenerateVisitDetailsPdf(order.Visits.First(), attachmentName, base.server);
 
                     result = SendEmail(this.settingAdminsEmails.Value, this.settingAdminsEmailCopy.Value, subject, body, "Нерассмотренная заявка", attachmentPath, attachmentName);
-                    this.Log(result ? "Доставлено" : "Ошибка доставки", settingAdminsEmails.Value, subject);
+                    this.Log(result ? "Доставлено" : "Ошибка доставки", settingAdminsEmails.Value, subject, body);
                 }
                 
                 return true;
@@ -88,7 +88,7 @@
             return false;
         }
 
-        private void Log(string result, string recipient, string details)
+        private void Log(string result, string recipient, string details, string text)
         {
             var notify = new NotificationLog()
             {
@@ -99,7 +99,8 @@
                 ExecutionDate = DateTime.Now,
                 Name = "EMail Нерассмотренная заявка",
                 Result = result,
-                Type = "EMail"
+                Type = "EMail",
+                Text = text
             };
 
             SaveLog(notify);

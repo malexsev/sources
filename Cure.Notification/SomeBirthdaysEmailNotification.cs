@@ -22,7 +22,7 @@
         private readonly string body;
         private const string subjectTemplate = "День рождения лечащихся пациентов";
         private const string bodyTemplate = "Среди клиентов, находящихся на лечении завтра празднуют дни рождения:<br /><br />" +
-            @"<table><tr><th>Клиника</th><th>Роль</th><th>Дата рождения</th><th>Имя</th><th>Исполняется (лет)</th></tr>{0}</table>";
+            @"<table border='1'><tr><th>Клиника</th><th>Роль</th><th>Дата рождения</th><th>Имя</th><th>Исполняется (лет)</th></tr>{0}</table>";
         private const string lineTemplate = "<tr><td>{0}</td><td>{1}</td><td>{2}</td><td>{3}</td><td>{4}</td></tr>"; 
 
 
@@ -85,7 +85,7 @@
                 bool result = false;
 
                 result = SendEmail(this.settingAdminsEmails.Value, this.settingAdminsEmailCopy.Value, this.subject, this.body, "Дни рождения у лечащихся");
-                this.Log(result ? "Доставлено" : "Ошибка доставки", settingAdminsEmails.Value);
+                this.Log(result ? "Доставлено" : "Ошибка доставки", settingAdminsEmails.Value, this.body);
 
                 return result;
             }
@@ -93,7 +93,7 @@
             return false;
         }
 
-        private void Log(string result, string recipient)
+        private void Log(string result, string recipient, string text)
         {
             var notify = new NotificationLog()
             {
@@ -104,7 +104,8 @@
                 ExecutionDate = DateTime.Now,
                 Name = "EMail Дни рождения лечащихся",
                 Result = result,
-                Type = "EMail"
+                Type = "EMail",
+                Text = text
             };
 
             SaveLog(notify);

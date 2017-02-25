@@ -35,14 +35,14 @@
             foreach (var user in this.users)
             {
                 result = SendEmail(user.LoweredEmail, string.Empty, this.subject, this.body, "Незаполенная заявка");
-                this.Log(result ? "Доставлено" : "Ошибка доставки", user.LoweredEmail);
+                this.Log(result ? "Доставлено" : "Ошибка доставки", user.LoweredEmail, this.body);
             }
 
 
             return result;
         }
 
-        private void Log(string result, string recipient)
+        private void Log(string result, string recipient, string text)
         {
             var notify = new NotificationLog()
             {
@@ -53,7 +53,8 @@
                 ExecutionDate = DateTime.Now,
                 Name = "EMail Пользователю о незаполенной заявке",
                 Result = result,
-                Type = "EMail"
+                Type = "EMail",
+                Text = text
             };
 
             SaveLog(notify);

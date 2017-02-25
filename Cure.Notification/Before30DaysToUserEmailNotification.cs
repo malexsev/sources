@@ -37,15 +37,16 @@
             foreach (var order in this.orders)
             {
                 var user = dal.GetUserMembership(order.OwnerUser);
-                result = SendEmail(user.LoweredEmail, string.Empty, this.subject, string.Format(this.body, order.DateFrom.ToString("dd-MM-yyyy")), "Опопвещение за 30 дней до заезда");
-                this.Log(result ? "Доставлено" : "Ошибка доставки", user.LoweredEmail);
+                var text = string.Format(this.body, order.DateFrom.ToString("dd-MM-yyyy"));
+                result = SendEmail(user.LoweredEmail, string.Empty, this.subject, text, "Опопвещение за 30 дней до заезда");
+                this.Log(result ? "Доставлено" : "Ошибка доставки", user.LoweredEmail, text);
             }
 
 
             return result;
         }
 
-        private void Log(string result, string recipient)
+        private void Log(string result, string recipient, string text)
         {
             var notify = new NotificationLog()
             {
@@ -56,7 +57,8 @@
                 ExecutionDate = DateTime.Now,
                 Name = "EMail Опопвещение за 30 дней до заезда",
                 Result = result,
-                Type = "EMail"
+                Type = "EMail",
+                Text = text
             };
 
             SaveLog(notify);

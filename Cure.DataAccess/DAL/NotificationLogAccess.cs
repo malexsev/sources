@@ -57,6 +57,7 @@ namespace Cure.DataAccess.DAL
                 origNotificationLog.ExecutionDate = notificationLog.ExecutionDate;
                 origNotificationLog.Result = notificationLog.Result;
                 origNotificationLog.Type = notificationLog.Type;
+                origNotificationLog.Text = notificationLog.Text;
                 SaveChanges();
             } catch (Exception ex)
             {

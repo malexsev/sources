@@ -13,7 +13,7 @@
     {
         private string email;
         private string subject = "Подписка на новости и акции.";
-        private string body = @"Вы успешно подписаны на рассылку новостей и акций нашего на нашем сайте.<br />";
+        private string body = @"Вы успешно подписаны на рассылку новостей и акций нашего сайте.<br />";
 
         public SubscribedToUserEmailNotification(string email, HttpServerUtilityBase server)
             : base(server)
@@ -26,12 +26,12 @@
             bool result = false;
 
             result = SendEmail(email.ToLower(), string.Empty, this.subject, this.body, "Пользователю одобрено");
-            this.Log(result ? "Доставлено" : "Ошибка доставки", email.ToLower());
+            this.Log(result ? "Доставлено" : "Ошибка доставки", email.ToLower(), this.body);
 
             return result;
         }
 
-        private void Log(string result, string recipient)
+        private void Log(string result, string recipient, string text)
         {
             var notify = new NotificationLog()
             {
@@ -42,7 +42,8 @@
                 ExecutionDate = DateTime.Now,
                 Name = "EMail Опопвещение о подписке",
                 Result = result,
-                Type = "EMail"
+                Type = "EMail",
+                Text = text
             };
 
             SaveLog(notify);

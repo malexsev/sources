@@ -73,7 +73,7 @@
                         , attachmentPath.Substring(attachmentPath.IndexOf("Documents", StringComparison.Ordinal)).Replace(@"\", @"/"));
 
                     result = SendEmail(this.settingAdminsEmails.Value, this.settingAdminsEmailCopy.Value, subject, body, "Прибытие за сутки", attachmentPath, attachmentName);
-                    this.Log(result ? "Доставлено" : "Ошибка доставки", settingAdminsEmails.Value, subject);
+                    this.Log(result ? "Доставлено" : "Ошибка доставки", settingAdminsEmails.Value, subject, body);
                 }
 
 
@@ -83,7 +83,7 @@
             return false;
         }
 
-        private void Log(string result, string recipient, string subject)
+        private void Log(string result, string recipient, string subject, string text)
         {
             var notify = new NotificationLog()
             {
@@ -94,7 +94,8 @@
                 ExecutionDate = DateTime.Now,
                 Name = "EMail Прибытие за сутки",
                 Result = result,
-                Type = "EMail"
+                Type = "EMail",
+                Text = text
             };
 
             SaveLog(notify);

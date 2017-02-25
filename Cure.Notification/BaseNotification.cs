@@ -7,8 +7,8 @@
 
     public abstract class  BaseNotification : INotification
     {
-        private const string subscribedTemplate = @"Вы подписаны на получение наших новостей и акций.<br /> Вы всегда можете отписаться от получения уведолений перейдя по <a href=""http://dcp-china.ru/home/subscription?unsubscribe={0}"">ссылке</a>";
-        private const string unSubscribedTemplate = @"Вы не подписаны на получение наших новостей и акций.<br /> Вы всегда можете подписаться на получения уведолений перейдя по <a href=""http://dcp-china.ru/home/subscription?subscribe={0}"">ссылке</a>";
+        private const string subscribedTemplate = @"Вы подписаны на получение наших новостей и акций. Вы всегда можете отписаться от получения уведолений перейдя по <a href=""http://dcp-china.ru/home/subscription?unsubscribe={0}"">ссылке</a>";
+        private const string unSubscribedTemplate = @"Вы не подписаны на получение наших новостей и акций. Вы всегда можете подписаться на получения уведолений перейдя по <a href=""http://dcp-china.ru/home/subscription?subscribe={0}"">ссылке</a>";
         
         protected HttpServerUtilityBase server { get; set; }
         public abstract bool Send();

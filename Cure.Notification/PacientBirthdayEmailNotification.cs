@@ -25,7 +25,8 @@
             this.subject = dal.GetSettingByCode("EmailTemplateBirthdaySubject").Value;
             this.body = dal.GetSettingByCode("EmailTemplateBirthdayBody").Value;
 
-            this.pacients = dal.GetPacients().Where(x => x.BirthDate.HasValue 
+            this.pacients = dal.GetPacients().Where(x => x.Visits.Any()
+                && x.BirthDate.HasValue
                 && x.BirthDate.Value.Month == DateTime.Today.Month
                 && x.BirthDate.Value.Day == DateTime.Today.Day);
             this.childs = dal.GetChilds().Where(x => x.Birthday.Month == DateTime.Today.Month
@@ -40,19 +41,21 @@
             foreach (var pacient in this.pacients)
             {
                 var userEmail = dal.GetUserMembership(pacient.Visits.First().Order.OwnerUser).LoweredEmail;
-                result = SendEmail(userEmail, string.Empty, this.subject, this.body.Replace("{0}", pacient.Name), "Поздравление пациента");
-                this.Log(result ? "Доставлено" : "Ошибка доставки", userEmail, "EMail Поздравление пациента");
+                var text = this.body.Replace("{0}", pacient.Name);
+                result = SendEmail(userEmail, string.Empty, this.subject, text, "Поздравление пациента");
+                this.Log(result ? "Доставлено" : "Ошибка доставки", userEmail, "EMail Поздравление пациента", text);
             }
             foreach (var child in this.childs)
             {
                 var userEmail = dal.GetUserMembership(child.OwnerUser).LoweredEmail;
-                result = SendEmail(userEmail, string.Empty, this.subject, this.body.Replace("{0}", child.Name), "Поздравление НД");
-                this.Log(result ? "Доставлено" : "Ошибка доставки", userEmail, "EMail Поздравление НД");
+                var text = this.body.Replace("{0}", child.Name);
+                result = SendEmail(userEmail, string.Empty, this.subject, text, "Поздравление НД");
+                this.Log(result ? "Доставлено" : "Ошибка доставки", userEmail, "EMail Поздравление НД", text);
             }
             return result;
         }
 
-        private void Log(string result, string recipient, string name)
+        private void Log(string result, string recipient, string name, string text)
         {
             var notify = new NotificationLog()
             {
@@ -63,7 +66,8 @@
                 ExecutionDate = DateTime.Now,
                 Name = name,
                 Result = result,
-                Type = "EMail"
+                Type = "EMail",
+                Text = text
             };
 
             SaveLog(notify);

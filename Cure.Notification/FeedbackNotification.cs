@@ -53,12 +53,12 @@
                 , this.text);
 
             result = SendEmail(this.settingAdminsEmails.Value, this.settingAdminsEmailCopy.Value, subject, body, "Обратная связь");
-            this.Log(result ? "Доставлено" : "Ошибка доставки", settingAdminsEmails.Value, subject);
+            this.Log(result ? "Доставлено" : "Ошибка доставки", settingAdminsEmails.Value, subject, body);
 
             return result;
         }
 
-        private void Log(string result, string recipient, string subject)
+        private void Log(string result, string recipient, string subject, string body)
         {
             var notify = new NotificationLog()
             {
@@ -69,7 +69,8 @@
                 ExecutionDate = DateTime.Now,
                 Name = "EMail обратная связь",
                 Result = result,
-                Type = "EMail"
+                Type = "EMail",
+                Text = body
             };
 
             SaveLog(notify);

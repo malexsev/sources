@@ -239,21 +239,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="NotificationLogs">
-      <EntityTypeMapping TypeName="DataModel.NotificationLog">
-        <MappingFragment StoreEntitySet="NotificationLog">
-          <ScalarProperty Name="Contacts" ColumnName="Contacts" />
-          <ScalarProperty Name="ClientName" ColumnName="ClientName" />
-          <ScalarProperty Name="Details" ColumnName="Details" />
-          <ScalarProperty Name="ExecutionDate" ColumnName="ExecutionDate" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Result" ColumnName="Result" />
-          <ScalarProperty Name="Type" ColumnName="Type" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Settings">
       <EntityTypeMapping TypeName="DataModel.Setting">
         <MappingFragment StoreEntitySet="Setting">
@@ -973,6 +958,22 @@
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NotificationLogs">
+      <EntityTypeMapping TypeName="DataModel.NotificationLog">
+        <MappingFragment StoreEntitySet="NotificationLog">
+          <ScalarProperty Name="Contacts" ColumnName="Contacts" />
+          <ScalarProperty Name="ClientName" ColumnName="ClientName" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+          <ScalarProperty Name="ExecutionDate" ColumnName="ExecutionDate" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Result" ColumnName="Result" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
           <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>

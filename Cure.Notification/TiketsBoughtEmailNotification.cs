@@ -53,7 +53,7 @@
                 bool result = false;
 
                 result = SendEmail(this.settingAdminsEmails.Value, this.settingAdminsEmailCopy.Value, this.subject, this.body, "Покупка билетов");
-                this.Log(result ? "Доставлено" : "Ошибка доставки", settingAdminsEmails.Value);
+                this.Log(result ? "Доставлено" : "Ошибка доставки", settingAdminsEmails.Value, this.body);
 
                 return result;
             }
@@ -61,7 +61,7 @@
             return false;
         }
 
-        private void Log(string result, string recipient)
+        private void Log(string result, string recipient, string text)
         {
             var notify = new NotificationLog()
             {
@@ -72,7 +72,8 @@
                 ExecutionDate = DateTime.Now,
                 Name = "EMail Покупка билетов",
                 Result = result,
-                Type = "EMail"
+                Type = "EMail",
+                Text = text
             };
 
             SaveLog(notify);

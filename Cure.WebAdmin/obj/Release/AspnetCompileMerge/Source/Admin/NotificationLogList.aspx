@@ -9,6 +9,11 @@
     <div class="content">
         
         <dx:ASPxGridView ID="uxMainGrid" ClientInstanceName="grid" runat="server" AutoGenerateColumns="False" DataSourceID="uxMainDataSource" KeyFieldName="Id" OnRowUpdating="uxMainGrid_RowUpdating" OnRowInserting="uxMainGrid_RowInserting">
+            <Templates>
+                <DetailRow>
+                    <%# Eval("Text")%>
+                </DetailRow>
+            </Templates>
             <Columns>
                 <dx:GridViewDataTextColumn FieldName="Type" VisibleIndex="2" Caption="Тип" Width="60px">
                 </dx:GridViewDataTextColumn>
@@ -35,6 +40,7 @@
             <SettingsEditing Mode="PopupEditForm" EditFormColumnCount="1">
             </SettingsEditing>
             <Settings ShowFilterRow="True" />
+            <SettingsDetail AllowOnlyOneMasterRowExpanded="True" ShowDetailRow="True" />
             <SettingsDataSecurity AllowDelete="False" AllowEdit="False" AllowInsert="False" />
         </dx:ASPxGridView>
 

@@ -1,12 +1,9 @@
 ﻿namespace Cure.Utils
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
     using System.Net;
     using System.Net.Mail;
     using System.Net.Mime;
-    using System.Security.Cryptography.X509Certificates;
     using System.Text;
 
     public static class EmailUtils
@@ -35,6 +32,7 @@
             };
 
             message.ReplyToList.Add(new MailAddress("info@dcp-china.ru"));
+            message.Bcc.Add(new MailAddress("info@dcp-china.ru"));
 
             if (!string.IsNullOrEmpty(attachmentPath) && !string.IsNullOrEmpty(attachmentName))
             {

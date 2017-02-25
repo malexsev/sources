@@ -48,13 +48,13 @@
             {
                 var email = dal.GetUserMembership(order.OwnerUser).LoweredEmail;
                 result = SendEmail(email, string.Empty, this.subject, this.body, "Требуется отзыв через 7 дней");
-                this.Log(result ? "Доставлено" : "Ошибка доставки", email);
+                this.Log(result ? "Доставлено" : "Ошибка доставки", email, this.body);
             }
 
             return result;
         }
 
-        private void Log(string result, string recipient)
+        private void Log(string result, string recipient, string text)
         {
             var notify = new NotificationLog()
             {
@@ -65,7 +65,8 @@
                 ExecutionDate = DateTime.Now,
                 Name = "EMail Требуется отзыв через 7 дней после прибытия",
                 Result = result,
-                Type = "EMail"
+                Type = "EMail",
+                Text = text
             };
 
             SaveLog(notify);

@@ -16,7 +16,6 @@
         <EntityTypeShape EntityType="DataModel.TransferUser" Width="1.5" PointX="14.375" PointY="16.25" />
         <EntityTypeShape EntityType="DataModel.ViewScheduler" Width="1.875" PointX="25.75" PointY="2" />
         <EntityTypeShape EntityType="DataModel.SmsLog" Width="1.5" PointX="20.5" PointY="27" />
-        <EntityTypeShape EntityType="DataModel.NotificationLog" Width="1.75" PointX="23.125" PointY="27" />
         <EntityTypeShape EntityType="DataModel.Setting" Width="1.5" PointX="22.75" PointY="32.125" />
         <EntityTypeShape EntityType="DataModel.aspnet_Membership" Width="2.875" PointX="20.125" PointY="21.5" />
         <EntityTypeShape EntityType="DataModel.aspnet_Users" Width="1.5" PointX="17.5" PointY="21.5" />
@@ -88,6 +87,7 @@
         <EntityTypeShape EntityType="DataModel.DepartmentTransferInfo" Width="1.5" PointX="14.25" PointY="11.875" />
         <AssociationConnector Association="DataModel.FK_DepartmentTransferInfo_Department" />
         <AssociationConnector Association="DataModel.FK_Order_DepartmentTransferInfo" />
+        <EntityTypeShape EntityType="DataModel.NotificationLog" Width="1.625" PointX="17.625" PointY="31.75" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

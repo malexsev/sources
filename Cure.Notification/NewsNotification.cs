@@ -32,12 +32,12 @@
         public override bool Send()
         {
             bool result = SendEmail(this.email, string.Empty, this.subject, this.text, "Рассылка");
-            this.Log(result ? "Доставлено" : "Ошибка доставки", this.email, this.subject);
+            this.Log(result ? "Доставлено" : "Ошибка доставки", this.email, this.subject, this.text);
 
             return result;
         }
 
-        private void Log(string result, string recipient, string reason)
+        private void Log(string result, string recipient, string reason, string body)
         {
             var notify = new NotificationLog()
             {
@@ -48,7 +48,8 @@
                 ExecutionDate = DateTime.Now,
                 Name = "EMail рассылка",
                 Result = result,
-                Type = "EMail"
+                Type = "EMail",
+                Text = body
             };
 
             SaveLog(notify);
