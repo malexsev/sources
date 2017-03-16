@@ -4152,6 +4152,7 @@ html.swipebox-html.swipebox-touch {
   border-radius: 3px;
   -webkit-transition: box-shadow 0.3s ease-in-out 0s;
   transition: box-shadow 0.3s ease-in-out 0s;
+  cursor: default;
 }
 .order-link:hover {
   box-shadow: 0 2px 7px rgba(2, 3, 3, 0.4);

@@ -23,7 +23,11 @@
         /// </summary>
         public static int GetAge(DateTime birthday)
         {
-            return new DateTime(((DateTime.Today - birthday)).Ticks).Year - 1;
+            if (birthday.Year > 1900 && birthday.Year < 2100)
+            {
+                return new DateTime(((DateTime.Today - birthday)).Ticks).Year - 1;
+            }
+            return 0;
         }
 
         /// <summary>
@@ -152,8 +156,10 @@
 
         public static string GenerateVisitDetailsPdf(Visit visit, string attachmentName, HttpServerUtilityBase server)
         {
+            var dal = new DataAccessBL();
+            var user = dal.GetUserMembership(visit.Order.OwnerUser);
             var report = new PacientVisitDetails(visit.Id);
-            var folderPath = Path.Combine(@"~\Documents\", visit.Order.GuidId + @"\UserFiles\");
+            var folderPath = Path.Combine(@"~\Documents\", user.Expr1 + @"\UserFiles\");
             var fileName = String.Format("{0}", attachmentName);
             var pdfFullPath = server.MapPath(Path.Combine(folderPath, fileName));
 

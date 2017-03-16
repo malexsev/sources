@@ -25,8 +25,6 @@
                 notify.Send();
                 notify = new Before3DaysToUserEmailNotification(new HttpServerUtilityWrapper(this.Server));
                 notify.Send();
-                notify = new SomeBirthdaysEmailNotification(new HttpServerUtilityWrapper(this.Server));
-                notify.Send();
                 notify = new MensionBeforeOrder7EmailNotification(new HttpServerUtilityWrapper(this.Server));
                 notify.Send();
                 notify = new MensionAfterStart7EmailNotification(new HttpServerUtilityWrapper(this.Server));
@@ -50,6 +48,8 @@
                 notify = new BeforeArriveToUserEmailNotification();
                 notify.Send();
                 notify = new PacientBirthdayEmailNotification(new HttpServerUtilityWrapper(this.Server));
+                notify.Send();
+                notify = new SomeBirthdaysEmailNotification(new HttpServerUtilityWrapper(this.Server));
                 notify.Send();
                 DataTable data = CurrencyUtils.GetRates(dal.GetCurrencies().Select(o => o.Name).ToList());
                 dal.UpdateCurrencyRates(data, SiteUtils.GetCurrentUserName());

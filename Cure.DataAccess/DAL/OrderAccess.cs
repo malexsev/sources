@@ -72,10 +72,7 @@ namespace Cure.DataAccess.DAL
                     && x.DateFrom <= DateTime.Today && x.DateTo >= DateTime.Today).OrderBy(o => o.TicketPribitieTime).ThenBy(x => x.DateFrom).OrderBy(o => o.TicketPribitieTime).ToList();
             }
             DateTime maxDate = DateTime.Today.AddDays(filter);
-            return context.ViewSoonVisits.Where(x => x.StatusId != (int)Enums.OrderStatus.Черновик
-                    && x.StatusId != (int)Enums.OrderStatus.Завершён
-                    && x.StatusId != (int)Enums.OrderStatus.Отказался
-                    && x.StatusId != (int)Enums.OrderStatus.Отказано
+            return context.ViewSoonVisits.Where(x => x.StatusId == (int)Enums.OrderStatus.КупленыБилеты
                     && x.DateFrom >= DateTime.Today && x.DateFrom <= maxDate).OrderBy(o => o.TicketPribitieTime).ThenBy(x => x.DateFrom).OrderBy(o => o.TicketPribitieTime).ToList();
         }
 

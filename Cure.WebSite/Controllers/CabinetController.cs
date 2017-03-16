@@ -73,7 +73,7 @@ namespace Cure.WebSite.Controllers
         }
 
         // Мои Файлы
-        public ActionResult Files(string filter)
+        public ActionResult Files()
         {
             if (!User.Identity.IsAuthenticated)
             {
@@ -86,33 +86,24 @@ namespace Cure.WebSite.Controllers
 
             if (User.Identity.IsAuthenticated)
             {
-                ViewBag.MyOrders = dal.GetMyOrders(SiteUtils.GetCurrentUserName());
+                var userView = dal.GetUserMembership(SiteUtils.GetCurrentUserName());
+                ViewBag.UserMembership = userView;
 
-                Guid guidId;
-                if (Guid.TryParse(filter, out guidId))
-                {
-                    ViewBag.MyFiles = GetFilesList(guidId).Select(x => new MyFileViewModel(x, guidId));
-                }
+                ViewBag.MyFiles = GetFilesList(userView.Expr1).Select(x => new MyFileViewModel(x, userView.Expr1));
             }
 
             return View();
         }
 
         [HttpPost]
-        public PartialViewResult GetFiles(string guidid)
+        public PartialViewResult GetFiles()
         {
             if (User.Identity.IsAuthenticated)
             {
                 var dal = new DataAccessBL();
-                if (guidid == "0")
-                {
-                    guidid = ((IEnumerable<Order>)ViewBag.MyOrders).Any()
-                        ? ((IEnumerable<Order>)ViewBag.MyOrders).ToList()[0].GuidId.ToString()
-                        : string.Empty;
-                }
-                var guidId = Guid.Parse(guidid);
+                var userView = dal.GetUserMembership(SiteUtils.GetCurrentUserName());
 
-                var filesList = ViewBag.MyFiles = GetFilesList(guidId).Select(x => new MyFileViewModel(x, guidId));
+                var filesList = ViewBag.MyFiles = GetFilesList(userView.Expr1).Select(x => new MyFileViewModel(x, userView.Expr1));
 
                 return PartialView("_FilesList", filesList);
             }
@@ -121,22 +112,19 @@ namespace Cure.WebSite.Controllers
         }
 
         [HttpPost]
-        public PartialViewResult DeleteMyFile(string filename, string guidid)
+        public PartialViewResult DeleteMyFile(string filename)
         {
             if (User.Identity.IsAuthenticated)
             {
+                var dal = new DataAccessBL();
+                var userView = dal.GetUserMembership(SiteUtils.GetCurrentUserName());
                 if (System.IO.File.Exists(filename))
                 {
                     System.IO.File.Delete(filename);
                 }
 
-                Guid guidId;
-                if (Guid.TryParse(guidid, out guidId))
-                {
-                    var filesList = ViewBag.MyFiles = GetFilesList(guidId).Select(x => new MyFileViewModel(x, guidId));
-                    return PartialView("_FilesList", filesList);
-                }
-
+                var filesList = ViewBag.MyFiles = GetFilesList(userView.Expr1).Select(x => new MyFileViewModel(x, userView.Expr1));
+                return PartialView("_FilesList", filesList);
             }
 
             return PartialView("_FilesList");
@@ -149,12 +137,9 @@ namespace Cure.WebSite.Controllers
             {
                 try
                 {
-                    Guid gu = Guid.Empty;
-                    if (Guid.TryParse(Request.Params["guidId"], out gu))
-                    {
-                        UploadMyFileLocal(gu);
-                    }
-
+                    var dal = new DataAccessBL();
+                    var userView = dal.GetUserMembership(SiteUtils.GetCurrentUserName());
+                    UploadMyFileLocal(userView.Expr1);
                 }
                 catch (Exception)
                 {
@@ -170,54 +155,6 @@ namespace Cure.WebSite.Controllers
                 return Json("Пользователь не определён");
             }
         }
-
-        //[HttpPost]
-        //public FileResult DownloadFile()
-        //{
-        //    if (User.Identity.IsAuthenticated)
-        //    {
-        //        try
-        //        {
-        //            string fullname = Request.Params["filename"];
-        //            Guid gud = Guid.Empty;
-        //            if (Guid.TryParse(Request.Params["guidId"], out gud))
-        //            {
-        //                var dal = new DataAccessBL();
-        //                var orders = dal.GetMyOrders(SiteUtils.GetCurrentUserName());
-        //                if (orders.Any(x => x.GuidId == gud))
-        //                {
-        //                    if (!string.IsNullOrEmpty(fullname))
-        //                    {
-        //                        //string mimeType = MimeMapping.GetMimeMapping(fullname);
-        //                        var fileResult = new FilePathResult(fullname, "application/octet-stream");
-
-        //                        //var encoding = Encoding.Unicode;
-        //                        //Response.Charset = encoding.WebName;
-        //                        //Response.HeaderEncoding = encoding;
-
-        //                        Response.AddHeader("Content-Disposition",
-        //                            string.Format("attachment; filename=\"{0}\"",
-        //                            fileResult.FileDownloadName));
-        //                        return fileResult;
-        //                    }
-        //                }
-        //            }
-
-        //        }
-        //        catch (Exception)
-        //        {
-        //            Response.StatusCode = (int)HttpStatusCode.BadRequest;
-        //            return null;
-        //        }
-
-        //        return null;
-        //    }
-        //    else
-        //    {
-        //        Response.StatusCode = (int)HttpStatusCode.BadRequest;
-        //        return null;
-        //    }
-        //}
 
         // Сообщения
         public ActionResult Messages()
@@ -837,7 +774,7 @@ namespace Cure.WebSite.Controllers
                             visit.Zakativaetsa = visitVm.Zakativaetsa;
                         }
 
-                        clientContainer.NewOrder.Name = "5";
+                        this.clientContainer.NewOrder.Name = "5";
                         this.clientContainer.NewOrder.LastUser = SiteUtils.GetCurrentUserName();
                         this.clientContainer.NewOrder.LastDate = DateTime.Now;
                         this.clientContainer.Save();
@@ -908,15 +845,16 @@ namespace Cure.WebSite.Controllers
             {
                 try
                 {
-                    clientContainer.NewOrder.StatusId = 2;
-                    clientContainer.NewOrder.Name = "6";
-                    clientContainer.NewOrder.LastUser = SiteUtils.GetCurrentUserName();
-                    clientContainer.NewOrder.LastDate = DateTime.Now;
-                    clientContainer.Save();
-
-                    var notify = new OrderSentNotification(clientContainer.NewOrder.Id);
+                    this.clientContainer.NewOrder.StatusId = 2;
+                    this.clientContainer.NewOrder.Name = "6";
+                    this.clientContainer.NewOrder.Description = "";
+                    this.clientContainer.NewOrder.LastUser = SiteUtils.GetCurrentUserName();
+                    this.clientContainer.NewOrder.LastDate = DateTime.Now;
+                    this.clientContainer.Save();
+                    
+                    var notify = new OrderSentNotification(this.clientContainer.NewOrder.Id);
                     notify.Send();
-                    foreach (var visit in clientContainer.NewOrder.Visits)
+                    foreach (var visit in this.clientContainer.NewOrder.Visits)
                     {
                         //Вызов методов админки
                         var client = new WebClient();

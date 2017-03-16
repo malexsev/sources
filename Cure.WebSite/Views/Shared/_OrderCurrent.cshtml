@@ -21,7 +21,7 @@
                         <div class="order-sec-text">@Html.Raw(order.DateFrom.ToString("dd-MM-yyyy")) - @order.DateTo.ToString("dd-MM-yyyy")</div>
                     </section>
                 </div>
-                <a class="order-link js-open-order" data-order="345" role="button" title="@Html.Raw(string.Format("ID:{0}", order.OrderId))"></a>
+                <a class="order-link" data-order="345" title="@Html.Raw(string.Format("ID:{0}", order.OrderId))"></a>
             </div>
         }
     </div>

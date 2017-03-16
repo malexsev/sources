@@ -1475,27 +1475,16 @@ $(document).ready(function () {
     });
 
 
-
-    /*------------ Фильтрация моих файлов по заявке ----------------------------*/
-    $(document).on('change', "#orderfilesfilter", function () {
-        var guidId = $(this).val();
-        RefreshMyFiles(guidId);
-    });
-
     /*-----------------------Первоначальная загрузка моих файлов----------------------*/
     $("#formFiles").ready(function () {
         var guidId = $("#orderfilesfilter").val();
         RefreshMyFiles(guidId);
     });
 
-    function RefreshMyFiles(guidid) {
-        var data = new FormData();
-        data.append("guidId", guidid);
-
+    function RefreshMyFiles() {
         $.ajax({
             url: "/Cabinet/GetFiles",
             type: "POST",
-            data: data,
             contentType: false,
             processData: false,
             beforeSend: function () {
@@ -1513,10 +1502,8 @@ $(document).ready(function () {
     /*-------------------Удаление моего файла---------------*/
     $(document).on('click', ".js-delete-myfile", function () {
         var filename = $(this).data("filename");
-        var guidId = $("#orderfilesfilter").val();
         var data = new FormData();
         data.append("filename", filename);
-        data.append("guidId", guidId);
 
         $.ajax({
             url: "/Cabinet/DeleteMyFile",
@@ -1541,11 +1528,7 @@ $(document).ready(function () {
         var files = e.target.files;
         if (files.length > 0) {
             if (window.FormData !== undefined) {
-                var guidId = $("#orderfilesfilter").val();
-
                 var data = new FormData();
-
-                data.append("guidId", guidId);
                 for (var x = 0; x < files.length; x++) {
                     data.append(files[x].name, files[x]);
                 }
@@ -1562,7 +1545,7 @@ $(document).ready(function () {
                     success: function (result) {
                         console.log("Upload success.");
                         $('#filesfileprogress').html("Файл загружен.");
-                        RefreshMyFiles(guidId);
+                        RefreshMyFiles();
                     },
                     error: function (xhr, status, p3, p4) {
                         var err = "Error " + " " + status + " " + p3 + " " + p4;

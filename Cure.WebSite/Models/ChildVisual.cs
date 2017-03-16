@@ -146,7 +146,7 @@ namespace Cure.WebSite.Models
                     SiteUtils.GetRandom(this.Id, 3));
 
                 this.PhotoItem = new PhotoItem(this.Id);
-                int age = DateTime.Today.Year - child.Birthday.Year;
+                int age = SiteUtils.GetAge(child.Birthday.Date);
                 string let = "лет";
                 if (age > 1 && age < 5)
                 {

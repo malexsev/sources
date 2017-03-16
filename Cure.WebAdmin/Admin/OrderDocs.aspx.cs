@@ -19,24 +19,19 @@
                 if (int.TryParse(Request.QueryString["orderId"], out orderId))
                 {
                     Session["ExpandOrderId"] = orderId;
-                    var dataAccess = new DataAccessBL();
-                    Order order = dataAccess.GetOrder(orderId);
-                    var folderPath = Path.Combine(@"~\Documents\", order.GuidId + @"\UserFiles\");
+                    var dal = new DataAccessBL();
+                    Order order = dal.GetOrder(orderId);
+                    var userView = dal.GetUserMembership(order.OwnerUser);
+                    var folderPath = Path.Combine(@"~\Documents\", userView.Expr1 + @"\UserFiles\");
                     FileUtils.CreateFolderIfNotExists(new HttpServerUtilityWrapper(this.Server), folderPath);
                     uxFileManager.Settings.RootFolder = folderPath;
                     uxFileManager.Visible = true;
                     uxResult.TextGreen =
                         String.Format(
-                            "Файлы пользователя по заезду №{0} от {1}, даты с {2} по {3}",
-                            order.Id,
-                            order.CreateDate == null
-                                ? "(не задано)"
-                                : ((DateTime) order.CreateDate).ToShortDateString(),
-                            order.DateFrom.ToShortDateString(),
-                            order.DateTo.ToShortDateString()
+                            "Файлы пользователя {0}, email: {1}",
+                            userView.UserName,
+                            userView.LoweredEmail
                             );
-                    
-
                 }
                 else
                 {

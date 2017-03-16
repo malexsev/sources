@@ -85,19 +85,10 @@
             this.NewOrder = dataAccess.GetOrderDraft(_userName);
             if (this.NewOrder == null)
             {
-                this.NewOrder = new Order
+                if (!this.FillFromPrevious())
                 {
-                    CreateDate = DateTime.Today,
-                    LastDate = DateTime.Today,
-                    StatusId = (int)OrderStatus.Черновик,
-                    OwnerUser = _userName,
-                    LastUser = _userName,
-                    DepartmentId = null,
-                    Name = "1",
-                    DateFrom = DateTime.Today,
-                    DateTo = DateTime.Today.AddMonths(2)
-                };
-                dataAccess.InsertOrder(this.NewOrder);
+                    this.InitNewOrder();
+                }
             }
             else
             {
@@ -113,107 +104,118 @@
 
         public bool FillFromPrevious()
         {
-            if (this.CurrentOrder != null)
+            this.CurrentOrder = dataAccess.GetOrderCurrent(_userName);
+            if (this.CurrentOrder == null)
+                return false;
+
+            if (this.NewOrder == null)
+            {
+                this.InitNewOrder();
+            }
+
+            if (this.NewOrder.Visits.Any())
             {
                 for (int i = 0; i == this.NewOrder.Visits.Count - 1; i++)
                 {
                     dataAccess.DeleteVisit(this.NewOrder.Visits.ToList()[i]);
                 }
+            }
+            if (this.NewOrder.Sputniks.Any())
+            {
                 for (int i = 0; i == this.NewOrder.Sputniks.Count - 1; i++)
                 {
                     dataAccess.DeleteSputnik(this.NewOrder.Sputniks.ToList()[i]);
                 }
-                this.RefreshData();
-
-                this.NewOrder.DepartmentId = this.CurrentOrder.DepartmentId;
-                this.NewOrder.Description = this.CurrentOrder.Description;
-                this.NewOrder.Name = this.CurrentOrder.Name;
-                this.NewOrder.ServicePekinIsHotel = this.CurrentOrder.ServicePekinIsHotel;
-                this.NewOrder.ServicePekinIsPerevod = this.CurrentOrder.ServicePekinIsPerevod;
-                this.NewOrder.ServicePekinOther = this.CurrentOrder.ServicePekinOther;
-                this.NewOrder.ServiceRoomIsMilo = this.CurrentOrder.ServiceRoomIsMilo;
-                this.NewOrder.ServiceRoomIsOpolask = this.CurrentOrder.ServiceRoomIsOpolask;
-                this.NewOrder.ServiceRoomIsPaper = this.CurrentOrder.ServiceRoomIsPaper;
-                this.NewOrder.ServiceRoomIsPosuda = this.CurrentOrder.ServiceRoomIsPosuda;
-                this.NewOrder.ServiceRoomIsStiral = this.CurrentOrder.ServiceRoomIsStiral;
-                this.NewOrder.ServiceRoomIsVoda = this.CurrentOrder.ServiceRoomIsVoda;
-                this.NewOrder.ServiceUnchenIsVstrecha = this.CurrentOrder.ServiceUnchenIsVstrecha;
-                this.NewOrder.ServiceUnchenOther = this.CurrentOrder.ServiceUnchenOther;
-
-                foreach (Sputnik sputnik in this.CurrentOrder.Sputniks)
-                {
-                    var copy = new Sputnik()
-                    {
-                        BirthDate = sputnik.BirthDate,
-                        Contacts = sputnik.Contacts,
-                        Email = sputnik.Email,
-                        CreateUser = sputnik.CreateUser,
-                        CreateDate = sputnik.CreateDate,
-                        Familiya = sputnik.Familiya,
-                        FamiliyaEn = sputnik.FamiliyaEn,
-                        NameEn = sputnik.NameEn,
-                        IsPrimary = sputnik.IsPrimary,
-                        Name = sputnik.Name,
-                        Otchestvo = sputnik.Otchestvo,
-                        OrderId = this.NewOrder.Id,
-                        RodstvoId = sputnik.RodstvoId,
-                        SeriaNumber = sputnik.SeriaNumber,
-                        OwnerUser = sputnik.OwnerUser
-                    };
-                    this.NewOrder.Sputniks.Add(copy);
-                }
-                foreach (Visit visit in this.CurrentOrder.Visits)
-                {
-                    var copy = new Visit()
-                    {
-                        Additional = visit.Additional,
-                        Appetit = visit.Appetit,
-                        Alergiya = visit.Alergiya,
-                        DangerousDiseases = visit.DangerousDiseases,
-                        Diet = visit.Diet,
-                        Dihalka = visit.Dihalka,
-                        Dispanser = visit.Dispanser,
-                        Dispanser2 = visit.Dispanser2,
-                        Eating = visit.Eating,
-                        EatingProblems = visit.EatingProblems,
-                        Encefalogram = visit.Encefalogram,
-                        Epilispiya = visit.Epilispiya,
-                        Fisical = visit.Fisical,
-                        Fiznagruzki = visit.Fiznagruzki,
-                        Fond = visit.Fond,
-                        Hirurg = visit.Hirurg,
-                        HystoryA = visit.HystoryA,
-                        Hystoryb = visit.Hystoryb,
-                        Imunitet = visit.Imunitet,
-                        Infections = visit.Infections,
-                        KursesChinaRanee = visit.KursesChinaRanee,
-                        KursesRanee = visit.KursesRanee,
-                        MainGoal = visit.MainGoal,
-                        NonTradicial = visit.NonTradicial,
-                        OtherDiseases = visit.OtherDiseases,
-                        PacientId = visit.PacientId,
-                        Razgovor = visit.Razgovor,
-                        Instructcii = visit.Instructcii,
-                        Razvitie = visit.Razvitie,
-                        ProstupUp = visit.ProstupUp,
-                        Remission = visit.Remission,
-                        RequiredDocs = visit.RequiredDocs,
-                        Serdce = visit.Serdce,
-                        Son = visit.Son,
-                        Requirements = visit.Requirements,
-                        Stul = visit.Stul,
-                        SudorogiCount = visit.SudorogiCount,
-                        SudorogiMedcine = visit.Requirements,
-                        SudorogiType = visit.SudorogiType,
-                        TodaysDiagnoz = visit.TodaysDiagnoz,
-                        Travmi = visit.Travmi
-                    };
-                    this.NewOrder.Visits.Add(copy);
-                }
-                this.Save();
-                this.RefreshData();
             }
-            return false;
+
+            this.NewOrder.Description = "prev";
+            this.NewOrder.Name = "1";
+            this.NewOrder.ServicePekinIsHotel = this.CurrentOrder.ServicePekinIsHotel;
+            this.NewOrder.ServicePekinIsPerevod = this.CurrentOrder.ServicePekinIsPerevod;
+            this.NewOrder.ServicePekinOther = this.CurrentOrder.ServicePekinOther;
+            this.NewOrder.ServiceRoomIsMilo = this.CurrentOrder.ServiceRoomIsMilo;
+            this.NewOrder.ServiceRoomIsOpolask = this.CurrentOrder.ServiceRoomIsOpolask;
+            this.NewOrder.ServiceRoomIsPaper = this.CurrentOrder.ServiceRoomIsPaper;
+            this.NewOrder.ServiceRoomIsPosuda = this.CurrentOrder.ServiceRoomIsPosuda;
+            this.NewOrder.ServiceRoomIsStiral = this.CurrentOrder.ServiceRoomIsStiral;
+            this.NewOrder.ServiceRoomIsVoda = this.CurrentOrder.ServiceRoomIsVoda;
+            this.NewOrder.ServiceUnchenIsVstrecha = this.CurrentOrder.ServiceUnchenIsVstrecha;
+            this.NewOrder.ServiceUnchenOther = this.CurrentOrder.ServiceUnchenOther;
+
+            foreach (Sputnik sputnik in this.CurrentOrder.Sputniks)
+            {
+                var copy = new Sputnik()
+                {
+                    BirthDate = sputnik.BirthDate,
+                    Contacts = sputnik.Contacts,
+                    Email = sputnik.Email,
+                    CreateUser = sputnik.CreateUser,
+                    CreateDate = sputnik.CreateDate,
+                    Familiya = sputnik.Familiya,
+                    FamiliyaEn = sputnik.FamiliyaEn,
+                    NameEn = sputnik.NameEn,
+                    IsPrimary = sputnik.IsPrimary,
+                    Name = sputnik.Name,
+                    Otchestvo = sputnik.Otchestvo,
+                    OrderId = this.NewOrder.Id,
+                    RodstvoId = sputnik.RodstvoId,
+                    SeriaNumber = sputnik.SeriaNumber,
+                    OwnerUser = sputnik.OwnerUser,
+                    CountryId = sputnik.CountryId
+                };
+                this.NewOrder.Sputniks.Add(copy);
+            }
+            foreach (Visit visit in this.CurrentOrder.Visits)
+            {
+                var copy = new Visit()
+                {
+                    Additional = visit.Additional,
+                    Appetit = visit.Appetit,
+                    Alergiya = visit.Alergiya,
+                    DangerousDiseases = visit.DangerousDiseases,
+                    Diet = visit.Diet,
+                    Dihalka = visit.Dihalka,
+                    Dispanser = visit.Dispanser,
+                    Dispanser2 = visit.Dispanser2,
+                    Eating = visit.Eating,
+                    EatingProblems = visit.EatingProblems,
+                    Encefalogram = visit.Encefalogram,
+                    Epilispiya = visit.Epilispiya,
+                    Fisical = visit.Fisical,
+                    Fiznagruzki = visit.Fiznagruzki,
+                    Fond = visit.Fond,
+                    Hirurg = visit.Hirurg,
+                    HystoryA = visit.HystoryA,
+                    Hystoryb = visit.Hystoryb,
+                    Imunitet = visit.Imunitet,
+                    Infections = visit.Infections,
+                    KursesChinaRanee = visit.KursesChinaRanee,
+                    KursesRanee = visit.KursesRanee,
+                    MainGoal = visit.MainGoal,
+                    NonTradicial = visit.NonTradicial,
+                    OtherDiseases = visit.OtherDiseases,
+                    PacientId = visit.PacientId,
+                    Razgovor = visit.Razgovor,
+                    Instructcii = visit.Instructcii,
+                    Razvitie = visit.Razvitie,
+                    ProstupUp = visit.ProstupUp,
+                    Remission = visit.Remission,
+                    RequiredDocs = visit.RequiredDocs,
+                    Serdce = visit.Serdce,
+                    Son = visit.Son,
+                    Requirements = visit.Requirements,
+                    Stul = visit.Stul,
+                    SudorogiCount = visit.SudorogiCount,
+                    SudorogiMedcine = visit.Requirements,
+                    SudorogiType = visit.SudorogiType,
+                    TodaysDiagnoz = visit.TodaysDiagnoz,
+                    Travmi = visit.Travmi
+                };
+                this.NewOrder.Visits.Add(copy);
+            }
+            this.Save();
+            this.RefreshData();
+            return true;
         }
 
         public void ActualizeVisitsCount(int visitsCount)
@@ -255,7 +257,7 @@
                     {
                         this.RemoveSputnik(NewOrder.Sputniks.Max(x => x.Id));
                     }
-                    
+
                 }
             }
         }
@@ -281,6 +283,24 @@
             };
             dataAccess.InsertSputnik(sputnik);
             this.Save();
+        }
+
+        private void InitNewOrder()
+        {
+            this.NewOrder = new Order
+            {
+                CreateDate = DateTime.Today,
+                LastDate = DateTime.Today,
+                StatusId = (int)OrderStatus.Черновик,
+                OwnerUser = _userName,
+                LastUser = _userName,
+                DepartmentId = null,
+                Name = "1",
+                DateFrom = DateTime.Today,
+                DateTo = DateTime.Today.AddMonths(2),
+                Description = ""
+            };
+            dataAccess.InsertOrder(this.NewOrder);
         }
     }
 }
