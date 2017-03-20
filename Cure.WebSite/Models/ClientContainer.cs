@@ -161,7 +161,7 @@
                     RodstvoId = sputnik.RodstvoId,
                     SeriaNumber = sputnik.SeriaNumber,
                     OwnerUser = sputnik.OwnerUser,
-                    CountryId = sputnik.CountryId
+                    CountryId = sputnik.CountryId ?? 10
                 };
                 this.NewOrder.Sputniks.Add(copy);
             }

@@ -40,6 +40,40 @@
             }
             result.html("Отправлено, успешно: <b>" + cntSuccess + "</b>; ошибок: <b>" + cntError + "</b>");
         };
+
+
+        function OnSelectAllRowsLinkClick() {
+            window.grid.SelectRows();
+        }
+        function OnUnselectAllRowsLinkClick() {
+            window.grid.UnselectRows();
+        }
+        function OnGridViewInit() {
+            UpdateTitlePanel();
+        }
+        function OnGridViewSelectionChanged() {
+            UpdateTitlePanel();
+        }
+        function OnGridViewEndCallback() {
+            UpdateTitlePanel();
+        }
+        function UpdateTitlePanel() {
+            var selectedFilteredRowCount = GetSelectedFilteredRowCount();
+            if (window.selectAllMode.GetValue() != "AllPages") {
+                window.lnkSelectAllRows.SetVisible(window.grid.cpVisibleRowCount > selectedFilteredRowCount);
+                window.lnkClearSelection.SetVisible(window.grid.GetSelectedRowCount() > 0);
+            }
+
+            var text = "Всего выбрано: <b>" + window.grid.GetSelectedRowCount() + "</b>. ";
+            var hiddenSelectedRowCount = window.grid.GetSelectedRowCount() - GetSelectedFilteredRowCount();
+            if (hiddenSelectedRowCount > 0)
+                text += "Выбранные строки скрыты фильтром: <b>" + hiddenSelectedRowCount + "</b>.";
+            text += "<br />";
+            info.SetText(text);
+        }
+        function GetSelectedFilteredRowCount() {
+            return window.grid.cpFilteredRowCountWithoutPage + window.grid.GetSelectedKeysOnPage().length;
+        }
     </script>
 
 
@@ -59,8 +93,33 @@
     <dx:ASPxButton runat="server" ID="uxApplyButton" Text="Применить фильтр" AutoPostBack="false" UseSubmitBehavior="false" Width="80px" Style="margin: 12px 1em auto auto;">
         <ClientSideEvents Click="function() { filter.Apply(); }" />
     </dx:ASPxButton>
+    <br />
+    <br />
+    <dx:ASPxComboBox ID="selectAllMode" ClientInstanceName="selectAllMode" Caption="Тип Выбрать всё:" runat="server" AutoPostBack="true"
+        OnSelectedIndexChanged="SelectAllMode_SelectedIndexChanged">
+        <RootStyle CssClass="OptionsBottomMargin"></RootStyle>
+    </dx:ASPxComboBox>
+    <span>Page - на странице, AllPages - на всех страницах</span>
+    <br />
 
-    <dx:ASPxGridView ID="uxMainGrid" ClientInstanceName="grid" runat="server" AutoGenerateColumns="False" DataSourceID="uxMainDataSource" KeyFieldName="Id" OnHtmlRowPrepared="uxMainGrid_HtmlRowPrepared">
+
+    <dx:ASPxGridView ID="uxMainGrid" ClientInstanceName="grid" runat="server" AutoGenerateColumns="False" DataSourceID="uxMainDataSource" KeyFieldName="Id"
+        OnCustomJSProperties="GridView_CustomJSProperties" EnableRowsCache="false">
+        <ClientSideEvents Init="OnGridViewInit" SelectionChanged="OnGridViewSelectionChanged" EndCallback="OnGridViewEndCallback" />
+        <Styles>
+            <TitlePanel HorizontalAlign="Left">
+            </TitlePanel>
+        </Styles>
+        <Templates>
+            <TitlePanel>
+                <dx:ASPxLabel ID="lblInfo" ClientInstanceName="info" runat="server" />
+                <dx:ASPxHyperLink ID="lnkSelectAllRows" ClientInstanceName="lnkSelectAllRows" OnLoad="lnkSelectAllRows_Load"
+                    Text="Выбрать всех" runat="server" Cursor="pointer" ClientSideEvents-Click="OnSelectAllRowsLinkClick" />
+                &nbsp;
+                <dx:ASPxHyperLink ID="lnkClearSelection" ClientInstanceName="lnkClearSelection" OnLoad="lnkClearSelection_Load"
+                    Text="Очистить выбор" runat="server" Cursor="pointer" ClientVisible="false" ClientSideEvents-Click="OnUnselectAllRowsLinkClick" />
+            </TitlePanel>
+        </Templates>
         <Columns>
             <dx:GridViewCommandColumn VisibleIndex="0" Width="20px" Visible="True" SelectAllCheckboxMode="Page" ShowSelectCheckbox="True">
             </dx:GridViewCommandColumn>
@@ -90,7 +149,7 @@
         </Columns>
         <SettingsEditing Mode="PopupEditForm" EditFormColumnCount="1">
         </SettingsEditing>
-        <Settings ShowFilterRow="True" ShowGroupPanel="True" />
+        <Settings ShowTitlePanel="true" ShowFilterBar="Auto" ShowFilterRow="True" ShowGroupPanel="True" />
         <SettingsDataSecurity AllowDelete="False" AllowEdit="False" AllowInsert="False" />
     </dx:ASPxGridView>
     <br />
@@ -102,7 +161,7 @@
         <ClientSideEvents CallbackComplete="OnSendComplete"></ClientSideEvents>
     </dx:ASPxCallback>
     <div id="result"></div>
-    
+
     <dx:ASPxButton runat="server" ID="uxSendButton" Text="Отправить письма" AutoPostBack="false" UseSubmitBehavior="false" Width="80px" Style="margin: 12px 1em auto auto;">
         <ClientSideEvents Click="function() { SendEmails(); }" />
     </dx:ASPxButton>
