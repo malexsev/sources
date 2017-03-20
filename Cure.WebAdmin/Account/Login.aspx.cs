@@ -28,14 +28,31 @@ namespace Cure.WebAdmin
         {
             if (Membership.ValidateUser(tbUserName.Text, tbPassword.Text))
             {
-                var access = new Cure.DataAccess.BLL.DataAccessBL();
-                FormsAuthentication.SetAuthCookie(tbUserName.Text, false);
-                Response.Redirect(SiteUtils.IsAdmin(tbUserName.Text) 
-                    ? @"~/Admin/SoonList.aspx" 
-                    : (SiteUtils.IsTrans(tbUserName.Text) 
-                        ? @"~/Logist/TransferList.aspx"
-                        : access.GetMyOrders(tbUserName.Text).Any() ? @"~/Client/CurrentOrder.aspx" : @"~/Client/NewOrderWizard.aspx"));
-            } else
+                var dal = new Cure.DataAccess.BLL.DataAccessBL();
+                
+                if (Roles.GetRolesForUser(tbUserName.Text).Contains("Администратор") ||
+                    Roles.GetRolesForUser(tbUserName.Text).Contains("Трансфер-менеджер"))
+                {
+                    FormsAuthentication.SetAuthCookie(tbUserName.Text, false);
+
+                    Response.Redirect(SiteUtils.IsAdmin(tbUserName.Text)
+                        ? @"~/Admin/SoonList.aspx"
+                        : (SiteUtils.IsTrans(tbUserName.Text)
+                            ? @"~/Logist/TransferList.aspx"
+                            : dal.GetMyOrders(tbUserName.Text).Any()
+                                ? @"~/Client/CurrentOrder.aspx"
+                                : @"~/Client/NewOrderWizard.aspx"));
+                }
+                else
+                {
+                    tbUserName.ErrorText = "Пароль от старой версии Личного кабинета";
+                    tbUserName.IsValid = false;
+                    Visible = true;
+                }
+
+
+            }
+            else
             {
                 tbUserName.ErrorText = "Неверный логин или пароль.";
                 tbUserName.IsValid = false;
