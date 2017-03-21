@@ -511,6 +511,18 @@
     <Property Name="Username" Type="nvarchar" MaxLength="150" Nullable="false" />
     <Property Name="DepartmentId" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="UploadLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FileName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ServerPath" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="UploadDate" Type="datetime" Nullable="false" />
+    <Property Name="Username" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="GuidId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="IsReported" Type="bit" Nullable="false" />
+  </EntityType>
   <EntityType Name="Vipiska">
     <Key>
       <PropertyRef Name="Id" />
@@ -1499,6 +1511,7 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
     <EntitySet Name="Sputnik" EntityType="Self.Sputnik" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="StopVisit" EntityType="Self.StopVisit" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TransferUser" EntityType="Self.TransferUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UploadLog" EntityType="Self.UploadLog" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Vipiska" EntityType="Self.Vipiska" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Visit" EntityType="Self.Visit" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Weather" EntityType="Self.Weather" Schema="dbo" store:Type="Tables" />

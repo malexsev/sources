@@ -71,7 +71,7 @@
         </asp:ObjectDataSource>
 
         <div class="panelsdelimiter"></div>
-        <dx:ASPxFileManager ID="uxFileManager" ClientInstanceName="fmfilemanager" runat="server" Theme="SoftOrange">
+        <dx:ASPxFileManager ID="uxFileManager" ClientInstanceName="fmfilemanager" runat="server" Theme="SoftOrange" OnFileUploading="uxFileManager_FileUploading">
             <SettingsEditing AllowDelete="true" AllowDownload="True" AllowRename="true"></SettingsEditing>
             <SettingsToolbar ShowDownloadButton="True"/>
             <SettingsUpload UseAdvancedUploadMode="True">

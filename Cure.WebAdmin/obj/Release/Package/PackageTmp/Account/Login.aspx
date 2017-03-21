@@ -11,6 +11,11 @@
         <a href="Register.aspx">Зарегистрируйтесь</a> если у Вас нет учётной записи.
         </p>
         Или <a href="Recovery.aspx">Восстановите пароль</a>, если Вы помните логин.
+        <br />
+        <br />
+        <p>
+            Открыт новый сайт для пользоватлей, Ваш логин перенесён в новый Личный кабинет: <a href='http://dcp-china.ru'>http://dcp-china.ru</a>
+        </p>
     </div>
     <dx:ASPxLabel ID="lblUserName" runat="server" AssociatedControlID="tbUserName" Text="Имя пользователя:" />
     <div class="form-field">

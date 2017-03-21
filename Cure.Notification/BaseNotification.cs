@@ -11,6 +11,7 @@
         private const string unSubscribedTemplate = @"Вы не подписаны на получение наших новостей и акций. Вы всегда можете подписаться на получения уведолений перейдя по <a href=""http://dcp-china.ru/home/subscription?subscribe={0}"">ссылке</a>";
         
         protected HttpServerUtilityBase server { get; set; }
+
         public abstract bool Send();
 
         protected BaseNotification(HttpServerUtilityBase server)

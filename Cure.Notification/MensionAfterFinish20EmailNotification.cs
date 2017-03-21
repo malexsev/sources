@@ -47,9 +47,18 @@
             var dal = new DataAccessBL();
             foreach (var order in this.orders)
             {
-                var email = dal.GetUserMembership(order.OwnerUser).LoweredEmail;
-                result = SendEmail(email, string.Empty, this.subject, this.body, "Требуется отзыв через 20 дней");
-                this.Log(result ? "Доставлено" : "Ошибка доставки", email, this.body);
+                var member = dal.GetUserMembership(order.OwnerUser);
+                if (member != null)
+                {
+                    var email = member.LoweredEmail;
+
+                    result = SendEmail(email, string.Empty, this.subject, this.body, "Требуется отзыв через 20 дней");
+                    this.Log(result ? "Доставлено" : "Ошибка доставки", email, this.body);
+                }
+                else
+                {
+                    this.Log("Ошибка", "", "Несуществующий пользователь: " + order.OwnerUser);
+                }
             }
 
             return result;

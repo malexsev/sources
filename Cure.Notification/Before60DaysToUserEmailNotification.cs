@@ -38,10 +38,23 @@
 
             foreach (var order in this.orders)
             {
-                var user = dal.GetUserMembership(order.OwnerUser);
-                var text = string.Format(this.body, order.DateFrom.ToString("dd-MM-yyyy"));
-                result = SendEmail(user.LoweredEmail, string.Empty, this.subject, text, "Опопвещение за 60 дней до заезда");
-                this.Log(result ? "Доставлено" : "Ошибка доставки", user.LoweredEmail, text);
+                var member = dal.GetUserMembership(order.OwnerUser);
+                if (member != null)
+                {
+                    var email = member.LoweredEmail;
+
+                    var user = dal.GetUserMembership(order.OwnerUser);
+                    var text = string.Format(this.body, order.DateFrom.ToString("dd-MM-yyyy"));
+                    result = SendEmail(email, string.Empty, this.subject, text, "Опопвещение за 60 дней до заезда");
+                    this.Log(result ? "Доставлено" : "Ошибка доставки", user.LoweredEmail, text);
+                }
+                else
+                {
+                    this.Log("Ошибка", "", "Несуществующий пользователь: " + order.OwnerUser);
+                    this.Log("Ошибка доставки", "", "");
+                }
+
+
             }
             
             return result;

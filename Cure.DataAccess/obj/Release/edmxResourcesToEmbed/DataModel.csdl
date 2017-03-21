@@ -211,6 +211,7 @@
       <End Role="Order" EntitySet="Orders" />
     </AssociationSet>
     <EntitySet Name="NotificationLogs" EntityType="DataModel.NotificationLog" />
+    <EntitySet Name="UploadLogs" EntityType="DataModel.UploadLog" />
   </EntityContainer>
   <EntityType Name="OrderStatu">
     <Key>
@@ -1729,5 +1730,17 @@
     <Property Name="Details" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="ClientName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="Contacts" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="UploadLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FileName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ServerPath" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="UploadDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="GuidId" Type="Guid" Nullable="false" />
+    <Property Name="IsReported" Type="Boolean" Nullable="false" />
   </EntityType>
 </Schema>

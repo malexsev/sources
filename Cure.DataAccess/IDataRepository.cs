@@ -8,6 +8,12 @@ namespace Cure.DataAccess.DAL
 {
     internal interface IDataRepository : IDisposable
     {
+        IEnumerable<UploadLog> GetUnReportedLogs();
+        IEnumerable<UploadLog> GetUploadLogs();
+        void InsertUploadLog(UploadLog uploadLog);
+        void DeleteUploadLog(UploadLog uploadLog);
+        void UpdateUploadLog(UploadLog uploadLog);
+
         IEnumerable<DepartmentTransferInfo> GetDepartmentTransferInfos();
         DepartmentTransferInfo GetDepartmentTransferInfo(int id);
         void InsertDepartmentTransferInfo(DepartmentTransferInfo departmentTransferInfo);

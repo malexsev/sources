@@ -64,5 +64,32 @@
             e.NewValues["LastUser"] = SiteUtils.GetCurrentUserName();
             e.NewValues["LastDate"] = DateTime.Now;
         }
+
+        protected void uxFileManager_FileUploading(object source, DevExpress.Web.ASPxFileManager.FileManagerFileUploadEventArgs e)
+        {
+            int orderId;
+            if (int.TryParse(Request.QueryString["orderId"], out orderId))
+            {
+                var dal = new DataAccessBL();
+                var order = dal.GetOrder(orderId);
+                var userView = dal.GetUserMembership(order.OwnerUser);
+                var folderPath = Path.Combine(@"~\Documents\", userView.Expr1 + @"\UserFiles\");
+                FileUtils.CreateFolderIfNotExists(new HttpServerUtilityWrapper(this.Server), folderPath);
+                var filename = e.FileName;
+                string fullPath = Path.Combine(folderPath, filename);
+
+                var uploadLog = new UploadLog()
+                {
+                    FileName = filename,
+                    GuidId = userView.Expr1,
+                    ServerPath = fullPath,
+                    UploadDate = DateTime.Now,
+                    Username = order.OwnerUser,
+                    IsReported = false
+                };
+                dal.InsertUploadLog(uploadLog);
+            }
+
+        }
     }
 }

@@ -812,6 +812,22 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<NotificationLog> _NotificationLogs;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<UploadLog> UploadLogs
+        {
+            get
+            {
+                if ((_UploadLogs == null))
+                {
+                    _UploadLogs = base.CreateObjectSet<UploadLog>("UploadLogs");
+                }
+                return _UploadLogs;
+            }
+        }
+        private ObjectSet<UploadLog> _UploadLogs;
 
         #endregion
 
@@ -1167,6 +1183,14 @@ namespace Cure.DataAccess
         public void AddToNotificationLogs(NotificationLog notificationLog)
         {
             base.AddObject("NotificationLogs", notificationLog);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the UploadLogs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToUploadLogs(UploadLog uploadLog)
+        {
+            base.AddObject("UploadLogs", uploadLog);
         }
 
         #endregion
@@ -12997,6 +13021,218 @@ namespace Cure.DataAccess
                 }
             }
         }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="UploadLog")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class UploadLog : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new UploadLog object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="fileName">Initial value of the FileName property.</param>
+        /// <param name="serverPath">Initial value of the ServerPath property.</param>
+        /// <param name="uploadDate">Initial value of the UploadDate property.</param>
+        /// <param name="username">Initial value of the Username property.</param>
+        /// <param name="guidId">Initial value of the GuidId property.</param>
+        /// <param name="isReported">Initial value of the IsReported property.</param>
+        public static UploadLog CreateUploadLog(global::System.Int32 id, global::System.String fileName, global::System.String serverPath, global::System.DateTime uploadDate, global::System.String username, global::System.Guid guidId, global::System.Boolean isReported)
+        {
+            UploadLog uploadLog = new UploadLog();
+            uploadLog.Id = id;
+            uploadLog.FileName = fileName;
+            uploadLog.ServerPath = serverPath;
+            uploadLog.UploadDate = uploadDate;
+            uploadLog.Username = username;
+            uploadLog.GuidId = guidId;
+            uploadLog.IsReported = isReported;
+            return uploadLog;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value, "Id");
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String FileName
+        {
+            get
+            {
+                return _FileName;
+            }
+            set
+            {
+                OnFileNameChanging(value);
+                ReportPropertyChanging("FileName");
+                _FileName = StructuralObject.SetValidValue(value, false, "FileName");
+                ReportPropertyChanged("FileName");
+                OnFileNameChanged();
+            }
+        }
+        private global::System.String _FileName;
+        partial void OnFileNameChanging(global::System.String value);
+        partial void OnFileNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String ServerPath
+        {
+            get
+            {
+                return _ServerPath;
+            }
+            set
+            {
+                OnServerPathChanging(value);
+                ReportPropertyChanging("ServerPath");
+                _ServerPath = StructuralObject.SetValidValue(value, false, "ServerPath");
+                ReportPropertyChanged("ServerPath");
+                OnServerPathChanged();
+            }
+        }
+        private global::System.String _ServerPath;
+        partial void OnServerPathChanging(global::System.String value);
+        partial void OnServerPathChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime UploadDate
+        {
+            get
+            {
+                return _UploadDate;
+            }
+            set
+            {
+                OnUploadDateChanging(value);
+                ReportPropertyChanging("UploadDate");
+                _UploadDate = StructuralObject.SetValidValue(value, "UploadDate");
+                ReportPropertyChanged("UploadDate");
+                OnUploadDateChanged();
+            }
+        }
+        private global::System.DateTime _UploadDate;
+        partial void OnUploadDateChanging(global::System.DateTime value);
+        partial void OnUploadDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Username
+        {
+            get
+            {
+                return _Username;
+            }
+            set
+            {
+                OnUsernameChanging(value);
+                ReportPropertyChanging("Username");
+                _Username = StructuralObject.SetValidValue(value, false, "Username");
+                ReportPropertyChanged("Username");
+                OnUsernameChanged();
+            }
+        }
+        private global::System.String _Username;
+        partial void OnUsernameChanging(global::System.String value);
+        partial void OnUsernameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid GuidId
+        {
+            get
+            {
+                return _GuidId;
+            }
+            set
+            {
+                OnGuidIdChanging(value);
+                ReportPropertyChanging("GuidId");
+                _GuidId = StructuralObject.SetValidValue(value, "GuidId");
+                ReportPropertyChanged("GuidId");
+                OnGuidIdChanged();
+            }
+        }
+        private global::System.Guid _GuidId;
+        partial void OnGuidIdChanging(global::System.Guid value);
+        partial void OnGuidIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsReported
+        {
+            get
+            {
+                return _IsReported;
+            }
+            set
+            {
+                OnIsReportedChanging(value);
+                ReportPropertyChanging("IsReported");
+                _IsReported = StructuralObject.SetValidValue(value, "IsReported");
+                ReportPropertyChanged("IsReported");
+                OnIsReportedChanged();
+            }
+        }
+        private global::System.Boolean _IsReported;
+        partial void OnIsReportedChanging(global::System.Boolean value);
+        partial void OnIsReportedChanged();
 
         #endregion
 
