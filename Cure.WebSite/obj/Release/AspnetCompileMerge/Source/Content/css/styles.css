@@ -6999,6 +6999,10 @@ html.swipebox-html.swipebox-touch {
   .sec-hosp-housing .housing-room-img img{
     max-width: 100%;
   }
+  .sec-hosp-procedure .procedure-room-img img {
+    max-width: 100%;
+    height: auto;
+  }
   .sec-hosp-intro .intro-img{
     position: static;
   }

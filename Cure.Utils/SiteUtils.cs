@@ -176,6 +176,8 @@
             }
             report.Dispose();
 
+            UploadLogging(ref dal, fileName, pdfFullPath, user.Expr1, user.UserName);
+
             return pdfFullPath;
         }
 
@@ -299,6 +301,20 @@
                 result = defaultValue;
             }
             return result;
+        }
+
+        private static void UploadLogging(ref DataAccessBL dal, string filename, string fullPath, Guid userGuid, string userName)
+        {
+            var uploadLog = new UploadLog()
+            {
+                FileName = filename,
+                GuidId = userGuid,
+                ServerPath = fullPath,
+                UploadDate = DateTime.Now,
+                Username = userName,
+                IsReported = false
+            };
+            dal.InsertUploadLog(uploadLog);
         }
     }
 }

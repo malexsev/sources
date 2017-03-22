@@ -16,7 +16,7 @@
         private const string subjectTemplate = "Новые файлы в Личном кабинете.";
         private const string bodyTemplate =
             @"В Вашем личном кабинете произошли изменения в файлах.<br />" +
-            @"Бфли загружены следующие файлы:<br /><br />" +
+            @"Были загружены следующие файлы:<br /><br />" +
             @"{0}<br /><br /> " +
             @"Зайдите на сайт <a href='http://dcp-china.ru'>http://dcp-china.ru</a>, проверьте страницу Мои файлы."; // 0 - Список файлов
 
@@ -41,11 +41,17 @@
                     IGrouping<string, UploadLog> group = username;
                     string fileList = logs.Where(x => x.Username == @group.Key).Aggregate("", (current, log) => current + (log.FileName + "<br />"));
 
-                    //var user 
-
-                    //SendEmail(username.LoweredEmail, string.Empty, this.subject, text, "Опопвещение за 60 дней до заезда");
-                    //this.Log(result ? "Доставлено" : "Ошибка доставки", user.LoweredEmail, text);
-
+                    var user = dal.GetUserMembership(username.Key);
+                    if (user != null)
+                    {
+                        result = SendEmail(user.LoweredEmail, string.Empty, this.subject,
+                            string.Format(this.body, fileList), "Новые файлы в Личном кабинете");
+                        this.Log(result ? "Доставлено" : "Ошибка доставки", user.LoweredEmail, fileList);
+                    }
+                    else
+                    {
+                        this.Log("Ошибка доставки", username.Key, fileList);
+                    }
                 }
 
                 result = true;

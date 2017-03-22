@@ -52,6 +52,7 @@
                         : visit.Order.DateTo.ToString("dd-MM-yyyy"))
                     , visit.Order.Department.ShortName);
                 this.attachmentName = string.Format(attachmentTemplate, visit.Order.Department.ShortName, visit.Pacient.FullName, visit.Pacient.RefCountry.Name);
+
                 this.attachmentPath = SiteUtils.GenerateVisitDetailsPdf(visit, this.attachmentName, server);
             }
             catch (Exception ex)
