@@ -725,7 +725,7 @@
     <Content Include="Views\Mension\Index.cshtml" />
     <Content Include="Views\Shared\_MensionAddPopup.cshtml" />
     <Content Include="Views\Shared\_Mensions.cshtml" />
-    <Content Include="Views\Home\Price.cshtml" />
+    <Content Include="Views\China\Price.cshtml" />
     <Content Include="Views\Shared\_MainMenuExt.cshtml" />
     <Content Include="Views\Medicine\Index.cshtml" />
     <Content Include="Views\Procedure\Index.cshtml" />
@@ -770,6 +770,7 @@
     <Content Include="Views\Cabinet\Files.cshtml" />
     <Content Include="Views\Cabinet\_FilesList.cshtml" />
     <Content Include="Views\Home\Subscription.cshtml" />
+    <Content Include="Views\Biblioteka\PostsNews.cshtml" />
     <None Include="Views\Medicine\Human.cshtml" />
     <Content Include="Views\Procedure\OtOccupational.cshtml" />
     <Content Include="Views\Procedure\StSpeech.cshtml" />

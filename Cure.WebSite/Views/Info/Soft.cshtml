@@ -1,12 +1,11 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Погода в Юньчен";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
 <div class="main is-full-screen" role="main">
-@Html.Partial("_InfoMenu")
+    @Html.Partial("_InfoMenu")
 
     <div class="all-pages-body price-body">
         <div class="container">
@@ -15,19 +14,21 @@
                     <div class="user-content">
                         <h3>Страница в разработке</h3>
                         <p>
-                           Страница в разработке
+                            Страница в разработке
                         </p>
                         <p>
-                           
-                        
+
+
                     </div>
                 </div>
                 <div class="col-md-3 col-lg-offset-1">
                 </div>
-            </div>
+            </div><!-- Блок «Поделиться» от Яндекса-->
+            <script type="text/javascript" src="http://yastatic.net/es5-shims/0.0.2/es5-shims.min.js" charset="utf-8"></script>
+            <script type="text/javascript" src="http://yastatic.net/share2/share.js" charset="utf-8"></script>
+            <div style="text-align: left;" class="gallery-share ya-share2" data-services="vkontakte,facebook,odnoklassniki,moimir" data-counter=""></div>
 
         </div><!-- END container -->
     </div><!-- END all-pages-body -->
 
 </div><!-- END main -->
-

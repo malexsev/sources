@@ -37,6 +37,7 @@ namespace Cure.WebSite.Controllers
             ViewBag.Operators = dal.GetRefOperators();
             ViewBag.CountryBanks = dal.GetRefBanks(child.FinCountryId ?? child.CountryId);
             ViewBag.CurrencyRateCNY = GetRate("CNY");
+            ViewBag.CurrencyRateUSD = GetRate("USD");
             ViewBag.Weathers = WeatherUtils.GetWeathers();
 
             var vipiskas = dal.GetMyVipiskas(User.Identity.Name).ToList();
@@ -82,6 +83,7 @@ namespace Cure.WebSite.Controllers
 
             var dal = new DataAccessBL();
             ViewBag.CurrencyRateCNY = GetRate("CNY");
+            ViewBag.CurrencyRateUSD = GetRate("USD");
             ViewBag.Weathers = WeatherUtils.GetWeathers(); ;
 
             if (User.Identity.IsAuthenticated)
@@ -305,6 +307,7 @@ namespace Cure.WebSite.Controllers
             ViewBag.DocFiles = GetDocumentFiles();
             ViewBag.Orders = dal.GetMyOrders(SiteUtils.GetCurrentUserName()).Select(x => new OrderViewModel(x));
             ViewBag.CurrencyRateCNY = GetRate("CNY");
+            ViewBag.CurrencyRateUSD = GetRate("USD");
             ViewBag.Weathers = WeatherUtils.GetWeathers();
 
             return View(clientContainer);
@@ -404,6 +407,12 @@ namespace Cure.WebSite.Controllers
                     if (sputniksCount <= 0 || sputniksCount > 4)
                     {
                         return Json("Проверьте количество сопровождающих, допускается не более четырёх человек.", JsonRequestBehavior.AllowGet);
+                    }
+
+                    var dal = new DataAccessBL();
+                    if (!(dal.GetMyOrders(SiteUtils.GetCurrentUserName()).All(o => dateFrom > o.DateTo || dateTo < o.DateFrom)))
+                    {
+                        return Json("Период лечения данной заявки попадает под период лечения предыдущей Заявки. Измените период лечения. Или согласуйте период лечения с администратором.", JsonRequestBehavior.AllowGet);
                     }
 
                     this.clientContainer.NewOrder.DepartmentId = departmentId;
@@ -912,6 +921,7 @@ namespace Cure.WebSite.Controllers
             ViewBag.Operators = dal.GetRefOperators();
             ViewBag.CountryBanks = dal.GetRefBanks(child.FinCountryId ?? child.CountryId);
             ViewBag.CurrencyRateCNY = GetRate("CNY");
+            ViewBag.CurrencyRateUSD = GetRate("USD");
             ViewBag.Weathers = WeatherUtils.GetWeathers();
 
             var vipiskas = dal.GetMyVipiskas(User.Identity.Name).ToList();

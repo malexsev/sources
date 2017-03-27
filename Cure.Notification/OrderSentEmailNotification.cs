@@ -53,7 +53,7 @@
                     , visit.Order.Department.ShortName);
                 this.attachmentName = string.Format(attachmentTemplate, visit.Order.Department.ShortName, visit.Pacient.FullName, visit.Pacient.RefCountry.Name);
 
-                this.attachmentPath = SiteUtils.GenerateVisitDetailsPdf(visit, this.attachmentName, server);
+                this.attachmentPath = SiteUtils.GenerateVisitDetailsPdf(visit, this.attachmentName, server, false);
             }
             catch (Exception ex)
             {

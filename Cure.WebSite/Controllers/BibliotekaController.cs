@@ -18,5 +18,10 @@ namespace Cure.WebSite.Controllers
         {
             return View();
         }
+
+        public ActionResult Postsnews()
+        {
+            return View();
+        }
     }
 }

@@ -93,14 +93,6 @@ namespace Cure.WebSite.Controllers
             return View();
         }
 
-        public ActionResult Price()
-        {
-            ViewBag.CurrencyRateCNY = GetRate("CNY");
-            ViewBag.CurrencyRateUSD = GetRate("USD");
-            ViewBag.CurrencyRateKZT = GetRate("KZT");
-            return View();
-        }
-
         public ActionResult Procedure()
         {
             return View();
@@ -109,20 +101,6 @@ namespace Cure.WebSite.Controllers
         public ActionResult Medicine()
         {
             return View();
-        }
-
-        private decimal GetRate(string currency)
-        {
-            var dal = new DataAccessBL();
-            var rate = dal.GetCurrencyRates().FirstOrDefault(x => x.CurrencyFrom == currency);
-            if (rate != null)
-            {
-                return Math.Round(rate.Rate, 2);
-            }
-            else
-            {
-                return 0;
-            }
         }
     }
 }

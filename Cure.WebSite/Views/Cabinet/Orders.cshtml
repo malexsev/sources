@@ -16,7 +16,7 @@
                 <div class="content-head js-content-tabs">
                     <ul class="content-head-nav">
                         <li><a class="js-tabs-link active" data-tab="order-create-tab" role="button">Новая заявка</a></li>
-                        <li><a id="order-current-link" class="js-tabs-link" data-tab="order-current-tab" role="button">Мои заявки</a></li>
+                        <li><a id="order-current-link" class="js-tabs-link" data-tab="order-current-tab" role="button">Перечень зарегистрированных заявок</a></li>
                         @*<li><a class="js-tabs-link" data-tab="order-drafts-tab" role="button">Черновики</a></li>*@
                         @*<li><a class="js-tabs-link" data-tab="order-archive-tab" role="button">Архив</a></li>*@
                     </ul>
@@ -55,11 +55,15 @@
                     </div>
 
                     <div class="content-tab js-tabs-item" id="order-current-tab">
+                        <div class="user-content">
+                            <h4>Для изменения данных поступивших заявок обратитесь к администратору.</h4>
+                            <!--<p>Тута текст по статусам</p> -->
+                        </div>
                         @Html.Partial("_OrderCurrent", (IEnumerable<OrderViewModel>)ViewBag.Orders)
                     </div>
                     @*@Html.Partial("_OrderDrafts")
 
-                    @Html.Partial("_OrderArchive")*@
+                        @Html.Partial("_OrderArchive")*@
 
                 </div><!-- END content-body -->
             </div><!-- END content-main -->

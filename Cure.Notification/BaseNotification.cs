@@ -41,7 +41,7 @@
         private string GetTemplate()
         {
             if (this.server == null)
-                return null;
+                return "{0}";
 
             var path = this.server.MapPath(@"~\Content\EmailBodyTemplate.html");
             return System.IO.File.ReadAllText(path);

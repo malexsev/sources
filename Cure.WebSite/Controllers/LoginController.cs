@@ -43,13 +43,17 @@ namespace Cure.WebSite.Controllers
         [HttpPost]
         public JsonResult Login(string loginname, string loginpass)
         {
-            bool isValid = IsValid(loginname, loginpass);
-            if (isValid)
+            bool? isValid = IsValid(loginname, loginpass);
+            if (isValid == true)
             {
                 Session.Abandon();
                 ActivateUser(loginname);
                 FormsAuthentication.SetAuthCookie(loginname, true);
                 return Json("1", JsonRequestBehavior.AllowGet);
+            }
+            if (isValid == null)
+            {
+                return Json("-1", JsonRequestBehavior.AllowGet);
             }
             return Json("0", JsonRequestBehavior.AllowGet);
         }
@@ -96,16 +100,29 @@ namespace Cure.WebSite.Controllers
             return Json("1", JsonRequestBehavior.AllowGet);
         }
 
-        private bool IsValid(string login, string password)
+        private bool? IsValid(string login, string password)
         {
+            bool? result = null;
             var dal = new DataAccessBL();
             var user = dal.GetUserMembership(login);
             Session["UserpicUrl"] = null;
             if (user != null)
             {
-                return Membership.ValidateUser(login, password);
+                result = Membership.ValidateUser(login, password);
+                MembershipUser membershipUser = Membership.GetUser(login);
+                if (membershipUser != null && 
+                    membershipUser.IsLockedOut && 
+                    membershipUser.LastLockoutDate >= DateTime.Now.AddSeconds(-10))
+                {
+                    var notify = new UserBlockedEmailNotification(membershipUser, Server);
+                    notify.Send();
+                }
+                if (membershipUser != null && membershipUser.IsLockedOut)
+                {
+                    result = null;
+                }
             }
-            return false;
+            return result;
         }
 
         private void ActivateUser(string login)

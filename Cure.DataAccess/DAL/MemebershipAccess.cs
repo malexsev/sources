@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace Cure.DataAccess.DAL
 {
+    using System.Web.Security;
+
     internal partial class DataRepository
     {
         public int CheckDeleteMembership(string username)
@@ -45,7 +47,14 @@ namespace Cure.DataAccess.DAL
                 {
                     origMemeber.LoweredEmail = userMembership.Email.ToLower();
                     origMemeber.Email = userMembership.Email;
-                    origMemeber.IsLockedOut = userMembership.IsLockedOut;
+                    if (origMemeber.IsLockedOut && !userMembership.IsLockedOut)
+                    {
+                        MembershipUser membershipUser = Membership.GetUser(userMembership.UserName);
+                        if (membershipUser != null)
+                        {
+                            membershipUser.UnlockUser();
+                        }
+                    }
                     origMemeber.Comment = userMembership.Comment;
 
                     SaveChanges();

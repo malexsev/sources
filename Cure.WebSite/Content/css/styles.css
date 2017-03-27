@@ -7000,9 +7000,9 @@ html.swipebox-html.swipebox-touch {
     max-width: 100%;
   }
   .sec-hosp-procedure .procedure-room-img img {
-    max-width: 100%;
-    height: auto;
-  }
+  max-width: 100%;
+  height: auto;
+}
   .sec-hosp-intro .intro-img{
     position: static;
   }
@@ -7067,6 +7067,7 @@ html.swipebox-html.swipebox-touch {
     padding-left: 0;
   }
   .popup-registr .popup-wrap{
+  	top: 10px;
     width: 95%;
   }
   .popup-registr .forms-label {
@@ -7178,6 +7179,36 @@ html.swipebox-html.swipebox-touch {
     padding-right: 0;
     width: auto;
   }
+  .all-pages-head .head-weather{
+	margin-right: 0;
+	padding-right: 0;
+	border: none;
+  }
+  .txt-data {
+    margin: 0 5px;
+    font-size: 25px;
+    line-height: 25px;
+  }
+  .account-logout .logout-settings{
+  	width: auto;
+  }
+  .common-sheet tbody td {
+    padding: 5px 10px;
+    display: block;
+    text-align: center !important;
+  }
+  .settings-line{
+  	height: auto;
+  }
+  .common-page .note {
+    padding: 10px;
+    word-wrap: break-word;
+  }
+  #orderstep1next,
+  #orderstep1save{
+  	width: 100%;
+  	margin-bottom: 5px;
+  }
 }
 
 @media (max-width: 519px) {
@@ -7256,9 +7287,8 @@ html.swipebox-html.swipebox-touch {
     text-align: center;
   }
   .assist-drop{
-    width: 340px;
-    right: 50%;
-    margin-right: -170px;
+  	position: static;
+    width: auto;
   }
 
 

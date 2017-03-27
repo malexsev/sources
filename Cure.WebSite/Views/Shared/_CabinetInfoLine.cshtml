@@ -9,10 +9,10 @@
             <div class="head-info mob-md-mw-313">
                 <div class="head-money">
                     <span class="txt-data">1</span>
-                    <span class="txt-note">юань</span>
+                    <span class="txt-note">доллар</span>
                     <span class="txt-data">=</span>
-                    <span class="txt-data">@Html.Raw(ViewBag.CurrencyRateCNY)</span>
-                    <span class="txt-note">руб</span>
+                    <span class="txt-data">@Html.Raw(Math.Round((double)ViewBag.CurrencyRateUSD / (double)ViewBag.CurrencyRateCNY, 2))</span>
+                    <span class="txt-note">юаня</span>
                 </div>
                 <div class="head-weather">
                     <span class="txt-note">В юнчене</span>

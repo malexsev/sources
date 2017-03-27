@@ -547,8 +547,13 @@ $(document).ready(function () {
                     } else {
                         $("#loginname").parent().addClass("has-error");
                         $("#password").parent().addClass("has-error");
-                        $("#error-login").show().text("Неверное имя пользователя или пароль");
                         $('#loginprogress').html("");
+                        if (result == "-1") {
+                            $("#error-login").show().text("Ваш логин временно блокирован. Было превышено максимальное число попыток входа с неверным паролем. Это сделано в целях исключения подбора Вашего пароля. Администратор уже осведомлён о данном факте и в ближайшее время проблема будет решена.");
+                        } else {
+                            $("#error-login").show().text("Неверное имя пользователя или пароль.");
+                        }
+                        
                     }
                 },
                 error: function (result) {

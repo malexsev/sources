@@ -154,12 +154,12 @@
             return "3";
         }
 
-        public static string GenerateVisitDetailsPdf(Visit visit, string attachmentName, HttpServerUtilityBase server)
+        public static string GenerateVisitDetailsPdf(Visit visit, string attachmentName, HttpServerUtilityBase server, bool isHideFile = true)
         {
             var dal = new DataAccessBL();
             var user = dal.GetUserMembership(visit.Order.OwnerUser);
             var report = new PacientVisitDetails(visit.Id);
-            var folderPath = Path.Combine(@"~\Documents\", user.Expr1 + @"\UserFiles\");
+            var folderPath = Path.Combine(@"~\Documents\", user.Expr1 + (isHideFile ? "" : @"\UserFiles\"));
             var fileName = String.Format("{0}", attachmentName);
             var pdfFullPath = server.MapPath(Path.Combine(folderPath, fileName));
 
@@ -176,7 +176,10 @@
             }
             report.Dispose();
 
-            UploadLogging(ref dal, fileName, pdfFullPath, user.Expr1, user.UserName);
+            if (!isHideFile)
+            {
+                UploadLogging(ref dal, fileName, pdfFullPath, user.Expr1, user.UserName);
+            }
 
             return pdfFullPath;
         }
