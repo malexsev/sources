@@ -335,6 +335,7 @@
     <Content Include="Controls\PhotoUploader.ascx" />
     <Content Include="Controls\RemoteNavigation.ascx" />
     <Content Include="Controls\ResultBox.ascx" />
+    <Content Include="_Generate74234543434544322.aspx" />
     <Content Include="_Generate54782348572955383.aspx" />
     <Content Include="_EveryDay9826358775243309.aspx" />
     <Content Include="Default.aspx" />
@@ -895,6 +896,13 @@
     </Compile>
     <Compile Include="Controls\ResultBox.ascx.designer.cs">
       <DependentUpon>ResultBox.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="_Generate74234543434544322.aspx.cs">
+      <DependentUpon>_Generate74234543434544322.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_Generate74234543434544322.aspx.designer.cs">
+      <DependentUpon>_Generate74234543434544322.aspx</DependentUpon>
     </Compile>
     <Compile Include="_Generate54782348572955383.aspx.cs">
       <DependentUpon>_Generate54782348572955383.aspx</DependentUpon>

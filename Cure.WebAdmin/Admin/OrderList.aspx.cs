@@ -66,8 +66,16 @@ namespace Cure.WebAdmin.Admin
             }
             if ((int)e.NewValues["StatusId"] == 6 && (int)e.NewValues["StatusId"] != (int)e.OldValues["StatusId"])
             {
-                var notify = new OrderApprovedToUserEmailNotification((int)e.Keys[0], new HttpServerUtilityWrapper(Server));
-                notify.Send();
+                //Изменение статуса на Одобрено
+                try
+                {
+                    var notify = new OrderApprovedToUserEmailNotification((int)e.Keys[0], new HttpServerUtilityWrapper(Server));
+                    notify.Send();
+                }
+                catch
+                {
+                }
+
             }
             if ((int)e.NewValues["StatusId"] == 9 && e.NewValues["StatusId"] != e.OldValues["StatusId"])
             {
@@ -76,6 +84,7 @@ namespace Cure.WebAdmin.Admin
                     throw new Exception("Статус \"Завершён\" не может быть применён, не установлено Время Убытия.");
                 }
             }
+            //Изменение статуса на Куплены билеты
             if ((int)e.NewValues["StatusId"] == 7 && e.NewValues["StatusId"] != e.OldValues["StatusId"])
             {
                 if (((int?)e.NewValues["TransferInfo"]).HasValue)

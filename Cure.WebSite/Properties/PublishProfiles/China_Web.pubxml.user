@@ -11,25 +11,25 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>03/26/2017 21:28:11</publishTime>
+      <publishTime>03/29/2017 23:40:52</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>03/26/2017 21:28:11</publishTime>
+      <publishTime>03/29/2017 23:40:52</publishTime>
     </File>
     <File Include="bin/Cure.DataAccess.dll">
-      <publishTime>03/26/2017 17:29:49</publishTime>
+      <publishTime>03/29/2017 23:40:29</publishTime>
     </File>
     <File Include="bin/Cure.Notification.dll">
-      <publishTime>03/26/2017 17:29:51</publishTime>
+      <publishTime>03/29/2017 23:40:31</publishTime>
     </File>
     <File Include="bin/Cure.Reports.dll">
-      <publishTime>03/26/2017 15:37:49</publishTime>
+      <publishTime>03/29/2017 23:38:37</publishTime>
     </File>
     <File Include="bin/Cure.Utils.dll">
-      <publishTime>03/26/2017 17:29:50</publishTime>
+      <publishTime>03/29/2017 23:40:31</publishTime>
     </File>
     <File Include="bin/Cure.WebSite.dll">
-      <publishTime>03/26/2017 21:18:12</publishTime>
+      <publishTime>03/29/2017 23:40:38</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>09/19/2015 00:46:36</publishTime>
@@ -68,7 +68,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/12/2016 23:32:40</publishTime>
     </File>
     <File Include="Content/css/styles.css">
-      <publishTime>03/21/2017 22:01:48</publishTime>
+      <publishTime>03/27/2017 21:02:45</publishTime>
     </File>
     <File Include="Content/css/styles.less">
       <publishTime>02/27/2017 02:02:23</publishTime>
@@ -1202,7 +1202,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/09/2016 20:44:00</publishTime>
     </File>
     <File Include="Content/img/icon_slider.png">
-      <publishTime>02/10/2017 13:31:49</publishTime>
+      <publishTime>02/10/2017 13:33:00</publishTime>
     </File>
     <File Include="Content/img/icos_hospital.png">
       <publishTime>12/09/2016 20:44:00</publishTime>
@@ -1523,7 +1523,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/24/2016 03:40:02</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>03/26/2017 21:28:10</publishTime>
+      <publishTime>03/29/2017 23:40:47</publishTime>
     </File>
     <File Include="robots.txt">
       <publishTime>01/04/2017 16:21:22</publishTime>
@@ -1765,6 +1765,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/Home/Procedure.cshtml">
       <publishTime>10/03/2016 11:42:32</publishTime>
     </File>
+    <File Include="Views/Home/Rules.cshtml">
+      <publishTime>03/29/2017 23:29:50</publishTime>
+    </File>
+    <File Include="Views/Home/RulesAgree.cshtml">
+      <publishTime>03/28/2017 22:58:06</publishTime>
+    </File>
     <File Include="Views/Home/Search.cshtml">
       <publishTime>01/18/2017 15:37:00</publishTime>
     </File>
@@ -1778,16 +1784,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/13/2017 01:34:00</publishTime>
     </File>
     <File Include="Views/Info/Internet.cshtml">
-      <publishTime>03/26/2017 19:35:35</publishTime>
+      <publishTime>03/26/2017 21:19:00</publishTime>
     </File>
     <File Include="Views/Info/Pogoda.cshtml">
-      <publishTime>03/26/2017 19:35:31</publishTime>
+      <publishTime>03/26/2017 21:19:00</publishTime>
     </File>
     <File Include="Views/Info/Rashodi.cshtml">
-      <publishTime>03/26/2017 19:35:28</publishTime>
+      <publishTime>03/26/2017 21:19:00</publishTime>
     </File>
     <File Include="Views/Info/Soft.cshtml">
-      <publishTime>03/26/2017 19:35:25</publishTime>
+      <publishTime>03/29/2017 21:01:00</publishTime>
     </File>
     <File Include="Views/Info/_InfoMenu.cshtml">
       <publishTime>02/03/2017 14:29:00</publishTime>
@@ -1985,7 +1991,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/26/2017 19:35:53</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>02/15/2017 02:13:42</publishTime>
+      <publishTime>03/28/2017 22:44:56</publishTime>
     </File>
     <File Include="Views/Shared/_MainMenu.cshtml">
       <publishTime>03/26/2017 21:27:46</publishTime>
@@ -2066,7 +2072,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/30/2016 00:00:00</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>03/26/2017 21:18:14</publishTime>
+      <publishTime>03/29/2017 23:40:40</publishTime>
     </File>
   </ItemGroup>
 </Project>

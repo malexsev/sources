@@ -48,8 +48,8 @@ namespace Cure.DataAccess.DAL
             if (orders.Any())
             {
                 orders.ToList().ForEach(x => x.StatusId = 8);
-                SaveChanges();
             }
+            SaveChanges();
         }
 
         public Order GetOrderCurrent(string username)

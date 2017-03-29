@@ -771,6 +771,8 @@
     <Content Include="Views\Cabinet\_FilesList.cshtml" />
     <Content Include="Views\Home\Subscription.cshtml" />
     <Content Include="Views\Biblioteka\PostsNews.cshtml" />
+    <Content Include="Views\Home\Rules.cshtml" />
+    <Content Include="Views\Home\RulesAgree.cshtml" />
     <None Include="Views\Medicine\Human.cshtml" />
     <Content Include="Views\Procedure\OtOccupational.cshtml" />
     <Content Include="Views\Procedure\StSpeech.cshtml" />

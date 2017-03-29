@@ -67,3 +67,4 @@ D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Reports\obj\Debug\Cure.Reports.cs
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Reports\obj\Debug\Cure.Reports.dll.licenses
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Reports\obj\Debug\Cure.Reports.dll
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Reports\obj\Debug\Cure.Reports.pdb
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Reports\obj\Debug\Cure.Reports.Rules.resources

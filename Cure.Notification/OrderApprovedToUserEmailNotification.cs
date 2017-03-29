@@ -11,6 +11,7 @@
 
     public class OrderApprovedToUserEmailNotification : BaseNotification
     {
+        private Setting settingIsNotify;
         private string subject;
         private string body;
         private ViewUserMembership user;
@@ -18,10 +19,11 @@
         private const string subjectTemplate = "Ваша заявка на лечение Одобрена";
         private const string bodyTemplate = @"Здравствуйте.<br /><br />"
             + @"Ваш ребенок подходит для лечения в реабилитационном отделении по лечению ДЦП в {2}.<br />"
-            + @"Записали Вас в график с {0} по {1}<br />"
+            + @"Записали Вас в график с {0} по {1}<br /><br />"
+            + @"Вам необходимо <b>прочитать и подтверить</b> согласие с <a href='http://dcp-china.ru/home/rules?temp={3}'>Правилами клиники</a>, после прочтения поставьте отметку и нажмите Далее.<br /><br />"
             + @"Ожидайте подготовку документов в течении нескольких дней.<br /><br />"
             + @"C уважением, Администрация больницы<br />"
-            + @"Тех. поддержка: zqcpchina@gmail.com"; //0 - «дата приезда», 1 - «дата отъезда», 2 - адрес клиники
+            + @"Тех. поддержка: zqcpchina@gmail.com"; //0 - «дата приезда», 1 - «дата отъезда», 2 - адрес клиники, 3 - guid заявки
 
         public OrderApprovedToUserEmailNotification(int orderId, HttpServerUtilityBase server)
             : base(server)
@@ -37,15 +39,20 @@
                     ,this.order.DateTo.Year < 1990
                         ? "(уточняется)"
                         : this.order.DateTo.ToString("dd-MM-yyyy")
-                    ,this.order.Department.Address);
+                    ,this.order.Department.Address,
+                    this.order.GuidId);
+            this.settingIsNotify = dal.GetSettingByCode("IsNotifyUserApproveOrder");
         }
 
         public override bool Send()
         {
             bool result = false;
 
-            result = SendEmail(this.user.LoweredEmail, string.Empty, this.subject, this.body, "Пользователю одобрено");
-            this.Log(result ? "Доставлено" : "Ошибка доставки", this.user.LoweredEmail, this.body);
+            if (settingIsNotify.ValueBool != null && settingIsNotify.ValueBool == true)
+            {
+                result = SendEmail(this.user.LoweredEmail, string.Empty, this.subject, this.body, "Пользователю одобрено");
+                this.Log(result ? "Доставлено" : "Ошибка доставки", this.user.LoweredEmail, this.body);
+            }
 
             return result;
         }

@@ -1,4 +1,3 @@
-D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebAdmin\bin\Cure.WebAdmin.dll.config
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebAdmin\bin\Cure.WebAdmin.dll
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebAdmin\bin\Cure.WebAdmin.pdb
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebAdmin\bin\Cure.DataAccess.dll
@@ -152,3 +151,4 @@ D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebAdmin\obj\Debug\Cure.WebAdmin.
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebAdmin\obj\Debug\Cure.WebAdmin.dll.licenses
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebAdmin\obj\Debug\Cure.WebAdmin.dll
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebAdmin\obj\Debug\Cure.WebAdmin.pdb
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebAdmin\bin\Cure.WebAdmin.dll.config
