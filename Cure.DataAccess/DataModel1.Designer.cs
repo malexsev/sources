@@ -27,9 +27,6 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("DataModel", "FK_RefBank_RefCountry", "RefCountry", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.RefCountry), "RefBank", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.RefBank), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK_StopVisit_RefStopVisitType", "RefStopVisitType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.RefStopVisitType), "StopVisit", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.StopVisit), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK_Visit_Pacient", "Pacient", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.Pacient), "Visit", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Visit), true)]
-[assembly: EdmRelationshipAttribute("DataModel", "FK_Order_OrderStatus", "OrderStatu", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.OrderStatu), "Order", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Order), true)]
-[assembly: EdmRelationshipAttribute("DataModel", "FK_Sputnik_Order", "Order", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Cure.DataAccess.Order), "Sputnik", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Sputnik), true)]
-[assembly: EdmRelationshipAttribute("DataModel", "FK_Visit_Order", "Order", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.Order), "Visit", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Visit), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK_Post_Post", "Post", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Cure.DataAccess.Post), "Post1", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Post), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK_CurrencyRate_CurrencyFrom", "Currency", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.Currency), "CurrencyRate", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.CurrencyRate), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK_CurrencyRate_CurrencyTo", "Currency", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.Currency), "CurrencyRate", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.CurrencyRate), true)]
@@ -41,7 +38,6 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("DataModel", "FK_Department_RefCountry", "RefCountry", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.RefCountry), "Department", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Department), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK_DepartmentStop_Department", "Department", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.Department), "DepartmentStop", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.DepartmentStop), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK_Mension_Department", "Department", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Cure.DataAccess.Department), "Mension", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Mension), true)]
-[assembly: EdmRelationshipAttribute("DataModel", "FK_Order_Department", "Department", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Cure.DataAccess.Department), "Order", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Order), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK_StopVisit_Department", "Department", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.Department), "StopVisit", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.StopVisit), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK_TransferUser_Department", "Department", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.Department), "TransferUser", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.TransferUser), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK_Child_RefBank", "RefBank", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Cure.DataAccess.RefBank), "Child", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Child), true)]
@@ -57,7 +53,11 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("DataModel", "FK_ChildHideFile_Child", "Child", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.Child), "ChildHideFile", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.ChildHideFile), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK_Post_Child", "Child", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.Child), "Post", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Post), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK_DepartmentTransferInfo_Department", "Department", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.Department), "DepartmentTransferInfo", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.DepartmentTransferInfo), true)]
+[assembly: EdmRelationshipAttribute("DataModel", "FK_Order_Department", "Department", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Cure.DataAccess.Department), "Order", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Order), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK_Order_DepartmentTransferInfo", "DepartmentTransferInfo", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Cure.DataAccess.DepartmentTransferInfo), "Order", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Order), true)]
+[assembly: EdmRelationshipAttribute("DataModel", "FK_Order_OrderStatus", "OrderStatu", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.OrderStatu), "Order", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Order), true)]
+[assembly: EdmRelationshipAttribute("DataModel", "FK_Sputnik_Order", "Order", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Cure.DataAccess.Order), "Sputnik", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Sputnik), true)]
+[assembly: EdmRelationshipAttribute("DataModel", "FK_Visit_Order", "Order", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.Order), "Visit", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Visit), true)]
 
 #endregion
 
@@ -396,22 +396,6 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<Visit> _Visits;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<Order> Orders
-        {
-            get
-            {
-                if ((_Orders == null))
-                {
-                    _Orders = base.CreateObjectSet<Order>("Orders");
-                }
-                return _Orders;
-            }
-        }
-        private ObjectSet<Order> _Orders;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -828,6 +812,22 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<UploadLog> _UploadLogs;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Order> Orders
+        {
+            get
+            {
+                if ((_Orders == null))
+                {
+                    _Orders = base.CreateObjectSet<Order>("Orders");
+                }
+                return _Orders;
+            }
+        }
+        private ObjectSet<Order> _Orders;
 
         #endregion
 
@@ -975,14 +975,6 @@ namespace Cure.DataAccess
         public void AddToVisits(Visit visit)
         {
             base.AddObject("Visits", visit);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the Orders EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToOrders(Order order)
-        {
-            base.AddObject("Orders", order);
         }
     
         /// <summary>
@@ -1191,6 +1183,14 @@ namespace Cure.DataAccess
         public void AddToUploadLogs(UploadLog uploadLog)
         {
             base.AddObject("UploadLogs", uploadLog);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Orders EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToOrders(Order order)
+        {
+            base.AddObject("Orders", order);
         }
 
         #endregion
@@ -5306,28 +5306,6 @@ namespace Cure.DataAccess
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_Order_Department", "Order")]
-        public EntityCollection<Order> Orders
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Order>("DataModel.FK_Order_Department", "Order");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Order>("DataModel.FK_Order_Department", "Order", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_StopVisit_Department", "StopVisit")]
         public EntityCollection<StopVisit> StopVisits
         {
@@ -5384,6 +5362,28 @@ namespace Cure.DataAccess
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<DepartmentTransferInfo>("DataModel.FK_DepartmentTransferInfo_Department", "DepartmentTransferInfo", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_Order_Department", "Order")]
+        public EntityCollection<Order> Orders
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Order>("DataModel.FK_Order_Department", "Order");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Order>("DataModel.FK_Order_Department", "Order", value);
                 }
             }
         }
@@ -7663,6 +7663,30 @@ namespace Cure.DataAccess
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> TransferInfo
+        {
+            get
+            {
+                return _TransferInfo;
+            }
+            set
+            {
+                OnTransferInfoChanging(value);
+                ReportPropertyChanging("TransferInfo");
+                _TransferInfo = StructuralObject.SetValidValue(value, "TransferInfo");
+                ReportPropertyChanged("TransferInfo");
+                OnTransferInfoChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _TransferInfo;
+        partial void OnTransferInfoChanging(Nullable<global::System.Int32> value);
+        partial void OnTransferInfoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String OwnerUser
@@ -7683,6 +7707,30 @@ namespace Cure.DataAccess
         private global::System.String _OwnerUser;
         partial void OnOwnerUserChanging(global::System.String value);
         partial void OnOwnerUserChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> DateSend
+        {
+            get
+            {
+                return _DateSend;
+            }
+            set
+            {
+                OnDateSendChanging(value);
+                ReportPropertyChanging("DateSend");
+                _DateSend = StructuralObject.SetValidValue(value, "DateSend");
+                ReportPropertyChanged("DateSend");
+                OnDateSendChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _DateSend;
+        partial void OnDateSendChanging(Nullable<global::System.DateTime> value);
+        partial void OnDateSendChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -7923,6 +7971,30 @@ namespace Cure.DataAccess
         private global::System.String _Description;
         partial void OnDescriptionChanging(global::System.String value);
         partial void OnDescriptionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> IsAgree
+        {
+            get
+            {
+                return _IsAgree;
+            }
+            set
+            {
+                OnIsAgreeChanging(value);
+                ReportPropertyChanging("IsAgree");
+                _IsAgree = StructuralObject.SetValidValue(value, "IsAgree");
+                ReportPropertyChanged("IsAgree");
+                OnIsAgreeChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _IsAgree;
+        partial void OnIsAgreeChanging(Nullable<global::System.Boolean> value);
+        partial void OnIsAgreeChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -8307,34 +8379,86 @@ namespace Cure.DataAccess
         private Nullable<global::System.DateTime> _CreateDate;
         partial void OnCreateDateChanging(Nullable<global::System.DateTime> value);
         partial void OnCreateDateChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> TransferInfo
-        {
-            get
-            {
-                return _TransferInfo;
-            }
-            set
-            {
-                OnTransferInfoChanging(value);
-                ReportPropertyChanging("TransferInfo");
-                _TransferInfo = StructuralObject.SetValidValue(value, "TransferInfo");
-                ReportPropertyChanged("TransferInfo");
-                OnTransferInfoChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _TransferInfo;
-        partial void OnTransferInfoChanging(Nullable<global::System.Int32> value);
-        partial void OnTransferInfoChanged();
 
         #endregion
 
         #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_Order_Department", "Department")]
+        public Department Department
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Department>("DataModel.FK_Order_Department", "Department").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Department>("DataModel.FK_Order_Department", "Department").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Department> DepartmentReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Department>("DataModel.FK_Order_Department", "Department");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Department>("DataModel.FK_Order_Department", "Department", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_Order_DepartmentTransferInfo", "DepartmentTransferInfo")]
+        public DepartmentTransferInfo DepartmentTransferInfo
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DepartmentTransferInfo>("DataModel.FK_Order_DepartmentTransferInfo", "DepartmentTransferInfo").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DepartmentTransferInfo>("DataModel.FK_Order_DepartmentTransferInfo", "DepartmentTransferInfo").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<DepartmentTransferInfo> DepartmentTransferInfoReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DepartmentTransferInfo>("DataModel.FK_Order_DepartmentTransferInfo", "DepartmentTransferInfo");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<DepartmentTransferInfo>("DataModel.FK_Order_DepartmentTransferInfo", "DepartmentTransferInfo", value);
+                }
+            }
+        }
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -8414,82 +8538,6 @@ namespace Cure.DataAccess
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Visit>("DataModel.FK_Visit_Order", "Visit", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_Order_Department", "Department")]
-        public Department Department
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Department>("DataModel.FK_Order_Department", "Department").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Department>("DataModel.FK_Order_Department", "Department").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Department> DepartmentReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Department>("DataModel.FK_Order_Department", "Department");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Department>("DataModel.FK_Order_Department", "Department", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_Order_DepartmentTransferInfo", "DepartmentTransferInfo")]
-        public DepartmentTransferInfo DepartmentTransferInfo
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DepartmentTransferInfo>("DataModel.FK_Order_DepartmentTransferInfo", "DepartmentTransferInfo").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DepartmentTransferInfo>("DataModel.FK_Order_DepartmentTransferInfo", "DepartmentTransferInfo").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<DepartmentTransferInfo> DepartmentTransferInfoReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<DepartmentTransferInfo>("DataModel.FK_Order_DepartmentTransferInfo", "DepartmentTransferInfo");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<DepartmentTransferInfo>("DataModel.FK_Order_DepartmentTransferInfo", "DepartmentTransferInfo", value);
                 }
             }
         }
@@ -22543,6 +22591,28 @@ namespace Cure.DataAccess
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_Vipiska_Visit", "Vipiska")]
+        public EntityCollection<Vipiska> Vipiskas
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Vipiska>("DataModel.FK_Vipiska_Visit", "Vipiska");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Vipiska>("DataModel.FK_Vipiska_Visit", "Vipiska", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_Visit_Order", "Order")]
         public Order Order
         {
@@ -22571,28 +22641,6 @@ namespace Cure.DataAccess
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Order>("DataModel.FK_Visit_Order", "Order", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_Vipiska_Visit", "Vipiska")]
-        public EntityCollection<Vipiska> Vipiskas
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Vipiska>("DataModel.FK_Vipiska_Visit", "Vipiska");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Vipiska>("DataModel.FK_Vipiska_Visit", "Vipiska", value);
                 }
             }
         }

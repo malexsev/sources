@@ -59,7 +59,7 @@
 
 <asp:ObjectDataSource ID="uxMainDataSource" runat="server" SelectMethod="ViewSoonOrders" TypeName="Cure.DataAccess.BLL.DataAccessBL">
     <SelectParameters>
-        <asp:Parameter DefaultValue="90" Name="filter" Type="Int32" />
+        <asp:Parameter DefaultValue="160" Name="filter" Type="Int32" />
     </SelectParameters>
 </asp:ObjectDataSource>
 <asp:ObjectDataSource ID="uxCountryDataSource" runat="server" SelectMethod="GetRefCountries" TypeName="Cure.DataAccess.BLL.DataAccessBL"></asp:ObjectDataSource>

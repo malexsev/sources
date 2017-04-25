@@ -410,7 +410,7 @@ namespace Cure.WebSite.Controllers
                     }
 
                     var dal = new DataAccessBL();
-                    if (!(dal.GetMyOrders(SiteUtils.GetCurrentUserName()).All(o => dateFrom > o.DateTo || dateTo < o.DateFrom)))
+                    if (!(dal.GetMyOrders(SiteUtils.GetCurrentUserName()).Where(o => o.StatusId == 2 || o.StatusId == 6 || o.StatusId == 8).All(o => (o.DateFrom > dateTo || o.DateTo < dateFrom))))
                     {
                         return Json("Период лечения данной заявки попадает под период лечения предыдущей Заявки. Измените период лечения. Или согласуйте период лечения с администратором.", JsonRequestBehavior.AllowGet);
                     }
@@ -863,6 +863,8 @@ namespace Cure.WebSite.Controllers
                     
                     var notify = new OrderSentNotification(this.clientContainer.NewOrder.Id);
                     notify.Send();
+                    this.clientContainer.NewOrder.DateSend = DateTime.Now;
+                    this.clientContainer.Save();
                     foreach (var visit in this.clientContainer.NewOrder.Visits)
                     {
                         //Вызов методов админки

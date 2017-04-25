@@ -57,6 +57,12 @@
             win.focus();
         }
 
+        function OpenInvoice(visitId) {
+            var url = '/Output/InvoiceReportParams.aspx?visitId=' + visitId;
+            var win = window.open(url, '_blank');
+            win.focus();
+        }
+
 
     </script>
     <div class="content">
@@ -387,14 +393,21 @@
                                     <EditFormSettings Visible="False" />
                                     <DataItemTemplate>
                                         <a onclick="javascript:Invite('<%# Container.KeyValue %>');"  class="hyperlink" style="color: #27408b">
-                                            Сгенерировать<%--<img src="../Content/Images/editors_apps.gif" />--%></a>
+                                            Сгенерировать</a>
                                     </DataItemTemplate>
                                 </dx:GridViewDataTextColumn>
                                 <dx:GridViewDataTextColumn Caption="Выписка" VisibleIndex="81" Width="80px" ToolTip="Редактирование выписки">
                                     <EditFormSettings Visible="False" />
                                     <DataItemTemplate>
                                         <a onclick="javascript:OpenVipiska('<%# Container.KeyValue %>');" class="hyperlink" style="color: #27408b">
-                                            Редактировать<%--<img src="../Content/Images/editors_upload.gif" />--%></a>
+                                            Редактировать</a>
+                                    </DataItemTemplate>
+                                </dx:GridViewDataTextColumn>
+                                <dx:GridViewDataTextColumn Caption="Счёт" VisibleIndex="81" Width="80px" ToolTip="Счёт на лечение">
+                                    <EditFormSettings Visible="False" />
+                                    <DataItemTemplate>
+                                        <a onclick="javascript:OpenInvoice('<%# Container.KeyValue %>');" class="hyperlink" style="color: #27408b">
+                                            Сформировать</a>
                                     </DataItemTemplate>
                                 </dx:GridViewDataTextColumn>
                             </Columns>
@@ -484,83 +497,85 @@
                 </DetailRow>
             </Templates>
             <Columns>
-                <dx:GridViewCommandColumn ShowDeleteButton="True" ShowEditButton="True" ShowNewButtonInHeader="True" VisibleIndex="0" Width="36px">
+                <dx:GridViewCommandColumn ShowDeleteButton="True" ShowEditButton="True" ShowNewButtonInHeader="True" VisibleIndex="0" Width="36px" ShowClearFilterButton="True">
                 </dx:GridViewCommandColumn>
                 <dx:GridViewDataTextColumn FieldName="Id" VisibleIndex="1" Visible="False">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Пользователь" FieldName="OwnerUser" VisibleIndex="12" Width="60px">
+                <dx:GridViewDataTextColumn Caption="Пользователь" FieldName="OwnerUser" VisibleIndex="13" Width="60px">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn FieldName="LastUser" Visible="False" VisibleIndex="20">
+                <dx:GridViewDataTextColumn FieldName="LastUser" Visible="False" VisibleIndex="21">
                     <EditFormSettings Visible="False" />
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataDateColumn FieldName="LastDate" Visible="False" VisibleIndex="21">
+                <dx:GridViewDataDateColumn FieldName="LastDate" Visible="False" VisibleIndex="22">
                     <EditFormSettings Visible="False" />
                 </dx:GridViewDataDateColumn>
-                <dx:GridViewDataTextColumn FieldName="CreateUser" Visible="False" VisibleIndex="22">
+                <dx:GridViewDataTextColumn FieldName="CreateUser" Visible="False" VisibleIndex="23">
                     <EditFormSettings Visible="False" />
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataDateColumn FieldName="CreateDate" VisibleIndex="8" Caption="Дата создания" Width="60px">
+                <dx:GridViewDataDateColumn FieldName="DateSend" VisibleIndex="9" Caption="Дата создания" Width="60px">
+                    <PropertiesDateEdit NullDisplayText="&lt;нет данных&gt;">
+                    </PropertiesDateEdit>
                     <EditFormSettings Visible="False" />
                 </dx:GridViewDataDateColumn>
-                <dx:GridViewDataTextColumn Caption="Статус-инфо" FieldName="StatusDecription" VisibleIndex="19" Visible="false">
+                <dx:GridViewDataTextColumn Caption="Статус-инфо" FieldName="StatusDecription" VisibleIndex="20" Visible="false">
                     <EditFormSettings Visible="True" />
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataComboBoxColumn Caption="Клиника/Отделение" FieldName="DepartmentId" VisibleIndex="10">
+                <dx:GridViewDataComboBoxColumn Caption="Клиника/Отделение" FieldName="DepartmentId" VisibleIndex="11">
                     <PropertiesComboBox DataSourceID="uxDepartmentDataSource" TextField="ShortName" ValueField="Id">
                         <ValidationSettings>
                             <RequiredField IsRequired="True" />
                         </ValidationSettings>
                     </PropertiesComboBox>
                 </dx:GridViewDataComboBoxColumn>
-                <dx:GridViewDataMemoColumn Caption="Доп. информация" FieldName="Description" Visible="False" VisibleIndex="18">
+                <dx:GridViewDataMemoColumn Caption="Доп. информация" FieldName="Description" Visible="False" VisibleIndex="19">
                     <PropertiesMemoEdit MaxLength="500" Rows="5">
                     </PropertiesMemoEdit>
                     <EditFormSettings Visible="True" />
                 </dx:GridViewDataMemoColumn>
-                <dx:GridViewDataComboBoxColumn Caption="Статус" FieldName="StatusId" VisibleIndex="4" Width="80px">
+                <dx:GridViewDataComboBoxColumn Caption="Статус" FieldName="StatusId" VisibleIndex="5" Width="80px">
                     <PropertiesComboBox DataSourceID="uxOrderStatusDataSource" TextField="Name" ValueField="Id">
                         <ValidationSettings>
                             <RequiredField IsRequired="True" />
                         </ValidationSettings>
                     </PropertiesComboBox>
                 </dx:GridViewDataComboBoxColumn>
-                <dx:GridViewDataMemoColumn Caption="Примечание" ToolTip="Видно только администраторам" FieldName="Notes" VisibleIndex="25">
+                <dx:GridViewDataMemoColumn Caption="Примечание" ToolTip="Видно только администраторам" FieldName="Notes" VisibleIndex="26">
                     <PropertiesMemoEdit MaxLength="500" Rows="2">
                     </PropertiesMemoEdit>
                 </dx:GridViewDataMemoColumn>
-                <dx:GridViewDataDateColumn Caption="Дата начала" FieldName="DateFrom" VisibleIndex="7" Width="60px">
+                <dx:GridViewDataDateColumn Caption="Дата начала" FieldName="DateFrom" VisibleIndex="8" Width="60px">
                     <PropertiesDateEdit>
                         <ValidationSettings>
                             <RequiredField IsRequired="True" />
                         </ValidationSettings>
                     </PropertiesDateEdit>
                 </dx:GridViewDataDateColumn>
-                <dx:GridViewDataDateColumn Caption="Дата окончания" FieldName="DateTo" VisibleIndex="9" Width="60px">
+                <dx:GridViewDataDateColumn Caption="Дата окончания" FieldName="DateTo" VisibleIndex="10" Width="60px">
                     <PropertiesDateEdit>
                         <ValidationSettings>
                             <RequiredField IsRequired="True" />
                         </ValidationSettings>
                     </PropertiesDateEdit>
                 </dx:GridViewDataDateColumn>
-                <dx:GridViewDataTextColumn Caption="Номер рейса" FieldName="TicketInfo" VisibleIndex="13" ToolTip="Прибытие | Убытие">
+                <dx:GridViewDataTextColumn Caption="Номер рейса" FieldName="TicketInfo" VisibleIndex="14" ToolTip="Прибытие | Убытие">
                     <DataItemTemplate>
                         <%# SiteUtils.GetReisNumber(Eval("TicketInfo")) %>
                     </DataItemTemplate>
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataDateColumn Caption="Время прибытия" FieldName="TicketPribitieTime" VisibleIndex="15" Width="105px">
+                <dx:GridViewDataDateColumn Caption="Время прибытия" FieldName="TicketPribitieTime" VisibleIndex="16" Width="105px">
                     <PropertiesDateEdit DisplayFormatString="{0:dd-MM-yyyy H:mm}" EditFormat="DateTime">
                     </PropertiesDateEdit>
                 </dx:GridViewDataDateColumn>
-                <dx:GridViewDataDateColumn Caption="Время убытия" FieldName="TicketUbitieTime" VisibleIndex="16" Width="105px">
+                <dx:GridViewDataDateColumn Caption="Время убытия" FieldName="TicketUbitieTime" VisibleIndex="17" Width="105px">
                     <PropertiesDateEdit DisplayFormatString="{0:dd-MM-yyyy H:mm}" EditFormat="DateTime">
                     </PropertiesDateEdit>
                 </dx:GridViewDataDateColumn>
                 <dx:GridViewDataTextColumn Caption="Номер" FieldName="Name" VisibleIndex="3" Width="40px" Visible="false">
                     <EditFormSettings Visible="True" />
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="GuidId" FieldName="GuidId" Visible="False" VisibleIndex="23">
+                <dx:GridViewDataTextColumn Caption="GuidId" FieldName="GuidId" Visible="False" VisibleIndex="24">
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Док" VisibleIndex="26" Width="25px">
+                <dx:GridViewDataTextColumn Caption="Док" VisibleIndex="27" Width="25px">
                     <EditFormSettings Visible="False" />
                     <DataItemTemplate>
                         <a onclick="javascript:OpenDocs('<%# Container.KeyValue %>');" class="hyperlink" style="color: #27408b">
@@ -568,53 +583,55 @@
                         </a>
                     </DataItemTemplate>
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Другие услуги в Пекине" FieldName="ServicePekinOther" Visible="False" VisibleIndex="30">
+                <dx:GridViewDataTextColumn Caption="Другие услуги в Пекине" FieldName="ServicePekinOther" Visible="False" VisibleIndex="31">
                     <PropertiesTextEdit MaxLength="250">
                     </PropertiesTextEdit>
                     <EditFormSettings Visible="True" />
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataTextColumn Caption="Другие услуги в Юньчэн" FieldName="ServiceUnchenOther" Visible="False" VisibleIndex="33">
+                <dx:GridViewDataTextColumn Caption="Другие услуги в Юньчэн" FieldName="ServiceUnchenOther" Visible="False" VisibleIndex="34">
                     <PropertiesTextEdit MaxLength="250">
                     </PropertiesTextEdit>
                     <EditFormSettings Visible="True" />
                 </dx:GridViewDataTextColumn>
-                <dx:GridViewDataSpinEditColumn Caption="Виза Дней" FieldName="VizaDney" VisibleIndex="14" Width="60px" Visible="False">
+                <dx:GridViewDataSpinEditColumn Caption="Виза Дней" FieldName="VizaDney" VisibleIndex="15" Width="60px" Visible="False">
                     <EditFormSettings Visible="True" />
                     <PropertiesSpinEdit DisplayFormatString="g">
                     </PropertiesSpinEdit>
                 </dx:GridViewDataSpinEditColumn>
-                <dx:GridViewDataCheckColumn Caption="Услуги переводчика" FieldName="ServicePekinIsPerevod" Visible="False" VisibleIndex="27">
+                <dx:GridViewDataCheckColumn Caption="Услуги переводчика" FieldName="ServicePekinIsPerevod" Visible="False" VisibleIndex="28">
                     <EditFormSettings Visible="True" />
                 </dx:GridViewDataCheckColumn>
-                <dx:GridViewDataCheckColumn Caption="Забронировать Отель" FieldName="ServicePekinIsHotel" Visible="False" VisibleIndex="29">
+                <dx:GridViewDataCheckColumn Caption="Забронировать Отель" FieldName="ServicePekinIsHotel" Visible="False" VisibleIndex="30">
                     <EditFormSettings Visible="True" />
                 </dx:GridViewDataCheckColumn>
-                <dx:GridViewDataCheckColumn Caption="Встреча в Юньчэн" FieldName="ServiceUnchenIsVstrecha" Visible="False" VisibleIndex="32">
+                <dx:GridViewDataCheckColumn Caption="Встреча в Юньчэн" FieldName="ServiceUnchenIsVstrecha" Visible="False" VisibleIndex="33">
                     <EditFormSettings Visible="True" />
                 </dx:GridViewDataCheckColumn>
-                <dx:GridViewDataCheckColumn Caption="Туалетная Бумага" FieldName="ServiceRoomIsPaper" Visible="False" VisibleIndex="35">
+                <dx:GridViewDataCheckColumn Caption="Туалетная Бумага" FieldName="ServiceRoomIsPaper" Visible="False" VisibleIndex="36">
                     <EditFormSettings Visible="True" />
                 </dx:GridViewDataCheckColumn>
-                <dx:GridViewDataCheckColumn Caption="Стиральный порошок" FieldName="ServiceRoomIsStiral" Visible="False" VisibleIndex="37">
+                <dx:GridViewDataCheckColumn Caption="Стиральный порошок" FieldName="ServiceRoomIsStiral" Visible="False" VisibleIndex="38">
                     <EditFormSettings Visible="True" />
                 </dx:GridViewDataCheckColumn>
-                <dx:GridViewDataCheckColumn Caption="Ополаскиватель для белья" FieldName="ServiceRoomIsOpolask" Visible="False" VisibleIndex="39">
+                <dx:GridViewDataCheckColumn Caption="Ополаскиватель для белья" FieldName="ServiceRoomIsOpolask" Visible="False" VisibleIndex="40">
                     <EditFormSettings Visible="True" />
                 </dx:GridViewDataCheckColumn>
-                <dx:GridViewDataCheckColumn Caption="Питьевая вода" FieldName="ServiceRoomIsVoda" Visible="False" VisibleIndex="43">
+                <dx:GridViewDataCheckColumn Caption="Питьевая вода" FieldName="ServiceRoomIsVoda" Visible="False" VisibleIndex="44">
                     <EditFormSettings Visible="True" />
                 </dx:GridViewDataCheckColumn>
-                <dx:GridViewDataCheckColumn Caption="Жидкое мыло" FieldName="ServiceRoomIsMilo" Visible="False" VisibleIndex="42">
+                <dx:GridViewDataCheckColumn Caption="Жидкое мыло" FieldName="ServiceRoomIsMilo" Visible="False" VisibleIndex="43">
                     <EditFormSettings Visible="True" />
                 </dx:GridViewDataCheckColumn>
-                <dx:GridViewDataCheckColumn Caption="Средство для мытья посуды" FieldName="ServiceRoomIsPosuda" Visible="False" VisibleIndex="44">
+                <dx:GridViewDataCheckColumn Caption="Средство для мытья посуды" FieldName="ServiceRoomIsPosuda" Visible="False" VisibleIndex="45">
                     <EditFormSettings Visible="True" />
                 </dx:GridViewDataCheckColumn>
-                <dx:GridViewDataComboBoxColumn Caption="Вариант прибытия" FieldName="TransferInfo" Visible="False" VisibleIndex="45">
+                <dx:GridViewDataComboBoxColumn Caption="Вариант прибытия" FieldName="TransferInfo" Visible="False" VisibleIndex="46">
                     <PropertiesComboBox DataSourceID="uxTransferInfoDataSource" NullDisplayText="(уточняется)" NullText="(уточняется)" TextField="Name" ValueField="Id" ValueType="System.Int32">
                     </PropertiesComboBox>
                     <EditFormSettings Visible="True" />
                 </dx:GridViewDataComboBoxColumn>
+                <dx:GridViewDataCheckColumn Caption="Согласен" FieldName="IsAgree" VisibleIndex="4" Width="45px">
+                </dx:GridViewDataCheckColumn>
             </Columns>
             <SettingsBehavior ConfirmDelete="True" />
             <SettingsPager AlwaysShowPager="True" NumericButtonCount="20">
@@ -625,7 +642,7 @@
             <SettingsDetail AllowOnlyOneMasterRowExpanded="True" ShowDetailRow="True" />
         </dx:ASPxGridView>
 
-        <asp:ObjectDataSource ID="uxMainDataSource" runat="server" DataObjectTypeName="Cure.DataAccess.Order" DeleteMethod="DeleteOrder" InsertMethod="InsertOrder" SelectMethod="GetOrders" TypeName="Cure.DataAccess.BLL.DataAccessBL" UpdateMethod="UpdateOrder">
+        <asp:ObjectDataSource ID="uxMainDataSource" runat="server" DataObjectTypeName="Cure.DataAccess.Order" DeleteMethod="DeleteOrder" InsertMethod="InsertOrder" SelectMethod="GetOrders" TypeName="Cure.DataAccess.BLL.DataAccessBL" UpdateMethod="UpdateOrder" OldValuesParameterFormatString="original_{0}">
             <SelectParameters>
                 <asp:ControlParameter ControlID="uxFilter" DefaultValue="-1" Name="filter" PropertyName="Value" Type="Int32" />
                 <asp:ControlParameter ControlID="uxFilterEmailTextBox" DefaultValue="" Name="email" PropertyName="Text" Type="String" />

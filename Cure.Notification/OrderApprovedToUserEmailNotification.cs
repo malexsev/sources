@@ -14,32 +14,33 @@
         private Setting settingIsNotify;
         private string subject;
         private string body;
+        private DateTime dateFrom;
+        private DateTime dateTo;
         private ViewUserMembership user;
         private Order order;
         private const string subjectTemplate = "Ваша заявка на лечение Одобрена";
-        private const string bodyTemplate = @"Здравствуйте.<br /><br />"
-            + @"Ваш ребенок подходит для лечения в реабилитационном отделении по лечению ДЦП в {2}.<br />"
+        private const string bodyTemplate = @"Ваш ребенок подходит для лечения в реабилитационном отделении по лечению ДЦП в {2}.<br />"
             + @"Записали Вас в график с {0} по {1}<br /><br />"
             + @"Вам необходимо <b>прочитать и подтверить</b> согласие с <a href='http://dcp-china.ru/home/rules?temp={3}'>Правилами клиники</a>, после прочтения поставьте отметку и нажмите Далее.<br /><br />"
-            + @"Ожидайте подготовку документов в течении нескольких дней.<br /><br />"
-            + @"C уважением, Администрация больницы<br />"
-            + @"Тех. поддержка: zqcpchina@gmail.com"; //0 - «дата приезда», 1 - «дата отъезда», 2 - адрес клиники, 3 - guid заявки
+            + @"Ожидайте подготовку документов в течении нескольких дней.<br /><br />"; //0 - «дата приезда», 1 - «дата отъезда», 2 - имя клиники, 3 - guid заявки
 
-        public OrderApprovedToUserEmailNotification(int orderId, HttpServerUtilityBase server)
+        public OrderApprovedToUserEmailNotification(int orderId, DateTime dateFrom, DateTime dateTo, HttpServerUtilityBase server)
             : base(server)
         {
+            this.dateFrom = dateFrom;
+            this.dateTo = dateTo;
             var dal = new DataAccessBL();
             this.order = dal.GetOrder(orderId);
             this.user = dal.GetUserMembership(order.OwnerUser);
             this.subject = subjectTemplate;
             this.body = string.Format(bodyTemplate
-                    ,this.order.DateFrom.Year < 1990
+                    , this.dateFrom.Year < 1990
                         ? "(уточняется)"
-                        : this.order.DateFrom.ToString("dd-MM-yyyy")
-                    ,this.order.DateTo.Year < 1990
+                        : this.dateFrom.ToString("dd-MM-yyyy")
+                    , this.dateTo.Year < 1990
                         ? "(уточняется)"
-                        : this.order.DateTo.ToString("dd-MM-yyyy")
-                    ,this.order.Department.Address,
+                        : this.dateTo.ToString("dd-MM-yyyy")
+                    ,this.order.Department.Name,
                     this.order.GuidId);
             this.settingIsNotify = dal.GetSettingByCode("IsNotifyUserApproveOrder");
         }

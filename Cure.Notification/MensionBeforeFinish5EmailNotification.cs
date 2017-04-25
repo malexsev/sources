@@ -32,7 +32,7 @@
                 this.body = dal.GetSettingByCode("EmailTemplateMensionRequiredBeforeFinish5Body").Value;
 
                 DateTime day = DateTime.Today.AddDays(5);
-                this.orders = dal.GetOrders().Where(x => x.StatusId == 8 && x.DateTo.Date == day).ToList();
+                this.orders = dal.GetOrders().Where(x => x.StatusId == 7 && x.DateTo.Date == day).ToList();
             }
             catch (Exception)
             {
@@ -47,7 +47,7 @@
             foreach (var order in this.orders)
             {
                 var email = dal.GetUserMembership(order.OwnerUser).LoweredEmail;
-                result = SendEmail(email, string.Empty, this.subject, this.body, "Требуется отзыв через 7 дней");
+                result = SendEmail(email, string.Empty, this.subject, this.body, "Требуется отзыв через 5 дней");
                 this.Log(result ? "Доставлено" : "Ошибка доставки", email, this.body);
             }
 
@@ -59,11 +59,11 @@
             var notify = new NotificationLog()
             {
                 ClientName = "Пользователь",
-                Description = "Оповещение требуется отзыв через 7 дней после прибытия",
+                Description = "Оповещение требуется отзыв через 5 дней после прибытия",
                 Contacts = recipient,
                 Details = this.subject,
                 ExecutionDate = DateTime.Now,
-                Name = "EMail Требуется отзыв через 7 дней после прибытия",
+                Name = "EMail Требуется отзыв через 5 дней после прибытия",
                 Result = result,
                 Type = "EMail",
                 Text = text

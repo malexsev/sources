@@ -61,17 +61,30 @@ namespace Cure.WebSite.Controllers
         [HttpPost]
         public ActionResult RulesAgree(string agreeRadioButton)
         {
-            if (agreeRadioButton == "True" && !string.IsNullOrEmpty(TempData["UserGuid"].ToString()))
+            if (agreeRadioButton == "True" && TempData["UserGuid"] != null && !string.IsNullOrEmpty(TempData["UserGuid"].ToString()))
             {
                 Order order = TryParseOrder(TempData["UserGuid"].ToString());
                 if (order != null && order.Sputniks.Any())
                 {
+                    if (order.IsAgree ?? false)
+                    {
+                        return View("Agreed");
+                    }
+                    var dal = new DataAccessBL();
+                    order.IsAgree = true;
+                    dal.UpdateOrder(order);
                     var sputnik = order.Sputniks.FirstOrDefault(x => x.IsPrimary) ?? order.Sputniks.First();
                     //Генерация файла правил и отправка его в папку пользоватлебля.
                     var client = new WebClient();
                     client.OpenRead(string.Format("{0}?orderid={1}&sputnik={2}", ConfigurationManager.AppSettings["AgreeRulesUrl"], order.Id, string.Format("{0} {1}", sputnik.Familiya, sputnik.Name)));
                 }
             }
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Agreed()
+        {
             return View();
         }
 

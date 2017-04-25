@@ -16,11 +16,8 @@
         private string subject;
         private string body;
         private const string subjectTemplate = "Через 5 дней Вы прибудете на лечение в город Юньчэн Китай";
-        private const string bodyTemplate = @"Здравствуйте.<br /><br />"
-            + @"Просим Вас ознакомится с порядком действий при прибытии в клинику.<br />"
-            + @"Пройдите по <a href='http://dcp-china.ru'>ссылке</a><br /><br />"
-            + @"C уважением, Администрация больницы<br />"
-            + @"Тех. поддержка: zqcpchina@gmail.com";
+        private const string bodyTemplate = @"Просим Вас ознакомится с порядком действий при прибытии в клинику.<br />"
+            + @"Пройдите по <a href='http://dcp-china.ru'>ссылке</a><br /><br />";
 
         public BeforeArriveToUserEmailNotification(): base(null)
         {

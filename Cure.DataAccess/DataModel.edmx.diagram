@@ -31,10 +31,6 @@
         <EntityTypeShape EntityType="DataModel.ChildAvaFile" Width="1.5" PointX="1.375" PointY="28.375" />
         <EntityTypeShape EntityType="DataModel.Visit" Width="1.5" PointX="8.5" PointY="6.75" />
         <AssociationConnector Association="DataModel.FK_Visit_Pacient" />
-        <EntityTypeShape EntityType="DataModel.Order" Width="1.5" PointX="11.25" PointY="5.125" />
-        <AssociationConnector Association="DataModel.FK_Order_OrderStatus" />
-        <AssociationConnector Association="DataModel.FK_Sputnik_Order" />
-        <AssociationConnector Association="DataModel.FK_Visit_Order" />
         <EntityTypeShape EntityType="DataModel.ViewUserMembership" Width="2.875" PointX="28.75" PointY="2" />
         <EntityTypeShape EntityType="DataModel.RefOperator" Width="1.5" PointX="7.875" PointY="26.625" />
         <EntityTypeShape EntityType="DataModel.Mension" Width="1.5" PointX="13.125" PointY="21.75" />
@@ -65,7 +61,6 @@
         <AssociationConnector Association="DataModel.FK_Department_RefCountry" />
         <AssociationConnector Association="DataModel.FK_DepartmentStop_Department" />
         <AssociationConnector Association="DataModel.FK_Mension_Department" />
-        <AssociationConnector Association="DataModel.FK_Order_Department" />
         <AssociationConnector Association="DataModel.FK_StopVisit_Department" />
         <AssociationConnector Association="DataModel.FK_TransferUser_Department" />
         <EntityTypeShape EntityType="DataModel.Child" Width="1.5" PointX="4.75" PointY="21.625" />
@@ -86,9 +81,14 @@
         <EntityTypeShape EntityType="DataModel.ViewSubscriber" Width="1.625" PointX="29" PointY="8.5" />
         <EntityTypeShape EntityType="DataModel.DepartmentTransferInfo" Width="1.5" PointX="14.25" PointY="11.875" />
         <AssociationConnector Association="DataModel.FK_DepartmentTransferInfo_Department" />
-        <AssociationConnector Association="DataModel.FK_Order_DepartmentTransferInfo" />
         <EntityTypeShape EntityType="DataModel.NotificationLog" Width="1.625" PointX="17.625" PointY="31.75" />
         <EntityTypeShape EntityType="DataModel.UploadLog" Width="1.5" PointX="16.625" PointY="8.875" />
+        <EntityTypeShape EntityType="DataModel.Order" Width="1.5" PointX="11.125" PointY="4.875" />
+        <AssociationConnector Association="DataModel.FK_Order_Department" />
+        <AssociationConnector Association="DataModel.FK_Order_DepartmentTransferInfo" />
+        <AssociationConnector Association="DataModel.FK_Order_OrderStatus" />
+        <AssociationConnector Association="DataModel.FK_Sputnik_Order" />
+        <AssociationConnector Association="DataModel.FK_Visit_Order" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

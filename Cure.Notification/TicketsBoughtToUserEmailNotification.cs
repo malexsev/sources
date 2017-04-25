@@ -16,11 +16,8 @@
         private ViewUserMembership user;
         private Order order;
         private const string subjectTemplate = "Ваш статус в личном кабинете изменен на «Куплены билеты»";
-        private const string bodyTemplate = @"Здравствуйте.<br />"
-            + @"Вы заполнили данные о билетах в своем личном кабинете<br />"
-            + @"Встречаем Вас {0} в {1}<br /><br />"
-            + @"C уважением, Администрация больницы<br />"
-            + @"Тех. поддержка: zqcpchina@gmail.com"; //0 - «дата,время», 1 - адрес клиники
+        private const string bodyTemplate = @"Вы заполнили данные о билетах в своем личном кабинете<br />"
+            + @"Встречаем Вас {0} в {1}<br /><br />"; //0 - «дата,время», 1 - адрес клиники
 
         public TicketsBoughtToUserEmailNotification(int orderId, HttpServerUtilityBase server)
             : base(server)

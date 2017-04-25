@@ -69,7 +69,7 @@ namespace Cure.WebAdmin.Admin
                 //Изменение статуса на Одобрено
                 try
                 {
-                    var notify = new OrderApprovedToUserEmailNotification((int)e.Keys[0], new HttpServerUtilityWrapper(Server));
+                    var notify = new OrderApprovedToUserEmailNotification((int)e.Keys[0], (DateTime)e.NewValues["DateFrom"], (DateTime)e.NewValues["DateTo"], new HttpServerUtilityWrapper(Server));
                     notify.Send();
                 }
                 catch

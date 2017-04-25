@@ -68,3 +68,4 @@ D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Reports\obj\Debug\Cure.Reports.dl
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Reports\obj\Debug\Cure.Reports.dll
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Reports\obj\Debug\Cure.Reports.pdb
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Reports\obj\Debug\Cure.Reports.Rules.resources
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Reports\obj\Debug\Cure.Reports.OrderInvoice.resources

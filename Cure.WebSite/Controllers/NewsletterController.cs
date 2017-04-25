@@ -17,22 +17,28 @@ namespace Cure.WebSite.Controllers
         {
             try
             {
+                email = email.Trim().ToLower();
                 var dal = new DataAccessBL();
-                var entry = new Newsletter()
+                var exists = dal.GetNewsletter(email);
+                if (exists == null)
                 {
-                    Email = email,
-                    EntryDate = DateTime.Now,
-                    EntryType = "Футер сайта",
-                    ErrorsCount = 0,
-                    SuccessCount = 0,
-                    Settings = string.Empty
-                };
+                    var entry = new Newsletter()
+                        {
+                            Email = email,
+                            EntryDate = DateTime.Now,
+                            EntryType = "Футер сайта",
+                            ErrorsCount = 0,
+                            SuccessCount = 0,
+                            Settings = string.Empty
+                        };
 
-                dal.InsertNewsletter(entry);
-                var notify = new SubscribedToUserEmailNotification(email, Server);
-                notify.Send();
+                    dal.InsertNewsletter(entry);
+                    var notify = new SubscribedToUserEmailNotification(email, Server);
+                    notify.Send();
+                    return Json("1", JsonRequestBehavior.AllowGet);
+                }
 
-                return Json("1", JsonRequestBehavior.AllowGet);
+                return Json("-1", JsonRequestBehavior.AllowGet);
             }
             catch (Exception)
             {

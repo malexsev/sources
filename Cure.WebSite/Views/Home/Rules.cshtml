@@ -5,7 +5,7 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $('#agreebutton').prop('disabled', true);
-        $('#agreebutton').attr('title', 'Отметьте галочку Я согласен, чтобы продолжить.');
+        $('#agreebutton').attr('title', 'Отметьте галочку Я согласен(а), чтобы продолжить.');
 
         $('#agreeradio').click(function () {
             $('#agreebutton').prop('disabled', false);
@@ -155,7 +155,7 @@
                         <div class="forms-line order-forms-line">
                             <label class="forms-radio">
                                 @Html.RadioButton("AgreeRadioButton", "True", new { @id = "agreeradio" })
-                                <span>Я, @ViewBag.SputnikName прочитал и согласен с правилами клиники.</span>
+                                <span>Я, @ViewBag.SputnikName прочитал и согласен(а) с правилами клиники.</span>
                             </label>
                         </div>
                         <div class="forms-line order-forms-line">

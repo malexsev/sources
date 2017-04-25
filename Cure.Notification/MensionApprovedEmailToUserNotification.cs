@@ -16,11 +16,8 @@
         private ViewUserMembership user;
         private Mension mension;
         private const string subjectTemplate = "Ваш отзыв на сайте dcp-china.ru";
-        private const string bodyTemplate = "Здравствуйте.<br />"
-            + @"Вы оставляли отзыв на тему {0} на сайте dcp-china.ru<br />"
-            + @"Ваш отзыв прошёл проверку модератора и доступен на <a href='http://dcp-china.ru/Mension'>странице отзывов.</a><br /><br />"
-            + @"C уважением, Администрация больницы<br />"
-            + @"Тех. поддержка: zqcpchina@gmail.com"; //0 - тема отзыва
+        private const string bodyTemplate = "Вы оставляли отзыв на тему {0} на сайте dcp-china.ru<br />"
+            + @"Ваш отзыв прошёл проверку модератора и доступен на <a href='http://dcp-china.ru/Mension'>странице отзывов.</a><br /><br />"; //0 - тема отзыва
 
         public MensionApprovedEmailToUserNotification(int mensionId, HttpServerUtilityBase server)
             : base(server)

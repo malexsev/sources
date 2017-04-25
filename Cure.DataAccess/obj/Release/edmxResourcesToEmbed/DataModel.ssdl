@@ -273,6 +273,7 @@
     <Property Name="StatusId" Type="int" Nullable="false" />
     <Property Name="TransferInfo" Type="int" />
     <Property Name="OwnerUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateSend" Type="datetime" />
     <Property Name="DateFrom" Type="date" Nullable="false" />
     <Property Name="DateTo" Type="date" Nullable="false" />
     <Property Name="Dney" Type="int" />
@@ -283,6 +284,7 @@
     <Property Name="VizaDney" Type="int" />
     <Property Name="Notes" Type="nvarchar" MaxLength="250" />
     <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="IsAgree" Type="bit" />
     <Property Name="StatusDecription" Type="nvarchar" MaxLength="500" />
     <Property Name="ServicePekinIsPerevod" Type="bit" />
     <Property Name="ServicePekinIsHotel" Type="bit" />
@@ -516,10 +518,10 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="FileName" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="ServerPath" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="FileName" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="ServerPath" Type="nvarchar(max)" Nullable="false" />
     <Property Name="UploadDate" Type="datetime" Nullable="false" />
-    <Property Name="Username" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="GuidId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="IsReported" Type="bit" Nullable="false" />
   </EntityType>

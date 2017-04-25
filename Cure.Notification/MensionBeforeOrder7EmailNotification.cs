@@ -32,7 +32,7 @@
                 this.body = dal.GetSettingByCode("EmailTemplateMensionRequiredBefore7DaysBody").Value;
 
                 DateTime day = DateTime.Today.AddDays(7);
-                this.orders = dal.GetOrders().Where(x => x.StatusId == 8 && x.DateFrom.Date == day).ToList();
+                this.orders = dal.GetOrders().Where(x => x.StatusId == 7 && x.DateFrom.Date == day).ToList();
             }
             catch (Exception)
             {

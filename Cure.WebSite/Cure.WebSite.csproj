@@ -773,6 +773,8 @@
     <Content Include="Views\Biblioteka\PostsNews.cshtml" />
     <Content Include="Views\Home\Rules.cshtml" />
     <Content Include="Views\Home\RulesAgree.cshtml" />
+    <Content Include="Views\Home\Agreed.cshtml" />
+    <Content Include="Views\Biblioteka\Statyinovosti.cshtml" />
     <None Include="Views\Medicine\Human.cshtml" />
     <Content Include="Views\Procedure\OtOccupational.cshtml" />
     <Content Include="Views\Procedure\StSpeech.cshtml" />

@@ -136,7 +136,7 @@
             this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 120F);
             this.xrLabel3.SizeF = new System.Drawing.SizeF(331.6667F, 23F);
             this.xrLabel3.StylePriority.UseFont = false;
-            this.xrLabel3.Text = "с правилами ознакомлен";
+            this.xrLabel3.Text = "с правилами ознакомлен(а)";
             // 
             // uxName
             // 

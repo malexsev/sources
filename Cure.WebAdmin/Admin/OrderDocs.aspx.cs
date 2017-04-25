@@ -21,7 +21,15 @@
                     Session["ExpandOrderId"] = orderId;
                     var dal = new DataAccessBL();
                     Order order = dal.GetOrder(orderId);
+                    if (order == null)
+                    {
+                        throw new Exception(string.Format("Информация по данной заявке отсутствует."));
+                    }
                     var userView = dal.GetUserMembership(order.OwnerUser);
+                    if (userView == null)
+                    {
+                        throw new Exception(string.Format("Ошбика. Пользователь с логином {0} не найден в системе. Возможно логин был изменён вручную. Сопоставьте данный логин с одинм из пользователей системы, затем повторите операцию.", order.OwnerUser));
+                    }
                     var folderPath = Path.Combine(@"~\Documents\", userView.Expr1 + @"\UserFiles\");
                     FileUtils.CreateFolderIfNotExists(new HttpServerUtilityWrapper(this.Server), folderPath);
                     uxFileManager.Settings.RootFolder = folderPath;

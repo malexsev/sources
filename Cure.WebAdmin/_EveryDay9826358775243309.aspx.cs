@@ -39,7 +39,7 @@
                     new OrdersUnprocessedEmailNotification(new HttpServerUtilityWrapper(this.Server)),
                     new Before24HoursNotification(),
                     new Before24HoursEmailNotification(new HttpServerUtilityWrapper(this.Server)),
-                    new BeforeArriveToUserEmailNotification(),
+                    //new BeforeArriveToUserEmailNotification(),
                     new PacientBirthdayEmailNotification(new HttpServerUtilityWrapper(this.Server)),
                     new SomeBirthdaysEmailNotification(new HttpServerUtilityWrapper(this.Server))
                 };

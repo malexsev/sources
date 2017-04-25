@@ -69,7 +69,9 @@ namespace Cure.DataAccess.DAL
                     && x.StatusId != (int)Enums.OrderStatus.Завершён
                     && x.StatusId != (int)Enums.OrderStatus.Отказался
                     && x.StatusId != (int)Enums.OrderStatus.Отказано
-                    && x.DateFrom <= DateTime.Today && x.DateTo >= DateTime.Today).OrderBy(o => o.TicketPribitieTime).ThenBy(x => x.DateFrom).OrderBy(o => o.TicketPribitieTime).ToList();
+                    && x.DateFrom <= DateTime.Today && x.DateTo >= DateTime.Today)
+                    .OrderBy(x => x.DateFrom)
+                    .ThenBy(o => o.TicketPribitieTime).ToList();
             }
             DateTime maxDate = DateTime.Today.AddDays(filter);
             return context.ViewSoonVisits.Where(x => x.StatusId == (int)Enums.OrderStatus.КупленыБилеты
@@ -191,6 +193,8 @@ namespace Cure.DataAccess.DAL
                 origOrder.Notes = order.Notes;
                 origOrder.DateFrom = order.DateFrom;
                 origOrder.DateTo = order.DateTo;
+                origOrder.DateSend = order.DateSend;
+                origOrder.IsAgree = order.IsAgree;
                 origOrder.Dney = order.Dney;
                 origOrder.VizaDney = order.VizaDney;
                 origOrder.Description = order.Description;

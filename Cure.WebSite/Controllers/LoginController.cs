@@ -61,6 +61,12 @@ namespace Cure.WebSite.Controllers
         [HttpPost]
         public JsonResult Recovery(string remindinp)
         {
+            if (TempData["RecoveryTime"] != null && (DateTime)TempData["RecoveryTime"] >= DateTime.Now.AddMinutes(-1))
+            {
+                return Json("-1", JsonRequestBehavior.AllowGet);
+            }
+            TempData["RecoveryTime"] = DateTime.Now;
+
             var userName = Membership.GetUserNameByEmail(remindinp);
             var user = Membership.GetUser(userName ?? remindinp);
 

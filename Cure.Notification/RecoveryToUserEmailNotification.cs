@@ -15,8 +15,7 @@
         private string body;
         private ViewUserMembership user;
         private const string subjectTemplate = "Восстановление пароля на сайте www.dcp-china.ru";
-        private const string bodyTemplate = "Здравствуйте!<br /><br />"
-            + @"<b>Ваши учетные данные:</b><br />"
+        private const string bodyTemplate = "<b>Ваши учетные данные:</b><br />"
             + @"Логин: <b>{0}</b><br />"
             + @"Пароль: <b>{1}</b><br /><br />"
             + @"Вам доступны следующие услуги:"
@@ -30,12 +29,8 @@
             + @"<li>Справочная информация по подготовке к лечению</li>"
             + @"<li>Написать сообщение Администрации больницы</li>"
             + @"<li>Написать сообщение другим зарегистрированным пользователям</li>"
-            + @"</ul>"
-            + @"Если Вы считаете, что данное сообщение отправлено Вам ошибочно, просто проигнорируйте его.<br /><br />"
-            + @"Это автоматическое письмо, отвечать на которое не нужно!<br /><br />"
-            + @"Спасибо, что Вы с нами!<br />"
-            + @"C уважением, Администрация больницы <br />"
-            + @"Тех. поддержка: zqcpchina@gmail.com"; //0 - Логин, 1 - Пароль
+            + @"</ul><br /><br />"
+            + @"Это автоматическое письмо, отвечать на которое не нужно!"; //0 - Логин, 1 - Пароль
 
         public RecoveryToUserEmailNotification(string username, string password, HttpServerUtilityBase server)
             : base(server)

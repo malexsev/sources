@@ -8,7 +8,11 @@ namespace Cure.WebSite.Controllers
 {
     public class BibliotekaController : Controller
     {
-        // GET: China
+        public ActionResult Statyinovosti()
+        {
+            return View();
+        }
+
         public ActionResult Lekarstvassoboy()
         {
             return View();

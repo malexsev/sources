@@ -721,6 +721,9 @@ $(document).ready(function () {
                         $("#remindinp").val("");
                         $("#error-recovery").hide();
                         $(form).hide().siblings(".js-submit-ok").show();
+                    } else if (result == "-1") {
+                        $("#remindinp").parent().addClass("has-error");
+                        $("#error-recovery").show().text("Вам уже отправлено письмо с паролем. Повторная отправка возможна через минуту.");
                     } else {
                         $("#remindinp").parent().addClass("has-error");
                         $("#error-recovery").show().text("Пользователя с таким именем или адресом электронной почты в системе не найдено.");
@@ -1715,6 +1718,9 @@ $(document).ready(function () {
                         $("#error-newsletter").removeClass("form-errors");
                         $("#error-newsletter").show().text("Рассылка подключена.");
                         $('#email').val('');
+                    } else if (result == "-1") {
+                        $("#error-newsletter").addClass("form-errors");
+                        $('#error-newsletter').show().text("Данный e-mail уже подписан. Спасибо.");
                     } else {
                         $("#error-newsletter").addClass("form-errors");
                         $('#error-newsletter').show().text("Ошибка подключения.");
@@ -2232,8 +2238,14 @@ $(document).ready(function () {
         var entered = $("#rest-symbols");
 
         entered.text(input.length);
-
     });
+
+
+    /*--- Наши Дети - чат ------------------*/
+    $(".js-chat-shift").click(function () {
+        $(".chat-wrap").toggleClass("is-shifted");
+    });
+
 });
 
 

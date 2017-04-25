@@ -122,6 +122,13 @@
     <Compile Include="Subreports\VisitInvitationSputniks.Designer.cs">
       <DependentUpon>VisitInvitationSputniks.cs</DependentUpon>
     </Compile>
+    <Compile Include="OrderInvoice.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="OrderInvoice.Designer.cs">
+      <DependentUpon>OrderInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\DateAndMoneyConverter.cs" />
     <Compile Include="VisitInvitation.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -149,6 +156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Subreports\VisitInvitationSputniks.resx">
       <DependentUpon>VisitInvitationSputniks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderInvoice.resx">
+      <DependentUpon>OrderInvoice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VisitInvitation.resx">
       <DependentUpon>VisitInvitation.cs</DependentUpon>
