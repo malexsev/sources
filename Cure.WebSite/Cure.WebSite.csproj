@@ -588,14 +588,15 @@
     <Content Include="Content\pdf\PacientVisitDetails.pdf" />
     <Content Include="Content\pdf\phrases for trip1.pdf" />
     <Content Include="Content\pdf\usloviyabzgm2017.pdf" />
+    <Content Include="Content\css\___styles.less" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="robots.txt" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Scripts\jquery.ndeti.js" />
     <Content Include="Scripts\jquery.chat.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.ndeti.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
