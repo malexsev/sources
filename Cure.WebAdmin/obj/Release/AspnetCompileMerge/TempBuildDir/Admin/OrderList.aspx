@@ -112,7 +112,7 @@
             </tr>
         </table>
         <div class="panelsdelimiter"></div>
-        <dx:ASPxGridView ID="uxMainGrid" ClientInstanceName="grid" runat="server" AutoGenerateColumns="False" DataSourceID="uxMainDataSource" KeyFieldName="Id" OnRowUpdating="uxMainGrid_RowUpdating" OnRowInserting="uxMainGrid_RowInserting" OnDetailRowExpandedChanged="uxMainGrid_DetailRowExpandedChanged">
+        <dx:ASPxGridView ID="uxMainGrid" ClientInstanceName="grid" runat="server" AutoGenerateColumns="False" DataSourceID="uxMainDataSource" KeyFieldName="Id" OnRowUpdating="uxMainGrid_RowUpdating" OnRowInserting="uxMainGrid_RowInserting" OnDetailRowExpandedChanged="uxMainGrid_DetailRowExpandedChanged" OnStartRowEditing="uxMainGrid_StartRowEditing">
             <ClientSideEvents FocusedRowChanged="InitGalery"></ClientSideEvents>
             <Templates>
                 <DetailRow>
@@ -468,7 +468,7 @@
             <Columns>
                 <dx:GridViewCommandColumn ShowDeleteButton="True" ShowEditButton="True" ShowNewButtonInHeader="True" VisibleIndex="0" Width="36px" ShowClearFilterButton="True">
                 </dx:GridViewCommandColumn>
-                <dx:GridViewDataTextColumn FieldName="Id" VisibleIndex="1" Visible="False">
+                <dx:GridViewDataTextColumn FieldName="Id" VisibleIndex="1" Visible="False" UnboundType="Integer">
                     <EditFormSettings Visible="False" />
                 </dx:GridViewDataTextColumn>
                 <dx:GridViewDataTextColumn Caption="Пользователь" FieldName="OwnerUser" VisibleIndex="13" Width="60px">
@@ -610,8 +610,13 @@
                     </PropertiesComboBox>
                     <EditFormSettings Visible="True" VisibleIndex="10" />
                 </dx:GridViewDataComboBoxColumn>
-                <dx:GridViewDataCheckColumn Caption="Согласен" FieldName="IsAgree" VisibleIndex="4" Width="45px">
+                <dx:GridViewDataCheckColumn Caption="Согласен" FieldName="IsAgree" VisibleIndex="4" Width="45px" ReadOnly="True">
                     <EditFormSettings VisibleIndex="2" />
+                </dx:GridViewDataCheckColumn>
+                <dx:GridViewDataCheckColumn Caption="Оповещение" FieldName="Price" Visible="False" VisibleIndex="50">
+                    <EditFormSettings CaptionLocation="Near" ColumnSpan="2" Visible="True" VisibleIndex="50" />
+                    <CellStyle Font-Bold="True" HorizontalAlign="Right">
+                    </CellStyle>
                 </dx:GridViewDataCheckColumn>
             </Columns>
             <SettingsBehavior ConfirmDelete="True" />
@@ -623,7 +628,7 @@
             <SettingsDetail AllowOnlyOneMasterRowExpanded="True" ShowDetailRow="True" />
         </dx:ASPxGridView>
 
-        <asp:ObjectDataSource ID="uxMainDataSource" runat="server" DataObjectTypeName="Cure.DataAccess.Order" DeleteMethod="DeleteOrder" InsertMethod="InsertOrder" SelectMethod="GetOrders" TypeName="Cure.DataAccess.BLL.DataAccessBL" UpdateMethod="UpdateOrder" OldValuesParameterFormatString="original_{0}">
+        <asp:ObjectDataSource ID="uxMainDataSource" runat="server" DataObjectTypeName="Cure.DataAccess.Order" DeleteMethod="DeleteOrder" InsertMethod="InsertOrder" SelectMethod="GetOrders" TypeName="Cure.DataAccess.BLL.DataAccessBL" UpdateMethod="UpdateOrderShort" OldValuesParameterFormatString="original_{0}">
             <SelectParameters>
                 <asp:ControlParameter ControlID="uxFilter" DefaultValue="-1" Name="filter" PropertyName="Value" Type="Int32" />
                 <asp:ControlParameter ControlID="uxFilterEmailTextBox" DefaultValue="" Name="email" PropertyName="Text" Type="String" />

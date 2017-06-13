@@ -43,15 +43,15 @@ namespace Cure.WebSite.Controllers
         [HttpPost]
         public JsonResult Login(string loginname, string loginpass)
         {
-            bool? isValid = IsValid(loginname, loginpass);
-            if (isValid == true)
+            var isValid = IsValid(loginname, loginpass);
+            if (isValid == UserRegisterState.OK)
             {
                 Session.Abandon();
                 ActivateUser(loginname);
                 FormsAuthentication.SetAuthCookie(loginname, true);
                 return Json("1", JsonRequestBehavior.AllowGet);
             }
-            if (isValid == null)
+            if (isValid == UserRegisterState.BLOCKED)
             {
                 return Json("-1", JsonRequestBehavior.AllowGet);
             }
@@ -106,28 +106,29 @@ namespace Cure.WebSite.Controllers
             return Json("1", JsonRequestBehavior.AllowGet);
         }
 
-        private bool? IsValid(string login, string password)
+
+        private UserRegisterState IsValid(string login, string password)
         {
-            bool? result = null;
             var dal = new DataAccessBL();
             var user = dal.GetUserMembership(login);
-            Session["UserpicUrl"] = null;
-            if (user != null)
+            if (user == null)
             {
-                result = Membership.ValidateUser(login, password);
-                MembershipUser membershipUser = Membership.GetUser(login);
-                if (membershipUser != null && 
-                    membershipUser.IsLockedOut && 
-                    membershipUser.LastLockoutDate >= DateTime.Now.AddSeconds(-10))
+                return UserRegisterState.NOT_FOUND;
+            }
+
+            Session["UserpicUrl"] = null;
+            UserRegisterState result = Membership.ValidateUser(login, password) ? UserRegisterState.OK : UserRegisterState.WRONG_PASSWORD;
+            MembershipUser membershipUser = Membership.GetUser(login);
+            if (membershipUser != null && membershipUser.IsLockedOut)
+            {
+                if (membershipUser.LastLockoutDate >= DateTime.Now.AddSeconds(-10))
                 {
                     var notify = new UserBlockedEmailNotification(membershipUser, Server);
                     notify.Send();
                 }
-                if (membershipUser != null && membershipUser.IsLockedOut)
-                {
-                    result = null;
-                }
+                return UserRegisterState.BLOCKED;
             }
+
             return result;
         }
 
@@ -140,5 +141,13 @@ namespace Cure.WebSite.Controllers
                 Membership.UpdateUser(user);
             }
         }
+    }
+
+    enum UserRegisterState
+    {
+        OK = 0,
+        NOT_FOUND = 1,
+        BLOCKED = 2,
+        WRONG_PASSWORD = 3
     }
 }

@@ -1130,6 +1130,11 @@ namespace Cure.WebSite.Controllers
                     int countryId = int.Parse(country);
                     DateTime birthDate = DateTime.ParseExact(birthday, "dd.MM.yyyy", new CultureInfo("ru-RU"));
 
+                    if (birthDate > DateTime.Today)
+                    {
+                        return Json("Введён отрицательный возраст ребёнка.", JsonRequestBehavior.AllowGet);
+                    }
+
                     var dal = new DataAccessBL();
                     var view = dal.ViewChild(User.Identity.Name);
                     var child = dal.GetChild(view.Id);

@@ -225,5 +225,35 @@ namespace Cure.DataAccess.DAL
                 throw ex;
             }
         }
+
+        public void UpdateOrderShort(Order order)
+        {
+            try
+            {
+                var origOrder = GetOrder(order.Id);
+                origOrder.DepartmentId = order.DepartmentId;
+                origOrder.IsAgree = order.IsAgree;
+                origOrder.StatusId = order.StatusId;
+                origOrder.DateFrom = order.DateFrom;
+                origOrder.DateTo = order.DateTo;
+                origOrder.TicketPribitieTime = order.TicketPribitieTime;
+                origOrder.TicketUbitieTime = order.TicketUbitieTime;
+                origOrder.TransferInfo = order.TransferInfo;
+                origOrder.TicketInfo = order.TicketInfo;
+                origOrder.Description = order.Description;
+                origOrder.OwnerUser = order.OwnerUser;
+                origOrder.Notes = order.Notes;
+                origOrder.VizaDney = order.VizaDney;
+                origOrder.LastDate = order.LastDate;
+                origOrder.LastUser = order.LastUser;
+
+                context.Refresh(RefreshMode.StoreWins, context.ViewSoonVisits);
+                SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

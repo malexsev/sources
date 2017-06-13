@@ -1,3 +1,4 @@
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Utils\bin\Debug\Cure.DataAccess.pdb
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Utils\bin\Debug\Cure.Utils.dll
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Utils\bin\Debug\Cure.Utils.pdb
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Utils\bin\Debug\Cure.DataAccess.dll
@@ -5,7 +6,6 @@ D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Utils\bin\Debug\Cure.Reports.dll
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Utils\bin\Debug\Microsoft.Practices.ServiceLocation.dll
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Utils\bin\Debug\Microsoft.Practices.Unity.Configuration.dll
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Utils\bin\Debug\Microsoft.Practices.Unity.dll
-D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Utils\bin\Debug\Cure.DataAccess.pdb
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Utils\bin\Debug\Cure.Reports.pdb
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Utils\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Utils\bin\Debug\Microsoft.Practices.ServiceLocation.xml

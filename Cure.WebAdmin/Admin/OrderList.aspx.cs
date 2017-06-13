@@ -91,7 +91,7 @@ namespace Cure.WebAdmin.Admin
                 {
                     if (!string.IsNullOrEmpty((e.NewValues["TicketInfo"] ?? "").ToString()))
                     {
-                        var notify = new OrderTicketsToUserEmailNotification((int)e.Keys[0], (int)e.NewValues["TransferInfo"], new HttpServerUtilityWrapper(Server));
+                        var notify = new OrderTicketsToUserEmailNotification((int)e.Keys[0], (int)e.NewValues["TransferInfo"], e.NewValues["TicketInfo"].ToString() ?? "", new HttpServerUtilityWrapper(Server));
                         notify.Send();
                     }
                     else
@@ -219,6 +219,11 @@ namespace Cure.WebAdmin.Admin
         protected void ASPxFileManager1_FileDownloading(object source, FileManagerFileDownloadingEventArgs e)
         {
 
+        }
+
+        protected void uxMainGrid_StartRowEditing(object sender, ASPxStartRowEditingEventArgs e)
+        {
+            //var wc = uxMainGrid.Find;
         }
     }
 }

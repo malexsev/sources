@@ -385,7 +385,7 @@
             // FullName
             // 
             this.FullName.DataMember = "dsVistInvitationSputniks";
-            this.FullName.Expression = "Concat([Familiya], \' \', [Name], \' \', [Otchestvo])";
+            this.FullName.Expression = "Concat([Familiya], \' \', [Name], \' \', IsNull([Otchestvo], \'\'))";
             this.FullName.Name = "FullName";
             // 
             // FullNameEn

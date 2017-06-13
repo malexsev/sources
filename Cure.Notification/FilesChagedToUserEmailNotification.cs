@@ -15,10 +15,13 @@
         private IEnumerable<UploadLog> logs;
         private const string subjectTemplate = "Новые файлы в Личном кабинете.";
         private const string bodyTemplate =
-            @"В Вашем личном кабинете произошли изменения в файлах.<br />" +
-            @"Были загружены следующие файлы:<br /><br />" +
+            @"Документы<br /><br />" +
             @"{0}<br /><br /> " +
-            @"Зайдите на сайт <a href='http://dcp-china.ru'>http://dcp-china.ru</a>, проверьте страницу Мои файлы."; // 0 - Список файлов
+            @"Подготовлены и отправлены в Личный кабинет в раздел Мои файлы.<br /><br />" +
+            @"пройдите по ссылке <a href='http://dcp-china.ru/cabinet/files'>http://dcp-china.ru/cabinet/files</a><br />" +
+            "<img src='http://lk.dcp-china.ru/content/images/files.png'><br />" +
+            @"Пожалуйста, проверьте правильность всех паспортных данных, период лечения, оформление.<br /><br />" + 
+            @"В случае обнаружения ошибки сразу сообщите нам ответным письмом.<br /> "; // 0 - Список файлов
 
         public FilesChagedToUserEmailNotification(HttpServerUtilityBase server)
             : base(server)
@@ -66,11 +69,11 @@
             var notify = new NotificationLog()
             {
                 ClientName = "Пользователь",
-                Description = "Опопвещение за 60 дней до заезда",
+                Description = "Файлы в Личном кабинете",
                 Contacts = recipient,
                 Details = this.subject,
                 ExecutionDate = DateTime.Now,
-                Name = "EMail Опопвещение за 60 дней до заезда",
+                Name = "EMail Файлы в Личном кабинете",
                 Result = result,
                 Type = "EMail",
                 Text = text

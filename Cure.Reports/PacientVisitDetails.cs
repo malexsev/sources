@@ -21,5 +21,15 @@
             this.dataTableAdapter.Fill(dt, visitId);
             uxSputniksSubreport.ReportSource = new PacientVisitDetailsSputniks(visitId);
         }
+
+        private void xrLabel38_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            var text = sender;
+        }
+
+        private void xrLabel5_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            var text = sender;
+        }
     }
 }

@@ -219,6 +219,7 @@ namespace Cure.DataAccess.DAL
         void InsertOrder(Order order);
         void DeleteOrder(Order order);
         void UpdateOrder(Order order);
+        void UpdateOrderShort(Order order);
 
         IEnumerable<OrderStatu> GetOrderStatus();
         void InsertOrderStatu(OrderStatu orderStatu);

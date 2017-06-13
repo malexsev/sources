@@ -3143,7 +3143,7 @@ html.swipebox-html.swipebox-touch {
 }
 .main-page .sec-steps-note {
   max-width: 850px;
-  margin: 25px auto 75px;
+  margin: 25px auto;
   text-align: center;
   font: 300 24px/30px 'Open Sans', sans-serif;
 }
@@ -6094,13 +6094,6 @@ html.swipebox-html.swipebox-touch {
   width: 20px;
   height: 20px;
 }
-.chat-mob-nav{
-  display: none;
-  margin: 5px 0;
-  color: #e07828;
-  text-align: center;
-  font-weight: 700;
-}
 .assist {
   display: inline-block;
   position: relative;
@@ -6917,12 +6910,6 @@ html.swipebox-html.swipebox-touch {
   .contact-card-title{
     font-size: 36px;
   }
-  .chat-message.is-outgoing .chat-message-txt{
-    margin-left: 0;
-  }
-  .chat-message.is-incoming .chat-message-txt {
-    margin-right: 0;
-  }
 }
 
 @media (max-width: 767px) {
@@ -7038,31 +7025,6 @@ html.swipebox-html.swipebox-touch {
   }
   .child-info-money .money-account{
     margin: 3px 0;
-  }
-  .chat-page{
-    margin: 0 -10px;
-    padding: 10px 0 0;
-    height: calc(100vh - 190px);
-  }
-  .chat-head,
-  .chat-body{
-    width: 200%;
-    transition: all 3s;
-    -webkit-transition: all 1s;
-  }
-  .chat-left,
-  .chat-right{
-    float: left;
-    width: 50%;
-    margin: 0;
-  }
-  .chat-wrap.is-shifted .chat-head,
-  .chat-wrap.is-shifted .chat-body{
-    -webkit-transform: translateX( -50% );
-    transform: translateX( -50% )
-  }
-  .chat-mob-nav{
-    display: block;
   }
 }
 

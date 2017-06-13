@@ -1,3 +1,4 @@
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebAdmin\bin\Cure.WebAdmin.dll.config
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebAdmin\bin\Cure.WebAdmin.dll
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebAdmin\bin\Cure.WebAdmin.pdb
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebAdmin\bin\Cure.DataAccess.dll
@@ -36,8 +37,8 @@ D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebAdmin\bin\Microsoft.Practices.
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebAdmin\bin\Microsoft.Web.Infrastructure.dll
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebAdmin\bin\Unity.WebForms.dll
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebAdmin\bin\WebActivator.dll
-D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebAdmin\bin\Cure.Notification.pdb
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebAdmin\bin\Cure.DataAccess.pdb
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebAdmin\bin\Cure.Notification.pdb
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebAdmin\bin\Cure.Reports.pdb
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebAdmin\bin\Cure.Utils.pdb
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebAdmin\bin\DevExpress.Data.v14.1.xml
@@ -151,4 +152,3 @@ D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebAdmin\obj\Debug\Cure.WebAdmin.
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebAdmin\obj\Debug\Cure.WebAdmin.dll.licenses
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebAdmin\obj\Debug\Cure.WebAdmin.dll
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebAdmin\obj\Debug\Cure.WebAdmin.pdb
-D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.WebAdmin\bin\Cure.WebAdmin.dll.config

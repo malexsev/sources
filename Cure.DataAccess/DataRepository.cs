@@ -46,6 +46,5 @@ namespace Cure.DataAccess.DAL
             Dispose(true);
             GC.SuppressFinalize(this);
         }
-
     }
 }

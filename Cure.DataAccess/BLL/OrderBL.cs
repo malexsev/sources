@@ -111,5 +111,17 @@ namespace Cure.DataAccess.BLL
             }
 
         }
+
+        public void UpdateOrderShort(Order order)
+        {
+            try
+            {
+                dataRepository.UpdateOrderShort(order);
+            } catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
     }
 }

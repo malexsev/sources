@@ -753,7 +753,7 @@ $(document).ready(function () {
                         $("#error-tab1").show().text("Сохранено.");
                     } else {
                         $("#error-tab1").addClass("form-errors");
-                        $("#error-tab1").show().text("Ошибка при сохранении данных, проверьте данные и попробуйте снова.");
+                        $("#error-tab1").show().text("Ошибка при сохранении данных: " + (result == "0" ? "Проверье данные или попробуйте снова" : result));
                     }
                     $('#uploadprogress').html("");
                 },

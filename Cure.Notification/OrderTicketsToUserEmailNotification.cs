@@ -17,7 +17,7 @@
         private Order order;
         private const string subjectTemplate = "Информация о встрече в городе Юньчен";
 
-        public OrderTicketsToUserEmailNotification(int orderId, int transferInfoId, HttpServerUtilityBase server)
+        public OrderTicketsToUserEmailNotification(int orderId, int transferInfoId, string ticketInfo, HttpServerUtilityBase server)
             : base(server)
         {
             var dal = new DataAccessBL();
@@ -25,7 +25,10 @@
             this.user = dal.GetUserMembership(order.OwnerUser);
             this.subject = subjectTemplate;
             var info = dal.GetDepartmentTransferInfo(transferInfoId);
-            this.body = info.Text;
+            this.body = info.Text
+                .Replace("#DATE#", order.DateFrom.ToShortDateString())
+                .Replace("#TIME#", order.DateFrom.ToShortTimeString())
+                .Replace("#FLIGHT#", ticketInfo);
         }
 
         public override bool Send()

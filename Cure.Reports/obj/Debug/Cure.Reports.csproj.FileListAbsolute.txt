@@ -1,3 +1,4 @@
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Reports\bin\Debug\Cure.DataAccess.pdb
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Reports\bin\Debug\Cure.Reports.dll.config
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Reports\bin\Debug\Cure.Reports.dll
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Reports\bin\Debug\Cure.Reports.pdb
@@ -12,7 +13,6 @@ D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Reports\bin\Debug\DevExpress.Spar
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Reports\bin\Debug\DevExpress.XtraCharts.v14.1.dll
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Reports\bin\Debug\DevExpress.XtraGauges.v14.1.Core.dll
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Reports\bin\Debug\DevExpress.XtraReports.v14.1.dll
-D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Reports\bin\Debug\Cure.DataAccess.pdb
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Reports\bin\Debug\DevExpress.Data.v14.1.xml
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Reports\bin\Debug\DevExpress.Office.v14.1.Core.xml
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Reports\bin\Debug\DevExpress.PivotGrid.v14.1.Core.xml
@@ -60,12 +60,12 @@ D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Reports\bin\Debug\ja\DevExpress.X
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Reports\bin\Debug\ru\DevExpress.XtraReports.v14.1.resources.dll
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Reports\obj\Debug\Cure.Reports.csprojResolveAssemblyReference.cache
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Reports\obj\Debug\Cure.Reports.PacientVisitDetails.resources
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Reports\obj\Debug\Cure.Reports.Rules.resources
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Reports\obj\Debug\Cure.Reports.PacientVisitDetailsSputniks.resources
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Reports\obj\Debug\Cure.Reports.VisitInvitationSputniks.resources
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Reports\obj\Debug\Cure.Reports.OrderInvoice.resources
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Reports\obj\Debug\Cure.Reports.VisitInvitation.resources
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Reports\obj\Debug\Cure.Reports.csproj.GenerateResource.Cache
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Reports\obj\Debug\Cure.Reports.dll.licenses
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Reports\obj\Debug\Cure.Reports.dll
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Reports\obj\Debug\Cure.Reports.pdb
-D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Reports\obj\Debug\Cure.Reports.Rules.resources
-D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Reports\obj\Debug\Cure.Reports.OrderInvoice.resources

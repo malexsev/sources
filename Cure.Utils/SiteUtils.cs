@@ -25,6 +25,10 @@
         {
             if (birthday.Year > 1900 && birthday.Year < 2100)
             {
+                if (birthday > DateTime.Today)
+                {
+                    return -1;
+                }
                 return new DateTime(((DateTime.Today - birthday)).Ticks).Year - 1;
             }
             return 0;
