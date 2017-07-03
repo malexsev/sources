@@ -1024,6 +1024,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Content\Custom\" />
     <Folder Include="Documents\0440e255-b664-478b-9068-a716678cf051\" />
     <Folder Include="Documents\04c45750-74b2-47e0-ac3d-f6822c62b1e5\" />
     <Folder Include="Documents\0f73a2a3-5080-48dc-b301-e189757038ac\" />

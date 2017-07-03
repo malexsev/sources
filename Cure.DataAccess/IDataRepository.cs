@@ -20,8 +20,10 @@ namespace Cure.DataAccess.DAL
         void DeleteDepartmentTransferInfo(DepartmentTransferInfo departmentTransferInfo);
         void UpdateDepartmentTransferInfo(DepartmentTransferInfo departmentTransferInfo);
 
+        IEnumerable<NewsPage> GetAllActive();
         IEnumerable<NewsPage> GetNewsPages();
         NewsPage GetNewsPage(int id);
+        IEnumerable<NewsPage> MoreNews(int skipRecords, int takeRecords = 4);
         void InsertNewsPage(NewsPage newsPage);
         void DeleteNewsPage(NewsPage newsPage);
         void UpdateNewsPage(NewsPage newsPage);

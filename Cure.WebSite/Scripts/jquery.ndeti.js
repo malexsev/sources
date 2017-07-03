@@ -16,7 +16,7 @@ function mapStart() {
         };
         var map = new google.maps.Map(myMapPlace, myOptions);
 
-        var companyLogo = new google.maps.MarkerImage('Content/img/icon_map.png',
+        var companyLogo = new google.maps.MarkerImage('content/img/icon_map.png',
           new google.maps.Size(28, 37),
           new google.maps.Point(0, 0),
           new google.maps.Point(14, 37)
@@ -109,10 +109,16 @@ $(document).ready(function () {
     //Загрузка больше фото детей и отзывов
     dataAjaxLoad(".js-load-more-children", "#js-for-load-children", "/Children/More",
                  "#more-count", ".js-ajax-for-count", "#skiprecords", '#childrenform');
+
     //Загрузка больше историй
     dataAjaxLoad(".js-load-more-history", "#js-for-load-history", "ajax/more_history.php");
     //Загрузка больше впечатлений
     dataAjaxLoad(".js-load-more-feelings", "#js-for-load-feelings", "ajax/more_feelings.php");
+    
+    //Загрузка больше новостей
+    dataAjaxLoad(".js-load-more-news", "#js-for-load-news", "/News/More",
+                 "#more-count", ".js-ajax-for-count", "#skiprecords", '#newsform');
+
 
     /*----------- ФУНКЦИИ: Работа табов ---------------------------------------*/
     $.fn.tabsInit = function () {
@@ -721,6 +727,9 @@ $(document).ready(function () {
                         $("#remindinp").val("");
                         $("#error-recovery").hide();
                         $(form).hide().siblings(".js-submit-ok").show();
+                    } else if (result == "-1") {
+                        $("#remindinp").parent().addClass("has-error");
+                        $("#error-recovery").show().text("Вам уже отправлено письмо с паролем. Повторная отправка возможна через минуту.");
                     } else {
                         $("#remindinp").parent().addClass("has-error");
                         $("#error-recovery").show().text("Пользователя с таким именем или адресом электронной почты в системе не найдено.");
@@ -753,7 +762,7 @@ $(document).ready(function () {
                         $("#error-tab1").show().text("Сохранено.");
                     } else {
                         $("#error-tab1").addClass("form-errors");
-                        $("#error-tab1").show().text("Ошибка при сохранении данных: " + (result == "0" ? "Проверье данные или попробуйте снова" : result));
+                        $("#error-tab1").show().text("Ошибка при сохранении данных, проверьте данные и попробуйте снова.");
                     }
                     $('#uploadprogress').html("");
                 },
@@ -1715,6 +1724,9 @@ $(document).ready(function () {
                         $("#error-newsletter").removeClass("form-errors");
                         $("#error-newsletter").show().text("Рассылка подключена.");
                         $('#email').val('');
+                    } else if (result == "-1") {
+                        $("#error-newsletter").addClass("form-errors");
+                        $('#error-newsletter').show().text("Данный e-mail уже подписан. Спасибо.");
                     } else {
                         $("#error-newsletter").addClass("form-errors");
                         $('#error-newsletter').show().text("Ошибка подключения.");
@@ -1866,7 +1878,7 @@ $(document).ready(function () {
         autoplaySpeed: 5000
     });
 
-    /*----------- Слайдер картинок  ----------------------------------------------*/
+    /*----------- Слайдер картинок  ------------------------------------------*/
     $('.js-allpages-slider').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -1875,7 +1887,63 @@ $(document).ready(function () {
         infinite: true,
         speed: 500,
         autoplay: true,
+        autoplaySpeed: 5000
+    });
+
+
+    /*----------- Слайдер докторов  ------------------------------------------*/
+    $(".js-doctors-slider").slick({
+        dots: false,
+        arrows: true,
+        infinite: false,
+        speed: 600,
+        variableWidth: true,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 5000
+    });
+
+    /*----------- Слайдер секции блога/новостей  -----------------------------*/
+    $(".js-blog-slider").slick({
+        dots: false,
+        arrows: true,
+        infinite: false,
+        speed: 600,
+        slidesToScroll: 1,
+        slidesToShow: 4,
+        autoplay: false,
         autoplaySpeed: 5000,
+        responsive: [
+        {
+          breakpoint: 992,
+          settings: {
+            slidesToShow: 3
+          }
+        },
+        {
+          breakpoint: 767,
+          settings: {
+            slidesToShow: 2
+          }
+        },
+        {
+          breakpoint: 519,
+          settings: {
+            slidesToShow: 1
+          }
+        }
+        ]
+    });
+
+    /*----------- Слайдер новостей с фоном  ----------------------------------*/
+    $(".js-news-slider").slick({
+        dots: true,
+        arrows: false,
+        infinite: true,
+        speed: 600,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 5000
     });
 
 
@@ -2232,8 +2300,14 @@ $(document).ready(function () {
         var entered = $("#rest-symbols");
 
         entered.text(input.length);
-
     });
+
+
+    /*--- Наши Дети - чат ------------------*/
+    $(".js-chat-shift").click(function () {
+        $(".chat-wrap").toggleClass("is-shifted");
+    });
+
 });
 
 

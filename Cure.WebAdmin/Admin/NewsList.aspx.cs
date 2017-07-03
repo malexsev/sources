@@ -6,10 +6,13 @@
 
     public partial class NewsList : Page
     {
-
         protected void uxMainGrid_HtmlRowPrepared(object sender, DevExpress.Web.ASPxGridView.ASPxGridViewTableRowEventArgs e)
         {
-            //e.Row["Text"]
+            //var editor = uxMainGrid.FindEditFormTemplateControl("uxEditor") as ASPxHtmlEditor;
+            //if (editor != null && e.GetValue("Text") != null)
+            //{
+            //    editor.Html = e.GetValue("Text").ToString();
+            //}
         }
 
         protected void uxMainGrid_RowInserting(object sender, DevExpress.Web.Data.ASPxDataInsertingEventArgs e)
@@ -27,6 +30,11 @@
             e.NewValues["EditDate"] = DateTime.Now;
             e.NewValues["LastUser"] = SiteUtils.GetCurrentUserName();
             e.NewValues["Sort"] = e.NewValues["Sort"] ?? 0;
+        }
+
+        protected void HtmlEditorInit(object sender, EventArgs e)
+        {
+
         }
     }
 }

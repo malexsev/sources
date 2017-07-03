@@ -1,0 +1,86 @@
+﻿@using System.Configuration
+@using Cure.DataAccess
+@using Cure.Utils
+@{
+    ViewBag.Title = "Новости и события";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model IEnumerable<NewsPage>
+
+<div class="main has-custom-bg" role="main">
+    @using (Ajax.BeginForm("Index", "News", null, null, new { id = "newsform" }))
+    {
+        <section class="news-wrapper">
+            <div class="container">
+                <div class="all-pages-head">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <h1 class="all-pages-H1">Новости и события</h1>
+                        </div>
+                        <div class="col-lg-6">
+                            <form class="rss-form" action="#" method="post">
+                                <label class="rss-text" for="rss-email">Сразу на почту</label>
+                                <input id="rss-email" class="rss-field" type="text" name="rss_email" placeholder="Ваш E-mail" autocapitalize="off" autocorrect="off" autocomplete="email" />
+                                <button class="rss-submit" type="submit"></button>
+                            </form>
+                        </div>
+                    </div>
+                </div><!-- END all-pages-head -->
+
+                <div class="all-pages-body">
+                    <div class="row">
+                        <ul id="js-for-load-news" class="news">
+                            @for (var i = 1; i <= (Model.Count() < 12 ? Model.Count() : 12) / 4; i++)
+                            {
+                                <li class="news-item">
+                                    <div class="col-lg-6 col-md-6">
+                                        @if (Model.Any() && Model.Count() > i * 4)
+                                        {
+                                            <a class="news-item-link" href="@Url.Action(Model.ToList()[i * 4].Alias, "News")">
+                                                <img class="news-item-image" src="~/Content/images/news-page/02-big.jpg" alt="" />
+                                                <span class="news-item-date">@Html.Raw(Model.ToList()[i * 4].Date.HasValue ? Model.ToList()[i * 4].Date.Value.ToString("dd.MM.yyyy") : "<Дата не указана>")</span>
+                                                <span class="news-item-name">"@Model.ToList()[i * 4].Subject"</span>
+                                            </a>
+                                        }
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <ul class="news-aside">
+                                            @if (Model.Any() && Model.Count() > i * 4 + 1)
+                                            {
+                                                int cnt = i * 4 + 1;
+                                                foreach (NewsPage news in Model.Skip(i * 4 + 1).Take(3))
+                                                {
+                                                    <li class="news-aside-item">
+                                                        <a class="news-aside-item-link" href="@Url.Action(Model.ToList()[cnt].Alias, "News")">
+                                                            <img class="news-aside-item-image" src="~/Content/images/news-page/03-aside.jpg" alt="" />
+                                                            <span class="news-aside-item-name">@Model.ToList()[cnt].Subject</span>
+                                                            <span class="news-aside-item-date">@Html.Raw(Model.ToList()[cnt].Date.HasValue ? Model.ToList()[cnt].Date.Value.ToString("dd.MM.yyyy") : "<Дата не указана>")</span>
+                                                        </a>
+                                                    </li>
+                                                    cnt++;
+                                                }
+                                            }
+                                        </ul>
+                                    </div>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                    <div class="row">
+                        <div class="col-ss-12">
+                            <div class="all-pages-more">
+                                @Html.Hidden("skiprecords", 0, new { id = "skiprecords" })
+                                <div class="more-title">
+                                    Позаканы <span id="more-count">@Html.Raw((ViewBag.NewsCount <= 12 ? ViewBag.NewsCount : 12))</span> из <span id="more-all">@ViewBag.NewsCount</span>
+                                </div>
+                                <div class="more-btn">
+                                    <a class="btn btn-light has-loading js-load-more-news">Показать еще</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- END all-pages-body -->
+            </div><!-- END container -->
+        </section>
+    }
+</div><!-- END main -->

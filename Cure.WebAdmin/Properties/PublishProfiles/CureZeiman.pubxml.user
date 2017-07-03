@@ -74,7 +74,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/18/2016 21:45:12</publishTime>
     </File>
     <File Include="Admin/NewsList.aspx">
-      <publishTime>02/17/2017 13:13:48</publishTime>
+      <publishTime>06/21/2017 00:29:58</publishTime>
     </File>
     <File Include="Admin/NotificationLogList.aspx">
       <publishTime>02/25/2017 21:17:54</publishTime>
@@ -935,28 +935,28 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/30/2015 22:06:32</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>06/06/2017 22:43:11</publishTime>
+      <publishTime>07/01/2017 17:02:39</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>06/06/2017 22:43:11</publishTime>
+      <publishTime>07/01/2017 17:02:39</publishTime>
     </File>
     <File Include="bin/Cure.Admin.dll">
       <publishTime>10/13/2015 22:39:42</publishTime>
     </File>
     <File Include="bin/Cure.DataAccess.dll">
-      <publishTime>05/08/2017 11:55:57</publishTime>
+      <publishTime>07/01/2017 17:02:29</publishTime>
     </File>
     <File Include="bin/Cure.Notification.dll">
-      <publishTime>06/06/2017 22:43:04</publishTime>
+      <publishTime>07/01/2017 17:02:31</publishTime>
     </File>
     <File Include="bin/Cure.Reports.dll">
-      <publishTime>06/06/2017 22:43:03</publishTime>
+      <publishTime>07/01/2017 17:02:30</publishTime>
     </File>
     <File Include="bin/Cure.Utils.dll">
-      <publishTime>06/06/2017 22:43:04</publishTime>
+      <publishTime>07/01/2017 17:02:30</publishTime>
     </File>
     <File Include="bin/Cure.WebAdmin.dll">
-      <publishTime>06/06/2017 22:43:05</publishTime>
+      <publishTime>07/01/2017 17:02:32</publishTime>
     </File>
     <File Include="bin/de/DevExpress.Data.v14.1.resources.dll">
       <publishTime>06/27/2014 13:41:14</publishTime>
@@ -1634,7 +1634,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/18/2015 20:52:42</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>06/06/2017 22:43:08</publishTime>
+      <publishTime>07/01/2017 17:02:35</publishTime>
     </File>
     <File Include="Report.master">
       <publishTime>12/10/2015 23:44:32</publishTime>

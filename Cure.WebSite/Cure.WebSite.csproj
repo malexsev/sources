@@ -350,6 +350,14 @@
     <Content Include="Content\images\medicine\prop-icon_2.png" />
     <Content Include="Content\images\medicine\prop-icon_3.png" />
     <Content Include="Content\images\medicine\prop-icon_4.png" />
+    <Content Include="Content\images\news-page\01-aside.jpg" />
+    <Content Include="Content\images\news-page\01-big.jpg" />
+    <Content Include="Content\images\news-page\02-aside.jpg" />
+    <Content Include="Content\images\news-page\02-big.jpg" />
+    <Content Include="Content\images\news-page\03-aside.jpg" />
+    <Content Include="Content\images\news-page\03-big.jpg" />
+    <Content Include="Content\images\news-page\banner-item.jpg" />
+    <Content Include="Content\images\news-page\news-inner-image.jpg" />
     <Content Include="Content\images\procedures\procedures_1.jpg" />
     <Content Include="Content\images\procedures\procedures_2.jpg" />
     <Content Include="Content\images\procedures\procedures_3.jpg" />
@@ -634,6 +642,7 @@
     <Compile Include="Controllers\ChildrenController.cs" />
     <Compile Include="Controllers\BibliotekaController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\NewsletterController.cs" />
     <Compile Include="Controllers\FeedbackController.cs" />
     <Compile Include="Controllers\FinanceController.cs" />
@@ -810,6 +819,8 @@
     <Content Include="Views\Medicine\Anisodine.cshtml" />
     <Content Include="Views\Medicine\Sodium.cshtml" />
     <Content Include="Views\Procedure\Acupoint.cshtml" />
+    <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\News\_News.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

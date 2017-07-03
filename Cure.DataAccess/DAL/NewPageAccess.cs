@@ -13,6 +13,18 @@ namespace Cure.DataAccess.DAL
             return context.NewsPages.FirstOrDefault(x => x.Id == id);
         }
 
+        public IEnumerable<NewsPage> GetAllActive()
+        {
+            return context.NewsPages.Where(x => x.IsActive).OrderByDescending(o => o.Date).ToList();
+        }
+
+        public IEnumerable<NewsPage> MoreNews(int skipRecords, int takeRecords = 4)
+        {
+            return context.NewsPages.Where(o => o.IsActive == true)
+                .OrderByDescending(o => o.Date).ThenByDescending(x => x.EditDate)
+                .Skip(skipRecords).Take(takeRecords).ToList();
+        }
+
         public IEnumerable<NewsPage> GetNewsPages()
         {
             return context.NewsPages.OrderBy(o => o.Name).ToList();

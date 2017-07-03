@@ -8,7 +8,7 @@ namespace Cure.DataAccess.DAL
 {
     internal partial class DataRepository
     {
-        public IEnumerable<ViewMension> ViewMensions(int filterId, int skipRecords, int takeRecords = 12)
+        public IEnumerable<ViewMension> ViewMensions(int filterId, int skipRecords, int takeRecords)
         {
             return context.ViewMensions.Where(o => o.IsActive == true && (filterId == o.DepartmentId || filterId == 0 || (filterId == -1 && o.DepartmentId == null)))
                 .OrderByDescending(o => o.SortOrder).ThenByDescending(x => x.CreatedDate)

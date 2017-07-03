@@ -15,6 +15,16 @@ namespace Cure.DataAccess.BLL
             return dataRepository.GetNewsPage(id);
         }
 
+        public IEnumerable<NewsPage> GetAllActive()
+        {
+            return dataRepository.GetAllActive();
+        }
+
+        public IEnumerable<NewsPage> MoreNews(int skipRecords, int takeRecords = 12)
+        {
+            return dataRepository.MoreNews(skipRecords, takeRecords);
+        }
+
         public IEnumerable<NewsPage> GetNewsPages()
         {
             return dataRepository.GetNewsPages();
