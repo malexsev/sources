@@ -14,8 +14,10 @@ namespace Cure.WebSite.Controllers
         public ActionResult Index()
         {
             var dal = new DataAccessBL();
-            var result = dal.GetAllActive();
-            ViewBag.NewsCount = result.Count();
+            var all = dal.GetAllActive().ToList();
+
+            var result = all.Take(12);
+            ViewBag.NewsCount = all.Count();
             return View(result);
         }
 
@@ -23,10 +25,11 @@ namespace Cure.WebSite.Controllers
         public PartialViewResult More(string skiprecords)
         {
             var dal = new DataAccessBL();
-            int skipRecords = SiteUtils.ParseInt(skiprecords, 0);
+            var skip = SiteUtils.ParseInt(skiprecords, 0);
 
-            var result = dal.MoreNews(skipRecords).ToList();
-            ViewBag.NewsCount = dal.GetAllActive().Count();
+            var all = dal.GetAllActive().ToList();
+            var result = all.Skip(skip).Take(4);
+            ViewBag.NewsCount = all.Count();
 
             return PartialView("_News", result);
         }

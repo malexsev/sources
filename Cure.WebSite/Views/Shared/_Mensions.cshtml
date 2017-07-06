@@ -29,11 +29,11 @@
         </div>
     </div>
 }
-@if (IsPost)
+@*@if (IsPost && ((IEnumerable<ViewMension>)ViewBag.ViewMensions).Any())
 {
     <script>
-        $("#more-count").text("@Html.Raw((ViewBag.MensionsCount <= 12 ? ViewBag.MensionsCount : 12))");
-        $("#more-all").text("@ViewBag.MensionsCount");
+        $("#more-count").text("@Html.Raw((ViewBag.MensionsTotal <= 12 ? ViewBag.MensionsTotal : 12))");
+        $("#more-all").text("@ViewBag.MensionsTotal");
     </script>
-}
+}*@
 

@@ -15,7 +15,7 @@ namespace Cure.DataAccess.DAL
 
         public IEnumerable<NewsPage> GetAllActive()
         {
-            return context.NewsPages.Where(x => x.IsActive).OrderByDescending(o => o.Date).ToList();
+            return context.NewsPages.Where(x => x.IsActive).OrderByDescending(o => o.Date).ThenByDescending(x => x.EditDate).ToList();
         }
 
         public IEnumerable<NewsPage> MoreNews(int skipRecords, int takeRecords = 4)
@@ -27,7 +27,7 @@ namespace Cure.DataAccess.DAL
 
         public IEnumerable<NewsPage> GetNewsPages()
         {
-            return context.NewsPages.OrderBy(o => o.Name).ToList();
+            return context.NewsPages.OrderByDescending(o => o.Date).ThenByDescending(x => x.EditDate).ToList();
         }
 
         public NewsPage GetNewsPage(string name)

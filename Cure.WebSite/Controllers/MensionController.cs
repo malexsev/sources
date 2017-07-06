@@ -18,7 +18,7 @@ namespace Cure.WebSite.Controllers
             var dal = new DataAccessBL();
 
             ViewBag.DepSubjects = dal.GetDepSubject();
-            ViewBag.MensionsCount = dal.CountMensions(0);
+            ViewBag.MensionsTotal = dal.CountMensions(0);
             ViewBag.ViewMensions = dal.ViewMensions(0, 0);
 
             return View();
@@ -31,7 +31,7 @@ namespace Cure.WebSite.Controllers
             int filterId = SiteUtils.ParseInt(mensionfilter, 0);
 
             ViewBag.DepSubjects = dal.GetDepSubject();
-            ViewBag.MensionsCount = dal.CountMensions(filterId);
+            ViewBag.MensionsTotal = dal.CountMensions(filterId);
             ViewBag.ViewMensions = dal.ViewMensions(filterId, 0);
 
             return View();
@@ -82,7 +82,7 @@ namespace Cure.WebSite.Controllers
             int filterId = SiteUtils.ParseInt(filter, 0);
             int skipRecords = SiteUtils.ParseInt(skiprecords, 0);
 
-            ViewBag.MensionsCount = dal.CountMensions(filterId);
+            ViewBag.MensionsTotal = dal.CountMensions(filterId);
             ViewBag.ViewMensions = dal.ViewMensions(filterId, skipRecords).ToList();
 
             return PartialView("_Mensions");

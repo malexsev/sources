@@ -51,7 +51,7 @@
             <div class="all-pages-more testimonials-more">
                 @Html.Hidden("skiprecords", 0, new { id = "skiprecords" })
                 <div class="more-title">
-                    Позаканы <span id="more-count">@Html.Raw((ViewBag.TotalCount <= 12 ? ViewBag.MensionsCount : 12))</span> из <span id="more-all">@ViewBag.MensionsCount</span>
+                    Позаканы <span id="more-count">@Html.Raw((ViewBag.MensionsTotal <= 12 ? ViewBag.MensionsTotal : 12))</span> из <span id="more-all">@ViewBag.MensionsTotal</span>
                 </div>
                 <div class="more-btn">
                     <a class="btn btn-light has-loading js-load-more-testimonials">загрузить еще</a>

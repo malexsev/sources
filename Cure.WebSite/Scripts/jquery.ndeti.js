@@ -65,23 +65,23 @@ $(document).ready(function () {
 
 
     /* --- Загрузка больше контента -------------------------------------------*/
-    function dataAjaxLoad(loadingBtn, loadingPlace, addr, counter, forCount, showCount, form) {
-        $(loadingBtn).click(function () {
-            var $loadingBtn = $(this),
-                $loadingPlace = $(loadingPlace),
-                $counter = $(counter),
-                $showCount = $(showCount),
-                $forCount = $(forCount),
+    function dataAjaxLoad(button, appendContainer, url, showedLabel, getCount, skiprecords, form) {
+        $(button).click(function () {
+            var $button = $(this),
+                $appendContainer = $(appendContainer),
+                $showedLabel = $(showedLabel),
+                $skiprecords = $(skiprecords),
+                //$showedNumber = $(showedNumber),
                 $form = $(form);
 
-            $showCount.val($(counter).text());
+            $skiprecords.val($showedLabel.text());
             var serializedForm = $form.serialize();
 
-            if ($loadingPlace.length) {
-                $loadingBtn.addClass("loading");
+            if ($appendContainer.length) {
+                $button.addClass("loading");
                 $.ajax({
                     type: "POST",
-                    url: addr,
+                    url: url,
                     dataType: "html",
                     data: serializedForm,
                     cache: false,
@@ -90,12 +90,13 @@ $(document).ready(function () {
                     },
                     success: function (poupHtml) {
                         console.log("Success loading more");
-                        $loadingPlace.append(poupHtml);
+                        $appendContainer.append(poupHtml);
                         setTimeout(function () {
-                            $loadingPlace.children(".jast-loaded").removeClass("jast-loaded");
-                            $loadingBtn.removeClass("loading");
-                            if ($counter.length && $forCount.length) {
-                                $counter.text($(forCount).length);
+                            $appendContainer.children(".jast-loaded").removeClass("jast-loaded");
+                            $button.removeClass("loading");
+                            
+                            if ($showedLabel.length && getCount) {
+                                $showedLabel.text(getCount());
                             };
                         }, 500);
                     }
@@ -105,10 +106,10 @@ $(document).ready(function () {
     };
     //Загрузка больше отзывов
     dataAjaxLoad(".js-load-more-testimonials", "#js-for-load-testimonials", "/Mension/More",
-                 "#more-count", ".js-ajax-for-count", "#skiprecords", '#mensionform');
+                 "#more-count", function () { return $("#js-for-load-testimonials")[0].childElementCount; }, "#skiprecords", '#mensionform');
     //Загрузка больше фото детей и отзывов
     dataAjaxLoad(".js-load-more-children", "#js-for-load-children", "/Children/More",
-                 "#more-count", ".js-ajax-for-count", "#skiprecords", '#childrenform');
+                 "#more-count", function () { return $("#js-for-load-children")[0].childElementCount; }, "#skiprecords", '#childrenform');
 
     //Загрузка больше историй
     dataAjaxLoad(".js-load-more-history", "#js-for-load-history", "ajax/more_history.php");
@@ -117,7 +118,11 @@ $(document).ready(function () {
     
     //Загрузка больше новостей
     dataAjaxLoad(".js-load-more-news", "#js-for-load-news", "/News/More",
-                 "#more-count", ".js-ajax-for-count", "#skiprecords", '#newsform');
+        "#more-count", function () {
+            var calc = $("#js-for-load-news")[0].childElementCount * 4;
+            var total = $('#more-all').text() * 1;
+            return calc > total ? total : calc;
+        }, "#skiprecords", '#newsform');
 
 
     /*----------- ФУНКЦИИ: Работа табов ---------------------------------------*/
