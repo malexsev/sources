@@ -1,0 +1,36 @@
+﻿@model bool
+@{
+    ViewBag.Title = "Подтверждение email";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="main is-full-screen" role="main">
+    <div class="all-pages-body price-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="user-content">
+                        <h3>Подтверждение адреса электронной почты</h3>
+                        @if (Model == true)
+                        {
+                            <p>
+                                Ваш email успешно подтверждён. Нажмите ВХОД и введите свои логин и пароль.
+                            </p>
+                        }
+                        else
+                        {
+                            <p>
+                                Данная ссылка не верна. Подтверждение данного адреса электронной почты не произведено.
+                            </p>
+                            <p>
+                                Обратитесь к администратору сайта.
+                            </p>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div><!-- END container -->
+    </div><!-- END all-pages-body -->
+
+</div><!-- END main -->

@@ -702,6 +702,9 @@ $(document).ready(function () {
                     else if (result == "0") {
                         $("#loginname").parent().addClass("has-error");
                         $("#error-register").show().text("Данный email уже используется в системе, воспульзуйтесь восстановлением пароля.");
+                    } else if (result == "-2") {
+                        $("#loginname").parent().addClass("has-error");
+                        $("#error-register").show().text("Не подтвержден email, проверьте почту и пройдите по ссылке, указанной в письме о регистрации, затем повторите попытку входа.");
                     } else {
                         $("#loginname").parent().addClass("has-error");
                         $("#error-register").show().text("Данный логин уже зарегистрирован, воспульзуйтесь восстановлением пароля");

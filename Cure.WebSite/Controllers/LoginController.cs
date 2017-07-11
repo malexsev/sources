@@ -44,16 +44,23 @@ namespace Cure.WebSite.Controllers
         public JsonResult Login(string loginname, string loginpass)
         {
             var isValid = IsValid(loginname, loginpass);
-            if (isValid == UserRegisterState.OK)
+            switch (isValid)
             {
-                Session.Abandon();
-                ActivateUser(loginname);
-                FormsAuthentication.SetAuthCookie(loginname, true);
-                return Json("1", JsonRequestBehavior.AllowGet);
-            }
-            if (isValid == UserRegisterState.BLOCKED)
-            {
-                return Json("-1", JsonRequestBehavior.AllowGet);
+                case UserRegisterState.BLOCKED:
+                    {
+                        return Json("-1", JsonRequestBehavior.AllowGet);
+                    }
+                case UserRegisterState.NOT_APPROVED:
+                    {
+                        return Json("-2", JsonRequestBehavior.AllowGet);
+                    }
+                case UserRegisterState.OK:
+                    {
+                        Session.Abandon();
+                        //ActivateUser(loginname);
+                        FormsAuthentication.SetAuthCookie(loginname, true);
+                        return Json("1", JsonRequestBehavior.AllowGet);
+                    }
             }
             return Json("0", JsonRequestBehavior.AllowGet);
         }
@@ -84,6 +91,26 @@ namespace Cure.WebSite.Controllers
             return Json(res ? "1" : "0", JsonRequestBehavior.AllowGet);
         }
 
+        public ActionResult Approve(string token, string email)
+        {
+            var guid = new Guid();
+            if (Guid.TryParse(token, out guid))
+            {
+                MembershipUser userInfo = Membership.GetUser(guid);
+                if (userInfo != null && email.ToLower() == userInfo.Email.ToLower())
+                {
+                    userInfo.IsApproved = true;
+                    Membership.UpdateUser(userInfo);
+
+                    var notification = new UserRegisteredEmailNotification(userInfo.UserName, Server);
+                    notification.Send();
+
+                    return View(true);
+                }
+            }
+            return View(false);
+        }
+
         [HttpPost]
         public JsonResult Register(string regname, string regmail, string regpass, string passtwice)
         {
@@ -99,10 +126,17 @@ namespace Cure.WebSite.Controllers
             }
 
             MembershipUser user = Membership.CreateUser(regname, regpass, regmail);
-            var notification = new UserRegisteredEmailNotification(regname, Server);
-            notification.Send();
-            var notificationToUser = new RegistrationToUserEmailNotification(regname, regpass, Server);
-            notificationToUser.Send();
+            user.IsApproved = false;
+            Membership.UpdateUser(user);
+
+            if (user.ProviderUserKey != null)
+            {
+                var notify = new ApproveToUserEmailNotification(regname, user.ProviderUserKey.ToString(), regmail, Server);
+                notify.Send();
+                var notificationToUser = new RegistrationToUserEmailNotification(regname, regpass, Server);
+                notificationToUser.Send();
+            }
+
             return Json("1", JsonRequestBehavior.AllowGet);
         }
 
@@ -119,28 +153,35 @@ namespace Cure.WebSite.Controllers
             Session["UserpicUrl"] = null;
             UserRegisterState result = Membership.ValidateUser(login, password) ? UserRegisterState.OK : UserRegisterState.WRONG_PASSWORD;
             MembershipUser membershipUser = Membership.GetUser(login);
-            if (membershipUser != null && membershipUser.IsLockedOut)
+            if (membershipUser != null)
             {
-                if (membershipUser.LastLockoutDate >= DateTime.Now.AddSeconds(-10))
+                if (membershipUser.IsLockedOut)
                 {
-                    var notify = new UserBlockedEmailNotification(membershipUser, Server);
-                    notify.Send();
+                    return UserRegisterState.NOT_APPROVED;
                 }
-                return UserRegisterState.BLOCKED;
+                if (membershipUser.IsLockedOut)
+                {
+                    if (membershipUser.LastLockoutDate >= DateTime.Now.AddSeconds(-10))
+                    {
+                        var notify = new UserBlockedEmailNotification(membershipUser, Server);
+                        notify.Send();
+                    }
+                    return UserRegisterState.BLOCKED;
+                }
             }
 
             return result;
         }
 
-        private void ActivateUser(string login)
-        {
-            var user = Membership.GetUser(login);
-            if (user != null && !user.IsApproved)
-            {
-                user.IsApproved = true;
-                Membership.UpdateUser(user);
-            }
-        }
+        //private void ActivateUser(string login)
+        //{
+        //    var user = Membership.GetUser(login);
+        //    if (user != null && !user.IsApproved)
+        //    {
+        //        user.IsApproved = true;
+        //        Membership.UpdateUser(user);
+        //    }
+        //}
     }
 
     enum UserRegisterState
@@ -148,6 +189,7 @@ namespace Cure.WebSite.Controllers
         OK = 0,
         NOT_FOUND = 1,
         BLOCKED = 2,
-        WRONG_PASSWORD = 3
+        WRONG_PASSWORD = 3,
+        NOT_APPROVED = 4
     }
 }

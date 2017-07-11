@@ -52,6 +52,7 @@
     <Compile Include="Before30DaysToUserEmailNotification.cs" />
     <Compile Include="FilesChagedToUserEmailNotification.cs" />
     <Compile Include="Before60DaysToUserEmailNotification.cs" />
+    <Compile Include="ApproveToUserEmailNotification.cs" />
     <Compile Include="UserBlockedEmailNotification.cs" />
     <Compile Include="MensionAfterFinish30EmailNotification.cs" />
     <Compile Include="MensionAfterFinish20EmailNotification.cs" />

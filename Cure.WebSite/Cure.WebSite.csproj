@@ -785,6 +785,7 @@
     <Content Include="Views\Home\RulesAgree.cshtml" />
     <Content Include="Views\Home\Agreed.cshtml" />
     <Content Include="Views\Biblioteka\Statyinovosti.cshtml" />
+    <Content Include="Views\Login\Approve.cshtml" />
     <None Include="Views\Medicine\Human.cshtml" />
     <Content Include="Views\Procedure\OtOccupational.cshtml" />
     <Content Include="Views\Procedure\StSpeech.cshtml" />
