@@ -60,6 +60,7 @@
     </div>
     <div id="error-register" class="form-errors"></div>
     <div class="registr-note">
+        @Html.CheckBox("agreecheck", false)
         Нажимая кнопку “Продолжить”, даю согласие на <a href="@Url.Action("Privacy", "Home")" target="_blank">обработку персональных данных</a>
     </div>
 }

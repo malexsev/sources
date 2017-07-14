@@ -678,6 +678,15 @@ $(document).ready(function () {
 
     /*------------ Регистрация пользователя на сервере ----------------------------*/
     $("#formRegister").submit(function (e) {
+        var ageeCheck = $('#agreecheck');
+        if (ageeCheck) {
+            if (!ageeCheck.is(":checked")) {
+                $("#loginname").parent().addClass("has-error");
+                $("#error-register").show().text("Уважаемый посетитель, будьте внимательны. Регистрация не может быть продолжена без получения Вашего согласия на обработку Ваших персональных данных.");
+                return;
+            }
+        }
+
         $("#error-register").hide();
         var form = $('#formRegister');
         if (form.valid()) {

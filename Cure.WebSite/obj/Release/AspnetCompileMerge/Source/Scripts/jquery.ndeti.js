@@ -678,6 +678,15 @@ $(document).ready(function () {
 
     /*------------ Регистрация пользователя на сервере ----------------------------*/
     $("#formRegister").submit(function (e) {
+        var ageeCheck = $('#agreecheck');
+        if (ageeCheck) {
+            if (!ageeCheck.is(":checked")) {
+                $("#loginname").parent().addClass("has-error");
+                $("#error-register").show().text("Уважаемый посетитель, будьте внимательны. Регистрация не может быть продолжена без получения Вашего согласия на обработку Ваших персональных данных.");
+                return;
+            }
+        }
+
         $("#error-register").hide();
         var form = $('#formRegister');
         if (form.valid()) {
@@ -702,6 +711,9 @@ $(document).ready(function () {
                     else if (result == "0") {
                         $("#loginname").parent().addClass("has-error");
                         $("#error-register").show().text("Данный email уже используется в системе, воспульзуйтесь восстановлением пароля.");
+                    } else if (result == "-2") {
+                        $("#loginname").parent().addClass("has-error");
+                        $("#error-register").show().text("Не подтвержден email, проверьте почту и пройдите по ссылке, указанной в письме о регистрации, затем повторите попытку входа.");
                     } else {
                         $("#loginname").parent().addClass("has-error");
                         $("#error-register").show().text("Данный логин уже зарегистрирован, воспульзуйтесь восстановлением пароля");
