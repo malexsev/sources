@@ -15,6 +15,11 @@ namespace Cure.DataAccess.BLL
             return dataRepository.GetNewsPage(id);
         }
 
+        public NewsPage GetNewsPage(string alias)
+        {
+            return dataRepository.GetNewsPage(alias);
+        }
+
         public IEnumerable<NewsPage> GetAllActive()
         {
             return dataRepository.GetAllActive();

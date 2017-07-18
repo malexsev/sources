@@ -90,7 +90,7 @@ namespace Cure.WebSite.Controllers
             }
             return Json(res ? "1" : "0", JsonRequestBehavior.AllowGet);
         }
-
+        
         public ActionResult Approve(string token, string email)
         {
             var guid = new Guid();

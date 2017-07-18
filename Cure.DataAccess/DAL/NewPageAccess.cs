@@ -13,6 +13,11 @@ namespace Cure.DataAccess.DAL
             return context.NewsPages.FirstOrDefault(x => x.Id == id);
         }
 
+        public NewsPage GetNewsPage(string alias)
+        {
+            return context.NewsPages.FirstOrDefault(x => x.Alias == alias);
+        }
+
         public IEnumerable<NewsPage> GetAllActive()
         {
             return context.NewsPages.Where(x => x.IsActive).OrderByDescending(o => o.Date).ThenByDescending(x => x.EditDate).ToList();
@@ -28,11 +33,6 @@ namespace Cure.DataAccess.DAL
         public IEnumerable<NewsPage> GetNewsPages()
         {
             return context.NewsPages.OrderByDescending(o => o.Date).ThenByDescending(x => x.EditDate).ToList();
-        }
-
-        public NewsPage GetNewsPage(string name)
-        {
-            return context.NewsPages.FirstOrDefault(o => o.Name == name);
         }
 
         public void InsertNewsPage(NewsPage newsPage)
@@ -66,7 +66,7 @@ namespace Cure.DataAccess.DAL
         {
             try
             {
-                var origNewsPage = GetNewsPage(newsPage.Name);
+                var origNewsPage = GetNewsPage(newsPage.Alias);
                 origNewsPage.Alias = newsPage.Alias;
                 origNewsPage.CreateDate = newsPage.CreateDate;
                 origNewsPage.CreatorName = newsPage.CreatorName;

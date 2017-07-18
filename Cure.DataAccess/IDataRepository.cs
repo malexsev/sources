@@ -23,6 +23,7 @@ namespace Cure.DataAccess.DAL
         IEnumerable<NewsPage> GetAllActive();
         IEnumerable<NewsPage> GetNewsPages();
         NewsPage GetNewsPage(int id);
+        NewsPage GetNewsPage(string alias);
         IEnumerable<NewsPage> MoreNews(int skipRecords, int takeRecords = 4);
         void InsertNewsPage(NewsPage newsPage);
         void DeleteNewsPage(NewsPage newsPage);

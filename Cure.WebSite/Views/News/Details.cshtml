@@ -1,0 +1,73 @@
+﻿@model Cure.DataAccess.NewsPage
+@{
+    ViewBag.Title = Model.Subject;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="main has-custom-bg" role="main">
+    <section class="news-inner-wrapper">
+        <div class="container">
+            <div class="all-pages-body">
+                <div class="row">
+                    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                        <div class="news-inner">
+                            @Html.Raw(Model.Text)
+                            @*<div class="user-content">
+                                <div class="back">
+                                    <a class="back-link" href="@Url.Action("Index", "News")">&larr; К новостям и акциям</a>
+                                </div>
+                                <div class="news-inner-header clearfix">
+                                    <div class="news-inner-header-image" style="background-image: url(~/content/images/news-page/01-big.jpg)"></div>
+                                    <div class="news-inner-date">24.08.2017</div>
+                                    <h2>В недавно открывшемся центре в Москве работают специалисты из Китая и медики, прошедшие подготовку в КНР.</h2>
+                                </div>
+                                <p>Иногда в жизни людей возникают такие ситуации, когда срочно требуется большая сумма денег. Если у вас в семье случилось несчастье, если здоровье под угрозой, следует принимать срочные меры и искать средства для проведения лечения. Благотворительной помощью занимаются объединения, союзы, фонды, цель которых - помогать нуждающимся. Эти благотворительные организации поддерживают богатые и успешные люди, звезды кино и эстрады, политики, крупные компании, фирмы и просто обычные люди.</p>
+                                <p>Благотворительных фондов множество. Обращаться лучше сразу в несколько. Не получится с одним, получится с другим. Главное - не терять надежду и не сдаваться. Чтобы фонд одобрил благотворительную помощь именно вам, нужно вместе с письменной просьбой приложить необходимые документы и медицинские справки, как доказательство того, что вы и вправду нуждаетесь в материальной помощи. Ваше письмо в фонд должно быть максимально искренним и правдивым.</p>
+                            </div>
+                            <ul class="social-list">
+                                <li class="social-list-item">
+                                    <a class="social-list-item-link vk" href="#" title="Вконтакте">
+                                        <i class="social-list-item-icon fa fa-vk"></i>
+                                    </a>
+                                </li>
+                                <li class="social-list-item">
+                                    <a class="social-list-item-link ok" href="#" title="Одноклассники">
+                                        <i class="social-list-item-icon fa fa-odnoklassniki"></i>
+                                    </a>
+                                </li>
+                                <li class="social-list-item">
+                                    <a class="social-list-item-link fb" href="#" title="Facebook">
+                                        <i class="social-list-item-icon fa fa-facebook"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="user-content">
+                                <div class="video-helper clearfix">
+                                    <h4>Ваш видеопомощник</h4>
+                                    <div class="video-wrapper">
+                                        <iframe width="100%" height="320" src="https://www.youtube-nocookie.com/embed/gBo4dWWQ1q8?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+                                    </div>
+                                    <p>Целью лечения является устранение или значительное уменьшение выраженности всех элементов деформации для получения функциональной, мобильной, безболезненной, сильной, опорной стопы, имеющей нормальную форму и дающей возможность ношения нормальной обуви.</p>
+                                </div>
+                            </div>*@
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <h4 class="aside-title">Наш магазин</h4>
+                        <ul class="aside-list">
+                            <li class="aside-list-item">
+                                <a class="aside-list-item-link" href="#">
+                                    <img class="aside-list-item-image" src="~/content/images/news-page/banner-item.jpg" alt="" />
+                                </a>
+                            </li>
+                            <li class="aside-list-item">
+                                <a class="aside-list-item-link" href="#">
+                                    <img class="aside-list-item-image" src="~/content/images/news-page/banner-item.jpg" alt="" />
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div><!-- END container -->
+    </section>
+</div>
