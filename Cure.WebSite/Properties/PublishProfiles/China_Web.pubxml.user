@@ -11,10 +11,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>07/12/2017 01:06:42</publishTime>
+      <publishTime>07/14/2017 22:32:19</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>07/12/2017 01:06:42</publishTime>
+      <publishTime>07/14/2017 22:32:19</publishTime>
     </File>
     <File Include="bin/Cure.DataAccess.dll">
       <publishTime>07/05/2017 01:14:20</publishTime>
@@ -68,28 +68,28 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/12/2016 23:32:42</publishTime>
     </File>
     <File Include="Content/css/styles.css">
-      <publishTime>06/13/2017 21:24:35</publishTime>
+      <publishTime>07/14/2017 22:23:14</publishTime>
     </File>
     <File Include="Content/css/styles.less">
-      <publishTime>02/27/2017 02:02:24</publishTime>
+      <publishTime>07/14/2017 22:23:14</publishTime>
     </File>
     <File Include="Content/css/_animate.css">
-      <publishTime>12/30/2016 00:00:00</publishTime>
+      <publishTime>07/14/2017 22:23:14</publishTime>
     </File>
     <File Include="Content/css/_bootstrap-datepicker3.standalone.min.css">
-      <publishTime>12/30/2016 00:00:00</publishTime>
+      <publishTime>07/14/2017 22:23:14</publishTime>
     </File>
     <File Include="Content/css/_bootstrap.css">
-      <publishTime>12/30/2016 00:00:00</publishTime>
+      <publishTime>07/14/2017 22:23:14</publishTime>
     </File>
     <File Include="Content/css/_font-awesome.min.css">
-      <publishTime>12/30/2016 00:00:00</publishTime>
+      <publishTime>07/14/2017 22:23:14</publishTime>
     </File>
     <File Include="Content/css/_fonts.css">
-      <publishTime>12/30/2016 00:00:00</publishTime>
+      <publishTime>07/14/2017 22:23:14</publishTime>
     </File>
     <File Include="Content/css/_normalize.css">
-      <publishTime>12/30/2016 00:00:00</publishTime>
+      <publishTime>07/14/2017 22:23:14</publishTime>
     </File>
     <File Include="Content/css/__styles.less">
       <publishTime>10/20/2016 00:00:00</publishTime>
@@ -1535,7 +1535,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/09/2017 16:57:00</publishTime>
     </File>
     <File Include="Content/Site.css">
-      <publishTime>01/04/2017 16:24:00</publishTime>
+      <publishTime>07/14/2017 22:23:01</publishTime>
     </File>
     <File Include="Content/video/main-page-video.mp4">
       <publishTime>12/30/2016 00:00:00</publishTime>
@@ -1550,7 +1550,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/24/2016 03:40:04</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>07/12/2017 01:06:40</publishTime>
+      <publishTime>07/14/2017 22:32:16</publishTime>
     </File>
     <File Include="robots.txt">
       <publishTime>01/04/2017 16:21:24</publishTime>
@@ -1568,7 +1568,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/04/2017 15:03:06</publishTime>
     </File>
     <File Include="Scripts/jquery.ndeti.js">
-      <publishTime>07/12/2017 01:01:59</publishTime>
+      <publishTime>07/14/2017 22:22:29</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.js">
       <publishTime>07/24/2016 03:40:02</publishTime>

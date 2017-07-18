@@ -1,0 +1,446 @@
+/* To prevent any potential data loss issues, you should review this script in detail before running it outside the context of the database designer.*/
+BEGIN TRANSACTION
+SET QUOTED_IDENTIFIER ON
+SET ARITHABORT ON
+SET NUMERIC_ROUNDABORT OFF
+SET CONCAT_NULL_YIELDS_NULL ON
+SET ANSI_NULLS ON
+SET ANSI_PADDING ON
+SET ANSI_WARNINGS ON
+COMMIT
+BEGIN TRANSACTION
+GO
+ALTER TABLE dbo.Child ADD
+	SortOrder int NULL
+GO
+ALTER TABLE dbo.Child SET (LOCK_ESCALATION = TABLE)
+GO
+COMMIT
+
+
+
+
+
+
+
+/****** Object:  View [dbo].[ViewChild]    Script Date: 02/10/2017 09:01:50 ******/
+IF  EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[dbo].[ViewChild]'))
+DROP VIEW [dbo].[ViewChild]
+GO
+
+/****** Object:  View [dbo].[ViewChild]    Script Date: 02/10/2017 09:01:50 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE VIEW [dbo].[ViewChild]
+AS
+SELECT ch.Id, ch.GuidId, ch.OwnerUser, ch.IsActive, ch.Name, ch.Birthday, ch.CountryId, ch.Region, ch.Diagnoz, ch.ContactName, ch.ContactRodstvoId, ch.ContactEmail, 
+               ch.ContactPhone, ch.SocialOk, ch.SocialVk, ch.SocialMm, ch.SocialFb, ch.FinWebmoney, ch.FinYandexMoney, ch.FinKiwi, ch.FinOperatorId, ch.FinPhoneNumber, 
+               ch.FinCountryId, ch.FinBankId, ch.FinBankOther, ch.FinCardNumber, c.Name AS CountryName, u.LoweredUserName AS UserLoweredUserName, 
+               u.IsAnonymous AS UserIsAnonymous, u.LastActivityDate AS UserLastActivityDate, u.Email AS UserEmail, u.LoweredEmail AS UserLoweredEmail, 
+               u.IsApproved AS UserIsApproved, u.IsLockedOut AS UserIsLockedOut, u.LastLoginDate AS UserLastLoginDate, u.Comment AS UserComment, 
+               b.Name AS BankName, b.Description AS BankDescription, b.Inn AS BankInn, b.Kpp AS BankKpp, b.Oktmo AS BankOktmo, b.Okved AS BankOkved, 
+               b.Bik AS BankBik, b.KorrAccount AS BankKorrAccount, r.Name AS RodstvoName, r.Description AS RodstvoDescription, r.Sort AS RodstvoSort, 
+               r.SoprovodRuLabel AS RodstvoSoprovodRuLabel, r.SoprovodChLabel AS RodstvoSoprovodChLabel, o.Name AS OperatorName, 
+               o.Description AS OperatorDescription, o.Params AS OperatorParams, bc.Name AS BankCountryName, fc.Name AS FinCountryName, ch.DiagnozId, 
+               d.Name AS DiagnozName, d.Description AS DiagnozDescription, ch.SocialYoutube, ch.FinWebmoney2, ch.FinWebmoney3, ch.FinCardName, ch.FinWebmoney4, 
+               ch.FinOperator2Id, ch.FinPhoneNumber2, ch.FinOperator3Id, ch.FinPhoneNumber3, ch.FinOperator4Id, ch.FinPhoneNumber4, o2.Name AS Operator2Name, 
+               o2.Description AS Operator2Description, o2.Params AS Operator2Params, o3.Name AS Operator3Name, o3.Description AS Operator3Description, 
+               o3.Params AS Operator3Params, o4.Name AS Operator4Name, o4.Description AS Operator4Description, o4.Params AS Operator4Params, ch.OwnerUserPic, 
+               ch.OwnerAvaFile, u.Expr1 AS UserId, ch.SortOrder
+FROM  dbo.Child AS ch INNER JOIN
+               dbo.RefDiagnoz AS d ON ch.DiagnozId = d.Id LEFT OUTER JOIN
+               dbo.RefOperator AS o4 ON ch.FinOperator4Id = o4.Id LEFT OUTER JOIN
+               dbo.RefCountry AS c ON ch.CountryId = c.Id LEFT OUTER JOIN
+               dbo.RefCountry AS fc ON ch.FinCountryId = fc.Id LEFT OUTER JOIN
+               dbo.RefOperator AS o3 ON ch.FinOperator3Id = o3.Id LEFT OUTER JOIN
+               dbo.RefOperator AS o2 ON ch.FinOperator2Id = o2.Id LEFT OUTER JOIN
+               dbo.RefRodstvo AS r ON ch.ContactRodstvoId = r.Id LEFT OUTER JOIN
+               dbo.ViewUserMembership AS u ON ch.OwnerUser = u.UserName LEFT OUTER JOIN
+               dbo.RefOperator AS o ON ch.FinOperatorId = o.Id LEFT OUTER JOIN
+               dbo.RefBank AS b ON ch.FinBankId = b.Id LEFT OUTER JOIN
+               dbo.RefCountry AS bc ON b.CountryId = bc.Id
+
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
+Begin DesignProperties = 
+   Begin PaneConfigurations = 
+      Begin PaneConfiguration = 0
+         NumPanes = 4
+         Configuration = "(H (1[41] 4[19] 2[22] 3) )"
+      End
+      Begin PaneConfiguration = 1
+         NumPanes = 3
+         Configuration = "(H (1 [50] 4 [25] 3))"
+      End
+      Begin PaneConfiguration = 2
+         NumPanes = 3
+         Configuration = "(H (1 [50] 2 [25] 3))"
+      End
+      Begin PaneConfiguration = 3
+         NumPanes = 3
+         Configuration = "(H (4 [30] 2 [40] 3))"
+      End
+      Begin PaneConfiguration = 4
+         NumPanes = 2
+         Configuration = "(H (1 [56] 3))"
+      End
+      Begin PaneConfiguration = 5
+         NumPanes = 2
+         Configuration = "(H (2 [66] 3))"
+      End
+      Begin PaneConfiguration = 6
+         NumPanes = 2
+         Configuration = "(H (4 [50] 3))"
+      End
+      Begin PaneConfiguration = 7
+         NumPanes = 1
+         Configuration = "(V (3))"
+      End
+      Begin PaneConfiguration = 8
+         NumPanes = 3
+         Configuration = "(H (1[56] 4[18] 2) )"
+      End
+      Begin PaneConfiguration = 9
+         NumPanes = 2
+         Configuration = "(H (1 [75] 4))"
+      End
+      Begin PaneConfiguration = 10
+         NumPanes = 2
+         Configuration = "(H (1[66] 2) )"
+      End
+      Begin PaneConfiguration = 11
+         NumPanes = 2
+         Configuration = "(H (4 [60] 2))"
+      End
+      Begin PaneConfiguration = 12
+         NumPanes = 1
+         Configuration = "(H (1) )"
+      End
+      Begin PaneConfiguration = 13
+         NumPanes = 1
+         Configuration = "(V (4))"
+      End
+      Begin PaneConfiguration = 14
+         NumPanes = 1
+         Configuration = "(V (2))"
+      End
+      ActivePaneConfig = 0
+   End
+   Begin DiagramPane = 
+      Begin Origin = 
+         Top = 0
+         Left = 0
+      End
+      Begin Tables = 
+         Begin Table = "ch"
+            Begin Extent = 
+               Top = 7
+               Left = 48
+               Bottom = 346
+               Right = 231
+            End
+            DisplayFlags = 280
+            TopColumn = 26
+         End
+         Begin Table = "d"
+            Begin Extent = 
+               Top = 233
+               Left = 1202
+               Bottom = 344
+               Right = 1375
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "o4"
+            Begin Extent = 
+               Top = 350
+               Left = 935
+               Bottom = 479
+               Right = 1108
+            End
+            DisplayFlags = 280
+            TopColumn = 1
+         End
+         Begin Table = "c"
+            Begin Extent = 
+               Top = 6
+               Left = 740
+               Bottom = 135
+               Right = 941
+            End
+            DisplayFlags = 280
+            TopColumn = 2
+         End
+         Begin Table = "fc"
+            Begin Extent = 
+               Top = 159
+               Left = 316
+               Bottom = 288
+               Right = 517
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "o3"
+            Begin Extent = 
+               Top = 356
+               Left = 678
+               Bottom = 485
+               Right = 851
+            End
+            DisplayFlags = 280
+            TopColumn = 1
+         End
+         Begin Table = "o2"
+            Begin Extent = 
+               Top = 320
+               Left = 312
+               Bottom = 449
+               Right = 485
+            End
+            DisplayFlags = 280
+            TopColumn = 1
+   ' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'ViewChild'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane2', @value=N'      End
+         Begin Table = "r"
+            Begin Extent = 
+               Top = 153
+               Left = 535
+               Bottom = 348
+               Right = 718
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "u"
+            Begin Extent = 
+               Top = 12
+               Left = 286
+               Bottom = 141
+               Right = 621
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "o"
+            Begin Extent = 
+               Top = 47
+               Left = 966
+               Bottom = 188
+               Right = 1139
+            End
+            DisplayFlags = 280
+            TopColumn = 1
+         End
+         Begin Table = "b"
+            Begin Extent = 
+               Top = 157
+               Left = 747
+               Bottom = 286
+               Right = 920
+            End
+            DisplayFlags = 280
+            TopColumn = 6
+         End
+         Begin Table = "bc"
+            Begin Extent = 
+               Top = 215
+               Left = 964
+               Bottom = 344
+               Right = 1165
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+      End
+   End
+   Begin SQLPane = 
+   End
+   Begin DataPane = 
+      Begin ParameterDefaults = ""
+      End
+      Begin ColumnWidths = 82
+         Width = 284
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 2136
+         Width = 1584
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+         Width = 1200
+      End
+   End
+   Begin CriteriaPane = 
+      Begin ColumnWidths = 11
+         Column = 2844
+         Alias = 2424
+         Table = 1176
+         Output = 720
+         Append = 1400
+         NewValue = 1170
+         SortType = 1356
+         SortOrder = 1416
+         GroupBy = 1350
+         Filter = 1356
+         Or = 1350
+         Or = 1350
+         Or = 1350
+      End
+   End
+End
+' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'ViewChild'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=2 , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'ViewChild'
+GO
+
+
+
+
+
+
+
+
+
+
+
+/****** Object:  StoredProcedure [dbo].[sp_MixMensions]    Script Date: 02/10/2017 08:54:00 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sp_MixMensions]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[sp_MixMensions]
+GO
+
+/****** Object:  StoredProcedure [dbo].[sp_MixMensions]    Script Date: 02/10/2017 08:54:00 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+
+
+/****** Object:  StoredProcedure [dbo].[sp_MixEntities]    Script Date: 02/10/2017 09:05:52 ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sp_MixEntities]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[sp_MixEntities]
+GO
+
+/****** Object:  StoredProcedure [dbo].[sp_MixEntities]    Script Date: 02/10/2017 09:05:52 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+
+
+
+-- =============================================
+-- Author:		Zeiman Max
+-- Create date: 2017-02-09
+-- Description:	Перемешивание отзывов, что имеют отрицательный рейтинг. Положительные - так и остаются сверху.
+-- =============================================
+CREATE PROCEDURE [dbo].[sp_MixEntities]
+AS
+
+
+BEGIN
+    
+	UPDATE [dbo].[Mension]
+	SET [SortOrder] = (-1 * ABS(Checksum(NewID()) % 1000)) - 1
+	WHERE SortOrder < 0	
+	
+	UPDATE [dbo].[Child]
+	SET [SortOrder] = (-1 * ABS(Checksum(NewID()) % 1000)) - 1
+	
+END
+
+
+
+
+
+GO
+
+

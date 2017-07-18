@@ -1966,8 +1966,18 @@ $(document).ready(function () {
 
 
     $(".js-toggle-menu").click(function () {
-        $(this).toggleClass("active");
-        $(".header-menu").toggleClass("active");
+        var self = $(this),
+            header = $(".header"),
+            menu = $(".header-menu");
+        if (self.hasClass("active")) {
+            self.removeClass("active");
+            menu.removeClass("active");
+            header.removeClass("z-index");
+        } else {
+            self.addClass("active");
+            menu.addClass("active");
+            header.addClass("z-index");
+        }
     });
 
     $(".js-mob-accordion-btn").click(function () {
@@ -2129,16 +2139,16 @@ $(document).ready(function () {
     });
 
     /*----------- Анимация на главной: появление 4-х шагов -------------------*/
-    $(".js-countries-fadein li").addClass("is-invisible");
+    //$(".js-countries-fadein li").addClass("is-invisible");
     $(".js-countries-fadein").viewportChecker({
         offset: 200,
         callbackFunction: function ($elem) {
-            var time = 1000,
-                $steps = $elem.find("li");
-            $steps.each(function () {
+            var time = 500,
+                steps = $elem.find("li");
+            steps.each(function () {
                 var $that = $(this);
                 setTimeout(function () { $that.addClass("is-visible"); }, time);
-                time = time + 600;
+                time = time + 250;
             });
         }
     });
@@ -2196,26 +2206,26 @@ $(document).ready(function () {
 
 
     /* --- СКРОЛЛ: Движение меню на страницах больниц ------------------------*/
-    $("#js-moved-menu").scroolly([
-        {
-            to: "con-bottom - 100el = vp-top",
-            css: {
-                position: "absolute",
-                bottom: "0",
-                top: "auto"
-            },
-            removeClass: 'is-sticked'
-        },
-        {
-            from: "con-bottom - 100el = vp-top",
-            css: {
-                position: "fixed",
-                bottom: "auto",
-                top: "0"
-            },
-            addClass: 'is-sticked'
-        }
-    ], $("#js-moved-menu-wrapper"));
+    // $("#js-moved-menu").scroolly([
+    //     {
+    //         to: "con-bottom - 100el = vp-top",
+    //         css: {
+    //             position: "absolute",
+    //             bottom: "0",
+    //             top: "auto"
+    //         },
+    //         removeClass: 'is-sticked'
+    //     },
+    //     {
+    //         from: "con-bottom - 100el = vp-top",
+    //         css: {
+    //             position: "fixed",
+    //             bottom: "auto",
+    //             top: "0"
+    //         },
+    //         addClass: 'is-sticked'
+    //     }
+    // ], $("#js-moved-menu-wrapper"));
 
 
     /* --- Галлерея в всплывающем окне ---------------------------------------*/
@@ -2224,51 +2234,36 @@ $(document).ready(function () {
 
     /*---  Плавная прокрутка -------------------------------------------------*/
     $(".js-scroll-to").click(function (e) {
-        var $link = $(this),
-          $target = $($link.attr('href') || $link.data('target')),
-          targetTop;
-
-        if ($target.length) {
-            e.preventDefault(); //отменим перход
-            targetTop = $target.offset().top - 70; //сколько прокрутить
-            $("html, body").animate({ scrollTop: targetTop }, 1000); //крутим враппер
+        e.preventDefault();
+        var link = $(this),
+            target = $(link.attr('href') || link.data('target')),
+            targetTop;
+        if (target.length) {
+            targetTop = target.offset().top - $(".header").outerHeight(true) - $(".hosp-page-menu").outerHeight(true) + 1;
+            HB.animate({scrollTop: targetTop}, 1000);
         };
-        return false; // и ничего не вернем
     });
 
     /* --- СКРОЛЛ: Подсветка пунктов в меню на страницах больниц -------------*/
-    $('.js-for-menu').scroolly([
-        {
-            direction: 1,
-            from: 'el-top - 75px = vp-top',
-            //to: 'el-bottom - 75px = vp-top',
-            onCheckIn: function ($el) {
-                //console.log( $el.attr('id') );
-                $('.hosp-page-nav a[data-target]').removeClass('active');
-                $('.hosp-page-nav a[data-target="#' + $el.attr('id') + '"]').addClass('active');
-            },
-            onCheckOut: function ($el) {
-                console.log($el.attr('id'));
-                $('.hosp-page-nav a[data-target]').removeClass('active');
-                $('.hosp-page-nav a[data-target="#' + $el.attr('id') + '"]').addClass('active');
-            }
-        },
-        {
-            direction: -1,
-            from: 'el-top - 65px = vp-top',
-            //to: 'el-bottom - 65px = vp-top',
-            onCheckIn: function ($el) {
-                //console.log( $el.attr('id') );
-                $('.hosp-page-nav a[data-target]').removeClass('active');
-                $('.hosp-page-nav a[data-target="#' + $el.attr('id') + '"]').addClass('active');
-            },
-            onCheckOut: function ($el) {
-                console.log($el.attr('id'));
-                $('.hosp-page-nav a[data-target]').removeClass('active');
-                $('.hosp-page-nav a[data-target="#' + $el.attr('id') + '"]').addClass('active');
-            }
+    function bindHightlightAnchors() {
+        var page = $(".hosp-page"),
+            block = $(".js-for-menu"),
+            nav = $(".hosp-page-nav"),
+            link = nav.find("a[data-target]");
+        if (page.length && block.length && nav.length) {
+            W.on("scroll", function() {
+                $.each(link, function() {
+                    var self = $(this),
+                        target = self.data("target");
+                    if (W.scrollTop() >= $(target).offset().top - $(".header").outerHeight(true) - $(".hosp-page-menu").outerHeight(true) - 1) {
+                        link.removeClass("active");
+                        self.addClass("active");
+                    }
+                });
+            });
         }
-    ], $('.hosp-page'));
+    }
+    bindHightlightAnchors();
 
 
 
@@ -2407,6 +2402,25 @@ function DeleteDocument(id, fileName) {
     $("#doctohideuphide").val("");
     $('#formDocuments').submit();
 }
+
+$(window).on("scroll", function() {
+    $("body").toggleClass("scrolled", $(window).scrollTop() > 0);
+});
+
+if ($(".js-dots").length) {
+    $(".js-dots").dotdotdot({
+        watch: 'window',
+        wrap: 'letter',
+        fallbackToLetter: 'letter',
+        windowResizeFix: true
+    });
+}
+
+$(window).on("load", function() {
+    if ($(".hosp-page-menu").length) {
+        $(".megamenu").addClass("custom");
+    }
+});
 
 
 

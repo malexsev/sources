@@ -104,6 +104,8 @@ namespace Cure.WebSite.Controllers
 
                     var notification = new UserRegisteredEmailNotification(userInfo.UserName, Server);
                     notification.Send();
+                    var notificationToUser = new RegistrationToUserEmailNotification(userInfo.UserName, Server);
+                    notificationToUser.Send();
 
                     return View(true);
                 }
@@ -133,8 +135,6 @@ namespace Cure.WebSite.Controllers
             {
                 var notify = new ApproveToUserEmailNotification(regname, user.ProviderUserKey.ToString(), regmail, Server);
                 notify.Send();
-                var notificationToUser = new RegistrationToUserEmailNotification(regname, regpass, Server);
-                notificationToUser.Send();
             }
 
             return Json("1", JsonRequestBehavior.AllowGet);

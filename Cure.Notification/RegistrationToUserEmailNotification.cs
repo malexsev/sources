@@ -22,7 +22,6 @@
             + @"Если ссылка не открывается, скопируйте ее и вставьте в адресную строку браузера.<br /><br />"
             + @"<b>Ваши учетные данные:</b><br />"
             + @"Логин: <b>{0}</b><br />"
-            + @"Пароль: <b>{1}</b><br /><br />"
             + @"Вы уже можете заполнить Заявку на лечение.<br />"
             + @"Вам доступны следующие услуги:"
             + @"<ul>"
@@ -36,15 +35,15 @@
             + @"<li>Написать сообщение Администрации больницы</li>"
             + @"<li>Написать сообщение другим зарегистрированным пользователям</li>"
             + @"</ul><br /><br />"
-            + @"Это автоматическое письмо, отвечать на которое не нужно!"; //0 - Логин, 1 - Пароль
+            + @"Это автоматическое письмо, отвечать на которое не нужно!"; //0 - Логин
 
-        public RegistrationToUserEmailNotification(string username, string password, HttpServerUtilityBase server)
+        public RegistrationToUserEmailNotification(string username, HttpServerUtilityBase server)
             : base(server)
         {
             var dal = new DataAccessBL();
             this.user = dal.GetUserMembership(username);
             this.subject = subjectTemplate;
-            this.body = string.Format(bodyTemplate, this.user.UserName, password);
+            this.body = string.Format(bodyTemplate, this.user.UserName);
         }
 
         public override bool Send()
