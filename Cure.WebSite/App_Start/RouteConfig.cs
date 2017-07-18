@@ -14,9 +14,15 @@ namespace Cure.WebSite
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "News",
+                name: "NewsMore",
+                url: "News/More/{skiprecords}",
+                defaults: new { controller = "News", action = "More", skiprecords = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "NewsDetails",
                 url: "News/{alias}",
-                defaults: new { controller = "News", action = "Details", alias = UrlParameter.Optional }
+                defaults: new { controller = "News", action = "Details" }
             );
 
             routes.MapRoute(

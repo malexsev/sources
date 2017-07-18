@@ -66,7 +66,7 @@ namespace Cure.DataAccess.DAL
         {
             try
             {
-                var origNewsPage = GetNewsPage(newsPage.Alias);
+                var origNewsPage = GetNewsPage(newsPage.Id);
                 origNewsPage.Alias = newsPage.Alias;
                 origNewsPage.CreateDate = newsPage.CreateDate;
                 origNewsPage.CreatorName = newsPage.CreatorName;
@@ -86,6 +86,11 @@ namespace Cure.DataAccess.DAL
             {
                 throw ex;
             }
+        }
+
+        private NewsPage GetNewsPageByName(string name)
+        {
+            return context.NewsPages.FirstOrDefault(x => x.Name == name);
         }
     }
 }
