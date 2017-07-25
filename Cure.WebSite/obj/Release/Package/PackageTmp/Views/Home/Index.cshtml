@@ -1,7 +1,7 @@
 ﻿@using Cure.WebSite.Models
 @{
     ViewBag.Title = "Официальный сайт больницы лечение ДЦП в Китае, город Юньчэн";
-    ViewBag.Description = "Описание больниц по лечению ДЦП, аутизма, задержка речи, задержки развития и других неврологических заболеваний";
+	ViewBag.Description = "Описание больниц по лечению ДЦП, аутизма, задержка речи, задержки развития и других неврологических заболеваний";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -50,7 +50,7 @@
 
                     <li class="news-item">
                         <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12">
-                            @if (((IEnumerable<NewsPageModel>)ViewBag.News).Any() && ((IEnumerable<NewsPageModel>)ViewBag.News).Count() > 1)
+                            @if (((IEnumerable<NewsPageModel>)ViewBag.News).Any() && ((IEnumerable<NewsPageModel>)ViewBag.News).Count() > 4)
                             {
                                 <a class="news-item-link" href="@Url.Action(((IEnumerable<NewsPageModel>)ViewBag.News).ToList()[0].Alias, "News")" target="_blank">
                                     <span class="news-item-image" style="background-image: url('@Html.Raw(((IEnumerable<NewsPageModel>)ViewBag.News).ToList()[0].MainPictureSrc(Server))');"></span>
@@ -92,7 +92,6 @@
         </div>
     </section>
     
-
     <section class="sec-clinic"> 
         <div class="container">
             <div class="row">
@@ -189,8 +188,8 @@
             <div class="sec-personal-tabsbody js-tabs-body">
                 <div class="sec-personal-tab js-tabs-item active" id="personal-tab-1">
                     <div class="container">
-                        <ul class="sec-personal-line">
-                            <li class="doctor-card">
+                        <div class="sec-personal-line js-doctors-slider">
+                            <div class="doctor-card">
                                 <div class="doctor-img">
                                     <img src="~/Content/images/doctors/300_01.jpg" alt="Бай Чхуэн Мэй">
                                 </div>
@@ -199,8 +198,8 @@
                                     <div class="doctor-post">Организация лечения, логопед-дефектолог, массаж, логомассаж</div>
                                     <div class="doctor-note">Врач, стаж 10 лет.</div>
                                 </div>
-                            </li>
-                            <li class="doctor-card">
+                            </div>
+                            <div class="doctor-card">
                                 <div class="doctor-img">
                                     <img src="~/Content/images/doctors/300_02.jpg" alt="Джан Шу Лан">
                                 </div>
@@ -209,8 +208,8 @@
                                     <div class="doctor-post">Иглотерапевт</div>
                                     <div class="doctor-note">Врач, стаж 31 лет.</div>
                                 </div>
-                            </li>
-                            <li class="doctor-card">
+                            </div>
+                            <div class="doctor-card">
                                 <div class="doctor-img">
                                     <img src="~/Content/images/doctors/300_03.jpg" alt="Нин Джи Юнь">
                                 </div>
@@ -219,8 +218,8 @@
                                     <div class="doctor-post">ЛФК</div>
                                     <div class="doctor-note">Инструктор, стаж 17 лет.</div>
                                 </div>
-                            </li>
-                            <li class="doctor-card">
+                            </div>
+                            <div class="doctor-card">
                                 <div class="doctor-img">
                                     <img src="~/Content/images/doctors/300_04.jpg" alt="Ван Тюин">
                                 </div>
@@ -229,8 +228,8 @@
                                     <div class="doctor-post">Трудотерапия, мелкая моторика рук</div>
                                     <div class="doctor-note">Инструктор, стаж 23 года.</div>
                                 </div>
-                            </li>
-                            <li class="doctor-card">
+                            </div>
+                            <div class="doctor-card">
                                 <div class="doctor-img">
                                     <img src="~/Content/images/doctors/300_05.jpg" alt="Ван Тюинь">
                                 </div>
@@ -239,8 +238,8 @@
                                     <div class="doctor-post">Трудотерапия, мелкая моторика рук</div>
                                     <div class="doctor-note">Инструктор, стаж 13 лет.</div>
                                 </div>
-                            </li>
-                            <li class="doctor-card">
+                            </div>
+                            <div class="doctor-card">
                                 <div class="doctor-img">
                                     <img src="~/Content/images/doctors/300_06.jpg" alt="Сюй Тья Юэнь">
                                 </div>
@@ -249,8 +248,8 @@
                                     <div class="doctor-post">ЛФК</div>
                                     <div class="doctor-note">Инструктор, стаж 7 лет.</div>
                                 </div>
-                            </li>
-							                            <li class="doctor-card">
+                            </div>
+							<div class="doctor-card">
                                 <div class="doctor-img">
                                     <img src="~/Content/images/doctors/300_07.jpg" alt="Ву Янг">
                                 </div>
@@ -259,8 +258,8 @@
                                     <div class="doctor-post">ЛФК</div>
                                     <div class="doctor-note">Инструктор, стаж 7 лет.</div>
                                 </div>
-                            </li>
-							                            <li class="doctor-card">
+                            </div>
+							<div class="doctor-card">
                                 <div class="doctor-img">
                                     <img src="~/Content/images/doctors/300_08.jpg" alt="Ван Чхуэн">
                                 </div>
@@ -269,8 +268,8 @@
                                     <div class="doctor-post">Массаж Туйна, точечный массаж</div>
                                     <div class="doctor-note">Инструктор, стаж 2 года.</div>
                                 </div>
-                            </li>
-							                            <li class="doctor-card">
+                            </div>
+							<div class="doctor-card">
                                 <div class="doctor-img">
                                     <img src="~/Content/images/doctors/300_09.jpg" alt="Суэн Ву">
                                 </div>
@@ -279,8 +278,8 @@
                                      <div class="doctor-post">ЛФК</div>
                                     <div class="doctor-note">Инструктор, стаж 3 года.</div>
                                  </div>
-                            </li> 
-							                            <li class="doctor-card">
+                            </div> 
+							<div class="doctor-card">
                                 <div class="doctor-img">
                                     <img src="~/Content/images/doctors/300_010.jpg" alt="Ву Жень Жуэй">
                                 </div>
@@ -289,8 +288,8 @@
                                     <div class="doctor-post">ЛФК</div>
                                     <div class="doctor-note">Инструктор, стаж 4 года.</div>
                                 </div>
-                            </li>
-							                            <li class="doctor-card">
+                            </div>
+							<div class="doctor-card">
                                 <div class="doctor-img">
                                     <img src="~/Content/images/doctors/300_011.jpg" alt="Ву Сюй Пхан">
                                 </div>
@@ -299,8 +298,8 @@
                                     <div class="doctor-post">ЛФК</div>
                                     <div class="doctor-note">Инструктор, стаж 4 года.</div>
                                 </div>
-                            </li>
-							                            <li class="doctor-card">
+                            </div>
+							<div class="doctor-card">
                                 <div class="doctor-img">
                                     <img src="~/Content/images/doctors/300_012.jpg" alt="Цхао Дин Тхао">
                                 </div>
@@ -309,8 +308,8 @@
                                     <div class="doctor-post">ЛФК</div>
                                     <div class="doctor-note">Инструктор, стаж 4 года.</div>
                                 </div>
-                            </li>
-							                            <li class="doctor-card">
+                            </div>
+							<div class="doctor-card">
                                 <div class="doctor-img">
                                     <img src="~/Content/images/doctors/300_013.jpg" alt="Сон Тин">
                                 </div>
@@ -319,8 +318,8 @@
                                     <div class="doctor-post">Трудотерапия, мелкая моторика рук</div>
                                     <div class="doctor-note">Инструктор, стаж 5 лет.</div>
                                 </div>
-                            </li>
-							                            <li class="doctor-card">
+                            </div>
+							<div class="doctor-card">
                                 <div class="doctor-img">
                                     <img src="~/Content/images/doctors/300_014.jpg" alt="Джу Дин Дин">
                                 </div>
@@ -329,8 +328,8 @@
                                     <div class="doctor-post">Логопедический массаж</div>
                                     <div class="doctor-note">Инструктор, стаж 3 года.</div>
                                 </div>
-                            </li>
-							                            <li class="doctor-card">
+                            </div>
+							<div class="doctor-card">
                                 <div class="doctor-img">
                                     <img src="~/Content/images/doctors/300_015.jpg" alt="Ван Чхуэн">
                                 </div>
@@ -339,8 +338,8 @@
                                     <div class="doctor-post">ЛФК</div>
                                     <div class="doctor-note">Инструктор, стаж 3 года.</div>
                                 </div>
-                            </li>
-							                            <li class="doctor-card">
+                            </div>
+							<div class="doctor-card">
                                 <div class="doctor-img">
                                     <img src="~/Content/images/doctors/300_016.jpg" alt="Джан Дьен">
                                 </div>
@@ -349,8 +348,8 @@
                                     <div class="doctor-post">ЛФК</div>
                                     <div class="doctor-note">Инструктор, стаж 3 года.</div>
                                 </div>
-                            </li>
-							                            <li class="doctor-card">
+                            </div>
+							<div class="doctor-card">
                                 <div class="doctor-img">
                                     <img src="~/Content/images/doctors/300_017.jpg" alt="Фан Я Тхин">
                                 </div>
@@ -359,8 +358,8 @@
                                     <div class="doctor-post">ЛФК</div>
                                     <div class="doctor-note">Инструктор, стаж 1 год.</div>
                                 </div>
-                            </li>
-							                            <li class="doctor-card">
+                            </div>
+							<div class="doctor-card">
                                 <div class="doctor-img">
                                     <img src="~/Content/images/doctors/300_018.jpg" alt="Ван Сяа Ся">
                                 </div>
@@ -369,8 +368,8 @@
                                     <div class="doctor-post">ЛФК</div>
                                     <div class="doctor-note">Инструктор, стаж 2 года.</div>
                                 </div>
-                            </li>
-							                            <li class="doctor-card">
+                            </div>
+							<div class="doctor-card">
                                 <div class="doctor-img">
                                     <img src="~/Content/images/doctors/300_019.jpg" alt="Джан Тьен">
                                 </div>
@@ -379,8 +378,8 @@
                                     <div class="doctor-post">Массаж</div>
                                     <div class="doctor-note">Инструктор, стаж 3 года.</div>
                                 </div>
-                            </li>
-							                            <li class="doctor-card">
+                            </div>
+							<div class="doctor-card">
                                 <div class="doctor-img">
                                     <img src="~/Content/images/doctors/300_020.jpg" alt="Хоу Ци Хуа">
                                 </div>
@@ -389,8 +388,8 @@
                                     <div class="doctor-post">ЛФК</div>
                                     <div class="doctor-note">Инструктор, стаж 2 года.</div>
                                 </div>
-                            </li>
-							 <li class="doctor-card">
+                            </div>
+							<div class="doctor-card">
                                 <div class="doctor-img">
                                     <img src="~/Content/images/doctors/300_021.jpg" alt="Джу Я Фэн">
                                 </div>
@@ -399,8 +398,8 @@
                                     <div class="doctor-post">Трудотерапия, мелкая моторика рук</div>
                                     <div class="doctor-note">Инструктор, стаж 3 года.</div>
                                 </div>
-                            </li>
-							 <li class="doctor-card">
+                            </div>
+							<div class="doctor-card">
                                 <div class="doctor-img">
                                     <img src="~/Content/images/doctors/300_022.jpg" alt="Ду Ла Хуэй">
                                 </div>
@@ -409,8 +408,8 @@
                                     <div class="doctor-post">Логопедический массаж</div>
                                     <div class="doctor-note">Инструктор, стаж 1 год.</div>
                                 </div>
-                            </li>
-							 <li class="doctor-card">
+                            </div>
+							<div class="doctor-card">
                                 <div class="doctor-img">
                                     <img src="~/Content/images/doctors/300_023.jpg" alt="Джао Ма Ли">
                                 </div>
@@ -419,8 +418,8 @@
                                     <div class="doctor-post">Логопедический массаж</div>
                                     <div class="doctor-note">Инструктор, стаж 2 года.</div>
                                 </div>
-                            </li>
-							 <li class="doctor-card">
+                            </div>
+							<div class="doctor-card">
                                 <div class="doctor-img">
                                     <img src="~/Content/images/doctors/300_024.jpg" alt="Дин Лан">
                                 </div>
@@ -429,8 +428,8 @@
                                     <div class="doctor-post">ЛФК</div>
                                     <div class="doctor-note">Инструктор, стаж 2 года.</div>
                                 </div>
-                            </li>
-							 <li class="doctor-card">
+                            </div>
+							<div class="doctor-card">
                                 <div class="doctor-img">
                                     <img src="~/Content/images/doctors/300_025.jpg" alt="Ло Жуэй">
                                 </div>
@@ -439,16 +438,14 @@
                                     <div class="doctor-post">Массаж, ЛФК</div>
                                     <div class="doctor-note">Инструктор, стаж 1 год.</div>
                                 </div>
-                            </li>
-							
-                        </ul>
-                              </div><!-- END container -->
+                            </div>
+                        </div>
+                    </div><!-- END container -->
                 </div><!-- END sec-personal-tab -->
-
                 <div class="sec-personal-tab js-tabs-item" id="personal-tab-2">
                     <div class="container">
-                        <ul class="sec-personal-line">
-                            <li class="doctor-card">
+                        <div class="sec-personal-line js-doctors-slider">
+                            <div class="doctor-card">
                                 <div class="doctor-img">
                                     <img src="~/Content/images/doctors/300_201.jpg" alt="Лей Тинбо">
                                 </div>
@@ -457,8 +454,8 @@
                                     <div class="doctor-post">Начальник отделения реабилитации ДЦП</div>
                                     <div class="doctor-note">Врач-реабилитолог, стаж 11 лет.</div>
                                 </div>
-                            </li>
-                            <li class="doctor-card">
+                            </div>
+                            <div class="doctor-card">
                                 <div class="doctor-img">
                                     <img src="~/Content/images/doctors/300_202.jpg" alt="Дэн Цзямин">
                                 </div>
@@ -467,8 +464,8 @@
                                     <div class="doctor-post">Иглотерапевт, </br> организация лечения</div>
                                     <div class="doctor-note">Врач-педиатор, стаж 18 лет.</div>
                                 </div>
-                            </li>
-                            <li class="doctor-card">
+                            </div>
+                            <div class="doctor-card">
                                 <div class="doctor-img">
                                     <img src="~/Content/images/doctors/300_203.jpg" alt="Хэ Юйфэн">
                                 </div>
@@ -477,8 +474,8 @@
                                     <div class="doctor-post">Иглотерапевт,</br> ЛФК</div>
                                     <div class="doctor-note">Врач, стаж 14 лет.</div> 
                                 </div>
-                            </li>
-                           <!-- <li class="doctor-card">
+                            </div>
+                           <!-- <div class="doctor-card">
                                 <div class="doctor-img">
                                     <img src="~/Content/images/doctors/300_204.jpg" alt="Ле Дунпин">
                                 </div>
@@ -487,8 +484,8 @@
                                     <div class="doctor-post">Физиотерапевт</div>
                                     <div class="doctor-note">Врач высшей категории, стаж 16 лет.</div>
                                 </div>
-                            </li> -->
-                            <li class="doctor-card">
+                            </div> -->
+                            <div class="doctor-card">
                                 <div class="doctor-img">
                                     <img src="~/Content/images/doctors/300_205.jpg" alt="Дэн Цзямин">
                                 </div>
@@ -497,8 +494,8 @@
                                     <div class="doctor-post">Детский невролог</div>
                                     <div class="doctor-note">Врач высшей категории, стаж 22 года.</div>
                                 </div>
-                            </li>
-                            <!-- <li class="doctor-card">
+                            </div>
+                            <!-- <div class="doctor-card">
                                 <div class="doctor-img">
                                     <img src="~/Content/images/doctors/300_206.jpg" alt="Цзя Гуанцзе">
                                 </div>
@@ -507,8 +504,8 @@
                                     <div class="doctor-post">ЛФК</div>
                                     <div class="doctor-note">Инструктор, стаж 2 года.</div>
                                 </div>
-                            </li> -->
-							<li class="doctor-card">
+                            </div> -->
+							<div class="doctor-card">
                                 <div class="doctor-img">
                                     <img src="~/Content/images/doctors/300_207.jpg" alt="Мао Кхэ">
                                 </div>
@@ -517,8 +514,8 @@
                                     <div class="doctor-post">ЛФК</div>
                                     <div class="doctor-note">Инструктор, стаж 17 лет.</div>
                                 </div>
-                            </li>
-							<li class="doctor-card">
+                            </div>
+							<div class="doctor-card">
                                 <div class="doctor-img">
                                     <img src="~/Content/images/doctors/300_208.jpg" alt="Го Дин Пхен">
                                 </div>
@@ -527,8 +524,8 @@
                                     <div class="doctor-post">ЛФК</div>
                                     <div class="doctor-note">Инструктор, стаж 4 года.</div>
                                 </div>
-                            </li>
-							<li class="doctor-card">
+                            </div>
+							<div class="doctor-card">
                                 <div class="doctor-img">
                                     <img src="~/Content/images/doctors/300_209.jpg" alt="Гао Бин">
                                 </div>
@@ -537,8 +534,8 @@
                                     <div class="doctor-post">ЛФК</div>
                                     <div class="doctor-note">Инструктор, стаж 7 лет.</div>
                                 </div>
-                            </li>
-							<!-- <li class="doctor-card">
+                            </div>
+							<!-- <div class="doctor-card">
                                 <div class="doctor-img">
                                     <img src="~/Content/images/doctors/300_210.jpg" alt="Цзя Гуанцзе">
                                 </div>
@@ -547,8 +544,8 @@
                                     <div class="doctor-post">ЛФК</div>
                                     <div class="doctor-note">Инструктор, стаж 2 года.</div>
                                 </div>
-                            </li> -->
-							<li class="doctor-card">
+                            </div> -->
+							<div class="doctor-card">
                                 <div class="doctor-img">
                                     <img src="~/Content/images/doctors/300_211.jpg" alt="Цзя Гуанцзе">
                                 </div>
@@ -557,8 +554,8 @@
                                     <div class="doctor-post">ЛФК</div>
                                     <div class="doctor-note">Инструктор, стаж 2 года.</div>
                                 </div>
-                            </li>
-							<li class="doctor-card">
+                            </div>
+							<div class="doctor-card">
                                 <div class="doctor-img">
                                     <img src="~/Content/images/doctors/300_212.jpg" alt="Цзя Гуанцзе">
                                 </div>
@@ -567,8 +564,8 @@
                                     <div class="doctor-post">ЛФК</div>
                                     <div class="doctor-note">Инструктор, стаж 2 года.</div>
                                 </div>
-                            </li>
-							<li class="doctor-card">
+                            </div>
+							<div class="doctor-card">
                                 <div class="doctor-img">
                                     <img src="~/Content/images/doctors/300_213.jpg" alt="Цзя Гуанцзе">
                                 </div>
@@ -577,8 +574,8 @@
                                     <div class="doctor-post">ЛФК</div>
                                     <div class="doctor-note">Инструктор, стаж 2 года.</div>
                                 </div>
-                            </li>
-							<li class="doctor-card">
+                            </div>
+							<div class="doctor-card">
                                 <div class="doctor-img">
                                     <img src="~/Content/images/doctors/300_214.jpg" alt="Хан Цзинцзин">
                                 </div>
@@ -587,8 +584,8 @@
                                     <div class="doctor-post">Массаж</div>
                                     <div class="doctor-note">Инструктор, стаж 2 года.</div>
                                 </div>
-                            </li>
-							<li class="doctor-card">
+                            </div>
+							<div class="doctor-card">
                                 <div class="doctor-img">
                                     <img src="~/Content/images/doctors/300_215.jpg" alt="Чжан Хэн">
                                 </div>
@@ -597,8 +594,8 @@
                                     <div class="doctor-post">ЛФК</div>
                                     <div class="doctor-note">Инструктор,  стаж 2 года.</div>
                                 </div>
-                            </li>
-							<li class="doctor-card">
+                            </div>
+							<div class="doctor-card">
                                 <div class="doctor-img">
                                     <img src="~/Content/images/doctors/300_216.jpg" alt="Ли Вейци">
                                 </div>
@@ -607,8 +604,8 @@
                                     <div class="doctor-post">сенсорная интеграция, </br>массаж</div>
                                     <div class="doctor-note">Инструктор,  стаж 2 года.</div>
                                 </div>
-                            </li>
-							<li class="doctor-card">
+                            </div>
+							<div class="doctor-card">
                                 <div class="doctor-img">
                                     <img src="~/Content/images/doctors/300_217.jpg" alt="Ян Нан">
                                 </div>
@@ -617,8 +614,8 @@
                                     <div class="doctor-post">Массаж</div>
                                     <div class="doctor-note">Инструктор,  стаж 2 года.</div>
                                 </div>
-                            </li>
-							<li class="doctor-card">
+                            </div>
+							<div class="doctor-card">
                                 <div class="doctor-img">
                                     <img src="~/Content/images/doctors/300_218.jpg" alt="Цзин Шуай">
                                 </div>
@@ -627,8 +624,8 @@
                                     <div class="doctor-post">Массаж</div>
                                     <div class="doctor-note">Инструктор,  стаж 2 года.</div>
                                 </div>
-                            </li>
-							<li class="doctor-card">
+                            </div>
+							<div class="doctor-card">
                                 <div class="doctor-img">
                                     <img src="~/Content/images/doctors/300_219.jpg" alt="Тхен Женю">
                                 </div>
@@ -637,8 +634,8 @@
                                     <div class="doctor-post">Массаж</div>
                                     <div class="doctor-note">Инструктор,  стаж 2 года.</div>
                                 </div>
-                            </li>
-							<li class="doctor-card">
+                            </div>
+							<div class="doctor-card">
                                 <div class="doctor-img">
                                     <img src="~/Content/images/doctors/300_220.jpg" alt="Лю Хайся">
                                 </div>
@@ -647,8 +644,8 @@
                                     <div class="doctor-post">мануальная терапия, </br> массаж</div>
                                     <div class="doctor-note">Инструктор,  стаж 11 лет.</div>
                                 </div>
-                            </li>
-							<!-- <li class="doctor-card">
+                            </div>
+							<!-- <div class="doctor-card">
                                 <div class="doctor-img">
                                     <img src="~/Content/images/doctors/300_221.jpg" alt="Цзя Гуанцзе">
                                 </div>
@@ -657,9 +654,8 @@
                                     <div class="doctor-post">ЛФК</div>
                                     <div class="doctor-note">Инструктор,  стаж 2 года.</div>
                                 </div>
-                            </li> -->
-							
-                        </ul>
+                            </div> -->
+                        </div>
                     </div><!-- END container -->
                 </div><!-- END sec-personal-tab -->
 
@@ -674,6 +670,7 @@
                 <div class="row">
                     <div class="col-md-5">
                         <h2 class="main-page-title sec-procedure-title">Процедуры и лекарства</h2>
+                        <img class="sec-procedure-img" src="~/Content/images/img_china-doctor.png" alt="Процедуры и лекарства" />
                         <div class="sec-procedure-note">
                             Сочетание достижений передовой мировой науки и традиционных китайских методик дает высокий результат. Общепринятые методы лечения вполовину (а иногда и втрое) менее эффективны.
                         </div>

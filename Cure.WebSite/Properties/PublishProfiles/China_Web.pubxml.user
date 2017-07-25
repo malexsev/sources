@@ -11,10 +11,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>07/26/2017 01:56:25</publishTime>
+      <publishTime>07/26/2017 02:10:49</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>07/26/2017 01:56:25</publishTime>
+      <publishTime>07/26/2017 02:10:49</publishTime>
     </File>
     <File Include="bin/Cure.DataAccess.dll">
       <publishTime>07/26/2017 00:14:22</publishTime>
@@ -68,7 +68,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/12/2016 23:32:42</publishTime>
     </File>
     <File Include="Content/css/styles.css">
-      <publishTime>07/19/2017 22:15:13</publishTime>
+      <publishTime>07/26/2017 02:02:45</publishTime>
     </File>
     <File Include="Content/css/styles.less">
       <publishTime>07/14/2017 22:23:14</publishTime>
@@ -1550,7 +1550,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/24/2016 03:40:04</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>07/26/2017 01:56:19</publishTime>
+      <publishTime>07/26/2017 02:10:47</publishTime>
     </File>
     <File Include="robots.txt">
       <publishTime>01/04/2017 16:21:24</publishTime>
@@ -1736,10 +1736,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Department/Yancheng1.cshtml">
-      <publishTime>07/19/2017 22:15:13</publishTime>
+      <publishTime>07/26/2017 02:02:45</publishTime>
     </File>
     <File Include="Views/Department/Yancheng2.cshtml">
-      <publishTime>07/19/2017 22:15:13</publishTime>
+      <publishTime>07/26/2017 02:02:45</publishTime>
     </File>
     <File Include="Views/Department/_AlmaataPops.cshtml">
       <publishTime>07/19/2017 22:15:13</publishTime>
@@ -1778,7 +1778,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>07/26/2017 01:53:42</publishTime>
+      <publishTime>07/26/2017 02:10:07</publishTime>
     </File>
     <File Include="Views/Home/Medicine.cshtml">
       <publishTime>10/03/2016 11:46:24</publishTime>
@@ -1877,16 +1877,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Mension/Index.cshtml">
-      <publishTime>07/19/2017 22:15:13</publishTime>
+      <publishTime>07/26/2017 02:02:45</publishTime>
     </File>
     <File Include="Views/News/Details.cshtml">
-      <publishTime>07/26/2017 00:17:52</publishTime>
+      <publishTime>07/26/2017 02:06:30</publishTime>
     </File>
     <File Include="Views/News/Index.cshtml">
-      <publishTime>07/26/2017 00:11:37</publishTime>
+      <publishTime>07/26/2017 02:07:17</publishTime>
     </File>
     <File Include="Views/News/_News.cshtml">
-      <publishTime>07/21/2017 02:05:51</publishTime>
+      <publishTime>07/26/2017 01:50:30</publishTime>
     </File>
     <File Include="Views/Preorder/Index.cshtml">
       <publishTime>07/19/2017 22:15:13</publishTime>
@@ -1976,7 +1976,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/25/2016 15:07:49</publishTime>
     </File>
     <File Include="Views/Shared/_AccountLogin.cshtml">
-      <publishTime>07/19/2017 22:15:13</publishTime>
+      <publishTime>07/26/2017 02:02:45</publishTime>
     </File>
     <File Include="Views/Shared/_AccountMenu.cshtml">
       <publishTime>07/19/2017 22:15:13</publishTime>
@@ -2036,13 +2036,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>07/19/2017 22:15:13</publishTime>
+      <publishTime>07/26/2017 02:02:45</publishTime>
     </File>
     <File Include="Views/Shared/_MainMenu.cshtml">
-      <publishTime>07/25/2017 23:18:31</publishTime>
+      <publishTime>07/26/2017 02:08:05</publishTime>
     </File>
     <File Include="Views/Shared/_MainMenuExt.cshtml">
-      <publishTime>07/25/2017 23:02:41</publishTime>
+      <publishTime>07/26/2017 02:08:31</publishTime>
     </File>
     <File Include="Views/Shared/_Mension.cshtml">
       <publishTime>07/19/2017 22:15:13</publishTime>

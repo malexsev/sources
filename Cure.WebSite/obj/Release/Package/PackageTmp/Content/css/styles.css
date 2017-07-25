@@ -8097,7 +8097,7 @@ body.with-account-header .hosp-page-menu {
 }
 @media (max-width: 1199px) {
   .gallery-share .ya-share2__item:last-child {
-    margin-top: 4px;
+    /*margin-top: 4px;*/
   }
   body.scrolled .header-menu:not(.active) > li > a {
     padding: 9px 5px 7px 5px;
@@ -8199,7 +8199,7 @@ body.with-account-header .hosp-page-menu {
   body.scrolled .header.double.with-account-header .megamenu.custom {
     top: calc(100% + 95px);
   }
-  .btn[data-pop="pop-add-testimonial"] {
+  .add-testimonial {
     margin-top: 10px;
   }
   .about-us-text {
