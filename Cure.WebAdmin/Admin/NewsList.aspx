@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" ValidateRequest="false" AutoEventWireup="true" MasterPageFile="~/Main.master" CodeBehind="NewsList.aspx.cs" Inherits="Cure.WebAdmin.Admin.NewsList" %>
 
+<%@ Register Assembly="DevExpress.Web.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxUploadControl" TagPrefix="dx" %>
+
 <%@ Register Assembly="DevExpress.Web.ASPxHtmlEditor.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxHtmlEditor" TagPrefix="dx" %>
 
 <%@ Register Assembly="DevExpress.Web.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxGridView" TagPrefix="dx" %>
@@ -14,6 +16,13 @@
             var url = '/Admin/NewsLetter.aspx?newspageid=' + newsid;
             var win = window.open(url, '_blank');
             win.focus();
+        }
+        function OnUpdateClick() {
+            if (uploader.GetText() == '') {
+                grid.UpdateEdit();
+            } else {
+                uploader.UploadFile();
+            }
         }
     </script>
 
@@ -47,8 +56,8 @@
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataDateColumn Caption="Дата" FieldName="Date" VisibleIndex="9" Width="100px">
             </dx:GridViewDataDateColumn>
-            <dx:GridViewDataTextColumn Caption="Настройка" FieldName="Settings" Visible="False" VisibleIndex="12">
-                <EditFormSettings Visible="True" />
+            <dx:GridViewDataTextColumn Caption="Файло" FieldName="Settings" Visible="False" VisibleIndex="12">
+                <EditFormSettings Visible="False" />
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataDateColumn Caption="Создано" FieldName="CreateDate" ReadOnly="True" Visible="False" VisibleIndex="13">
                 <EditFormSettings Visible="True" />
@@ -59,7 +68,7 @@
             <dx:GridViewDataTextColumn Caption="Пользователь" FieldName="LastUser" ReadOnly="True" Visible="False" VisibleIndex="15">
                 <EditFormSettings Visible="True" />
             </dx:GridViewDataTextColumn>
-<%--            <dx:GridViewDataMemoColumn Caption="Разметка" FieldName="Text" Visible="False" VisibleIndex="8">
+            <%--            <dx:GridViewDataMemoColumn Caption="Разметка" FieldName="Text" Visible="False" VisibleIndex="8">
                 <PropertiesMemoEdit Rows="30">
                 </PropertiesMemoEdit>
                 <EditFormSettings ColumnSpan="2" Visible="True" />
@@ -84,7 +93,15 @@
             <EditForm>
                 <dx:ASPxGridViewTemplateReplacement ID="Editors" ReplacementType="EditFormEditors" runat="server"></dx:ASPxGridViewTemplateReplacement>
                 <div style="margin: 10px 10px;">
-                    <dx:ASPxHtmlEditor Width="800px" ID="uxEditor" Html=<%#Bind("Text")%> runat="server" ShowToolbar1="false" ShowToolbar2="true" ShowTableToolbar="false">
+                    <dx:ASPxUploadControl ID="uxUploadControl1" ClientInstanceName="uploader" runat="server" UploadMode="Auto" Width="280px" ShowProgressPanel="True" ShowClearFileSelectionButton="False" NullText="Файл главной картинки" OnFileUploadComplete="ASPxUploadControl1_FileUploadComplete">
+                        <ValidationSettings AllowedFileExtensions=".jpg,.jpeg,.jpe" MaxFileSize="1000000">
+                        </ValidationSettings>
+                        <ClientSideEvents FileUploadComplete="function(s, e) { if (e.isValid) { grid.UpdateEdit(); }}" />
+                        <UploadButton Text="Загрузить главную картинку"></UploadButton>
+                    </dx:ASPxUploadControl>
+                </div>
+                <div style="margin: 10px 10px;">
+                    <dx:ASPxHtmlEditor Width="800px" ID="uxEditor" Html='<%#Bind("Text")%>' runat="server" ShowToolbar1="false" ShowToolbar2="true" ShowTableToolbar="false">
                         <SettingsImageUpload UploadImageFolder="~/Content/custom/">
                         </SettingsImageUpload>
                         <ImagesFileManager ImageFolder="~/Content/custom/">
@@ -253,7 +270,7 @@
                         </Toolbars>
                     </dx:ASPxHtmlEditor>
                 </div>
-                <dx:ASPxGridViewTemplateReplacement ID="UpdateButton" ReplacementType="EditFormUpdateButton" runat="server"></dx:ASPxGridViewTemplateReplacement>
+                <a href="#" onclick="OnUpdateClick()">Обновить</a><%--<dx:ASPxGridViewTemplateReplacement ID="UpdateButton"  ReplacementType="EditFormUpdateButton" runat="server"></dx:ASPxGridViewTemplateReplacement>--%>
                 <dx:ASPxGridViewTemplateReplacement ID="CancelButton" ReplacementType="EditFormCancelButton" runat="server"></dx:ASPxGridViewTemplateReplacement>
             </EditForm>
         </Templates>

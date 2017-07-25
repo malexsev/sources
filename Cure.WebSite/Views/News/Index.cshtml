@@ -9,24 +9,24 @@
 @model IEnumerable<NewsPageModel>
 
 <div class="main has-custom-bg" role="main">
-    @using (Ajax.BeginForm("Index", "News", null, null, new { id = "newsform" }))
-    {
-        <section class="news-wrapper">
-            <div class="container">
-                <div class="all-pages-head">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <h1 class="all-pages-H1">Новости и события</h1>
-                        </div>
-                        <div class="col-lg-6">
-                            <form class="rss-form" action="#" method="post">
-                                <label class="rss-text" for="rss-email">Сразу на почту</label>
-                                <input id="rss-email" class="rss-field" type="text" name="rss_email" placeholder="Ваш E-mail" autocapitalize="off" autocorrect="off" autocomplete="email" />
-                                <button class="rss-submit" type="submit"></button>
-                            </form>
-                        </div>
+    <section class="news-wrapper">
+        <div class="container">
+            <div class="all-pages-head">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <h1 class="all-pages-H1">Новости и события</h1>
                     </div>
-                </div><!-- END all-pages-head -->
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        @*<form class="rss-form" action="#" method="post">
+                            <label class="rss-text" for="rss-email">ПОДПИШИТЕСЬ НА РАССЫЛКУ</label>
+                            <input id="rss-email" class="rss-field" type="text" name="rss_email" placeholder="Ваш E-mail" autocapitalize="off" autocorrect="off" autocomplete="email" />
+                            <button class="rss-submit" type="submit"></button>
+                        </form>*@
+                    </div>
+                </div>
+            </div><!-- END all-pages-head -->
+            @using (Ajax.BeginForm("Index", "News", null, null, new { id = "newsform" }))
+            {
 
                 <div class="all-pages-body">
                     <div class="row">
@@ -34,17 +34,17 @@
                             @for (var i = 0; i <= (Model.Count() < 12 ? Model.Count() : 12) / 4; i++)
                             {
                                 <li class="news-item">
-                                    <div class="col-lg-6 col-md-6">
+                                    <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12">
                                         @if (Model.Any() && Model.Count() > i * 4)
                                         {
                                             <a class="news-item-link" href="@Url.Action(Model.ToList()[i * 4].Alias, "News")" target="_blank">
-                                                <img class="news-item-image" src="@Html.Raw(Model.ToList()[i * 4].MainPictureSrc)" alt="" />
+                                                <span class="news-item-image" style="background-image: url('@Html.Raw(Model.ToList()[i * 4].MainPictureSrc(Server))');"></span>
                                                 <span class="news-item-date">@Html.Raw(Model.ToList()[i * 4].Date.HasValue ? Model.ToList()[i * 4].Date.Value.ToString("dd.MM.yyyy") : "<Дата не указана>")</span>
                                                 <span class="news-item-name">"@Model.ToList()[i * 4].Subject"</span>
                                             </a>
                                         }
                                     </div>
-                                    <div class="col-lg-6 col-md-6">
+                                    <div class="col-lg-6 col-md-4 col-sm-12 col-xs-12">
                                         <ul class="news-aside">
                                             @if (Model.Any() && Model.Count() > i * 4 + 1)
                                             {
@@ -53,7 +53,9 @@
                                                 {
                                                     <li class="news-aside-item">
                                                         <a class="news-aside-item-link" href="@Url.Action(Model.ToList()[cnt].Alias, "News")" target="_blank">
-                                                            <img class="news-aside-item-image" src="~/Content/images/news-page/03-aside.jpg" alt="" />
+                                                            <span class="news-aside-item-image-wrapper">
+                                                                <span class="news-aside-item-image" style="background-image: url('@Html.Raw(Model.ToList()[cnt].MainPictureSrc(Server))');"></span>
+                                                            </span>
                                                             <span class="news-aside-item-name">@Model.ToList()[cnt].Subject</span>
                                                             <span class="news-aside-item-date">@Html.Raw(Model.ToList()[cnt].Date.HasValue ? Model.ToList()[cnt].Date.Value.ToString("dd.MM.yyyy") : "<Дата не указана>")</span>
                                                         </a>
@@ -81,7 +83,9 @@
                         </div>
                     </div>
                 </div><!-- END all-pages-body -->
-            </div><!-- END container -->
-        </section>
-    }
+
+            }
+
+        </div><!-- END container -->
+    </section>
 </div><!-- END main -->

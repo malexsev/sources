@@ -1,5 +1,7 @@
-﻿@{
-    ViewBag.Title = "Главная";
+﻿@using Cure.WebSite.Models
+@{
+    ViewBag.Title = "Официальный сайт больницы лечение ДЦП в Китае, город Юньчэн";
+    ViewBag.Description = "Описание больниц по лечению ДЦП, аутизма, задержка речи, задержки развития и других неврологических заболеваний";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -34,6 +36,62 @@
             </div>
         </div><!-- END sec-intro-form -->
     </section><!-- END sec-intro -->
+    
+    <section class="sec-articles">
+        <div class="container">
+            <div class="row">
+                <div class="all-pages-head col-lg-12">
+                    <h2 class="main-page-title sec-articles-title">Новости и события</h2>
+                </div>
+            </div>
+            <div class="row">
+                <ul id="js-for-load-children" class="news">
+                    @*@using (Ajax.BeginForm("Index", "News", null, null, new { id = "newsform" }))*@
+
+                    <li class="news-item">
+                        <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12">
+                            @if (((IEnumerable<NewsPageModel>)ViewBag.News).Any() && ((IEnumerable<NewsPageModel>)ViewBag.News).Count() > 4)
+                            {
+                                <a class="news-item-link" href="@Url.Action(((IEnumerable<NewsPageModel>)ViewBag.News).ToList()[0].Alias, "News")" target="_blank">
+                                    <span class="news-item-image" style="background-image: url('@Html.Raw(((IEnumerable<NewsPageModel>)ViewBag.News).ToList()[0].MainPictureSrc(Server))');"></span>
+                                    <span class="news-item-date">@Html.Raw(((IEnumerable<NewsPageModel>)ViewBag.News).ToList()[0].Date.HasValue ? ((IEnumerable<NewsPageModel>)ViewBag.News).ToList()[0].Date.Value.ToString("dd.MM.yyyy") : "<Дата не указана>")</span>
+                                    <span class="news-item-name">"@Html.Raw(((IEnumerable<NewsPageModel>)ViewBag.News).ToList()[0].Subject)"</span>
+                                </a>
+                            }
+                        </div>
+                        <div class="col-lg-6 col-md-4 col-sm-12 col-xs-12">
+                            <ul class="news-aside">
+                                @if (((IEnumerable<NewsPageModel>)ViewBag.News).Any() && ((IEnumerable<NewsPageModel>)ViewBag.News).Count() > 1)
+                                {
+                                    int cnt = 1;
+                                    foreach (NewsPageModel news in ((IEnumerable<NewsPageModel>)ViewBag.News).Skip(1).Take(3))
+                                    {
+                                        <li class="news-aside-item">
+                                            <a class="news-aside-item-link" href="@Url.Action(((IEnumerable<NewsPageModel>)ViewBag.News).ToList()[cnt].Alias, "News")" target="_blank">
+                                                <span class="news-aside-item-image-wrapper">
+                                                    <span class="news-aside-item-image" style="background-image: url('@Html.Raw(((IEnumerable<NewsPageModel>)ViewBag.News).ToList()[cnt].MainPictureSrc(Server))');"></span>
+                                                </span>
+                                                <span class="news-aside-item-name">@Html.Raw(((IEnumerable<NewsPageModel>)ViewBag.News).ToList()[cnt].Subject)</span>
+                                                <span class="news-aside-item-date">@Html.Raw(((IEnumerable<NewsPageModel>)ViewBag.News).ToList()[cnt].Date.HasValue ? ((IEnumerable<NewsPageModel>)ViewBag.News).ToList()[cnt].Date.Value.ToString("dd.MM.yyyy") : "<Дата не указана>")</span>
+                                            </a>
+                                        </li>
+                                        cnt++;
+                                    }
+                                }
+                            </ul>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 txt-center">
+                    <a class="btn btn-light" href="@Url.Action("Index", "News")">Все новости и события</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
 
     <section class="sec-clinic"> 
         <div class="container">
@@ -42,14 +100,12 @@
                     <h2 class="main-page-title sec-clinic-title">Наши клиники</h2>
                     <div class="sec-clinic-text js-spoiler-body">
                         <p>
-                            Реабилитация и лечение пациентов с ДЦП и другимии неврологическими заболеваниями организована на базе двух государственных больниц города Юньчэн (провинция Шаньси, КНР)
-                           </p>
-                        <p>
-                            Лечение проводится квалифицированными специалистами Китайской Народной Республики, прошедшими обучение передовым китайским методикам в КНР.
+                            Реабилитация и лечение пациентов с ДЦП и другими неврологическими заболеваниями организована на базе двух государственных больниц города Юньчэн (провинция Шаньси, КНР). Комплексные методы лечения, разработанные докторами клиники, эффективны у пациентов с двигательными нарушениями, ДЦП. В лечебно-реабилитационной практике применяются как традиционная китайская, так и западные (европейские) методики диагностики и лечения. Каждому пациенту доктора подбирают индивидуальную программу лечения на основе данных, полученных при осмотре и диагностике. Лечебная программа адекватна форме выявленного заболевания
                         </p>
                         
                        </div>
-                   <!--  <a class="sec-clinic-more js-spoiler-clinic" role="button">Читать дальше</a> -->
+                 <!--    <a class="sec-clinic-more js-spoiler-clinic" role="button">Читать дальше</a> --> 
+					
                 </div>
                 <div class="col-md-5">
                     <div class="sec-clinic-map">

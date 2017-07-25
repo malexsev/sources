@@ -26,7 +26,7 @@ namespace Cure.WebSite.Controllers
         {
             var dal = new DataAccessBL();
             var info = dal.GetNewsPage(alias);
-            return View(info);
+            return View(new NewsPageModel(info, Request));
         }
 
         [HttpPost]

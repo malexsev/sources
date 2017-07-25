@@ -24,6 +24,12 @@ body.scrolled .megamenu.custom {
 body.scrolled .header.double .megamenu.custom {
   top: calc(100% + 66px);
 }
+body.scrolled.with-account-header .megamenu.custom {
+  top: calc(100% + 50px);
+}
+body.scrolled .header.double.with-account-header .megamenu.custom {
+  top: calc(100% + 116px);
+}
 body.scrolled .main.hosp-page {
   padding-top: 157px;
 }
@@ -33,8 +39,22 @@ body.scrolled .main {
 body.scrolled .main-page {
   padding-top: 91px;
 }
+body.with-account-header .main-page,
+body.with-account-header .main {
+  padding-top: 155px;
+}
+body.scrolled.with-account-header .main-page,
+body.scrolled.with-account-header .main {
+  padding-top: 141px;
+}
 body.scrolled .header {
   height: 91px;
+}
+body.with-account-header .header {
+  height: 155px;
+}
+body.scrolled.with-account-header .header {
+  height: 141px;
 }
 body.scrolled .header-nav {
   height: 60px;
@@ -51,7 +71,7 @@ body.scrolled .header-btns {
 }
 body.scrolled .header-btns a {
   font-size: 12px;
-  padding: 4px 12px;
+  padding: 5px 12px 3px;
 }
 body.scrolled .header-topline-btns a {
   font-size: 10px;
@@ -86,6 +106,9 @@ body.scrolled .hosp-page-menu {
   height: 66px;
   top: 91px;
   box-shadow: 0 3px 5px rgba(2, 3, 3, 0.22);
+}
+body.scrolled.with-account-header .hosp-page-menu {
+  top: 141px;
 }
 body.scrolled .hosp-page-menu .container {
   height: 60px;
@@ -611,7 +634,7 @@ img {
 }
 .btn-orang-outlined {
   color: #e17828;
-  padding: 6px 15px;
+  padding: 7px 15px 5px;
   background-color: #fff;
   border: 2px solid #e17828;
 }
@@ -1808,6 +1831,9 @@ html.swipebox-html.swipebox-touch {
   transition: padding 300ms linear;
 }
 .header-logo a {
+  -webkit-transition: width 300ms linear;
+  -o-transition: width 300ms linear;
+  transition: width 300ms linear;
   display: block;
   position: relative;
 }
@@ -5761,6 +5787,9 @@ html.swipebox-html.swipebox-touch {
   -webkit-transition: height 300ms linear, top 300ms linear;
   transition: height 300ms linear, top 300ms linear;
 }
+body.with-account-header .hosp-page-menu {
+  top: 155px;
+}
 .hosp-page-menu .container {
   height: 78px;
   -webkit-transition: height 300ms linear;
@@ -8167,6 +8196,9 @@ html.swipebox-html.swipebox-touch {
   body.scrolled .header.double .megamenu.custom {
     top: calc(100% + 45px);
   }
+  body.scrolled .header.double.with-account-header .megamenu.custom {
+    top: calc(100% + 95px);
+  }
   .btn[data-pop="pop-add-testimonial"] {
     margin-top: 10px;
   }
@@ -8822,10 +8854,46 @@ html.swipebox-html.swipebox-touch {
   .aside-articles-item-name {
     height: auto;
   }
+  .megamenu {
+    position: fixed;
+    top: 153px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  body.scrolled .megamenu {
+    top: 141px;
+  }
+  .megamenu-front {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 20px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .header-logo a {
+    width: 70px;
+    overflow: hidden;
+  }
+  body.scrolled .header-logo a {
+    width: 50px;
+  }
+  .header-logo img {
+    max-width: none;
+  }
+  .header-btns a {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }
 @media (max-width: 650px) {
   body.scrolled .header.double .megamenu.custom {
     top: calc(100% + 45px);
+  }
+  body.scrolled .header.double.with-account-header .megamenu.custom {
+    top: calc(100% + 95px);
   }
   .megamenu.custom {
     top: calc(100% + 54px);
@@ -9060,7 +9128,9 @@ html.swipebox-html.swipebox-touch {
     right: -20px;
   }
   .header-btns {
-    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
   }
   .account-menu > li > a {
     font-size: 0;

@@ -19,7 +19,7 @@ namespace Cure.WebSite.Models
 
         public NewsPageModel() { }
 
-        public NewsPageModel(NewsPage basis, System.Web.HttpRequestBase request )
+        public NewsPageModel(NewsPage basis, System.Web.HttpRequestBase request)
         {
             _request = request;
             foreach (PropertyDescriptor item in TypeDescriptor.GetProperties(basis))
@@ -29,29 +29,44 @@ namespace Cure.WebSite.Models
                 {
                     continue;
                 }
-                item.SetValue(this, val);
+                if (item.Name == "Text")
+                {
+                    if (val.ToString().Contains("src=\"/"))
+                    {
+                        var url = new Uri(ConfigurationManager.AppSettings["PhotoUrl"].Replace("/Upload/", "")).ToString();
+                        item.SetValue(this, val.ToString().Replace("src=\"/", string.Format("src=\"{0}/", url)));
+                    }
+                    else
+                    {
+                        item.SetValue(this, val);
+                    }
+                }
+                else
+                {
+                    item.SetValue(this, val);
+                }
             }
         }
 
-        public string MainPictureSrc
+        public string MainPictureSrc(HttpServerUtilityBase server)
         {
-            get
-            {
-                var src = Regex.Match(this.Text, "<img.+?src=[\"'](.+?)[\"'].+?>", RegexOptions.IgnoreCase).Groups[1].Value;
-                var url = GetAbsoluteUri(src);
-                return url.ToString();
-            }
+            return GetAbsoluteUri(this.Settings).ToString();
         }
 
         private Uri GetAbsoluteUri(string redirectUrl)
         {
+            if (string.IsNullOrEmpty(redirectUrl))
+            {
+                redirectUrl = "/Content/images/no_photo.jpg";
+            }
+
             var redirectUri = new Uri(redirectUrl, UriKind.RelativeOrAbsolute);
 
             if (!redirectUri.IsAbsoluteUri && _request != null)
             {
                 if (_request.Url != null)
                 {
-                    redirectUri = new Uri(new Uri(ConfigurationManager.AppSettings["PhotoUrl"].Replace("/Upload/", "")), redirectUri);                 
+                    redirectUri = new Uri(new Uri(ConfigurationManager.AppSettings["PhotoUrl"].Replace("/Upload/", "")), redirectUri);
                 }
             }
 

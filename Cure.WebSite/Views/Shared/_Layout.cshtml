@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="ru" prefix="og: http://ogp.me/ns#">
 <head>
-    <title>@ViewBag.Title - Наши дети. Лечение ДЦП в Китае</title>
+    <title>@ViewBag.Title</title>
     <meta name="yandex-verification" content="c119f5be9d433966" />
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,7 +26,7 @@
     <![endif]-->
 </head>
 
-<body>
+<body @if (User.Identity.IsAuthenticated) { <text>class="with-account-header"</text> } >
     <!--[if lte IE 9]>
       <div class="stop-browser-modal">
         Вы используете очень <strong>устаревший</strong> браузер, котороый не<br>
@@ -47,7 +47,7 @@
     </div>
 
     <div class="wrapper account">
-        <header class="header">
+        <header class="header @if (Request.Url.AbsolutePath.ToLower().Contains("department")) { <text>double</text> }">
             <div class="header-topline">
                 <div class="container">
                     <div class="row">

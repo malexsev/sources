@@ -11,25 +11,25 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>07/19/2017 01:33:14</publishTime>
+      <publishTime>07/26/2017 00:22:05</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>07/19/2017 01:33:13</publishTime>
+      <publishTime>07/26/2017 00:22:05</publishTime>
     </File>
     <File Include="bin/Cure.DataAccess.dll">
-      <publishTime>07/19/2017 01:32:55</publishTime>
+      <publishTime>07/26/2017 00:14:22</publishTime>
     </File>
     <File Include="bin/Cure.Notification.dll">
-      <publishTime>07/19/2017 01:32:57</publishTime>
+      <publishTime>07/26/2017 00:15:16</publishTime>
     </File>
     <File Include="bin/Cure.Reports.dll">
-      <publishTime>07/19/2017 01:30:35</publishTime>
+      <publishTime>07/25/2017 22:50:54</publishTime>
     </File>
     <File Include="bin/Cure.Utils.dll">
-      <publishTime>07/19/2017 01:32:57</publishTime>
+      <publishTime>07/26/2017 00:15:16</publishTime>
     </File>
     <File Include="bin/Cure.WebSite.dll">
-      <publishTime>07/19/2017 01:33:07</publishTime>
+      <publishTime>07/26/2017 00:20:32</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>09/19/2015 00:46:38</publishTime>
@@ -68,7 +68,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/12/2016 23:32:42</publishTime>
     </File>
     <File Include="Content/css/styles.css">
-      <publishTime>07/18/2017 22:12:06</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Content/css/styles.less">
       <publishTime>07/14/2017 22:23:14</publishTime>
@@ -101,7 +101,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/29/2016 22:57:58</publishTime>
     </File>
     <File Include="Content/EmailBodyTemplate.html">
-      <publishTime>07/19/2017 01:11:38</publishTime>
+      <publishTime>07/03/2017 03:04:36</publishTime>
     </File>
     <File Include="Content/fonts/alsrubl-webfont.eot">
       <publishTime>12/30/2016 00:00:00</publishTime>
@@ -1550,7 +1550,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/24/2016 03:40:04</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>07/19/2017 01:33:11</publishTime>
+      <publishTime>07/26/2017 00:22:03</publishTime>
     </File>
     <File Include="robots.txt">
       <publishTime>01/04/2017 16:21:24</publishTime>
@@ -1568,7 +1568,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/04/2017 15:03:06</publishTime>
     </File>
     <File Include="Scripts/jquery.ndeti.js">
-      <publishTime>07/18/2017 22:12:06</publishTime>
+      <publishTime>07/26/2017 00:10:54</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.js">
       <publishTime>07/24/2016 03:40:02</publishTime>
@@ -1649,295 +1649,295 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/30/2015 20:55:04</publishTime>
     </File>
     <File Include="Views/Biblioteka/Lekarstvakitay.cshtml">
-      <publishTime>03/26/2017 19:35:50</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Biblioteka/Lekarstvassoboy.cshtml">
-      <publishTime>03/26/2017 19:35:48</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Biblioteka/Metod.cshtml">
       <publishTime>10/12/2016 22:01:00</publishTime>
     </File>
     <File Include="Views/Biblioteka/PostsNews.cshtml">
-      <publishTime>03/26/2017 20:52:12</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Biblioteka/Procedures.cshtml">
       <publishTime>10/12/2016 22:01:00</publishTime>
     </File>
     <File Include="Views/Biblioteka/Statyinovosti.cshtml">
-      <publishTime>04/04/2017 22:40:04</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Biblioteka/Tests.cshtml">
       <publishTime>10/12/2016 02:27:00</publishTime>
     </File>
     <File Include="Views/Biblioteka/_BibliotekaMenu.cshtml">
-      <publishTime>04/04/2017 22:33:14</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Cabinet/Balance.cshtml">
-      <publishTime>12/09/2016 20:47:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Cabinet/Files.cshtml">
-      <publishTime>02/27/2017 01:51:02</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Cabinet/Index.cshtml">
-      <publishTime>03/26/2017 18:49:24</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Cabinet/Messages.cshtml">
-      <publishTime>04/06/2017 22:05:04</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Cabinet/MyPage.cshtml">
-      <publishTime>02/10/2017 13:11:58</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Cabinet/Orders.cshtml">
-      <publishTime>03/26/2017 19:01:16</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Cabinet/_FilesList.cshtml">
-      <publishTime>02/26/2017 15:34:14</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Cabinet/_Messages.cshtml">
-      <publishTime>12/30/2016 00:00:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Cabinet/_MessagesUsers.cshtml">
-      <publishTime>01/18/2017 15:37:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Children/Detail.cshtml">
-      <publishTime>02/10/2017 13:12:40</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Children/Index.cshtml">
-      <publishTime>12/09/2016 20:47:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/China/Details.cshtml">
-      <publishTime>03/26/2017 19:35:22</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/China/Dobratsa.cshtml">
-      <publishTime>03/26/2017 19:35:12</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/China/Faq.cshtml">
-      <publishTime>03/26/2017 19:35:16</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/China/Price.cshtml">
-      <publishTime>03/26/2017 21:17:10</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/China/Priglashenie.cshtml">
-      <publishTime>03/26/2017 19:35:06</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/China/Support.cshtml">
-      <publishTime>03/26/2017 19:35:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/China/Visa.cshtml">
-      <publishTime>03/26/2017 19:34:38</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/China/_ChinaMenu.cshtml">
-      <publishTime>03/26/2017 21:10:42</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Department/Almaata.cshtml">
-      <publishTime>12/13/2016 05:32:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Department/Sevastopol.cshtml">
-      <publishTime>12/09/2016 20:47:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Department/Yancheng1.cshtml">
-      <publishTime>02/10/2017 12:05:36</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Department/Yancheng2.cshtml">
-      <publishTime>02/10/2017 12:05:40</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Department/_AlmaataPops.cshtml">
-      <publishTime>12/09/2016 20:47:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Department/_SevastopolPops.cshtml">
       <publishTime>10/20/2016 11:27:00</publishTime>
     </File>
     <File Include="Views/Department/_Yancheng1Pops.cshtml">
-      <publishTime>12/09/2016 20:47:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Department/_Yancheng2Pops.cshtml">
-      <publishTime>12/30/2016 00:00:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Finance/Find.cshtml">
-      <publishTime>03/26/2017 19:35:46</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Finance/Fonds.cshtml">
-      <publishTime>03/26/2017 19:35:42</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Finance/Partners.cshtml">
-      <publishTime>03/26/2017 19:35:40</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Finance/_FinanceMenu.cshtml">
-      <publishTime>12/09/2016 20:47:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Home/AboutUs.cshtml">
-      <publishTime>01/26/2017 20:16:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Home/Agreed.cshtml">
-      <publishTime>03/30/2017 22:38:28</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Home/Careers.cshtml">
-      <publishTime>01/18/2017 15:37:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Home/Help.cshtml">
-      <publishTime>01/28/2017 22:25:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>06/06/2017 21:24:34</publishTime>
+      <publishTime>07/26/2017 00:21:54</publishTime>
     </File>
     <File Include="Views/Home/Medicine.cshtml">
       <publishTime>10/03/2016 11:46:24</publishTime>
     </File>
     <File Include="Views/Home/Partnership.cshtml">
-      <publishTime>01/18/2017 15:37:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Home/Pravo.cshtml">
-      <publishTime>01/18/2017 15:37:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Home/Price.cshtml">
       <publishTime>12/10/2016 09:18:00</publishTime>
     </File>
     <File Include="Views/Home/Privacy.cshtml">
-      <publishTime>01/18/2017 15:37:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Home/Procedure.cshtml">
       <publishTime>10/03/2016 11:42:32</publishTime>
     </File>
     <File Include="Views/Home/Rules.cshtml">
-      <publishTime>03/30/2017 22:42:06</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Home/RulesAgree.cshtml">
-      <publishTime>03/28/2017 22:58:08</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Home/Search.cshtml">
-      <publishTime>01/18/2017 15:37:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Home/SimpleStyles.cshtml">
-      <publishTime>01/27/2017 13:13:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Home/Subscription.cshtml">
-      <publishTime>02/22/2017 13:36:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Home/_WeatherHome.cshtml">
-      <publishTime>04/03/2017 22:07:40</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Info/Internet.cshtml">
-      <publishTime>03/26/2017 21:19:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Info/Pogoda.cshtml">
-      <publishTime>03/26/2017 21:19:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Info/Rashodi.cshtml">
-      <publishTime>03/26/2017 21:19:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Info/Soft.cshtml">
-      <publishTime>07/11/2017 23:50:10</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Info/_InfoMenu.cshtml">
-      <publishTime>02/03/2017 14:29:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Login/Approve.cshtml">
-      <publishTime>07/12/2017 00:45:37</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Medicine/Aceglutamide.cshtml">
-      <publishTime>12/08/2016 22:40:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Medicine/Aminobutyric.cshtml">
-      <publishTime>12/04/2016 15:43:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Medicine/Anisodine.cshtml">
-      <publishTime>12/09/2016 04:24:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Medicine/Cerebrolysin.cshtml">
-      <publishTime>12/08/2016 22:29:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Medicine/Cerebroside.cshtml">
-      <publishTime>12/08/2016 20:41:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Medicine/Ganoderma.cshtml">
-      <publishTime>12/08/2016 20:27:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Medicine/Index.cshtml">
-      <publishTime>12/09/2016 04:26:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Medicine/Methylcobalamin.cshtml">
-      <publishTime>12/08/2016 19:15:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Medicine/Mouse.cshtml">
-      <publishTime>12/09/2016 04:31:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Medicine/Musk.cshtml">
-      <publishTime>12/08/2016 21:16:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Medicine/Ocular.cshtml">
-      <publishTime>12/08/2016 19:32:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Medicine/Oxiracetam.cshtml">
-      <publishTime>12/08/2016 22:18:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Medicine/Sodium.cshtml">
-      <publishTime>12/09/2016 03:40:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Medicine/Xingnaojing.cshtml">
-      <publishTime>12/04/2016 15:43:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Mension/Index.cshtml">
-      <publishTime>07/05/2017 00:36:42</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/News/Details.cshtml">
-      <publishTime>07/19/2017 00:58:47</publishTime>
+      <publishTime>07/26/2017 00:17:52</publishTime>
     </File>
     <File Include="Views/News/Index.cshtml">
-      <publishTime>07/19/2017 01:22:56</publishTime>
+      <publishTime>07/26/2017 00:11:37</publishTime>
     </File>
     <File Include="Views/News/_News.cshtml">
-      <publishTime>07/19/2017 01:23:05</publishTime>
+      <publishTime>07/21/2017 02:05:51</publishTime>
     </File>
     <File Include="Views/Preorder/Index.cshtml">
-      <publishTime>02/15/2017 02:26:12</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Preorder/Registration.cshtml">
-      <publishTime>02/08/2017 13:06:58</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Procedure/Acupoint.cshtml">
-      <publishTime>10/21/2016 17:12:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Procedure/Acupuncture.cshtml">
-      <publishTime>12/11/2016 09:00:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Procedure/Electric.cshtml">
-      <publishTime>10/21/2016 19:26:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Procedure/Implantation.cshtml">
-      <publishTime>10/21/2016 18:40:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Procedure/Index.cshtml">
-      <publishTime>01/17/2017 13:28:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Procedure/Itp.cshtml">
-      <publishTime>10/21/2016 19:19:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Procedure/Kinesiotaping.cshtml">
-      <publishTime>10/21/2016 17:49:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Procedure/Massage.cshtml">
-      <publishTime>10/21/2016 00:34:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Procedure/OtOccupational.cshtml">
-      <publishTime>10/21/2016 17:13:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Procedure/PtPhysical.cshtml">
-      <publishTime>12/11/2016 08:56:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Procedure/Sensory.cshtml">
-      <publishTime>10/21/2016 18:06:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Procedure/SlingExercise.cshtml">
-      <publishTime>10/21/2016 18:34:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Procedure/StSpeech.cshtml">
-      <publishTime>10/21/2016 17:34:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Procedure/TheraSuit.cshtml">
-      <publishTime>10/21/2016 18:50:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Procedure/Universal.cshtml">
-      <publishTime>12/11/2016 09:00:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Procedure/ОtOccupational.cshtml">
       <publishTime>10/12/2016 23:55:54</publishTime>
@@ -1961,160 +1961,163 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/08/2016 09:00:00</publishTime>
     </File>
     <File Include="Views/Shared/_Account.cshtml">
-      <publishTime>12/09/2016 20:48:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Shared/_AccountChangeEmail.cshtml">
-      <publishTime>12/09/2016 20:48:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Shared/_AccountChangePass.cshtml">
-      <publishTime>12/09/2016 20:48:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Shared/_AccountChangePhone.cshtml">
-      <publishTime>12/09/2016 20:48:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Shared/_AccountHeader.cshtml">
       <publishTime>06/25/2016 15:07:49</publishTime>
     </File>
     <File Include="Views/Shared/_AccountLogin.cshtml">
-      <publishTime>02/06/2017 18:10:58</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Shared/_AccountMenu.cshtml">
-      <publishTime>02/13/2017 21:54:42</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Shared/_AccountRegister.cshtml">
-      <publishTime>07/12/2017 00:57:32</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Shared/_AccountReсovery.cshtml">
-      <publishTime>12/09/2016 20:48:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Shared/_CabinetChildEdit.cshtml">
-      <publishTime>12/09/2016 20:48:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Shared/_CabinetChildEditTab1.cshtml">
-      <publishTime>12/09/2016 20:48:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Shared/_CabinetChildEditTab2.cshtml">
-      <publishTime>12/09/2016 20:48:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Shared/_CabinetChildEditTab3.cshtml">
-      <publishTime>12/09/2016 20:48:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Shared/_CabinetChildEditTab4.cshtml">
-      <publishTime>12/09/2016 20:48:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Shared/_CabinetDocuments.cshtml">
-      <publishTime>12/09/2016 20:48:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Shared/_CabinetDocumentsTales.cshtml">
-      <publishTime>12/09/2016 20:48:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Shared/_CabinetGalery.cshtml">
-      <publishTime>12/09/2016 20:48:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Shared/_CabinetGaleryTales.cshtml">
-      <publishTime>12/09/2016 20:48:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Shared/_CabinetInfoLine.cshtml">
-      <publishTime>03/26/2017 16:22:04</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Shared/_ChildFilter.cshtml">
-      <publishTime>02/15/2017 02:18:54</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Shared/_Children.cshtml">
-      <publishTime>12/09/2016 20:48:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Shared/_ChildTales.cshtml">
-      <publishTime>02/08/2017 13:27:08</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Shared/_ChildTalesHome.cshtml">
-      <publishTime>12/09/2016 20:48:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Shared/_CurrencyRate.cshtml">
-      <publishTime>12/09/2016 20:48:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Shared/_Footer.cshtml">
-      <publishTime>05/04/2017 21:22:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>05/04/2017 21:15:58</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Shared/_MainMenu.cshtml">
-      <publishTime>03/26/2017 21:27:48</publishTime>
+      <publishTime>07/25/2017 23:18:31</publishTime>
     </File>
     <File Include="Views/Shared/_MainMenuExt.cshtml">
-      <publishTime>04/04/2017 22:29:24</publishTime>
+      <publishTime>07/25/2017 23:02:41</publishTime>
     </File>
     <File Include="Views/Shared/_Mension.cshtml">
-      <publishTime>02/15/2017 02:22:18</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Shared/_MensionAddPopup.cshtml">
-      <publishTime>02/15/2017 02:20:44</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Shared/_Mensions.cshtml">
-      <publishTime>07/04/2017 23:41:48</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
+    </File>
+    <File Include="Views/Shared/_NewsHome.cshtml">
+      <publishTime>07/25/2017 23:48:36</publishTime>
     </File>
     <File Include="Views/Shared/_OrderArchive.cshtml">
-      <publishTime>12/09/2016 20:48:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Shared/_OrderCurrent.cshtml">
-      <publishTime>02/27/2017 01:59:50</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Shared/_OrderDrafts.cshtml">
-      <publishTime>12/09/2016 20:48:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Shared/_OrderWizard.cshtml">
-      <publishTime>12/09/2016 20:48:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Shared/_OrderWizardStep1.cshtml">
-      <publishTime>03/16/2017 07:09:56</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Shared/_OrderWizardStep2.cshtml">
-      <publishTime>02/15/2017 15:31:44</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Shared/_OrderWizardStep3.cshtml">
-      <publishTime>02/15/2017 15:43:44</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Shared/_OrderWizardStep3Files.cshtml">
-      <publishTime>12/09/2016 20:48:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Shared/_OrderWizardStep4.cshtml">
-      <publishTime>02/15/2017 15:34:38</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Shared/_OrderWizardStep5.cshtml">
-      <publishTime>12/09/2016 20:48:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Shared/_PostAdd - Copy.cshtml">
       <publishTime>10/15/2016 17:29:01</publishTime>
     </File>
     <File Include="Views/Shared/_PostAdd.cshtml">
-      <publishTime>12/09/2016 20:49:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Shared/_PostBoard.cshtml">
-      <publishTime>12/09/2016 20:49:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Shared/_PostCommentAdd.cshtml">
       <publishTime>10/12/2016 00:44:44</publishTime>
     </File>
     <File Include="Views/Shared/_PostCommentItem.cshtml">
-      <publishTime>12/09/2016 20:49:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Shared/_PostItem.cshtml">
-      <publishTime>12/09/2016 20:49:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Shared/_PostItems.cshtml">
-      <publishTime>12/09/2016 20:49:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Shared/_Preorder.cshtml">
-      <publishTime>01/23/2017 18:18:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Shared/_TestLevels.cshtml">
-      <publishTime>12/09/2016 20:49:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/web.config">
-      <publishTime>12/30/2016 00:00:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/_ViewStart.cshtml">
-      <publishTime>12/30/2016 00:00:00</publishTime>
+      <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Web.config">
       <publishTime>07/12/2017 01:05:09</publishTime>

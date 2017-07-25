@@ -20,19 +20,19 @@ namespace Cure.DataAccess.DAL
 
         public IEnumerable<NewsPage> GetAllActive()
         {
-            return context.NewsPages.Where(x => x.IsActive).OrderByDescending(o => o.Date).ThenByDescending(x => x.EditDate).ToList();
+            return context.NewsPages.Where(x => x.IsActive).OrderByDescending(o => o.Date).ThenByDescending(x => x.Id).ToList();
         }
 
         public IEnumerable<NewsPage> MoreNews(int skipRecords, int takeRecords = 4)
         {
             return context.NewsPages.Where(o => o.IsActive == true)
-                .OrderByDescending(o => o.Date).ThenByDescending(x => x.EditDate)
+                .OrderByDescending(o => o.Date).ThenByDescending(x => x.Id)
                 .Skip(skipRecords).Take(takeRecords).ToList();
         }
 
         public IEnumerable<NewsPage> GetNewsPages()
         {
-            return context.NewsPages.OrderByDescending(o => o.Date).ThenByDescending(x => x.EditDate).ToList();
+            return context.NewsPages.OrderByDescending(o => o.Date).ThenByDescending(x => x.Id).ToList();
         }
 
         public void InsertNewsPage(NewsPage newsPage)
@@ -75,7 +75,10 @@ namespace Cure.DataAccess.DAL
                 origNewsPage.GuidId = newsPage.GuidId;
                 origNewsPage.LastUser = newsPage.LastUser;
                 origNewsPage.Name = newsPage.Name;
-                origNewsPage.Settings = newsPage.Settings;
+                if (newsPage.Settings != null)
+                {
+                    origNewsPage.Settings = newsPage.Settings;
+                }
                 origNewsPage.Subject = newsPage.Subject;
                 origNewsPage.Text = newsPage.Text;
                 origNewsPage.IsActive = newsPage.IsActive;

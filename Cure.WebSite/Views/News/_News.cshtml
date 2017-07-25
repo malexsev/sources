@@ -8,7 +8,7 @@
     <li class="news-item">
         <div class="col-lg-6 col-md-6">
             <a class="news-item-link" href="@Url.Action(Model.ToList()[0].Alias, "News")" target="_blank">
-                <img class="news-item-image" src="@Html.Raw(Model.ToList()[0].MainPictureSrc)" alt="" />
+                <img class="news-item-image" style="background-image: url('@Html.Raw(Model.ToList()[0].MainPictureSrc(Server))');" alt="" />
                 <span class="news-item-date">@Html.Raw(Model.ToList()[0].Date.HasValue ? Model.ToList()[0].Date.Value.ToString("dd.MM.yyyy") : "<Дата не указана>")</span>
                 <span class="news-item-name">"@Model.ToList()[0].Subject"</span>
             </a>
@@ -24,7 +24,9 @@
                         {
                             <li class="news-aside-item">
                                 <a class="news-aside-item-link" href="@Url.Action(Model.ToList()[cnt].Alias, "News")" target="_blank">
-                                    <img class="news-aside-item-image" src="@Html.Raw(Model.ToList()[cnt].MainPictureSrc)" alt="" />
+                                    <span class="news-aside-item-image-wrapper">
+                                        <img class="news-aside-item-image" style="background-image: url('@Html.Raw(Model.ToList()[cnt].MainPictureSrc(Server))');" alt="" />
+                                    </span>
                                     <span class="news-aside-item-name">@Model.ToList()[cnt].Subject</span>
                                     <span class="news-aside-item-date">@Html.Raw(Model.ToList()[cnt].Date.HasValue ? Model.ToList()[cnt].Date.Value.ToString("dd.MM.yyyy") : "<Дата не указана>")</span>
                                 </a>

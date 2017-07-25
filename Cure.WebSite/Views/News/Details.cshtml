@@ -1,4 +1,4 @@
-﻿@model Cure.DataAccess.NewsPage
+﻿@model Cure.WebSite.Models.NewsPageModel
 @{
     ViewBag.Title = Model.Subject;
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -10,20 +10,18 @@
                 <div class="row">
                     <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
                         <div class="news-inner">
-                            @Html.Raw(Model.Text)
-                            @*<div class="user-content">
+                            <div class="user-content">
                                 <div class="back">
-                                    <a class="back-link" href="@Url.Action("Index", "News")">&larr; К новостям и акциям</a>
+                                    <a class="back-link" href="@Url.Action("Index", "News")">&larr; К новостям и событиям</a>
                                 </div>
                                 <div class="news-inner-header clearfix">
-                                    <div class="news-inner-header-image" style="background-image: url(~/content/images/news-page/01-big.jpg)"></div>
-                                    <div class="news-inner-date">24.08.2017</div>
-                                    <h2>В недавно открывшемся центре в Москве работают специалисты из Китая и медики, прошедшие подготовку в КНР.</h2>
+                                    <div class="news-inner-header-image" style="background-image: url('@Html.Raw(Model.MainPictureSrc(Server))')"></div>
+                                    <div class="news-inner-date">@Html.Raw(Model.Date.HasValue ? Model.Date.Value.ToString("dd.MM.yyyy") : "") </div>
+                                    <h2>@Html.Raw(Model.Subject)</h2>
                                 </div>
-                                <p>Иногда в жизни людей возникают такие ситуации, когда срочно требуется большая сумма денег. Если у вас в семье случилось несчастье, если здоровье под угрозой, следует принимать срочные меры и искать средства для проведения лечения. Благотворительной помощью занимаются объединения, союзы, фонды, цель которых - помогать нуждающимся. Эти благотворительные организации поддерживают богатые и успешные люди, звезды кино и эстрады, политики, крупные компании, фирмы и просто обычные люди.</p>
-                                <p>Благотворительных фондов множество. Обращаться лучше сразу в несколько. Не получится с одним, получится с другим. Главное - не терять надежду и не сдаваться. Чтобы фонд одобрил благотворительную помощь именно вам, нужно вместе с письменной просьбой приложить необходимые документы и медицинские справки, как доказательство того, что вы и вправду нуждаетесь в материальной помощи. Ваше письмо в фонд должно быть максимально искренним и правдивым.</p>
+                                @Html.Raw(Model.Text)
                             </div>
-                            <ul class="social-list">
+                            @*<ul class="social-list">
                                 <li class="social-list-item">
                                     <a class="social-list-item-link vk" href="#" title="Вконтакте">
                                         <i class="social-list-item-icon fa fa-vk"></i>
@@ -39,7 +37,10 @@
                                         <i class="social-list-item-icon fa fa-facebook"></i>
                                     </a>
                                 </li>
-                            </ul>
+                            </ul>*@
+                            <script type="text/javascript" src="http://yastatic.net/es5-shims/0.0.2/es5-shims.min.js" charset="utf-8"></script>
+                            <script type="text/javascript" src="http://yastatic.net/share2/share.js" charset="utf-8"></script>
+                            <div style="text-align: left;" class="gallery-share ya-share2" data-services="vkontakte,facebook,odnoklassniki,moimir" data-counter=""></div>
                             <div class="user-content">
                                 <div class="video-helper clearfix">
                                     <h4>Ваш видеопомощник</h4>
@@ -48,11 +49,11 @@
                                     </div>
                                     <p>Целью лечения является устранение или значительное уменьшение выраженности всех элементов деформации для получения функциональной, мобильной, безболезненной, сильной, опорной стопы, имеющей нормальную форму и дающей возможность ношения нормальной обуви.</p>
                                 </div>
-                            </div>*@
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                        <h4 class="aside-title">Наш магазин</h4>
+                        @*<h4 class="aside-title">Наш магазин</h4>
                         <ul class="aside-list">
                             <li class="aside-list-item">
                                 <a class="aside-list-item-link" href="#">
@@ -64,7 +65,7 @@
                                     <img class="aside-list-item-image" src="~/content/images/news-page/banner-item.jpg" alt="" />
                                 </a>
                             </li>
-                        </ul>
+                        </ul>*@
                     </div>
                 </div>
             </div>

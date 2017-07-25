@@ -76,30 +76,6 @@ D.on("ready", function() {
     HB = $("html, body");
     POPUP = $(".popup");
 
-    function setOrderStep(index) {
-        var tabsHead = $(".js-order-tabs"),
-            links = tabsHead.find(".js-tabs-link"),
-            tabsBody = tabsHead.siblings(".js-tabs-body"),
-            tabs = tabsBody.find(".js-tabs-item");
-
-        links.removeClass(activeClass);
-        $("#steps-link-" + index).addClass(activeClass);
-        tabs.removeClass(activeClass);
-        $("#order-step-" + index).addClass(activeClass);
-    }
-
-    function setOrderTab(index) {
-        var tabsHead = $(".js-content-tabs"),
-            links = tabsHead.find(".js-tabs-link"),
-            tabsBody = tabsHead.siblings(".js-tabs-body"),
-            tabs = tabsBody.find(".js-tabs-item");
-
-        links.removeClass(activeClass);
-        tabs.removeClass(activeClass);
-        $("#" + index + "-tab").addClass(activeClass);
-        $("#" + index + "-link").addClass(activeClass);
-    }
-
     function DeletePicture(id, fileName) {
         $("#pictodelete").val(fileName);
         $("#pictohideuphide").val("");
@@ -955,7 +931,7 @@ app.bindScrollTo = function() {
             target = $(self.attr("href") || self.data("target")),
             targetTop;
         if (target.length) {
-            targetTop = target.offset().top - $(".header").outerHeight(true) - $(".hosp-page-menu").outerHeight(true) + 1;
+            targetTop = target.offset().top - $(".header").outerHeight(true) - $(".hosp-page-menu").outerHeight(true) - $(".account-header").outerHeight(true) + 1;
             HB.animate({scrollTop: targetTop}, 1000);
         };
     });
@@ -1111,7 +1087,7 @@ app.bindAddCustomClassToMegaMenu = function() {
 
 app.bindSaveMyPage = function() {
     /*------------ Сохранение Моя страница Таб1 ----------------------------*/
-    B.on("submit", "#formChildTab1", function(e) {
+    $("#formChildTab1").on("submit", function(e) {
         e.preventDefault();
         $("#error-tab1").hide();
         var form = $('#formChildTab1');
@@ -1143,7 +1119,7 @@ app.bindSaveMyPage = function() {
     });
 
     /*------------ Сохранение Моя страница Таб2 ----------------------------*/
-    B.on("submit", "#formChildTab2", function(e) {
+    $("#formChildTab2").on("submit", function(e) {
         e.preventDefault();
         $("#error-tab2").hide();
         var form = $("#formChildTab2");
@@ -1175,7 +1151,7 @@ app.bindSaveMyPage = function() {
     });
 
     /*------------ Сохранение Моя страница Таб3 ----------------------------*/
-    B.on("submit", "#formChildTab3", function(e) {
+    $("#formChildTab3").on("submit", function(e) {
         e.preventDefault();
         $("#error-tab3").hide();
         var form = $('#formChildTab3');
@@ -1207,7 +1183,7 @@ app.bindSaveMyPage = function() {
     });
 
     /*------------ Сохранение Моя страница Таб4 ----------------------------*/
-    B.on("submit", "#formChildTab4", function(e) {
+    $("#formChildTab4").on("submit", function(e) {
         e.preventDefault();
         $("#error-tab4").hide();
         var form = $("#formChildTab4");
@@ -1240,7 +1216,7 @@ app.bindSaveMyPage = function() {
 }
 
 app.bindLogin = function() {
-    B.on("submit", "#formLogin", function(e) {
+    $("#formLogin").on("submit", function(e) {
         e.preventDefault();
         $("#error-login").hide();
         var form = $('#formLogin');
@@ -1283,7 +1259,7 @@ app.bindLogin = function() {
 }
 
 app.bindRegistration = function() {
-    B.on("submit", "#formRegister", function(e) {
+    $("#formRegister").on("submit", function(e) {
         e.preventDefault();
         var ageeCheck = $("#agreecheck");
         if (ageeCheck) {
@@ -1336,7 +1312,7 @@ app.bindRegistration = function() {
 }
 
 app.bindRecovery = function() {
-    B.on("submit", "#formRecovery", function(e) {
+    $("#formRecovery").on("submit", function(e) {
         e.preventDefault();
         $("#error-recovery").hide();
         var form = $("#formRecovery");
@@ -1369,7 +1345,7 @@ app.bindRecovery = function() {
 }
 
 app.bindChangePassword = function() {
-    B.on("submit", "#formChangePass", function(e) {
+    $("#formChangePass").on("submit", function(e) {
         e.preventDefault();
         $("#error-passchange").hide();
         var form = $("#formChangePass");
@@ -1404,7 +1380,7 @@ app.bindChangePassword = function() {
 }
 
 app.bindChangeEmail = function() {
-    B.on("submit", "#formChangeEmail", function(e) {
+    $("#formChangeEmail").on("submit", function(e) {
         e.preventDefault();
         $("#error-emailchange").hide();
         var form = $("#formChangeEmail");
@@ -1438,7 +1414,7 @@ app.bindChangeEmail = function() {
 }
 
 app.bindChangePhone = function() {
-    B.on("submit", "#formChangePhone", function(e) {
+    $("#formChangePhone").on("submit", function(e) {
         e.preventDefault();
         $("#error-phonechange").hide();
         var form = $("#formChangePhone");
@@ -1490,7 +1466,7 @@ app.bindSaveOrder = function() {
                         $("#order-step-2").load('/Cabinet/OrderStep2Partial');
                         $("#order-step-3").load('/Cabinet/OrderStep3Partial');
                         $("#order-step-4").load('/Cabinet/OrderStep4Partial');
-                        setOrderStep(2);
+                        app.bindSetOrderStep(2);
                         $(".forms-radiotwix > .forms-radio input:checked").each(function() {
                             $(this).parent(".forms-radio").addClass(activeClass).siblings(".forms-radio").removeClass(activeClass);
                         });
@@ -1538,7 +1514,7 @@ app.bindSaveOrder = function() {
                         $("#error-step2").removeClass("form-errors");
                         $("#error-step2").show().text("Сохранено.");
                         $("#order-step-3").load('/Cabinet/OrderStep3Partial');
-                        setOrderStep(3);
+                        app.bindSetOrderStep(3);
                         $(".forms-radiotwix > .forms-radio input:checked").each(function() {
                             $(this).parent(".forms-radio").addClass(activeClass).siblings(".forms-radio").removeClass(activeClass);
                         });
@@ -1575,7 +1551,7 @@ app.bindSaveOrder = function() {
                         $("#error-step3").removeClass("form-errors");
                         $("#error-step3").show().text("Сохранено.");
                         $("#order-step-4").load('/Cabinet/OrderStep4Partial');
-                        setOrderStep(4);
+                        app.bindSetOrderStep(4);
                     } else if (result == "0") {
                         window.location.href = redirectURL;
                     } else {
@@ -1605,7 +1581,7 @@ app.bindSaveOrder = function() {
                     if (result == "1") {
                         $("#error-step4").removeClass("form-errors");
                         $("#error-step4").show().text("Заявка отправлена.");
-                        setOrderStep(5);
+                        app.bindSetOrderStep(5);
                     } else if (result == "0") {
                         window.location.href = redirectURL;
                     } else {
@@ -1636,7 +1612,7 @@ app.bindSaveOrder = function() {
                     $("#error-step5").removeClass("form-errors");
                     $("#error-step5").show().text("Заявка успешно отправлена.");
                     setTimeout(function() {
-                        setOrderTab("order-current");
+                        app.bindSetOrderTab("order-current");
                         $(".js-tabs-link").hide();
                     }, 3000);
                 } else if (result == "0") {
@@ -1788,7 +1764,7 @@ app.bindDeferOrder = function() {
 }
 
 app.bindAddReview = function() {
-    B.on("submit", "#formMensionAdd", function(e) {
+    $("#formMensionAdd").on("submit", function(e) {
         e.preventDefault();
         $("#error-mensionadd").hide();
         var form = $("#formMensionAdd");
@@ -2005,7 +1981,7 @@ app.bindRemoveFileFromOrder = function() {
 }
 
 app.bindAddFeedback = function() {
-    B.on("submit", "#formFeedback", function(e) {
+    $("#formFeedback").on("submit", function(e) {
         e.preventDefault();
         $("#error-feedback").hide();
         var form = $("#formFeedback");
@@ -2043,7 +2019,7 @@ app.bindAddFeedback = function() {
 
 app.bindAddToRSS = function() {
     /*------------ Добавление в список рассылки ----------------------------*/
-    B.on("submit", "#formNewsletter", function(e) {
+    $("#formNewsletter").on("submit", function(e) {
         e.preventDefault();
         $("#error-newsletter").hide();
         var form = $("#formNewsletter");
@@ -2357,7 +2333,7 @@ app.bindOpenComments = function() {
 }
 
 app.bindOperationsWithDocuments = function() {
-    B.on("submit", "#formDocuments", function(e) {
+    $("#formDocuments").on("submit", function(e) {
         e.preventDefault();
         var form = $("#formDocuments"),
             serializedForm = form.serialize();
@@ -2378,7 +2354,7 @@ app.bindOperationsWithDocuments = function() {
 }
 
 app.bindOperationsWithGallery = function() {
-    B.on("submit", "#formGalery", function(e) {
+    $("#formGalery").on("submit", function(e) {
         e.preventDefault();
         var form = $("#formGalery"),
             serializedForm = form.serialize();
@@ -2406,7 +2382,7 @@ app.bindGoBackOneStep = function() {
             stepId = self.data("move-to");
         if (stepId > 0) {
             $("#error-step" + stepId).hide();
-            setOrderStep(stepId);
+            app.bindSetOrderStep(stepId);
         }
     });
 }
@@ -2600,4 +2576,28 @@ app.bindShowPassword = function() {
             password.prop("type", "text").focus();
         }
     });
+}
+
+app.bindSetOrderStep = function(index) {
+    var tabsHead = $(".js-order-tabs"),
+        links = tabsHead.find(".js-tabs-link"),
+        tabsBody = tabsHead.siblings(".js-tabs-body"),
+        tabs = tabsBody.find(".js-tabs-item");
+
+    links.removeClass(activeClass);
+    $("#steps-link-" + index).addClass(activeClass);
+    tabs.removeClass(activeClass);
+    $("#order-step-" + index).addClass(activeClass);
+}
+
+app.bindSetOrderTab = function(index) {
+    var tabsHead = $(".js-content-tabs"),
+        links = tabsHead.find(".js-tabs-link"),
+        tabsBody = tabsHead.siblings(".js-tabs-body"),
+        tabs = tabsBody.find(".js-tabs-item");
+
+    links.removeClass(activeClass);
+    tabs.removeClass(activeClass);
+    $("#" + index + "-tab").addClass(activeClass);
+    $("#" + index + "-link").addClass(activeClass);
 }

@@ -106,7 +106,12 @@ namespace Cure.WebSite.Controllers
             ViewBag.MensionsHome = dal.GetTopMensions();
             ViewBag.Departments = dal.GetActiveDepartments();
 
-            ViewBag.Weathers = WeatherUtils.GetWeathers();
+            ViewBag.Weathers = WeatherUtils.GetWeathers(); 
+            
+            var all = dal.GetAllActive().ToList();
+
+            ViewBag.News = all.Take(12).Select(x => new NewsPageModel(x, Request));
+            ViewBag.NewsCount = all.Count();
             return View();
         }
 

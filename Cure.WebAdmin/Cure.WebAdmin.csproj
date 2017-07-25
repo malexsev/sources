@@ -301,6 +301,7 @@
     <Content Include="Content\Images\files.png" />
     <Content Include="Content\Images\GlassHeader.jpg" />
     <Content Include="Content\Images\infomini.gif" />
+    <Content Include="Content\Images\no_photo.jpg" />
     <Content Include="Content\Images\PlasticBlueHeader.jpg" />
     <Content Include="Content\Images\RedWineHeader.jpg" />
     <Content Include="Content\MailTemplates\PassrordRecoveryTemplate.txt" />
