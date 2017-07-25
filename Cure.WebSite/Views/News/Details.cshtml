@@ -21,7 +21,7 @@
                                 </div>
                                 @Html.Raw(Model.Text)
                             </div>
-                            <ul class="social-list">
+                            @*<ul class="social-list">
                                 <li class="social-list-item">
                                     <a class="social-list-item-link vk" href="#" title="Вконтакте">
                                         <i class="social-list-item-icon fa fa-vk"></i>
@@ -37,7 +37,10 @@
                                         <i class="social-list-item-icon fa fa-facebook"></i>
                                     </a>
                                 </li>
-                            </ul>
+                            </ul>*@
+                            <script type="text/javascript" src="http://yastatic.net/es5-shims/0.0.2/es5-shims.min.js" charset="utf-8"></script>
+                            <script type="text/javascript" src="http://yastatic.net/share2/share.js" charset="utf-8"></script>
+                            <div style="text-align: left;" class="gallery-share ya-share2" data-services="vkontakte,facebook,odnoklassniki,moimir" data-counter=""></div>
                             <div class="user-content">
                                 <div class="video-helper clearfix">
                                     <h4>Ваш видеопомощник</h4>
@@ -50,7 +53,7 @@
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                        <h4 class="aside-title">Наш магазин</h4>
+                        @*<h4 class="aside-title">Наш магазин</h4>
                         <ul class="aside-list">
                             <li class="aside-list-item">
                                 <a class="aside-list-item-link" href="#">
@@ -62,7 +65,7 @@
                                     <img class="aside-list-item-image" src="~/content/images/news-page/banner-item.jpg" alt="" />
                                 </a>
                             </li>
-                        </ul>
+                        </ul>*@
                     </div>
                 </div>
             </div>
