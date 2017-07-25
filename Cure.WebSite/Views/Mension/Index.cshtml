@@ -34,11 +34,11 @@
                     <div class="col-md-3 col-md-offset-4 txt-right">
                         @if (User.Identity.IsAuthenticated)
                         {
-                            <a class="btn btn-green-outlined js-show-popup" data-pop="pop-add-testimonial">НАПИСАТЬ ОТЗЫВ</a>
+                            <a class="btn btn-green-outlined add-testimonial js-show-popup" data-pop="pop-add-testimonial">НАПИСАТЬ ОТЗЫВ</a>
                         }
                         else
                         {
-                            <a class="btn btn-green-outlined" href="@Url.Action("Registration", "Preorder")">НАПИСАТЬ ОТЗЫВ</a>
+                            <a class="btn btn-green-outlined add-testimonial" href="@Url.Action("Registration", "Preorder")">НАПИСАТЬ ОТЗЫВ</a>
                         }
                     </div>
                 </div>

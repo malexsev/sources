@@ -50,7 +50,7 @@
 
                     <li class="news-item">
                         <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12">
-                            @if (((IEnumerable<NewsPageModel>)ViewBag.News).Any() && ((IEnumerable<NewsPageModel>)ViewBag.News).Count() > 4)
+                            @if (((IEnumerable<NewsPageModel>)ViewBag.News).Any() && ((IEnumerable<NewsPageModel>)ViewBag.News).Count() > 1)
                             {
                                 <a class="news-item-link" href="@Url.Action(((IEnumerable<NewsPageModel>)ViewBag.News).ToList()[0].Alias, "News")" target="_blank">
                                     <span class="news-item-image" style="background-image: url('@Html.Raw(((IEnumerable<NewsPageModel>)ViewBag.News).ToList()[0].MainPictureSrc(Server))');"></span>

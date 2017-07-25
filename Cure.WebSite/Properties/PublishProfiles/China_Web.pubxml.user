@@ -11,10 +11,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>07/26/2017 00:22:05</publishTime>
+      <publishTime>07/26/2017 01:56:25</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>07/26/2017 00:22:05</publishTime>
+      <publishTime>07/26/2017 01:56:25</publishTime>
     </File>
     <File Include="bin/Cure.DataAccess.dll">
       <publishTime>07/26/2017 00:14:22</publishTime>
@@ -1550,7 +1550,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/24/2016 03:40:04</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>07/26/2017 00:22:03</publishTime>
+      <publishTime>07/26/2017 01:56:19</publishTime>
     </File>
     <File Include="robots.txt">
       <publishTime>01/04/2017 16:21:24</publishTime>
@@ -1778,7 +1778,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>07/26/2017 00:21:54</publishTime>
+      <publishTime>07/26/2017 01:53:42</publishTime>
     </File>
     <File Include="Views/Home/Medicine.cshtml">
       <publishTime>10/03/2016 11:46:24</publishTime>
