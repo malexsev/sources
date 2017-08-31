@@ -29,19 +29,19 @@
                     new Before45DaysToUserEmailNotification(new HttpServerUtilityWrapper(this.Server)),
                     new Before30DaysToUserEmailNotification(new HttpServerUtilityWrapper(this.Server)),
                     new Before3DaysToUserEmailNotification(new HttpServerUtilityWrapper(this.Server)),
-                    new MensionBeforeOrder7EmailNotification(new HttpServerUtilityWrapper(this.Server)),
-                    new MensionAfterStart7EmailNotification(new HttpServerUtilityWrapper(this.Server)),
-                    new MensionBeforeFinish5EmailNotification(new HttpServerUtilityWrapper(this.Server)),
-                    new MensionAfterFinish15EmailNotification(new HttpServerUtilityWrapper(this.Server)),
-                    new MensionAfterFinish20EmailNotification(new HttpServerUtilityWrapper(this.Server)),
-                    new MensionAfterFinish30EmailNotification(new HttpServerUtilityWrapper(this.Server)),
                     new OrderNotCompletedToUserEmailNotification(new HttpServerUtilityWrapper(this.Server)),
                     new OrdersUnprocessedEmailNotification(new HttpServerUtilityWrapper(this.Server)),
                     new Before24HoursNotification(),
                     new Before24HoursEmailNotification(new HttpServerUtilityWrapper(this.Server)),
                     //new BeforeArriveToUserEmailNotification(),
                     new PacientBirthdayEmailNotification(new HttpServerUtilityWrapper(this.Server)),
-                    new SomeBirthdaysEmailNotification(new HttpServerUtilityWrapper(this.Server))
+                    new SomeBirthdaysEmailNotification(new HttpServerUtilityWrapper(this.Server)),
+                    new MensionBeforeOrder7EmailNotification(new HttpServerUtilityWrapper(this.Server)),
+                    new MensionAfterStart7EmailNotification(new HttpServerUtilityWrapper(this.Server)),
+                    new MensionBeforeFinish5EmailNotification(new HttpServerUtilityWrapper(this.Server)),
+                    new MensionAfterFinish15EmailNotification(new HttpServerUtilityWrapper(this.Server)),
+                    new MensionAfterFinish20EmailNotification(new HttpServerUtilityWrapper(this.Server)),
+                    new MensionAfterFinish30EmailNotification(new HttpServerUtilityWrapper(this.Server))
                 };
 
                 notificationsList.ForEach(o =>

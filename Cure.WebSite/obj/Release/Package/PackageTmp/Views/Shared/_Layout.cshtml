@@ -1,26 +1,24 @@
-﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru" prefix="og: http://ogp.me/ns#">
 <head>
     <title>@ViewBag.Title</title>
     <meta name="yandex-verification" content="c119f5be9d433966" />
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="robots" content="index, follow">
-    <meta name="viewport" content="width=device-width">
-    <meta name="keywords" content="лечение ДЦП, лечение ДЦП в Китае">
-    <meta name="description" content="@Html.Raw(ViewBag.Description ?? "Реабилитация и лечение ДЦП в городе Юньчэн Китай | Лечения ДЦП, аутизма, задержка речи, в городе Юньчэн, Китай")">
-    <meta property="og:url" content="http://mysite.com">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Наши дети. Лечение ДЦП в Китае">
-    <meta property="og:image" content="http://mysite.com/logo_big.png">
-    <meta property="og:site_name" content=">@ViewBag.Title - Наши дети. Лечение ДЦП в Китае">
-    <meta property="og:description" content="@Html.Raw(ViewBag.Description ?? "Реабилитация и лечение ДЦП в городе Юньчэн Китай | Лечения ДЦП, аутизма, задержка речи, в городе Юньчэн, Китай")">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="robots" content="index, follow" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="keywords" content="лечение ДЦП, лечение ДЦП в Китае" />
+    <meta name="description" content="@Html.Raw(ViewBag.Description ?? "Реабилитация и лечение ДЦП в городе Юньчэн Китай | Лечения ДЦП, аутизма, задержка речи, в городе Юньчэн, Китай")" />
+    <meta property="og:url" content="http://mysite.com" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Наши дети. Лечение ДЦП в Китае" />
+    <meta property="og:image" content="http://mysite.com/logo_big.png" />
+    <meta property="og:site_name" content=">@ViewBag.Title - Наши дети. Лечение ДЦП в Китае" />
+    <meta property="og:description" content="@Html.Raw(ViewBag.Description ?? "Реабилитация и лечение ДЦП в городе Юньчэн Китай | Лечения ДЦП, аутизма, задержка речи, в городе Юньчэн, Китай")" />
     <link rel="icon" type="img/png" href="~/content/img/favicon-16x16.png" sizes="16x16" />
     <link rel="icon" type="img/png" href="~/content/img/favicon-32x32.png" sizes="32x32" />
     <link rel="apple-touch-icon-precomposed" href="~/content/img/apple-touch-icon-152x152.png" sizes="152x152" />
-    <link rel="stylesheet" href="~/content/css/styles.css" />
-    <script src="~/Scripts/vendor/jquery-1.11.3.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/content/css/styles.css" />
     <!--[if lte IE 9]>
       <script src="~/Scripts/vendor/modernizr-2.8.3.min.js"></script>
     <![endif]-->
@@ -123,6 +121,7 @@
         @Html.Partial("_Yancheng2Pops");
     }
 
+    <script src="~/Scripts/vendor/jquery-1.11.3.min.js"></script>
     <!-- content slider    -->
     <script src="~/Scripts/plugins/slick.min.js"></script>
     <!-- numbers odometer  -->
@@ -136,7 +135,7 @@
     <!-- form input masks  -->
     <script src="~/Scripts/plugins/jquery.maskedinput.min.js"></script>
     <!-- form validate     -->
-    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
     <!-- main scripts      -->
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
     <!-- main scripts      -->

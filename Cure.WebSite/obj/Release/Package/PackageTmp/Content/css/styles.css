@@ -1388,7 +1388,7 @@ img.zoom-img {
   max-height: 100%;
   width: auto;
   height: auto;
-  display: inline !important;
+  /*display: inline !important;*/
 }
 [dir='rtl'] .slick-slide {
   float: right;

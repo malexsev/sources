@@ -25,9 +25,10 @@
             this.user = dal.GetUserMembership(order.OwnerUser);
             this.subject = subjectTemplate;
             var info = dal.GetDepartmentTransferInfo(transferInfoId);
+            var date = order.TicketPribitieTime.HasValue ? order.TicketPribitieTime.Value : order.DateFrom;
             this.body = info.Text
-                .Replace("#DATE#", order.DateFrom.ToShortDateString())
-                .Replace("#TIME#", order.DateFrom.ToShortTimeString())
+                .Replace("#DATE#", date.ToShortDateString())
+                .Replace("#TIME#", date.ToShortTimeString())
                 .Replace("#FLIGHT#", ticketInfo);
         }
 

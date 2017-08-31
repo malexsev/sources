@@ -32,18 +32,25 @@
                 this.body = dal.GetSettingByCode("EmailTemplateMensionRequiredAfterFinish20Body").Value;
 
                 DateTime day = DateTime.Today.AddDays(-20);
-                var mensionUsers = dal.GetMensions().Where(x => x.CreatedDate >= day).Select(x => x.OwnerUser);
-                this.orders = dal.GetOrders().Where(x => x.StatusId == 8 && x.DateTo.Date == day && !mensionUsers.Contains(x.OwnerUser)).ToList();
+                var mensionUsers = dal.GetMensions().Where(x => x.CreatedDate >= day).Select(x => x.OwnerUser).ToList();
+                
+                this.orders =  mensionUsers.Any() ? dal.GetOrders().Where(x => x.StatusId == 8 && x.DateTo.Date == day && !mensionUsers.Contains(x.OwnerUser)).ToList() : null;
             }
-            catch (Exception)
+            catch
             {
-                throw;
+                
             }
         }
 
         public override bool Send()
         {
             bool result = false;
+            if (this.orders == null)
+            {
+                this.Log("Ошибка", "", "Ошибка №3115. Сообщите разработчику.");
+                return false;
+            }
+
             var dal = new DataAccessBL();
             foreach (var order in this.orders)
             {
