@@ -11,16 +11,16 @@
         	<a href="@Url.Action("Index", "Children")">Наши дети</a>
         </li>
         <li>
-        	<a class="js-megamenu-open" data-menu="megamenu-useful" role="button">Справочник</a>
+        	<a class="js-megamenu-open" data-menu="megamenu-useful" role="button">Инфоцентр</a>
+        </li>
+        <li @Html.Raw(Request.Url.AbsolutePath.Contains("Mension") ? @"class=""active""" : @"")>
+            <a href="@Url.Action("Index", "Mension")">Отзывы</a>
         </li>
         <li @Html.Raw(Request.Url.AbsolutePath.Contains("News") ? @"class=""active""" : @"")>
             <a href="@Url.Action("Index", "News")">Новости</a>
         </li>
         <li @Html.Raw(Request.Url.AbsolutePath.Contains("AboutUs") ? @"class=""active""" : @"")>
         	<a href="@Url.Action("AboutUs", "Home")">О нас</a>
-        </li>
-        <li @Html.Raw(Request.Url.AbsolutePath.Contains("Mension") ? @"class=""active""" : @"")>
-        	<a href="@Url.Action("Index", "Mension")">Отзывы</a>
         </li>
         <li class="custom">
         	<a class="btn btn-orang-outlined" href="@Html.Raw(User.Identity.IsAuthenticated ? Url.Action("Orders", "Cabinet") : Url.Action("Registration", "Preorder"))">Записаться на лечение</a>

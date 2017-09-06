@@ -1243,6 +1243,8 @@ app.bindLogin = function() {
                         $("#loginprogress").html("");
                         if (result == "-1") {
                             $("#error-login").show().text("Ваш логин временно блокирован. Было превышено максимальное число попыток входа с неверным паролем. Это сделано в целях исключения подбора Вашего пароля. Администратор уже осведомлён о данном факте и в ближайшее время проблема будет решена.");
+                        } else if (result == "-2") {
+                            $("#error-login").show().text("Вами не подтверждена электронная почта. Пройдите на свой электронный ящик для подтверждение email-адреса");
                         } else {
                             $("#error-login").show().text("Неверное имя пользователя или пароль.");
                         }
@@ -1983,6 +1985,13 @@ app.bindRemoveFileFromOrder = function() {
 app.bindAddFeedback = function() {
     $("#formFeedback").on("submit", function(e) {
         e.preventDefault();
+        var ageeCheck = $("#feedbackagreecheck");
+        if (ageeCheck) {
+            if (!ageeCheck.is(":checked")) {
+                $("#error-feedback").show().text("Уважаемый посетитель, будьте внимательны. Сообщение не может быть отправлено без получения Вашего согласия на обработку Ваших персональных данных.");
+                return;
+            }
+        }
         $("#error-feedback").hide();
         var form = $("#formFeedback");
         if (form.valid()) {

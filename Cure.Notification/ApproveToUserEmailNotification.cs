@@ -14,7 +14,7 @@
         private readonly string subject;
         private readonly string body;
         private string email;
-        private const string subjectTemplate = "Завершение решистрации";
+        private const string subjectTemplate = "Завершение регистрации";
         private const string bodyTemplate = "<b>Подтверждение email пользователя.</b><br />"
             + @"Для завершения регистрации пройдите по ссылке <a href='http://dcp-china.ru/Login/Approve?token={0}&email={1}'>ссылке</a><br /><br />"
             //+ @"Для завершения регистрации пройдите по ссылке <a href='http://dcp-china.ru/Login/Approve?token={0}&email={1}'>ссылке</a><br /><br />"
@@ -32,7 +32,7 @@
         {
             bool result = false;
 
-            result = SendEmail(this.email, string.Empty, this.subject, this.body, "Завершение решистрации");
+            result = SendEmail(this.email, string.Empty, this.subject, this.body, "Завершение регистрации");
             this.Log(result ? "Доставлено" : "Ошибка доставки", this.email, this.body);
 
             return result;

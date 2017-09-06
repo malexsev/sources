@@ -1,0 +1,71 @@
+﻿@using System.Configuration
+@using Cure.DataAccess
+@using Cure.Utils
+@using Cure.WebSite.Models
+@{
+    ViewBag.Title = "Новости и события";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model IEnumerable<NewsPageModel>
+
+
+<section class="sec-articles">
+    <div class="container">
+        <div class="row">
+            <div class="all-pages-head col-lg-12">
+                <h2 class="main-page-title sec-articles-title">Новости и события</h2>
+            </div>
+        </div>
+        <div class="row">
+            <ul id="js-for-load-children" class="news">
+                <li class="news-item">
+                    <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12">
+                        <a class="news-item-link" href="#">
+                            <span class="news-item-image" style="background-image: url(content/images/news-page/01-big.jpg);"></span>
+                            <span class="news-item-date">24.08.2017</span>
+                            <span class="news-item-name">Трехтысячный юный пациент прошел курс реабилитации в наших клиниках в Китае, России и Казахстане.</span>
+                        </a>
+                    </div>
+                    <div class="col-lg-6 col-md-4 col-sm-12 col-xs-12">
+                        <ul class="news-aside">
+                            <li class="news-aside-item">
+                                <a class="news-aside-item-link" href="#">
+                                    <span class="news-aside-item-image-wrapper">
+                                        <span class="news-aside-item-image" style="background-image: url(content/images/news-page/01-big.jpg);"></span>
+                                    </span>
+                                    <span class="news-aside-item-name">Сочетание достижений передовой мировой науки и традиционных китайских методик дает высокий результат.</span>
+                                    <span class="news-aside-item-date">24.08.2017</span>
+                                </a>
+                            </li>
+                            <li class="news-aside-item">
+                                <a class="news-aside-item-link" href="#">
+                                    <span class="news-aside-item-image-wrapper">
+                                        <span class="news-aside-item-image" style="background-image: url(content/images/news-page/01-big.jpg);"></span>
+                                    </span>
+                                    <span class="news-aside-item-name">Новейшие эффективные препараты для лечения ДЦП уже доступны нашим юным пациентам.</span>
+                                    <span class="news-aside-item-date">24.08.2017</span>
+                                </a>
+                            </li>
+                            <li class="news-aside-item">
+                                <a class="news-aside-item-link" href="#">
+                                    <span class="news-aside-item-image-wrapper">
+                                        <span class="news-aside-item-image" style="background-image: url(content/images/news-page/01-big.jpg);"></span>
+                                    </span>
+                                    <span class="news-aside-item-name">В каждой из клиник работают квалифицированные специалисты, использующие как европейские, так и уникальные китайские методики.</span>
+                                    <span class="news-aside-item-date">24.08.2017</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 txt-center">
+                <a class="btn btn-light" href="#">Все новости и события</a>
+            </div>
+        </div><!-- END row -->
+    </div><!-- END container -->
+</section>
+
+

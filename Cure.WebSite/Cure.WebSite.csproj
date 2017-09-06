@@ -760,7 +760,7 @@
     <Content Include="Views\Finance\Fonds.cshtml" />
     <Content Include="Views\Finance\Partners.cshtml" />
     <Content Include="Views\Biblioteka\_BibliotekaMenu.cshtml" />
-    <Content Include="Views\Biblioteka\Lekarstvassoboy.cshtml" />
+    <Content Include="Views\Info\Lekarstvassoboy.cshtml" />
     <Content Include="Views\Procedure\Acupuncture.cshtml" />
     <Content Include="Views\Procedure\Electric.cshtml" />
     <Content Include="Views\Procedure\Massage.cshtml" />
@@ -775,7 +775,7 @@
     <Content Include="Views\Home\Pravo.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
     <Content Include="Views\Home\SimpleStyles.cshtml" />
-    <Content Include="Views\Biblioteka\Lekarstvakitay.cshtml" />
+    <Content Include="Views\Info\Lekarstvakitay.cshtml" />
     <Content Include="Views\Info\Soft.cshtml" />
     <Content Include="Views\Info\Internet.cshtml" />
     <Content Include="Views\Cabinet\Files.cshtml" />

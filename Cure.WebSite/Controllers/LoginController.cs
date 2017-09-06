@@ -155,7 +155,7 @@ namespace Cure.WebSite.Controllers
             MembershipUser membershipUser = Membership.GetUser(login);
             if (membershipUser != null)
             {
-                if (membershipUser.IsLockedOut)
+                if (!membershipUser.IsApproved)
                 {
                     return UserRegisterState.NOT_APPROVED;
                 }

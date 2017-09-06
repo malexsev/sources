@@ -13,16 +13,6 @@ namespace Cure.WebSite.Controllers
             return View();
         }
 
-        public ActionResult Lekarstvassoboy()
-        {
-            return View();
-        }
-
-        public ActionResult Lekarstvakitay()
-        {
-            return View();
-        }
-
         public ActionResult Postsnews()
         {
             return View();

@@ -100,6 +100,7 @@
                         <UploadButton Text="Загрузить главную картинку"></UploadButton>
                     </dx:ASPxUploadControl>
                 </div>
+                <div id="previewnews"></div>
                 <div style="margin: 10px 10px;">
                     <dx:ASPxHtmlEditor Width="800px" ID="uxEditor" Html='<%#Bind("Text")%>' runat="server" ShowToolbar1="false" ShowToolbar2="true" ShowTableToolbar="false">
                         <SettingsImageUpload UploadImageFolder="~/Content/custom/">

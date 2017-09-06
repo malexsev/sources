@@ -43,11 +43,13 @@ namespace Cure.DataAccess.DAL
 
         public void SwitchOrderStatusTask()
         {
-            DateTime checkDate = DateTime.Today.AddDays(1);
-            IQueryable<Order> orders = context.Orders.Where(x => x.TicketPribitieTime == checkDate && x.StatusId == (int)Enums.OrderStatus.КупленыБилеты);
+            DateTime checkDate = DateTime.Today.AddDays(-1);
+            IQueryable<Order> orders = context.Orders.Where(x => x.TicketPribitieTime.HasValue
+                && EntityFunctions.TruncateTime(x.TicketPribitieTime.Value) == checkDate.Date
+                && x.StatusId == (int)Enums.OrderStatus.КупленыБилеты);
             if (orders.Any())
             {
-                orders.ToList().ForEach(x => x.StatusId = 8);
+                orders.ToList().ForEach(x => x.StatusId = (int)Enums.OrderStatus.Выполняется);
             }
             SaveChanges();
         }
