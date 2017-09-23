@@ -43,6 +43,35 @@
           <Property Name="IsAnonymous" Type="bit" Nullable="false" />
           <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
         </EntityType>
+        <EntityType Name="BiblioPage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GuidId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SubjectID" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="250" />
+          <Property Name="Subtitle" Type="nvarchar" MaxLength="250" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Alias" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatorName" Type="nvarchar" MaxLength="250" />
+          <Property Name="Text" Type="text" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="Sort" Type="int" />
+          <Property Name="Settings" Type="nvarchar" MaxLength="250" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="EditDate" Type="datetime" />
+          <Property Name="LastUser" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="BiblioSubject">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Sort" Type="nvarchar" MaxLength="10" />
+        </EntityType>
         <EntityType Name="Child">
           <Key>
             <PropertyRef Name="Id" />
@@ -1031,6 +1060,20 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_BiblioPage_BiblioSubject">
+          <End Role="BiblioSubject" Type="Self.BiblioSubject" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BiblioPage" Type="Self.BiblioPage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BiblioSubject">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BiblioPage">
+              <PropertyRef Name="SubjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Child_RefBank">
           <End Role="RefBank" Type="Self.RefBank" Multiplicity="0..1" />
           <End Role="Child" Type="Self.Child" Multiplicity="*" />
@@ -1520,6 +1563,8 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
         <EntityContainer Name="DataModelStoreContainer">
           <EntitySet Name="aspnet_Membership" EntityType="Self.aspnet_Membership" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="aspnet_Users" EntityType="Self.aspnet_Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BiblioPage" EntityType="Self.BiblioPage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BiblioSubject" EntityType="Self.BiblioSubject" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Child" EntityType="Self.Child" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ChildAvaFile" EntityType="Self.ChildAvaFile" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ChildHideFile" EntityType="Self.ChildHideFile" Schema="dbo" store:Type="Tables" />
@@ -1885,6 +1930,10 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
             <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
           </AssociationSet>
+          <AssociationSet Name="FK_BiblioPage_BiblioSubject" Association="Self.FK_BiblioPage_BiblioSubject">
+            <End Role="BiblioSubject" EntitySet="BiblioSubject" />
+            <End Role="BiblioPage" EntitySet="BiblioPage" />
+          </AssociationSet>
           <AssociationSet Name="FK_Child_RefBank" Association="Self.FK_Child_RefBank">
             <End Role="RefBank" EntitySet="RefBank" />
             <End Role="Child" EntitySet="Child" />
@@ -2249,6 +2298,12 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
           <AssociationSet Name="FK_Visit_Order" Association="DataModel.FK_Visit_Order">
             <End Role="Order" EntitySet="Orders" />
             <End Role="Visit" EntitySet="Visits" />
+          </AssociationSet>
+          <EntitySet Name="BiblioSubjects" EntityType="DataModel.BiblioSubject" />
+          <EntitySet Name="BiblioPages" EntityType="DataModel.BiblioPage" />
+          <AssociationSet Name="FK_BiblioPage_BiblioSubject" Association="DataModel.FK_BiblioPage_BiblioSubject">
+            <End Role="BiblioSubject" EntitySet="BiblioSubjects" />
+            <End Role="BiblioPage" EntitySet="BiblioPages" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="OrderStatu">
@@ -3783,6 +3838,51 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="BiblioSubject">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Sort" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BiblioPages" Relationship="DataModel.FK_BiblioPage_BiblioSubject" FromRole="BiblioSubject" ToRole="BiblioPage" />
+        </EntityType>
+        <EntityType Name="BiblioPage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GuidId" Type="Guid" Nullable="false" />
+          <Property Name="SubjectID" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Subtitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Alias" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatorName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="Sort" Type="Int32" />
+          <Property Name="Settings" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="EditDate" Type="DateTime" Precision="3" />
+          <Property Name="LastUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BiblioSubject" Relationship="DataModel.FK_BiblioPage_BiblioSubject" FromRole="BiblioPage" ToRole="BiblioSubject" />
+        </EntityType>
+        <Association Name="FK_BiblioPage_BiblioSubject">
+          <End Type="DataModel.BiblioSubject" Role="BiblioSubject" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="DataModel.BiblioPage" Role="BiblioPage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BiblioSubject">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BiblioPage">
+              <PropertyRef Name="SubjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -4777,6 +4877,37 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
                 <ScalarProperty Name="StatusId" ColumnName="StatusId" />
                 <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="GuidId" ColumnName="GuidId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BiblioSubjects">
+            <EntityTypeMapping TypeName="DataModel.BiblioSubject">
+              <MappingFragment StoreEntitySet="BiblioSubject">
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BiblioPages">
+            <EntityTypeMapping TypeName="DataModel.BiblioPage">
+              <MappingFragment StoreEntitySet="BiblioPage">
+                <ScalarProperty Name="LastUser" ColumnName="LastUser" />
+                <ScalarProperty Name="EditDate" ColumnName="EditDate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Settings" ColumnName="Settings" />
+                <ScalarProperty Name="Sort" ColumnName="Sort" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="CreatorName" ColumnName="CreatorName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Alias" ColumnName="Alias" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Subtitle" ColumnName="Subtitle" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="SubjectID" ColumnName="SubjectID" />
                 <ScalarProperty Name="GuidId" ColumnName="GuidId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>

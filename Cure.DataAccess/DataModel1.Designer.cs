@@ -58,6 +58,7 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("DataModel", "FK_Order_OrderStatus", "OrderStatu", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.OrderStatu), "Order", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Order), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK_Sputnik_Order", "Order", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Cure.DataAccess.Order), "Sputnik", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Sputnik), true)]
 [assembly: EdmRelationshipAttribute("DataModel", "FK_Visit_Order", "Order", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.Order), "Visit", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.Visit), true)]
+[assembly: EdmRelationshipAttribute("DataModel", "FK_BiblioPage_BiblioSubject", "BiblioSubject", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Cure.DataAccess.BiblioSubject), "BiblioPage", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Cure.DataAccess.BiblioPage), true)]
 
 #endregion
 
@@ -828,6 +829,38 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<Order> _Orders;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<BiblioSubject> BiblioSubjects
+        {
+            get
+            {
+                if ((_BiblioSubjects == null))
+                {
+                    _BiblioSubjects = base.CreateObjectSet<BiblioSubject>("BiblioSubjects");
+                }
+                return _BiblioSubjects;
+            }
+        }
+        private ObjectSet<BiblioSubject> _BiblioSubjects;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<BiblioPage> BiblioPages
+        {
+            get
+            {
+                if ((_BiblioPages == null))
+                {
+                    _BiblioPages = base.CreateObjectSet<BiblioPage>("BiblioPages");
+                }
+                return _BiblioPages;
+            }
+        }
+        private ObjectSet<BiblioPage> _BiblioPages;
 
         #endregion
 
@@ -1191,6 +1224,22 @@ namespace Cure.DataAccess
         public void AddToOrders(Order order)
         {
             base.AddObject("Orders", order);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the BiblioSubjects EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToBiblioSubjects(BiblioSubject biblioSubject)
+        {
+            base.AddObject("BiblioSubjects", biblioSubject);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the BiblioPages EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToBiblioPages(BiblioPage biblioPage)
+        {
+            base.AddObject("BiblioPages", biblioPage);
         }
 
         #endregion
@@ -2248,6 +2297,606 @@ namespace Cure.DataAccess
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<aspnet_Membership>("DataModel.FK__aspnet_Me__UserI__61316BF4", "aspnet_Membership", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="BiblioPage")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class BiblioPage : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new BiblioPage object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="guidId">Initial value of the GuidId property.</param>
+        /// <param name="subjectID">Initial value of the SubjectID property.</param>
+        /// <param name="name">Initial value of the Name property.</param>
+        /// <param name="alias">Initial value of the Alias property.</param>
+        /// <param name="isActive">Initial value of the IsActive property.</param>
+        public static BiblioPage CreateBiblioPage(global::System.Int32 id, global::System.Guid guidId, global::System.Int32 subjectID, global::System.String name, global::System.String alias, global::System.Boolean isActive)
+        {
+            BiblioPage biblioPage = new BiblioPage();
+            biblioPage.Id = id;
+            biblioPage.GuidId = guidId;
+            biblioPage.SubjectID = subjectID;
+            biblioPage.Name = name;
+            biblioPage.Alias = alias;
+            biblioPage.IsActive = isActive;
+            return biblioPage;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value, "Id");
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid GuidId
+        {
+            get
+            {
+                return _GuidId;
+            }
+            set
+            {
+                OnGuidIdChanging(value);
+                ReportPropertyChanging("GuidId");
+                _GuidId = StructuralObject.SetValidValue(value, "GuidId");
+                ReportPropertyChanged("GuidId");
+                OnGuidIdChanged();
+            }
+        }
+        private global::System.Guid _GuidId;
+        partial void OnGuidIdChanging(global::System.Guid value);
+        partial void OnGuidIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 SubjectID
+        {
+            get
+            {
+                return _SubjectID;
+            }
+            set
+            {
+                OnSubjectIDChanging(value);
+                ReportPropertyChanging("SubjectID");
+                _SubjectID = StructuralObject.SetValidValue(value, "SubjectID");
+                ReportPropertyChanged("SubjectID");
+                OnSubjectIDChanged();
+            }
+        }
+        private global::System.Int32 _SubjectID;
+        partial void OnSubjectIDChanging(global::System.Int32 value);
+        partial void OnSubjectIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Title
+        {
+            get
+            {
+                return _Title;
+            }
+            set
+            {
+                OnTitleChanging(value);
+                ReportPropertyChanging("Title");
+                _Title = StructuralObject.SetValidValue(value, true, "Title");
+                ReportPropertyChanged("Title");
+                OnTitleChanged();
+            }
+        }
+        private global::System.String _Title;
+        partial void OnTitleChanging(global::System.String value);
+        partial void OnTitleChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Subtitle
+        {
+            get
+            {
+                return _Subtitle;
+            }
+            set
+            {
+                OnSubtitleChanging(value);
+                ReportPropertyChanging("Subtitle");
+                _Subtitle = StructuralObject.SetValidValue(value, true, "Subtitle");
+                ReportPropertyChanged("Subtitle");
+                OnSubtitleChanged();
+            }
+        }
+        private global::System.String _Subtitle;
+        partial void OnSubtitleChanging(global::System.String value);
+        partial void OnSubtitleChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                OnNameChanging(value);
+                ReportPropertyChanging("Name");
+                _Name = StructuralObject.SetValidValue(value, false, "Name");
+                ReportPropertyChanged("Name");
+                OnNameChanged();
+            }
+        }
+        private global::System.String _Name;
+        partial void OnNameChanging(global::System.String value);
+        partial void OnNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Alias
+        {
+            get
+            {
+                return _Alias;
+            }
+            set
+            {
+                OnAliasChanging(value);
+                ReportPropertyChanging("Alias");
+                _Alias = StructuralObject.SetValidValue(value, false, "Alias");
+                ReportPropertyChanged("Alias");
+                OnAliasChanged();
+            }
+        }
+        private global::System.String _Alias;
+        partial void OnAliasChanging(global::System.String value);
+        partial void OnAliasChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsActive
+        {
+            get
+            {
+                return _IsActive;
+            }
+            set
+            {
+                OnIsActiveChanging(value);
+                ReportPropertyChanging("IsActive");
+                _IsActive = StructuralObject.SetValidValue(value, "IsActive");
+                ReportPropertyChanged("IsActive");
+                OnIsActiveChanged();
+            }
+        }
+        private global::System.Boolean _IsActive;
+        partial void OnIsActiveChanging(global::System.Boolean value);
+        partial void OnIsActiveChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String CreatorName
+        {
+            get
+            {
+                return _CreatorName;
+            }
+            set
+            {
+                OnCreatorNameChanging(value);
+                ReportPropertyChanging("CreatorName");
+                _CreatorName = StructuralObject.SetValidValue(value, true, "CreatorName");
+                ReportPropertyChanged("CreatorName");
+                OnCreatorNameChanged();
+            }
+        }
+        private global::System.String _CreatorName;
+        partial void OnCreatorNameChanging(global::System.String value);
+        partial void OnCreatorNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Text
+        {
+            get
+            {
+                return _Text;
+            }
+            set
+            {
+                OnTextChanging(value);
+                ReportPropertyChanging("Text");
+                _Text = StructuralObject.SetValidValue(value, true, "Text");
+                ReportPropertyChanged("Text");
+                OnTextChanged();
+            }
+        }
+        private global::System.String _Text;
+        partial void OnTextChanging(global::System.String value);
+        partial void OnTextChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> Date
+        {
+            get
+            {
+                return _Date;
+            }
+            set
+            {
+                OnDateChanging(value);
+                ReportPropertyChanging("Date");
+                _Date = StructuralObject.SetValidValue(value, "Date");
+                ReportPropertyChanged("Date");
+                OnDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _Date;
+        partial void OnDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> Sort
+        {
+            get
+            {
+                return _Sort;
+            }
+            set
+            {
+                OnSortChanging(value);
+                ReportPropertyChanging("Sort");
+                _Sort = StructuralObject.SetValidValue(value, "Sort");
+                ReportPropertyChanged("Sort");
+                OnSortChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _Sort;
+        partial void OnSortChanging(Nullable<global::System.Int32> value);
+        partial void OnSortChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Settings
+        {
+            get
+            {
+                return _Settings;
+            }
+            set
+            {
+                OnSettingsChanging(value);
+                ReportPropertyChanging("Settings");
+                _Settings = StructuralObject.SetValidValue(value, true, "Settings");
+                ReportPropertyChanged("Settings");
+                OnSettingsChanged();
+            }
+        }
+        private global::System.String _Settings;
+        partial void OnSettingsChanging(global::System.String value);
+        partial void OnSettingsChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> CreateDate
+        {
+            get
+            {
+                return _CreateDate;
+            }
+            set
+            {
+                OnCreateDateChanging(value);
+                ReportPropertyChanging("CreateDate");
+                _CreateDate = StructuralObject.SetValidValue(value, "CreateDate");
+                ReportPropertyChanged("CreateDate");
+                OnCreateDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _CreateDate;
+        partial void OnCreateDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnCreateDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> EditDate
+        {
+            get
+            {
+                return _EditDate;
+            }
+            set
+            {
+                OnEditDateChanging(value);
+                ReportPropertyChanging("EditDate");
+                _EditDate = StructuralObject.SetValidValue(value, "EditDate");
+                ReportPropertyChanged("EditDate");
+                OnEditDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _EditDate;
+        partial void OnEditDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnEditDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String LastUser
+        {
+            get
+            {
+                return _LastUser;
+            }
+            set
+            {
+                OnLastUserChanging(value);
+                ReportPropertyChanging("LastUser");
+                _LastUser = StructuralObject.SetValidValue(value, true, "LastUser");
+                ReportPropertyChanged("LastUser");
+                OnLastUserChanged();
+            }
+        }
+        private global::System.String _LastUser;
+        partial void OnLastUserChanging(global::System.String value);
+        partial void OnLastUserChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_BiblioPage_BiblioSubject", "BiblioSubject")]
+        public BiblioSubject BiblioSubject
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<BiblioSubject>("DataModel.FK_BiblioPage_BiblioSubject", "BiblioSubject").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<BiblioSubject>("DataModel.FK_BiblioPage_BiblioSubject", "BiblioSubject").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<BiblioSubject> BiblioSubjectReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<BiblioSubject>("DataModel.FK_BiblioPage_BiblioSubject", "BiblioSubject");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<BiblioSubject>("DataModel.FK_BiblioPage_BiblioSubject", "BiblioSubject", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DataModel", Name="BiblioSubject")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class BiblioSubject : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new BiblioSubject object.
+        /// </summary>
+        /// <param name="id">Initial value of the Id property.</param>
+        /// <param name="name">Initial value of the Name property.</param>
+        public static BiblioSubject CreateBiblioSubject(global::System.Int32 id, global::System.String name)
+        {
+            BiblioSubject biblioSubject = new BiblioSubject();
+            biblioSubject.Id = id;
+            biblioSubject.Name = name;
+            return biblioSubject;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value, "Id");
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                OnNameChanging(value);
+                ReportPropertyChanging("Name");
+                _Name = StructuralObject.SetValidValue(value, false, "Name");
+                ReportPropertyChanged("Name");
+                OnNameChanged();
+            }
+        }
+        private global::System.String _Name;
+        partial void OnNameChanging(global::System.String value);
+        partial void OnNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Sort
+        {
+            get
+            {
+                return _Sort;
+            }
+            set
+            {
+                OnSortChanging(value);
+                ReportPropertyChanging("Sort");
+                _Sort = StructuralObject.SetValidValue(value, true, "Sort");
+                ReportPropertyChanged("Sort");
+                OnSortChanged();
+            }
+        }
+        private global::System.String _Sort;
+        partial void OnSortChanging(global::System.String value);
+        partial void OnSortChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("DataModel", "FK_BiblioPage_BiblioSubject", "BiblioPage")]
+        public EntityCollection<BiblioPage> BiblioPages
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<BiblioPage>("DataModel.FK_BiblioPage_BiblioSubject", "BiblioPage");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<BiblioPage>("DataModel.FK_BiblioPage_BiblioSubject", "BiblioPage", value);
                 }
             }
         }

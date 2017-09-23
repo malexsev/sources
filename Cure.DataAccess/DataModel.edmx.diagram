@@ -89,6 +89,9 @@
         <AssociationConnector Association="DataModel.FK_Order_OrderStatus" />
         <AssociationConnector Association="DataModel.FK_Sputnik_Order" />
         <AssociationConnector Association="DataModel.FK_Visit_Order" />
+        <EntityTypeShape EntityType="DataModel.BiblioSubject" Width="1.5" PointX="20.375" PointY="11.75" />
+        <EntityTypeShape EntityType="DataModel.BiblioPage" Width="1.5" PointX="22.625" PointY="10.625" />
+        <AssociationConnector Association="DataModel.FK_BiblioPage_BiblioSubject" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

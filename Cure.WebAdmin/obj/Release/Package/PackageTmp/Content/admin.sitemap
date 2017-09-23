@@ -19,6 +19,8 @@
     <siteMapNode url="" title="Новости">
       <siteMapNode url="~/Admin/NewsletterList.aspx" title="Подписчики рассылки" description="Список подписчиков на новости и акции"/>
       <siteMapNode url="~/Admin/NewsList.aspx" title="Редактор новостей" description="Список новостей с возможностью редактирования"/>
+      <siteMapNode url="~/Admin/BiblioList.aspx" title="Редактор статей" description="Статьи и публикации на различные темы, касающиеся диагностики и лечения детских неврологических заболеваний с возможностью редактирования"/>
+      <siteMapNode url="~/Admin/BiblioSubjectList.aspx" title="Типы статей" description="Список типов статей, по которым их можно фильтровать" />
     </siteMapNode>
     <siteMapNode url="" title="Справочники">
       <siteMapNode url="~/Admin/CurrencyList.aspx" title="Валюты" description="Список валют с которыми работает система" />

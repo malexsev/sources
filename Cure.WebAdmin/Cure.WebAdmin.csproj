@@ -208,6 +208,8 @@
     <Content Include="Admin\Controls\SoonVisitsList.ascx" />
     <Content Include="Admin\CurrencyList.aspx" />
     <Content Include="Admin\CurrencyRateList.aspx" />
+    <Content Include="Admin\BiblioList.aspx" />
+    <Content Include="Admin\BiblioSubjectList.aspx" />
     <Content Include="Admin\TransferInfoList.aspx" />
     <Content Include="Admin\NewsLetter.aspx" />
     <Content Include="Admin\NewsList.aspx" />
@@ -540,6 +542,20 @@
     </Compile>
     <Compile Include="Admin\CurrencyRateList.aspx.designer.cs">
       <DependentUpon>CurrencyRateList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\BiblioList.aspx.cs">
+      <DependentUpon>BiblioList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\BiblioList.aspx.designer.cs">
+      <DependentUpon>BiblioList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\BiblioSubjectList.aspx.cs">
+      <DependentUpon>BiblioSubjectList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\BiblioSubjectList.aspx.designer.cs">
+      <DependentUpon>BiblioSubjectList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\TransferInfoList.aspx.cs">
       <DependentUpon>TransferInfoList.aspx</DependentUpon>

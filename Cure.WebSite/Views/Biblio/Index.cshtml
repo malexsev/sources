@@ -1,0 +1,90 @@
+﻿@using System.Globalization
+@using Cure.DataAccess
+@using Cure.WebSite.Models
+@model IEnumerable<Cure.WebSite.Models.BiblioPageModel>
+@{
+    ViewBag.Title = "Библиотека";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="main" role="main">
+    <section class="articles-wrapper">
+        <div class="container">
+            <div class="all-pages-head">
+                <div class="row">
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
+                        <h1 class="all-pages-H1">Библиотека</h1>
+                    </div>
+                    @using (Ajax.BeginForm("Index", "Biblio", null, null, new { id = "biblioform", @class = "articles-filter-form" }))
+                    {
+                        @Html.Hidden("skiprecords", 0, new { id = "skiprecords" })
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                            <div class="selector forms-selector">
+                                @Html.Hidden("filterSubjectId", 0, new { id = "filterSubjectId" })
+                                <div class="selector-val" data-val="0">Все темы</div>
+                                <ul class="selector-list">
+                                    <li data-val="0">Все темы</li>
+                                    @foreach (BiblioSubject subject in (IEnumerable<BiblioSubject>)ViewBag.BiblioSubjects)
+                                    {
+                                        <li data-val="@subject.Id">@Html.Raw(subject.Name.First().ToString(CultureInfo.InvariantCulture).ToUpper() + subject.Name.Substring(1))</li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                            <div class="selector forms-selector">
+                                @Html.Hidden("filterBiblioId", 0, new { id = "filterBiblioId" })
+                                <div class="selector-val" data-val="0">Все статьи</div>
+                                <ul class="selector-list">
+                                    <li data-val="0">Все статьи</li>
+                                    @foreach (BiblioPage model in (IEnumerable<BiblioPage>)ViewBag.Biblios)
+                                    {
+                                        <li data-val="@Html.Raw(model.Id)">@Html.Raw(model.Name)</li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            @Html.TextBox("filterSearch", "", new
+                            {
+                                @placeholder = "Поиск по библиотеке",
+                                @autocapitalize = "off",
+                                @autocorrect = "off",
+                                @class = "article-search-field",
+                                id = "filterSearch"
+                            })
+                            <button class="article-search-submit" type="submit">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    }
+                </div>
+            </div><!-- END all-pages-head -->
+
+            <div class="all-pages-body">
+                <div class="row">
+                    <ul class="articles">
+                        @foreach (BiblioPageModel model in Model)
+                        {
+                            @Html.Partial("_Biblio", model)
+                        }
+                    </ul>
+                </div>
+
+                @*<div class="row">
+                    <div class="col-ss-12">
+                        <div class="all-pages-more">
+                            <div class="more-title">
+                                Позаканы <span id="more-count-biblio">@Html.Raw((ViewBag.TotalCount <= 4 ? ViewBag.TotalCount : 4))</span> из <span id="more-all">@ViewBag.TotalCount</span>
+                            </div>
+                            <div class="more-btn">
+                                <a class="btn btn-light has-loading js-load-more-biblio">Показать еще</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>*@
+            </div><!-- END all-pages-body -->
+        </div><!-- END container -->
+    </section>
+</div><!-- END main -->

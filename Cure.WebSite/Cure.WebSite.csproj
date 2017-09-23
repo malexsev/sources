@@ -642,6 +642,7 @@
     <Compile Include="Controllers\ChildrenController.cs" />
     <Compile Include="Controllers\BibliotekaController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
+    <Compile Include="Controllers\BiblioController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\NewsletterController.cs" />
     <Compile Include="Controllers\FeedbackController.cs" />
@@ -663,6 +664,7 @@
     <Compile Include="Models\ClientContainer.cs" />
     <Compile Include="Models\DocItem.cs" />
     <Compile Include="Models\MyFileViewModel.cs" />
+    <Compile Include="Models\BiblioPageModel.cs" />
     <Compile Include="Models\NewsPageModel.cs" />
     <Compile Include="Models\OrderViewModel.cs" />
     <Compile Include="Models\PacientDataSoruce.cs" />
@@ -787,6 +789,10 @@
     <Content Include="Views\Home\Agreed.cshtml" />
     <Content Include="Views\Biblioteka\Statyinovosti.cshtml" />
     <Content Include="Views\Login\Approve.cshtml" />
+    <Content Include="Views\Biblio\Index.cshtml" />
+    <Content Include="Views\Biblio\_Biblio.cshtml" />
+    <Content Include="Views\Biblio\Details.cshtml" />
+    <Content Include="Views\Biblio\_BiblioSlim.cshtml" />
     <None Include="Views\Medicine\Human.cshtml" />
     <Content Include="Views\Procedure\OtOccupational.cshtml" />
     <Content Include="Views\Procedure\StSpeech.cshtml" />

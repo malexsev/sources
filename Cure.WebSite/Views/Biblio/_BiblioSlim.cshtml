@@ -1,0 +1,11 @@
+﻿@model Cure.WebSite.Models.BiblioPageModel
+<li class="aside-articles-item">
+    <div class="aside-articles-item-image-wrapper">
+        <a class="aside-articles-item-image-link" href="@Url.Action(Model.Alias, "Biblio")">
+            <span class="aside-articles-item-image" style="background-image: url(@Html.Raw(Model.MainPictureSrc(Server)));"></span>
+        </a>
+    </div>
+    <div class="aside-articles-item-name">
+        <a href="@Url.Action(Model.Alias, "Biblio")" class="aside-articles-item-name-link">@Html.Raw(Model.Name)</a>
+    </div>
+</li>

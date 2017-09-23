@@ -38,6 +38,35 @@
     <Property Name="IsAnonymous" Type="bit" Nullable="false" />
     <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
   </EntityType>
+  <EntityType Name="BiblioPage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GuidId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="SubjectID" Type="int" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="250" />
+    <Property Name="Subtitle" Type="nvarchar" MaxLength="250" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Alias" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatorName" Type="nvarchar" MaxLength="250" />
+    <Property Name="Text" Type="text" />
+    <Property Name="Date" Type="datetime" />
+    <Property Name="Sort" Type="int" />
+    <Property Name="Settings" Type="nvarchar" MaxLength="250" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="EditDate" Type="datetime" />
+    <Property Name="LastUser" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="BiblioSubject">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Sort" Type="nvarchar" MaxLength="10" />
+  </EntityType>
   <EntityType Name="Child">
     <Key>
       <PropertyRef Name="Id" />
@@ -992,6 +1021,20 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_BiblioPage_BiblioSubject">
+    <End Role="BiblioSubject" Type="Self.BiblioSubject" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="BiblioPage" Type="Self.BiblioPage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BiblioSubject">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BiblioPage">
+        <PropertyRef Name="SubjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Child_RefBank">
     <End Role="RefBank" Type="Self.RefBank" Multiplicity="0..1" />
     <End Role="Child" Type="Self.Child" Multiplicity="*" />
@@ -1481,6 +1524,8 @@ warning 6002: The table/view 'Cure.dbo.ViewUserMembership' does not have a prima
   <EntityContainer Name="DataModelStoreContainer">
     <EntitySet Name="aspnet_Membership" EntityType="Self.aspnet_Membership" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="aspnet_Users" EntityType="Self.aspnet_Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BiblioPage" EntityType="Self.BiblioPage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BiblioSubject" EntityType="Self.BiblioSubject" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Child" EntityType="Self.Child" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ChildAvaFile" EntityType="Self.ChildAvaFile" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ChildHideFile" EntityType="Self.ChildHideFile" Schema="dbo" store:Type="Tables" />
@@ -1845,6 +1890,10 @@ FROM [dbo].[ViewUserMembership] AS [ViewUserMembership]</DefiningQuery>
     <AssociationSet Name="FK__aspnet_Me__UserI__61316BF4" Association="Self.FK__aspnet_Me__UserI__61316BF4">
       <End Role="aspnet_Users" EntitySet="aspnet_Users" />
       <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BiblioPage_BiblioSubject" Association="Self.FK_BiblioPage_BiblioSubject">
+      <End Role="BiblioSubject" EntitySet="BiblioSubject" />
+      <End Role="BiblioPage" EntitySet="BiblioPage" />
     </AssociationSet>
     <AssociationSet Name="FK_Child_RefBank" Association="Self.FK_Child_RefBank">
       <End Role="RefBank" EntitySet="RefBank" />

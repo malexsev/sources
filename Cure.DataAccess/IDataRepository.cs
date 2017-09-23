@@ -8,6 +8,20 @@ namespace Cure.DataAccess.DAL
 {
     internal interface IDataRepository : IDisposable
     {
+        IEnumerable<BiblioSubject> GetBiblioSubjects();
+        void InsertBiblioSubject(BiblioSubject biblioSubject);
+        void DeleteBiblioSubject(BiblioSubject biblioSubject);
+        void UpdateBiblioSubject(BiblioSubject biblioSubject);
+
+        IEnumerable<BiblioPage> GetAllBiblioPageActive();
+        IEnumerable<BiblioPage> GetBiblioPages();
+        BiblioPage GetBiblioPage(int id);
+        BiblioPage GetBiblioPage(string alias);
+        IEnumerable<BiblioPage> MoreBiblio(int skipRecords, int takeRecords = 4);
+        void InsertBiblioPage(BiblioPage biblioPage);
+        void DeleteBiblioPage(BiblioPage biblioPage);
+        void UpdateBiblioPage(BiblioPage biblioPage);
+
         IEnumerable<UploadLog> GetUnReportedLogs();
         IEnumerable<UploadLog> GetUploadLogs();
         void InsertUploadLog(UploadLog uploadLog);

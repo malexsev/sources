@@ -11,25 +11,25 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>09/07/2017 01:26:13</publishTime>
+      <publishTime>09/23/2017 13:30:54</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>09/07/2017 01:26:13</publishTime>
+      <publishTime>09/23/2017 13:30:54</publishTime>
     </File>
     <File Include="bin/Cure.DataAccess.dll">
-      <publishTime>09/07/2017 00:49:05</publishTime>
+      <publishTime>09/15/2017 00:47:36</publishTime>
     </File>
     <File Include="bin/Cure.Notification.dll">
-      <publishTime>09/07/2017 00:49:07</publishTime>
+      <publishTime>09/15/2017 00:47:37</publishTime>
     </File>
     <File Include="bin/Cure.Reports.dll">
-      <publishTime>09/07/2017 00:46:01</publishTime>
+      <publishTime>09/13/2017 20:57:13</publishTime>
     </File>
     <File Include="bin/Cure.Utils.dll">
-      <publishTime>09/07/2017 00:49:06</publishTime>
+      <publishTime>09/15/2017 00:47:37</publishTime>
     </File>
     <File Include="bin/Cure.WebSite.dll">
-      <publishTime>09/07/2017 01:26:08</publishTime>
+      <publishTime>09/23/2017 13:30:46</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>09/19/2015 00:46:38</publishTime>
@@ -68,7 +68,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/12/2016 23:32:42</publishTime>
     </File>
     <File Include="Content/css/styles.css">
-      <publishTime>09/01/2017 00:36:27</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/css/styles.less">
       <publishTime>07/14/2017 22:23:14</publishTime>
@@ -137,13 +137,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/30/2016 00:00:00</publishTime>
     </File>
     <File Include="Content/images/about-us/fact_1.jpg">
-      <publishTime>12/09/2016 20:40:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/about-us/fact_2.jpg">
       <publishTime>12/09/2016 20:40:00</publishTime>
     </File>
     <File Include="Content/images/about-us/fact_3.jpg">
-      <publishTime>12/09/2016 20:40:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/banner-video.png">
       <publishTime>12/09/2016 20:40:00</publishTime>
@@ -173,16 +173,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/09/2016 20:40:00</publishTime>
     </File>
     <File Include="Content/images/clinic/clinic_1.jpg">
-      <publishTime>09/01/2017 00:36:27</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/clinic/clinic_2.jpg">
-      <publishTime>12/09/2016 20:41:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/clinic/clinic_3.jpg">
-      <publishTime>12/09/2016 20:41:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/clinic/clinic_4.jpg">
-      <publishTime>12/09/2016 20:41:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/docs/doc_1.jpg">
       <publishTime>12/09/2016 20:41:00</publishTime>
@@ -383,382 +383,382 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/09/2016 20:40:00</publishTime>
     </File>
     <File Include="Content/images/hospital/2nar_glavnaya.jpg">
-      <publishTime>12/11/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/2nar_glavnaya1.jpg">
-      <publishTime>12/11/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/2yuan_litcenziya.jpg">
       <publishTime>12/10/2016 00:00:00</publishTime>
     </File>
     <File Include="Content/images/hospital/aside_1.png">
-      <publishTime>12/09/2016 20:41:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/aside_2.png">
-      <publishTime>12/09/2016 20:41:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/boss_1.png">
-      <publishTime>12/09/2016 20:41:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/bzgm_gallery_procedure.jpg">
-      <publishTime>12/14/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/bzgm_gallery_procedure_00.jpg">
-      <publishTime>12/15/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/bzgm_gallery_procedure_000.jpg">
-      <publishTime>12/16/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/bzgm_gallery_procedure_1.jpg">
-      <publishTime>12/14/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/bzgm_gallery_procedure_10.jpg">
-      <publishTime>12/14/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/bzgm_gallery_procedure_11.jpg">
-      <publishTime>12/14/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/bzgm_gallery_procedure_12.jpg">
-      <publishTime>12/14/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/bzgm_gallery_procedure_13.jpg">
-      <publishTime>12/14/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/bzgm_gallery_procedure_14.jpg">
-      <publishTime>12/14/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/bzgm_gallery_procedure_16.jpg">
-      <publishTime>12/14/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/bzgm_gallery_procedure_17.jpg">
-      <publishTime>12/14/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/bzgm_gallery_procedure_18.jpg">
-      <publishTime>12/14/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/bzgm_gallery_procedure_19.jpg">
-      <publishTime>12/14/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/bzgm_gallery_procedure_20.jpg">
-      <publishTime>12/14/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/bzgm_gallery_procedure_3.jpg">
-      <publishTime>12/14/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/bzgm_gallery_procedure_30.jpg">
-      <publishTime>12/16/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/bzgm_gallery_procedure_31.jpg">
-      <publishTime>12/16/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/bzgm_gallery_procedure_32.jpg">
-      <publishTime>12/16/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/bzgm_gallery_procedure_33.jpg">
-      <publishTime>12/16/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/bzgm_gallery_procedure_34.jpg">
-      <publishTime>12/16/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/bzgm_gallery_procedure_35.jpg">
-      <publishTime>12/16/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/bzgm_gallery_procedure_36.jpg">
-      <publishTime>12/16/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/bzgm_gallery_procedure_37.jpg">
-      <publishTime>12/16/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/bzgm_gallery_procedure_38.jpg">
-      <publishTime>12/16/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/bzgm_gallery_procedure_39.jpg">
-      <publishTime>12/16/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/bzgm_gallery_procedure_4.jpg">
-      <publishTime>12/14/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/bzgm_gallery_procedure_40.jpg">
-      <publishTime>12/16/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/bzgm_gallery_procedure_41.jpg">
-      <publishTime>12/16/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/bzgm_gallery_procedure_5.jpg">
-      <publishTime>12/14/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/bzgm_gallery_procedure_6.jpg">
-      <publishTime>12/14/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/bzgm_gallery_procedure_7.jpg">
-      <publishTime>12/14/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/bzgm_gallery_procedure_8.jpg">
-      <publishTime>12/14/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/bzgm_gallery_procedure_9.jpg">
-      <publishTime>12/14/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/bzgm_usloviya.jpg">
-      <publishTime>12/14/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/bzgm_usloviya_1.jpg">
       <publishTime>12/14/2016 00:00:00</publishTime>
     </File>
     <File Include="Content/images/hospital/bzgm_usloviya_10.jpg">
-      <publishTime>12/15/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/bzgm_usloviya_12.jpg">
-      <publishTime>12/15/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/bzgm_usloviya_2.jpg">
-      <publishTime>12/14/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/bzgm_usloviya_3.jpg">
-      <publishTime>12/14/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/bzgm_usloviya_4.jpg">
-      <publishTime>12/14/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/bzgm_usloviya_5.jpg">
-      <publishTime>12/14/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/bzgm_usloviya_6.jpg">
-      <publishTime>12/14/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/bzgm_usloviya_7.jpg">
-      <publishTime>12/14/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/clinic_1.jpg">
-      <publishTime>12/14/2016 06:28:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/clinic_2.jpg">
-      <publishTime>12/14/2016 06:28:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/clinic_room_1.jpg">
-      <publishTime>12/14/2016 06:28:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/document_1.jpg">
-      <publishTime>12/14/2016 06:28:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/document_2.jpg">
-      <publishTime>12/14/2016 06:28:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/gallery_1.jpg">
-      <publishTime>12/14/2016 06:28:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/gallery_2.jpg">
-      <publishTime>12/14/2016 06:28:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/gallery_3.jpg">
-      <publishTime>12/14/2016 06:28:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/gallery_equipment.jpg">
-      <publishTime>12/14/2016 06:28:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/gallery_procedure.jpg">
       <publishTime>12/14/2016 06:28:00</publishTime>
     </File>
     <File Include="Content/images/hospital/gallery_room.jpeg">
-      <publishTime>12/14/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/gallery_room.jpg">
-      <publishTime>12/14/2016 06:28:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/gallery_room_10.jpg">
-      <publishTime>12/14/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/gallery_room_11.jpg">
-      <publishTime>12/10/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/gallery_room_2.jpg">
-      <publishTime>12/10/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/gallery_room_3.jpg">
-      <publishTime>12/10/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/gallery_room_4.jpg">
-      <publishTime>12/10/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/gallery_room_5.jpg">
-      <publishTime>12/10/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/gallery_room_6.jpg">
-      <publishTime>12/10/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/gallery_room_7.jpg">
-      <publishTime>12/10/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/gallery_room_8.jpg">
-      <publishTime>12/10/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/gallery_room_9.jpg">
-      <publishTime>12/10/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/gallery_yunchen.jpg">
       <publishTime>12/09/2016 20:41:00</publishTime>
     </File>
     <File Include="Content/images/hospital/housing_room_1.jpg">
-      <publishTime>12/09/2016 20:41:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/housing_room_1111.jpg">
-      <publishTime>12/28/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/Licenziyabzgm.jpg">
-      <publishTime>02/09/2017 16:12:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/svidetelstvokodebzgm.jpg">
-      <publishTime>02/09/2017 17:36:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/svidregurlicabzgm.jpg">
-      <publishTime>02/09/2017 17:27:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/vn_gallery_procedure_00.jpg">
-      <publishTime>12/28/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/vn_gallery_procedure_1.jpg">
       <publishTime>12/28/2016 00:00:00</publishTime>
     </File>
     <File Include="Content/images/hospital/vn_gallery_procedure_10.jpg">
-      <publishTime>12/28/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/vn_gallery_procedure_11.jpg">
-      <publishTime>12/28/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/vn_gallery_procedure_12.jpg">
-      <publishTime>12/28/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/vn_gallery_procedure_13.jpg">
-      <publishTime>12/28/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/vn_gallery_procedure_14.jpg">
-      <publishTime>12/28/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/vn_gallery_procedure_15.jpg">
-      <publishTime>12/28/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/vn_gallery_procedure_16.jpg">
-      <publishTime>12/28/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/vn_gallery_procedure_2.jpg">
-      <publishTime>12/28/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/vn_gallery_procedure_3.jpg">
-      <publishTime>12/28/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/vn_gallery_procedure_4.jpg">
-      <publishTime>12/28/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/vn_gallery_procedure_5.jpg">
-      <publishTime>12/28/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/vn_gallery_procedure_6.jpg">
-      <publishTime>12/28/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/vn_gallery_procedure_7.jpg">
-      <publishTime>12/28/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/vn_gallery_procedure_8.jpg">
-      <publishTime>12/28/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/vn_gallery_procedure_9.jpg">
-      <publishTime>12/28/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/Yuncheng_00.jpg">
-      <publishTime>12/15/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/yuncheng_1.jpg">
-      <publishTime>12/15/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/yuncheng_10.jpg">
-      <publishTime>12/15/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/yuncheng_11.jpg">
-      <publishTime>12/15/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/yuncheng_13.jpg">
-      <publishTime>12/15/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/yuncheng_14.jpg">
-      <publishTime>12/15/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/yuncheng_15.jpg">
-      <publishTime>12/15/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/yuncheng_16.jpg">
-      <publishTime>12/15/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/yuncheng_17.jpg">
-      <publishTime>12/15/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/yuncheng_18.jpg">
-      <publishTime>12/15/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/yuncheng_19.jpg">
-      <publishTime>12/15/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/yuncheng_2.jpg">
-      <publishTime>12/15/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/yuncheng_20.jpg">
-      <publishTime>12/15/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/yuncheng_21.jpg">
-      <publishTime>12/15/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/yuncheng_22.jpg">
-      <publishTime>12/15/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/yuncheng_23.jpg">
-      <publishTime>12/15/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/yuncheng_24.jpg">
-      <publishTime>12/15/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/yuncheng_241.jpg">
-      <publishTime>12/15/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/yuncheng_25.jpg">
-      <publishTime>12/15/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/yuncheng_26.jpg">
-      <publishTime>12/15/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/yuncheng_27.jpg">
-      <publishTime>12/15/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/yuncheng_271.jpg">
-      <publishTime>12/15/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/yuncheng_28.jpg">
-      <publishTime>12/15/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/yuncheng_29.jpg">
-      <publishTime>12/15/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/yuncheng_3.jpg">
-      <publishTime>12/15/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/yuncheng_30.jpg">
-      <publishTime>12/15/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/yuncheng_31.jpg">
-      <publishTime>12/15/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/yuncheng_4.jpg">
-      <publishTime>12/15/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/yuncheng_5.jpg">
-      <publishTime>12/15/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/yuncheng_6.jpg">
-      <publishTime>12/15/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/yuncheng_7.jpg">
-      <publishTime>12/15/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/hospital/yuncheng_8.jpg">
-      <publishTime>12/15/2016 00:00:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/img_wallet.png">
       <publishTime>12/09/2016 20:40:00</publishTime>
@@ -773,58 +773,58 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/09/2016 20:41:00</publishTime>
     </File>
     <File Include="Content/images/medicine/m1.png">
-      <publishTime>12/09/2016 21:13:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/medicine/m2.png">
-      <publishTime>12/09/2016 21:13:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/medicine/m3.png">
-      <publishTime>12/09/2016 21:13:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/medicine/m4.png">
-      <publishTime>12/09/2016 21:13:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/medicine/m5.png">
-      <publishTime>12/09/2016 21:13:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/medicine/m6.png">
-      <publishTime>12/09/2016 21:13:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/medicine/m7.png">
-      <publishTime>12/09/2016 21:13:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/medicine/m8.png">
-      <publishTime>12/09/2016 21:13:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/medicine/m9.png">
-      <publishTime>12/09/2016 21:14:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/medicine/medicament_1.jpg">
-      <publishTime>12/09/2016 20:41:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/medicine/medicament_2.jpg">
-      <publishTime>12/09/2016 20:41:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/medicine/medicament_3.jpg">
-      <publishTime>12/09/2016 20:42:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/medicine/medicament_4.jpg">
-      <publishTime>12/09/2016 20:42:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/medicine/medicament_5.jpg">
-      <publishTime>12/09/2016 20:42:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/medicine/medicament_6.jpg">
-      <publishTime>12/09/2016 20:42:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/medicine/medicament_descr.jpg">
-      <publishTime>12/09/2016 20:42:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/medicine/medicament_human.jpg">
-      <publishTime>10/24/2016 00:36:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/medicine/medicament_methylcobalamin.jpg">
-      <publishTime>10/24/2016 00:36:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/medicine/prop-icon_1.png">
       <publishTime>12/09/2016 20:42:00</publishTime>
@@ -863,73 +863,73 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/13/2017 21:24:35</publishTime>
     </File>
     <File Include="Content/images/procedures/procedures_1.jpg">
-      <publishTime>12/09/2016 20:42:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/procedures/procedures_2.jpg">
-      <publishTime>12/09/2016 20:42:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/procedures/procedures_3.jpg">
-      <publishTime>12/09/2016 20:42:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/procedures/procedures_4.jpg">
-      <publishTime>12/09/2016 20:42:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/procedures/procedures_5.jpg">
-      <publishTime>12/09/2016 20:42:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/procedures/procedures_6.jpg">
       <publishTime>12/09/2016 20:42:00</publishTime>
     </File>
     <File Include="Content/images/procedures/procedures_7.jpg">
-      <publishTime>12/09/2016 20:42:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/procedures/procedures_8.jpg">
-      <publishTime>12/09/2016 20:42:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/procedures/procedure_acupoint.jpg">
-      <publishTime>10/24/2016 00:36:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/procedures/procedure_electric.jpg">
-      <publishTime>10/24/2016 00:36:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/procedures/procedure_explanation.jpg">
-      <publishTime>12/09/2016 20:42:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/procedures/procedure_implantation.jpg">
-      <publishTime>10/24/2016 00:36:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/procedures/procedure_itp.jpg">
-      <publishTime>10/24/2016 00:36:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/procedures/procedure_kinesiotaping.jpg">
-      <publishTime>10/24/2016 00:36:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/procedures/procedure_massage.jpg">
-      <publishTime>10/24/2016 00:36:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/procedures/procedure_ot_occupational.jpg">
-      <publishTime>10/24/2016 00:36:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/procedures/procedure_page.jpg">
-      <publishTime>12/09/2016 20:42:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/procedures/procedure_pt_physical.jpg">
-      <publishTime>10/24/2016 00:36:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/procedures/procedure_sensory.jpg">
-      <publishTime>12/04/2016 15:37:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/procedures/procedure_st_speech.jpg">
-      <publishTime>12/04/2016 15:37:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/procedures/procedure_s_e_t.jpg">
-      <publishTime>10/24/2016 00:36:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/procedures/procedure_therasuit.jpg">
-      <publishTime>12/04/2016 15:37:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/procedures/procedure_universal.jpg">
-      <publishTime>12/04/2016 15:37:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/sec-steps/main-page_step_1.gif">
       <publishTime>12/22/2016 00:00:00</publishTime>
@@ -959,22 +959,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/09/2016 20:40:00</publishTime>
     </File>
     <File Include="Content/images/team/member_1.jpg">
-      <publishTime>12/09/2016 20:42:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/team/member_1_face.jpg">
-      <publishTime>12/09/2016 20:42:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/team/member_2.jpg">
-      <publishTime>12/09/2016 20:42:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/team/member_2_face.jpg">
-      <publishTime>12/09/2016 20:42:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/team/member_3.jpg">
-      <publishTime>12/09/2016 20:42:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/team/member_3_face.jpg">
-      <publishTime>12/09/2016 20:42:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/temp/counter_1.png">
       <publishTime>12/09/2016 20:42:00</publishTime>
@@ -989,64 +989,64 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/09/2016 20:42:00</publishTime>
     </File>
     <File Include="Content/images/temp/dcpchina_logo.png">
-      <publishTime>12/09/2016 21:14:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/temp/email-logo.gif">
       <publishTime>12/09/2016 21:14:00</publishTime>
     </File>
     <File Include="Content/images/temp/email-logo.png">
-      <publishTime>12/09/2016 21:14:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/temp/fb.png">
-      <publishTime>12/09/2016 21:14:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/temp/icon_fb.png">
-      <publishTime>12/09/2016 21:14:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/temp/icon_ok.png">
-      <publishTime>12/09/2016 21:14:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/temp/icon_vk.png">
-      <publishTime>12/09/2016 21:14:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/temp/icon_yt.png">
-      <publishTime>12/09/2016 21:14:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/temp/maz_al_48_48.jpg">
-      <publishTime>12/09/2016 21:14:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/temp/ok.png">
-      <publishTime>12/09/2016 21:14:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/temp/panorama_1.jpg">
-      <publishTime>12/09/2016 20:42:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/temp/slide_1.jpg">
-      <publishTime>12/09/2016 20:42:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/temp/slide_2.jpg">
-      <publishTime>12/09/2016 20:42:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/temp/slide_3.jpg">
-      <publishTime>12/09/2016 20:42:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/temp/smallwhats.png">
-      <publishTime>12/09/2016 21:14:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/temp/telegram_40x40.png">
-      <publishTime>12/09/2016 21:14:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/temp/visa.jpg">
-      <publishTime>12/09/2016 20:42:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/temp/visa_1.jpg">
-      <publishTime>12/09/2016 20:43:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/temp/visa_2.jpg">
-      <publishTime>12/09/2016 20:43:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/temp/visa_3.jpg">
-      <publishTime>12/09/2016 20:43:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/temp/vk.png">
       <publishTime>12/09/2016 21:14:00</publishTime>
@@ -1055,7 +1055,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/09/2016 21:14:00</publishTime>
     </File>
     <File Include="Content/images/trips/trip_1.jpg">
-      <publishTime>12/09/2016 20:43:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/images/users/contact_user_1_48x48.jpg">
       <publishTime>12/09/2016 20:43:00</publishTime>
@@ -1115,49 +1115,49 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/09/2016 20:43:00</publishTime>
     </File>
     <File Include="Content/img/backgrounds/bg_assist-drop.jpg">
-      <publishTime>12/09/2016 20:44:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/img/backgrounds/bg_branches.jpg">
-      <publishTime>12/09/2016 20:44:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/img/backgrounds/bg_flower.jpg">
-      <publishTime>12/09/2016 20:44:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/img/backgrounds/bg_hosp-gallery.jpg">
-      <publishTime>12/09/2016 20:44:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/img/backgrounds/bg_main.jpg">
-      <publishTime>12/09/2016 20:44:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/img/backgrounds/bg_personal-boss.png">
-      <publishTime>12/09/2016 20:44:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/img/backgrounds/bg_personal-team.jpg">
-      <publishTime>12/09/2016 20:44:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/img/backgrounds/bg_sec-hosp-docs.jpg">
-      <publishTime>12/09/2016 20:44:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/img/backgrounds/bg_sec-hosp-photos.jpg">
-      <publishTime>12/09/2016 20:44:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/img/backgrounds/bg_sec-hosp-procedure.jpg">
-      <publishTime>12/09/2016 20:44:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/img/backgrounds/bg_sec-method.jpg">
-      <publishTime>12/09/2016 20:44:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/img/backgrounds/bg_sec-patients.jpg">
-      <publishTime>12/09/2016 20:44:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/img/backgrounds/bg_sec-procedure.jpg">
-      <publishTime>09/01/2017 00:36:27</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/img/backgrounds/bg_sec-since.png">
-      <publishTime>12/09/2016 20:44:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/img/backgrounds/bg_sec-steps.jpg">
-      <publishTime>12/09/2016 20:44:00</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Content/img/bg_main.jpg">
       <publishTime>12/09/2016 20:43:00</publishTime>
@@ -1550,7 +1550,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/24/2016 03:40:04</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>09/07/2017 01:26:11</publishTime>
+      <publishTime>09/23/2017 13:30:51</publishTime>
     </File>
     <File Include="robots.txt">
       <publishTime>01/04/2017 16:21:24</publishTime>
@@ -1568,7 +1568,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/04/2017 15:03:06</publishTime>
     </File>
     <File Include="Scripts/jquery.ndeti.js">
-      <publishTime>09/06/2017 23:14:43</publishTime>
+      <publishTime>09/23/2017 13:15:16</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.js">
       <publishTime>09/01/2017 00:36:27</publishTime>
@@ -1647,6 +1647,18 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Scripts/vendor/modernizr-2.8.3.min.js">
       <publishTime>04/30/2015 20:55:04</publishTime>
+    </File>
+    <File Include="Views/Biblio/Details.cshtml">
+      <publishTime>09/18/2017 22:04:15</publishTime>
+    </File>
+    <File Include="Views/Biblio/Index.cshtml">
+      <publishTime>09/18/2017 22:04:15</publishTime>
+    </File>
+    <File Include="Views/Biblio/_Biblio.cshtml">
+      <publishTime>09/23/2017 13:27:16</publishTime>
+    </File>
+    <File Include="Views/Biblio/_BiblioSlim.cshtml">
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Views/Biblioteka/Lekarstvakitay.cshtml">
       <publishTime>07/19/2017 22:15:13</publishTime>
@@ -1820,10 +1832,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Views/Info/Lekarstvakitay.cshtml">
-      <publishTime>09/07/2017 01:24:22</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Views/Info/Lekarstvassoboy.cshtml">
-      <publishTime>09/07/2017 01:23:27</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Views/Info/Pogoda.cshtml">
       <publishTime>07/19/2017 22:15:13</publishTime>
@@ -2045,10 +2057,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/01/2017 00:36:27</publishTime>
     </File>
     <File Include="Views/Shared/_MainMenu.cshtml">
-      <publishTime>09/06/2017 23:22:06</publishTime>
+      <publishTime>09/18/2017 22:04:15</publishTime>
     </File>
     <File Include="Views/Shared/_MainMenuExt.cshtml">
-      <publishTime>09/07/2017 01:24:42</publishTime>
+      <publishTime>09/23/2017 13:28:53</publishTime>
     </File>
     <File Include="Views/Shared/_Mension.cshtml">
       <publishTime>07/19/2017 22:15:13</publishTime>
@@ -2126,7 +2138,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/19/2017 22:15:13</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>07/12/2017 01:05:09</publishTime>
+      <publishTime>09/18/2017 22:14:29</publishTime>
     </File>
   </ItemGroup>
 </Project>

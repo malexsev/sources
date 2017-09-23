@@ -212,6 +212,12 @@
       <End Role="Order" EntitySet="Orders" />
       <End Role="Visit" EntitySet="Visits" />
     </AssociationSet>
+    <EntitySet Name="BiblioSubjects" EntityType="DataModel.BiblioSubject" />
+    <EntitySet Name="BiblioPages" EntityType="DataModel.BiblioPage" />
+    <AssociationSet Name="FK_BiblioPage_BiblioSubject" Association="DataModel.FK_BiblioPage_BiblioSubject">
+      <End Role="BiblioSubject" EntitySet="BiblioSubjects" />
+      <End Role="BiblioPage" EntitySet="BiblioPages" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="OrderStatu">
     <Key>
@@ -1742,6 +1748,51 @@
       </Principal>
       <Dependent Role="Visit">
         <PropertyRef Name="OrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="BiblioSubject">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Sort" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="BiblioPages" Relationship="DataModel.FK_BiblioPage_BiblioSubject" FromRole="BiblioSubject" ToRole="BiblioPage" />
+  </EntityType>
+  <EntityType Name="BiblioPage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GuidId" Type="Guid" Nullable="false" />
+    <Property Name="SubjectID" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Subtitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Alias" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatorName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="Sort" Type="Int32" />
+    <Property Name="Settings" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="EditDate" Type="DateTime" Precision="3" />
+    <Property Name="LastUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="BiblioSubject" Relationship="DataModel.FK_BiblioPage_BiblioSubject" FromRole="BiblioPage" ToRole="BiblioSubject" />
+  </EntityType>
+  <Association Name="FK_BiblioPage_BiblioSubject">
+    <End Type="DataModel.BiblioSubject" Role="BiblioSubject" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="DataModel.BiblioPage" Role="BiblioPage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BiblioSubject">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BiblioPage">
+        <PropertyRef Name="SubjectID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

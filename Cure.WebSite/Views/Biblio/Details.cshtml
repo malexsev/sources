@@ -1,0 +1,63 @@
+﻿@using Cure.WebSite.Models
+@model Cure.WebSite.Models.BiblioPageModel
+@{
+    ViewBag.Title = Model.Name;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="main has-gray-bg" role="main">
+    <section class="articles-inner-wrapper">
+        <div class="container">
+            <div class="all-pages-body">
+                <div class="row">
+                    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                        <div class="articles-inner">
+                            <div class="user-content">
+                                <div class="back">
+                                    <a class="back-link" href="@Url.Action("Index", "Biblio")">&larr; В библиотеку</a>
+                                </div>
+                                <div class="articles-inner-header clearfix">
+                                    <span class="articles-inner-header-image" style="background-image: url(@Html.Raw(Model.MainPictureSrc(Server)));"></span>
+                                    <h2>@Html.Raw(Model.Name)</h2>
+                                    <div class="articles-inner-description">
+                                        <div class="lead">@Html.Raw(Model.Title)</div>
+                                    </div>
+                                </div>
+                                @Html.Raw(Model.Text)
+                            </div>
+                            @*<ul class="social-list">
+                                    <li class="social-list-item">
+                                        <a class="social-list-item-link vk" href="#" title="Вконтакте">
+                                            <i class="social-list-item-icon fa fa-vk"></i>
+                                        </a>
+                                    </li>
+                                    <li class="social-list-item">
+                                        <a class="social-list-item-link ok" href="#" title="Одноклассники">
+                                            <i class="social-list-item-icon fa fa-odnoklassniki"></i>
+                                        </a>
+                                    </li>
+                                    <li class="social-list-item">
+                                        <a class="social-list-item-link fb" href="#" title="Facebook">
+                                            <i class="social-list-item-icon fa fa-facebook"></i>
+                                        </a>
+                                    </li>
+                                </ul>*@
+                            <script type="text/javascript" src="http://yastatic.net/es5-shims/0.0.2/es5-shims.min.js" charset="utf-8"></script>
+                            <script type="text/javascript" src="http://yastatic.net/share2/share.js" charset="utf-8"></script>
+                            <div style="text-align: left;" class="gallery-share ya-share2" data-services="vkontakte,facebook,odnoklassniki" data-counter=""></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                        <h4 class="aside-title">Похожие материалы</h4>
+                        <ul class="aside-articles">
+                            @foreach (BiblioPageModel model in (IEnumerable<BiblioPageModel>)ViewBag.SimilarBiblios)
+                            {
+                                @Html.Partial("_BiblioSlim", model)
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div><!-- END all-pages-body -->
+        </div><!-- END container -->
+    </section>
+</div><!-- END main -->

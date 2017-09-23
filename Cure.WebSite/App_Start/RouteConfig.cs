@@ -24,6 +24,11 @@ namespace Cure.WebSite
                 url: "News/{alias}",
                 defaults: new { controller = "News", action = "Details" }
             );
+            routes.MapRoute(
+                name: "BiblioDetails",
+                url: "Biblio/{alias}",
+                defaults: new { controller = "Biblio", action = "Details" }
+            );
 
             routes.MapRoute(
                 name: "Home",
