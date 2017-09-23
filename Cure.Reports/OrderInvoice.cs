@@ -65,7 +65,7 @@ namespace Cure.Reports
         private void uxPacientPassport_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             var label = (XRLabel)sender;
-            label.Text = this.visit.Pacient.SerialNumber;
+            label.Text = string.Format("{0}, {1}", this.visit.Pacient.SerialNumber, this.visit.Pacient.RefCountry.NameEn);
         }
 
         private void uxPacientDiagnoz_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
