@@ -67,7 +67,8 @@
                                 </div>
                             </div>
                             <div class="headerMenu">
-                                <% if (HttpContext.Current.User.Identity.IsAuthenticated ) { %>
+                                <% if (HttpContext.Current.User.Identity.IsAuthenticated)
+                                   { %>
 
                                 <dx:ASPxMenu ID="ASPxMenu1" runat="server" ItemAutoWidth="False" RenderMode="Lightweight" Width="100%"
                                     DataSourceID="uxASPxSiteMapDataSource">
@@ -101,4 +102,3 @@
     </form>
 </body>
 </html>
-                                

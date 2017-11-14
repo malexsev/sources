@@ -83,6 +83,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>VisitInvitationSputniksDataset.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Models\OrderInvoiceRow.cs" />
     <Compile Include="PacientVisitDetails.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -104,11 +105,22 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="ReportUtils.cs" />
+    <Compile Include="Resouces\InvoiceResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InvoiceResources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Rules.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Rules.Designer.cs">
       <DependentUpon>Rules.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Subreports\OrderInvoiceDetail.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Subreports\OrderInvoiceDetail.Designer.cs">
+      <DependentUpon>OrderInvoiceDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="Subreports\PacientVisitDetailsSputniks.cs">
       <SubType>Component</SubType>
@@ -147,9 +159,16 @@
       <DependentUpon>PacientVisitDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Resouces\InvoiceResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>InvoiceResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Rules.resx">
       <Generator>ResXFileCodeGeneratorEx</Generator>
       <DependentUpon>Rules.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Subreports\OrderInvoiceDetail.resx">
+      <DependentUpon>OrderInvoiceDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Subreports\PacientVisitDetailsSputniks.resx">
       <DependentUpon>PacientVisitDetailsSputniks.cs</DependentUpon>
@@ -196,7 +215,37 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Datasets\ConStringsToWeb.txt" />
+    <None Include="Resources\top2.jpg" />
+    <None Include="Resources\top1.jpg" />
+    <None Include="Resources\vrach9.png" />
+    <None Include="Resources\vrach8.png" />
+    <None Include="Resources\vrach7.png" />
+    <None Include="Resources\vrach6.png" />
+    <None Include="Resources\vrach5.png" />
+    <None Include="Resources\vrach4.png" />
+    <None Include="Resources\vrach3.png" />
+    <None Include="Resources\vrach2.png" />
+    <None Include="Resources\vrach1.png" />
+    <None Include="Resources\sign10.png" />
+    <None Include="Resources\sign9.png" />
+    <None Include="Resources\sign8.png" />
+    <None Include="Resources\sign7.png" />
+    <None Include="Resources\sign6.png" />
+    <None Include="Resources\sign5.png" />
+    <None Include="Resources\sign4.png" />
+    <None Include="Resources\sign3.png" />
+    <None Include="Resources\sign2.png" />
+    <None Include="Resources\sign1.png" />
+    <None Include="Resources\clinic8.png" />
+    <None Include="Resources\clinic7.png" />
+    <None Include="Resources\clinic6.png" />
+    <None Include="Resources\clinic5.png" />
+    <None Include="Resources\clinic4.png" />
+    <None Include="Resources\clinic3.png" />
+    <None Include="Resources\clinic2.png" />
+    <None Include="Resources\clinic1.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

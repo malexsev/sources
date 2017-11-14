@@ -1,5 +1,4 @@
-html, body, body.page
-{
+html, body, body.page {
     font: normal normal normal 14px / 24px "Open Sans", Helvetica, Arial, Verdana, sans-serif;
     word-spacing: normal;
     color: #888888;
@@ -9,51 +8,44 @@ html, body, body.page
 
 
 /* Header */
-.headerPane
-{
-    background-color: #EDEDED;/**/
+.headerPane {
+    background-color: #EDEDED; /**/
     background-position: right top;
     background-repeat: no-repeat;
     font-family: Tahoma;
 }
 
-    .headerPane .headerTop
-    {
+    .headerPane .headerTop {
         height: 45px;
     }
 
-.templateTitle
-{
+.templateTitle {
     float: left;
     margin-left: 15px;
     margin-top: 11px;
 }
 
-    .templateTitle a
-    {
+    .templateTitle a {
         text-decoration: none;
         font-size: x-large;
         color: black;
     }
 
-.loginControl
-{
+.loginControl {
     float: right;
     margin-top: 17px;
     margin-right: 25px;
     font-size: 12px;
 }
 
-    .loginControl a
-    {
+    .loginControl a {
         color: black;
         text-decoration: none;
         border-bottom: dashed 1px black;
         display: inline-block;
     }
 
-.headerMenu
-{
+.headerMenu {
     margin-top: 11px;
 }
 
@@ -61,20 +53,17 @@ html, body, body.page
 
 
 /* Footer */
-.footerPane
-{
+.footerPane {
     background-color: #EDEDED;
     height: 100%;
 }
 
-.footerMenu
-{
+.footerMenu {
     float: right;
     padding-top: 7px;
 }
 
-.copyright
-{
+.copyright {
     float: left;
     margin-left: 15px;
     margin-top: 100px;
@@ -82,18 +71,15 @@ html, body, body.page
 
 
 /* Content */
-.content
-{
+.content {
     padding: 5px;
 }
 
-.panelsdelimiter
-{
+.panelsdelimiter {
     padding-top: 5px;
 }
 
-.content p
-{
+.content p {
     padding: 5px;
     font-size: 16px;
 }
@@ -108,35 +94,29 @@ html, body, body.page
     font-size: large;
 }*/
 
-.hyperlink:link
-{
+.hyperlink:link {
     color: #ab82ff !important;
 }
 
-.hyperlink:visited
-{
+.hyperlink:visited {
     color: #eed8ae !important;
 }
 
-.hyperlink:hover
-{
+.hyperlink:hover {
     text-decoration: none;
     color: #eed8ae !important;
 }
 
-.hyperlink:active
-{
+.hyperlink:active {
     color: red !important;
     text-decoration: none;
 }
 
-.hyperlink a
-{
+.hyperlink a {
     color: #ab82ff !important;
 }
 
-.item
-{
+.item {
     padding: 5px;
     min-width: 150px;
 }
@@ -146,26 +126,22 @@ html, body, body.page
 
 
 /* Account */
-.accountHeader h2
-{
+.accountHeader h2 {
     margin: 10px 0 7px 0;
     font-size: 16px;
 }
 
-.accountHeader p
-{
+.accountHeader p {
     font-size: 12px;
     margin: 0;
     padding: 0;
 }
 
-.accountHeader
-{
+.accountHeader {
     margin-bottom: 20px;
 }
 
-.form-field
-{
+.form-field {
     margin-bottom: 8px;
 }
 
@@ -187,57 +163,96 @@ html, body, body.page
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.25);
 }
 
-.top-nav-wrap + form {
-    box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    padding: 60px 0 0 0 !important;
+    .top-nav-wrap + form {
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        padding: 60px 0 0 0 !important;
+    }
+
+.top-nav-logo {
+    display: inline-block;
+    margin: 0 10px;
 }
-      .top-nav-logo{
-          display: inline-block;
-          margin: 0 10px;
-      }
-      .top-nav-logo img{
+
+    .top-nav-logo img {
         max-height: 100%;
         margin: -6px 0;
         vertical-align: top;
-      }
-      .top-nav-list{
-          display: inline-block;
-          margin: 0;
-          padding: 0;
-          list-style: none;
-      }
-      .top-nav-list li{
-          display: inline-block;
-          vertical-align: top;
-          margin-right: 5px;
-      }
-      .top-nav-list li a{
-          display: block;
-          padding: 7px 10px 8px;
-          color: #3b8ced;
-          text-decoration: none;
-          font-size: 15px;
-          line-height: 19px;
-          border-radius: 8px;
-          border: 1px solid transparent;
-      }
-      .top-nav-list li.active a{
-          color: #fff;
-          background: #3b8ced;
-          cursor: default;
-      }
-      .top-nav-list li a:hover{
-          border-color: #3b8ced;
-      }
-      .headerPane{
-          color: #fff;
-          background: #1079ea;
-      }
-      .templateTitle a{
-          color: #fff;
-      }
-      .loginControl a {
-          color: #fff;
-          border-bottom: 1px dashed #fff;
-      }
+    }
+
+.top-nav-list {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+    .top-nav-list li {
+        display: inline-block;
+        vertical-align: top;
+        margin-right: 5px;
+    }
+
+        .top-nav-list li a {
+            display: block;
+            padding: 7px 10px 8px;
+            color: #3b8ced;
+            text-decoration: none;
+            font-size: 15px;
+            line-height: 19px;
+            border-radius: 8px;
+            border: 1px solid transparent;
+        }
+
+        .top-nav-list li.active a {
+            color: #fff;
+            background: #3b8ced;
+            cursor: default;
+        }
+
+        .top-nav-list li a:hover {
+            border-color: #3b8ced;
+        }
+
+.headerPane {
+    color: #fff;
+    background: #1079ea;
+}
+
+.templateTitle a {
+    color: #fff;
+}
+
+.loginControl a {
+    color: #fff;
+    border-bottom: 1px dashed #fff;
+}
+
+/*Таблица*/
+.zui-table {
+    border: solid 1px #DDEEEE;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font: normal 13px Arial, sans-serif;
+}
+
+    .zui-table thead th {
+        background-color: #DDEFEF;
+        border: solid 1px #DDEEEE;
+        color: #336B6B;
+        padding: 10px;
+        text-align: left;
+        text-shadow: 1px 1px 1px #fff;
+    }
+
+    .zui-table tbody td {
+        border: solid 1px #DDEEEE;
+        color: #333;
+        padding: 10px;
+        text-shadow: 1px 1px 1px #fff;
+    }
+
+.zui-table-vertical tbody td {
+    border-top: none;
+    border-bottom: none;
+}

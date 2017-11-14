@@ -2,30 +2,49 @@
 namespace Cure.Reports
 {
     using System;
+    using System.Collections.Generic;
+    using System.Data;
+    using System.Drawing;
     using System.Linq;
     using Cure.Utils;
     using DataAccess;
     using DataAccess.BLL;
     using Datasets;
+    using DevExpress.Office.Utils;
     using DevExpress.XtraPrinting;
     using DevExpress.XtraReports.UI;
+    using Models;
+    using Resouces;
 
     public partial class OrderInvoice : DevExpress.XtraReports.UI.XtraReport
     {
         private readonly DataAccessBL dataAccess = new DataAccessBL();
         private Visit visit;
-        private int[] prices;
+        private List<OrderInvoiceRow> rows;
+        private long totalUan;
 
-        public OrderInvoice(int visitId, int[] prices)
+        public OrderInvoice(int visitId, List<OrderInvoiceRow> details, long totalUan)
         {
             var dal = new DataAccessBL();
             this.visit = dal.GetVisit(visitId);
-            this.prices = prices;
+            this.rows = details;
+            this.totalUan = totalUan;
             if (this.visit != null)
             {
                 InitializeComponent();
             }
+
+            //BindRows();
         }
+
+        //private void BindRows()
+        //{
+        //    foreach (var row in this.rows)
+        //    {
+        //        var line = new OrderInvoiceDetail(row);
+        //        this.Detail.Controls.Add(line);
+        //    }
+        //}
 
         private void uxPacientNameHeader_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
@@ -48,24 +67,24 @@ namespace Cure.Reports
         private void uxPacientNameFull_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             var label = (XRLabel)sender;
-            label.Text = string.Format("{0} {1} {2} ({3} {4})",
-                this.visit.Pacient.Familiya,
-                this.visit.Pacient.Name,
-                this.visit.Pacient.Otchestvo,
+            label.Text = string.Format("{0} {1}, {2} date of birth, Nationality: {3}, passport №{4}",
                 this.visit.Pacient.FamiliyaEn,
-                this.visit.Pacient.NameEng);
+                this.visit.Pacient.NameEng,
+                this.visit.Pacient.BirthDate.HasValue ? this.visit.Pacient.BirthDate.Value.ToString("dd-MM-yyyy") : "-",
+                this.visit.Pacient.RefCountry.NameEn,
+                this.visit.Pacient.SerialNumber);
         }
 
         private void uxPacientBirthday_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             var label = (XRLabel)sender;
-            label.Text = this.visit.Pacient.BirthDate.HasValue ? this.visit.Pacient.BirthDate.Value.ToString("dd-MM-yyyy") : "-";
+            //label.Text = ;
         }
 
         private void uxPacientPassport_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             var label = (XRLabel)sender;
-            label.Text = string.Format("{0}, {1}", this.visit.Pacient.SerialNumber, this.visit.Pacient.RefCountry.NameEn);
+            //label.Text = string.Format("{0}, {1}", , );
         }
 
         private void uxPacientDiagnoz_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
@@ -83,7 +102,7 @@ namespace Cure.Reports
 
         private void uxSputnikDetails_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            var sputnik = this.visit.Order.Sputniks.FirstOrDefault(x => x.IsPrimary) ?? new Sputnik();
+            var sputnik = this.visit.Order.Sputniks.FirstOrDefault(x => x.IsPrimary) ?? (this.visit.Order.Sputniks.FirstOrDefault() ?? new Sputnik());
             var label = (XRLabel)sender;
             if (sputnik != null)
             {
@@ -100,89 +119,57 @@ namespace Cure.Reports
 
         }
 
-        private void uxLine1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        private void OrderInvoice_DataSourceDemanded(object sender, EventArgs e)
         {
-            var label = (XRLabel)sender;
-            label.Text = this.prices[0].ToString();
+            DataSource = GenerateTable();
         }
 
-        private void uxLine2_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        private DataTable GenerateTable()
         {
-            var label = (XRLabel)sender;
-            label.Text = this.prices[1].ToString();
+            var table = new DataTable("Table");
+            table.Columns.Add("Name");
+            table.Columns.Add("Description");
+            table.Columns.Add("Price");
+            foreach (var data in this.rows)
+            {
+                DataRow row = table.NewRow();
+                row["Name"] = data.Name;
+                row["Description"] = data.Description;
+                row["Price"] = data.Price;
+                table.Rows.Add(row);
+            }
+            return table;
         }
 
-        private void uxLine3_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        private void uxName_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             var label = (XRLabel)sender;
-            label.Text = this.prices[2].ToString();
+            label.Text = GetCurrentColumnValue("Name").ToString();
         }
 
-        private void uxLine4_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        private void uxDescription_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             var label = (XRLabel)sender;
-            label.Text = this.prices[3].ToString();
+            label.Text = GetCurrentColumnValue("Description").ToString();
         }
 
-        private void uxLine5_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        private void xrPrice_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             var label = (XRLabel)sender;
-            label.Text = this.prices[4].ToString();
-        }
-
-        private void uxLine6_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        {
-            var label = (XRLabel)sender;
-            label.Text = this.prices[5].ToString();
-        }
-
-        private void uxLine7_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        {
-            var label = (XRLabel)sender;
-            label.Text = this.prices[6].ToString();
-        }
-
-        private void uxLine8_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        {
-            var label = (XRLabel)sender;
-            label.Text = this.prices[7].ToString();
-        }
-
-        private void uxLine9_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        {
-            var label = (XRLabel)sender;
-            label.Text = this.prices[8].ToString();
-        }
-
-        private void uxLine10_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        {
-            var label = (XRLabel)sender;
-            label.Text = this.prices[9].ToString();
-        }
-
-        private void uxLine11_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        {
-            var label = (XRLabel)sender;
-            label.Text = this.prices[10].ToString();
-        }
-
-        private void uxLine12_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        {
-            var label = (XRLabel)sender;
-            label.Text = this.prices[11].ToString();
+            label.Text = GetCurrentColumnValue("Price").ToString();
         }
 
         private void uxLineTotal_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             var label = (XRLabel)sender;
-            label.Text = this.prices.Sum(x => x).ToString();
+            label.Text = this.totalUan.ToString();
         }
 
         private void uxTotalTextUan_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             var label = (XRLabel)sender;
-            var total = this.prices.Sum(x => x);
-            label.Text = string.Format("{0} юаней", Utils.RuDateAndMoneyConverter.NumeralsToTxt(total, TextCase.Accusative, false, true)) ;
+            var total = this.totalUan;
+            label.Text = string.Format("{0} юаней", Utils.RuDateAndMoneyConverter.NumeralsToTxt(total, TextCase.Accusative, false, true));
         }
 
         private void uxTotalTextUsd_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
@@ -191,10 +178,33 @@ namespace Cure.Reports
             var label = (XRLabel)sender;
             var usdRate = (double)GetRate("USD");
             var cnyRate = (double)GetRate("CNY");
-            var total = (this.prices.Sum(x => x) * cnyRate) / usdRate;
+            var total = (this.totalUan * cnyRate) / usdRate;
             label.Text = string.Format("{0} долларов США", Math.Round(total, 0).ToString());
-
         }
+
+        //private void uxLineTotal_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        //{
+        //    var label = (XRLabel)sender;
+        //    label.Text = this.prices.Sum(x => x).ToString();
+        //}
+
+        //private void uxTotalTextUan_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        //{
+        //    var label = (XRLabel)sender;
+        //    var total = this.prices.Sum(x => x);
+        //    label.Text = string.Format("{0} юаней", Utils.RuDateAndMoneyConverter.NumeralsToTxt(total, TextCase.Accusative, false, true)) ;
+        //}
+
+        //private void uxTotalTextUsd_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        //{
+        //    var dal = new DataAccessBL();
+        //    var label = (XRLabel)sender;
+        //    var usdRate = (double)GetRate("USD");
+        //    var cnyRate = (double)GetRate("CNY");
+        //    var total = (this.prices.Sum(x => x) * cnyRate) / usdRate;
+        //    label.Text = string.Format("{0} долларов США", Math.Round(total, 0).ToString());
+
+        //}
 
         private decimal GetRate(string currency)
         {
@@ -207,6 +217,292 @@ namespace Cure.Reports
             else
             {
                 return 0;
+            }
+        }
+
+        private void xrPictureBox3_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            var pictureBox = (XRPictureBox)sender;
+            pictureBox.Image = getClinic1Picture();
+        }
+
+        private void xrPictureBox4_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            var pictureBox = (XRPictureBox)sender;
+            pictureBox.Image = getSign1();
+        }
+
+        private void xrPictureBox1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            var pictureBox = (XRPictureBox)sender;
+            pictureBox.Image = getTopPicture1(this.visit.Order.DepartmentId ?? 3);
+        }
+
+        private Image getClinic1Picture()
+        {
+            var rnd = new Random();
+            switch (rnd.Next(1, 8))
+            {
+                case 1:
+                    {
+                        return InvoiceResources.clinic1;
+                    }
+                case 2:
+                    {
+                        return InvoiceResources.clinic2;
+                    }
+                case 3:
+                    {
+                        return InvoiceResources.clinic3;
+                    }
+                case 4:
+                    {
+                        return InvoiceResources.clinic4;
+                    }
+                case 5:
+                    {
+                        return InvoiceResources.clinic5;
+                    }
+                case 6:
+                    {
+                        return InvoiceResources.clinic6;
+                    }
+                case 7:
+                    {
+                        return InvoiceResources.clinic7;
+                    }
+                default:
+                    {
+                        return InvoiceResources.clinic8;
+                    }
+            }
+        }
+
+        private Image getSign1()
+        {
+            var rnd = new Random();
+            switch (rnd.Next(1, 10))
+            {
+                case 1:
+                    {
+                        return InvoiceResources.sign1;
+                    }
+                case 2:
+                    {
+                        return InvoiceResources.sign2;
+                    }
+                case 3:
+                    {
+                        return InvoiceResources.sign3;
+                    }
+                case 4:
+                    {
+                        return InvoiceResources.sign4;
+                    }
+                case 5:
+                    {
+                        return InvoiceResources.sign5;
+                    }
+                case 6:
+                    {
+                        return InvoiceResources.sign6;
+                    }
+                case 7:
+                    {
+                        return InvoiceResources.sign7;
+                    }
+                case 8:
+                    {
+                        return InvoiceResources.sign8;
+                    }
+                case 9:
+                    {
+                        return InvoiceResources.sign9;
+                    }
+                default:
+                    {
+                        return InvoiceResources.sign10;
+                    }
+            }
+        }
+
+        private Image getTopPicture1(int departmentId)
+        {
+            switch (departmentId)
+            {
+                case 3:
+                    {
+                        return InvoiceResources.top2;
+                    }
+                case 4:
+                    {
+                        return InvoiceResources.top1;
+                    }
+                default:
+                    {
+                        return InvoiceResources.top1;
+                    }
+            }
+        }
+
+        private void uxExamplePoluchatel_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            var label = (XRLabel)sender;
+            switch (this.visit.Order.DepartmentId)
+            {
+                case 3: //Вторая
+                    {
+                        label.Text = "YUNCHENG CITY SECOND PEOPLE'S HOSPITAL OF YANHU DISTRICT";
+                        break;
+                    }
+                case 4: //БЗГМ
+                    {
+                        label.Text = "YUNCHENG RESEARCH INSTITUTE OF SCALP ACUPUNCTURE AFFILIATED WITH THE BRAIN DISEASE HOSPITAL";
+                        break;
+                    }
+                default:
+                    {
+                        label.Text = "<нет данных>";
+                        break;
+                    }
+            }
+        }
+
+        private void uxExampleBank_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            var label = (XRLabel)sender;
+            switch (this.visit.Order.DepartmentId)
+            {
+                case 3: //Вторая
+                    {
+                        label.Text = "FAVOURING CHINA CONSTRUCTION BANK SHANXI BRACH";
+                        break;
+                    }
+                case 4: //БЗГМ
+                    {
+                        label.Text = "BANK OF CHINA YUNCHENG BRANCH";
+                        break;
+                    }
+                default:
+                    {
+                        label.Text = "<нет данных>";
+                        break;
+                    }
+            }
+        }
+
+        private void uxExampleNomer_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            var label = (XRLabel)sender;
+            switch (this.visit.Order.DepartmentId)
+            {
+                case 3: //Вторая
+                    {
+                        label.Text = "14014720100220501065";
+                        break;
+                    }
+                case 4: //БЗГМ
+                    {
+                        label.Text = "142976605563";
+                        break;
+                    }
+                default:
+                    {
+                        label.Text = "<нет данных>";
+                        break;
+                    }
+            }
+        }
+
+        private void uxExampleSwift_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            var label = (XRLabel)sender;
+            switch (this.visit.Order.DepartmentId)
+            {
+                case 3: //Вторая
+                    {
+                        label.Text = "PCBCCNBJIXA";
+                        break;
+                    }
+                case 4: //БЗГМ
+                    {
+                        label.Text = "BKCHCNBJ680";
+                        break;
+                    }
+                default:
+                    {
+                        label.Text = "<нет данных>";
+                        break;
+                    }
+            }
+        }
+
+        private void uxExampleAddress_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            var label = (XRLabel)sender;
+            switch (this.visit.Order.DepartmentId)
+            {
+                case 3: //Вторая
+                    {
+                        label.Text = "NO.126 YINGZE STREET, TAIYUAN 030001, SHANXI CHINA (FAX: 0351-4957565)";
+                        break;
+                    }
+                case 4: //БЗГМ
+                    {
+                        label.Text = "№39 ZHONGYIN ROAD YUNCHENG, SHANXI, CHINA";
+                        break;
+                    }
+                default:
+                    {
+                        label.Text = "<нет данных>";
+                        break;
+                    }
+            }
+        }
+
+        private void uxOrderDetail1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            var label = (XRLabel)sender;
+            switch (this.visit.Order.DepartmentId)
+            {
+                case 3: //Вторая
+                    {
+                        label.Text = "Для прохождения курса лечение в реабилитационное отделение по лечению ДЦП второй многопрофильной";
+                        break;
+                    }
+                case 4: //БЗГМ
+                    {
+                        label.Text = "Для прохождения курса лечение в реабилитационное отделение по лечению ДЦП Больницы";
+                        break;
+                    }
+                default:
+                    {
+                        label.Text = "<нет данных>";
+                        break;
+                    }
+            }
+        }
+
+        private void uxOrderDetail2_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            var label = (XRLabel)sender;
+            switch (this.visit.Order.DepartmentId)
+            {
+                case 3: //Вторая
+                    {
+                        label.Text = "народной больницы района Еньху, города Юньчэн, провинция Шаньси, КНР,";
+                        break;
+                    }
+                case 4: //БЗГМ
+                    {
+                        label.Text = "заболеваний головного мозга при НИИ акупунктуры головы, города Юньчэн, провинция Шаньси, КНР,";
+                        break;
+                    }
+                default:
+                    {
+                        label.Text = "<нет данных>";
+                        break;
+                    }
             }
         }
 

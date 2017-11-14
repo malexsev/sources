@@ -69,3 +69,5 @@ D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Reports\obj\Release\Cure.Reports.
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Reports\bin\Release\Cure.Reports.dll.config
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Reports\obj\Release\Cure.Reports.Rules.resources
 D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Reports\obj\Release\Cure.Reports.OrderInvoice.resources
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Reports\obj\Release\Cure.Reports.Resouces.InvoiceResources.resources
+D:\_Projects\_Maznik\Bolnica\Sources\Cure\Cure.Reports\obj\Release\Cure.Reports.OrderInvoiceDetail.resources

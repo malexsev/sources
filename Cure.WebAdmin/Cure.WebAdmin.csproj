@@ -372,6 +372,8 @@
     <Content Include="Content\transfer.sitemap">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="RootEmpty.master" />
+    <Content Include="Empty.master" />
     <None Include="Scripts\jquery-2.1.3.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.3.js" />
     <Content Include="Scripts\jquery-2.1.3.min.js" />
@@ -916,12 +918,26 @@
     <Compile Include="Controls\ResultBox.ascx.designer.cs">
       <DependentUpon>ResultBox.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Empty.master.cs">
+      <DependentUpon>Empty.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Empty.master.designer.cs">
+      <DependentUpon>Empty.master</DependentUpon>
+    </Compile>
     <Compile Include="Output\InvoiceReportParams.aspx.cs">
       <DependentUpon>InvoiceReportParams.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Output\InvoiceReportParams.aspx.designer.cs">
       <DependentUpon>InvoiceReportParams.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RootEmpty.master.cs">
+      <DependentUpon>RootEmpty.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RootEmpty.master.designer.cs">
+      <DependentUpon>RootEmpty.master</DependentUpon>
     </Compile>
     <Compile Include="_Generate74234543434544322.aspx.cs">
       <DependentUpon>_Generate74234543434544322.aspx</DependentUpon>

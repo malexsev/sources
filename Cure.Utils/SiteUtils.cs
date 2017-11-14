@@ -278,6 +278,7 @@
         public static int ParseInt(object originValue, int defaultValue)
         {
             if (originValue == null) return defaultValue;
+            originValue = originValue.ToString().Replace(".00", string.Empty).Replace(",00", string.Empty);
             int result;
             if (!Int32.TryParse(originValue.ToString(), out result))
             {

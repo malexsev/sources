@@ -1,0 +1,35 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="RootEmpty.master.cs" Inherits="Cure.WebAdmin.RootLightMaster" %>
+
+<%@ Register Assembly="DevExpress.Web.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxSplitter" TagPrefix="dx" %>
+<%@ Register Assembly="DevExpress.Web.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxMenu" TagPrefix="dx" %>
+<%@ Register Assembly="DevExpress.Web.v14.1, Version=14.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxSiteMapControl" TagPrefix="dx" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>Личный кабинет dcp-china.ru</title>
+    <link rel="stylesheet" type="text/css" href="Content/Site.css" />
+</head>
+<body runat="server" id="Body">
+    <nav class="top-nav-wrap">
+        <div class="top-nav-logo">
+            <a href="http://www.dcp-china.ru" title="Наша клиника: основной сайт">
+                <img src="/Content/Images/dcp_logo.png" alt="Наша клиника">
+            </a>
+        </div>
+        <ul class="top-nav-list">
+            <li><a href="http://dcp-china.ru" target="_blank">Наша клиника</a></li>
+            <li><a href="http://dcp-china.ru/Procedure" target="_blank">Процедуры и препараты</a></li>
+            <li><a href="http://dcp-china.ru/Children" target="_blank">Наши дети</a></li>
+            <li><a href="http://dcp-china.ru/Home/AboutUs" target="_blank">О нас</a></li>
+            <li><a href="http://dcp-china.ru/Home/Price" target="_blank">Цены</a></li>
+            <li><a href="http://dcp-china.ru/Mension" target="_blank">Отзывы</a></li>
+            <li class="active"><a href="http://lk.dcp-china.ru" target="_blank">Кабинет</a></li>
+        </ul>
+    </nav>
+    <form id="form1" runat="server">
+        <asp:ContentPlaceHolder ID="Content" runat="server">
+        </asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>
