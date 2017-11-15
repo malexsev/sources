@@ -12,9 +12,10 @@
             procCount: <%=this.ProcCount%>,
         };
 
-        var calcLine = function($rate, $days, $proc, $cost, $total) {
+        var calcLine = function($rate, $days, $proc, $procHidden, $cost, $total) {
             var proc = 1.0 * $rate.GetValue() * $days.GetValue();
             $proc.SetValue(Math.ceil(proc));
+            $procHidden.value = $proc.GetValue();
             var total = Math.ceil(1.0 * proc * $cost.GetValue());
             $total.SetValue(total);
             return total;
@@ -139,18 +140,21 @@
             uxLine15Rate.SetValue("-");
             uxLine15Days.SetValue("-");
             uxLine15Proc.SetValue("-");
+            uxLine15ProcHidden.value = "0";
             uxLine15Cost.SetValue(3500);
             //Резерв - 1
             uxLine16CheckBox.SetChecked(false);
             uxLine16Rate.SetValue("-");
             uxLine16Days.SetValue("-");
             uxLine16Proc.SetValue("-");
+            uxLine16ProcHidden.value = "0";
             uxLine16Cost.SetValue(0);
             //Резерв - 2
             uxLine17CheckBox.SetChecked(false);
             uxLine17Rate.SetValue("-");
             uxLine17Days.SetValue("-");
             uxLine17Proc.SetValue("-");
+            uxLine17ProcHidden.value = "0";
             uxLine17Cost.SetValue(0);
 
             uxBottomUsdRate.SetValue(<%=this.RatePendo%>);
@@ -160,12 +164,12 @@
         var calculate = function(isInit) {
             var total = 0;
             //Проживание
-            var total1 = calcLine(uxLine1Rate, uxLine1Days, uxLine1Proc, uxLine1Cost, uxLine1Total);
+            var total1 = calcLine(uxLine1Rate, uxLine1Days, uxLine1Proc, uxLine1ProcHidden, uxLine1Cost, uxLine1Total);
             if (isInit == true || uxLine1CheckBox.GetChecked()) {
                 total += parseInt(total1);
             };
             //Услуги медсестры
-            var total2 = calcLine(uxLine2Rate, uxLine2Days, uxLine2Proc, uxLine2Cost, uxLine2Total);
+            var total2 = calcLine(uxLine2Rate, uxLine2Days, uxLine2Proc, uxLine2ProcHidden, uxLine2Cost, uxLine2Total);
             if (isInit == true || uxLine2CheckBox.GetChecked()) {
                 total += parseInt(total2);
             };
@@ -176,57 +180,57 @@
                 total += parseInt(total3);
             };
             //Лекарства
-            var total4 = calcLine(uxLine4Rate, uxLine4Days, uxLine4Proc, uxLine4Cost, uxLine4Total);
+            var total4 = calcLine(uxLine4Rate, uxLine4Days, uxLine4Proc, uxLine4ProcHidden, uxLine4Cost, uxLine4Total);
             if (isInit == true || uxLine4CheckBox.GetChecked()) {
                 total += parseInt(total4);
             };
             //Массаж
-            var total5 = calcLine(uxLine5Rate, uxLine5Days, uxLine5Proc, uxLine5Cost, uxLine5Total);
+            var total5 = calcLine(uxLine5Rate, uxLine5Days, uxLine5Proc, uxLine5ProcHidden, uxLine5Cost, uxLine5Total);
             if (isInit == true || uxLine5CheckBox.GetChecked()) {
                 total += parseInt(total5);
             };
             //ЛФК
-            var total6 = calcLine(uxLine6Rate, uxLine6Days, uxLine6Proc, uxLine6Cost, uxLine6Total);
+            var total6 = calcLine(uxLine6Rate, uxLine6Days, uxLine6Proc, uxLine6ProcHidden, uxLine6Cost, uxLine6Total);
             if (isInit == true || uxLine6CheckBox.GetChecked()) {
                 total += parseInt(total6);
             };
             //Физио
-            var total7 = calcLine(uxLine7Rate, uxLine7Days, uxLine7Proc, uxLine7Cost, uxLine7Total);
+            var total7 = calcLine(uxLine7Rate, uxLine7Days, uxLine7Proc, uxLine7ProcHidden, uxLine7Cost, uxLine7Total);
             if (isInit == true || uxLine7CheckBox.GetChecked()) {
                 total += parseInt(total7);
             };
             //Моторика
-            var total8 = calcLine(uxLine8Rate, uxLine8Days, uxLine8Proc, uxLine8Cost, uxLine8Total);
+            var total8 = calcLine(uxLine8Rate, uxLine8Days, uxLine8Proc, uxLine8ProcHidden, uxLine8Cost, uxLine8Total);
             if (isInit == true || uxLine8CheckBox.GetChecked()) {
                 total += parseInt(total8);
             };
             //Иголки
-            var total9 = calcLine(uxLine9Rate, uxLine9Days, uxLine9Proc, uxLine9Cost, uxLine9Total);
+            var total9 = calcLine(uxLine9Rate, uxLine9Days, uxLine9Proc, uxLine9ProcHidden, uxLine9Cost, uxLine9Total);
             if (isInit == true || uxLine9CheckBox.GetChecked()) {
                 total += parseInt(total9);
             };
             //Капельницы
-            var total10 = calcLine(uxLine10Rate, uxLine10Days, uxLine10Proc, uxLine10Cost, uxLine10Total);
+            var total10 = calcLine(uxLine10Rate, uxLine10Days, uxLine10Proc, uxLine10ProcHidden, uxLine10Cost, uxLine10Total);
             if (isInit == true || uxLine10CheckBox.GetChecked()) {
                 total += parseInt(total10);
             };
             //Расходные материалы
-            var total11 = calcLine(uxLine11Rate, uxLine11Days, uxLine11Proc, uxLine11Cost, uxLine11Total);
+            var total11 = calcLine(uxLine11Rate, uxLine11Days, uxLine11Proc, uxLine11ProcHidden, uxLine11Cost, uxLine11Total);
             if (isInit == true || uxLine11CheckBox.GetChecked()) {
                 total += parseInt(total11);
             };
             //Калоген
-            var total12 = calcLine(uxLine12Rate, uxLine12Days, uxLine12Proc, uxLine12Cost, uxLine12Total);
+            var total12 = calcLine(uxLine12Rate, uxLine12Days, uxLine12Proc, uxLine12ProcHidden, uxLine12Cost, uxLine12Total);
             if (isInit == true || uxLine12CheckBox.GetChecked()) {
                 total += parseInt(total12);
             };
             //Иглонож
-            var total13 = calcLine(uxLine13Rate, uxLine13Days, uxLine13Proc, uxLine13Cost, uxLine13Total);
+            var total13 = calcLine(uxLine13Rate, uxLine13Days, uxLine13Proc, uxLine13ProcHidden, uxLine13Cost, uxLine13Total);
             if (isInit == true || uxLine13CheckBox.GetChecked()) {
                 total += parseInt(total13);
             };
             //Гипсование
-            var total14 = calcLine(uxLine14Rate, uxLine14Days, uxLine14Proc, uxLine14Cost, uxLine14Total);
+            var total14 = calcLine(uxLine14Rate, uxLine14Days, uxLine14Proc, uxLine14ProcHidden, uxLine14Cost, uxLine14Total);
             if (isInit == true || uxLine14CheckBox.GetChecked()) {
                 total += parseInt(total14);
             };
@@ -272,9 +276,9 @@
                     <tr>
                         <th>Активный</th>
                         <th>Наименование</th>
-                        <th>Коэфициент</th>
+                        <th>Коэфф.</th>
                         <th>Кол. дней</th>
-                        <th>Кол. процедур</th>
+                        <th>Процедур</th>
                         <th>Стоимость</th>
                         <th>Итого</th>
                     </tr>
@@ -288,18 +292,18 @@
                         </td>
                         <td>
                             <dx:ASPxLabel ID="uxLine1Name" runat="server" Text="Проживание" />
-                            <dx:ASPxLabel ID="uxLine1Description" runat="server" Text="Проживание в больничной палате" Visible="false" />
+                            <dx:ASPxLabel ID="uxLine1Description" runat="server" Text="Проживание в больничной палате (койко-место)" Visible="false" />
                         </td>
                         <td style="text-align: center;">
                             <dx:ASPxTextBox ID="uxLine1Rate" ClientInstanceName="uxLine1Rate" runat="server" Number="0" NumberType="Integer"
-                                Increment="1" HorizontalAlign="Right" Width="100px">
+                                Increment="1" HorizontalAlign="Right" Width="50px">
                                 <Paddings PaddingRight="5px" />
                                 <ClientSideEvents TextChanged="calculate"></ClientSideEvents>
                             </dx:ASPxTextBox>
                         </td>
                         <td style="text-align: right;">
                             <dx:ASPxTextBox ID="uxLine1Days" ClientInstanceName="uxLine1Days" runat="server" Number="0" NumberType="Integer"
-                                Increment="1" HorizontalAlign="Right" Width="100px">
+                                Increment="1" HorizontalAlign="Right" Width="50px">
                                 <Paddings PaddingRight="5px" />
                                 <ClientSideEvents TextChanged="calculate"></ClientSideEvents>
                             </dx:ASPxTextBox>
@@ -307,16 +311,17 @@
                         <td style="text-align: right;">
                             <dx:ASPxLabel ID="uxLine1Proc" ClientInstanceName="uxLine1Proc" runat="server">
                             </dx:ASPxLabel>
+                            <asp:HiddenField ID="uxLine1ProcHidden" ClientIDMode="Static" runat="server" />
                         </td>
                         <td style="text-align: center;">
                             <dx:ASPxTextBox ID="uxLine1Cost" ClientInstanceName="uxLine1Cost" runat="server" Number="0" NumberType="Integer"
-                                Increment="1" HorizontalAlign="Right" Width="100px">
+                                Increment="1" HorizontalAlign="Right" Width="80px">
                                 <Paddings PaddingRight="5px" />
                                 <ClientSideEvents TextChanged="calculate"></ClientSideEvents>
                             </dx:ASPxTextBox>
                         </td>
                         <td style="text-align: right;">
-                            <dx:ASPxTextBox ID="uxLine1Total" ClientInstanceName="uxLine1Total" runat="server" ReadOnly="true" HorizontalAlign="Right" Width="100px">
+                            <dx:ASPxTextBox ID="uxLine1Total" ClientInstanceName="uxLine1Total" runat="server" ReadOnly="true" HorizontalAlign="Right" Width="80px">
                             </dx:ASPxTextBox>
                         </td>
                     </tr>
@@ -332,14 +337,14 @@
                         </td>
                         <td style="text-align: center;">
                             <dx:ASPxTextBox ID="uxLine2Rate" ClientInstanceName="uxLine2Rate" runat="server" Number="0" NumberType="Integer"
-                                Increment="1" HorizontalAlign="Right" Width="100px">
+                                Increment="1" HorizontalAlign="Right" Width="50px">
                                 <Paddings PaddingRight="5px" />
                                 <ClientSideEvents TextChanged="calculate"></ClientSideEvents>
                             </dx:ASPxTextBox>
                         </td>
                         <td style="text-align: right;">
                             <dx:ASPxTextBox ID="uxLine2Days" ClientInstanceName="uxLine2Days" runat="server" Number="0" NumberType="Integer"
-                                Increment="1" HorizontalAlign="Right" Width="100px">
+                                Increment="1" HorizontalAlign="Right" Width="50px">
                                 <Paddings PaddingRight="5px" />
                                 <ClientSideEvents TextChanged="calculate"></ClientSideEvents>
                             </dx:ASPxTextBox>
@@ -347,16 +352,17 @@
                         <td style="text-align: right;">
                             <dx:ASPxLabel ID="uxLine2Proc" ClientInstanceName="uxLine2Proc" runat="server">
                             </dx:ASPxLabel>
+                            <asp:HiddenField ID="uxLine2ProcHidden" ClientIDMode="Static" runat="server" />
                         </td>
                         <td style="text-align: center;">
                             <dx:ASPxTextBox ID="uxLine2Cost" ClientInstanceName="uxLine2Cost" runat="server" Number="0" NumberType="Integer"
-                                Increment="1" HorizontalAlign="Right" Width="100px">
+                                Increment="1" HorizontalAlign="Right" Width="80px">
                                 <Paddings PaddingRight="5px" />
                                 <ClientSideEvents TextChanged="calculate"></ClientSideEvents>
                             </dx:ASPxTextBox>
                         </td>
                         <td style="text-align: right;">
-                            <dx:ASPxTextBox ID="uxLine2Total" ClientInstanceName="uxLine2Total" runat="server" ReadOnly="true" HorizontalAlign="Right" Width="100px">
+                            <dx:ASPxTextBox ID="uxLine2Total" ClientInstanceName="uxLine2Total" runat="server" ReadOnly="true" HorizontalAlign="Right" Width="80px">
                             </dx:ASPxTextBox>
                         </td>
                     </tr>
@@ -371,32 +377,29 @@
                             <dx:ASPxLabel ID="uxLine3Description" runat="server" Text="Анализы и исследования (общий анализ крови, ЭЭГ, ЭКГ, УЗИ, МРТ, рентген, и др)" Visible="false" />
                         </td>
                         <td style="text-align: center;">
-                            <dx:ASPxTextBox ID="uxLine3Rate" ClientInstanceName="uxLine3Rate" runat="server" Number="0" NumberType="Integer"
-                                Increment="1" HorizontalAlign="Right" Width="100px">
-                                <Paddings PaddingRight="5px" />
-                                <ClientSideEvents TextChanged="calculate"></ClientSideEvents>
-                            </dx:ASPxTextBox>
+                            <dx:ASPxLabel ID="uxLine3Rate" ClientInstanceName="uxLine3Rate" runat="server" Number="0" NumberType="Integer"
+                                Increment="1" HorizontalAlign="Right" Width="50px">
+                            </dx:ASPxLabel>
                         </td>
                         <td style="text-align: right;">
-                            <dx:ASPxTextBox ID="uxLine3Days" ClientInstanceName="uxLine3Days" runat="server" Number="0" NumberType="Integer"
-                                Increment="1" HorizontalAlign="Right" Width="100px">
-                                <Paddings PaddingRight="5px" />
-                                <ClientSideEvents TextChanged="calculate"></ClientSideEvents>
-                            </dx:ASPxTextBox>
+                            <dx:ASPxLabel ID="uxLine3Days" ClientInstanceName="uxLine3Days" runat="server" Number="0" NumberType="Integer"
+                                Increment="1" HorizontalAlign="Right" Width="50px">
+                            </dx:ASPxLabel>
                         </td>
                         <td style="text-align: right;">
                             <dx:ASPxLabel ID="uxLine3Proc" ClientInstanceName="uxLine3Proc" runat="server">
                             </dx:ASPxLabel>
+                            <asp:HiddenField ID="uxLine3ProcHidden" ClientIDMode="Static" runat="server" />
                         </td>
                         <td style="text-align: center;">
                             <dx:ASPxTextBox ID="uxLine3Cost" ClientInstanceName="uxLine3Cost" runat="server" Number="0" NumberType="Integer"
-                                Increment="1" HorizontalAlign="Right" Width="100px">
+                                Increment="1" HorizontalAlign="Right" Width="80px">
                                 <Paddings PaddingRight="5px" />
                                 <ClientSideEvents TextChanged="calculate"></ClientSideEvents>
                             </dx:ASPxTextBox>
                         </td>
                         <td style="text-align: right;">
-                            <dx:ASPxTextBox ID="uxLine3Total" ClientInstanceName="uxLine3Total" runat="server" ReadOnly="true" HorizontalAlign="Right" Width="100px">
+                            <dx:ASPxTextBox ID="uxLine3Total" ClientInstanceName="uxLine3Total" runat="server" ReadOnly="true" HorizontalAlign="Right" Width="80px">
                             </dx:ASPxTextBox>
                         </td>
                     </tr>
@@ -412,14 +415,14 @@
                         </td>
                         <td style="text-align: center;">
                             <dx:ASPxTextBox ID="uxLine4Rate" ClientInstanceName="uxLine4Rate" runat="server" Number="0" NumberType="Integer"
-                                Increment="1" HorizontalAlign="Right" Width="100px">
+                                Increment="1" HorizontalAlign="Right" Width="50px">
                                 <Paddings PaddingRight="5px" />
                                 <ClientSideEvents TextChanged="calculate"></ClientSideEvents>
                             </dx:ASPxTextBox>
                         </td>
                         <td style="text-align: right;">
                             <dx:ASPxTextBox ID="uxLine4Days" ClientInstanceName="uxLine4Days" runat="server" Number="0" NumberType="Integer"
-                                Increment="1" HorizontalAlign="Right" Width="100px">
+                                Increment="1" HorizontalAlign="Right" Width="50px">
                                 <Paddings PaddingRight="5px" />
                                 <ClientSideEvents TextChanged="calculate"></ClientSideEvents>
                             </dx:ASPxTextBox>
@@ -427,16 +430,17 @@
                         <td style="text-align: right;">
                             <dx:ASPxLabel ID="uxLine4Proc" ClientInstanceName="uxLine4Proc" runat="server">
                             </dx:ASPxLabel>
+                            <asp:HiddenField ID="uxLine4ProcHidden" ClientIDMode="Static" runat="server" />
                         </td>
                         <td style="text-align: center;">
                             <dx:ASPxTextBox ID="uxLine4Cost" ClientInstanceName="uxLine4Cost" runat="server" Number="0" NumberType="Integer"
-                                Increment="1" HorizontalAlign="Right" Width="100px">
+                                Increment="1" HorizontalAlign="Right" Width="80px">
                                 <Paddings PaddingRight="5px" />
                                 <ClientSideEvents TextChanged="calculate"></ClientSideEvents>
                             </dx:ASPxTextBox>
                         </td>
                         <td style="text-align: right;">
-                            <dx:ASPxTextBox ID="uxLine4Total" ClientInstanceName="uxLine4Total" runat="server" ReadOnly="true" HorizontalAlign="Right" Width="100px">
+                            <dx:ASPxTextBox ID="uxLine4Total" ClientInstanceName="uxLine4Total" runat="server" ReadOnly="true" HorizontalAlign="Right" Width="80px">
                             </dx:ASPxTextBox>
                         </td>
                     </tr>
@@ -452,14 +456,14 @@
                         </td>
                         <td style="text-align: center;">
                             <dx:ASPxTextBox ID="uxLine5Rate" ClientInstanceName="uxLine5Rate" runat="server" Number="0" NumberType="Integer"
-                                Increment="1" HorizontalAlign="Right" Width="100px">
+                                Increment="1" HorizontalAlign="Right" Width="50px">
                                 <Paddings PaddingRight="5px" />
                                 <ClientSideEvents TextChanged="calculate"></ClientSideEvents>
                             </dx:ASPxTextBox>
                         </td>
                         <td style="text-align: right;">
                             <dx:ASPxTextBox ID="uxLine5Days" ClientInstanceName="uxLine5Days" runat="server" Number="0" NumberType="Integer"
-                                Increment="1" HorizontalAlign="Right" Width="100px">
+                                Increment="1" HorizontalAlign="Right" Width="50px">
                                 <Paddings PaddingRight="5px" />
                                 <ClientSideEvents TextChanged="calculate"></ClientSideEvents>
                             </dx:ASPxTextBox>
@@ -467,16 +471,17 @@
                         <td style="text-align: right;">
                             <dx:ASPxLabel ID="uxLine5Proc" ClientInstanceName="uxLine5Proc" runat="server">
                             </dx:ASPxLabel>
+                            <asp:HiddenField ID="uxLine5ProcHidden" ClientIDMode="Static" runat="server" />
                         </td>
                         <td style="text-align: center;">
                             <dx:ASPxTextBox ID="uxLine5Cost" ClientInstanceName="uxLine5Cost" runat="server" Number="0" NumberType="Integer"
-                                Increment="1" HorizontalAlign="Right" Width="100px">
+                                Increment="1" HorizontalAlign="Right" Width="80px">
                                 <Paddings PaddingRight="5px" />
                                 <ClientSideEvents TextChanged="calculate"></ClientSideEvents>
                             </dx:ASPxTextBox>
                         </td>
                         <td style="text-align: right;">
-                            <dx:ASPxTextBox ID="uxLine5Total" ClientInstanceName="uxLine5Total" runat="server" ReadOnly="true" HorizontalAlign="Right" Width="100px">
+                            <dx:ASPxTextBox ID="uxLine5Total" ClientInstanceName="uxLine5Total" runat="server" ReadOnly="true" HorizontalAlign="Right" Width="80px">
                             </dx:ASPxTextBox>
                         </td>
                     </tr>
@@ -492,14 +497,14 @@
                         </td>
                         <td style="text-align: center;">
                             <dx:ASPxTextBox ID="uxLine6Rate" ClientInstanceName="uxLine6Rate" runat="server" Number="0" NumberType="Integer"
-                                Increment="1" HorizontalAlign="Right" Width="100px">
+                                Increment="1" HorizontalAlign="Right" Width="50px">
                                 <Paddings PaddingRight="5px" />
                                 <ClientSideEvents TextChanged="calculate"></ClientSideEvents>
                             </dx:ASPxTextBox>
                         </td>
                         <td style="text-align: right;">
                             <dx:ASPxTextBox ID="uxLine6Days" ClientInstanceName="uxLine6Days" runat="server" Number="0" NumberType="Integer"
-                                Increment="1" HorizontalAlign="Right" Width="100px">
+                                Increment="1" HorizontalAlign="Right" Width="50px">
                                 <Paddings PaddingRight="5px" />
                                 <ClientSideEvents TextChanged="calculate"></ClientSideEvents>
                             </dx:ASPxTextBox>
@@ -507,16 +512,17 @@
                         <td style="text-align: right;">
                             <dx:ASPxLabel ID="uxLine6Proc" ClientInstanceName="uxLine6Proc" runat="server">
                             </dx:ASPxLabel>
+                            <asp:HiddenField ID="uxLine6ProcHidden" ClientIDMode="Static" runat="server" />
                         </td>
                         <td style="text-align: center;">
                             <dx:ASPxTextBox ID="uxLine6Cost" ClientInstanceName="uxLine6Cost" runat="server" Number="0" NumberType="Integer"
-                                Increment="1" HorizontalAlign="Right" Width="100px">
+                                Increment="1" HorizontalAlign="Right" Width="80px">
                                 <Paddings PaddingRight="5px" />
                                 <ClientSideEvents TextChanged="calculate"></ClientSideEvents>
                             </dx:ASPxTextBox>
                         </td>
                         <td style="text-align: right;">
-                            <dx:ASPxTextBox ID="uxLine6Total" ClientInstanceName="uxLine6Total" runat="server" ReadOnly="true" HorizontalAlign="Right" Width="100px">
+                            <dx:ASPxTextBox ID="uxLine6Total" ClientInstanceName="uxLine6Total" runat="server" ReadOnly="true" HorizontalAlign="Right" Width="80px">
                             </dx:ASPxTextBox>
                         </td>
                     </tr>
@@ -532,14 +538,14 @@
                         </td>
                         <td style="text-align: center;">
                             <dx:ASPxTextBox ID="uxLine7Rate" ClientInstanceName="uxLine7Rate" runat="server" Number="0" NumberType="Integer"
-                                Increment="1" HorizontalAlign="Right" Width="100px">
+                                Increment="1" HorizontalAlign="Right" Width="50px">
                                 <Paddings PaddingRight="5px" />
                                 <ClientSideEvents TextChanged="calculate"></ClientSideEvents>
                             </dx:ASPxTextBox>
                         </td>
                         <td style="text-align: right;">
                             <dx:ASPxTextBox ID="uxLine7Days" ClientInstanceName="uxLine7Days" runat="server" Number="0" NumberType="Integer"
-                                Increment="1" HorizontalAlign="Right" Width="100px">
+                                Increment="1" HorizontalAlign="Right" Width="50px">
                                 <Paddings PaddingRight="5px" />
                                 <ClientSideEvents TextChanged="calculate"></ClientSideEvents>
                             </dx:ASPxTextBox>
@@ -547,16 +553,17 @@
                         <td style="text-align: right;">
                             <dx:ASPxLabel ID="uxLine7Proc" ClientInstanceName="uxLine7Proc" runat="server">
                             </dx:ASPxLabel>
+                            <asp:HiddenField ID="uxLine7ProcHidden" ClientIDMode="Static" runat="server" />
                         </td>
                         <td style="text-align: center;">
                             <dx:ASPxTextBox ID="uxLine7Cost" ClientInstanceName="uxLine7Cost" runat="server" Number="0" NumberType="Integer"
-                                Increment="1" HorizontalAlign="Right" Width="100px">
+                                Increment="1" HorizontalAlign="Right" Width="80px">
                                 <Paddings PaddingRight="5px" />
                                 <ClientSideEvents TextChanged="calculate"></ClientSideEvents>
                             </dx:ASPxTextBox>
                         </td>
                         <td style="text-align: right;">
-                            <dx:ASPxTextBox ID="uxLine7Total" ClientInstanceName="uxLine7Total" runat="server" ReadOnly="true" HorizontalAlign="Right" Width="100px">
+                            <dx:ASPxTextBox ID="uxLine7Total" ClientInstanceName="uxLine7Total" runat="server" ReadOnly="true" HorizontalAlign="Right" Width="80px">
                             </dx:ASPxTextBox>
                         </td>
                     </tr>
@@ -572,14 +579,14 @@
                         </td>
                         <td style="text-align: center;">
                             <dx:ASPxTextBox ID="uxLine8Rate" ClientInstanceName="uxLine8Rate" runat="server" Number="0" NumberType="Integer"
-                                Increment="1" HorizontalAlign="Right" Width="100px">
+                                Increment="1" HorizontalAlign="Right" Width="50px">
                                 <Paddings PaddingRight="5px" />
                                 <ClientSideEvents TextChanged="calculate"></ClientSideEvents>
                             </dx:ASPxTextBox>
                         </td>
                         <td style="text-align: right;">
                             <dx:ASPxTextBox ID="uxLine8Days" ClientInstanceName="uxLine8Days" runat="server" Number="0" NumberType="Integer"
-                                Increment="1" HorizontalAlign="Right" Width="100px">
+                                Increment="1" HorizontalAlign="Right" Width="50px">
                                 <Paddings PaddingRight="5px" />
                                 <ClientSideEvents TextChanged="calculate"></ClientSideEvents>
                             </dx:ASPxTextBox>
@@ -587,16 +594,17 @@
                         <td style="text-align: right;">
                             <dx:ASPxLabel ID="uxLine8Proc" ClientInstanceName="uxLine8Proc" runat="server">
                             </dx:ASPxLabel>
+                            <asp:HiddenField ID="uxLine8ProcHidden" ClientIDMode="Static" runat="server" />
                         </td>
                         <td style="text-align: center;">
                             <dx:ASPxTextBox ID="uxLine8Cost" ClientInstanceName="uxLine8Cost" runat="server" Number="0" NumberType="Integer"
-                                Increment="1" HorizontalAlign="Right" Width="100px">
+                                Increment="1" HorizontalAlign="Right" Width="80px">
                                 <Paddings PaddingRight="5px" />
                                 <ClientSideEvents TextChanged="calculate"></ClientSideEvents>
                             </dx:ASPxTextBox>
                         </td>
                         <td style="text-align: right;">
-                            <dx:ASPxTextBox ID="uxLine8Total" ClientInstanceName="uxLine8Total" runat="server" ReadOnly="true" HorizontalAlign="Right" Width="100px">
+                            <dx:ASPxTextBox ID="uxLine8Total" ClientInstanceName="uxLine8Total" runat="server" ReadOnly="true" HorizontalAlign="Right" Width="80px">
                             </dx:ASPxTextBox>
                         </td>
                     </tr>
@@ -612,14 +620,14 @@
                         </td>
                         <td style="text-align: center;">
                             <dx:ASPxTextBox ID="uxLine9Rate" ClientInstanceName="uxLine9Rate" runat="server" Number="0" NumberType="Integer"
-                                Increment="1" HorizontalAlign="Right" Width="100px">
+                                Increment="1" HorizontalAlign="Right" Width="50px">
                                 <Paddings PaddingRight="5px" />
                                 <ClientSideEvents TextChanged="calculate"></ClientSideEvents>
                             </dx:ASPxTextBox>
                         </td>
                         <td style="text-align: right;">
                             <dx:ASPxTextBox ID="uxLine9Days" ClientInstanceName="uxLine9Days" runat="server" Number="0" NumberType="Integer"
-                                Increment="1" HorizontalAlign="Right" Width="100px">
+                                Increment="1" HorizontalAlign="Right" Width="50px">
                                 <Paddings PaddingRight="5px" />
                                 <ClientSideEvents TextChanged="calculate"></ClientSideEvents>
                             </dx:ASPxTextBox>
@@ -627,16 +635,17 @@
                         <td style="text-align: right;">
                             <dx:ASPxLabel ID="uxLine9Proc" ClientInstanceName="uxLine9Proc" runat="server">
                             </dx:ASPxLabel>
+                            <asp:HiddenField ID="uxLine9ProcHidden" ClientIDMode="Static" runat="server" />
                         </td>
                         <td style="text-align: center;">
                             <dx:ASPxTextBox ID="uxLine9Cost" ClientInstanceName="uxLine9Cost" runat="server" Number="0" NumberType="Integer"
-                                Increment="1" HorizontalAlign="Right" Width="100px">
+                                Increment="1" HorizontalAlign="Right" Width="80px">
                                 <Paddings PaddingRight="5px" />
                                 <ClientSideEvents TextChanged="calculate"></ClientSideEvents>
                             </dx:ASPxTextBox>
                         </td>
                         <td style="text-align: right;">
-                            <dx:ASPxTextBox ID="uxLine9Total" ClientInstanceName="uxLine9Total" runat="server" ReadOnly="true" HorizontalAlign="Right" Width="100px">
+                            <dx:ASPxTextBox ID="uxLine9Total" ClientInstanceName="uxLine9Total" runat="server" ReadOnly="true" HorizontalAlign="Right" Width="80px">
                             </dx:ASPxTextBox>
                         </td>
                     </tr>
@@ -652,14 +661,14 @@
                         </td>
                         <td style="text-align: center;">
                             <dx:ASPxTextBox ID="uxLine10Rate" ClientInstanceName="uxLine10Rate" runat="server" Number="0" NumberType="Integer"
-                                Increment="1" HorizontalAlign="Right" Width="100px">
+                                Increment="1" HorizontalAlign="Right" Width="50px">
                                 <Paddings PaddingRight="5px" />
                                 <ClientSideEvents TextChanged="calculate"></ClientSideEvents>
                             </dx:ASPxTextBox>
                         </td>
                         <td style="text-align: right;">
                             <dx:ASPxTextBox ID="uxLine10Days" ClientInstanceName="uxLine10Days" runat="server" Number="0" NumberType="Integer"
-                                Increment="1" HorizontalAlign="Right" Width="100px">
+                                Increment="1" HorizontalAlign="Right" Width="50px">
                                 <Paddings PaddingRight="5px" />
                                 <ClientSideEvents TextChanged="calculate"></ClientSideEvents>
                             </dx:ASPxTextBox>
@@ -667,16 +676,17 @@
                         <td style="text-align: right;">
                             <dx:ASPxLabel ID="uxLine10Proc" ClientInstanceName="uxLine10Proc" runat="server">
                             </dx:ASPxLabel>
+                            <asp:HiddenField ID="uxLine10ProcHidden" ClientIDMode="Static" runat="server" />
                         </td>
                         <td style="text-align: center;">
                             <dx:ASPxTextBox ID="uxLine10Cost" ClientInstanceName="uxLine10Cost" runat="server" Number="0" NumberType="Integer"
-                                Increment="1" HorizontalAlign="Right" Width="100px">
+                                Increment="1" HorizontalAlign="Right" Width="80px">
                                 <Paddings PaddingRight="5px" />
                                 <ClientSideEvents TextChanged="calculate"></ClientSideEvents>
                             </dx:ASPxTextBox>
                         </td>
                         <td style="text-align: right;">
-                            <dx:ASPxTextBox ID="uxLine10Total" ClientInstanceName="uxLine10Total" runat="server" ReadOnly="true" HorizontalAlign="Right" Width="100px">
+                            <dx:ASPxTextBox ID="uxLine10Total" ClientInstanceName="uxLine10Total" runat="server" ReadOnly="true" HorizontalAlign="Right" Width="80px">
                             </dx:ASPxTextBox>
                         </td>
                     </tr>
@@ -692,14 +702,14 @@
                         </td>
                         <td style="text-align: center;">
                             <dx:ASPxTextBox ID="uxLine11Rate" ClientInstanceName="uxLine11Rate" runat="server" Number="0" NumberType="Integer"
-                                Increment="1" HorizontalAlign="Right" Width="100px">
+                                Increment="1" HorizontalAlign="Right" Width="50px">
                                 <Paddings PaddingRight="5px" />
                                 <ClientSideEvents TextChanged="calculate"></ClientSideEvents>
                             </dx:ASPxTextBox>
                         </td>
                         <td style="text-align: right;">
                             <dx:ASPxTextBox ID="uxLine11Days" ClientInstanceName="uxLine11Days" runat="server" Number="0" NumberType="Integer"
-                                Increment="1" HorizontalAlign="Right" Width="100px">
+                                Increment="1" HorizontalAlign="Right" Width="50px">
                                 <Paddings PaddingRight="5px" />
                                 <ClientSideEvents TextChanged="calculate"></ClientSideEvents>
                             </dx:ASPxTextBox>
@@ -707,16 +717,17 @@
                         <td style="text-align: right;">
                             <dx:ASPxLabel ID="uxLine11Proc" ClientInstanceName="uxLine11Proc" runat="server">
                             </dx:ASPxLabel>
+                            <asp:HiddenField ID="uxLine11ProcHidden" ClientIDMode="Static" runat="server" />
                         </td>
                         <td style="text-align: center;">
                             <dx:ASPxTextBox ID="uxLine11Cost" ClientInstanceName="uxLine11Cost" runat="server" Number="0" NumberType="Integer"
-                                Increment="1" HorizontalAlign="Right" Width="100px">
+                                Increment="1" HorizontalAlign="Right" Width="80px">
                                 <Paddings PaddingRight="5px" />
                                 <ClientSideEvents TextChanged="calculate"></ClientSideEvents>
                             </dx:ASPxTextBox>
                         </td>
                         <td style="text-align: right;">
-                            <dx:ASPxTextBox ID="uxLine11Total" ClientInstanceName="uxLine11Total" runat="server" ReadOnly="true" HorizontalAlign="Right" Width="100px">
+                            <dx:ASPxTextBox ID="uxLine11Total" ClientInstanceName="uxLine11Total" runat="server" ReadOnly="true" HorizontalAlign="Right" Width="80px">
                             </dx:ASPxTextBox>
                         </td>
                     </tr>
@@ -732,14 +743,14 @@
                         </td>
                         <td style="text-align: center;">
                             <dx:ASPxTextBox ID="uxLine12Rate" ClientInstanceName="uxLine12Rate" runat="server" Number="0" NumberType="Integer"
-                                Increment="1" HorizontalAlign="Right" Width="100px">
+                                Increment="1" HorizontalAlign="Right" Width="50px">
                                 <Paddings PaddingRight="5px" />
                                 <ClientSideEvents TextChanged="calculate"></ClientSideEvents>
                             </dx:ASPxTextBox>
                         </td>
                         <td style="text-align: right;">
                             <dx:ASPxTextBox ID="uxLine12Days" ClientInstanceName="uxLine12Days" runat="server" Number="0" NumberType="Integer"
-                                Increment="1" HorizontalAlign="Right" Width="100px">
+                                Increment="1" HorizontalAlign="Right" Width="50px">
                                 <Paddings PaddingRight="5px" />
                                 <ClientSideEvents TextChanged="calculate"></ClientSideEvents>
                             </dx:ASPxTextBox>
@@ -747,16 +758,17 @@
                         <td style="text-align: right;">
                             <dx:ASPxLabel ID="uxLine12Proc" ClientInstanceName="uxLine12Proc" runat="server">
                             </dx:ASPxLabel>
+                            <asp:HiddenField ID="uxLine12ProcHidden" ClientIDMode="Static" runat="server" />
                         </td>
                         <td style="text-align: center;">
                             <dx:ASPxTextBox ID="uxLine12Cost" ClientInstanceName="uxLine12Cost" runat="server" Number="0" NumberType="Integer"
-                                Increment="1" HorizontalAlign="Right" Width="100px">
+                                Increment="1" HorizontalAlign="Right" Width="80px">
                                 <Paddings PaddingRight="5px" />
                                 <ClientSideEvents TextChanged="calculate"></ClientSideEvents>
                             </dx:ASPxTextBox>
                         </td>
                         <td style="text-align: right;">
-                            <dx:ASPxTextBox ID="uxLine12Total" ClientInstanceName="uxLine12Total" runat="server" ReadOnly="true" HorizontalAlign="Right" Width="100px">
+                            <dx:ASPxTextBox ID="uxLine12Total" ClientInstanceName="uxLine12Total" runat="server" ReadOnly="true" HorizontalAlign="Right" Width="80px">
                             </dx:ASPxTextBox>
                         </td>
                     </tr>
@@ -772,14 +784,14 @@
                         </td>
                         <td style="text-align: center;">
                             <dx:ASPxTextBox ID="uxLine13Rate" ClientInstanceName="uxLine13Rate" runat="server" Number="0" NumberType="Integer"
-                                Increment="1" HorizontalAlign="Right" Width="100px">
+                                Increment="1" HorizontalAlign="Right" Width="50px">
                                 <Paddings PaddingRight="5px" />
                                 <ClientSideEvents TextChanged="calculate"></ClientSideEvents>
                             </dx:ASPxTextBox>
                         </td>
                         <td style="text-align: right;">
                             <dx:ASPxTextBox ID="uxLine13Days" ClientInstanceName="uxLine13Days" runat="server" Number="0" NumberType="Integer"
-                                Increment="1" HorizontalAlign="Right" Width="100px">
+                                Increment="1" HorizontalAlign="Right" Width="50px">
                                 <Paddings PaddingRight="5px" />
                                 <ClientSideEvents TextChanged="calculate"></ClientSideEvents>
                             </dx:ASPxTextBox>
@@ -787,16 +799,17 @@
                         <td style="text-align: right;">
                             <dx:ASPxLabel ID="uxLine13Proc" ClientInstanceName="uxLine13Proc" runat="server">
                             </dx:ASPxLabel>
+                            <asp:HiddenField ID="uxLine13ProcHidden" ClientIDMode="Static" runat="server" />
                         </td>
                         <td style="text-align: center;">
                             <dx:ASPxTextBox ID="uxLine13Cost" ClientInstanceName="uxLine13Cost" runat="server" Number="0" NumberType="Integer"
-                                Increment="1" HorizontalAlign="Right" Width="100px">
+                                Increment="1" HorizontalAlign="Right" Width="80px">
                                 <Paddings PaddingRight="5px" />
                                 <ClientSideEvents TextChanged="calculate"></ClientSideEvents>
                             </dx:ASPxTextBox>
                         </td>
                         <td style="text-align: right;">
-                            <dx:ASPxTextBox ID="uxLine13Total" ClientInstanceName="uxLine13Total" runat="server" ReadOnly="true" HorizontalAlign="Right" Width="100px">
+                            <dx:ASPxTextBox ID="uxLine13Total" ClientInstanceName="uxLine13Total" runat="server" ReadOnly="true" HorizontalAlign="Right" Width="80px">
                             </dx:ASPxTextBox>
                         </td>
                     </tr>
@@ -812,14 +825,14 @@
                         </td>
                         <td style="text-align: center;">
                             <dx:ASPxTextBox ID="uxLine14Rate" ClientInstanceName="uxLine14Rate" runat="server" Number="0" NumberType="Integer"
-                                Increment="1" HorizontalAlign="Right" Width="100px">
+                                Increment="1" HorizontalAlign="Right" Width="50px">
                                 <Paddings PaddingRight="5px" />
                                 <ClientSideEvents TextChanged="calculate"></ClientSideEvents>
                             </dx:ASPxTextBox>
                         </td>
                         <td style="text-align: right;">
                             <dx:ASPxTextBox ID="uxLine14Days" ClientInstanceName="uxLine14Days" runat="server" Number="0" NumberType="Integer"
-                                Increment="1" HorizontalAlign="Right" Width="100px">
+                                Increment="1" HorizontalAlign="Right" Width="50px">
                                 <Paddings PaddingRight="5px" />
                                 <ClientSideEvents TextChanged="calculate"></ClientSideEvents>
                             </dx:ASPxTextBox>
@@ -827,16 +840,17 @@
                         <td style="text-align: right;">
                             <dx:ASPxLabel ID="uxLine14Proc" ClientInstanceName="uxLine14Proc" runat="server">
                             </dx:ASPxLabel>
+                            <asp:HiddenField ID="uxLine14ProcHidden" ClientIDMode="Static" runat="server" />
                         </td>
                         <td style="text-align: center;">
                             <dx:ASPxTextBox ID="uxLine14Cost" ClientInstanceName="uxLine14Cost" runat="server" Number="0" NumberType="Integer"
-                                Increment="1" HorizontalAlign="Right" Width="100px">
+                                Increment="1" HorizontalAlign="Right" Width="80px">
                                 <Paddings PaddingRight="5px" />
                                 <ClientSideEvents TextChanged="calculate"></ClientSideEvents>
                             </dx:ASPxTextBox>
                         </td>
                         <td style="text-align: right;">
-                            <dx:ASPxTextBox ID="uxLine14Total" ClientInstanceName="uxLine14Total" runat="server" ReadOnly="true" HorizontalAlign="Right" Width="100px">
+                            <dx:ASPxTextBox ID="uxLine14Total" ClientInstanceName="uxLine14Total" runat="server" ReadOnly="true" HorizontalAlign="Right" Width="80px">
                             </dx:ASPxTextBox>
                         </td>
                     </tr>
@@ -855,25 +869,24 @@
                             </dx:ASPxLabel>
                         </td>
                         <td style="text-align: right;">
-                            <dx:ASPxTextBox ID="uxLine15Days" ClientInstanceName="uxLine15Days" runat="server" Number="0" NumberType="Integer"
-                                Increment="1" HorizontalAlign="Right" Width="100px">
-                                <Paddings PaddingRight="5px" />
-                                <ClientSideEvents TextChanged="calculate"></ClientSideEvents>
-                            </dx:ASPxTextBox>
+                            <dx:ASPxLabel ID="uxLine15Days" ClientInstanceName="uxLine15Days" runat="server" Number="0" NumberType="Integer"
+                                Increment="1" HorizontalAlign="Right">
+                            </dx:ASPxLabel>
                         </td>
                         <td style="text-align: right;">
                             <dx:ASPxLabel ID="uxLine15Proc" ClientInstanceName="uxLine15Proc" runat="server">
                             </dx:ASPxLabel>
+                            <asp:HiddenField ID="uxLine15ProcHidden" ClientIDMode="Static" runat="server" />
                         </td>
                         <td style="text-align: center;">
                             <dx:ASPxTextBox ID="uxLine15Cost" ClientInstanceName="uxLine15Cost" runat="server" Number="0" NumberType="Integer"
-                                Increment="1" HorizontalAlign="Right" Width="100px">
+                                Increment="1" HorizontalAlign="Right" Width="80px">
                                 <Paddings PaddingRight="5px" />
                                 <ClientSideEvents TextChanged="calculate"></ClientSideEvents>
                             </dx:ASPxTextBox>
                         </td>
                         <td style="text-align: right;">
-                            <dx:ASPxTextBox ID="uxLine15Total" ClientInstanceName="uxLine15Total" runat="server" ReadOnly="true" HorizontalAlign="Right" Width="100px">
+                            <dx:ASPxTextBox ID="uxLine15Total" ClientInstanceName="uxLine15Total" runat="server" ReadOnly="true" HorizontalAlign="Right" Width="80px">
                             </dx:ASPxTextBox>
                         </td>
                     </tr>
@@ -884,12 +897,12 @@
                             </dx:ASPxCheckBox>
                         </td>
                         <td>
-                            <dx:ASPxTextBox ID="uxLine16Name" ClientInstanceName="uxLine16Name" runat="server" Text="Резерв - 1"
+                            <dx:ASPxTextBox ID="uxLine16Description" ClientInstanceName="uxLine16Description" runat="server" Text="Резерв - 1"
                                 Increment="1" HorizontalAlign="Left" Width="160px">
                                 <Paddings PaddingRight="5px" />
                                 <ClientSideEvents TextChanged="calculate"></ClientSideEvents>
                             </dx:ASPxTextBox>
-                            <dx:ASPxLabel ID="uxLine16Description" runat="server" Text="" />
+                            <dx:ASPxLabel ID="uxLine16Name" runat="server" Text="" />
                         </td>
                         <td style="text-align: center;">
                             <dx:ASPxLabel ID="uxLine16Rate" ClientInstanceName="uxLine16Rate" runat="server" Text="-">
@@ -902,16 +915,17 @@
                         <td style="text-align: right;">
                             <dx:ASPxLabel ID="uxLine16Proc" ClientInstanceName="uxLine16Proc" runat="server">
                             </dx:ASPxLabel>
+                            <asp:HiddenField ID="uxLine16ProcHidden" ClientIDMode="Static" runat="server" />
                         </td>
                         <td style="text-align: center;">
                             <dx:ASPxTextBox ID="uxLine16Cost" ClientInstanceName="uxLine16Cost" runat="server" Number="0" NumberType="Integer"
-                                Increment="1" HorizontalAlign="Right" Width="100px">
+                                Increment="1" HorizontalAlign="Right" Width="80px">
                                 <Paddings PaddingRight="5px" />
                                 <ClientSideEvents TextChanged="calculate"></ClientSideEvents>
                             </dx:ASPxTextBox>
                         </td>
                         <td style="text-align: right;">
-                            <dx:ASPxTextBox ID="uxLine16Total" ClientInstanceName="uxLine16Total" runat="server" ReadOnly="true" HorizontalAlign="Right" Width="100px">
+                            <dx:ASPxTextBox ID="uxLine16Total" ClientInstanceName="uxLine16Total" runat="server" ReadOnly="true" HorizontalAlign="Right" Width="80px">
                             </dx:ASPxTextBox>
                         </td>
                     </tr>
@@ -922,12 +936,12 @@
                             </dx:ASPxCheckBox>
                         </td>
                         <td>
-                            <dx:ASPxTextBox ID="uxLine17Name" ClientInstanceName="uxLine17Name" runat="server" Text="Резерв - 2"
+                            <dx:ASPxTextBox ID="uxLine17Description" ClientInstanceName="uxLine17Description" runat="server" Text="Резерв - 2"
                                 Increment="1" HorizontalAlign="Left" Width="160px">
                                 <Paddings PaddingRight="5px" />
                                 <ClientSideEvents TextChanged="calculate"></ClientSideEvents>
                             </dx:ASPxTextBox>
-                            <dx:ASPxLabel ID="uxLine17Description" runat="server" Text="" />
+                            <dx:ASPxLabel ID="uxLine17Name" runat="server" Text="" />
                         </td>
                         <td style="text-align: center;">
                             <dx:ASPxLabel ID="uxLine17Rate" ClientInstanceName="uxLine17Rate" runat="server" Text="-">
@@ -940,16 +954,17 @@
                         <td style="text-align: right;">
                             <dx:ASPxLabel ID="uxLine17Proc" ClientInstanceName="uxLine17Proc" runat="server">
                             </dx:ASPxLabel>
+                            <asp:HiddenField ID="uxLine17ProcHidden" ClientIDMode="Static" runat="server" />
                         </td>
                         <td style="text-align: center;">
                             <dx:ASPxTextBox ID="uxLine17Cost" ClientInstanceName="uxLine17Cost" runat="server" Number="0" NumberType="Integer"
-                                Increment="1" HorizontalAlign="Right" Width="100px">
+                                Increment="1" HorizontalAlign="Right" Width="80px">
                                 <Paddings PaddingRight="5px" />
                                 <ClientSideEvents TextChanged="calculate"></ClientSideEvents>
                             </dx:ASPxTextBox>
                         </td>
                         <td style="text-align: right;">
-                            <dx:ASPxTextBox ID="uxLine17Total" ClientInstanceName="uxLine17Total" runat="server" ReadOnly="true" HorizontalAlign="Right" Width="100px">
+                            <dx:ASPxTextBox ID="uxLine17Total" ClientInstanceName="uxLine17Total" runat="server" ReadOnly="true" HorizontalAlign="Right" Width="80px">
                             </dx:ASPxTextBox>
                         </td>
                     </tr>
@@ -964,7 +979,7 @@
                             1
                         </td>
                         <td style="text-align: right;">
-                            <dx:ASPxTextBox ID="uxBottomUaniTotal" ClientInstanceName="uxBottomUaniTotal" runat="server" HorizontalAlign="Right" Width="100px">
+                            <dx:ASPxTextBox ID="uxBottomUaniTotal" ClientInstanceName="uxBottomUaniTotal" runat="server" HorizontalAlign="Right" Width="80px">
                             </dx:ASPxTextBox>
                         </td>
                     </tr>
@@ -982,7 +997,7 @@
                             </dx:ASPxTextBox>
                         </td>
                         <td style="text-align: right;">
-                            <dx:ASPxTextBox ID="uxBottomUsdTotal" ClientInstanceName="uxBottomUsdTotal" runat="server" HorizontalAlign="Right" Width="100px">
+                            <dx:ASPxTextBox ID="uxBottomUsdTotal" ClientInstanceName="uxBottomUsdTotal" runat="server" HorizontalAlign="Right" Width="80px">
                             </dx:ASPxTextBox>
                         </td>
                     </tr>
@@ -999,7 +1014,7 @@
                             </dx:ASPxTextBox>
                         </td>
                         <td style="text-align: right;">
-                            <dx:ASPxTextBox ID="uxBottomRubTotal" ClientInstanceName="uxBottomRubTotal" runat="server" HorizontalAlign="Right" Width="100px">
+                            <dx:ASPxTextBox ID="uxBottomRubTotal" ClientInstanceName="uxBottomRubTotal" runat="server" HorizontalAlign="Right" Width="80px">
                             </dx:ASPxTextBox>
                         </td>
                     </tr>

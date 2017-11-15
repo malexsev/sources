@@ -8,14 +8,16 @@ namespace Cure.Reports.Models
 {
     public class OrderInvoiceRow
     {
-        public string Name { get; set; }
         public string Description { get; set; }
+        public string Amount { get; set; }
+        public string CostPerOne { get; set; }
         public decimal Price { get; set; }
 
-        public OrderInvoiceRow(string name, string description, decimal price)
+        public OrderInvoiceRow(string description, string amount, string costPerOne, decimal price)
         {
-            this.Name = name;
             this.Description = description;
+            this.Amount = amount;
+            this.CostPerOne = costPerOne;
             this.Price = price;
         }
     }

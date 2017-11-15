@@ -30,11 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderInvoice));
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
-            this.xrLabelUani = new DevExpress.XtraReports.UI.XRLabel();
+            this.uxCostPerOne = new DevExpress.XtraReports.UI.XRLabel();
             this.xrPrice = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLine2 = new DevExpress.XtraReports.UI.XRLine();
-            this.uxDescription = new DevExpress.XtraReports.UI.XRLabel();
+            this.uxAmount = new DevExpress.XtraReports.UI.XRLabel();
             this.uxName = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabelUani = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel25 = new DevExpress.XtraReports.UI.XRLabel();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
@@ -61,6 +62,8 @@
             this.dataTableAdapter = new Cure.Reports.Datasets.VisitInvitationDatasetTableAdapters.VisitInvitationTableAdapter();
             this.formattingRule1 = new DevExpress.XtraReports.UI.FormattingRule();
             this.GroupHeader1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
+            this.xrLabel14 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel13 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel8 = new DevExpress.XtraReports.UI.XRLabel();
             this.uxSputnikDetails = new DevExpress.XtraReports.UI.XRLabel();
             this.uxOrderDays = new DevExpress.XtraReports.UI.XRLabel();
@@ -75,10 +78,10 @@
             this.uxDocNumber = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel16 = new DevExpress.XtraReports.UI.XRLabel();
             this.GroupFooter1 = new DevExpress.XtraReports.UI.GroupFooterBand();
-            this.xrLabel74 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel76 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel12 = new DevExpress.XtraReports.UI.XRLabel();
+            this.uxLineTotalPendo = new DevExpress.XtraReports.UI.XRLabel();
             this.uxLineTotal = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel77 = new DevExpress.XtraReports.UI.XRLabel();
             this.uxTotalTextUan = new DevExpress.XtraReports.UI.XRLabel();
             this.uxTotalTextUsd = new DevExpress.XtraReports.UI.XRLabel();
             this.xrPictureBox4 = new DevExpress.XtraReports.UI.XRPictureBox();
@@ -97,41 +100,41 @@
             // Detail
             // 
             this.Detail.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrLabelUani,
+            this.uxCostPerOne,
             this.xrPrice,
             this.xrLine2,
-            this.uxDescription,
+            this.uxAmount,
             this.uxName});
             this.Detail.Dpi = 96F;
-            this.Detail.HeightF = 16.93335F;
+            this.Detail.HeightF = 14.73335F;
             this.Detail.Name = "Detail";
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 96F);
             this.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
-            // xrLabelUani
+            // uxCostPerOne
             // 
-            this.xrLabelUani.Dpi = 96F;
-            this.xrLabelUani.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.xrLabelUani.ForeColor = System.Drawing.Color.Black;
-            this.xrLabelUani.LocationFloat = new DevExpress.Utils.PointFloat(699.0002F, 0F);
-            this.xrLabelUani.Name = "xrLabelUani";
-            this.xrLabelUani.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
-            this.xrLabelUani.SizeF = new System.Drawing.SizeF(39.39984F, 12.2F);
-            this.xrLabelUani.StylePriority.UseFont = false;
-            this.xrLabelUani.StylePriority.UseForeColor = false;
-            this.xrLabelUani.StylePriority.UseTextAlignment = false;
-            this.xrLabelUani.Text = "юаней";
-            this.xrLabelUani.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            this.uxCostPerOne.Dpi = 96F;
+            this.uxCostPerOne.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.uxCostPerOne.ForeColor = System.Drawing.Color.Gray;
+            this.uxCostPerOne.LocationFloat = new DevExpress.Utils.PointFloat(602.0001F, 0F);
+            this.uxCostPerOne.Name = "uxCostPerOne";
+            this.uxCostPerOne.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.uxCostPerOne.SizeF = new System.Drawing.SizeF(74.79962F, 12.2F);
+            this.uxCostPerOne.StylePriority.UseFont = false;
+            this.uxCostPerOne.StylePriority.UseForeColor = false;
+            this.uxCostPerOne.StylePriority.UseTextAlignment = false;
+            this.uxCostPerOne.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            this.uxCostPerOne.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.uxCostPerOne_BeforePrint);
             // 
             // xrPrice
             // 
             this.xrPrice.Dpi = 96F;
             this.xrPrice.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.xrPrice.ForeColor = System.Drawing.Color.Black;
-            this.xrPrice.LocationFloat = new DevExpress.Utils.PointFloat(645.8999F, 0F);
+            this.xrPrice.LocationFloat = new DevExpress.Utils.PointFloat(676.7998F, 0F);
             this.xrPrice.Name = "xrPrice";
             this.xrPrice.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
-            this.xrPrice.SizeF = new System.Drawing.SizeF(53.10028F, 12.2F);
+            this.xrPrice.SizeF = new System.Drawing.SizeF(61.60016F, 12.2F);
             this.xrPrice.StylePriority.UseFont = false;
             this.xrPrice.StylePriority.UseForeColor = false;
             this.xrPrice.StylePriority.UseTextAlignment = false;
@@ -141,24 +144,24 @@
             // xrLine2
             // 
             this.xrLine2.Dpi = 96F;
-            this.xrLine2.LocationFloat = new DevExpress.Utils.PointFloat(69.6F, 14.2F);
+            this.xrLine2.LocationFloat = new DevExpress.Utils.PointFloat(69.6F, 12.2F);
             this.xrLine2.Name = "xrLine2";
-            this.xrLine2.SizeF = new System.Drawing.SizeF(668.8F, 2.53334F);
+            this.xrLine2.SizeF = new System.Drawing.SizeF(668.8F, 2.53335F);
             // 
-            // uxDescription
+            // uxAmount
             // 
-            this.uxDescription.Dpi = 96F;
-            this.uxDescription.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.uxDescription.ForeColor = System.Drawing.Color.Gray;
-            this.uxDescription.LocationFloat = new DevExpress.Utils.PointFloat(202.2999F, 0F);
-            this.uxDescription.Name = "uxDescription";
-            this.uxDescription.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
-            this.uxDescription.SizeF = new System.Drawing.SizeF(443.6F, 12.2F);
-            this.uxDescription.StylePriority.UseFont = false;
-            this.uxDescription.StylePriority.UseForeColor = false;
-            this.uxDescription.StylePriority.UseTextAlignment = false;
-            this.uxDescription.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
-            this.uxDescription.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.uxDescription_BeforePrint);
+            this.uxAmount.Dpi = 96F;
+            this.uxAmount.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.uxAmount.ForeColor = System.Drawing.Color.Gray;
+            this.uxAmount.LocationFloat = new DevExpress.Utils.PointFloat(566.4003F, 0F);
+            this.uxAmount.Name = "uxAmount";
+            this.uxAmount.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.uxAmount.SizeF = new System.Drawing.SizeF(35.59985F, 12.2F);
+            this.uxAmount.StylePriority.UseFont = false;
+            this.uxAmount.StylePriority.UseForeColor = false;
+            this.uxAmount.StylePriority.UseTextAlignment = false;
+            this.uxAmount.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            this.uxAmount.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.uxAmount_BeforePrint);
             // 
             // uxName
             // 
@@ -168,24 +171,40 @@
             this.uxName.LocationFloat = new DevExpress.Utils.PointFloat(69.6F, 0F);
             this.uxName.Name = "uxName";
             this.uxName.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
-            this.uxName.SizeF = new System.Drawing.SizeF(132.6999F, 12.2F);
+            this.uxName.SizeF = new System.Drawing.SizeF(496.8003F, 12.2F);
             this.uxName.StylePriority.UseFont = false;
             this.uxName.StylePriority.UseForeColor = false;
             this.uxName.StylePriority.UseTextAlignment = false;
             this.uxName.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             this.uxName.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.uxName_BeforePrint);
             // 
+            // xrLabelUani
+            // 
+            this.xrLabelUani.Dpi = 96F;
+            this.xrLabelUani.Font = new System.Drawing.Font("Arial Unicode MS", 7.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.xrLabelUani.ForeColor = System.Drawing.Color.Black;
+            this.xrLabelUani.LocationFloat = new DevExpress.Utils.PointFloat(699.0001F, 194.7201F);
+            this.xrLabelUani.Multiline = true;
+            this.xrLabelUani.Name = "xrLabelUani";
+            this.xrLabelUani.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.xrLabelUani.SizeF = new System.Drawing.SizeF(39.39984F, 28.2F);
+            this.xrLabelUani.StylePriority.UseFont = false;
+            this.xrLabelUani.StylePriority.UseForeColor = false;
+            this.xrLabelUani.StylePriority.UseTextAlignment = false;
+            this.xrLabelUani.Text = "итого,\r\nюани";
+            this.xrLabelUani.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            // 
             // xrLabel25
             // 
             this.xrLabel25.Dpi = 96F;
             this.xrLabel25.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.xrLabel25.LocationFloat = new DevExpress.Utils.PointFloat(50.3999F, 193.2401F);
+            this.xrLabel25.LocationFloat = new DevExpress.Utils.PointFloat(50.40049F, 189.8401F);
             this.xrLabel25.Name = "xrLabel25";
             this.xrLabel25.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
             this.xrLabel25.SizeF = new System.Drawing.SizeF(408.8F, 22.08F);
             this.xrLabel25.StylePriority.UseFont = false;
             this.xrLabel25.StylePriority.UseTextAlignment = false;
-            this.xrLabel25.Text = "В стоимость лечения входит:";
+            this.xrLabel25.Text = "План лечения и стоимость:";
             this.xrLabel25.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
             // TopMargin
@@ -249,8 +268,8 @@
             this.xrLabel3.StylePriority.UseFont = false;
             this.xrLabel3.StylePriority.UseForeColor = false;
             this.xrLabel3.StylePriority.UseTextAlignment = false;
-            this.xrLabel3.Text = "представителем больницы по электронному адресу zqcpchina@gmail.com для уточнения " +
-    "деталей";
+            this.xrLabel3.Text = "представителем больницы по электронному адресу info@dcp-china.ru для уточнения де" +
+    "талей";
             this.xrLabel3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
             // 
             // xrLabel2
@@ -513,6 +532,9 @@
             // GroupHeader1
             // 
             this.GroupHeader1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrLabel14,
+            this.xrLabel13,
+            this.xrLabelUani,
             this.xrLabel8,
             this.uxSputnikDetails,
             this.uxOrderDays,
@@ -528,8 +550,40 @@
             this.xrLabel16,
             this.xrLabel25});
             this.GroupHeader1.Dpi = 96F;
-            this.GroupHeader1.HeightF = 225.3201F;
+            this.GroupHeader1.HeightF = 230.1201F;
             this.GroupHeader1.Name = "GroupHeader1";
+            // 
+            // xrLabel14
+            // 
+            this.xrLabel14.Dpi = 96F;
+            this.xrLabel14.Font = new System.Drawing.Font("Arial Unicode MS", 7.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.xrLabel14.ForeColor = System.Drawing.Color.Black;
+            this.xrLabel14.LocationFloat = new DevExpress.Utils.PointFloat(530.4003F, 194.7201F);
+            this.xrLabel14.Multiline = true;
+            this.xrLabel14.Name = "xrLabel14";
+            this.xrLabel14.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.xrLabel14.SizeF = new System.Drawing.SizeF(71.59982F, 28.2F);
+            this.xrLabel14.StylePriority.UseFont = false;
+            this.xrLabel14.StylePriority.UseForeColor = false;
+            this.xrLabel14.StylePriority.UseTextAlignment = false;
+            this.xrLabel14.Text = "количество";
+            this.xrLabel14.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            // 
+            // xrLabel13
+            // 
+            this.xrLabel13.Dpi = 96F;
+            this.xrLabel13.Font = new System.Drawing.Font("Arial Unicode MS", 7.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.xrLabel13.ForeColor = System.Drawing.Color.Black;
+            this.xrLabel13.LocationFloat = new DevExpress.Utils.PointFloat(602.0001F, 194.7201F);
+            this.xrLabel13.Multiline = true;
+            this.xrLabel13.Name = "xrLabel13";
+            this.xrLabel13.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.xrLabel13.SizeF = new System.Drawing.SizeF(74.79962F, 28.2F);
+            this.xrLabel13.StylePriority.UseFont = false;
+            this.xrLabel13.StylePriority.UseForeColor = false;
+            this.xrLabel13.StylePriority.UseTextAlignment = false;
+            this.xrLabel13.Text = "цена за\r\nединицу, юани";
+            this.xrLabel13.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             // 
             // xrLabel8
             // 
@@ -735,10 +789,10 @@
             // GroupFooter1
             // 
             this.GroupFooter1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrLabel74,
             this.xrLabel76,
+            this.xrLabel12,
+            this.uxLineTotalPendo,
             this.uxLineTotal,
-            this.xrLabel77,
             this.uxTotalTextUan,
             this.uxTotalTextUsd,
             this.xrPictureBox4,
@@ -753,19 +807,6 @@
             this.GroupFooter1.HeightF = 199.2203F;
             this.GroupFooter1.Name = "GroupFooter1";
             // 
-            // xrLabel74
-            // 
-            this.xrLabel74.Dpi = 96F;
-            this.xrLabel74.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.xrLabel74.LocationFloat = new DevExpress.Utils.PointFloat(560.4001F, 4F);
-            this.xrLabel74.Name = "xrLabel74";
-            this.xrLabel74.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
-            this.xrLabel74.SizeF = new System.Drawing.SizeF(70.59996F, 13.08002F);
-            this.xrLabel74.StylePriority.UseFont = false;
-            this.xrLabel74.StylePriority.UseTextAlignment = false;
-            this.xrLabel74.Text = "Всего";
-            this.xrLabel74.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
-            // 
             // xrLabel76
             // 
             this.xrLabel76.Dpi = 96F;
@@ -778,8 +819,39 @@
             this.xrLabel76.StylePriority.UseFont = false;
             this.xrLabel76.StylePriority.UseForeColor = false;
             this.xrLabel76.StylePriority.UseTextAlignment = false;
-            this.xrLabel76.Text = "юаней";
+            this.xrLabel76.Text = "CNY";
             this.xrLabel76.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            // 
+            // xrLabel12
+            // 
+            this.xrLabel12.Dpi = 96F;
+            this.xrLabel12.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.xrLabel12.ForeColor = System.Drawing.Color.Black;
+            this.xrLabel12.LocationFloat = new DevExpress.Utils.PointFloat(699.0001F, 19.07998F);
+            this.xrLabel12.Name = "xrLabel12";
+            this.xrLabel12.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.xrLabel12.SizeF = new System.Drawing.SizeF(48.79993F, 13.08002F);
+            this.xrLabel12.StylePriority.UseFont = false;
+            this.xrLabel12.StylePriority.UseForeColor = false;
+            this.xrLabel12.StylePriority.UseTextAlignment = false;
+            this.xrLabel12.Text = "USD";
+            this.xrLabel12.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            // 
+            // uxLineTotalPendo
+            // 
+            this.uxLineTotalPendo.Dpi = 96F;
+            this.uxLineTotalPendo.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.uxLineTotalPendo.ForeColor = System.Drawing.Color.Black;
+            this.uxLineTotalPendo.LocationFloat = new DevExpress.Utils.PointFloat(631.0001F, 19.07998F);
+            this.uxLineTotalPendo.Name = "uxLineTotalPendo";
+            this.uxLineTotalPendo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.uxLineTotalPendo.SizeF = new System.Drawing.SizeF(68F, 13.08001F);
+            this.uxLineTotalPendo.StylePriority.UseFont = false;
+            this.uxLineTotalPendo.StylePriority.UseForeColor = false;
+            this.uxLineTotalPendo.StylePriority.UseTextAlignment = false;
+            this.uxLineTotalPendo.Text = "7360";
+            this.uxLineTotalPendo.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            this.uxLineTotalPendo.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.uxLineTotalPendo_BeforePrint);
             // 
             // uxLineTotal
             // 
@@ -797,49 +869,36 @@
             this.uxLineTotal.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.uxLineTotal.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.uxLineTotal_BeforePrint);
             // 
-            // xrLabel77
-            // 
-            this.xrLabel77.Dpi = 96F;
-            this.xrLabel77.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.xrLabel77.LocationFloat = new DevExpress.Utils.PointFloat(50.3999F, 19.07998F);
-            this.xrLabel77.Name = "xrLabel77";
-            this.xrLabel77.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
-            this.xrLabel77.SizeF = new System.Drawing.SizeF(49.79996F, 16.08002F);
-            this.xrLabel77.StylePriority.UseFont = false;
-            this.xrLabel77.StylePriority.UseTextAlignment = false;
-            this.xrLabel77.Text = "Всего";
-            this.xrLabel77.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
-            // 
             // uxTotalTextUan
             // 
             this.uxTotalTextUan.Dpi = 96F;
-            this.uxTotalTextUan.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.uxTotalTextUan.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.uxTotalTextUan.ForeColor = System.Drawing.Color.Black;
-            this.uxTotalTextUan.LocationFloat = new DevExpress.Utils.PointFloat(106.4F, 18.08002F);
+            this.uxTotalTextUan.LocationFloat = new DevExpress.Utils.PointFloat(106.4002F, 4F);
             this.uxTotalTextUan.Name = "uxTotalTextUan";
             this.uxTotalTextUan.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
-            this.uxTotalTextUan.SizeF = new System.Drawing.SizeF(651.7999F, 17.07999F);
+            this.uxTotalTextUan.SizeF = new System.Drawing.SizeF(524.5999F, 13.08001F);
             this.uxTotalTextUan.StylePriority.UseFont = false;
             this.uxTotalTextUan.StylePriority.UseForeColor = false;
             this.uxTotalTextUan.StylePriority.UseTextAlignment = false;
             this.uxTotalTextUan.Text = "Семьдесят две тысячи шестьсот шестьдесят пять юаней";
-            this.uxTotalTextUan.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            this.uxTotalTextUan.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.uxTotalTextUan.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.uxTotalTextUan_BeforePrint);
             // 
             // uxTotalTextUsd
             // 
             this.uxTotalTextUsd.Dpi = 96F;
-            this.uxTotalTextUsd.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.uxTotalTextUsd.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.uxTotalTextUsd.ForeColor = System.Drawing.Color.Black;
-            this.uxTotalTextUsd.LocationFloat = new DevExpress.Utils.PointFloat(106.4002F, 35.16001F);
+            this.uxTotalTextUsd.LocationFloat = new DevExpress.Utils.PointFloat(106.4002F, 19.07998F);
             this.uxTotalTextUsd.Name = "uxTotalTextUsd";
             this.uxTotalTextUsd.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
-            this.uxTotalTextUsd.SizeF = new System.Drawing.SizeF(651.7999F, 17.07999F);
+            this.uxTotalTextUsd.SizeF = new System.Drawing.SizeF(524.5999F, 13.08002F);
             this.uxTotalTextUsd.StylePriority.UseFont = false;
             this.uxTotalTextUsd.StylePriority.UseForeColor = false;
             this.uxTotalTextUsd.StylePriority.UseTextAlignment = false;
             this.uxTotalTextUsd.Text = "10531 долларов США";
-            this.uxTotalTextUsd.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            this.uxTotalTextUsd.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.uxTotalTextUsd.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.uxTotalTextUsd_BeforePrint);
             // 
             // xrPictureBox4
@@ -872,7 +931,7 @@
             this.xrLabel84.Dpi = 96F;
             this.xrLabel84.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.xrLabel84.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel84.LocationFloat = new DevExpress.Utils.PointFloat(521.2001F, 172.1403F);
+            this.xrLabel84.LocationFloat = new DevExpress.Utils.PointFloat(551.2001F, 172.1403F);
             this.xrLabel84.Name = "xrLabel84";
             this.xrLabel84.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
             this.xrLabel84.SizeF = new System.Drawing.SizeF(109.8F, 17.07999F);
@@ -946,7 +1005,7 @@
             // 
             this.xrPictureBox3.Dpi = 96F;
             this.xrPictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("xrPictureBox3.Image")));
-            this.xrPictureBox3.LocationFloat = new DevExpress.Utils.PointFloat(540.3004F, 6F);
+            this.xrPictureBox3.LocationFloat = new DevExpress.Utils.PointFloat(551.3004F, 20F);
             this.xrPictureBox3.Name = "xrPictureBox3";
             this.xrPictureBox3.SizeF = new System.Drawing.SizeF(175.6998F, 161.6F);
             this.xrPictureBox3.Sizing = DevExpress.XtraPrinting.ImageSizeMode.Squeeze;
@@ -1047,17 +1106,20 @@
         private DevExpress.XtraReports.UI.XRPictureBox xrPictureBox4;
         private DevExpress.XtraReports.UI.XRLabel xrLabel85;
         private DevExpress.XtraReports.UI.XRLabel xrLabel84;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel74;
         private DevExpress.XtraReports.UI.XRLabel xrLabel76;
         private DevExpress.XtraReports.UI.XRLabel uxLineTotal;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel77;
         private DevExpress.XtraReports.UI.XRLabel uxTotalTextUan;
         private DevExpress.XtraReports.UI.XRLabel uxTotalTextUsd;
         private DevExpress.XtraReports.UI.XRLine xrLine2;
-        private DevExpress.XtraReports.UI.XRLabel uxDescription;
+        private DevExpress.XtraReports.UI.XRLabel uxAmount;
         private DevExpress.XtraReports.UI.XRLabel uxName;
         private DevExpress.XtraReports.UI.XRLabel xrLabelUani;
         private DevExpress.XtraReports.UI.XRLabel xrPrice;
         private DevExpress.XtraReports.UI.XRLabel xrLabel8;
+        private DevExpress.XtraReports.UI.XRLabel uxCostPerOne;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel14;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel13;
+        private DevExpress.XtraReports.UI.XRLabel xrLabel12;
+        private DevExpress.XtraReports.UI.XRLabel uxLineTotalPendo;
     }
 }

@@ -143,6 +143,26 @@ namespace Cure.Reports.Resouces {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Pechat_bzgm {
+            get {
+                object obj = ResourceManager.GetObject("Pechat_bzgm", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Podpis_bzgm {
+            get {
+                object obj = ResourceManager.GetObject("Podpis_bzgm", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap sign1 {
             get {
                 object obj = ResourceManager.GetObject("sign1", resourceCulture);

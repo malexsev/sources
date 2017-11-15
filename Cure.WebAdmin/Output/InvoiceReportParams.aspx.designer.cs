@@ -94,6 +94,15 @@ namespace Cure.WebAdmin.Admin {
         protected global::DevExpress.Web.ASPxEditors.ASPxLabel uxLine1Proc;
         
         /// <summary>
+        /// uxLine1ProcHidden control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField uxLine1ProcHidden;
+        
+        /// <summary>
         /// uxLine1Cost control.
         /// </summary>
         /// <remarks>
@@ -166,6 +175,15 @@ namespace Cure.WebAdmin.Admin {
         protected global::DevExpress.Web.ASPxEditors.ASPxLabel uxLine2Proc;
         
         /// <summary>
+        /// uxLine2ProcHidden control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField uxLine2ProcHidden;
+        
+        /// <summary>
         /// uxLine2Cost control.
         /// </summary>
         /// <remarks>
@@ -217,7 +235,7 @@ namespace Cure.WebAdmin.Admin {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox uxLine3Rate;
+        protected global::DevExpress.Web.ASPxEditors.ASPxLabel uxLine3Rate;
         
         /// <summary>
         /// uxLine3Days control.
@@ -226,7 +244,7 @@ namespace Cure.WebAdmin.Admin {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox uxLine3Days;
+        protected global::DevExpress.Web.ASPxEditors.ASPxLabel uxLine3Days;
         
         /// <summary>
         /// uxLine3Proc control.
@@ -236,6 +254,15 @@ namespace Cure.WebAdmin.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxEditors.ASPxLabel uxLine3Proc;
+        
+        /// <summary>
+        /// uxLine3ProcHidden control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField uxLine3ProcHidden;
         
         /// <summary>
         /// uxLine3Cost control.
@@ -310,6 +337,15 @@ namespace Cure.WebAdmin.Admin {
         protected global::DevExpress.Web.ASPxEditors.ASPxLabel uxLine4Proc;
         
         /// <summary>
+        /// uxLine4ProcHidden control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField uxLine4ProcHidden;
+        
+        /// <summary>
         /// uxLine4Cost control.
         /// </summary>
         /// <remarks>
@@ -380,6 +416,15 @@ namespace Cure.WebAdmin.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxEditors.ASPxLabel uxLine5Proc;
+        
+        /// <summary>
+        /// uxLine5ProcHidden control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField uxLine5ProcHidden;
         
         /// <summary>
         /// uxLine5Cost control.
@@ -454,6 +499,15 @@ namespace Cure.WebAdmin.Admin {
         protected global::DevExpress.Web.ASPxEditors.ASPxLabel uxLine6Proc;
         
         /// <summary>
+        /// uxLine6ProcHidden control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField uxLine6ProcHidden;
+        
+        /// <summary>
         /// uxLine6Cost control.
         /// </summary>
         /// <remarks>
@@ -524,6 +578,15 @@ namespace Cure.WebAdmin.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxEditors.ASPxLabel uxLine7Proc;
+        
+        /// <summary>
+        /// uxLine7ProcHidden control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField uxLine7ProcHidden;
         
         /// <summary>
         /// uxLine7Cost control.
@@ -598,6 +661,15 @@ namespace Cure.WebAdmin.Admin {
         protected global::DevExpress.Web.ASPxEditors.ASPxLabel uxLine8Proc;
         
         /// <summary>
+        /// uxLine8ProcHidden control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField uxLine8ProcHidden;
+        
+        /// <summary>
         /// uxLine8Cost control.
         /// </summary>
         /// <remarks>
@@ -668,6 +740,15 @@ namespace Cure.WebAdmin.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxEditors.ASPxLabel uxLine9Proc;
+        
+        /// <summary>
+        /// uxLine9ProcHidden control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField uxLine9ProcHidden;
         
         /// <summary>
         /// uxLine9Cost control.
@@ -742,6 +823,15 @@ namespace Cure.WebAdmin.Admin {
         protected global::DevExpress.Web.ASPxEditors.ASPxLabel uxLine10Proc;
         
         /// <summary>
+        /// uxLine10ProcHidden control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField uxLine10ProcHidden;
+        
+        /// <summary>
         /// uxLine10Cost control.
         /// </summary>
         /// <remarks>
@@ -812,6 +902,15 @@ namespace Cure.WebAdmin.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxEditors.ASPxLabel uxLine11Proc;
+        
+        /// <summary>
+        /// uxLine11ProcHidden control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField uxLine11ProcHidden;
         
         /// <summary>
         /// uxLine11Cost control.
@@ -886,6 +985,15 @@ namespace Cure.WebAdmin.Admin {
         protected global::DevExpress.Web.ASPxEditors.ASPxLabel uxLine12Proc;
         
         /// <summary>
+        /// uxLine12ProcHidden control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField uxLine12ProcHidden;
+        
+        /// <summary>
         /// uxLine12Cost control.
         /// </summary>
         /// <remarks>
@@ -956,6 +1064,15 @@ namespace Cure.WebAdmin.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxEditors.ASPxLabel uxLine13Proc;
+        
+        /// <summary>
+        /// uxLine13ProcHidden control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField uxLine13ProcHidden;
         
         /// <summary>
         /// uxLine13Cost control.
@@ -1030,6 +1147,15 @@ namespace Cure.WebAdmin.Admin {
         protected global::DevExpress.Web.ASPxEditors.ASPxLabel uxLine14Proc;
         
         /// <summary>
+        /// uxLine14ProcHidden control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField uxLine14ProcHidden;
+        
+        /// <summary>
         /// uxLine14Cost control.
         /// </summary>
         /// <remarks>
@@ -1090,7 +1216,7 @@ namespace Cure.WebAdmin.Admin {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox uxLine15Days;
+        protected global::DevExpress.Web.ASPxEditors.ASPxLabel uxLine15Days;
         
         /// <summary>
         /// uxLine15Proc control.
@@ -1100,6 +1226,15 @@ namespace Cure.WebAdmin.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxEditors.ASPxLabel uxLine15Proc;
+        
+        /// <summary>
+        /// uxLine15ProcHidden control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField uxLine15ProcHidden;
         
         /// <summary>
         /// uxLine15Cost control.
@@ -1129,22 +1264,22 @@ namespace Cure.WebAdmin.Admin {
         protected global::DevExpress.Web.ASPxEditors.ASPxCheckBox uxLine16CheckBox;
         
         /// <summary>
-        /// uxLine16Name control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox uxLine16Name;
-        
-        /// <summary>
         /// uxLine16Description control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxLabel uxLine16Description;
+        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox uxLine16Description;
+        
+        /// <summary>
+        /// uxLine16Name control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxEditors.ASPxLabel uxLine16Name;
         
         /// <summary>
         /// uxLine16Rate control.
@@ -1174,6 +1309,15 @@ namespace Cure.WebAdmin.Admin {
         protected global::DevExpress.Web.ASPxEditors.ASPxLabel uxLine16Proc;
         
         /// <summary>
+        /// uxLine16ProcHidden control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField uxLine16ProcHidden;
+        
+        /// <summary>
         /// uxLine16Cost control.
         /// </summary>
         /// <remarks>
@@ -1201,22 +1345,22 @@ namespace Cure.WebAdmin.Admin {
         protected global::DevExpress.Web.ASPxEditors.ASPxCheckBox uxLine17CheckBox;
         
         /// <summary>
-        /// uxLine17Name control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox uxLine17Name;
-        
-        /// <summary>
         /// uxLine17Description control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxLabel uxLine17Description;
+        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox uxLine17Description;
+        
+        /// <summary>
+        /// uxLine17Name control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxEditors.ASPxLabel uxLine17Name;
         
         /// <summary>
         /// uxLine17Rate control.
@@ -1244,6 +1388,15 @@ namespace Cure.WebAdmin.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxEditors.ASPxLabel uxLine17Proc;
+        
+        /// <summary>
+        /// uxLine17ProcHidden control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField uxLine17ProcHidden;
         
         /// <summary>
         /// uxLine17Cost control.

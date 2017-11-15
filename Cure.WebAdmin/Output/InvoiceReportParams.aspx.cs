@@ -6,6 +6,7 @@
     using System.Linq;
     using System.Web;
     using System.Web.UI;
+    using System.Web.UI.WebControls;
     using Cure.Reports.Models;
     using DataAccess;
     using DataAccess.BLL;
@@ -189,11 +190,15 @@
                 var uxLineCheckBox = (ICheckBoxControl)FormPanel.FindControl(string.Format("uxLine{0}CheckBox", i));
                 var uxLineName = (ITextControl)FormPanel.FindControl(string.Format("uxLine{0}Name", i));
                 var uxLineTotal = (ITextControl)FormPanel.FindControl(string.Format("uxLine{0}Total", i));
+                var uxLineAmount = (HiddenField)FormPanel.FindControl(string.Format("uxLine{0}ProcHidden", i));
+                var uxLineCostPerOne = (ITextControl)FormPanel.FindControl(string.Format("uxLine{0}Cost", i));
                 var uxLineDescription = (ITextControl)FormPanel.FindControl(string.Format("uxLine{0}Description", i));
                 decimal total;
                 if (uxLineCheckBox.Checked && decimal.TryParse(uxLineTotal.Text, out total) && total > 0)
                 {
-                    var row = new OrderInvoiceRow(uxLineName.Text, uxLineDescription.Text, total);
+                    var row = new OrderInvoiceRow(uxLineDescription.Text,
+                        uxLineAmount.Value,
+                        uxLineCostPerOne.Text, total);
                     result.Add(row);
                 }
             }

@@ -116,12 +116,6 @@
     <Compile Include="Rules.Designer.cs">
       <DependentUpon>Rules.cs</DependentUpon>
     </Compile>
-    <Compile Include="Subreports\OrderInvoiceDetail.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Subreports\OrderInvoiceDetail.Designer.cs">
-      <DependentUpon>OrderInvoiceDetail.cs</DependentUpon>
-    </Compile>
     <Compile Include="Subreports\PacientVisitDetailsSputniks.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -166,9 +160,6 @@
     <EmbeddedResource Include="Rules.resx">
       <Generator>ResXFileCodeGeneratorEx</Generator>
       <DependentUpon>Rules.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Subreports\OrderInvoiceDetail.resx">
-      <DependentUpon>OrderInvoiceDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Subreports\PacientVisitDetailsSputniks.resx">
       <DependentUpon>PacientVisitDetailsSputniks.cs</DependentUpon>
@@ -215,6 +206,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Datasets\ConStringsToWeb.txt" />
+    <None Include="Resources\Podpis_bzgm.png" />
+    <None Include="Resources\Pechat bzgm.png" />
     <None Include="Resources\top2.jpg" />
     <None Include="Resources\top1.jpg" />
     <None Include="Resources\vrach9.png" />

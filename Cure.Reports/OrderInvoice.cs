@@ -33,18 +33,12 @@ namespace Cure.Reports
             {
                 InitializeComponent();
             }
-
-            //BindRows();
         }
 
-        //private void BindRows()
-        //{
-        //    foreach (var row in this.rows)
-        //    {
-        //        var line = new OrderInvoiceDetail(row);
-        //        this.Detail.Controls.Add(line);
-        //    }
-        //}
+        private void OrderInvoice_DataSourceDemanded(object sender, EventArgs e)
+        {
+            DataSource = GenerateTable();
+        }
 
         private void uxPacientNameHeader_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
@@ -75,22 +69,10 @@ namespace Cure.Reports
                 this.visit.Pacient.SerialNumber);
         }
 
-        private void uxPacientBirthday_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        {
-            var label = (XRLabel)sender;
-            //label.Text = ;
-        }
-
-        private void uxPacientPassport_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        {
-            var label = (XRLabel)sender;
-            //label.Text = string.Format("{0}, {1}", , );
-        }
-
         private void uxPacientDiagnoz_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             var label = (XRLabel)sender;
-            label.Text = this.visit.Pacient.Diagnoz;
+            label.Text = this.visit.TodaysDiagnoz;
         }
 
         private void uxOrderDays_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
@@ -106,35 +88,30 @@ namespace Cure.Reports
             var label = (XRLabel)sender;
             if (sputnik != null)
             {
-                label.Text = string.Format("Сопровождающий - {0}: {1} {2} {3} ({4} {5}), {6} года рождения. Паспортные данные: {7}.",
+                label.Text = string.Format("Сопровождающий - {0}: {1} {2}, {3}, {4}, passport No {5}.",
                     sputnik.RefRodstvo == null ? "" : sputnik.RefRodstvo.Name,
-                    sputnik.Familiya,
-                    sputnik.Name,
-                    sputnik.Otchestvo,
                     sputnik.FamiliyaEn,
                     sputnik.NameEn,
                     sputnik.BirthDate.HasValue ? sputnik.BirthDate.Value.ToString("dd-MM-yyyy") : "-",
+                    sputnik.RefCountry.NameEn,
                     sputnik.SeriaNumber);
             }
 
         }
 
-        private void OrderInvoice_DataSourceDemanded(object sender, EventArgs e)
-        {
-            DataSource = GenerateTable();
-        }
-
         private DataTable GenerateTable()
         {
             var table = new DataTable("Table");
-            table.Columns.Add("Name");
             table.Columns.Add("Description");
+            table.Columns.Add("Amount");
+            table.Columns.Add("CostPerOne");
             table.Columns.Add("Price");
             foreach (var data in this.rows)
             {
                 DataRow row = table.NewRow();
-                row["Name"] = data.Name;
                 row["Description"] = data.Description;
+                row["Amount"] = data.Amount;
+                row["CostPerOne"] = data.CostPerOne;
                 row["Price"] = data.Price;
                 table.Rows.Add(row);
             }
@@ -144,19 +121,25 @@ namespace Cure.Reports
         private void uxName_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             var label = (XRLabel)sender;
-            label.Text = GetCurrentColumnValue("Name").ToString();
+            label.Text = GetCurrentColumnValue("Description").ToString();
         }
 
-        private void uxDescription_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        private void uxAmount_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             var label = (XRLabel)sender;
-            label.Text = GetCurrentColumnValue("Description").ToString();
+            label.Text = GetCurrentColumnValue("Amount").ToString();
         }
 
         private void xrPrice_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             var label = (XRLabel)sender;
             label.Text = GetCurrentColumnValue("Price").ToString();
+        }
+
+        private void uxCostPerOne_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            var label = (XRLabel)sender;
+            label.Text = GetCurrentColumnValue("CostPerOne").ToString();
         }
 
         private void uxLineTotal_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
@@ -169,17 +152,25 @@ namespace Cure.Reports
         {
             var label = (XRLabel)sender;
             var total = this.totalUan;
-            label.Text = string.Format("{0} юаней", Utils.RuDateAndMoneyConverter.NumeralsToTxt(total, TextCase.Accusative, false, true));
+            label.Text = string.Format("{0}", Utils.RuDateAndMoneyConverter.NumeralsToTxt(total, TextCase.Accusative, false, true));
         }
 
         private void uxTotalTextUsd_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            var dal = new DataAccessBL();
             var label = (XRLabel)sender;
             var usdRate = (double)GetRate("USD");
             var cnyRate = (double)GetRate("CNY");
             var total = (this.totalUan * cnyRate) / usdRate;
-            label.Text = string.Format("{0} долларов США", Math.Round(total, 0).ToString());
+            label.Text = string.Format("{0}", Utils.RuDateAndMoneyConverter.NumeralsToTxt(Convert.ToInt32(Math.Round(total, 0)), TextCase.Accusative, false, true));
+        }
+
+        private void uxLineTotalPendo_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            var label = (XRLabel)sender;
+            var usdRate = (double)GetRate("USD");
+            var cnyRate = (double)GetRate("CNY");
+            var total = (this.totalUan * cnyRate) / usdRate;
+            label.Text = string.Format("{0}", Math.Round(total, 0));
         }
 
         //private void uxLineTotal_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
@@ -223,13 +214,13 @@ namespace Cure.Reports
         private void xrPictureBox3_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             var pictureBox = (XRPictureBox)sender;
-            pictureBox.Image = getClinic1Picture();
+            pictureBox.Image = getClinic1Picture(this.visit.Order.DepartmentId ?? 3);
         }
 
         private void xrPictureBox4_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             var pictureBox = (XRPictureBox)sender;
-            pictureBox.Image = getSign1();
+            pictureBox.Image = getSign1(this.visit.Order.DepartmentId ?? 3);
         }
 
         private void xrPictureBox1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
@@ -238,90 +229,118 @@ namespace Cure.Reports
             pictureBox.Image = getTopPicture1(this.visit.Order.DepartmentId ?? 3);
         }
 
-        private Image getClinic1Picture()
+        private Image getClinic1Picture(int departmentId)
         {
-            var rnd = new Random();
-            switch (rnd.Next(1, 8))
+            switch (departmentId)
             {
-                case 1:
-                    {
-                        return InvoiceResources.clinic1;
-                    }
-                case 2:
-                    {
-                        return InvoiceResources.clinic2;
-                    }
                 case 3:
                     {
-                        return InvoiceResources.clinic3;
+                        var rnd = new Random();
+                        switch (rnd.Next(1, 8))
+                        {
+                            case 1:
+                                {
+                                    return InvoiceResources.clinic1;
+                                }
+                            case 2:
+                                {
+                                    return InvoiceResources.clinic2;
+                                }
+                            case 3:
+                                {
+                                    return InvoiceResources.clinic3;
+                                }
+                            case 4:
+                                {
+                                    return InvoiceResources.clinic4;
+                                }
+                            case 5:
+                                {
+                                    return InvoiceResources.clinic5;
+                                }
+                            case 6:
+                                {
+                                    return InvoiceResources.clinic6;
+                                }
+                            case 7:
+                                {
+                                    return InvoiceResources.clinic7;
+                                }
+                            default:
+                                {
+                                    return InvoiceResources.clinic8;
+                                }
+                        }
                     }
                 case 4:
                     {
-                        return InvoiceResources.clinic4;
-                    }
-                case 5:
-                    {
-                        return InvoiceResources.clinic5;
-                    }
-                case 6:
-                    {
-                        return InvoiceResources.clinic6;
-                    }
-                case 7:
-                    {
-                        return InvoiceResources.clinic7;
+                        return InvoiceResources.Pechat_bzgm;
                     }
                 default:
                     {
-                        return InvoiceResources.clinic8;
+                        return InvoiceResources.Pechat_bzgm;
                     }
             }
         }
 
-        private Image getSign1()
+        private Image getSign1(int departmentId)
         {
-            var rnd = new Random();
-            switch (rnd.Next(1, 10))
+            switch (departmentId)
             {
-                case 1:
-                    {
-                        return InvoiceResources.sign1;
-                    }
-                case 2:
-                    {
-                        return InvoiceResources.sign2;
-                    }
                 case 3:
                     {
-                        return InvoiceResources.sign3;
+                        var rnd = new Random();
+                        switch (rnd.Next(1, 10))
+                        {
+                            case 1:
+                                {
+                                    return InvoiceResources.sign1;
+                                }
+                            case 2:
+                                {
+                                    return InvoiceResources.sign2;
+                                }
+                            case 3:
+                                {
+                                    return InvoiceResources.sign3;
+                                }
+                            case 4:
+                                {
+                                    return InvoiceResources.sign4;
+                                }
+                            case 5:
+                                {
+                                    return InvoiceResources.sign5;
+                                }
+                            case 6:
+                                {
+                                    return InvoiceResources.sign6;
+                                }
+                            case 7:
+                                {
+                                    return InvoiceResources.sign7;
+                                }
+                            case 8:
+                                {
+                                    return InvoiceResources.sign8;
+                                }
+                            case 9:
+                                {
+                                    return InvoiceResources.sign9;
+                                }
+                            default:
+                                {
+                                    return InvoiceResources.sign10;
+                                }
+                        }
                     }
                 case 4:
                     {
-                        return InvoiceResources.sign4;
-                    }
-                case 5:
-                    {
-                        return InvoiceResources.sign5;
-                    }
-                case 6:
-                    {
-                        return InvoiceResources.sign6;
-                    }
-                case 7:
-                    {
-                        return InvoiceResources.sign7;
-                    }
-                case 8:
-                    {
-                        return InvoiceResources.sign8;
-                    }
-                case 9:
-                    {
-                        return InvoiceResources.sign9;
+                        return InvoiceResources.Podpis_bzgm;
                     }
                 default:
                     {
-                        return InvoiceResources.sign10;
+                        return InvoiceResources.Podpis_bzgm;
                     }
             }
         }
@@ -505,6 +524,5 @@ namespace Cure.Reports
                     }
             }
         }
-
     }
 }
