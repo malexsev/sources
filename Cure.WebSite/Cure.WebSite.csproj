@@ -830,6 +830,7 @@
     <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\News\_News.cshtml" />
     <Content Include="Views\News\Details.cshtml" />
+    <Content Include="Views\Procedure\Ponceti.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

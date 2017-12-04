@@ -19,6 +19,15 @@
     <link rel="icon" type="img/png" href="~/content/img/favicon-32x32.png" sizes="32x32" />
     <link rel="apple-touch-icon-precomposed" href="~/content/img/apple-touch-icon-152x152.png" sizes="152x152" />
     <link rel="stylesheet" type="text/css" href="~/content/css/styles.css" />
+    <script type="text/javascript">
+        document.ondragstart = noselect; 
+        // запрет на перетаскивание 
+        document.onselectstart = noselect; 
+        // запрет на выделение элементов страницы 
+        document.oncontextmenu = noselect; 
+        // запрет на выведение контекстного меню 
+        function noselect() {return false;} 
+    </script>
     <!--[if lte IE 9]>
       <script src="~/Scripts/vendor/modernizr-2.8.3.min.js"></script>
     <![endif]-->

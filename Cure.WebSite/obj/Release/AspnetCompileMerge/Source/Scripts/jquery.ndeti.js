@@ -1488,6 +1488,7 @@ app.bindSaveOrder = function () {
                                 multidate: false
                             });
                         }, 2000);
+                        HB.animate({ scrollTop: $("#order-create-tab").offset().top - $(".header").height() - 10}, 300);
                     } else if (result == "0") {
                         window.location.href = redirectURL;
                     } else {
@@ -1527,6 +1528,7 @@ app.bindSaveOrder = function () {
                         $(".forms-radiotwix > .forms-radio").on("click", function () {
                             $(this).addClass(activeClass).siblings(".forms-radio").removeClass(activeClass);
                         });
+                        HB.animate({ scrollTop: $("#order-create-tab").offset().top - $(".header").height() - 10}, 300);
                     } else if (result == "0") {
                         window.location.href = redirectURL;
                     } else {
@@ -1558,6 +1560,7 @@ app.bindSaveOrder = function () {
                         $("#error-step3").show().text("Сохранено.");
                         $("#order-step-4").load('/Cabinet/OrderStep4Partial');
                         app.bindSetOrderStep(4);
+                        HB.animate({ scrollTop: $("#order-create-tab").offset().top - $(".header").height() - 10}, 300);
                     } else if (result == "0") {
                         window.location.href = redirectURL;
                     } else {
@@ -1588,6 +1591,7 @@ app.bindSaveOrder = function () {
                         $("#error-step4").removeClass("form-errors");
                         $("#error-step4").show().text("Заявка отправлена.");
                         app.bindSetOrderStep(5);
+                        HB.animate({ scrollTop: $("#order-create-tab").offset().top - $(".header").height() - 10}, 300);
                     } else if (result == "0") {
                         window.location.href = redirectURL;
                     } else {
@@ -2396,6 +2400,7 @@ app.bindGoBackOneStep = function () {
         if (stepId > 0) {
             $("#error-step" + stepId).hide();
             app.bindSetOrderStep(stepId);
+            HB.animate({ scrollTop: $("#order-create-tab").offset().top - $(".header").height() - 10}, 300);
         }
     });
 }

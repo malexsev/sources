@@ -5877,7 +5877,7 @@ body.with-account-header .hosp-page-menu {
 .sec-hosp-intro .intro-info {
   height: 100%;
   overflow-y: auto;
-  display: none;
+  /*display: none;*/
 }
 .sec-hosp-intro .intro-info-head {
   position: relative;
@@ -5900,9 +5900,10 @@ body.with-account-header .hosp-page-menu {
   top: 0;
   left: 50%;
   right: 0;
-  bottom: 84px;
+  /*bottom: 84px;*/
+  bottom: 0;
   overflow: hidden;
-  display: none;
+  /*display: none;*/
 }
 .sec-hosp-intro .intro-img img {
   display: block;
@@ -6946,7 +6947,8 @@ body.with-account-header .hosp-page-menu {
   margin: 30px 0 20px;
 }
 .popup-registr .popup-wrap {
-  top: 25%;
+  /*top: 25%;*/
+  top: 12.5%;
   bottom: auto;
   width: 720px;
 }
@@ -7026,7 +7028,7 @@ body.with-account-header .hosp-page-menu {
 .popup-registr .registr-submit {
   display: block;
   width: 44%;
-  margin: 20px auto;
+  margin: 20px auto 0;
 }
 .popup-registr .registr-subtitle {
   margin: 20px 0;
@@ -7038,11 +7040,18 @@ body.with-account-header .hosp-page-menu {
   color: #777;
   text-align: center;
   font-size: 14px;
+  margin-top: 20px;
+}
+.popup-registr .registr-note input[type="checkbox"] {
+  width: 19px;
+  height: 19px;
+  margin-top: 2px;
+  margin-right: 3px;
+  display: inline-block;
+  vertical-align: top;
 }
 .popup-registr .registr-note a {
   text-decoration: underline;
-}
-.popup-registr .registr-note a:hover {
   color: #e07624;
 }
 .popup-registr .registr-text {
@@ -8601,6 +8610,13 @@ body.with-account-header .hosp-page-menu {
   }
   .assist-drop .container {
     width: 730px;
+  }
+  .sec-hosp-intro .intro-img {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
   }
 }
 @media (max-width: 767px) {

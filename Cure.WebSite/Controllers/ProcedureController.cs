@@ -13,6 +13,11 @@ namespace Cure.WebSite.Controllers
             return View();
         }
 
+        public ActionResult Ponceti()
+        {
+            return View();
+        }
+
         public ActionResult Acupuncture()
         {
             return View();
