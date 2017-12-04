@@ -86,7 +86,7 @@
             this.uxTotalTextUsd = new DevExpress.XtraReports.UI.XRLabel();
             this.xrPictureBox4 = new DevExpress.XtraReports.UI.XRPictureBox();
             this.xrLabel85 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel84 = new DevExpress.XtraReports.UI.XRLabel();
+            this.uxGlavniy = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel82 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel81 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel80 = new DevExpress.XtraReports.UI.XRLabel();
@@ -797,7 +797,7 @@
             this.uxTotalTextUsd,
             this.xrPictureBox4,
             this.xrLabel85,
-            this.xrLabel84,
+            this.uxGlavniy,
             this.xrLabel82,
             this.xrLabel81,
             this.xrLabel80,
@@ -926,20 +926,21 @@
             this.xrLabel85.Text = "Главный врач больницы";
             this.xrLabel85.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
-            // xrLabel84
+            // uxGlavniy
             // 
-            this.xrLabel84.Dpi = 96F;
-            this.xrLabel84.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.xrLabel84.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel84.LocationFloat = new DevExpress.Utils.PointFloat(551.2001F, 172.1403F);
-            this.xrLabel84.Name = "xrLabel84";
-            this.xrLabel84.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
-            this.xrLabel84.SizeF = new System.Drawing.SizeF(109.8F, 17.07999F);
-            this.xrLabel84.StylePriority.UseFont = false;
-            this.xrLabel84.StylePriority.UseForeColor = false;
-            this.xrLabel84.StylePriority.UseTextAlignment = false;
-            this.xrLabel84.Text = "Hou Zheng Min";
-            this.xrLabel84.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            this.uxGlavniy.Dpi = 96F;
+            this.uxGlavniy.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.uxGlavniy.ForeColor = System.Drawing.Color.Black;
+            this.uxGlavniy.LocationFloat = new DevExpress.Utils.PointFloat(551.2001F, 172.1403F);
+            this.uxGlavniy.Name = "uxGlavniy";
+            this.uxGlavniy.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
+            this.uxGlavniy.SizeF = new System.Drawing.SizeF(109.8F, 17.07999F);
+            this.uxGlavniy.StylePriority.UseFont = false;
+            this.uxGlavniy.StylePriority.UseForeColor = false;
+            this.uxGlavniy.StylePriority.UseTextAlignment = false;
+            this.uxGlavniy.Text = "Hou Zheng Min";
+            this.uxGlavniy.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            this.uxGlavniy.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.uxGlavniy_BeforePrint);
             // 
             // xrLabel82
             // 
@@ -1105,7 +1106,7 @@
         private DevExpress.XtraReports.UI.ReportFooterBand ReportFooter;
         private DevExpress.XtraReports.UI.XRPictureBox xrPictureBox4;
         private DevExpress.XtraReports.UI.XRLabel xrLabel85;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel84;
+        private DevExpress.XtraReports.UI.XRLabel uxGlavniy;
         private DevExpress.XtraReports.UI.XRLabel xrLabel76;
         private DevExpress.XtraReports.UI.XRLabel uxLineTotal;
         private DevExpress.XtraReports.UI.XRLabel uxTotalTextUan;

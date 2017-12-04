@@ -493,7 +493,7 @@
                         </td>
                         <td>
                             <dx:ASPxLabel ID="uxLine6Name" runat="server" Text="ЛФК" />
-                            <dx:ASPxLabel ID="uxLine6Description" runat="server" Text="ЛФК (методика Бобата, Войта, растяжки, и др методы КТМ)" Visible="false" />
+                            <dx:ASPxLabel ID="uxLine6Description" runat="server" Text="ЛФК (Бобат-терапия, Войта-терапия, растяжки, и др методы КТМ)" Visible="false" />
                         </td>
                         <td style="text-align: center;">
                             <dx:ASPxTextBox ID="uxLine6Rate" ClientInstanceName="uxLine6Rate" runat="server" Number="0" NumberType="Integer"
@@ -821,7 +821,7 @@
                         </td>
                         <td>
                             <dx:ASPxLabel ID="uxLine14Name" runat="server" Text="Гипсование" />
-                            <dx:ASPxLabel ID="uxLine14Description" runat="server" Text="Гипсование методом Панцети" Visible="false" />
+                            <dx:ASPxLabel ID="uxLine14Description" runat="server" Text="Гипсование методом Понсети" Visible="false" />
                         </td>
                         <td style="text-align: center;">
                             <dx:ASPxTextBox ID="uxLine14Rate" ClientInstanceName="uxLine14Rate" runat="server" Number="0" NumberType="Integer"
@@ -880,7 +880,7 @@
                         </td>
                         <td style="text-align: center;">
                             <dx:ASPxTextBox ID="uxLine15Cost" ClientInstanceName="uxLine15Cost" runat="server" Number="0" NumberType="Integer"
-                                Increment="1" HorizontalAlign="Right" Width="80px">
+                                Increment="1" HorizontalAlign="Right" Width="80px" ReadOnly="true">
                                 <Paddings PaddingRight="5px" />
                                 <ClientSideEvents TextChanged="calculate"></ClientSideEvents>
                             </dx:ASPxTextBox>

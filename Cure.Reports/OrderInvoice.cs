@@ -127,7 +127,11 @@ namespace Cure.Reports
         private void uxAmount_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             var label = (XRLabel)sender;
-            label.Text = GetCurrentColumnValue("Amount").ToString();
+            label.Text = GetCurrentColumnValue("Description").ToString() ==
+                "Организационнные услуги (переводчик, коммуникации, и тд)" ? string.Empty : 
+                (GetCurrentColumnValue("Amount").ToString() == "0" 
+                    ? string.Empty 
+                    : GetCurrentColumnValue("Amount").ToString());
         }
 
         private void xrPrice_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
@@ -139,7 +143,8 @@ namespace Cure.Reports
         private void uxCostPerOne_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             var label = (XRLabel)sender;
-            label.Text = GetCurrentColumnValue("CostPerOne").ToString();
+            label.Text = GetCurrentColumnValue("Description").ToString() ==
+                         "Организационнные услуги (переводчик, коммуникации, и тд)" ? string.Empty : GetCurrentColumnValue("CostPerOne").ToString();
         }
 
         private void uxLineTotal_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
@@ -523,6 +528,13 @@ namespace Cure.Reports
                         break;
                     }
             }
+        }
+
+        private void uxGlavniy_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+
+            var label = (XRLabel)sender;
+            label.Text = (this.visit.Order.DepartmentId ?? 3) == 3 ? "Hou Zheng Min" : "Zhao Ji Wei";
         }
     }
 }
