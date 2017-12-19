@@ -22,8 +22,8 @@
         private readonly string body;
         private const string subjectTemplate = "День рождения лечащихся пациентов";
         private const string bodyTemplate = "Среди клиентов, находящихся на лечении завтра празднуют дни рождения:<br /><br />" +
-            @"<table border='1'><tr><th>Клиника</th><th>Роль</th><th>Дата рождения</th><th>Имя</th><th>Исполняется (лет)</th></tr>{0}</table>";
-        private const string lineTemplate = "<tr><td>{0}</td><td>{1}</td><td>{2}</td><td>{3}</td><td>{4}</td></tr>"; 
+            @"<table border='1'><tr><th>Клиника</th><th>Роль</th><th>Дата рождения</th><th>Имя</th><th>Логин</th><th>Исполняется (лет)</th></tr>{0}</table>";
+        private const string lineTemplate = "<tr><td>{0}</td><td>{1}</td><td>{2}</td><td>{3}</td><td>{4}</td><td>{5}</td></tr>"; 
 
 
         public SomeBirthdaysEmailNotification(HttpServerUtilityBase server)
@@ -55,6 +55,7 @@
                         "Пациент",
                         pacient.BirthDate.Value.ToString("dd-MM-yyyy"),
                         pacient.FullName,
+                        pacient.Visits.FirstOrDefault().Order.CreateUser,
                         SiteUtils.GetAge(pacient.BirthDate.Value));
                 }
                 string sputniksLines = "";
@@ -64,6 +65,7 @@
                         "Сопровождающий",
                         sputnik.BirthDate.Value.ToString("dd-MM-yyyy"),
                         sputnik.Name + " " + sputnik.Familiya,
+                        sputnik.Order.CreateUser,
                         SiteUtils.GetAge(sputnik.BirthDate.Value));
                 }
                 if (string.IsNullOrEmpty(pacientsLines) && string.IsNullOrEmpty(sputniksLines))

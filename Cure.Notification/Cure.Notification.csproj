@@ -50,6 +50,7 @@
     <Compile Include="Before3DaysToUserEmailNotification.cs" />
     <Compile Include="Before45DaysToUserEmailNotification.cs" />
     <Compile Include="Before30DaysToUserEmailNotification.cs" />
+    <Compile Include="RemoveUnapprovedUsers10DaysLeft.cs" />
     <Compile Include="FilesChagedToUserEmailNotification.cs" />
     <Compile Include="Before60DaysToUserEmailNotification.cs" />
     <Compile Include="ApproveToUserEmailNotification.cs" />

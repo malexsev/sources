@@ -41,7 +41,8 @@
                     new MensionBeforeFinish5EmailNotification(new HttpServerUtilityWrapper(this.Server)),
                     new MensionAfterFinish15EmailNotification(new HttpServerUtilityWrapper(this.Server)),
                     new MensionAfterFinish20EmailNotification(new HttpServerUtilityWrapper(this.Server)),
-                    new MensionAfterFinish30EmailNotification(new HttpServerUtilityWrapper(this.Server))
+                    new MensionAfterFinish30EmailNotification(new HttpServerUtilityWrapper(this.Server)),
+                    new RemoveUnapprovedUsers10DaysLeft(new HttpServerUtilityWrapper(this.Server))
                 };
 
                 notificationsList.ForEach(o =>

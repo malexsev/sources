@@ -785,22 +785,6 @@ namespace Cure.DataAccess
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<NotificationLog> NotificationLogs
-        {
-            get
-            {
-                if ((_NotificationLogs == null))
-                {
-                    _NotificationLogs = base.CreateObjectSet<NotificationLog>("NotificationLogs");
-                }
-                return _NotificationLogs;
-            }
-        }
-        private ObjectSet<NotificationLog> _NotificationLogs;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<UploadLog> UploadLogs
         {
             get
@@ -861,6 +845,22 @@ namespace Cure.DataAccess
             }
         }
         private ObjectSet<BiblioPage> _BiblioPages;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<NotificationLog> NotificationLogs
+        {
+            get
+            {
+                if ((_NotificationLogs == null))
+                {
+                    _NotificationLogs = base.CreateObjectSet<NotificationLog>("NotificationLogs");
+                }
+                return _NotificationLogs;
+            }
+        }
+        private ObjectSet<NotificationLog> _NotificationLogs;
 
         #endregion
 
@@ -1203,14 +1203,6 @@ namespace Cure.DataAccess
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the NotificationLogs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToNotificationLogs(NotificationLog notificationLog)
-        {
-            base.AddObject("NotificationLogs", notificationLog);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the UploadLogs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToUploadLogs(UploadLog uploadLog)
@@ -1240,6 +1232,14 @@ namespace Cure.DataAccess
         public void AddToBiblioPages(BiblioPage biblioPage)
         {
             base.AddObject("BiblioPages", biblioPage);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the NotificationLogs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToNotificationLogs(NotificationLog notificationLog)
+        {
+            base.AddObject("NotificationLogs", notificationLog);
         }
 
         #endregion

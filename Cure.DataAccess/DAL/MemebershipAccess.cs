@@ -36,6 +36,12 @@ namespace Cure.DataAccess.DAL
             return context.ViewUserMemberships.OrderByDescending(x => x.CreateDate);
         }
 
+        public IEnumerable<ViewUserMembership> GetUnapprovedMemberships()
+        {
+            var date = DateTime.Today.AddDays(-10);
+            return context.ViewUserMemberships.Where(x => !x.IsApproved && x.CreateDate <= date);
+        }
+
         public void UpdateUserMembership(ViewUserMembership userMembership)
         {
             try

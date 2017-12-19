@@ -81,7 +81,6 @@
         <EntityTypeShape EntityType="DataModel.ViewSubscriber" Width="1.625" PointX="29" PointY="8.5" />
         <EntityTypeShape EntityType="DataModel.DepartmentTransferInfo" Width="1.5" PointX="14.25" PointY="11.875" />
         <AssociationConnector Association="DataModel.FK_DepartmentTransferInfo_Department" />
-        <EntityTypeShape EntityType="DataModel.NotificationLog" Width="1.625" PointX="17.625" PointY="31.75" />
         <EntityTypeShape EntityType="DataModel.UploadLog" Width="1.5" PointX="16.625" PointY="8.875" />
         <EntityTypeShape EntityType="DataModel.Order" Width="1.5" PointX="11.125" PointY="4.875" />
         <AssociationConnector Association="DataModel.FK_Order_Department" />
@@ -92,6 +91,7 @@
         <EntityTypeShape EntityType="DataModel.BiblioSubject" Width="1.5" PointX="20.375" PointY="11.75" />
         <EntityTypeShape EntityType="DataModel.BiblioPage" Width="1.5" PointX="22.625" PointY="10.625" />
         <AssociationConnector Association="DataModel.FK_BiblioPage_BiblioSubject" />
+        <EntityTypeShape EntityType="DataModel.NotificationLog" Width="1.5" PointX="17.625" PointY="31.25" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -20,7 +20,8 @@
                 Port = 465,
                 DeliveryMethod = SmtpDeliveryMethod.Network,
                 EnableSsl = false,
-                Host = "smtp-18.1gb.ru" //"smtp.yandex.ru"
+                Host = "smtp-18.1gb.ru", //"smtp.yandex.ru"
+                Timeout = 200000
             };
 
             var message = new MailMessage("noreply@dcp-china.ru", toEmails, subject, body)

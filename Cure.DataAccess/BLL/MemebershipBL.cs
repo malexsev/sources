@@ -5,6 +5,11 @@
 
     public partial class DataAccessBL
     {
+        public IEnumerable<ViewUserMembership> GetUnapprovedMemberships()
+        {
+            return dataRepository.GetUnapprovedMemberships();
+        }
+
         public int CheckDeleteMembership(string username)
         {
             return dataRepository.CheckDeleteMembership(username);
