@@ -512,13 +512,13 @@ namespace Cure.WebSite.Controllers
                             var visitVm = membersViewModel.PacientArray[i];
                             visit.Pacient.BirthDate = SiteUtils.ParseDate(visitVm.BirthDate, DateTime.Today, CalendarCulture);
                             visit.Pacient.CountryId = visitVm.CountryId;
-                            visit.Pacient.Familiya = visitVm.Familiya;
-                            visit.Pacient.FamiliyaEn = visitVm.FamiliyaEn;
-                            visit.Pacient.NameEng = visitVm.NameEn;
-                            visit.Pacient.Name = visitVm.Name;
-                            visit.Pacient.Otchestvo = visitVm.Otchestvo;
-                            visit.Pacient.SerialNumber = visitVm.SerialNumber;
-                            visit.Pacient.CityName = visitVm.CityName;
+                            visit.Pacient.Familiya = ToUpper(visitVm.Familiya);
+                            visit.Pacient.FamiliyaEn = ToUpper(visitVm.FamiliyaEn);
+                            visit.Pacient.NameEng = ToUpper(visitVm.NameEn);
+                            visit.Pacient.Name = ToUpper(visitVm.Name);
+                            visit.Pacient.Otchestvo = ToUpper(visitVm.Otchestvo);
+                            visit.Pacient.SerialNumber = ToUpper(visitVm.SerialNumber);
+                            visit.Pacient.CityName = ToUpper(visitVm.CityName);
                         }
                         for (int i = 0; i < clientContainer.NewOrder.Sputniks.Count; i++)
                         {
@@ -529,12 +529,12 @@ namespace Cure.WebSite.Controllers
                             sputnik.Contacts = sputnikVm.Contacts;
                             sputnik.CountryId = sputnikVm.CountryId;
                             sputnik.RodstvoId = sputnikVm.RodstvoId;
-                            sputnik.Familiya = sputnikVm.Familiya;
-                            sputnik.FamiliyaEn = sputnikVm.FamiliyaEn;
-                            sputnik.NameEn = sputnikVm.NameEn;
-                            sputnik.Name = sputnikVm.Name;
-                            sputnik.Otchestvo = sputnikVm.Otchestvo;
-                            sputnik.SeriaNumber = sputnikVm.SerialNumber;
+                            sputnik.Familiya = ToUpper(sputnikVm.Familiya);
+                            sputnik.FamiliyaEn = ToUpper(sputnikVm.FamiliyaEn);
+                            sputnik.NameEn = ToUpper(sputnikVm.NameEn);
+                            sputnik.Name = ToUpper(sputnikVm.Name);
+                            sputnik.Otchestvo = ToUpper(sputnikVm.Otchestvo);
+                            sputnik.SeriaNumber = ToUpper(sputnikVm.SerialNumber);
                         }
 
                         this.clientContainer.NewOrder.Name = "3";
@@ -579,17 +579,17 @@ namespace Cure.WebSite.Controllers
                         }
                         if (ModelState.IsValidField(String.Format("PacientArray[{0}].Familiya", i)))
                         {
-                            visit.Pacient.Familiya = visitVm.Familiya;
+                            visit.Pacient.Familiya = ToUpper(visitVm.Familiya);
                         }
-                        visit.Pacient.FamiliyaEn = visitVm.FamiliyaEn;
-                        visit.Pacient.NameEng = visitVm.NameEn;
+                        visit.Pacient.FamiliyaEn = ToUpper(visitVm.FamiliyaEn);
+                        visit.Pacient.NameEng = ToUpper(visitVm.NameEn);
                         if (ModelState.IsValidField(String.Format("PacientArray[{0}].Name", i)))
                         {
-                            visit.Pacient.Name = visitVm.Name;
+                            visit.Pacient.Name = ToUpper(visitVm.Name);
                         }
-                        visit.Pacient.Otchestvo = visitVm.Otchestvo;
-                        visit.Pacient.SerialNumber = visitVm.SerialNumber;
-                        visit.Pacient.CityName = visitVm.CityName;
+                        visit.Pacient.Otchestvo = ToUpper(visitVm.Otchestvo);
+                        visit.Pacient.SerialNumber = ToUpper(visitVm.SerialNumber);
+                        visit.Pacient.CityName = ToUpper(visitVm.CityName);
                     }
                     for (int i = 0; i < clientContainer.NewOrder.Sputniks.Count; i++)
                     {
@@ -614,16 +614,16 @@ namespace Cure.WebSite.Controllers
                         }
                         if (ModelState.IsValidField(String.Format("SputnikArray[{0}].Familiya", i)))
                         {
-                            sputnik.Familiya = sputnikVm.Familiya;
+                            sputnik.Familiya = ToUpper(sputnikVm.Familiya);
                         }
-                        sputnik.FamiliyaEn = sputnikVm.FamiliyaEn;
-                        sputnik.NameEn = sputnikVm.NameEn;
+                        sputnik.FamiliyaEn = ToUpper(sputnikVm.FamiliyaEn);
+                        sputnik.NameEn = ToUpper(sputnikVm.NameEn);
                         if (ModelState.IsValidField(String.Format("SputnikArray[{0}].Name", i)))
                         {
-                            sputnik.Name = sputnikVm.Name;
+                            sputnik.Name = ToUpper(sputnikVm.Name);
                         }
-                        sputnik.Otchestvo = sputnikVm.Otchestvo;
-                        sputnik.SeriaNumber = sputnikVm.SerialNumber;
+                        sputnik.Otchestvo = ToUpper(sputnikVm.Otchestvo);
+                        sputnik.SeriaNumber = ToUpper(sputnikVm.SerialNumber);
                     }
 
                     this.clientContainer.NewOrder.LastUser = SiteUtils.GetCurrentUserName();
@@ -1139,7 +1139,7 @@ namespace Cure.WebSite.Controllers
                     var view = dal.ViewChild(User.Identity.Name);
                     var child = dal.GetChild(view.Id);
 
-                    child.Name = childname;
+                    child.Name = ToUpper(childname);
                     child.Birthday = birthDate;
                     child.CountryId = countryId;
                     child.Region = region;
@@ -1252,8 +1252,8 @@ namespace Cure.WebSite.Controllers
 
                     if (child.ContactName != contactname)
                     {
-                        Session["UserContactName"] = contactname;
-                        child.ContactName = contactname;
+                        Session["UserContactName"] = ToUpper(contactname);
+                        child.ContactName = ToUpper(contactname);
                     }
                     child.ContactRodstvoId = rodstvoId;
                     child.ContactEmail = email;
@@ -1753,6 +1753,13 @@ namespace Cure.WebSite.Controllers
             {
                 return 0;
             }
+        }
+
+        private string ToUpper(string value)
+        {
+            if (value == null)
+                return value;
+            return value.ToUpper();
         }
     }
 }

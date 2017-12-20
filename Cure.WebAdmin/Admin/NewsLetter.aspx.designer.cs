@@ -67,6 +67,24 @@ namespace Cure.WebAdmin.Admin {
         protected global::DevExpress.Web.ASPxCallback.ASPxCallback uxCallback;
         
         /// <summary>
+        /// uxLogLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxEditors.ASPxLabel uxLogLabel;
+        
+        /// <summary>
+        /// uxResultLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxEditors.ASPxLabel uxResultLabel;
+        
+        /// <summary>
         /// uxSendButton control.
         /// </summary>
         /// <remarks>

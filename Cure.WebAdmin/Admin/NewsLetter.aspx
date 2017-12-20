@@ -6,39 +6,54 @@
 
 <asp:Content ID="Content" ContentPlaceHolderID="MainContent" runat="server">
     <script type="text/javascript">
+        var result = $('#result');
         var cntSuccess = 0;
         var cntError = 0;
         var sentList = [];
 
         function SendEmails() {
-            $("#result").html("");
-            $("#errors").html("");
+            uxResultLabel.SetValue("");
+            uxLogLabel.SetValue("");
             cntSuccess = cntError = 0;
             window.grid.GetSelectedFieldValues('Email', OnGetRowValues);
         }
 
+        var DoNext = function () {
+            if (!sentList.length) {
+                uxResultLabel.SetValue("Отправлено, успешно: <b>" + cntSuccess + "</b>; ошибок: <b>" + cntError + "</b>");
+                return;
+            }
+
+            var email = sentList[0];
+            uxLogLabel.SetValue(uxLogLabel.GetValue() == null ? "" : uxLogLabel.GetValue() + email + " - ");
+            sentList.splice($.inArray(email, sentList), 1);
+            window.cbSender.PerformCallback(email);
+            var result = uxResultLabel.GetMainElement();
+            result.scrollIntoView();
+            result.parentNode.scrollIntoView();
+        };
+
         function OnGetRowValues(arr) {
             arr.forEach(function (email, i) {
                 if (jQuery.inArray(email, sentList) == -1) {
-                    window.cbSender.PerformCallback(email);
                     sentList.push(email);
                 }
             });
+            DoNext();
         }
 
         function OnSendComplete(s, e) {
-            var result = $("#result");
-            var errors = $("#errors");
             if (e.result == "OK") {
                 cntSuccess += 1;
+                uxLogLabel.SetValue(uxLogLabel.GetValue() == null ? "" : uxLogLabel.GetValue() + "успешно<br />");
             } else if (e.result == "NONE") {
                 return;
             }
             else {
                 cntError += 1;
-                errors.append(e.result);
+                uxLogLabel.SetValue(uxLogLabel.GetValue() == null ? "" : uxLogLabel.GetValue() + "ошибка: " + e.result + "<br />");
             }
-            result.html("Отправлено, успешно: <b>" + cntSuccess + "</b>; ошибок: <b>" + cntError + "</b>");
+            DoNext();
         };
 
 
@@ -160,11 +175,12 @@
     <dx:ASPxCallback ID="uxCallback" ClientInstanceName="cbSender" runat="server" OnCallback="uxCallback_OnCallback">
         <ClientSideEvents CallbackComplete="OnSendComplete"></ClientSideEvents>
     </dx:ASPxCallback>
-    <div id="result"></div>
-
+    
+    <dx:ASPxLabel ID="uxLogLabel" ClientInstanceName="uxLogLabel" runat="server" Text=""></dx:ASPxLabel>
+    <dx:ASPxLabel ID="uxResultLabel" ClientInstanceName="uxResultLabel" runat="server" Text=""></dx:ASPxLabel>
+    <br />
     <dx:ASPxButton runat="server" ID="uxSendButton" Text="Отправить письма" AutoPostBack="false" UseSubmitBehavior="false" Width="80px" Style="margin: 12px 1em auto auto;">
         <ClientSideEvents Click="function() { SendEmails(); }" />
     </dx:ASPxButton>
-    <div id="errors"></div>
 
 </asp:Content>

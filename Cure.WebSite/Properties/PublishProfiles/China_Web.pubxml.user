@@ -11,25 +11,25 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>12/05/2017 00:50:49</publishTime>
+      <publishTime>12/20/2017 09:04:39</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>12/05/2017 00:50:49</publishTime>
+      <publishTime>12/20/2017 09:04:39</publishTime>
     </File>
     <File Include="bin/Cure.DataAccess.dll">
-      <publishTime>09/15/2017 00:47:36</publishTime>
+      <publishTime>12/19/2017 00:50:12</publishTime>
     </File>
     <File Include="bin/Cure.Notification.dll">
-      <publishTime>11/17/2017 01:19:39</publishTime>
+      <publishTime>12/19/2017 23:31:03</publishTime>
     </File>
     <File Include="bin/Cure.Reports.dll">
-      <publishTime>11/17/2017 01:18:01</publishTime>
+      <publishTime>12/19/2017 00:42:08</publishTime>
     </File>
     <File Include="bin/Cure.Utils.dll">
-      <publishTime>11/17/2017 01:19:38</publishTime>
+      <publishTime>12/19/2017 00:50:14</publishTime>
     </File>
     <File Include="bin/Cure.WebSite.dll">
-      <publishTime>12/05/2017 00:50:15</publishTime>
+      <publishTime>12/20/2017 09:04:32</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>09/19/2015 00:46:38</publishTime>
@@ -1550,7 +1550,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>07/24/2016 03:40:04</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>12/05/2017 00:50:47</publishTime>
+      <publishTime>12/20/2017 09:04:36</publishTime>
     </File>
     <File Include="robots.txt">
       <publishTime>01/04/2017 16:21:24</publishTime>
